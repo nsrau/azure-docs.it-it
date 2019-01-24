@@ -9,31 +9,24 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630214"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353159"
 ---
-# <a name="indexes-in-azure-search"></a>Indici in Ricerca di Azure
-> [!div class="op_single_selector"]
-> * [Overview](search-what-is-an-index.md)
-> * [Portale](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Informazioni generali sugli indici e sull'indicizzazione in Ricerca di Azure
 
-In Ricerca di Azure un *indice* è un archivio persistente di *documenti* e altri costrutti usati da un servizio di Ricerca di Azure. Un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
+In Ricerca di Azure un *indice* è un archivio persistente di *documenti* e altri costrutti usati per la ricerca filtrata e full-text in un servizio di Ricerca di Azure. Un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
 
-Quando si aggiungono o caricano documenti e si inviano le query di ricerca in Ricerca di Azure, si inviano le richieste in un indice specifico nel servizio di ricerca.
+Quando si aggiungono o caricano documenti o si inviano le query di ricerca in Ricerca di Azure, si inviano le richieste a un indice specifico nel servizio di ricerca. Il processo di aggiunta di documenti a un indice è definito *indicizzazione*.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Tipi di campo e attributi in un indice di Ricerca di Azure
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="field-types"></a>Tipi di campo
-| type | Descrizione |
+| type | DESCRIZIONE |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -47,7 +40,7 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Attributi dei campi
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |

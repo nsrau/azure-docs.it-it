@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189849"
+ms.locfileid: "54199386"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentare app Web in fase di esecuzione con Application Insights Status Monitor
 
@@ -96,14 +96,14 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 - Confermare la presenza del file applicationinsights.config nella directory di destinazione dell'app e l'inclusione della ikey.
 
 - Se si ritiene che i dati non siano presenti, è possibile eseguire una query semplice [Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli del cloud che stanno inviando dati di telemetria.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - Per confermare che Application Insights sia stato associato correttamente è possibile eseguire [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in una finestra di comando per confermare applicationinsights.dll sia stato caricato da IIS.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Nessuna connessione? Nessun dato di telemetria?
@@ -113,7 +113,7 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>Non è possibile effettuare l'accesso
 
 * Se Status Monitor non è in grado di effettuare l'accesso, eseguire l'installazione dalla riga di comando. Status Monitor tenta di effettuare l'accesso per raccogliere la ikey, tuttavia è possibile fornirla manualmente usando il comando: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
@@ -123,7 +123,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 Questo errore può verificarsi dopo l'abilitazione di Application Insights. Questo avviene perché il programma di installazione sostituisce la dll nella directory bin.
 Per correggere, aggiornare il file web.config:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

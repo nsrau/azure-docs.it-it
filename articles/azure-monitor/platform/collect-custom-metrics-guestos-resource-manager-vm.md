@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: a4581ec70c5d13f215b115c51493a1994ffa8fd4
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.subservice: metrics
+ms.openlocfilehash: 49c37c5dd2910cda234c479dc624f6c6ae92f6c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412895"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467920"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 
@@ -281,8 +281,9 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
 
 6. Nell'elenco a discesa degli spazi dei nomi selezionare **azure.vm.windows.guest**.
 
-7. Nell'elenco a discesa delle metriche selezionare **Memory\%Committed Bytes in Use** (Memoria\Byte in uso di cui è stato eseguito il commit).
+7. Nell'elenco a discesa delle metriche selezionare **Memoria\%di byte vincolati in uso**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
+

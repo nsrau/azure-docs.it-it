@@ -4,7 +4,7 @@ description: Fornisce informazioni dettagliate su come apportare modifiche alla 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190636"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463372"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -285,13 +285,13 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione desiderata. Ad esempio, se si è designato un attributo di AD locale non in uso, ad esempio extensionAttribute1, come attributo di origine di UserType, è possibile implementare un flusso di attributi diretto:
 
-    | Tipo di flusso | Attributo di destinazione | Sorgente | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | UserType | extensionAttribute1 | Non selezionato | Aggiornamento |
 
     In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si vogliono sincronizzare tutti gli utenti come Guest se il relativo attributo userPrincipalName di AD locale termina con la parte di dominio <em>@partners.fabrikam123.org</em>. È possibile implementare un'espressione simile alla seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Sorgente | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
 
@@ -328,7 +328,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Andare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Sorgente | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | UserType | UserType | Non selezionato | Aggiornamento |
 
@@ -401,5 +401,5 @@ Riabilitare l'utilità di pianificazione della sincronizzazione predefinita:
 
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

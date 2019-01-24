@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302715"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470274"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
+
 Informazioni su come gestire gli account di archiviazione in Azure Stack per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
 
-## <a name="find"></a>Trovare un account di archiviazione
+## <a name="find-a-storage-account"></a>Trovare un account di archiviazione
 L'elenco degli account di archiviazione nell'area può essere visualizzato in Azure Stack da:
 
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
 
-2. Selezionare **tutti i servizi** > **gestione delle aree** sotto **amministrazione**.
+2. Selezionare **tutti i servizi** > **account di archiviazione**.
 
-3. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
-   
-   ![Provider delle risorse di archiviazione](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Selezionare **gli account di archiviazione** nelle **archiviazione**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   Il pannello viene visualizzato l'elenco degli account di archiviazione in tale area.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 Per impostazione predefinita, vengono visualizzati i primi 10 account. È possibile scegliere di recuperare informazioni facendo il **carica altro** collegamento nella parte inferiore dell'elenco.

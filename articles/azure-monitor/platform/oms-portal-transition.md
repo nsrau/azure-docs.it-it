@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 3dc574b3aab3600895376c0271b5c6224a70d3b6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119215"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214002"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -92,7 +92,7 @@ I dati raccolti dalla soluzione Gestione avvisi (record con tipo Avviso) continu
 L'app per dispositivi mobili OMS subirà la terminazione del servizio insieme al portale di OMS. Anziché l'app per dispositivi mobili OMS, per accedere alle informazioni sull'infrastruttura IT, sui dashboard e sulle query salvate, è possibile accedere al portale di Azure direttamente dal browser nel dispositivo mobile. Per ottenere avvisi, è necessario configurare i [Gruppi di azioni di Azure](../../azure-monitor/platform/action-groups.md) per ricevere le notifiche sotto forma di SMS o di chiamata vocale
 
 ## <a name="application-insights-connector-and-solution"></a>Connettore di Application Insights e soluzione
-[Connettore di Application Insights](../../azure-monitor/platform/app-insights-connector.md) fornisce un modo per includere i dati di Application Insights in un'area di lavoro di Log Analytics. Questa duplicazione dei dati è stata necessaria per abilitare la visibilità tra i dati dell'infrastruttura e dell'applicazione. Con il supporto della conservazione dei dati di Application Insights esteso fino a marzo 2019 e la possibilità di eseguire [query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md), non è necessario duplicare i dati dalle risorse di Application Insights e inviarli a Log Analytics. Inoltre, il connettore invia un subset delle proprietà delle applicazioni a Log Analytics, mentre le query tra risorse offrono maggiore flessibilità.  
+[Connettore di Application Insights](../../azure-monitor/platform/app-insights-connector.md) fornisce un modo per includere i dati di Application Insights in un'area di lavoro di Log Analytics. Questa duplicazione dei dati è stata necessaria per abilitare la visibilità tra i dati dell'infrastruttura e dell'applicazione. Con il supporto della conservazione dei dati di Application Insights esteso fino a marzo 2019 e la possibilità di eseguire [query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md) oltre ad aggiungere [visualizzazione multipla di risorse di Application Insights di monitoraggio di Azure](../log-query/unify-app-resource-data.md), non è necessario duplicare i dati dalle risorse di Application Insights e inviarli a Log Analytics. Inoltre, il connettore invia un subset delle proprietà delle applicazioni a Log Analytics, mentre le query tra risorse offrono maggiore flessibilità.  
 
 Di conseguenza, il connettore di Application Insights verrà deprecato e rimosso da Azure Marketplace insieme al portale OMS il 30 marzo 2019, mentre le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019. Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Questa operazione sarà supportata tramite l'API REST che verrà resa disponibile a gennaio 2019, con pubblicazione di una notifica negli [aggiornamenti di Azure](https://azure.microsoft.com/updates/). 
 

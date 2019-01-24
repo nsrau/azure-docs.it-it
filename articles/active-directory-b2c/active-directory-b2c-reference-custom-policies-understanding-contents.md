@@ -3,19 +3,19 @@ title: Informazioni sui criteri personalizzati dello starter pack di Azure Activ
 description: Argomento sui criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cfb3894b98ea562eede4c223ca6125abce65b0d3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442475"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845572"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Informazioni sui criteri personalizzati dello starter pack di Azure AD B2C
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267318"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853239"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -191,6 +191,8 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ## <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
+- Quando si esegue la **Get-AzureStackLog** cmdlet di PowerShell dopo aver eseguito **Test AzureStack** nella stessa sessione di endpoint con privilegi (PEP), **Get-AzureStackLog** ha esito negativo. Per risolvere questo problema, chiudere la sessione PEP nella quale è stata eseguita **Test-AzureStack**, quindi aprire una nuova sessione per l'esecuzione **Get-AzureStackLog**.
+
 - Durante l'installazione di 1811 l'aggiornamento, assicurarsi che tutte le istanze del portale di amministratore siano chiuse durante questo periodo. Il portale per gli utenti può rimanere aperto, ma è necessario chiudere il portale di amministrazione.
 
 - Quando si esegue [Test AzureStack](azure-stack-diagnostic-test.md), se il valore di **AzsInfraRoleSummary** o la **AzsPortalApiSummary** test ha esito negativo, viene richiesto di eseguire  **Test-AzureStack** con il `-Repair` flag.  Se si esegue questo comando, avrà esito negativo con messaggio di errore seguente:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Questo problema verrà risolto in una versione futura.
@@ -312,7 +314,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
    - Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di una VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Selezionare **provider di risorse**, quindi selezionare **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
-      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che il **AzureStack-DiskRP-Client** ruolo è elencato.
    - Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 - Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. Come soluzione alternativa, usare l'accesso della macchina virtuale per l'estensione Linux per implementare le chiavi SSH dopo il provisioning o utilizzano l'autenticazione basata su password.

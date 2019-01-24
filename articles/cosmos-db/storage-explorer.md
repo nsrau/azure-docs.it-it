@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044621"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259649"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB usando Azure Storage Explorer
 
@@ -266,7 +266,7 @@ Se non è possibile rimuovere un account o se il collegamento per eseguire nuova
   - .extaccounts
 - Se si desidera rimuovere le risorse di archiviazione associate alla firma di accesso condiviso, eliminare:
   - la cartella %AppData%/StorageExplorer per Windows
-  - /Utenti/<your_name>/Library/Applicaiton SUpport/StorageExplorer per Mac
+  - /Utenti/<your_name>/Library/Application Support/StorageExplorer per Mac
   - ~/.config/StorageExplorer per Linux
   - Se si eliminano questi file, **è necessario immettere nuovamente tutte le credenziali**
 

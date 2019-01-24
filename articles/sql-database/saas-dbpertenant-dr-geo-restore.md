@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352941"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264751"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
@@ -114,7 +114,7 @@ In questa attività si avvia un processo per sincronizzare la configurazione di 
 
 3. Impostare i seguenti elementi:
 
-    $DemoScenario = 1, per avviare un processo in background che esegue la sincronizzazione del server tenant e delle informazioni di configurazione dei pool nel catalogo.
+    $DemoScenario = 1: Avviare un processo in background che esegue la sincronizzazione del server tenant e delle informazioni di configurazione dei pool nel catalogo.
 
 4. Per eseguire lo script di sincronizzazione, selezionare F5. 
 
@@ -174,7 +174,7 @@ Si supponga che si verifichi un'interruzione nell'area in cui l'applicazione è 
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare il valore seguente:
 
-    $DemoScenario = 2, per ripristinare l'app in un'area di ripristino da backup con ridondanza geografica.
+    $DemoScenario = 2: Ripristinare l'app in un'area di ripristino da backup con ridondanza geografica.
 
 2. Per eseguire lo script, selezionare F5.  
 
@@ -209,7 +209,7 @@ Ancora prima del ripristino dei database tenant, è possibile effettuare il prov
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare la proprietà seguente:
 
-    $DemoScenario = 3, per effettuare il provisioning di un nuovo tenant nell'area di ripristino.
+    $DemoScenario = 3: Effettuare il provisioning di un nuovo tenant nell'area di ripristino.
 
 2. Per eseguire lo script, selezionare F5.
 
@@ -262,7 +262,7 @@ In questa attività si aggiorna uno dei database tenant ripristinati. Il process
 
 2. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare il valore seguente:
 
-    $DemoScenario = 4, per eliminare un evento da un tenant nell'area di ripristino.
+    $DemoScenario = 4: Eliminare un evento da un tenant nell'area di ripristino.
 
 3. Per eseguire lo script, selezionare F5.
 
@@ -320,13 +320,13 @@ Se sono stati seguiti i passaggi dell'esercitazione, lo script riattiva immediat
   
 1. In PowerShell ISE, nello script ...\Learning Modules\Business Continuity e Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 verificare che il processo di sincronizzazione del catalogo sia ancora in esecuzione nell'istanza di PowerShell relativa. Se necessario, riavviarlo impostando quanto segue:
 
-    $DemoScenario = 1, per avviare la sincronizzazione delle informazioni di configurazione di server tenant, pool e database nel catalogo.
+    $DemoScenario = 1: Avviare la sincronizzazione delle informazioni di configurazione di server tenant, pool e database nel catalogo.
 
     Per eseguire lo script, selezionare F5.
 
 2.  Avviare quindi il processo di ricollocamento impostando quanto segue:
 
-    $DemoScenario = 5, per ricollocare l'app nell'area di origine.
+    $DemoScenario = 5: Ricollocare l'app nell'area di origine.
 
     Premere F5 per eseguire lo script di ripristino in una nuova finestra di PowerShell. Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
 
@@ -352,7 +352,7 @@ Il processo di ripristino crea tutte le risorse di ripristino in un apposito gru
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare quanto segue:
     
-    $DemoScenario = 6, per eliminare le risorse obsolete dall'area di ripristino.
+    $DemoScenario = 6: Eliminare le risorse obsolete dall'area di ripristino.
 
 2. Per eseguire lo script, selezionare F5.
 

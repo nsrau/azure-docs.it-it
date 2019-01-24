@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3091e53b47d85e3e58c32b255dc9dcebd54ab2c5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054924"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264938"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Usare Visual Studio 2017 per sviluppare ed eseguire il debug di moduli C# per Azure IoT Edge (anteprima)
 
@@ -27,8 +27,11 @@ Azure IoT Edge Tools for Visual Studio offre i vantaggi seguenti:
 - Possibilità di scrivere il codice dei moduli per Azure IoT in C# sfruttando al contempo tutti i vantaggi dello sviluppo in Visual Studio.
 - Funzionalità di gestione di dispositivi e moduli per Azure IoT Edge con l'interfaccia utente.
 
-Questo articolo illustra come usare Azure IoT Edge Tools for Visual Studio 2017 per sviluppare moduli per IoT Edge in C#. Si apprenderà anche come distribuire il progetto a un dispositivo Azure IoT Edge.
+Questo articolo illustra come usare Azure IoT Edge Tools for Visual Studio 2017 per sviluppare moduli per IoT Edge in C#. Si apprenderà anche come distribuire il progetto a un dispositivo Azure IoT Edge. 
 
+  > [!TIP]
+  > La struttura del progetto IoT Edge creato da Visual Studio è diversa rispetto a quella in Visual Studio Code.
+  
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si usi un computer o una macchina virtuale Windows come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico.
@@ -58,7 +61,7 @@ Una volta preparato Visual Studio 2017, sono necessari anche gli strumenti e i c
 
 1. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Espandere **Installati > Strumenti** per visualizzare **Azure IoT Edge Tools** e **Cloud Explorer for Visual Studio**.
 
-1. Prendere nota della versione installata. È possibile confrontare questa versione con quella più recente in Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)).
+1. Prendere nota della versione installata. È possibile confrontare questa versione con quella più recente in Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)).
 
 1. Se la versione è precedente a quella disponibile in Visual Studio Marketplace, aggiornare gli strumenti in Visual Studio come illustrato nella sezione seguente.
 

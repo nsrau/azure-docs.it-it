@@ -4,7 +4,7 @@ description: Esercitazione che illustra come usare un'identità gestita assegnat
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f00de9095e45901f92fcf3004a5f51cfdd709da2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d9f13c348b79379ef291ce3754a4a4f1cfa9b9be
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724775"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429872"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite la chiave di accesso
 
@@ -61,7 +61,7 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>Concedere l'accesso per l'uso delle chiavi di accesso dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale
 
-Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare le identità gestite per le risorse di Azure per recuperare le chiavi di accesso dell'account di archiviazione da Resource Manager e usare una chiave per accedere alle risorse di archiviazione.  In questo passaggio si concede l'accesso alle chiavi dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale.   
+In questo passaggio si concede l'accesso alle chiavi dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale.   
 
 1. Tornare all'account di archiviazione appena creato.
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  

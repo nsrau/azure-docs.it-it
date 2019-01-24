@@ -3,18 +3,18 @@ title: Visualizzare le modifiche nel contenuto dei file con Automazione di Azure
 description: Usare la funzionalità di modifica del contenuto del file di Rilevamento modifiche per visualizzare il contenuto che è stato modificato.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870552"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438002"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualizza i contenuti di un file verificati con Rilevamento modifiche
 
@@ -75,4 +75,5 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md) .
+* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+

@@ -1,21 +1,21 @@
 ---
 title: Esercitazione - Creare un tenant di Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come preparare la registrazione delle applicazioni creando un tenant di Azure Active Directory B2C con il portale di Azure.
-services: active-directory-b2c
+services: B2C
 author: davidmu1
-manager: mtillman
-ms.service: active-directory-b2c
+manager: daveba
+ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5f406242197c15348cfd557fb9c960ad7d4bed19
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236894"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846847"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -31,35 +31,26 @@ La registrazione di un'applicazione verrà illustrata nell'esercitazione success
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Accedere al [Portale di Azure](https://portal.azure.com/).
-
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Creare un tenant di Azure AD B2C
 
-1. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-2. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare e selezionare **Active Directory B2C** e quindi fare clic su **Crea**.
-3. Scegliere **Crea un nuovo tenant Azure AD B2C**, immettere un nome di organizzazione e il nome di dominio iniziale, che viene usato nel nome del tenant, selezionare il paese e quindi fare clic su **Crea**. Verificare il paese del tenant perché non potrà essere modificato in seguito.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Assicurarsi di usare la directory che contiene la sottoscrizione facendo clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant. Si tratta di una directory diversa rispetto a quella che conterrà il tenant Azure AD B2C.
+
+    ![Passare alla directory della sottoscrizione](./media/tutorial-create-tenant/switch-directory-subscription.png)
+
+3. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
+4. Cercare e selezionare **Active Directory B2C** e quindi fare clic su **Crea**.
+5. Scegliere **Crea un nuovo tenant Azure AD B2C**, immettere un nome di organizzazione e il nome di dominio iniziale, che viene usato nel nome del tenant, selezionare il paese (non può essere modificato in seguito) e quindi fare clic su **Crea**.
 
     ![Creare un tenant](./media/tutorial-create-tenant/create-tenant.png)
 
-    In questo esempio il nome del tenant è contoso0522Tenant.onmicrosoft.com
+    In questo esempio il nome del tenant è contoso0926Tenant.onmicrosoft.com
 
-Per iniziare a gestire il nuovo tenant, fare clic sulla parola **qui** in **Fare clic su qui per gestire la nuova directory**. Verrà visualizzato un messaggio **Risoluzione dei problemi** che informa che è necessario collegare la sottoscrizione al nuovo tenant. 
+6. Nella pagina **Creare un nuovo tenant B2C o collegarne uno esistente**, selezionare **Collega un tenant Azure AD B2C esistente alla sottoscrizione di Azure**, selezionare il tenant creato, selezionare la sottoscrizione e fare clic su **Crea nuovo**.
+7. Immettere un nome per il gruppo di risorse che conterrà il tenant, selezionare la località e quindi fare clic su **Crea**.
+8. Per iniziare a usare il nuovo tenant, assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che lo contiene.
 
-## <a name="link-your-tenant-to-your-subscription"></a>Collegare il tenant alla sottoscrizione
-
-È necessario collegare il tenant di Azure AD B2C alla sottoscrizione di Azure per abilitare tutte le funzionalità e pagare i costi di utilizzo. Se non si collega il tenant alla sottoscrizione, le applicazioni non funzioneranno correttamente.
-
-1. Assicurarsi di usare la directory contenente la sottoscrizione che si vuole associare al nuovo tenant passando alla directory nell'angolo in alto a destra del portale di Azure.
-
-    ![Cambiare directory](./media/tutorial-create-tenant/switch-directories.png)
-
-    Selezionare quindi la directory contenente la sottoscrizione.
-
-    ![Selezionare la directory](./media/tutorial-create-tenant/select-directory.png)
-
-2. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-3. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare e selezionare **Active Directory B2C** e quindi fare clic su **Crea**.
-4. Scegliere **Collega un tenant Azure AD B2C esistente alla sottoscrizione di Azure**, selezionare il tenant creato, selezionare la sottoscrizione, immettere *myContosoTenantRG* come nome del gruppo di risorse, accettare la posizione e quindi fare clic su **Crea**.
+    ![Passare alla directory del tenant](./media/tutorial-create-tenant/switch-directories.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -70,4 +61,4 @@ In questo articolo si è appreso come:
 > * Collegare il tenant alla sottoscrizione
 
 > [!div class="nextstepaction"]
-> [Abilitare un'applicazione Web per l'autenticazione mediante account](active-directory-b2c-tutorials-web-app.md)
+> [Registrare le applicazioni](tutorial-register-applications.md)

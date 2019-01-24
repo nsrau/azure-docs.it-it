@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578672"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229333"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di contenitore di Azure
 
@@ -80,7 +80,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 Continuare con gli esempi seguenti per accedere all'insieme di credenziali delle chiavi usando un'identità gestita assegnata dall'utente o assegnata dal sistema in Istanze di contenitore di Azure.
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Esempio 1: usare un'identità assegnata dall'utente per accedere ad Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Esempio 1: Usare un'identità assegnata dall'utente per accedere ad Azure Key Vault
 
 ### <a name="create-an-identity"></a>Creare un'identità
 
@@ -134,7 +134,7 @@ La sezione `identity` dell'output è simile alla seguente e mostra che l'identit
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Concedere all'identità assegnata dall'utente di accedere all'insieme di credenziali delle chiavi
 
-Eseguire il comando [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -179,7 +179,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 {"value":"Hello Container Instances!","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Esempio 2: usare un'identità assegnata dal sistema per accedere ad Azure Key Vault
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Esempio 2 Usare un'identità assegnata dal sistema per accedere ad Azure Key Vault
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Abilitare un'identità assegnata dal sistema in un gruppo di contenitori
 
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Concedere al gruppo di contenitori di accedere all'insieme di credenziali delle chiavi
 
-Eseguire il comando [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita assegnata dal sistema di ricevere segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita assegnata dal sistema di ricevere segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

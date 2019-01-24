@@ -3,19 +3,19 @@ title: Definire un profilo tecnico OpenId Connect nei criteri personalizzati in 
 description: Definire un profilo tecnico OpenId Connect nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e8ee72b9add1947929e5c772edafd55d28edd79b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842415"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851046"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OpenID Connect nei criteri personalizzati di Azure Active Directory B2C
 

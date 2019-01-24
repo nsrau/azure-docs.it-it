@@ -4,7 +4,7 @@ description: Panoramica delle identità gestite per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b3a86748d9b7a420b9a7f9ab60c6841cbf403f09
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728109"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439086"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -38,9 +38,9 @@ La funzionalità delle identità gestite per le risorse di Azure è gratuita con
 
 I termini seguenti vengono usati in tutta la documentazione relativa alle identità gestite per le risorse di Azure:
 
-- **ID client**: identificatore univoco generato da Azure AD che viene associato a un'entità servizio e a un'applicazione durante il provisioning iniziale.
-- **ID entità servizio**: ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
-- **Servizio metadati dell'istanza di Azure**: endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
+- **ID client**: un identificatore univoco generato da Azure AD che viene associato a un'entità servizio e applicazione durante il provisioning iniziale.
+- **ID entità servizio**: l'ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
+- **Servizio metadati dell'istanza di Azure**: un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
 
 ## Funzionamento delle identità gestite per le risorse di Azure<a name="how-does-it-work"></a>
 
@@ -128,7 +128,7 @@ Informazioni sull'uso di un'identità gestita con altri servizi di Azure:
 * [Bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gestione API di Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
-* [Istanze di contenitore di Azure](../../container-instances/container-instances-managed-identity.md)
+* [Istanze di Azure Container](../../container-instances/container-instances-managed-identity.md)
 
 ## Servizi di Azure che supportano questa funzionalità<a name="which-azure-services-support-managed-identity"></a>
 

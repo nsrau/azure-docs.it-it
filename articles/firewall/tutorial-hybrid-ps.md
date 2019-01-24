@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435566"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431521"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -45,7 +45,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ai fini di questa esercitazione, è necessario eseguire PowerShell in locale. Deve essere installato il modulo Azure PowerShell 6.12.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzureRmAccount` per creare una connessione ad Azure.
+Ai fini di questa esercitazione, è necessario eseguire PowerShell in locale. Deve essere installato il modulo Azure PowerShell 6.12.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzureRmAccount` per creare una connessione ad Azure.
 
 Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
 
@@ -60,7 +60,7 @@ Vedere la sezione [Creare route](#create-routes) in questa esercitazione per ved
 >Connettività diretta al Firewall di Azure. Se è stato abilitato il tunneling forzato in locale tramite ExpressRoute o gateway applicazione, è necessario configurare una route definita dall'utente 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet**e quindi assegnarla ad  **AzureFirewallSubnet**.
 
 >[!NOTE]
->Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se UDE punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, il routing definito dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
+>Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -489,4 +489,4 @@ A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chi
 È possibile ora monitorare i log di Firewall di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log del firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

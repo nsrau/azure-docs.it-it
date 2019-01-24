@@ -5,21 +5,21 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 01/22/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: fcd5137792e573c3077a4b9d5e815b9bf20774f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476394"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparazione per l'host dell'estensione per Azure Stack
 
-L'host dell'estensione protegge Azure Stack, riducendo il numero di porte TCP/IP necessarie. Questo articolo esamina la preparazione di Azure Stack per l'host dell'estensione, che viene abilitato automaticamente tramite un pacchetto di aggiornamento di Azure Stack dopo l'aggiornamento 1808.
+L'host dell'estensione protegge Azure Stack, riducendo il numero di porte TCP/IP necessarie. Questo articolo esamina la preparazione di Azure Stack per l'host dell'estensione, che viene abilitato automaticamente tramite un pacchetto di aggiornamento di Azure Stack dopo l'aggiornamento 1808. Questo articolo si applica agli aggiornamenti di Azure Stack 1808 1809 e 1811.
 
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
 
@@ -29,8 +29,8 @@ La tabella illustra i nuovi spazi dei nomi e i certificati associati:
 
 | Cartella di distribuzione | Soggetto certificato necessarie e nomi alternativi del soggetto (SAN) | Ambito (per area) | Spazio dei nomi di sottodominio |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Host dell'estensione amministratore | *.adminhosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione amministratore | adminhosting. \<area >. \<fqdn > |
-| Host dell'estensione pubblica | * .hosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione pubblica | Hosting. \<area >. \<fqdn > |
+| Host dell'estensione amministratore | *.adminhosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione amministratore | adminhosting.\<region>.\<fqdn> |
+| Host dell'estensione pubblica | * .hosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione pubblica | hosting.\<region>.\<fqdn> |
 
 I requisiti del certificato dettagliati sono reperibili nel [requisiti dei certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md) articolo.
 
@@ -129,8 +129,8 @@ Se i record A singolo host sono stati configurati per pubblicare gli endpoint di
 
 | IP | Nome host | type |
 |----|------------------------------|------|
-| \<IP &GT; | *. Adminhosting. \<Area >. \<FQDN > | Una  |
-| \<IP &GT; | *. Hosting. \<Area >. \<FQDN > | Una  |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Una  |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | Una  |
 
 Gli indirizzi IP allocati può essere recuperato tramite endpoint con privilegi eseguendo il cmdlet **Get-AzureStackStampInformation**.
 
@@ -201,8 +201,8 @@ Le regole del firewall esistente è necessario chiudere le seguenti porte di end
 
 | Endpoint (indirizzo VIP) | Protocollo | Porte |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Portale (amministratore) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| Portale (utente) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| Portale (amministratore) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| Portale (utente) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure Resource Manager (amministratore) | HTTPS | 30024 |
 | Azure Resource Manager (utente) | HTTPS | 30024 |
 

@@ -2,17 +2,17 @@
 title: Concetti relativi a Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati. Vengono definiti diversi componenti chiave di Griglia di eventi.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: tomfitz
-ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.author: spelluru
+ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747559"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474354"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -72,7 +72,7 @@ Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cu
 
 Per informazioni sull'implementazione di una delle origini di Griglia di eventi supportate, vedere [Event handlers in Azure Event Grid](event-handlers.md) (Gestori di eventi in Griglia di eventi di Azure).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione degli argomenti. Quando si esegue la sottoscrizione, è necessario possedere le autorizzazioni appropriate per la risorsa o l'argomento di Griglia di eventi. Quando si esegue la pubblicazione, è necessario avere un token di firma di accesso condiviso o l'autenticazione con chiave per l'argomento. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 

@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: eb2c62758f115617e971b4bd9b814456c7bc3331
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262151"
 documentType: LandingData
 title: Identità gestite di Azure AD per la documentazione delle risorse di Azure
 metadata:
-  document_id: 
+  document_id: null
   title: Identità gestite di Azure AD per la documentazione delle risorse di Azure
   description: Informazioni su come usare le identità gestite per le risorse di Azure per l'autenticazione sicura nei servizi cloud di Azure senza che sia necessario conservare le credenziali nel codice sorgente.
   services: active-directory
   ms.component: msi
   author: daveba
-  manager: mtillman
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -25,55 +19,55 @@ abstract:
   description: Le identità gestite per le risorse Azure forniscono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità gestite per le risorse di Azure con guide introduttive ed esercitazioni.
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
     title: Introduzione alle identità gestite per le risorse di Azure
-    href: https://www.youtube.com/embed/bBi1bll2928
+    href: 'https://www.youtube.com/embed/bBi1bll2928'
     width: 200
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere all'API Azure Resource Manager
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Accedere ad Azure Resource Manager da una macchina virtuale Windows di Azure</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Accedere ad Azure Resource Manager da una macchina virtuale Linux di Azure</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere alle risorse di Azure in modo sicuro
-  - type: paragraph
-    text: Macchina virtuale/set di scalabilità di macchine virtuali Windows
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere all'API Azure Resource Manager
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Accedere ad Azure Resource Manager da una macchina virtuale Windows di Azure</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Accedere ad Azure Resource Manager da una macchina virtuale Linux di Azure</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Accedere ad Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Accedere ad Archiviazione di Azure con una chiave di accesso</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Accedere ad Azure SQL</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Accedere ad Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Accedere ad Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Accedere ad Azure Resource Manager con un'identità assegnata dall'utente</a>
-  - type: paragraph
-    text: Macchina virtuale/set di scalabilità di macchine virtuali Linux
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere alle risorse di Azure in modo sicuro
+      - type: paragraph
+        text: Macchina virtuale/set di scalabilità di macchine virtuali Windows
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Accedere ad Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Accedere ad Archiviazione di Azure con una chiave di accesso</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Accedere ad Azure SQL</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Accedere ad Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Accedere ad Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Accedere ad Azure Resource Manager con un'identità assegnata dall'utente</a>
+      - type: paragraph
+        text: Macchina virtuale/set di scalabilità di macchine virtuali Linux
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Accedere ad Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Accedere ad Archiviazione di Azure con una chiave di accesso</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Accedere ad Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Accedere ad Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Accedere ad Azure Resource Manager con un'identità assegnata dall'utente</a>
+  - title: riferimento
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Accedere ad Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Accedere ad Archiviazione di Azure con una chiave di accesso</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Accedere ad Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Accedere ad Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Accedere ad Azure Resource Manager con un'identità assegnata dall'utente</a>
-- title: Informazioni di riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Riga di comando
-      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Interfaccia della riga di comando di Azure</a></p>
-    - title: Lingue
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: '<p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Interfaccia della riga di comando di Azure</a></p>'
+          - title: Lingue
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>'

@@ -1,9 +1,11 @@
 ---
-title: Profili annidati di Gestione Traffico | Microsoft Docs
+title: Profili nidificati di Gestione traffico in Azure
+titlesuffix: Azure Traffic Manager
 description: Questo articolo descrive la funzionalità "Profili nidificati" di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648599"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228827"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
@@ -28,7 +30,7 @@ Gli esempi seguenti illustrano come usare i profili di Gestione traffico annidat
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Esempio 1: Combinazione di metodi di routing del traffico "Prestazioni" e "Ponderato"
 
-Si supponga che l'applicazione sia stata distribuita in più aree di Azure: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
+Supporre che l'app sia stata distribuita nelle aree di Azure seguenti: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
 
 ![Profilo singolo di Gestione traffico][4]
 
@@ -44,7 +46,7 @@ In questa configurazione, il traffico indirizzato tramite il profilo padre verr�
 
 Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2: Monitoraggio degli endpoint nei profili nidificati
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2 Monitoraggio degli endpoint nei profili nidificati
 
 Gestione traffico esegue continuamente il monitoraggio dell'integrità di ogni endpoint di servizio. Se un endpoint non è integro, Gestione traffico indirizza gli utenti verso endpoint alternativi, mantenendo così la disponibilità del servizio. Il comportamento di monitoraggio e failover degli endpoint si applica a tutti i metodi di routing del traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md). Il monitoraggio degli endpoint è differente nei profili annidati. Ad esempio, nei profili annidati il profilo padre non esegue i controlli di integrità direttamente sul profilo figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili annidati. Il profilo padre usa quindi lo stato aggregato per determinare se indirizzare il traffico al profilo figlio. Vedere le [domande frequenti](traffic-manager-FAQs.md#traffic-manager-nested-profiles) per informazioni dettagliate sul monitoraggio dello stato di profili annidati.
 

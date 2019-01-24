@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a00ecf6e-917a-4284-b998-41506931585e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d315f3ad70971beb3d734056c105359140da0f15
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Esercitazione: integrazione di Azure Active Directory con EmpCenter
 

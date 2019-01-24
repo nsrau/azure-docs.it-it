@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932395"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413227"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Linux in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Linux e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per gli ambienti applicativi e di distribuzione più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
@@ -201,7 +201,7 @@ Packer impiega alcuni minuti per compilare la macchina virtuale, eseguire gli st
 
 
 ## <a name="create-vm-from-azure-image"></a>Creare una macchina virtuale da un'immagine di Azure
-È ora possibile creare una macchina virtuale dall'immagine con [az vm create](/cli/azure/vm#az_vm_create). Specificare l'immagine creata con il parametro `--image`. L'esempio seguente crea una macchina virtuale denominata *myVM* da *myPackerImage* e genera chiavi SSH, se non esistono ancora:
+È ora possibile creare una macchina virtuale dall'immagine con [az vm create](/cli/azure/vm). Specificare l'immagine creata con il parametro `--image`. L'esempio seguente crea una macchina virtuale denominata *myVM* da *myPackerImage* e genera chiavi SSH, se non esistono ancora:
 
 ```azurecli
 az vm create \

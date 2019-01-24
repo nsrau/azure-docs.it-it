@@ -3,7 +3,7 @@ title: Reimpostazione della password - Azure Active Directory | Microsoft Docs
 description: Usare la funzione di reimpostazione della password self-service per recuperare l'accesso al proprio account utente aziendale o dell'istituto di istruzione
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 05a4961938f8a4f7d14c9dbf5041a2d02257b476
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 22cb3b908301c298bd7d37f39fbcb1ffa1d0d3ce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106680"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816994"
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o dell’istituto di istruzione
 

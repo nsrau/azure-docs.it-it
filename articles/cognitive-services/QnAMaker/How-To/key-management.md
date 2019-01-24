@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581760"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302052"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Come gestire le chiavi in QnA Maker
 
@@ -42,7 +42,7 @@ Il servizio QnA Maker gestisce due tipi di chiavi, le **chiavi di sottoscrizione
 
 Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qnamaker.ai).
 
-1. Accedere al [portale di QnA Maker](https://qnamaker.ai) e passare a **Impostazioni servizio**.
+1. Accedere al [portale di QnA Maker](https://qnamaker.ai), passare al proprio profilo e fare clic su **Impostazioni servizio**.
 
     ![chiave endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

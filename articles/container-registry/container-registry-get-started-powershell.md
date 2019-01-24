@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7dcdca594949a3b20000b31db681370ee4f9eac3
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255286"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428138"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 
@@ -21,7 +21,7 @@ Registro Azure Container è un servizio gestito e privato di registri contenitor
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 5.7.0 o successiva. Per determinare la versione installata eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 5.7.0 o successiva. Per determinare la versione installata eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 È anche necessario avere Docker installato localmente. Docker offre pacchetti per i sistemi [macOS][docker-mac], [Windows][docker-windows] e [Linux][docker-linux].
 
@@ -233,7 +233,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 In questa guida introduttiva è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza in Istanze di Azure Container. Passare all'esercitazione su Istanze di Azure Container per maggiori informazioni.
 
 > [!div class="nextstepaction"]
-> [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Esercitazione su Istanze di Azure Container](../container-instances/container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS - external -->
 [aci-helloworld-github]: https://github.com/Azure-Samples/aci-helloworld

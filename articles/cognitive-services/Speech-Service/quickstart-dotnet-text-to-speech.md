@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 207836baaaa30dca24edeab93e9bd1c4a1ac67e6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791446"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359086"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Avvio rapido: Eseguire la sintesi vocale con .NET Core
 
@@ -232,9 +232,10 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Esaminare gli esempi .NET su GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## <a name="see-also"></a>Vedere anche 
 
+* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
 * [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)

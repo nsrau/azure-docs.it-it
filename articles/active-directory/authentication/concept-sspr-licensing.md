@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b558a494a87b9d176888f6e21d3153d921cd590f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043040"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422134"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
 
@@ -33,15 +33,15 @@ La licenza per la reimpostazione della password self-service di Azure AD viene c
 * Reimpostazione delle password self-service per gli utenti cloud
    * Sono un **utente solo cloud** e non ricordo la password.
       * Vorrei **reimpostare** la mia password con una che ricordo più facilmente.
-   * Questa funzionalità è inclusa nelle edizioni Azure AD Basic, Premium P1 o Premium P2.
+   * Questa funzionalità è inclusa in Azure AD Basic, Premium P1 o P2, o Microsoft 365 Business.
 
 * Reimpostazione/modifica/sblocco **con writeback in locale** delle password in modalità self-service
    * Sono un **utente ibrido**, il mio account utente di Active Directory locale è sincronizzato con il mio account di Azure AD tramite Azure AD Connect. Vorrei modificare la mia password, ho dimenticato la password o è stata bloccata.
       * Vorrei modificare la mia password o reimpostarla con una che ricordo più facilmente oppure vorrei sbloccare il mio account **e** sincronizzare la modifica con Active Directory locale.
-   * Questa funzionalità è inclusa nelle edizioni Azure AD Premium P1 e Premium P2.
+   * Questa funzionalità è inclusa in Azure AD Premium P1 o P2, o Microsoft 365 Business.
 
 > [!WARNING]
-> I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono un piano che includa le edizioni Azure AD Premium P1 o Premium P2 per l'uso della funzionalità.
+> I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono un piano che includa Azure AD Premium P1, Premium P2 o Microsoft 365 Business per l'uso della funzionalità.
 >
 
 Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nelle pagine seguenti:
@@ -50,6 +50,7 @@ Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nell
 * [Caratteristiche e funzionalità di Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Descrizione del servizio Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Abilitare le licenze per gruppi o per utente
 

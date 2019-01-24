@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 95341f318a9902a82ecb0366400ec34d159f0225
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363684"
 documentType: LandingData
 title: Report e monitoraggio di Azure Active Directory
 metadata:
-  document_id: 
-  title: Documentazione su report e monitoraggio di Azure Active Directory - Esercitazioni, guide introduttive, concetti | Microsoft Docs
+  document_id: null
+  title: 'Documentazione su report e monitoraggio di Azure Active Directory - Esercitazioni, guide introduttive, concetti | Microsoft Docs'
   description: Informazioni su come configurare e testare le soluzioni per report e monitoraggio di Azure Active Directory
   services: active-directory
   ms.component: report-monitor
   author: priyamohanram
-  manager: mtillman
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -22,33 +16,33 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: Informazioni su come visualizzare i report relativi a sicurezza e controllo per l'ambiente specifico o su come monitorare tali report nel tempo per ottenere informazioni dettagliate sui modelli di utilizzo. I report di Azure Active Directory (Azure AD) consentono di ottenere informazioni dettagliate sulla sicurezza e sui modelli di utilizzo dell'ambiente specifico. È ad esempio possibile rispondere alle domande seguenti:<ul><li>Come vengono utilizzati i servizi o le applicazioni dagli utenti?</li><li>Quali sono i rischi potenziali relativi all'integrità dell'ambiente?</li><li>Come si risolvono i problemi che influiscono negativamente sulla produttività degli utenti?</li>
+  description: 'Informazioni su come visualizzare i report relativi a sicurezza e controllo per l''ambiente specifico o su come monitorare tali report nel tempo per ottenere informazioni dettagliate sui modelli di utilizzo. I report di Azure Active Directory (Azure AD) consentono di ottenere informazioni dettagliate sulla sicurezza e sui modelli di utilizzo dell''ambiente specifico. È ad esempio possibile rispondere alle domande seguenti:<ul><li>Come vengono utilizzati i servizi o le applicazioni dagli utenti?</li><li>Quali sono i rischi potenziali relativi all''integrità dell''ambiente?</li><li>Come si risolvono i problemi che influiscono negativamente sulla produttività degli utenti?</li>'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come scaricare report relativi alle attività e indirizzare i log a un account di archiviazione di Azure
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Scaricare un report relativo agli accessi</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Scaricare un report di controllo</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Installare il pacchetto di contenuto di Power BI per i report</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Indirizzare i log all'account di archiviazione</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come accedere ai report e su come eseguire lo streaming dei log attività nel sistema di monitoraggio preferito
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come scaricare report relativi alle attività e indirizzare i log a un account di archiviazione di Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Scaricare un report relativo agli accessi</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Scaricare un report di controllo</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Installare il pacchetto di contenuto di Power BI per i report</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Indirizzare i log all'account di archiviazione</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Accedere a livello di codice all'API di creazione di report mediante i certificati</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Eseguire lo streaming dei log attività a un hub eventi</a>
-- title: riferimento
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come accedere ai report e su come eseguire lo streaming dei log attività nel sistema di monitoraggio preferito
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Accedere a livello di codice all'API di creazione di report mediante i certificati</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Eseguire lo streaming dei log attività a un hub eventi</a>
+  - title: riferimento
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Codici errore di accesso</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Schema dei log di controllo di Azure AD in Monitoraggio di Azure</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Schema degli accessi di Azure AD in Monitoraggio di Azure</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Codici errore di accesso</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Schema dei log di controllo di Azure AD in Monitoraggio di Azure</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Schema degli accessi di Azure AD in Monitoraggio di Azure</a>

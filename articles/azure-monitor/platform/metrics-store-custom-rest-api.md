@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 4765ea62623278b4ee125c9d7201492ec887ef7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: metrics
+ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723764"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460380"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -119,3 +119,4 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
  
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md).
+

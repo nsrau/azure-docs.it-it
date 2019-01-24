@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102993"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266588"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -240,7 +240,7 @@ Successivamente, è necessario modificare il manifesto per l'uso di ruoli applic
     > [!IMPORTANT]
     > Il valore **Amministratore** è necessario solo per identificare gli amministratori di Blockchain Workbench.
 
-4. Nel manifesto modificare anche il valore **Oauth2AllowImplictFlow** impostandolo su **true**.
+4. Nel manifesto modificare anche il valore **Oauth2AllowImplicitFlow** impostandolo su **true**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

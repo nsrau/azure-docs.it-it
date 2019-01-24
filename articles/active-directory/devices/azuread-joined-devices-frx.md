@@ -4,7 +4,7 @@ description: Questo argomento spiega in che modo gli utenti possono configurare 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415794"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446426"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Esercitazione: Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione
 
 Tramite la gestione dei dispositivi in Azure Active Directory (Azure AD) è possibile garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. Per altre informazioni, vedere l'[introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md).
 
@@ -34,9 +34,13 @@ Se nel dispositivo è installato Windows 10 Professional o Windows 10 Enterprise
 
 Nell'*esperienza di Configurazione guidata* di Windows, l'aggiunta di un dominio Active Directory (AD) locale non è supportata. Se si prevede di aggiungere un computer a un dominio AD, durante l'installazione è necessario selezionare il collegamento **Configurare Windows con un account locale**. Sarà quindi possibile aggiungere il dominio dalle impostazioni del computer.
  
+In questa esercitazione viene illustrato come aggiungere un dispositivo ad Azure AD in fase di completamento dell'installazione:
+ > [!div class="checklist"]
+> * Prerequisiti
+> * Aggiunta di un dispositivo
+> * Verifica
 
-
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](device-management-azure-portal.md#configure-device-settings).
 

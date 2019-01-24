@@ -2,17 +2,17 @@
 title: Messaggi non recapitabili e ripetizione dei tentativi per le sottoscrizioni di Griglia di eventi di Azure
 description: Descrive come personalizzare le opzioni di recapito degli eventi per Griglia di eventi. Impostare una destinazione per i messaggi non recapitabili e specificare il numero di tentativi di recapito.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: tomfitz
-ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/06/2019
+ms.author: spelluru
+ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277750"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474248"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Messaggi non recapitabili e criteri di ripetizione dei tentativi
 

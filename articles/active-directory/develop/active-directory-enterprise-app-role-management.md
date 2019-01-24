@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904088"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263675"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -151,25 +151,29 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
-9. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come mostrato nell'immagine e completare i passaggi seguenti.
+9. Nella sezione **Attributi e attestazioni utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come mostrato nell'immagine e completare i passaggi seguenti.
 
     | Nome attributo | Valore attributo |
     | -------------- | ----------------|
     | Nome del ruolo  | user.assignedroles |
 
-    a. Selezionare **Aggiungi attributo** per aprire il riquadro **Aggiungi attributo**.
+    a. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+
+      ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Selezionare **Aggiungi attributo** per aprire il riquadro **Gestisci attestazioni utente**.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Riquadro Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. Nella casella di testo **Nome** digitare il nome dell'attributo necessario. Questo esempio usa **Nome ruolo** come nome di attestazione.
-
-    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+    c. Nella casella di testo **Nome** digitare il nome dell'attributo necessario. Questo esempio usa **Nome ruolo** come nome di attestazione.
 
     d. Lasciare vuota la casella **Spazio dei nomi**.
 
-    e. Selezionare **OK**.
+    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+
+    f. Selezionare **Salva**.
 
 10. Per testare l'applicazione in modalità Single Sign-On avviata da un provider di identità, accedere a [Riquadro di accesso ](https://myapps.microsoft.com) e selezionare il riquadro dell'applicazione. Nel token SAML verranno visualizzati tutti i ruoli assegnati per l'utente con il nome di attestazione specificato.
 

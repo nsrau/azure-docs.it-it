@@ -2,7 +2,7 @@
 title: Servizi multimediali di Azure con modello di licenza PlayReady
 description: Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: d5315c6cc4ade94bc829aa77f795d9688f78b0ec
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 61dc683912b2abde2ea36b71059ef020ec202f32
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115161"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826737"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali 
 
@@ -77,7 +77,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     BeginDate = new DateTime(2016, 1, 1),
     ContentKeyLocation = new ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader(),
     ContentType = ContentKeyPolicyPlayReadyContentType.UltraVioletStreaming,
-    LicenseType = drmSettings.EnbleOfflineMode ? ContentKeyPolicyPlayReadyLicenseType.Persistent : ContentKeyPolicyPlayReadyLicenseType.NonPersistent,
+    LicenseType = drmSettings.EnableOfflineMode ? ContentKeyPolicyPlayReadyLicenseType.Persistent : ContentKeyPolicyPlayReadyLicenseType.NonPersistent,
     PlayRight = new ContentKeyPolicyPlayReadyPlayRight
     {
         ImageConstraintForAnalogComponentVideoRestriction = true,

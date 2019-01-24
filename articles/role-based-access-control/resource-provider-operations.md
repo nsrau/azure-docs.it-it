@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c841fb8676cff8d15f54384aac84721bc8fb163b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728449"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267522"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -3686,7 +3686,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Genera il certificato di registrazione per l’area di lavoro. Il certificato viene utilizzato per la connessione di Microsoft System Center Operations Manager all'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Disabilita un Intelligence Pack per una specifica area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Abilita un Intelligence Pack per una specifica area di lavoro. |
-> | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Elenca tutti gli Intelligence Pack visibili per una specifica area di lavoro, oltre a elencare se il pacchetto è abilitato o disabilitato per quell’area di lavoro. |
+> | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Elenca tutti gli Intelligence Pack visibili per una specifica area di lavoro, oltre a elencare se il pacchetto è abilitato o disabilitato per quell'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Elimina i servizi collegati nell'area di lavoro specificata. |
 > | Azione | Microsoft.OperationalInsights/workspaces/linkedServices/read | Ottiene i servizi collegati nell'area di lavoro specificata. |
 > | Azione | Microsoft.OperationalInsights/workspaces/linkedServices/write | Crea/Aggiorna i servizi collegati nell'area di lavoro specificata. |

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407967"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352360"
 ---
 # <a name="using-a-cloud-dvr"></a>Utilizzo di un DVR cloud
 
@@ -35,7 +35,10 @@ Ciascun **LiveOutput** è associato a un **Asset** che utilizza per registrare i
 Un **LiveEvent** supporta fino a tre **LiveOutput** in esecuzione simultanea, quindi consente di creare fino a 3 registrazioni/archivi dallo stesso flusso live. Questo consente di pubblicare e archiviare parti diverse di un evento a seconda delle necessità. Ad esempio, immaginiamo di dover trasmettere un feed lineare live 24x7 e di creare "registrazioni" dei diversi programmi nel corso della giornata da offrire ai clienti come contenuto visualizzabile su richiesta. In questo caso, per prima cosa si crea un LiveOutput primario, con un intervallo di archiviazione breve di 1 ora o meno: questo è il flusso live primario con il quale si sintonizzano i visualizzatori. È necessario creare uno **StreamingLocator** per questo **LiveOutput** e pubblicarlo nell’applicazione o nel sito Web come feed "Live". Mentre il **LiveEvent** è in esecuzione, è possibile creare a livello di codice un secondo **LiveOutput** simultaneo all’inizio di un programma (o 5 minuti prima per fornire alcuni handle per il trimming successivo). Questo secondo **LiveOutput** può essere eliminato 5 minuti dopo la fine del programma. Con questo secondo **Asset** è possibile creare un nuovo **StreamingLocator** per pubblicare il programma come asset su richiesta nel catalogo dell'applicazione. È possibile ripetere questo processo più volte per altri limiti del programma o elementi di rilievo da condividere come video su richiesta, mentre il feed "Live" dal primo **LiveOutput** continua a trasmettere il feed lineare. 
 
 > [!NOTE]
-> I **LiveOutput** iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina il **LiveOutput**, non si elimina l'**asset** sottostante e il contenuto dell'asset.  
+> I **LiveOutput** iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina il **LiveOutput**, non si elimina l'**Asset** sottostante e il contenuto dell'asset. 
+>
+> Se è stato pubblicato il **Localizzatore di streaming** nell'asset per il **LiveOutput**, l'evento (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzato fino alla fine dell'operazione del **Localizzatore di streaming**  o fino a quando si elimina l'indicatore di posizione, a seconda del valore raggiunto per primo.   
+  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

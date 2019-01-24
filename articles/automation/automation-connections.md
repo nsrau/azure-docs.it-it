@@ -3,18 +3,18 @@ title: Asset di connessione in Automazione di Azure
 description: Gli asset di connessione di Automazione di Azure contengono le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una connessione DSC. Questo articolo illustra nel dettaglio le connessioni e spiega come usarle nella creazione testuale e grafica.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284541"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439018"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -23,7 +23,17 @@ Un asset di connessione di Automazione contiene le informazioni necessarie per l
 Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione oppure creati con l'[API di Automazione di Azure](https://msdn.microsoft.com/library/azure/mt163818.aspx) se il modulo di integrazione include un tipo di connessione e viene importato nell'account di Automazione. In caso contrario, sarà necessario creare un file di metadati per specificare un tipo di connessione di Automazione.  Per ulteriori informazioni, vedere [Moduli di integrazione](automation-integration-modules.md).  
 
 >[!NOTE]
->Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave viene archiviata in Key Vault. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset.
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito dall'Automazione di Azure.
+
+## <a name="connection-types"></a>Tipi di connessione
+
+Sono disponibili tre tipi di connessioni predefiniti in Automazione di Azure:
+
+* **Azure** - questa connessione può essere usata per gestire le risorse classiche.
+* **AzureClassicCertificate** - questa connessione è usata dall'account **AzureClassicRunAs**.
+* **AzureServicePrincipal** - questa connessione è usata dall'account **AzureRunAs**.
+
+Nella maggior parte dei casi non è necessario creare una risorsa di connessione poiché viene creata quando si crea un [account RunAs](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
 
@@ -154,3 +164,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - Consultare la sezione [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) per informazioni su come dirigere e controllare il flusso di logica nei runbook.  
 
 - Vedere [Moduli di integrazione](automation-integration-modules.md) per ulteriori informazioni sull'uso dei moduli di PowerShell da parte di Automazione di Azure e per conoscere le procedure consigliate per creare i propri moduli di PowerShell come moduli di integrazione in Automazione di Azure.  
+

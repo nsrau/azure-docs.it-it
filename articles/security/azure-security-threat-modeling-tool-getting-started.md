@@ -3,9 +3,9 @@ title: 'Introduzione: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
 description: Questa è una panoramica più approfondita che descrive Threat Modeling Tool in azione.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754187"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359477"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
-Il team degli strumenti di sicurezza di cloud e aziendali ha rilasciato l'anteprima di Threat Modeling Tool quest'anno come **[download](https://aka.ms/tmtpreview)** gratuito. Il cambiamento nel meccanismo di recapito consente di effettuare il push dei miglioramenti e le correzioni di bug più recenti verso i clienti ogni volta che aprono lo strumento, semplificandone la gestione e l'utilizzo.
+Microsoft Threat Modeling Tool 2018 è stato rilasciato a livello generale nel mese di settembre 2018 come un **[download](https://aka.ms/threatmodelingtool)** gratuito. Il cambiamento nel meccanismo di recapito consente di effettuare il push dei miglioramenti e le correzioni di bug più recenti verso i clienti ogni volta che aprono lo strumento, semplificandone la gestione e l'utilizzo.
 Questo articolo illustra il processo di introduzione all'approccio di modellazione Microsoft SDL e illustra come utilizzare lo strumento per sviluppare eccellenti modelli di rischio come base del processo di protezione.
 
 Questo articolo si basa sulle conoscenze esistenti dell'approccio di modellazione delle minacce SDL. Per una rapida panoramica, vedere **[Threat Modeling Web Applications](https://msdn.microsoft.com/library/ms978516.aspx)** (Modellazione delle minacce per le applicazioni Web) e la versione archiviata dell'articolo **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** (Scoprire le falle della sicurezza mediante l'approccio STRIDE) di MSDN pubblicato nel 2006.
@@ -67,14 +67,14 @@ In questa sezione si seguiranno:
 
 Essi stanno completando il processo di sviluppo del loro primo modello di minaccia.
 
-> Ricardo: Ciao Cristina, ho lavorato al diagramma del modello di minaccia e volevo assicurarmi che i dettagli siano a posto. Puoi darmi una mano a controllare?
+> Ricardo: Ricardo: Ciao Cristina, ho lavorato al diagramma del modello di minaccia e volevo assicurarmi che i dettagli siano a posto. Puoi darmi una mano a controllare?
 > Cristina: Certo. Vediamo.
 > Ricardo apre lo strumento e condivide la sua schermata con Cristina.
 
 ![Modello di minaccia di base](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: OK, sembra semplice, ma puoi spiegarmelo?
-> Ricardo: Certo! Ecco i dettagli:
+> Cristina: Cristina: OK, sembra semplice, ma puoi spiegarmelo?
+> Ricardo: Certamente. Ecco i dettagli:
 > - L'utente è disegnato come un'entità esterna: un quadrato
 > - Sta inviando comandi al nostro server Web: il cerchio
 > - Il server Web sta consultando un database (due linee parallele)
@@ -86,7 +86,7 @@ Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[di
 
 ## <a name="analyzing-threats"></a>Analisi delle minacce
 
-Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
+Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 
@@ -111,7 +111,7 @@ La descrizione gli ha permesso di capire l'importanza di aggiungere un meccanism
 Non appena Ricardo entra nelle minacce nella sezione di divulgazione delle informazioni, si accorge che il piano di controllo di accesso necessario richiede alcuni account di sola lettura per il controllo e la generazione di report. Si chiede se questa dovrebbe essere una nuova minaccia, ma le mitigazioni sono le stesse, perciò annota la minaccia di conseguenza.
 Pernsa ancora un po' alla divulgazione di informazioni e si accorge che i nastri di backup richiederanno la crittografia, un lavoro per il team addetto alle operazioni.
 
-Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie di sicurezza esistenti possono essere modificate in "Non applicabile" dall'elenco a discesa Stato. Ci sono tre altre opzioni: ovvero Non avviato, la selezione predefinita, Richiede analisi, che consente di seguire gli elementi, e Mitigato, per quando l'elaborazione è stata completata.
+Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie di sicurezza esistenti possono essere modificate in "Non applicabile" dall'elenco a discesa Stato. Ci sono tre altre opzioni: Non avviato, la selezione predefinita, Analisi necessaria, che consente di seguire gli elementi, e Mitigato, per quando l'elaborazione è stata completata.
 
 ## <a name="reports--sharing"></a>Report e condivisione
 
@@ -143,4 +143,4 @@ L'approccio alla modellazione delle minacce che è stato presentato è sostanzia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/tmtpreview)** Threat Modeling Tool per iniziare.
+Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/threatmodelingtool)** Threat Modeling Tool per iniziare.

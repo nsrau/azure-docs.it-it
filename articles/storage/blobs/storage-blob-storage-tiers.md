@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191667"
+ms.locfileid: "54197675"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Risorsa di archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
 ## <a name="overview"></a>Panoramica
 
-Archiviazione di Azure offre livelli di archiviazione diversi che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. I livelli disponibili includono:
+Archiviazione di Azure offre diversi livelli di archiviazione che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. I livelli disponibili includono:
 
 - **Archiviazione Premium (anteprima)** fornisce hardware con prestazioni elevate per i dati ad accesso frequente.
  
@@ -119,9 +119,9 @@ La gestione del ciclo di vita di Archiviazione BLOB (anteprima) offre criteri av
 
 ### <a name="blob-level-tiering-billing"></a>Fatturazione per l'organizzazione a livello di BLOB
 
-Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura nel livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Quando un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
+Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura nel livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Quando un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB). La tabella seguente riepiloga come vengono fatturati i vari livelli.
 
-| | **Addebito per scrittura** | **Addebito per lettura** 
+| | **Scrittura addebiti (operazione + accesso)** | **Lettura addebiti (operazione + accesso)** 
 | ---- | ----- | ----- |
 | **Direzione impostazione livello BLOB** | frequente -> sporadico, frequente -> archivio, sporadico -> archivio | archivio -> sporadico, archivio -> frequente, sporadico -> frequente
 
@@ -141,7 +141,7 @@ La tabella seguente illustra un confronto tra i livelli di archiviazione ad acce
 | ---- | ----- | ----- | ----- |
 | **Disponibilità** | 99,9% | 99% | N/D |
 | **Disponibilità** <br> **(letture RA-GRS)**| 99,99% | 99,9% | N/D |
-| **Costi di utilizzo** | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione più bassi e costi di accesso e transazione più alti |
+| **Costi di utilizzo** | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione minimi e costi di accesso e transazione più alti |
 | **Dimensioni minime oggetti** | N/D | N/D | N/D |
 | **Durata archiviazione minima** | N/D | 30 giorni (solo per utilizzo generico v2) | 180 giorni
 | **Latency** <br> **(tempo per il primo byte)** | millisecondi | millisecondi | Meno di 15 ore
@@ -237,7 +237,7 @@ Ogni BLOB viene sempre fatturato in base al livello indicato dalla proprietà **
 
 **Come si determina se verranno addebitati i costi per un'eliminazione anticipata quando si elimina o si sposta un BLOB al di fuori del livello ad accesso sporadico o archivio?**
 
-Per i BLOB eliminati o spostati al di fuori del livello ad accesso sporadico (solo in caso di account per utilizzo generico v2) o del livello archivio rispettivamente prima di 30 giorni e 180 giorni verrà addebitato un costo per eliminazione anticipata ripartito proporzionalmente. Per determinare per quanto tempo un BLOB è stato nel livello ad accesso sporadico o archivio, controllare la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso), che fornisce un indicatore dell'ultima modifica del livello. Per altre informazioni, vedere la sezione [Eliminazione anticipata per accesso sporadico o archivio](#cool-and-archive-early-deletion).
+Per i BLOB eliminati o spostati al di fuori del livello ad accesso sporadico (solo in caso di account per utilizzo generico v2) o del livello archivio rispettivamente prima di 30 giorni e 180 giorni verrà addebitato un costo per eliminazione anticipata ripartito proporzionalmente. Per determinare per quanto tempo un BLOB è stato nel livello ad accesso sporadico o archivio, controllare la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso), che fornisce un indicatore dell'ultima modifica del livello. Per altre informazioni, vedere [Eliminazione anticipata per accesso sporadico o archivio](#cool-and-archive-early-deletion).
 
 **Quali SDK e strumenti di Azure supportano la risorsa di archiviazione e l'organizzazione a livello di BLOB?**
 

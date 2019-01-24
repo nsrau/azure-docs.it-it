@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600812"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267216"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web PaaS per GDPR
 
@@ -179,7 +179,7 @@ Questa architettura include anche le soluzioni di monitoraggio seguenti:
 
 ## <a name="threat-model"></a>Modello di minaccia
 
-Il diagramma di flusso di dati per questa architettura di riferimento è disponibile per il [download](https://aka.ms/gdprPaaSdfd) o è riportato più avanti. Questo modello può aiutare i clienti a comprendere i punti di rischio potenziale nell'infrastruttura del sistema quando vengono apportate modifiche.
+Il diagramma di flusso di dati per questa architettura di riferimento è disponibile per il [download](https://aka.ms/gdprPaaSdfd) o è riportato più avanti. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema quando vengono apportate modifiche.
 
 ![Modello di minaccia dell'applicazione Web PaaS per GDPR](images/gdpr-paaswa-threat-model.png?raw=true "Modello di minaccia dell'applicazione Web PaaS per GDPR")
 

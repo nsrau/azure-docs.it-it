@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 01/09/2019
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 196435a8bd260c7f1679c06127610aeee29c0fe3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3f863d0d5d0a7ee30ff7cfdfd55f0b656d487ed0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843224"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242345"
 ---
-| App per dispositivi mobili e native | App Web e API Web | Integrare direttamente nei protocolli |
+| App per dispositivi mobili e native | App Web e applicazioni a pagina singola | API Web |
 | --- | --- | --- |
-| [Aggiungere la funzione di accesso a un'app iOS](../articles/active-directory/develop/tutorial-v2-ios.md) | [Aggiungere la funzione di accesso a un'applicazione a singola pagina (SPA, Single Page Application) JavaScript](../articles/active-directory/develop/tutorial-v2-javascript-spa.md) |[Registrare un'applicazione](../articles/active-directory/develop/quickstart-v2-register-an-app.md) |
-| [Aggiungere la funzione di accesso a un'app Android](../articles/active-directory/develop/tutorial-v2-android.md) | [Aggiungere l'applicazione di accesso a un'applicazione ASP.NET](../articles/active-directory/develop/tutorial-v2-asp-webapp.md) |[Applicazioni per dispositivi mobili con il protocollo OAuth 2.0](../articles/active-directory/develop/v2-oauth2-auth-code-flow.md) |
-| [Aggiungere la funzione di accesso a un'applicazione desktop di Windows](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  [Aggiungere la funzione di accesso a un'applicazione Web ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [Applicazioni Web con il protocollo OpenID Connect](../articles/active-directory/develop/v2-protocols-oidc.md) |
-| [Aggiungere la funzione di accesso a un'app Xamarin multipiattaforma](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| [Aggiungere la funzione di accesso a un'app Web Node.js](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) |[Applicazioni SPA JavaScript con il protocollo OpenID Connect](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) |
-|  | [Proteggere un'API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet) | [Applicazioni daemon con il flusso di credenziali client OAuth 2.0](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md) |
-|  | [Proteggere un'API Web ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) | |
+|<img width="40" role="presentation" alt="iOS" src="../articles/active-directory/develop/media/index/logo_ios.svg" data-linktype="relative-path" /><br/>[Accedere e acquisire un token da un'app iOS](../articles/active-directory/develop/quickstart-v2-ios.md) | <img width="40" role="presentation" alt="JavaScript" src="../articles/active-directory/develop/media/index/logo_js.svg"/><br/>[Accedere e acquisire un token da un'applicazione a pagina singola JavaScript](../articles/active-directory/develop/quickstart-v2-javascript.md) |<img width="40" role="presentation" alt="ASP.NET Web API" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/> [Proteggere un'API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)  |
+|<img width="40" role="presentation" alt="Android" src="../articles/active-directory/develop/media/index/logo_android.svg" /><br/>[Accedere e acquisire un token da un'app Android](../articles/active-directory/develop/quickstart-v2-android.md) | <img width="40" role="presentation" alt="ASP.NET" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/>[Aggiungere l'applicazione di accesso a un'applicazione ASP.NET](../articles/active-directory/develop/quickstart-v2-aspnet-webapp.md) |<img width="40" role="presentation" alt="ASP.NET Core Web API" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/>[Proteggere un'API Web ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) |
+|<img width="40" role="presentation" alt="Windows Desktop" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/>[Accedere e acquisire un token da un'app desktop di Windows](../articles/active-directory/develop/quickstart-v2-windows-desktop.md) | <img width="40" role="presentation" alt=".NET Core" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Aggiungere la funzione di accesso a un'applicazione Web ASP.NET Core](../articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md) | |
+|<img width="40" role="presentation" alt="Xamarin" src="../articles/active-directory/develop/media/index/logo_xamarin.svg" /><br/> [Aggiungere la funzione di accesso a un'app Xamarin multipiattaforma](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| <img width="40" role="presentation" alt="Node.js" src="../articles/active-directory/develop/media/index/logo_nodejs.svg" /><br/>[Aggiungere la funzione di accesso a un'app Web Node.js](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+|<img width="40" role="presentation" alt="Universal Windows Platform" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/> [Accedere e acquisire un token da un'app UWP](../articles/active-directory/develop/quickstart-v2-uwp.md)| | |
+|<img width="40" role="presentation" alt=".NET Core Daemon" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Acquisire un token da un'app .NET Core non interattiva](../articles/active-directory/develop/quickstart-v2-netcore-daemon.md)| | |

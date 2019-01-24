@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: c9a66036902f346a7a9fd337416cbe85acca7856
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200939"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855391"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -272,7 +272,7 @@ La funzione precedente viene richiamata su una HttpRequest e scrive più valori 
 
 ## <a name="metadata"></a>Metadata
 
-Alcuni trigger inviano [metadati dei trigger](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) insieme ai dati di input. È possibile usare l'annotazione `@BindingName` per stabilire un'associazione con i metadati dei trigger
+Alcuni trigger inviano [metadati dei trigger](/azure/azure-functions/functions-triggers-bindings) insieme ai dati di input. È possibile usare l'annotazione `@BindingName` per stabilire un'associazione con i metadati dei trigger
 
 
 ```Java

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211537"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329481"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -118,6 +118,12 @@ Azure AD prova ad assegnare a ogni utente tutte le licenze specificate nel grupp
 
 È possibile visualizzare gli utenti per i quali l'assegnazione non è riuscita e i relativi prodotti interessati.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Che cosa accade quando un gruppo a cui sono assegnate licenze viene eliminato?
+
+È necessario rimuovere tutte le licenze assegnate a un gruppo prima di poterlo eliminare. Tuttavia, la rimozione delle licenze da tutti gli utenti del gruppo può richiedere tempo. Quando si rimuovono le assegnazioni di licenza da un gruppo, possono verificarsi errori se a un utente è assegnata una licenza dipendente o se è presente un conflitto di indirizzi proxy che impedisce la rimozione delle licenze. Se un utente ha una licenza che dipende da una licenza che viene rimossa a causa dell'eliminazione del gruppo, l'assegnazione di licenza all'utente viene convertita da ereditata a diretta.
+
+Si consideri ad esempio un gruppo a cui è assegnata la licenza di Office 365 E3/E5 con un piano di servizio Skype for Business abilitato. Si supponga inoltre che ad alcuni membri del gruppo siano assegnate direttamente le licenze del servizio di audioconferenza. Quando il gruppo viene eliminato, la funzionalità di gestione delle licenze basate su gruppo proverà a rimuovere Office 365 E3/E5 da tutti gli utenti. Poiché il servizio di audioconferenza è dipendente da Skype for Business, per tutti gli utenti a cui è assegnato il servizio di audioconferenza, la funzionalità di gestione delle licenze basate su gruppo converte le licenze di Office 365 E3/E5 in assegnazioni di licenza dirette.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Come si gestiscono le licenze per prodotti con prerequisiti?
 
 Alcuni prodotti Microsoft Online sono *componenti aggiuntivi*. I componenti aggiuntivi richiedono un piano di servizio dei prerequisiti per essere abilitati per un utente o un gruppo, prima che sia possibile assegnarvi una licenza. Con le licenze basate su gruppo, il sistema prevede che i piani di servizio dei prerequisiti e dei componenti aggiuntivi si trovino nello stesso gruppo. Questa operazione viene eseguita per garantire che tutti gli utenti aggiunti al gruppo possano ricevere il prodotto completamente funzionante. Si consideri l'esempio seguente:
@@ -146,8 +152,6 @@ Da questo momento in poi gli utenti aggiunti a questo gruppo useranno una licenz
 
 > [!TIP]
 > È possibile creare più gruppi, per ogni piano di servizio dei prerequisiti. Ad esempio, se si usano Office 365 Enterprise E1 e Office 365 Enterprise E3 per gli utenti, è possibile creare due gruppi per la licenza di Microsoft Workplace Analytics; uno che usa E1 come prerequisito e l'altro che usa E3. Ciò consente di distribuire il componente aggiuntivo agli utenti di E1 ed E3 senza usare altre licenze.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Come forzare l'elaborazione delle licenze in un gruppo per risolvere gli errori
 

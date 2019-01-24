@@ -68,7 +68,6 @@
 ### [Disponibilità di SAP HANA tra aree di Azure](sap-hana-availability-across-regions.md)
 ## [SAP Business One nelle macchine virtuali di Azure](business-one-azure.md)
 ## [Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver nelle VM Linux di Azure](suse-quickstart.md)
 ## [Connettore SAP LaMa per Azure](lama-installation.md)
 ## Disponibilità elevata in Windows e Linux
 ### [Overview](sap-high-availability-guide-start.md)

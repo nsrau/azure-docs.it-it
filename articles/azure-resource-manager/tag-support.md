@@ -4,62 +4,100 @@ description: Informazioni sui tipi di risorse di Azure che supportano i tag. Inc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/02/2019
+ms.date: 1/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000292"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267454"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
-Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](resource-group-using-tags.md).
+Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
 
-## <a name="aad-domain-services"></a>AAD Domain Services
+## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| domains | No  | 
+| DomainServices | Yes | 
+| DomainServices/oucontainer | No  | 
 
-## <a name="ad-hybrid-health-service"></a>Servizio ibrido per l'integrità di AD
+## <a name="microsoftaadiam"></a>microsoft.aadiam
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| addsservices | No  |
+| diagnosticSettings | No  | 
+| diagnosticSettingsCategories | No  | 
+
+## <a name="microsoftaddons"></a>Microsoft.Addons
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| supportProviders | No  | 
+
+## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
 | aadsupportcases | No  | 
+| addsservices | No  | 
 | agents | No  | 
 | anonymousapiusers | No  | 
-| configurazione | No  | 
+| configuration | No  | 
 | logs | No  | 
 | reports | No  | 
 | services | No  | 
-| servicehealthmetrics | No  | 
 
-## <a name="aks"></a>Servizio contenitore di Azure
+## <a name="microsoftadvisor"></a>Microsoft.Advisor
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| managedClusters | Yes | 
+| configurations | No  | 
+| generateRecommendations | No  | 
+| recommendations | No  | 
+| suppressions | No  | 
 
-## <a name="analysis-services"></a>Analysis Services
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| actionRules | No  | 
+| alerts | No  | 
+| alertsList | No  | 
+| alertsSummary | No  | 
+| alertsSummaryList | No  | 
+| smartDetectorAlertRules | No  | 
+| smartDetectorRuntimeEnvironments | No  | 
+| smartGroups | No  | 
+
+## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | servers | Yes | 
 
-## <a name="api-hubs"></a>Hub API
+## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| apiManagementAccounts | No  | 
-| apiManagementAccounts/apis | No  | 
-| apiManagementAccounts/connectionAcls | No  | 
-| apiManagementAccounts/connectionProviders | No  | 
-| apiManagementAccounts/connectionProviderAcls | No  | 
-| apiManagementAccounts/connections | No  | 
-
-## <a name="api-management"></a>Gestione API
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
+| reportFeedback | No  | 
 | service | Yes | 
+| validateServiceName | No  | 
 
-## <a name="automation"></a>Automazione
+## <a name="microsoftattestation"></a>Microsoft.Attestation
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| attestationProviders | No  | 
+
+## <a name="microsoftauthorization"></a>Microsoft.Authorization
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| classicAdministrators | No  | 
+| denyAssignments | No  | 
+| elevateAccess | No  | 
+| locks | No  | 
+| permissions | No  | 
+| policyAssignments | No  | 
+| policyDefinitions | No  | 
+| policySetDefinitions | No  | 
+| providerOperations | No  | 
+| roleAssignments | No  | 
+| roleDefinitions | No  | 
+
+## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
@@ -69,103 +107,222 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | automationAccounts/softwareUpdateConfigurations | No  | 
 | automationAccounts/webhooks | No  | 
 
-## <a name="azure-database-for-mariadb"></a>Database di Azure per MariaDB
+## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
-| servers/configurations | No  |
-| servers/databases | No  |
-| servers/firewallRules | No  |
-| servers/recoverableServers | No  | 
-| servers/securityAlertPolicies | No  |
-| servers/virtualNetworkRules | No  | 
+| environments | No  | 
+| environments/accounts | No  | 
+| environments/accounts/namespaces | No  | 
+| environments/accounts/namespaces/configurations | No  | 
 
-## <a name="azure-database-for-mysql"></a>Database di Azure per MySQL
+## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
-| servers/configurations | No  |
-| servers/databases | No  |
-| servers/firewallRules | No  |
-| servers/recoverableServers | No  | 
-| servers/securityAlertPolicies | No  |
-| servers/virtualNetworkRules | No  | 
+| b2cDirectories | Yes | 
 
-## <a name="azure-database-for-postgresql"></a>Database di Azure per PostgreSQL
+## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
-| servers/advisors | No  | 
-| servers/configurations | No  |
-| servers/databases | No  |
-| servers/firewallRules | No  |
-| servers/queryTexts | No  | 
-| servers/recoverableServers | No  | 
-| servers/securityAlertPolicies | No  |
-| servers/topQueryStatistics | No  | 
-| servers/virtualNetworkRules | No  | 
-| servers/waitStatistics | No  | 
+| registrations | Yes | 
+| registrations/customerSubscriptions | No  | 
+| registrations/products | No  | 
 
-## <a name="batch"></a>Batch
+## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
-## <a name="bing-maps"></a>Bing Mappe
+## <a name="microsoftbilling"></a>Microsoft.Billing
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| billingAccounts | No  | 
+| billingAccounts/billingProfiles | No  | 
+| billingAccounts/billingProfiles/billingSubscriptions | No  | 
+| billingAccounts/billingProfiles/invoices | No  | 
+| billingAccounts/billingProfiles/invoices/pricesheet | No  | 
+| billingAccounts/billingProfiles/operationStatus | No  | 
+| billingAccounts/billingProfiles/paymentMethods | No  | 
+| billingAccounts/billingProfiles/policies | No  | 
+| billingAccounts/billingProfiles/pricesheet | No  | 
+| billingAccounts/billingProfiles/products | No  | 
+| billingAccounts/billingProfiles/transactions | No  | 
+| billingAccounts/billingSubscriptions | No  | 
+| billingAccounts/departments | No  | 
+| billingAccounts/eligibleOffers | No  | 
+| billingAccounts/enrollmentAccounts | No  | 
+| billingAccounts/invoices | No  | 
+| billingAccounts/invoiceSections | No  | 
+| billingAccounts/invoiceSections/billingSubscriptions | No  | 
+| billingAccounts/invoiceSections/billingSubscriptions/transfer | No  | 
+| billingAccounts/invoiceSections/importRequests | No  | 
+| billingAccounts/invoiceSections/initiateImportRequest | No  | 
+| billingAccounts/invoiceSections/initiateTransfer | No  | 
+| billingAccounts/invoiceSections/operationStatus | No  | 
+| billingAccounts/invoiceSections/products | No  | 
+| billingAccounts/invoiceSections/transfers | No  | 
+| billingAccounts/products | No  | 
+| billingAccounts/projects | No  | 
+| billingAccounts/projects/billingSubscriptions | No  | 
+| billingAccounts/projects/importRequests | No  | 
+| billingAccounts/projects/initiateImportRequest | No  | 
+| billingAccounts/projects/operationStatus | No  | 
+| billingAccounts/projects/products | No  | 
+| billingAccounts/transactions | No  | 
+| billingPeriods | No  | 
+| BillingPermissions | No  | 
+| billingProperty | No  | 
+| BillingRoleAssignments | No  | 
+| BillingRoleDefinitions | No  | 
+| CreateBillingRoleAssignment | No  | 
+| departments | No  | 
+| enrollmentAccounts | No  | 
+| importRequests | No  | 
+| importRequests/acceptImportRequest | No  | 
+| importRequests/declineImportRequest | No  | 
+| invoices | No  | 
+| transfers | No  | 
+| transfers/acceptTransfer | No  | 
+| transfers/declineTransfer | No  | 
+| transfers/operationStatus | No  | 
+| usagePlans | No  | 
+
+## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | mapApis | Yes | 
+| updateCommunicationPreference | No  | 
 
-## <a name="biztalk-services"></a>Servizi BizTalk
+## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | BizTalk | Yes | 
 
-## <a name="cache"></a>Cache
+## <a name="microsoftblueprint"></a>Microsoft.Blueprint
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| blueprintAssignments | No  | 
+| blueprintAssignments/assignmentOperations | No  | 
+| blueprintAssignments/operations | No  | 
+| blueprints | No  | 
+| blueprints/artifacts | No  | 
+| blueprints/versions | No  | 
+| blueprints/versions/artifacts | No  | 
+
+## <a name="microsoftbotservice"></a>Microsoft.BotService
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| botServices | Yes | 
+| botServices/channels | No  | 
+| botServices/connections | No  | 
+
+## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | Redis | Yes | 
+| RedisConfigDefinition | No  | 
 
-## <a name="cdn"></a>RETE CDN
+## <a name="microsoftcapacity"></a>Microsoft.Capacity
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| appliedReservations | No  | 
+| calculatePrice | No  | 
+| catalogs | No  | 
+| commercialReservationOrders | No  | 
+| reservationOrders | No  | 
+| reservationOrders/calculateRefund | No  | 
+| reservationOrders/merge | No  | 
+| reservationOrders/reservations | No  | 
+| reservationOrders/reservations/revisions | No  | 
+| reservationOrders/return | No  | 
+| reservationOrders/split | No  | 
+| reservationOrders/swap | No  | 
+| reservations | No  | 
+| resources | No  | 
+| validateReservationOrder | No  | 
+
+## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | edgenodes | No  | 
-| Profili | Yes | 
+| profiles | Yes | 
 | profiles/endpoints | Yes | 
 | profiles/endpoints/customdomains | No  | 
 | profiles/endpoints/origins | No  | 
 | validateProbe | No  | 
 
-## <a name="classic-compute"></a>Calcolo classico
+## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| certificateOrders | Yes | 
+| certificateOrders/certificates | No  | 
+| validateCertificateRegistrationInformation | No  | 
+
+## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| capabilities | No  | 
 | domainNames | No  | 
+| domainNames/capabilities | No  | 
+| domainNames/internalLoadBalancers | No  | 
+| domainNames/serviceCertificates | No  | 
 | domainNames/slots | No  | 
 | domainNames/slots/roles | No  | 
+| moveSubscriptionResources | No  | 
+| operatingSystemFamilies | No  | 
+| operatingSystems | No  | 
+| quotas | No  | 
+| resourceTypes | No  | 
+| validateSubscriptionMoveAvailability | No  | 
 | virtualMachines | No  | 
 | virtualMachines/diagnosticSettings | No  | 
-| virtualMachines/metricDefinitions | No  | 
-| virtualMachines/metrics | No  | 
 
-## <a name="classic-infrastructure-migrate"></a>Migrazione dell'infrastruttura classica
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | classicInfrastructureResources | No  | 
 
-## <a name="classic-network"></a>Rete classica
+## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| capabilities | No  | 
+| expressRouteCrossConnections | No  | 
+| expressRouteCrossConnections/peerings | No  | 
+| gatewaySupportedDevices | No  | 
+| networkSecurityGroups | No  | 
+| quotas | No  | 
+| reservedIps | No  | 
 | virtualNetworks | No  | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | No  | 
 | virtualNetworks/virtualNetworkPeerings | No  | 
 
-## <a name="classic-storage"></a>Archiviazione classica
+## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| capabilities | No  | 
+| disks | No  | 
+| images | No  | 
+| osImages | No  | 
+| osPlatformImages | No  | 
+| publicImages | No  | 
+| quotas | No  | 
+| storageAccounts | No  | 
 | storageAccounts/services | No  | 
 | storageAccounts/services/diagnosticSettings | No  | 
+| storageAccounts/vmImages | No  | 
+| vmImages | No  | 
 
-## <a name="compute"></a>Calcolo
+## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+
+## <a name="microsoftcommerce"></a>Microsoft.Commerce
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| RateCard | No  | 
+| UsageAggregates | No  | 
+
+## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
@@ -179,7 +336,6 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | virtualMachines | Yes | 
 | virtualMachines/diagnosticSettings | No  | 
 | virtualMachines/extensions | Yes | 
-| virtualMachines/metricDefinitions | No  | 
 | virtualMachineScaleSets | Yes | 
 | virtualMachineScaleSets/extensions | No  | 
 | virtualMachineScaleSets/networkInterfaces | No  | 
@@ -187,119 +343,234 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | virtualMachineScaleSets/virtualMachines | No  | 
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | No  | 
 
-## <a name="container"></a>Contenitore
+## <a name="microsoftconsumption"></a>Microsoft.Consumption
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| containerGroups | Yes | 
+| AggregatedCost | No  | 
+| Balances | No  | 
+| Budget | No  | 
+| Charges | No  | 
+| CostTags | No  | 
+| credits | No  | 
+| events | No  | 
+| Forecasts | No  | 
+| lots | No  | 
+| Marketplaces | No  | 
+| Pricesheets | No  | 
+| products | No  | 
+| ReservationDetails | No  | 
+| ReservationRecommendations | No  | 
+| ReservationSummaries | No  | 
+| ReservationTransactions | No  | 
+| Tags | No  | 
+| Terms | No  | 
+| UsageDetails | No  | 
 
-## <a name="container-instance"></a>Istanza di contenitore
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | containerGroups | Yes | 
 | serviceAssociationLinks | No  | 
 
-## <a name="container-registry"></a>Registro di sistema del contenitore
+## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | registries | Yes | 
-| registries/replications | Yes |
-| registries/tasks | Yes |
-| registries/webhooks | Yes |
+| registries/builds | No  | 
+| registries/builds/cancel | No  | 
+| registries/builds/getLogLink | No  | 
+| registries/buildTasks | Yes | 
+| registries/buildTasks/steps | No  | 
+| registries/eventGridFilters | No  | 
+| registries/getBuildSourceUploadUrl | No  | 
+| registries/GetCredentials | No  | 
+| registries/importImage | No  | 
+| registries/queueBuild | No  | 
+| registries/regenerateCredential | No  | 
+| registries/regenerateCredentials | No  | 
+| registries/replications | Yes | 
+| registries/runs | No  | 
+| registries/runs/cancel | No  | 
+| registries/scheduleRun | No  | 
+| registries/tasks | Yes | 
+| registries/updatePolicies | No  | 
+| registries/webhooks | Yes | 
+| registries/webhooks/getCallbackConfig | No  | 
+| registries/webhooks/ping | No  | 
 
-## <a name="container-service"></a>Servizio contenitore
+## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | containerServices | Yes | 
+| managedClusters | Yes | 
 
-## <a name="cortana-analytics"></a>Cortana Analytics
+## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| applications | Yes | 
+| updateCommunicationPreference | No  | 
 
-## <a name="cosmos-db"></a>Cosmos DB
+## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| databaseAccounts | Yes | 
-| databaseAccountNames | No  | 
+| accounts | Yes | 
 
-## <a name="cost-management"></a>Gestione costi
+## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Connettori | Yes | 
+| Alerts | No  | 
+| BillingAccounts | No  | 
+| Connectors | Yes | 
+| Departments | No  | 
+| Dimensions | No  | 
+| EnrollmentAccounts | No  | 
+| Query | No  | 
+| register | No  | 
+| Reportconfigs | No  | 
+| Reports | No  | 
 
-## <a name="data-box"></a>Data Box
+## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| hubs | Yes | 
+| hubs/authorizationPolicies | No  | 
+| hubs/connectors | No  | 
+| hubs/connectors/mappings | No  | 
+| hubs/interactions | No  | 
+| hubs/kpi | No  | 
+| hubs/links | No  | 
+| hubs/profiles | No  | 
+| hubs/roleAssignments | No  | 
+| hubs/roles | No  | 
+| hubs/suggestTypeSchema | No  | 
+| hubs/views | No  | 
+| hubs/widgetTypes | No  | 
+
+## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | jobs | Yes | 
 
-## <a name="data-box-edge"></a>Data Box Edge
+## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Yes | 
 
-## <a name="data-catalog"></a>Data Catalog
+## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| workspaces | Yes | 
+| workspaces/virtualNetworkPeerings | No  | 
+
+## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | catalogs | Yes | 
 
-## <a name="data-connect"></a>Connessione dati
+## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | connectionManagers | Yes | 
 
-## <a name="data-factory"></a>Data Factory
+## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | dataFactories | Yes | 
 | dataFactories/diagnosticSettings | No  | 
-| dataFactories/metricDefinitions | No  | 
 | dataFactorySchema | No  | 
 | factories | Yes | 
 | factories/integrationRuntimes | No  | 
 
-## <a name="devices"></a>Dispositivi
+## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Hub IoT | Yes | 
+| accounts | Yes | 
+| accounts/dataLakeStoreAccounts | No  | 
+| accounts/storageAccounts | No  | 
+| accounts/storageAccounts/containers | No  | 
+
+## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+| accounts/eventGridFilters | No  | 
+| accounts/firewallRules | No  | 
+
+## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| services | Yes | 
+| services/projects | Yes | 
+
+## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/recoverableServers | No  | 
+| servers/virtualNetworkRules | No  | 
+
+## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/recoverableServers | No  | 
+| servers/virtualNetworkRules | No  | 
+
+## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/advisors | No  | 
+| servers/queryTexts | No  | 
+| servers/recoverableServers | No  | 
+| servers/topQueryStatistics | No  | 
+| servers/virtualNetworkRules | No  | 
+| servers/waitStatistics | No  | 
+
+## <a name="microsoftdevices"></a>Microsoft.Devices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| IotHubs | Yes | 
 | IotHubs/eventGridFilters | No  | 
 | ProvisioningServices | Yes | 
+| usages | No  | 
 
-## <a name="devspaces"></a>Devspaces
+## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | controllers | Yes | 
 
-## <a name="devtest-lab"></a>Devtest Lab
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | labs | Yes | 
-| labs/artifactsources | Yes |
-| labs/costs | Yes |
-| labs/customimages | Yes |
-| labs/formulas | Yes |
-| labs/notificationchannels | Yes |
-| labs/policysets/policies | Yes |
-| labs/schedules | Yes |
 | labs/serviceRunners | Yes | 
-| labs/users | Yes |
-| labs/users/disks | Yes |
-| labs/users/environments | Yes |
-| labs/users/secrets | Yes |
-| labs/users/servicefabrics | Yes |
-| labs/users/servicefabrics/schedules | Yes |
 | labs/virtualMachines | Yes | 
-| labs/virtualmachines/schedules | Yes |
-| labs/virtualnetworks | Yes |
 | schedules | Yes | 
 
-## <a name="dynamics-lcs"></a>Dynamics LCS
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| databaseAccountNames | No  | 
+| databaseAccounts | Yes | 
+
+## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| domains | Yes | 
+| domains/domainOwnershipIdentifiers | No  | 
+| generateSsoRequest | No  | 
+| topLevelDomains | No  | 
+| validateDomainRegistrationInformation | No  | 
+
+## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | lcsprojects | No  | 
-| lcsprojects/connectors | No  | 
 | lcsprojects/clouddeployments | No  | 
+| lcsprojects/connectors | No  | 
 
-## <a name="event-grid"></a>Griglia di eventi
+## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | domains | Yes | 
@@ -309,98 +580,236 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | topics | Yes | 
 | topicTypes | No  | 
 
-## <a name="event-hub"></a>Hub eventi
+## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | clusters | Yes | 
-| spazi dei nomi | Yes | 
-| namespaces/AuthorizationRules | No  |
-| namespaces/disasterRecoveryConfigs | No  |
-| namespaces/eventhubs | No  |
-| namespaces/eventhubs/authorizationRules | No  |
-| namespaces/eventhubs/consumergroups | No  |
+| namespaces | Yes | 
+| namespaces/authorizationrules | No  | 
+| namespaces/disasterrecoveryconfigs | No  | 
+| namespaces/eventhubs | No  | 
+| namespaces/eventhubs/authorizationrules | No  | 
+| namespaces/eventhubs/consumergroups | No  | 
 
-## <a name="hana-on-azure"></a>HANA in Azure
+## <a name="microsoftfeatures"></a>Microsoft.Features
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| features | No  | 
+| providers | No  | 
+
+## <a name="microsoftgallery"></a>Microsoft.Gallery
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| enroll | No  | 
+| galleryitems | No  | 
+| generateartifactaccessuri | No  | 
+| myareas | No  | 
+| myareas/areas | No  | 
+| myareas/areas/areas | No  | 
+| myareas/areas/areas/galleryitems | No  | 
+| myareas/areas/galleryitems | No  | 
+| myareas/galleryitems | No  | 
+| register | No  | 
+| resources | No  | 
+| retrieveresourcesbyid | No  | 
+
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| guestConfigurationAssignments | No  | 
+| software | No  | 
+
+## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | hanaInstances | Yes | 
 
-## <a name="hdinsight"></a>HDInsight
+## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | clusters | Yes | 
 | clusters/applications | No  | 
 
-## <a name="import-export"></a>Importazione/esportazione
+## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | jobs | Yes | 
 
-## <a name="insights"></a>Informazioni dettagliate
+## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| actionGroups | Yes |
-| activityLogAlerts | Yes |
-| alertrules | Yes |
+| labelGroups | No  | 
+| labelGroups/labels | No  | 
+| labelGroups/labels/conditions | No  | 
+| labelGroups/labels/subLabels | No  | 
+| labelGroups/labels/subLabels/conditions | No  | 
+
+## <a name="microsoftinsights"></a>microsoft.insights
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| actiongroups | Yes | 
+| activityLogAlerts | Yes | 
+| alertrules | Yes | 
 | automatedExportSettings | No  | 
+| autoscalesettings | Yes | 
+| baseline | No  | 
+| calculatebaseline | No  | 
 | components | Yes | 
 | components/events | No  | 
-| components/metrics | No  | 
 | components/pricingPlans | No  | 
 | components/query | No  | 
+| diagnosticSettings | No  | 
+| diagnosticSettingsCategories | No  | 
+| eventCategories | No  | 
+| eventtypes | No  | 
+| extendedDiagnosticSettings | No  | 
+| logDefinitions | No  | 
+| logprofiles | No  | 
 | logs | No  | 
-| metricAlerts | Yes |
 | migrateToNewPricingModel | No  | 
 | myWorkbooks | No  | 
-| query | No  | 
+| queries | No  | 
 | rollbackToLegacyPricingModel | No  | 
 | scheduledqueryrules | Yes | 
+| vmInsightsOnboardingStatuses | No  | 
 | webtests | Yes | 
 | workbooks | Yes | 
 
-## <a name="key-vault"></a>Key Vault
+## <a name="microsoftintune"></a>Microsoft.Intune
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| diagnosticSettings | No  | 
+| diagnosticSettingsCategories | No  | 
+
+## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| IoTApps | Yes | 
+
+## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| Graph | Yes | 
+
+## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | deletedVaults | No  | 
-| insiemi di credenziali | Yes | 
+| vaults | Yes | 
 | vaults/accessPolicies | No  | 
 | vaults/secrets | No  | 
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| clusters | Yes | 
+| clusters/databases | No  | 
+| clusters/databases/dataconnections | No  | 
+| clusters/databases/eventhubconnections | No  | 
+
+## <a name="microsoftlabservices"></a>Microsoft.LabServices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| labaccounts | Yes | 
+| users | No  | 
+
+## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+
+## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+
+## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | logs | No  | 
 
-## <a name="logic"></a>Logica
+## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | integrationAccounts | Yes | 
-| flussi di lavoro | Yes | 
+| workflows | Yes | 
 
-## <a name="machine-learning-services"></a>Machine Learning Services
+## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| aree di lavoro | Yes | 
+| commitmentPlans | Yes | 
+| webServices | Yes | 
+| Workspaces | Yes | 
+
+## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+| accounts/workspaces | Yes | 
+| accounts/workspaces/projects | Yes | 
+| teamAccounts | Yes | 
+| teamAccounts/workspaces | Yes | 
+| teamAccounts/workspaces/projects | Yes | 
+
+## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+
+## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| workspaces | Yes | 
 | workspaces/computes | No  | 
 
-## <a name="managed-identity"></a>Identità gestita
+## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | Identities | No  | 
 | userAssignedIdentities | Yes | 
 
-## <a name="marketplace-apps"></a>App del marketplace
+## <a name="microsoftmanagement"></a>Microsoft.Management
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| getEntities | No  | 
+| managementGroups | No  | 
+| resources | No  | 
+| startTenantBackfill | No  | 
+| tenantBackfillStatus | No  | 
+
+## <a name="microsoftmaps"></a>Microsoft.Maps
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+| accounts/eventGridFilters | No  | 
+
+## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| offers | No  | 
+| offerTypes | No  | 
+| offerTypes/publishers | No  | 
+| offerTypes/publishers/offers | No  | 
+| offerTypes/publishers/offers/plans | No  | 
+| offerTypes/publishers/offers/plans/agreements | No  | 
+| offerTypes/publishers/offers/plans/configs | No  | 
+| offerTypes/publishers/offers/plans/configs/importImage | No  | 
+| privategalleryitems | No  | 
+| products | No  | 
+
+## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | classicDevServices | Yes | 
+| updateCommunicationPreference | No  | 
 
-## <a name="marketplace-ordering"></a>Ordini marketplace
+## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | agreements | No  | 
 | offertypes | No  | 
 
-## <a name="media"></a>Contenuti multimediali
+## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | mediaservices | Yes | 
@@ -413,27 +822,53 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | mediaservices/liveEvents | Yes | 
 | mediaservices/liveEvents/liveOutputs | No  | 
 | mediaservices/liveOutputOperations | No  | 
-| mediaservices/streamingEndpoints | Yes | 
 | mediaservices/streamingEndpointOperations | No  | 
+| mediaservices/streamingEndpoints | Yes | 
 | mediaservices/streamingLocators | No  | 
 | mediaservices/streamingPolicies | No  | 
 | mediaservices/transforms | No  | 
 | mediaservices/transforms/jobs | No  | 
 
-## <a name="network"></a>Rete
+## <a name="microsoftmigrate"></a>Microsoft.Migrate
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| projects | Yes | 
+
+## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | applicationGateways | Yes | 
 | applicationSecurityGroups | Yes | 
+| azureFirewallFqdnTags | No  | 
 | azureFirewalls | Yes | 
+| bgpServiceCommunities | No  | 
 | connections | Yes | 
+| ddosCustomPolicies | Yes | 
 | ddosProtectionPlans | Yes | 
+| dnsOperationStatuses | No  | 
+| dnszones | Yes | 
+| dnszones/A | No  | 
+| dnszones/AAAA | No  | 
+| dnszones/all | No  | 
+| dnszones/CAA | No  | 
+| dnszones/CNAME | No  | 
+| dnszones/MX | No  | 
+| dnszones/NS | No  | 
+| dnszones/PTR | No  | 
+| dnszones/recordsets | No  | 
+| dnszones/SOA | No  | 
+| dnszones/SRV | No  | 
+| dnszones/TXT | No  | 
 | expressRouteCircuits | Yes | 
+| expressRouteServiceProviders | No  | 
 | frontdoors | Yes | 
 | frontdoorWebApplicationFirewallPolicies | Yes | 
+| getDnsResourceReference | No  | 
 | interfaceEndpoints | Yes | 
+| internalNotify | No  | 
 | loadBalancers | Yes | 
 | localNetworkGateways | Yes | 
+| natGateways | Yes | 
 | networkIntentPolicies | Yes | 
 | networkInterfaces | Yes | 
 | networkProfiles | Yes | 
@@ -448,184 +883,248 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | routeFilters | Yes | 
 | routeTables | Yes | 
 | serviceEndpointPolicies | Yes | 
+| trafficManagerGeographicHierarchies | No  | 
+| trafficmanagerprofiles | Yes | 
+| trafficmanagerprofiles/heatMaps | No  | 
 | virtualHubs | Yes | 
-| virtualNetworks | Yes | 
 | virtualNetworkGateways | Yes | 
+| virtualNetworks | Yes | 
 | virtualNetworkTaps | Yes | 
 | virtualWans | Yes | 
 | vpnGateways | Yes | 
 | vpnSites | Yes | 
 | webApplicationFirewallPolicies | Yes | 
 
-## <a name="notification-hubs"></a>Hub di notifica
+## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
+| namespaces | Yes | 
 | namespaces/notificationHubs | Yes | 
 
-## <a name="operational-insights"></a>Operational Insights
+## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| aree di lavoro | Yes |
-| workspaces/dataSources | Yes |
-| workspaces/linkedServices | Yes |
-| workspaces/savedSearches | No  |
-| workspaces/storageInsightConfigs | Yes |
+| devices | No  | 
+| linkTargets | No  | 
+| storageInsightConfigs | No  | 
+| workspaces | Yes | 
+| workspaces/dataSources | No  | 
+| workspaces/linkedServices | No  | 
+| workspaces/query | No  | 
 
-## <a name="operations-management"></a>Operations Management
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| solutions | No  |
+| managementassociations | No  | 
+| managementconfigurations | Yes | 
+| solutions | Yes | 
+| views | Yes | 
 
-## <a name="portal"></a>Portale
+## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| policyEvents | No  | 
+| policyStates | No  | 
+| policyTrackedResources | No  | 
+| remediations | No  | 
+
+## <a name="microsoftportal"></a>Microsoft.Portal
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| consoles | No  | 
 | dashboards | Yes | 
+| userSettings | No  | 
 
-## <a name="portal-sdk"></a>SDK portale
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
-| rootResources | Yes | 
-
-## <a name="power-bi"></a>Power BI
+## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | workspaceCollections | Yes | 
 
-## <a name="recovery-services"></a>Servizi di ripristino
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| capacities | Yes | 
+
+## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| accounts | Yes | 
+
+## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | backupProtectedItems | No  | 
-| insiemi di credenziali | Yes | 
+| vaults | Yes | 
 
-## <a name="relay"></a>Relay
+## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
+| namespaces | Yes | 
+| namespaces/authorizationrules | No  | 
+| namespaces/hybridconnections | No  | 
+| namespaces/hybridconnections/authorizationrules | No  | 
+| namespaces/wcfrelays | No  | 
+| namespaces/wcfrelays/authorizationrules | No  | 
 
-## <a name="resources"></a>Risorse
+## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| resourceGroups | Yes | 
-| subscriptions/resourceGroups | Yes | 
+| resources | No  | 
+| subscriptionsStatus | No  | 
 
-## <a name="scheduler"></a>Utilità di pianificazione
+## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| jobcollections | Yes | 
+| availabilityStatuses | No  | 
+| childAvailabilityStatuses | No  | 
+| childResources | No  | 
+| events | No  | 
+| impactedResources | No  | 
+| notifications | No  | 
+
+## <a name="microsoftresources"></a>Microsoft.Resources
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| deployments | No  | 
+| deployments/operations | No  | 
+| links | No  | 
+| notifyResourceJobs | No  | 
+| providers | No  | 
+| resourceGroups | No  | 
+| resources | No  | 
+| subscriptions | No  | 
+| subscriptions/providers | No  | 
+| subscriptions/resourceGroups | No  | 
+| subscriptions/resourcegroups/resources | No  | 
+| subscriptions/resources | No  | 
+| subscriptions/tagnames | No  | 
+| subscriptions/tagNames/tagValues | No  | 
+| tenants | No  | 
+
+## <a name="microsoftsaas"></a>Microsoft.SaaS
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| applications | Yes | 
+| saasresources | No  | 
+
+## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
 | flows | Yes | 
+| jobcollections | Yes | 
 
-## <a name="search"></a>Ricerca
+## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | resourceHealthMetadata | No  | 
 | searchServices | Yes | 
 
-## <a name="security"></a>Sicurezza
+## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| advancedThreatProtectionSettings | No  | 
+| alerts | No  | 
+| allowedConnections | No  | 
+| appliances | No  | 
+| applicationWhitelistings | No  | 
+| AutoProvisioningSettings | No  | 
+| Compliances | No  | 
 | dataCollectionAgents | No  | 
+| discoveredSecuritySolutions | No  | 
+| externalSecuritySolutions | No  | 
+| InformationProtectionPolicies | No  | 
+| jitNetworkAccessPolicies | No  | 
+| monitoring | No  | 
+| monitoring/antimalware | No  | 
+| monitoring/baseline | No  | 
+| monitoring/patch | No  | 
+| policies | No  | 
+| pricings | No  | 
+| securityContacts | No  | 
+| securitySolutions | No  | 
+| securitySolutionsReferenceData | No  | 
+| securityStatus | No  | 
+| securityStatus/endpoints | No  | 
+| securityStatus/subnets | No  | 
+| securityStatus/virtualMachines | No  | 
+| securityStatuses | No  | 
+| securityStatusesSummaries | No  | 
+| settings | No  | 
+| tasks | No  | 
+| topologies | No  | 
+| workspaceSettings | No  | 
 
-## <a name="service-bus"></a>Bus di servizio
+## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
-| namespaces/eventgridfilters | No  | 
+| diagnosticSettings | No  | 
+| diagnosticSettingsCategories | No  | 
 
-## <a name="service-fabric"></a>Service Fabric
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| namespaces | Yes | 
+| namespaces/authorizationrules | No  | 
+| namespaces/disasterrecoveryconfigs | No  | 
+| namespaces/eventgridfilters | No  | 
+| namespaces/queues | No  | 
+| namespaces/queues/authorizationrules | No  | 
+| namespaces/topics | No  | 
+| namespaces/topics/authorizationrules | No  | 
+| namespaces/topics/subscriptions | No  | 
+| namespaces/topics/subscriptions/rules | No  | 
+| premiumMessagingRegions | No  | 
+
+## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | clusters | Yes | 
 | clusters/applications | No  | 
 
-## <a name="service-fabric-mesh"></a>Service Fabric Mesh
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| scala Web | Yes | 
+| applications | Yes | 
+| gateways | Yes | 
 | networks | Yes | 
+| secrets | Yes | 
 | volumes | Yes | 
 
-## <a name="signalr-service"></a>Servizio SignalR
+## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | SignalR | Yes | 
 
-## <a name="site-recovery"></a>Site Recovery
+## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| SiteRecoveryVault | Yes | 
-
-## <a name="solutions"></a>Soluzioni
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
-| scala Web | Yes | 
+| applianceDefinitions | Yes | 
+| appliances | Yes | 
 | applicationDefinitions | Yes | 
+| applications | Yes | 
 | jitRequests | Yes | 
 
-## <a name="sql"></a>SQL
+## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| locations/instanceFailoverGroups | No  |
-| managedInstances | Yes |
-| managedInstances/databases | Yes |
-| managedInstances/databases/backupShortTermRetentionPolicies | No  |
-| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No  |
-| managedInstances/databases/vulnerabilityAssessments | No  |
-| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No  |
-| managedInstances/encryptionProtector | No  |
-| managedInstances/keys | No  |
-| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No  |
-| managedInstances/vulnerabilityAssessments | No  |
-| servers | Yes |
-| servers/administrators | No  |
-| servers/advisors | No  |
-| servers/auditingSettings | No  |
-| servers/backupLongTermRetentionVaults | No  |
-| servers/communicationLinks | No  |
-| servers/connectionPolicies | No  |
-| servers/databases | Yes |
-| servers/databases/advisors | No  |
-| servers/databases/auditingSettings | No  |
-| servers/databases/backupLongTermRetentionPolicies | No  |
-| servers/databases/backupShortTermRetentionPolicies | No  |
-| servers/databases/connectionPolicies | No  |
-| servers/databases/dataMaskingPolicies | No  |
-| servers/databases/dataMaskingPolicies/rules | No  |
-| servers/databases/extendedAuditingSettings | No  |
-| servers/databases/extensions | No  |
-| servers/databases/geoBackupPolicies | No  |
-| servers/databases/schemas/tables/columns/sensitivityLabels | No  |
-| servers/databases/securityAlertPolicies | No  |
-| servers/databases/syncGroups | No  |
-| servers/databases/syncGroups/syncMembers | No  |
-| servers/databases/transparentDataEncryption | No  |
-| servers/databases/vulnerabilityAssessments | No  |
-| servers/databases/vulnerabilityAssessments/rules/baselines | No  |
-| servers/disasterRecoveryConfiguration | No  |
-| servers/dnsAliases | No  |
-| servers/elasticPools | Yes |
-| servers/encryptionProtector | No  |
-| servers/extendedAuditingSettings | No  |
-| servers/failoverGroups | Yes |
-| servers/firewallRules | No  |
-| servers/jobAgents | Yes |
-| servers/jobAgents/credentials | No  |
-| servers/jobAgents/jobs | No  |
-| servers/jobAgents/jobs/executions | No  |
-| servers/jobAgents/jobs/steps | No  |
-| servers/jobAgents/targetGroups | No  |
-| servers/keys | No  |
-| servers/securityAlertPolicies | No  |
-| servers/syncAgents | No  |
-| servers/virtualNetworkRules | No  |
-| servers/vulnerabilityAssessments | No  |
+| servers | Yes | 
+| servers/administrators | No  | 
+| servers/communicationLinks | No  | 
+| servers/databases | Yes | 
+| servers/encryptionProtector | No  | 
+| servers/keys | No  | 
+| servers/restorableDroppedDatabases | No  | 
+| servers/serviceobjectives | No  | 
+| servers/tdeCertificates | No  | 
 
-## <a name="sql-virtual-machine"></a>Macchina virtuale SQL
+## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| DWVM | Yes | 
+| SqlVirtualMachineGroups | Yes | 
+| SqlVirtualMachineGroups/AvailabilityGroupListeners | No  | 
+| SqlVirtualMachines | Yes | 
 
-## <a name="storage"></a>Archiviazione
+## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | storageAccounts | Yes | 
@@ -633,10 +1132,10 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | storageAccounts/fileServices | No  | 
 | storageAccounts/queueServices | No  | 
 | storageAccounts/services | No  | 
-| storageAccounts/services/metricDefinitions | No  | 
 | storageAccounts/tableServices | No  | 
+| usages | No  | 
 
-## <a name="storage-sync"></a>Sincronizzazione archiviazione
+## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | storageSyncServices | Yes | 
@@ -646,37 +1145,51 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | storageSyncServices/syncGroups/serverEndpoints | No  | 
 | storageSyncServices/workflows | No  | 
 
-## <a name="storsimple"></a>Storsimple
+## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | managers | Yes | 
 
-## <a name="stream-analytics"></a>Analisi di flusso
+## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | streamingjobs | Yes | 
 | streamingjobs/diagnosticSettings | No  | 
-| streamingjobs/metricDefinitions | No  | 
 
-## <a name="subscription"></a>Sottoscrizione
+## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| CreateSubscription | No  | 
 | SubscriptionDefinitions | No  | 
 | SubscriptionOperations | No  | 
 
-## <a name="support"></a>Supporto
+## <a name="microsoftsupport"></a>microsoft.support
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | supporttickets | No  | 
 
-## <a name="visual-studio"></a>Visual Studio
+## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| providerRegistrations | Yes | 
+| resources | Yes | 
+
+## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| environments | Yes | 
+| environments/accessPolicies | No  | 
+| environments/eventsources | Yes | 
+| environments/referenceDataSets | Yes | 
+
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | account | Yes | 
 | account/extension | Yes | 
 | account/project | Yes | 
 
-## <a name="web"></a>Web
+## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | apiManagementAccounts | No  | 
@@ -697,32 +1210,52 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | deletedSites | No  | 
 | functions | No  | 
 | hostingEnvironments | Yes | 
-| hostingEnvironments/metrics | No  | 
 | hostingEnvironments/multiRolePools | No  | 
+| hostingEnvironments/multiRolePools/instances | No  | 
 | hostingEnvironments/workerPools | No  | 
+| hostingEnvironments/workerPools/instances | No  | 
 | publishingUsers | No  | 
+| recommendations | No  | 
+| resourceHealthMetadata | No  | 
+| runtimes | No  | 
 | serverFarms | Yes | 
 | serverFarms/workers | No  | 
-| siti | Yes | 
+| sites | Yes | 
 | sites/domainOwnershipIdentifiers | No  | 
 | sites/hostNameBindings | No  | 
 | sites/instances | No  | 
 | sites/instances/extensions | No  | 
-| sites/metrics | No  | 
 | sites/premieraddons | Yes | 
+| sites/recommendations | No  | 
+| sites/resourceHealthMetadata | No  | 
 | sites/slots | Yes | 
 | sites/slots/hostNameBindings | No  | 
 | sites/slots/instances | No  | 
 | sites/slots/instances/extensions | No  | 
-| sites/slots/metrics | No  | 
 | sourceControls | No  | 
 | validate | No  | 
 | verifyHostingEnvironmentVnet | No  | 
 
-## <a name="xrm"></a>XRM
+## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| organizations | No  | 
+| diagnosticSettings | No  | 
+| diagnosticSettingsCategories | No  | 
+
+## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| DeviceServices | Yes | 
+
+## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| components | No  | 
+| componentsSummary | No  | 
+| monitorInstances | No  | 
+| monitorInstancesSummary | No  | 
+| monitors | No  | 
+| notificationSettings | No  | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come applicare tag alle risorse, vedere [Usare tag per organizzare le risorse di Azure](resource-group-using-tags.md).

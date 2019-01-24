@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016028"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247827"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -99,7 +99,13 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 ## <a name="add-or-remove-an-address-range"></a>Aggiungere o rimuovere un intervallo di indirizzi
 
-È possibile aggiungere e rimuovere intervalli di indirizzi per una rete virtuale. L'intervallo di indirizzi deve essere specificato con la notazione CIDR e non può sovrapporsi ad altri intervalli di indirizzi all'interno della stessa rete virtuale. Gli intervalli di indirizzi definiti possono essere pubblici o privati (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
+È possibile aggiungere e rimuovere intervalli di indirizzi per una rete virtuale. L'intervallo di indirizzi deve essere specificato con la notazione CIDR e non può sovrapporsi ad altri intervalli di indirizzi all'interno della stessa rete virtuale. Gli intervalli di indirizzi definiti possono essere pubblici o privati (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. 
+
+È possibile ridurre l'intervallo di indirizzi per una rete virtuale se non si dispone di subnet associate. In caso contrario, è possibile solo estendere l'intervallo di indirizzi, ad esempio, modificando un /16 in /8. Si potrebbe iniziare con un intervallo di indirizzi di piccole dimensioni e quindi estenderlo in un secondo momento o aggiungere intervalli aggiuntivi.
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+Non è possibile aggiungere gli intervalli di indirizzi seguenti:
 
 - 224.0.0.0/4 (multicast)
 - 255.255.255.255/32 (broadcast)

@@ -1,21 +1,21 @@
 ---
 title: Creare revisioni di video usando .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Come creare revisioni di video usando Content Moderator SDK per .NET
+description: Questo articolo include informazioni ed esempi di codice per iniziare in poco tempo a usare Content Moderator SDK con C# per creare revisioni di video.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219041"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262512"
 ---
 # <a name="create-video-reviews-using-net"></a>Creare revisioni di video usando .NET
 
@@ -35,8 +35,7 @@ Questo articolo presuppone anche che si abbia già familiarità con Visual Studi
 
 ## <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator
 
-Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione.
-Vedere la [guida introduttiva](quick-start.md) per informazioni su come ottenere la chiave.
+Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione a Content Moderator e ottenere la chiave.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Effettuare l'iscrizione per un account dello strumento di revisione se non è stata effettuata nel passaggio precedente
 
@@ -548,7 +547,7 @@ Al termine del processo, è possibile visualizzare la revisione del video con l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per questa e altre guide introduttive Content Moderator per .NET, ottenere [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+Per questa e altre guide introduttive Content Moderator per .NET, recuperare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
 
 Altre informazioni su come aggiungere una [moderazione di una trascrizione](video-transcript-moderation-review-tutorial-dotnet.md) alla revisione del video. 
 

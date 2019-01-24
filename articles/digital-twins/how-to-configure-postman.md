@@ -6,27 +6,30 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: adgera
-ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117520"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259275"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
 Questo articolo illustra come configurare il client REST di Postman per testare e interagire con le API di gestione di Gemelli digitali di Azure. In particolare, illustra le operazioni seguenti:
 
 * Come configurare un'applicazione di Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0.
-* Come configurare il client REST di Postman per inviare richieste HTTP di token alle API di gestione.
+* Come usare il client REST di Postman per inviare richieste HTTP di token alle API di gestione.
+* Come usare Postman per inviare richieste POST multipart alle API di gestione.
 
 ## <a name="postman-summary"></a>Riepilogo di Postman
 
 Iniziare a usare Gemelli digitali di Azure tramite uno strumento client REST, ad esempio [Postman](https://www.getpostman.com/), per preparare l'ambiente di test locale. Il client Postman consente di creare rapidamente richieste HTTP complesse. Scaricare la versione desktop del client Postman accedendo a [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) è uno strumento di test REST che inserisce le principali funzionalità di richiesta HTTP in un'utile GUI desktop e basata su plug-in. Tramite il client Postman gli sviluppatori di soluzioni possono specificare il tipo di richiesta HTTP (*POST*, *GET*, *UPDATE*, *PATCH* e *DELETE*), l'endpoint dell'API da chiamare e l'uso di SSL. Postman supporta anche l'aggiunta di intestazioni della richiesta HTTP, parametri, dati del modulo e corpi.
+[Postman](https://www.getpostman.com/) è uno strumento di test REST che inserisce le principali funzionalità di richiesta HTTP in un'utile GUI desktop e basata su plug-in. 
+
+Tramite il client Postman gli sviluppatori di soluzioni possono specificare il tipo di richiesta HTTP (*POST*, *GET*, *UPDATE*, *PATCH* e *DELETE*), l'endpoint dell'API da chiamare e l'uso di SSL. Postman supporta anche l'aggiunta di intestazioni della richiesta HTTP, parametri, dati del modulo e corpi.
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurare Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0
 
@@ -46,13 +49,13 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
       ![URL di risposta di Azure Active Directory][2]
 
-1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato di seguito.
+1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 
-### <a name="configure-the-postman-client"></a>Configurare il client Postman
+## <a name="obtain-an-oauth-20-token"></a>Ottenere un token OAuth 2.0
 
 Successivamente installare e configurare Postman per ottenere un token di Azure Active Directory. In seguito, eseguire una richiesta HTTP autenticata a Gemelli digitali usando il token acquisito:
 
-1. Passare a [www.getpostman.com]([https://www.getpostman.com/) per scaricare l'app.
+1. Passare a [www.getpostman.com](https://www.getpostman.com/) per scaricare l'app.
 1. Verificare che l'**URL di autorizzazione** sia corretto. Deve essere nel formato seguente:
 
     ```plaintext
@@ -69,33 +72,58 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
     |---------|---------|
     | Grant Type (Tipo di concessione) | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 precedente |
+    | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 |
     | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
     | Scope | Lasciare vuoto |
     | Stato | Lasciare vuoto |
     | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
 
-1. Il client ora dovrebbe essere simile al seguente:
+1. Il client ora dovrebbe essere visualizzato come:
 
    ![Esempio di client Postman][3]
 
 1. Selezionare **Request Token** (Richiedi token).
 
-    >[!NOTE]
+    >[!TIP]
     >Se viene visualizzato un messaggio di errore che indica che non è stato possibile completare il processo di OAuth 2, provare a eseguire queste operazioni:
     > * Chiudere Postman, riaprirlo e riprovare.
   
 1. Scorrere verso il basso e selezionare **Use Token** (Usa token).
 
+<div id="multi"></div>
+
+## <a name="make-a-multipart-post-request"></a>Effettuare una richiesta POST multipart
+
+Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una richiesta POST multipart HTTP autenticata:
+
+1. Nella scheda **Intestazione** aggiungere una chiave dell'intestazione della richiesta HTTP **Content-Type** con valore `multipart/mixed`.
+
+   ![Tipo di contenuto multipart/misto][4]
+
+1. Serializzare i dati non di testo nel file. I dati JSON verranno salvati come un file JSON.
+1. Nella scheda **Corpo** aggiungere ogni file assegnando un nome **chiave**, selezionando `file` o `text`.
+1. Quindi, selezionare ogni file tramite il pulsante **Scegliere un file**.
+
+   ![Esempio di client Postman][5]
+
+   >[!NOTE]
+   > * Il client di Postman non richiede che ai blocchi multipart sia assegnata manualmente un'informazione **Content-Type** oppure **Content-Disposition**.
+   > * Non è necessario specificare tali intestazioni per ogni parte.
+   > * Selezionare `multipart/mixed` o un altro **Content-Type** appropriato per l'intera richiesta.
+
+1. Infine, fare clic su **Invia** per inviare la richiesta POST HTTP multipart.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sulle API di gestione di Gemelli digitali e su come usarle, consultare [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md)(Come usare le API di gestione di Gemelli digitali di Azure).
 
-- Per informazioni sull'autenticazione con le API di gestione, vedere [Eseguire l'autenticazione con le API](./security-authenticating-apis.md). 
+- Usare richieste multipart per [aggiungere BLOB alle entità Gemelli digitali di Azure](./how-to-add-blobs.md).
 
-
+- Per informazioni sull'autenticazione con le API di gestione, vedere [Eseguire l'autenticazione con le API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png
 [2]: media/how-to-configure-postman/reply-url.png
 [3]: media/how-to-configure-postman/postman-oauth-token.png
+[4]: media/how-to-configure-postman/content-type.png
+[5]: media/how-to-configure-postman/form-body.png

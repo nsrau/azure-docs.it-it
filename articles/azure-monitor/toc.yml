@@ -263,7 +263,7 @@ items:
       - name: App Azure
         items:
         - name: Servizio app di Azure
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Servizi cloud di Azure
           href: app/cloudservices.md
         - name: Aggiungere il monitoraggio continuo
@@ -662,6 +662,8 @@ items:
         href: log-query/query-language.md
       - name: Differenze di lingua
         href: log-query/data-explorer-difference.md
+      - name: Eseguire la transizione dalla ricerca log
+        href: log-query/log-search-transition.md
       - name: Attività iniziali
         items:
         - name: Introduzione al portale di Analytics
@@ -702,6 +704,8 @@ items:
         items:
         - name: Esempi
           href: log-query/examples.md
+        - name: Scrivere query efficaci
+          href: log-query/log-query-performance.md
         - name: Funzioni di analisi avanzate
           href: log-query/smart-analytics.md
         - name: Ricerche in più risorse
@@ -738,7 +742,7 @@ items:
           href: platform/alerts-metric.md
         - name: Creare, visualizzare e gestire avvisi delle metriche della versione classica in Monitoraggio di Azure
           href: platform/alerts-classic-portal.md
-        - name: Avvisi con soglie dinamiche
+        - name: Avvisi delle metriche con soglie dinamiche
           href: platform/alerts-dynamic-thresholds.md
         - name: Configurare avvisi delle metriche per i log
           href: platform/alerts-metric-logs.md
@@ -904,7 +908,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Application Insights
     items:
@@ -1017,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448687"

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082952"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263408"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Azure DevOps
 È possibile usare l'estensione *Azure DevTest Labs Tasks*, installata in Azure DevOps, per integrare facilmente la pipeline di compilazione e versione di integrazione continua/distribuzione continua con Azure DevTest Labs. L'estensione installa tre attività: 
 * Creare una macchina virtuale
-* Creare un'immagine personalizzata da una VM
+* Creare un'immagine personalizzata da una macchina virtuale
 * Eliminare una macchina virtuale 
 
 Il processo, ad esempio, semplifica la distribuzione rapida di una "immagine finale" per un'attività di test specifica e quindi la sua eliminazione al termine del test.

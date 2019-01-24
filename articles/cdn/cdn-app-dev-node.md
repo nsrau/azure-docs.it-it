@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301566"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321246"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ function cdnDelete() {
 Ora è possibile eseguire il programma Node.js con un debugger a scelta o alla console.
 
 > [!TIP]
-> Se si usa Visual Studio Code come debugger, è necessario configurare l'ambiente per passare i parametri della riga di comando.  Visual Studio Code esegue questa operazione nel file **launch.json** .  Cercare una proprietà denominata **args** e aggiungere una matrice di valori stringa per i parametri, in modo che abbia un aspetto analogo al seguente: `"args": ["list", "profiles"]`.
+> Se si usa Visual Studio Code come debugger, è necessario configurare l'ambiente per passare i parametri della riga di comando.  Visual Studio Code esegue questa operazione nel file **launch.json**.  Cercare una proprietà denominata **args** e aggiungere una matrice di valori stringa per i parametri, in modo che abbia un aspetto analogo al seguente: `"args": ["list", "profiles"]`.
 > 
 > 
 

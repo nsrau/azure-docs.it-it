@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 11/30/2017
-ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 01/12/2019
+ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106074"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473708"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 

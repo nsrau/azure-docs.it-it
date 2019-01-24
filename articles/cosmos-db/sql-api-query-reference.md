@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044383"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354468"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Riferimento al linguaggio SQL in Azure Cosmos DB 
 
@@ -2332,7 +2332,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Sintassi**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Argomenti**  
@@ -2343,7 +2343,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     È qualsiasi espressione numerica valida.  
+     È qualsiasi espressione numerica valida per indicare il carattere iniziale e finale.    
   
  **Tipi restituiti**  
   
@@ -2544,7 +2544,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Restituisce un valore booleano che indica se la matrice contiene il valore specificato. Può specificare se la corrispondenza è completa o parziale. 
+Restituisce un valore booleano che indica se la matrice contiene il valore specificato. È possibile cercare una corrispondenza parziale o completa di un oggetto usando un'espressione booleana all'interno del comando. 
 
  **Sintassi**  
   
@@ -2564,7 +2564,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     È un'espressione booleana.       
+     È un'espressione booleana. Se è impostata su "true" e se il valore di ricerca specificato è un oggetto, il comando cerca una corrispondenza parziale (l'oggetto di ricerca è un sottoinsieme di uno degli oggetti). Se è impostata su "false", il comando cerca una corrispondenza completa di tutti gli oggetti all'interno dell’array. Se non è specificato, il valore predefinito è false. 
   
  **Tipi restituiti**  
   

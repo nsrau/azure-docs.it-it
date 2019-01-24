@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192057"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259683"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -35,6 +35,14 @@ Installare l'agente di macchine virtuali in modalità offline negli scenari segu
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Come installare l'agente di macchine virtuali in modalità offline
 
 Usare la procedura seguente per installare l'agente di macchine virtuali in modalità offline.
+
+> [!NOTE]
+> È possibile automatizzare il processo di installazione dell'agente di macchine virtuali in modalità offline.
+> A questo scopo, usare gli [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md) (script di ripristino della macchina virtuale di Azure). Se si sceglie di usare gli script di ripristino della macchina virtuale di Azure, è possibile seguire la procedura seguente:
+> 1. Ignorare il passaggio 1 usando gli script per collegare il disco del sistema operativo della VM interessata a una macchina virtuale di ripristino.
+> 2. Seguire i passaggi da 2 a 10 per applicare le mitigazioni.
+> 3. Ignorare il passaggio 11 usando gli script per ricreare la macchina virtuale.
+> 4. Seguire il passaggio 12.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Passaggio 1: Collegare il disco del sistema operativo della macchina virtuale a un'altra macchina virtuale come disco dati
 

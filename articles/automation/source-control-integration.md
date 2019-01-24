@@ -3,18 +3,18 @@ title: Integrazione del controllo del codice sorgente in Automazione di Azure
 description: Questo articolo descrive l'integrazione del controllo del codice sorgente con GitHub in Automazione di Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342239"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430195"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -59,6 +59,9 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
 
 ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Assicurarsi di essere connessi con l'account corretto durante la configurazione di controllo del codice sorgente. Se c'è qualche dubbio, aprire una nuova scheda nel browser e disconnettersi da visualstudio.com o github.com e provare di nuovo a connettersi al controllo del codice sorgente.
 
 ## <a name="syncing"></a>Sincronizzazione
 
@@ -141,3 +144,4 @@ Selezionare il controllo del codice sorgente da rimuovere. Nella pagina **Riepil
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
+

@@ -1,29 +1,22 @@
 ---
-title: Panoramica di BGP con i gateway VPN di Azure | Microsoft Docs
+title: Panoramica di BGP e gateway VPN di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica di BGP con i gateway VPN di Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720051"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306523"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Panoramica di BGP con i gateway VPN di Azure
-Questo articolo fornisce una panoramica di BGP (Border Gateway Protocol) nei gateway VPN di Azure.
+# <a name="about-bgp-with-azure-vpn-gateway"></a>Informazioni su BGP con i gateway VPN di Azure
+Questo articolo fornisce una panoramica del supporto BGP (Border Gateway Protocol) nei gateway VPN di Azure.
 
 BGP è il protocollo di routing standard comunemente usato in Internet per lo scambio di informazioni di routing e raggiungibilità tra due o più reti. Quando viene usato nel contesto di reti virtuali di Azure, BGP consente ai gateway VPN di Azure e ai dispositivi VPN locali, detti peer BGP o router adiacenti, lo scambio di "route" che indicano a entrambi i gateway la disponibilità e la raggiungibilità di tali prefissi per il passaggio attraverso i gateway o i router coinvolti. BGP può anche abilitare il routing di transito tra più reti propagando a tutti gli altri peer BGP le route che un gateway BGP apprende da un peer BGP. 
 
@@ -55,5 +48,5 @@ Il diagramma seguente illustra un esempio di una topologia multihop con più per
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra reti virtuali, vedere [Introduzione a BGP nei gateway VPN di Azure](vpn-gateway-bgp-resource-manager-ps.md) .
+Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra reti virtuali, vedere [Introduzione a BGP nei gateway VPN di Azure](vpn-gateway-bgp-resource-manager-ps.md).
 

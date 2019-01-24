@@ -3,21 +3,21 @@ title: Aree di disponibilità e residenza dei dati in Azure Active Directory B2C
 description: Un argomento sui tipi di tenant di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7c0348dad507b118af542c1bbc47f6ceb88ae7be
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6e7e687ba1b1d67dd43b8f47a8efcb8136c65ab5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849941"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Aree di disponibilità e residenza dei dati
 Le aree di disponibilità e la residenza dei dati sono due concetti molto diversi che si applicano in modo diverso ad Azure AD B2C rispetto al resto di Azure. In questo articolo vengono illustrate le differenze tra i due concetti e viene confrontato il modo in cui tali concetti vengono applicati ad Azure e ad Azure AD B2C.
 
 ## <a name="summary"></a>Summary

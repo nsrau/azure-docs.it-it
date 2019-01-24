@@ -3,19 +3,19 @@ title: 'RelyingParty: Azure Active Directory B2C | Microsoft Docs'
 description: Specificare l'elemento RelyingParty di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8ec9e5a50f2350a17d5845f5c52954df10fa1d10
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835098"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856826"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -104,7 +104,7 @@ L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Identificatore del percorso utente nei criteri. Per altre informazioni, vedere [Percorsi utente](userjourneys.md) |
+| ReferenceId | Yes | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 

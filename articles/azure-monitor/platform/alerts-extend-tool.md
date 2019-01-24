@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: alerts
+ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120994"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423276"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estendere avvisi da Log Analytics ad Avvisi di Azure
 La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi di Azure. Nel quadro della transizione, gli avvisi originariamente configurati in Log Analytics verranno estesi in Azure. Se non si desidera attendere che gli avvisi vengano spostati automaticamente in Azure, è possibile avviare il processo:
@@ -481,3 +481,4 @@ Di seguito viene elencata la procedura di correzione per ogni errore:
 
 * Altre informazioni sulla nuova [esperienza degli avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
 * Informazioni sugli [avvisi del log in Avvisi di Azure](alerts-unified-log.md)
+

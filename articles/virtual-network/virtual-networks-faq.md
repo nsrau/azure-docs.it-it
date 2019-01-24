@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021034"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412870"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -52,7 +52,12 @@ Per creare o configurare una rete virtuale, è possibile usare gli strumenti seg
 * Un file di configurazione di rete (netcfg - solo per reti virtuali classiche). Vedere l'articolo [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quali intervalli di indirizzi è possibile usare nelle reti virtuali?
-Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](http://tools.ietf.org/html/rfc1918). Ad esempio, 10.0.0.0/16.
+Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](http://tools.ietf.org/html/rfc1918). Ad esempio, 10.0.0.0/16. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
+* 224.0.0.0/4 (multicast)
+* 255.255.255.255/32 (broadcast)
+* 127.0.0.0/8 (loopback)
+* 169.254.0.0/16 (locale rispetto al collegamento)
+* 168.63.129.16/32 (DNS interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>È possibile avere indirizzi IP pubblici nelle reti virtuali?
 Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere [Create a virtual network](manage-virtual-network.md#create-a-virtual-network) (Creare una rete virtuale). Gli indirizzi IP pubblici non sono accessibili direttamente da Internet.
@@ -67,22 +72,22 @@ Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l'
 La subnet più piccola supportata è /29 e la più grande è /8 (in base alle definizioni di subnet CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>È possibile trasferire le reti VLAN in Azure usando reti virtuali?
- No. Le reti virtuali sono sovrapposizioni di livello 3. Azure non supporta alcuna semantica di livello 2.
+No. Le reti virtuali sono sovrapposizioni di livello 3. Azure non supporta alcuna semantica di livello 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>È possibile specificare criteri di routing personalizzati nelle reti virtuali e nelle subnet?
 Sì. È possibile creare una tabella di route e associarla a una subnet. Per altre informazioni sul routing in Azure, vedere [Panoramica sul routing](virtual-networks-udr-overview.md#custom-routes).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>Le reti virtuali supportano la distribuzione multicast o broadcast?
- No. La distribuzione multicast o broadcast non è supportata.
+No. La distribuzione multicast o broadcast non è supportata.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quali protocolli è possibile usare all'interno delle reti virtuali?
 All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. Unicast è supportato all'interno delle reti virtuali, fatta eccezione per Dynamic Host Configuration Protocol (DHCP) tramite Unicast (porta di origine UDP/68/porta di destinazione UDP/67). I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>È possibile eseguire il ping dei router predefiniti all'interno di una rete virtuale?
- No.
+No.
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>È possibile usare tracert per diagnosticare la connettività?
- No.
+No.
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>È possibile aggiungere subnet dopo la creazione della rete virtuale?
 Sì. Le subnet possono essere aggiunte alle reti virtuali in qualsiasi momento purché l'intervallo di indirizzi della subnet non faccia parte di un'altra subnet e vi sia sufficiente spazio disponibile nell'intervallo di indirizzi della rete virtuale.
@@ -97,10 +102,10 @@ Sì. È possibile aggiungere, rimuovere e modificare i blocchi CIDR utilizzati d
 Sì. Tutti i servizi distribuiti all'interno di una rete virtuale possono effettuare la connessione in uscita a Internet. Per altre informazioni sulle connessioni Internet in uscita in Azure, vedere [Connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se si vuole effettuare la connessione in ingresso a una risorsa distribuita tramite Resource Manager, la risorsa deve avere un indirizzo IP pubblico assegnato. Per altre informazioni sugli indirizzi IP pubblici, vedere [Indirizzi IP pubblici](virtual-network-public-ip-address.md). A ciascun servizio cloud di Azure distribuito in Azure viene assegnato un indirizzo VIP indirizzabile pubblicamente. Per abilitare tali servizi in modo che accettino le connessioni da Internet, è necessario definire gli endpoint di input per i ruoli PaaS e gli endpoint per le macchine virtuali.
 
 ### <a name="do-vnets-support-ipv6"></a>Le reti virtuali supportano IPv6?
- No. Al momento non è possibile usare IPv6 con le reti virtuali. È tuttavia possibile assegnare indirizzi IPv6 ai servizi di bilanciamento del carico di Azure per effettuare il bilanciamento del carico delle macchine virtuali. Per dettagli, vedere [Panoramica di IPv6 per Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+No. Al momento non è possibile usare IPv6 con le reti virtuali. È tuttavia possibile assegnare indirizzi IPv6 ai servizi di bilanciamento del carico di Azure per effettuare il bilanciamento del carico delle macchine virtuali. Per dettagli, vedere [Panoramica di IPv6 per Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="can-a-vnet-span-regions"></a>Una rete virtuale può estendersi a più aree?
- No. Una rete virtuale è limitata a una singola area. Tuttavia, una rete virtuale si estende su zone di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile connettere reti virtuali in diverse aree con il peering di rete virtuale. Per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
+No. Una rete virtuale è limitata a una singola area. Tuttavia, una rete virtuale si estende su zone di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile connettere reti virtuali in diverse aree con il peering di rete virtuale. Per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>È possibile connettere una rete virtuale a un'altra rete virtuale in Azure?
 Sì. È possibile connettere una rete virtuale a un'altra usando:
@@ -130,7 +135,7 @@ Esiste una limitazione ai primi 100 servizi cloud nella rete virtuale per la ris
 Sì. È possibile impostare i server DNS in base alla macchina virtuale o al servizio cloud per ignorare le impostazioni di rete predefinite. Tuttavia, è consigliabile usare quanto più possibile DNS a livello di rete.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>È possibile trasferire il suffisso DNS personalizzato?
- No. Non è possibile specificare un suffisso DNS personalizzato per le reti virtuali.
+No. Non è possibile specificare un suffisso DNS personalizzato per le reti virtuali.
 
 ## <a name="connecting-virtual-machines"></a>Connessione di macchine virtuali
 
@@ -146,7 +151,7 @@ Sì. Tutte le scheda di interfaccia di rete collegate a una macchina virtuale di
 * **Pubblico**: assegnato facoltativamente alle schede di interfaccia di rete collegate alle macchine virtuali distribuite con il modello di distribuzione Azure Resource Manager. L'indirizzo può essere assegnato con il metodo di allocazione statica o dinamica. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica esistono all'interno di un servizio cloud, a cui viene assegnato un indirizzo IP virtuale (VIP) pubblico *dinamico*. Facoltativamente, è possibile assegnare un indirizzo IP pubblico *statico*, detto [indirizzo IP riservato](virtual-networks-reserved-public-ip.md), come indirizzo VIP. Gli indirizzi IP pubblici possono essere assegnati a singole macchine virtuali o istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica. Questi sono detti [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) e possono essere assegnati in modo dinamico.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>È possibile riservare un indirizzo IP privato per una macchina virtuale che verrà creata in un secondo momento?
- No. Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, viene assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che la macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile tuttavia cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
+No. Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, viene assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che la macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile tuttavia cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Gli indirizzi IP privati vengono modificati per le macchine virtuali in una rete virtuale?
 Dipende. Se la macchina virtuale è stata distribuita tramite Resource Manager, non vengono modificati, indipendentemente dal fatto che l'indirizzo IP sia stato assegnato con il metodo di allocazione statica o dinamica. Se la macchina virtuale è stata distribuita tramite il modello di distribuzione classica, gli indirizzi IP possono essere modificati quando una macchina virtuale viene avviata dopo essere stata arrestata (deallocata). L'indirizzo viene rilasciato da una macchina virtuale distribuita tramite uno dei modelli di distribuzione quando la macchina virtuale viene eliminata.
@@ -161,7 +166,7 @@ Niente. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano 
 Sì. Per altre informazioni, vedere l'articolo [Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet](virtual-networks-move-vm-role-to-subnet.md).
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>È possibile configurare un indirizzo MAC statico per la macchina virtuale?
- No. Un indirizzo MAC non può essere configurato in modo statico.
+No. Un indirizzo MAC non può essere configurato in modo statico.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>L'indirizzo MAC rimarrà invariato per la macchina virtuale dopo averla creata?
 Sì, l'indirizzo MAC rimane invariato sia che la macchina virtuale venga distribuita con il modello di distribuzione classica o Resource Manager, finché non viene eliminata. In precedenza se la macchina virtuale veniva arrestata, ovvero deallocata, l'indirizzo MAC veniva rilasciato. Ora viene mantenuto anche quando la macchina virtuale è in stato deallocato.
@@ -192,9 +197,9 @@ Sì. Per informazioni dettagliate, vedere [Integrazione della rete virtuale per 
 Per le risorse distribuite tramite alcuni servizi PaaS di Azure (come Archiviazione di Azure e il database SQL di Azure), è possibile limitare l'accesso alla rete solo alle risorse in una rete virtuale tramite l'uso di endpoint del servizio Rete virtuale. Per informazioni dettagliate, vedere [Panoramica degli endpoint del servizio Rete virtuale](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
- No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Per spostare una risorsa in un'altra rete virtuale, è necessario eliminarla e ridistribuirla.
+No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Per spostare una risorsa in un'altra rete virtuale, è necessario eliminarla e ridistribuirla.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="what-is-the-security-model-for-vnets"></a>Che cos'è il modello di sicurezza per le reti virtuali?
 Le reti virtuali sono isolate l'una dall'altra e gli altri servizi sono ospitati nell'infrastruttura di Azure. Una rete virtuale è un limite di attendibilità.
@@ -240,22 +245,22 @@ Se la connessione di peering di reti virtuali è in stato Disconnesso, significa
 Sì. È possibile eseguire il peering di reti virtuali tra sottoscrizioni e aree.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>È possibile eseguire il peering di due reti virtuali con gli intervalli di indirizzi sovrapposti o corrispondenti?
- No. Gli spazi indirizzi non devono sovrapporsi per consentire il peering reti virtuali.
+No. Gli spazi indirizzi non devono sovrapporsi per consentire il peering reti virtuali.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Quanto costa eseguire il peering di più collegamenti di reti virtuali?
 Non sono previsti addebiti per la creazione di una connessione peering di reti virtuali. Viene addebitato il trasferimento dei dati tra connessioni peering. [Vedere qui](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Il traffico peering di rete virtuale è crittografato?
- No. Il traffico tra le risorse in reti virtuali con peering è privato e isolato. Il messaggio rimane completamente nel Backbone di Microsoft.
+No. Il traffico tra le risorse in reti virtuali con peering è privato e isolato. Il messaggio rimane completamente nel Backbone di Microsoft.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Perché la connessione peering risulta disconnessa?
 Le connessioni peering di rete virtuale passano allo stato *Disconnesso* quando viene eliminato un collegamento di peering della rete virtuale. È necessario eliminare entrambi i collegamenti per ristabilire una connessione peering.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Se si esegue il peering di rete virtuale A a rete virtuale B e il peering di rete virtuale B a rete virtuale C, significa che è stato eseguito il peering delle reti virtuali A e C?
- No. Il peering transitivo non è supportato. Si dovrà eseguire il peering delle reti virtuali A e C affinché questo si verifichi.
+No. Il peering transitivo non è supportato. Si dovrà eseguire il peering delle reti virtuali A e C affinché questo si verifichi.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Sono presenti limitazioni relative alla larghezza di banda per le connessioni peering?
- No. La rete virtuale di peering, sia locale che globale, non impone restrizioni relative alla larghezza di banda. La larghezza di banda è limitata solo dalla macchina virtuale o dalla risorsa di calcolo.
+No. La rete virtuale di peering, sia locale che globale, non impone restrizioni relative alla larghezza di banda. La larghezza di banda è limitata solo dalla macchina virtuale o dalla risorsa di calcolo.
 
 ## <a name="virtual-network-tap"></a>TAP di rete virtuale
 

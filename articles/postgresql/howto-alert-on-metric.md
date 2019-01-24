@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/11/2019
+ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540725"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243968"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per PostgreSQL 
 
@@ -25,48 +25,54 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 * Chiamare un webhook.
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Interfaccia della riga di comando (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portale di Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare il server di Database di Azure per PostgreSQL da monitorare.
 
-2. Nella sezione **Monitoraggio** della barra laterale selezionare **Regole di avviso**, come illustrato:
+2. Nella sezione **Monitoraggio** della barra laterale selezionare **Avvisi** come illustrato di seguito:
 
-   ![Selezionare le regole di avviso](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Selezionare le regole di avviso](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Selezionare **Aggiungi avviso per la metrica** (icona +). 
+3. Selezionare **Aggiungi avviso per la metrica** (icona +).
 
-4. Verrà aperta la pagina **Aggiungi regola**, come illustrato di seguito.  Specificare le informazioni necessarie:
+4. Verrà aperta la pagina **Crea regola** come illustrato di seguito. Specificare le informazioni necessarie:
 
-   ![Form Aggiungi avviso per la metrica](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Form Aggiungi avviso per la metrica](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Impostazione | DESCRIZIONE  |
-   |---------|---------|
-   | NOME | Specificare un nome per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
-   | DESCRIZIONE | Fornire una breve descrizione per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
-   | Avviso per | Per questo tipo di avviso, scegliere **Metriche**. |
-   | Sottoscrizione | Questo campo viene pre-popolato con la sottoscrizione che ospita Database di Azure per PostgreSQL. |
-   | Gruppo di risorse | Questo campo viene pre-popolato con il gruppo di risorse di Database di Azure per PostgreSQL. |
-   | Risorsa | Questo campo viene pre-popolato con il nome dell'istanza di Database di Azure per PostgreSQL. |
-   | Metrica | Selezionare la metrica per la quale si vuole generare un avviso. Ad esempio, **Percentuale di archiviazione**. |
-   | Condizione | Scegliere la condizione per il confronto con la metrica. Ad esempio, **Maggiore di**. |
-   | Soglia | Valore di soglia per la metrica, ad esempio 85 (valore percentuale). |
-   | Periodo | Periodo di tempo per il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, **Negli ultimi 30 minuti**. |
+5. Nella sezione **Condizione** selezionare **Aggiungi condizione**.
 
-   In base all'esempio, l'avviso cerca i casi in cui la percentuale di archiviazione è superiore all'85% in un periodo di 30 minuti. L'avviso viene attivato quando la percentuale media di archiviazione rimane al di sopra dell'85% per 30 minuti. Dopo la prima attivazione, l'avviso viene attivato di nuovo quando la percentuale media di archiviazione rimane al di sotto dell'85% per più di 30 minuti.
+6. Selezionare una metrica dall'elenco dei segnali per i quali ricevere un avviso. In questo esempio selezionare "Storage percent".
+   
+   ![Selezionare una metrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Scegliere il metodo di notifica per la regola di avviso. 
+7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Negli ultimi 30 minuti") e **Frequenza**.
+   
+   Al termine, selezionare **Chiudi**.
 
-   Selezionare l'opzione **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** se si vuole che gli amministratori e i coamministratori della sottoscrizione ricevano un messaggio di posta elettronica quando si attiva l'avviso.
+   ![Selezionare una metrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare gli indirizzi di posta elettronica con punti e virgola: *email@contoso.com;email2@contoso.com*
+8. Nella sezione **Gruppi di azioni** selezionare **Crea nuovo** per creare un nuovo gruppo di azioni per ricevere le notifiche relative all'avviso.
 
+9. Compilare il modulo "Aggiungi gruppo di azioni" specificando nome, nome breve, sottoscrizione e gruppo di risorse.
+
+10. Configurare un tipo di azione **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
+    
+   Scegliere "Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
+   
    Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
 
-6. Fare clic su **OK** per creare l'avviso.
+   Al termine, fare clic su **OK**.
+
+   ![Gruppo di azioni](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
+
+   ![Gruppo di azioni](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Selezionare **Crea regola di avviso** per creare l'avviso.
 
    Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714751"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448943"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -49,9 +49,9 @@ Per altre informazioni sulle funzionalità dell'anteprima pubblica del gateway a
 
 Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Kubernetes di Azure (AKS) 
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes 
 
-Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster AKS e consente al gateway applicazione di fungere da ingresso per un cluster AKS. 
+Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster servizio Azure Kubernetes e consente al gateway applicazione di fungere da ingresso per un cluster servizio Azure Kubernetes. 
 
 Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controller di ingresso del gateway applicazione di Azure).
 
@@ -78,7 +78,7 @@ Ad esempio, per le richieste `http://contoso.com/video/*` viene eseguito il roun
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
 
-L'hosting di più siti consente di configurare più siti Web nella stessa istanza del gateway applicazione. Questa funzionalità permette di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 20 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool. Ad esempio, il gateway applicazione può servire il traffico per `contoso.com` e `fabrikam.com` da due pool di server denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più siti Web nella stessa istanza del gateway applicazione. Questa funzionalità permette di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool. Ad esempio, il gateway applicazione può servire il traffico per `contoso.com` e `fabrikam.com` da due pool di server denominati ContosoServerPool e FabrikamServerPool.
 
 Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
 
@@ -102,7 +102,7 @@ L'affinità di sessione basata su cookie è utile quando si vuole mantenere una 
 
 ## <a name="websocket-and-http2-traffic"></a>Traffico Websocket e HTTP/2
 
-Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HTTP/2. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. Il supporto di HTTP/2 può essere abilitato con Azure PowerShell.
+Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HTTP/2. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket.
 
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. A differenza del protocollo HTTP, questi protocolli presentano un sovraccarico ridotto e possono riutilizzare la stessa connessione TCP per più richieste/risposte garantendo così un uso più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
@@ -114,10 +114,26 @@ Il gateway applicazione supporta ora la possibilità di riscrivere le intestazio
 
 Per altre informazioni su questa funzionalità in anteprima pubblica, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
 
+## <a name="sizing"></a>Ridimensionamento
+
+Il gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+
+Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione con offload SSL abilitato:
+
+| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | Grande |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 kB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Questi valori sono indicazioni approssimative della velocità effettiva di un gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come le dimensioni medie delle pagine, la posizione delle istanze back-end e il tempo di elaborazione per gestire una pagina. Per dati esatti sulle prestazioni, è consigliabile eseguire propri test. Questi valori vengono forniti solo come indicazioni per la pianificazione della capacità.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 A seconda dei requisiti e dell'ambiente, è possibile creare un'applicazione gateway di test usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)
+- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
+- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
+- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)

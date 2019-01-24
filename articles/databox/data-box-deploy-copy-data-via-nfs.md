@@ -1,19 +1,19 @@
 ---
 title: Copiare dati in Microsoft Azure Data Box tramite NFS| Microsoft Docs
-description: Informazioni su come copiare i dati in Azure Data Box
+description: Informazioni su come copiare dati in Azure Data Box tramite NFS
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6bc2cf3cf5286719bc6da519aabb364302af3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550364"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359817"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: Copiare dati in Azure Data Box tramite NFS 
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare, verificare che:
 
 1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**.
@@ -44,12 +44,13 @@ In base all'account di archiviazione selezionato, Data Box crea fino a:
 
 Nelle condivisioni per BLOB di pagine e BLOB in blocchi, le entità di primo livello sono contenitori e le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure le entità di primo livello sono condivisioni, mentre le entità di secondo livello sono file.
 
-Si consideri l'esempio seguente. 
-
-- Account di archiviazione: *Mystoracct*
-- Condivisione per BLOB in blocchi: *Mystoracct_BlockBlob/my-container/blob*
-- Condivisione per BLOB di pagine: *Mystoracct_PageBlob/my-container/blob*
-- Condivisione per File: *Mystoracct_AzFile/my-share*
+La tabella seguente mostra il percorso UNC delle condivisioni in Data Box e l'URL del percorso di Archiviazione di Azure in cui vengono caricati i dati. L'URL del percorso finale di Archiviazione di Azure può essere derivato dal percorso UNC della condivisione.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| BLOB in blocchi di Azure | <li>Percorso UNC delle condivisioni: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| BLOB di pagine di Azure  | <li>Percorso UNC delle condivisioni: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| File di Azure       |<li>Percorso UNC delle condivisioni: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Se si usa un computer host Linux, eseguire la procedura seguente per configurare il Data Box in modo da consentire l'accesso ai client NFS.
 
@@ -71,14 +72,17 @@ Se si usa un computer host Linux, eseguire la procedura seguente per configurare
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
+    **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *$root* nell'account di archiviazione.
+
 ## <a name="copy-data-to-data-box"></a>Copiare i dati nel Data Box
 
-Una volta stabilita la connessione alle condivisioni del Data Box, è necessario copiare i dati. Prima di procedere con la copia, esaminare le considerazioni seguenti:
+Una volta stabilita la connessione alle condivisioni del Data Box, è necessario copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
 - Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
 -  Durante la copia dei dati assicurarsi che le dimensioni dei dati siano conformi ai valori descritti nei [limiti per il servizio di archiviazione di Azure e per Azure Data Box](data-box-limits.md). 
 - Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
 - È consigliabile non usare SMB e NFS contemporaneamente né copiare gli stessi dati nella stessa destinazione finale in Azure. In questi casi il risultato finale non può essere determinato.
+- **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *$root* nell'account di archiviazione.
 
 Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -117,6 +121,10 @@ Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
      dove j specifica il numero di parallelizzazione, X = numero di copie parallele
 
      È consigliabile iniziare con 16 copie parallele e aumentare il numero di thread in base alle risorse disponibili.
+
+- Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante la copia dei dati. Al termine della copia, verificare lo spazio occupato e lo spazio disponibile nel dispositivo.
+    
+   ![Verificare lo spazio occupato e lo spazio disponibile nel dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="prepare-to-ship"></a>Preparare per la spedizione
 

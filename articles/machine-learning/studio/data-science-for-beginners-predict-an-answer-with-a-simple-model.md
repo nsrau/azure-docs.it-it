@@ -1,27 +1,8 @@
 ---
-title: Prevedere risposte con i modelli di regressione - Azure Machine Learning Studio | Microsoft Docs
-description: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
-keywords: creare un modello, modello semplice, previsione prezzi, modello di regressione semplice
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253588"
+title: Prevedere le risposte con modelli di regressione titleSuffix: Descrizione di Azure Machine Learning Studio: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Data science per principianti
@@ -98,25 +79,25 @@ Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibil
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
 A questo punto è disponibile un modello ed è possibile porre la domanda: Quanto costerà un diamante da 1,35 carati?
 
-Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una linea verticale. Esattamente nel punto in cui incrocia la linea del modello, verrà tracciata una linea orizzontale verso l'asse dei dollari. Va a colpire proprio i 10.000 dollari. Boom! Ed ecco la risposta: un diamante da 1,35 carati costa circa $ 10.000.
+Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una linea verticale. Esattamente nel punto in cui incrocia la linea del modello, verrà tracciata una linea orizzontale verso l'asse dei dollari. Va a colpire proprio i 10.000 dollari. Boom! Ed ecco la risposta: Un diamante da 1,35 carati costa circa $ 10.000.
 
 ![Individuare la risposta a partire dal modello](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Creare un intervallo di confidenza
-È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo è il cosiddetto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
+È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo è il cosiddetto *intervallo di confidenza*: Si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
-![intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![Intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-A proposito dell'intervallo di confidenza  è possibile affermare con sicurezza che il prezzo di un diamante da 1,35 carati è di circa $ 10.000, ma potrebbe scendere fino a $ 8.000 e salire fino a $ 12.000.
+A proposito dell'intervallo di confidenza:  È possibile affermare con sicurezza che il prezzo di un diamante da 1,35 carati è di circa $ 10.000, ma potrebbe scendere fino a $ 8.000 e salire fino a $ 12.000.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Ecco fatto, senza matematica, né computer
 Abbiamo svolto un lavoro scientifico semplicemente disegnando:
 
 * Abbiamo posto una domanda a cui è stato possibile rispondere con i dati
-* È stato creato un *modello* usando una *regressione lineare*.
+* È stato creato un *modello* usando una *regressione lineare*
 * È stata realizzata una *previsione*, completa di *intervallo di confidenza*
 
-senza matematica, né computer.
+Senza matematica, né computer.
 
 Se fossero state necessarie ulteriori informazioni, ad esempio...
 

@@ -3,19 +3,19 @@ title: Rilevare le modifiche con Automazione di Azure
 description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408919"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433017"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -51,15 +51,14 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS e 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
+## <a name="onboard"></a>Abilitare Rilevamento modifiche e inventario
 
-Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche e Inventario per l'account di Automazione.
+Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche e Inventario. Esistono molti modi per caricare i computer al fine di effettuare il rilevamento modifiche e inventario. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti.
 
-1. Nel portale di Azure passare all'account di Automazione.
-2. Selezionare **Rilevamento modifiche** in **CONFIGURAZIONE**.
-3. Selezionare un'area di lavoro di Log Analytics esistente oppure **Crea una nuova area di lavoro** e fare clic su **Abilita**.
-
-Verrà abilitata la soluzione per l'account di automazione. L'abilitazione della soluzione può richiedere fino a 15 minuti. Il banner blu notifica quando la soluzione è abilitata. Tornare alla pagina **Rilevamento modifiche** per gestire la soluzione.
+* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
+* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
+* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
+* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurazione di Rilevamento modifiche e Inventario
 
@@ -75,11 +74,11 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 2. Nella pagina **Rilevamento modifiche** selezionare **File Linux** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 3. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -98,11 +97,11 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 2. Nella pagina **Rilevamento modifiche** selezionare **File Windows** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 3. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file da rilevare e fare clic su **Salva**.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
@@ -112,7 +111,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. Di seguito è riportato un elenco di informazioni comuni che è necessario conoscere quando si configura la ricorsione:
 
 * I caratteri jolly sono necessari per tenere traccia di più file
-* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso (ad esempio C:\folder\\**file** o /etc/*.conf).
+* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso. (ad esempio C:\folder\\**file** o /etc/*.conf)
 * Se una variabile di ambiente dispone di un percorso non valido, la convalida avrà esito positivo, ma tale percorso avrà esito negativo quando si esegue l'inventario.
 * Evitare percorsi generici, ad esempio `c:\*.*`, quando si imposta il percorso, poiché vengono attraversate troppe cartelle.
 
@@ -130,12 +129,12 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 2. Nella pagina **Rilevamento modifiche** selezionare **Registro di sistema di Windows** e quindi fare clic su **+ Aggiungi** per aggiungere una nuova chiave del Registro di sistema da rilevare.
 3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file. Ad esempio:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -177,11 +176,11 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 | **Risorsa** | **Limite**| **Note** |
 |---|---|---|
 |File|500||
-| Registro|250||
+|Registro|250||
 |Software Windows|250|Non include gli aggiornamenti software|
 |Pacchetti Linux|1250||
-|Services|250||
-|daemon|250||
+|Servizi|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Rilevamento dei servizi di Windows
 
@@ -267,7 +266,7 @@ Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. C
 
 La tabella seguente contiene esempi di ricerche log per i record di modifica raccolti da questa soluzione:
 
-|Query  |DESCRIZIONE  |
+|Query  |Descrizione  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Mostra i record dell'inventario più recenti per i servizi Windows che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto)<br>I risultati sono limitati al record più recente per SoftwareName e Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Mostra i record di modifica per il software rimosso|
@@ -279,4 +278,5 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md) .
+* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+

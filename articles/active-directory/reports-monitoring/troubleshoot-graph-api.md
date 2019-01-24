@@ -4,7 +4,7 @@ description: Fornisce la risoluzione degli errori durante la chiamata delle API 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33c382c8b28549e1b2be83322b910ca1a885e45d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 299c9acb43fd0f3d7284a3b2ffb0c400b96cbc0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811690"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Risoluzione degli errori dell'API di creazione report di Azure Active Directory
 
@@ -31,7 +31,7 @@ Questo articolo elenca i messaggi di errore comuni che potrebbero verificarsi du
 
 L'endpoint Microsoft Graph versione 2 non è attualmente supportato: assicurarsi di accedere ai log attività usando l'endpoint Microsoft Graph versione 1.
 
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Errore: Non è stato possibile ottenere i ruoli utente da AD Graph
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Errore: Impossibile ottenere i ruoli utente da AD Graph
 
 È possibile ricevere questo messaggio di errore quando si tenta di accedere agli accessi tramite Graph Explorer. Assicurarsi di essere connessi a un account usando entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer, come illustrato nell'immagine seguente. 
 
@@ -44,11 +44,11 @@ Se compare questo messaggio di errore durante il tentativo di accedere agli acce
 ![Interfaccia utente di Autorizzazioni di modifica](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Errore: Nessuno dei tenant è B2C o il tenant non ha una licenza Premium
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Errore: Nessun tenant è B2C o il tenant non ha una licenza Premium
 
 L'accesso ai report sugli accessi richiede una licenza Azure Active Directory Premium 1 (P1). Se viene visualizzato questo messaggio di errore durante l'accesso agli accessi, assicurarsi che il tenant sia concesso in licenza con una licenza Azure AD P1.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Errore: L'utente non appartiene a ruoli autorizzati 
+### <a name="error-user-is-not-in-the-allowed-roles"></a>Errore: L'utente non è associato ai ruoli autorizzati 
 
 Se viene visualizzato questo messaggio di errore durante il tentativo di accedere ai log di controllo o agli accessi usando l'API, assicurarsi che l'account faccia parte del **ruolo con autorizzazioni di lettura per la sicurezza** o del **ruolo lettore report** nel tenant di Azure Active Directory. 
 

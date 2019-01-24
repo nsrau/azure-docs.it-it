@@ -3,22 +3,22 @@ title: Differimento dei messaggi del bus di servizio di Azure | Microsoft Docs
 description: Ritardare il recapito dei messaggi del bus di servizio
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 4471b556dc1ac5f520185d7ad586fb489c6d8f30
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282550"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856809"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
 

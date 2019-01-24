@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034088"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199069"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipi di indici in Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Azure Cosmos DB supporta l'indice hash e di intervallo per ogni percorso che pu�
 
 - L'indice **hash** supporta query di uguaglianza e query JOIN efficienti. Nella maggior parte dei casi, gli indici hash non richiedono una precisione superiore al valore predefinito di 3 byte. I dati possono essere di tipo stringa o numerico.
 
+  > [!NOTE]
+  > I contenitori di Azure Cosmos supportano un nuovo layout di indice che non usa la tipologia di indice Hash. Se si specifica una tipologia di indice Hash nei criteri di indicizzazione, le richieste CRUD sul contenitore ignoreranno automaticamente la tipologia di indice e la risposta dal contenitore conterrà solo la tipologia di indice di intervallo. Tutti i nuovi contenitori di Cosmos usano il nuovo layout di indice per impostazione predefinita. 
+  
 - L'indice **intervallo** supporta query di uguaglianza, query di intervallo (con >, <, >=, <=, !=) e query ORDER BY efficienti. Per impostazione predefinita, anche le query ORDER BY richiedono la precisione di indice massima (-1). I dati possono essere di tipo stringa o numerico.
 
 - L'indice **spaziale** supporta query spaziali (within e distance) efficienti. Il tipo di dati può essere Point, Polygon o LineString. Azure Cosmos DB supporta il tipo di indice spaziale anche per ogni percorso che può essere specificato per il tipo di dati Point, Polygon o LineString. Il valore nel percorso specificato deve essere un frammento GeoJSON valido, ad esempio {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB supporta l'indicizzazione automatica dei tipi di dati Point, Polygon e LineString.
@@ -58,6 +61,9 @@ Ecco alcuni esempi di query in cui è possibile usare indici hash, intervallo e 
 - Gli indici spaziali usano sempre la precisione dell'indice predefinita per tutti i tipi (Point, LineString e Polygon). Non è possibile eseguire l'override della precisione dell'indice predefinita per indici spaziali.
 
 Azure Cosmos DB restituisce un errore quando una query usa ORDER BY ma non ha un indice di intervallo sul percorso sottoposto a query con la precisione massima.
+
+> [!NOTE]
+> I contenitori di Azure Cosmos supportano un nuovo layout di indice che non richiede più una precisione di indice personalizzata diversa dal valore massimo per la precisione (-1). Con questo metodo, i percorsi vengono indicizzati sempre con la massima precisione. Se si specifica una tipologia di indice Hash nei criteri di indicizzazione, le richieste CRUD sul contenitore ignoreranno automaticamente la tipologia di indice e la risposta dal contenitore conterrà solo il valore massimo per la precisione (-1).  Tutti i nuovi contenitori di Cosmos usano il nuovo layout di indice per impostazione predefinita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344313"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828180"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
@@ -148,7 +148,7 @@ Esempio:
 |name|Nome del volto. Può essere 'Unknown #0', un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
 |description|Descrizione del personaggio noto. |
-|thumbnalId|ID dell'anteprima del volto.|
+|thumbnailId|ID dell'anteprima del volto.|
 |knownPersonId|Nel caso di una persona nota, il relativo ID interno.|
 |referenceId|Nel caso di un personaggio noto di Bing, il relativo ID Bing.|
 |referenceType|Attualmente solo Bing.|

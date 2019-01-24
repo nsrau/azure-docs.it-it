@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040660"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432354"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
 
@@ -52,6 +52,7 @@ Per usare il writeback delle password, è necessario disporre una delle licenze 
 * Microsoft 365 E3 o A3
 * Microsoft 365 E5 o A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono uno dei piani precedenti per l'uso della funzionalità.

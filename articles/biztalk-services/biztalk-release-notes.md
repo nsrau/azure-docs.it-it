@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253432"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260334"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Note sulla versione per Servizi BizTalk di Azure
 
@@ -35,10 +35,10 @@ Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i probl
 ## <a name="update-history"></a>Cronologia aggiornamenti
 ### <a name="october-update"></a>Aggiornamento di ottobre
 * Supporto per gli account aziendali:  
-  * **Scenario**: si è registrata una distribuzione del servizio BizTalk usando un account Microsoft (ad esempio, user@live.com). In questo scenario solo gli utenti con account Microsoft possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account aziendale.  
-  * **Scenario**: si è registrata una distribuzione del servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio, user@fabrikam.com o user@contoso.com). In questo scenario solo gli utenti di Azure Active Directory nella stessa organizzazione possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
+  * **Scenario**: Si è registrata una distribuzione del servizio BizTalk usando un account Microsoft (ad esempio, user@live.com). In questo scenario solo gli utenti con account Microsoft possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account aziendale.  
+  * **Scenario**: Si è registrata una distribuzione del servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio, user@fabrikam.com o user@contoso.com). In questo scenario solo gli utenti di Azure Active Directory nella stessa organizzazione possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
 * Quando si crea un servizio BizTalk, l'utente viene registrato automaticamente nel portale di Servizi BizTalk.
-  * **Scenario**: si accede ad Azure, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni.  
+  * **Scenario**: Si accede ad Azure, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni.  
     Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Aggiornamento del 14 agosto
@@ -97,7 +97,7 @@ Per modificare il qualificatore di un'identità, eliminare l'accordo, aggiornare
 ### <a name="as2-attachments"></a>Allegati dei messaggi AS2
 Gli allegati dei messaggi AS2 non sono supportati né in invio né in ricezione. In particolare, gli allegati vengono automaticamente ignorati e il corpo del messaggio viene elaborato come un normale messaggio AS2.  
 
-### <a name="resources-remembering-path"></a>Risorse: memorizzazione del percorso
+### <a name="resources-remembering-path"></a>Risorse: Memorizzazione del percorso
 Quando si aggiungono **risorse**, è possibile che nella finestra di dialogo non venga memorizzato il percorso precedentemente usato per aggiungere una risorsa. Per fare in modo che il percorso precedentemente usato venga memorizzato, in Internet Explorer provare ad aggiungere il sito Web del portale di Servizi BizTalk all'area **Siti attendibili** .  
 
 ### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Se si rinomina il nome dell'entità di un bridge e si chiude il progetto senza salvare le modifiche, quando si apre nuovamente l'entità si verifica un errore
@@ -178,13 +178,13 @@ Esaminare gli scenari seguenti:
 **Scenario 1: Uso di certificati basati su identificazione personale per proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**  
 Provare a usare certificati basati su identificazione personale nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk usando lo stesso nome e un'identificazione personale diversa, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.  
 
-**Soluzione alternativa**: aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.  
+**Soluzione alternativa**: Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.  
 
 **Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**
 
 Provare a usare comportamenti basati su nomi per identificare i certificati nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.  
 
-**Soluzione alternativa**: aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.  
+**Soluzione alternativa**: Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>I bridge continuano a elaborare i messaggi anche quando il database SQL è offline
 I bridge di Servizi BizTalk continuano a elaborare i messaggi per un determinato periodo di tempo anche se il database SQL di Microsoft Azure, che archivia le informazioni di esecuzione quali pipeline ed elementi distribuiti, è offline. Questa condizione si verifica perché Servizi BizTalk usa gli elementi memorizzati nella cache e la configurazione del bridge.
@@ -196,27 +196,27 @@ Si consideri uno scenario in cui si vuole leggere un messaggio XML all'interno d
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>L'invio di messaggi a un bridge con WCF non supporta il ridimensionamento
 I messaggi inviati a un bridge con WCF non supportano il ridimensionamento. Se si vuole un client scalabile, è necessario usare HttpWebRequest.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>AGGIORNAMENTO. Errore del provider di token dopo l'aggiornamento dalla versione di anteprima dei servizi BizTalk alla versione di disponibilità generale.
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>AGGIORNAMENTO: Errore del provider di token dopo l'aggiornamento dalla versione di anteprima dei servizi BizTalk alla versione di disponibilità generale (GA)
 Questa situazione si verifica quando è presente un accordo EDI o AS2 con batch attivi. Quando Servizi BizTalk viene aggiornato dalla versione di anteprima alla versione di disponibilità generale, possono verificarsi le seguenti condizioni:
 
-* Errore: Il provider di token non è riuscito a fornire un token di sicurezza. Messaggio restituito dal provider di token: Impossibile risolvere il nome remoto.
+* Errore: Il provider di token non è stato in grado di fornire un token di sicurezza. Messaggio restituito dal provider di token: che indica che è impossibile risolvere il nome remoto.
 * Le attività batch vengono annullate.
 
-**Soluzione alternativa**: dopo che il servizio BizTalk è stato aggiornato alla versione di disponibilità generale, ridistribuire l'accordo.  
+**Soluzione alternativa**: Dopo che il servizio BizTalk è stato aggiornato alla versione di disponibilità generale, ridistribuire l'accordo.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>AGGIORNAMENTO. Dopo l'aggiornamento di BizTalk Services SDK, nella casella degli strumenti vengono visualizzate le icone dei bridge di versioni precedenti.
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>AGGIORNAMENTO: Dopo l'aggiornamento dell'SDK dei Servizi BizTalk, nella casella degli strumenti vengono visualizzate le icone dei bridge di versioni precedenti
 Dopo avere aggiornato una versione precedente di BizTalk Services SDK, in cui i bridge erano rappresentati da icone di vecchio tipo, la casella degli strumenti continua a visualizzare le icone dei bridge di versioni precedenti. Se tuttavia si aggiunge un bridge all'area di Creazione progetti del progetto di Servizi BizTalk, nell'area verrà visualizzata la nuova icona.  
 
 **Soluzione alternativa**. Per risolvere il problema, è possibile eliminare i file con estensione tbd in <system drive>:\Utenti\<utente>\AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>AGGIORNAMENTO. Durante l'aggiornamento del portale BizTalk dalla versione di anteprima alla versione disponibile per tutti potrebbe essere visualizzato un messaggio di errore indicante che la funzionalità EDI non è disponibile
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>AGGIORNAMENTO: Durante l'aggiornamento del portale BizTalk dalla versione di anteprima alla versione disponibile per tutti potrebbe essere visualizzato un messaggio di errore indicante che la funzionalità EDI non è disponibile
 Se si è connessi al portale di Servizi BizTalk mentre si esegue l'aggiornamento di Servizi BizTalk dalla versione di anteprima alla versione disponibile per tutti, nel portale può essere visualizzato il messaggio di errore seguente:  
 
 Questa funzionalità non è disponibile come parte di questa versione di Servizi BizTalk di Microsoft Azure. Per usare queste funzionalità, passare a una versione appropriata.  
 
-**Risoluzione**: disconnettersi dal portale, chiudere e aprire nuovamente il browser e riconnettersi al portale.  
+**Risoluzione**: Disconnettersi dal portale, chiudere e aprire nuovamente il browser e riconnettersi al portale.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>AGGIORNAMENTO. I nuovi dati di rilevamento non vengono visualizzati dopo l'aggiornamento dei servizi BizTalk alla versione disponibile per tutti
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>AGGIORNAMENTO: I nuovi dati di rilevamento non vengono visualizzati dopo l'aggiornamento dei servizi BizTalk alla versione disponibile per tutti
 Si consideri uno scenario in cui un bridge XML è stato distribuito con la sottoscrizione della versione di anteprima di Servizi BizTalk. Si inviano messaggi al bridge e i dati di rilevamento corrispondenti risultano disponibili nel portale di Servizi BizTalk. Tenere presente che se i bit di runtime del portale di Servizi BizTalk e di Servizi BizTalk vengono aggiornati alla versione disponibile per tutti e si invia un messaggio allo stesso endpoint del bridge distribuito in precedenza, i dati di rilevamento relativi ai messaggi inviati dopo l'aggiornamento non vengono visualizzati.  
 
 ### <a name="pipelines-versus-bridges"></a>Pipeline e bridge

@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719630"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229575"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Immagini Red Hat Enterprise Linux in Azure
-Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione
+Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione.
+
+Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo di vita di Red Hat Enterprise Linux).
 
 ## <a name="images-available-in-the-ui"></a>Immagini disponibili nell'interfaccia utente
 Quando si cerca "Red Hat" nel Marketplace o quando si crea una risorsa nell'interfaccia utente del portale di Azure, verranno visualizzati un subset di immagini RHEL disponibili e dei prodotti Red Hat correlati. È sempre possibile ottenere il set completo di immagini di VM disponibili usando l'interfaccia della riga di comando/PowerShell/API di Azure.
@@ -108,3 +110,4 @@ I criteri attuali prevedono la conservazione di tutte le immagini pubblicate in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'infrastruttura di aggiornamento per Azure Red Hat [in questo articolo](https://aka.ms/rhui-update).
+* Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo di vita di Red Hat Enterprise Linux).

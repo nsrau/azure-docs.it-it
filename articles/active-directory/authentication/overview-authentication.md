@@ -8,20 +8,20 @@ ms.topic: overview
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3437aed01efe137a5e67dfc09427c1048fa3e4e2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162972"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423139"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quali metodi sono disponibili per l'autenticazione?
 
 Spesso i mezzi di informazione riportano casi di furti di password e identità compromesse. Richiedere un secondo fattore in aggiunta a una password aumenta immediatamente la sicurezza dell'organizzazione. Microsoft Azure Active Directory (Azure AD) include funzionalità, come Azure Multi-Factor Authentication (Azure MFA) e la reimpostazione della password self-service di Azure AD, per consentire agli amministratori di proteggere le organizzazioni e gli utenti con metodi di autenticazione aggiuntivi.
 
-Quando un utente deve accedere a un'applicazione sensibile, reimpostare la password o abilitare Windows Hello, potrebbe essere richiesto di fornire un'ulteriore conferma per verificarne l'identità.
+Ci sono molti scenari, tra cui accesso a un'applicazione, reimpostazione della password, abilitazione di Windows Hello, in cui è possibile che agli utenti venga chiesto di fornire un'ulteriore verifica per confermarne l'identità.
 
 La verifica aggiuntiva può avvenire tramite metodi di autenticazione quali:
 
@@ -42,7 +42,7 @@ La reimpostazione della password self-service offre agli utenti la possibilità 
 
 La reimpostazione della password self-service include:
 
-* **Modifica della password:**: l'utente conosce la password, vuole modificarla.
+* **Modifica della password:** l'utente conosce la password, vuole modificarla.
 * **Reimpostazione della password:** l'utente non riesce a eseguire l'accesso e vuole reimpostare la password usando uno o più metodi di autenticazione approvati.
 * **Sblocco dell'account:** l'utente non può eseguire l'accesso perché l'account è bloccato e vuole sbloccarlo usando uno o più metodi di autenticazione approvati.
 
@@ -56,6 +56,6 @@ Il passaggio successivo consiste nella configurazione della reimpostazione della
 
 Per iniziare a usare la reimpostazione della password self-service, vedere l'[articolo introduttivo su come abilitare la reimpostazione della password self-service](quickstart-sspr.md).
 
-Per altre informazioni sulla reimpostazione della password self-service, vedere l'articolo [Approfondimenti sulla reimpostazione della password self-service in Azure AD](concept-sspr-howitworks.md)
+Per altre informazioni sulla reimpostazione della password self-service, vedere l'articolo [Funzionamento: reimpostazione self-service della password di Azure AD](concept-sspr-howitworks.md)
 
 Per altre informazioni su Azure Multi-Factor Authentication, vedere l'articolo [Funzionamento di Azure Multi-Factor Authentication](concept-mfa-howitworks.md)

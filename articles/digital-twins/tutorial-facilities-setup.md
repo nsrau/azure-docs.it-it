@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557717"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212193"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafo spaziale
 
@@ -33,9 +33,7 @@ Nella prima esercitazione di questa serie si apprenderà come:
 > * Modificare un'app di esempio di Gemelli digitali
 > * Effettuare il provisioning dell'edificio
 
-
 Queste esercitazioni usano e modificano gli stessi esempi usati nella [guida introduttiva alla ricerca di stanze disponibili](quickstart-view-occupancy-dotnet.md) per fornire informazioni più dettagliate e approfondite sui concetti.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +43,7 @@ Queste esercitazioni usano e modificano gli stessi esempi usati nella [guida int
 
 - [Visual Studio Code](https://code.visualstudio.com/) per esplorare il codice di esempio. 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Distribuire Gemelli digitali
 
@@ -53,8 +51,7 @@ Usare i passaggi in questa sezione per creare una nuova istanza del servizio Gem
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Concedere autorizzazioni all'app
 
@@ -64,19 +61,20 @@ Se si ha già una registrazione dell'app, è possibile riutilizzarla per l'esemp
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Configurare l'esempio di Gemelli digitali
 
 Questa sezione descrive in modo dettagliato un'applicazione di Gemelli digitali di Azure che comunica con le [API REST di Gemelli digitali](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Scaricare l'esempio
+
 Se sono già stati scaricati gli esempi per la [guida introduttiva alla ricerca di stanze disponibili](quickstart-view-occupancy-dotnet.md), è possibile ignorare questi passaggi.
 
-1. Scaricare gli [esempi .NET di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). 
-2. Estrarre il contenuto della cartella ZIP nel computer. 
+1. Scaricare gli [esempi .NET di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+2. Estrarre il contenuto della cartella ZIP nel computer.
 
 ### <a name="explore-the-sample"></a>Esaminare l'esempio
-Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csharp\digital-twins-samples.code-workspace** in Visual Studio Code. La cartella contiene due progetti: 
+
+Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csharp\digital-twins-samples.code-workspace** in Visual Studio Code. La cartella contiene due progetti:
 
 * È possibile usare l'esempio di provisioning **occupazione-quickstart** per configurare ed eseguire il provisioning di un [grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md#graph). Questo grafico è l'immagine digitalizzata degli spazi fisici e delle risorse in essi contenuti. Viene usato un [modello a oggetti](concepts-objectmodel-spatialgraph.md#model) che definisce gli oggetti per un edificio intelligente. Per un elenco completo delle API REST e degli oggetti di Gemelli digitali, vedere la [documentazione delle API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o l'URL dell'API Gestione creato per [l'istanza in uso](#deploy).
 
@@ -89,6 +87,7 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
 * L'esempio di simulazione **device-connectivity** simula i dati dei sensori e li invia all'hub IoT di cui è stato effettuato il provisioning per l'istanza di Gemelli digitali. L'esempio verrà usato nell'[esercitazione successiva dopo avere effettuato il provisioning del grafico spaziale](tutorial-facilities-udf.md#simulate). Gli identificatori di sensori e dispositivi usati per configurare questo esempio devono corrispondere a quelli usati per il provisioning del grafico.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurare l'esempio di provisioning
+
 1. Aprire una finestra di comando e passare all'esempio scaricato. Eseguire il comando seguente:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
     dotnet restore
     ```
 
-1. In Visual Studio Code aprire il file **appSettings.json** del progetto **occupancy-quickstart**. Aggiornare i valori seguenti:
+1. In Visual Studio Code aprire il file [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) del progetto **occupancy-quickstart**. Aggiornare i valori seguenti:
    * **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD. Questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
    * **Tenant**: immettere l'ID directory del [tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Anche questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
-   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy). Sostituire **swagger/** con **api/v1.0/**.
+   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy). Sostituire **swagger/** con **api/v1.0/**.
 
 1. Per visualizzare un elenco delle funzionalità di Gemelli digitali che è possibile esplorare usando l'esempio. Eseguire il comando seguente:
 
@@ -112,10 +111,11 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Informazioni sul processo di provisioning
-Questa sezione illustra in che modo l'esempio effettua il provisioning di un grafico spaziale di un edificio. 
+
+Questa sezione illustra in che modo l'esempio effettua il provisioning di un grafico spaziale di un edificio.
 
 In Visual Studio Code passare alla cartella **occupancy-quickstart\src\actions** e aprire il file **provisionSample.cs**. Osservare la funzione seguente:
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Questa funzione usa il file **provisionSample.yaml** nella stessa cartella. Aprire questo file e osservare la gerarchia di un palazzo di uffici, costituita da sede, piano, area e stanze (oggetti *Venue*, *Floor*, *Area* e *Rooms*). Ognuno di questi spazi fisici può contenere dispositivi e sensori (oggetti *devices* e *sensors*). Ogni elemento ha un valore `type` predefinito, ad esempio Floor, Room. 
+Questa funzione usa il file [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) nella stessa cartella. Aprire questo file e osservare la gerarchia di un palazzo di uffici, costituita da sede, piano, area e stanze (oggetti *Venue*, *Floor*, *Area* e *Rooms*). Ognuno di questi spazi fisici può contenere dispositivi e sensori (oggetti *devices* e *sensors*). Ogni elemento ha un valore `type` predefinito, ad esempio Floor, Room.
 
 Il file **yaml** di esempio mostra un grafico spaziale che usa il modello a oggetti `Default` di Gemelli digitali. Questo modello fornisce nomi generici per la maggior parte dei tipi. I nomi generici sono sufficienti per un edificio. Alcuni esempi sono Temperatura per SensorDataType e Mappa per SpaceBlobType. Un tipo di spazio di esempio è Room con dei sottotipi FocusRoom ConferenceRoom e così via. 
 
 Se fosse necessario creare un grafico spaziale per una sede di diverso tipo, ad esempio una fabbrica, potrebbe essere necessario un modello a oggetti diverso. Per visualizzare i modelli disponibili, eseguire il comando `dotnet run GetOntologies` alla riga di comando per l'esempio di provisioning. 
 
-Per altre informazioni sui grafici spaziali e sui modelli a oggetti, vedere [Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md). 
+Per altre informazioni sui grafici spaziali e sui modelli a oggetti, vedere [Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Modificare il grafico spaziale di esempio
+
 Il file **provisionSample.yaml** contiene i nodi seguenti:
 
 - **resources**: il nodo `resources` crea una risorsa dell'hub IoT di Azure per comunicare con i dispositivi configurati. Un hub IoT nel nodo radice del grafico può comunicare con tutti i dispositivi e i sensori nel grafico.  
@@ -168,22 +169,19 @@ Salvare e chiudere il file provisionSample.yaml. Nella prossima esercitazione ve
 > [!TIP]
 > È possibile visualizzare e modificare il grafo spaziale con il [Visualizzatore di Microsoft Azure Active Directory Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibile eliminare le risorse create in questa esercitazione:
 
 1. Nel [portale di Azure](http://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra, selezionare il gruppo di risorse di Gemelli digitali e quindi fare clic su **Elimina**.
-   
+
     > [!TIP]
     > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
 
-1. Se necessario, eliminare l'applicazione di esempio nel computer di lavoro. 
-
+1. Se necessario, eliminare l'applicazione di esempio nel computer di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come implementare una logica personalizzata per il monitoraggio delle condizioni nell'edificio di esempio, passare alla prossima esercitazione della serie: 
 > [!div class="nextstepaction"]
 > [Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro](tutorial-facilities-udf.md)
-

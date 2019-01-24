@@ -1,5 +1,5 @@
 ---
-title: Rivedere il testo in Azure Content Moderator | Microsoft Docs
+title: Rivedere il testo in Azure Content Moderator - Content Moderator
 description: Informazioni su come rivedere il testo in Content Moderator per visualizzarne il punteggio e i tag rilevati. Usare le informazioni per determinare se il contenuto è appropriato.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852096"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259564"
 ---
-# <a name="review-text"></a>Verificare il testo
+# <a name="let-human-reviewers-review-text"></a>Far verificare il testo ai revisori
 
 È possibile usare Azure Content Moderator per rivedere il testo tramite i punteggi e i tag rilevati. Usare le informazioni per determinare se il contenuto è appropriato. 
 

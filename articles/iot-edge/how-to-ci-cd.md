@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582916"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359154"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -68,8 +68,8 @@ In questa sezione si crea una pipeline di compilazione che viene configurata per
 1. Nell'editor di pipeline, scegliere il pool di agenti. 
     
     * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Linux, scegliere **Hosted Ubuntu 1604**
-    * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Windows, scegliere **Hosted VS2017** 
-    * Se si desidera compilare i moduli nella piattaforma arm32v7 per contenitori Linux, è necessario configurare il proprio agente di compilazione con il pulsante **Gestisci**.
+    * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+    * Se si desidera compilare i moduli nella piattaforma arm32v7 per i contenitori Linux, è necessario [configurare un agente auto-ospitato in Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
     ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 

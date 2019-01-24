@@ -1,5 +1,5 @@
 ---
-title: Configurazione della gestione degli accessi alle applicazioni self-service in Azure Active Directory | Microsoft Docs
+title: Configurare la gestione gruppi self-service in Azure AD | Microsoft Docs
 description: Creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory e richiedere l'appartenenza al gruppo di sicurezza o al gruppo di Office 365
 services: active-directory
 documentationcenter: ''
@@ -10,21 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 541de125ea16b853a6fc6b3dd5a3e75e3bb9b065
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294238"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319376"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurare Azure Active Directory per la gestione dei gruppi self-service
+
 Gli utenti possono creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. Il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che conoscono il contesto aziendale pertinente. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.
 
-La gestione dei gruppi self-service riguarda attualmente due scenari principali, ovvero gestione dei gruppi delegata e gestione dei gruppi self-service.
+La gestione gruppi self-service riguarda due scenari: 
 
 * **Gestione delegata dei gruppi** : un esempio è costituito da un amministratore che gestisce l'accesso a un'applicazione SaaS usata dall'azienda. In questo caso la gestione dei diritti di accesso diventa più onerosa e pertanto l'amministratore chiede al titolare dell'organizzazione di creare un nuovo gruppo. L'amministratore assegna l'accesso per l'applicazione al nuovo gruppo e aggiunge al gruppo tutte le persone che accedono già all'applicazione. Il titolare dell'organizzazione può quindi aggiungere altri utenti, per i quali il provisioning nell'applicazione viene effettuato automaticamente. Il titolare dell'organizzazione non deve attendere che l'amministratore gestisca l'accesso degli utenti. Se l'amministratore concede la stessa autorizzazione a un manager di un diverso gruppo aziendale, anche tale persona può gestire l'accesso dei propri utenti. Né il titolare dell'organizzazione né il manager possono visualizzare o gestire gli utenti dell'altro. L'amministratore può comunque visualizzare tutti gli utenti che hanno accesso all'applicazione e, se necessario, revocare i diritti di accesso.
 * **Gestione self-service dei gruppi** Un esempio di questo scenario è costituito da due utenti che hanno entrambi siti di SharePoint Online configurati in modo indipendente e che vogliono concedere al team dell'altro l'accesso al proprio sito. A questo scopo, possono creare un gruppo in Azure AD che può essere selezionato da ognuno in SharePoint Online per consentire l'accesso al proprio sito. Se un utente desidera accedere, effettua la richiesta dal pannello di accesso e dopo aver ottenuto l'approvazione potrà accedere automaticamente a entrambi i siti di SharePoint Online. Se successivamente uno degli utenti decide che tutte le persone che accedono al sito devono poter accedere anche a una determinata applicazione SaaS, l'amministratore dell'applicazione SaaS può aggiungere i diritti di accesso per l'applicazione al sito di SharePoint Online. A questo punto, tutte le richieste approvate garantiranno l'accesso ai due siti di SharePoint Online e anche all'applicazione SaaS.

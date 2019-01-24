@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260597"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438408"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -31,7 +31,7 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 
 ## <a name="powershell"></a>PowerShell
 
-Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se non si dispone della versione 6.0 o successiva [eseguire l'aggiornamento](/powershell/azure/install-azurerm-ps).
+Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se non si dispone della versione 6.0 o successiva [eseguire l'aggiornamento](/powershell/azure/azurerm/install-azurerm-ps).
 
 Per visualizzare i tag esistenti per un *gruppo di risorse*, usare:
 

@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6dbcee3ef5f1d58c78d088d21382c0ad6e731381
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f130f20643ba80bf706b8b5ba8f4b7eab0acaa59
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345543"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231445"
 ---
-# <a name="create-offer"></a>Creare un'offerta
+# <a name="create-an-offer"></a>Creare un'offerta
 
 Questo articolo descrive come creare e pubblicare un'offerta di un servizio di consulenza.
 
@@ -31,15 +31,15 @@ Definire l'offerta di un pacchetto di servizi di consulenza. Concentrarsi su off
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
-Per creare una nuova offerta, seguire questa procedura:
+Per creare una nuova offerta, seguire questa procedura.
 1. Nel menu principale del portale Cloud Partner, selezionare **Nuova offerta**.
 1. Dal menu **Nuova offerta** scegliere **Servizio di consulenza**.
 
-    ![Creare una nuova offerta di un servizio di consulenza](media/cppselectnewconsultingoffer.png)
+    ![Creare una nuova offerta di servizi di consulenza](media/cppselectnewconsultingoffer.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La pagina *Nuova offerta* per il tipo di offerta di servizi di consulenza include un set di schede e di campi modulo che è possibile usare per creare una nuova offerta. Ognuno degli articoli seguenti illustra come usare la scheda per definire le impostazioni dell'offerta e i dettagli della vetrina per la nuova offerta.
+La pagina **Nuova offerta** per il tipo di offerta di servizi di consulenza include un set di schede e di campi modulo che è possibile usare per creare una nuova offerta. Gli articoli seguenti illustrano come usare la scheda per definire le impostazioni dell'offerta e i dettagli della vetrina per la nuova offerta:
 
-1.  [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md)
-1.  [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md)
+-   [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md)
+-   [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md)

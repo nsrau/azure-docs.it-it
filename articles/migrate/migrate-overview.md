@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969132"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263204"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -29,7 +29,7 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- È possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a Macchine virtuali di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
+- È possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a Macchine virtuali di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0, 6.5 o 6.7).
 - Se si vogliono valutare VM Hyper-V e server fisici, usare [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) per Hyper-V e gli [strumenti dei partner](https://azure.microsoft.com/migration/partners/) per i computer fisici.
 - È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione.
 - Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md) Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
@@ -38,6 +38,7 @@ Azure Migrate consente di eseguire le operazioni seguenti.
     **Area geografica** | **Posizione di archiviazione**
     --- | ---
     Azure Government | US Gov Virginia
+    Asia | Asia sud-orientale
     Europa | Europa settentrionale o Europa occidentale
     Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 

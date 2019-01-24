@@ -4,7 +4,7 @@ description: Introduzione ai log attività di Azure Active Directory in Monitora
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b3e1aec21f3829e32a4be5775858b3aa8d5e70e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811917"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Log attività di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -73,10 +73,10 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100.000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
+| Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
 | Audit | 1.000 | 15.000 | 900 MB | $0,02 | $0,24 |
 | Accessi | 1.000 | 34.800 | 4 GB | $0,13 | $1,56 |
-| Accessi | 100.000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 | 
+| Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 | 
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Messaggi dell'hub eventi per i log attività
@@ -89,7 +89,7 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100.000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
+| Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
 | Accessi | 1.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
@@ -116,6 +116,12 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'account di archiviazione?**
 
 **R**: Per gli account di archiviazione di Azure, la latenza è compresa tra 5 e 15 minuti dopo l'esecuzione dell'azione.
+
+---
+
+**D: Cosa accade se un amministratore modifica il periodo di memorizzazione di un'impostazione di diagnostica?**
+
+**R**: Verrà applicato il nuovo criterio di conservazione ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
 
 ---
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713608"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246212"
 ---
 # <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
 
@@ -57,7 +57,7 @@ In breve, Azure Notebook consente di svolgere il proprio lavoro in modo più eff
 
 Azure Notebooks è un servizio gratuito, ma ogni progetto è limitato a 4 GB di memoria e 1 GB di dati per evitarne l'uso improprio. Gli utenti legittimi che superano questi limiti visualizzano una richiesta Captcha per continuare l'esecuzione dei notebook.
 
-Per eliminare tutti i limiti, associare l'account a una sottoscrizione di Azure, che consente di selezionare i livelli di calcolo Premium.
+Per rilasciare tutti i limiti, accedere ad Azure Notebooks con un account che usa Azure Active Directory, ad esempio un account aziendale. Se tale account è associato a una sottoscrizione di Azure, è possibile usare i livelli di calcolo di Azure Data Science Virtual Machine.
 
 ## <a name="available-kernels-and-environments"></a>Ambienti e kernel disponibili
 

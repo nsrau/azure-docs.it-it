@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435294"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352275"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Creare gruppi di risorse e risorse per una sottoscrizione di Azure
 
@@ -289,7 +289,7 @@ L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizi
 }
 ```
 
-Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure. In questo esempio i criteri non hanno parametri.
+Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure. In questo esempio i criteri hanno parametri.
+Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ New-AzureRmDeployment `
 }
 ```
 
-Per creare la definizione di criteri nella sottoscrizione e applicarla alla sottoscrizione, usare il comando seguente dell'interfaccia della riga di comando.
+Per creare la definizione di criteri nella sottoscrizione e applicarla alla sottoscrizione, usare il comando seguente dell'interfaccia della riga di comando:
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>Assegnare un ruolo
+## <a name="assign-role-at-subscription"></a>Assegnare il ruolo alla sottoscrizione
 
-L'esempio seguente assegna un ruolo a un utente o a un gruppo.
+L'esempio seguente assegna un ruolo a un utente o a un gruppo per la sottoscrizione. In questo esempio non si specifica un ambito per l'assegnazione in quanto l'ambito viene impostato automaticamente sulla sottoscrizione.
 
 ```json
 {
@@ -439,7 +439,7 @@ L'esempio seguente assegna un ruolo a un utente o a un gruppo.
 }
 ```
 
-Per assegnare un gruppo di Active Directory a un ruolo relativo alla sottoscrizione, usare i comandi seguenti dell'interfaccia della riga di comando di Azure.
+Per assegnare un gruppo di Active Directory a un ruolo relativo alla sottoscrizione, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>Assegnare il ruolo all'ambito
+
+Il modello a livello di sottoscrizione seguente assegna un ruolo a un utente o a un gruppo con un ambito di gruppo di risorse all'interno della sottoscrizione. L'ambito deve essere pari o inferiore al livello di distribuzione. È possibile distribuire in una sottoscrizione e specificare un'assegnazione di ruolo che ha come ambito un gruppo di risorse all'interno della sottoscrizione. Tuttavia, non è possibile distribuire in un gruppo di risorse e specificare un ambito di assegnazione di ruolo nella sottoscrizione.
+
+Per assegnare il ruolo a un ambito, usare una distribuzione annidata. Si noti che il nome del gruppo di risorse viene specificato nelle proprietà per la risorsa di distribuzione e nella proprietà di ambito dell'assegnazione di ruolo.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Per assegnare un gruppo di Active Directory a un ruolo relativo alla sottoscrizione, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+Per distribuire questo modello con PowerShell, usare:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

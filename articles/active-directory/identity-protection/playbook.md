@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure Active Directory Identity Protection, sicurezza, Cloud Discovery, gestione applicazioni, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003301"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460525"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
@@ -115,7 +115,7 @@ Questa sezione illustra i passaggi per testare i criteri di sicurezza per il ris
 
 ### <a name="user-risk-security-policy"></a>Criteri di sicurezza per il rischio utente
 
-Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](overview.md#user-risk-security-policy).
+Per altre informazioni, vedere [Come configurare i criteri di rischio utente](howto-user-risk-policy.md).
 
 ![Rischio utente](./media/playbook/02.png " - Studio")
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](over
 
 ### <a name="sign-in-risk-security-policy"></a>Criteri di sicurezza per il rischio di accesso
 
-Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](overview.md#user-risk-security-policy).
+Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso](howto-sign-in-risk-policy.md).
 
 ![Rischio di accesso](./media/playbook/01.png " - Studio")
 

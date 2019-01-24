@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7adbe7055fa37c5cf3774caae3a33790d2adf354
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49943991"
 documentType: LandingData
 title: Documentazione di Azure Resource Graph
 metadata:
@@ -15,35 +9,37 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
   description: La documentazione di Azure Resource Graph consente di configurare e apprendere il linguaggio di query per individuare ed esplorare le risorse su vasta scala.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Configurare Resource Graph ed eseguire la prima query.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: ./media/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: first-query-azurecli.md
-    - image:
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Commenti e suggerimenti
-  items:
-  - type: paragraph
-    text: Per inviare commenti e suggerimenti su questa funzionalità o ricevere assistenza per le query, visitare la pagina <b>Resource Graph (anteprima)</b> accessibile da <b>Criteri di Azure</b> nel portale di Azure e fare clic su Commenti e suggerimenti. È possibile inviare suggerimenti anche in <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Configurare Resource Graph ed eseguire la prima query.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: first-query-azurecli.md
+          - image:
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Commenti e suggerimenti
     items:
-    - title: API REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Risorse</a></p>
+      - type: paragraph
+        text: 'Per inviare commenti e suggerimenti su questa funzionalità o ricevere assistenza per le query, visitare la pagina <b>Resource Graph (anteprima)</b> accessibile da <b>Criteri di Azure</b> nel portale di Azure e fare clic su Commenti e suggerimenti. È possibile inviare suggerimenti anche in <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: PowerShell
+            html: <p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: API REST
+            html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Risorse</a></p>

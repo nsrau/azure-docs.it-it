@@ -1,27 +1,8 @@
 ---
-title: Esempi di algoritmi - Azure Machine Learning Studio | Microsoft Docs'
-description: Una panoramica di facile comprensione delle nozioni fondamentali di Machine Learning che include esempi di algoritmi. L'infografica scaricabile tratta molte domande di Machine Learning.
-keywords: nozioni fondamentali di Machine learning, esempi di algoritmi, machine learning per principianti, domande di machine learning, algoritmi più diffusi, infografica degli algoritmi
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodc18
-ms.author: garye
-editor: cgronlun
-ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275738"
+title: Esempi di algoritmi titleSuffix: Descrizione di Azure Machine Learning Studio: Una panoramica di facile comprensione delle nozioni fondamentali di Machine Learning che include esempi di algoritmi. L'infografica scaricabile tratta molte domande di Machine Learning.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 18/12/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi
 Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere altre informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning. Algoritmi di esempio aiutano i principianti di Machine Learning a capire gli algoritmi usare e lo scopo per cui usarli.

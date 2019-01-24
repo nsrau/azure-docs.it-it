@@ -4,7 +4,7 @@ description: Verificare l'integrità del dominio gestito usando la pagina apposi
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fe5776dad4c4b9ae96484ac266a23e87658cf578
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969005"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852832"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure AD Domain Services
 
@@ -41,7 +41,7 @@ L'immagine seguente illustra una pagina di integrità di esempio: ![Pagina di in
 ### <a name="status-of-your-managed-domain"></a>Stato del dominio gestito
 Lo stato nella parte superiore destra della pagina di integrità indica l'integrità complessiva del dominio gestito. Lo stato entra in gioco in tutti gli avvisi esistenti nel dominio. È anche possibile visualizzare lo stato del dominio nella pagina con la panoramica di Azure AD Domain Services.
 
-| Status | Icona | Spiegazione |
+| Stato | Icona | Spiegazione |
 | --- | :----: | --- |
 | In esecuzione | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Il dominio gestito è eseguito senza problemi e non presenta avvisi critici o di avvertenza. Questo dominio potrebbe presentare avvisi informativi. |
 | Richiede attenzione (avviso di avvertenza) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Non sono presenti avvisi critici nel dominio gestito, ma sono presenti uno o più avvisi di avvertenza da risolvere. |

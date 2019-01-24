@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 98ff96b70951cb289fe6a83ad59eb83a6522e42c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720816"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433364"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -108,7 +108,7 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti con PowerShell: 
-1. Installare [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Installare [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 2. Eseguire i comandi seguenti: 
 
     ```azurepowershell

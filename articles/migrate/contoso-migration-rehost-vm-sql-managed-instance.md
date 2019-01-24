@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879469"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826616"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migrazione Contoso: eseguire il rehosting di un'app locale in una macchina virtuale di Azure e in Istanza gestita di database SQL
 
@@ -238,7 +238,7 @@ Contoso considera questi fattori:
     
 *Ulteriore assistenza?*
 
-Altre informazioni sulla [configurazione delle route per un'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Altre informazioni sulla [configurazione delle route per un'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### <a name="create-a-managed-instance"></a>Creare un'istanza gestita
 
@@ -432,7 +432,7 @@ Per configurare l'ambiente origine, gli amministratori Contoso eseguono le opera
 
 Ora gli amministratori Contoso devono configurare l'ambiente di replica di destinazione:
 
-1. In **Preparare l'infrastruttura** > **Destinazione** selezionano le impostazioni di destinazione.
+1. In **Preparare l'infrastruttura** > **Destinazione** vengono selezionate le impostazioni di destinazione.
 2. Site Recovery verifica che nella destinazione specificata siano disponibili un account di archiviazione e una rete.
 
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
@@ -441,7 +441,7 @@ Una volta impostate l'origine e la destinazione, gli amministratori Contoso crea
 
 1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa**, creano i criteri **ContosoMigrationPolicy**.
 2. Usa le impostazioni predefinite:
-    - **Soglia RPO**: il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
+    - **Soglia RPO**: Il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
     - **Conservazione del punto di ripristino**: Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
     - **Frequenza snapshot coerenti con l'app**: il valore predefinito è un'ora. Questo valore specifica la frequenza di creazione di snapshot coerenti con l'applicazione.
  
@@ -473,7 +473,7 @@ Ora gli amministratori Contoso possono iniziare a replicare WebVM.
 
     ![Abilitare la replica: selezione della macchina virtuale](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Controllano che siano selezionati i criterio di replica corretti e abilitano la replica per **WEBVM**. Tengono traccia dello stato di avanzamento della replica in **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+5. Controllano che siano selezionati i criterio di replica corretti e abilitano la replica per **WEBVM**. Contoso tiene traccia dell'avanzamento della replica in **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 6. In **Informazioni di base** nel portale di Azure possono visualizzare lo stato per le VM con replica in Azure:
 
     ![Visualizzazione dell'infrastruttura](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Gli amministratori Contoso devono creare un progetto di Servizio Migrazione del 
         ![Servizio Migrazione del database: configurazione delle impostazioni di migrazione](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Salvano le impostazioni di migrazione e quindi eseguono la migrazione.
-6. In **Panoramica** monitorano lo stato della migrazione.
+6. In **Panoramica** viene monitorato lo stato della migrazione.
 
     ![Servizio Migrazione del database: monitoraggio](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
@@ -599,7 +599,7 @@ A questo punto Contoso deve eseguire le operazioni di pulizia seguenti:
 
 Al termine della migrazione delle risorse in Azure, Contoso deve rendere pienamente operativa la nuova infrastruttura e proteggerla.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Il team responsabile della sicurezza di Contoso esamina le macchine virtuali di Azure e l'istanza gestita di database SQL per determinare eventuali problemi di sicurezza con l'implementazione:
 

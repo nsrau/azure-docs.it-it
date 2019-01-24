@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6d202ab9e2f6a8e96eb494d3d93caf66624f8364
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465196"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visualizzare il consumo di indirizzi IP pubblico in Azure Stack
 
@@ -36,6 +36,7 @@ Lo scopo del riquadro è per consentire agli operatori di Azure Stack un'idea de
 Il **indirizzi IP pubblici** nel menu **risorse del Tenant** Elenca solo gli indirizzi IP pubblici che sono stati *create in modo esplicito dai tenant*. È possibile trovare la voce di menu sul **provider di risorse**, **rete** riquadro. Il numero di **viene utilizzata** indirizzi IP pubblici nel **utilizzo pool di IP pubblico** riquadro è sempre diverso da (maggiore di) il numero sul **gli indirizzi IP pubblici** riquadro sotto  **Le risorse del tenant**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Visualizzare le informazioni sull'utilizzo di indirizzi IP pubbliche
+
 Per visualizzare il numero totale di indirizzi IP pubblici utilizzate nell'area:
 
 1. Nel portale di amministrazione di Azure Stack, selezionare **tutti i servizi**. Quindi, sotto il **ADMINISTRATION** categoria, selezionare **rete**.
@@ -46,6 +47,7 @@ Per visualizzare il numero totale di indirizzi IP pubblici utilizzate nell'area:
 Il **utilizzato** numero rappresenta il numero di assegnare indirizzi IP pubblici dal pool di indirizzi IP pubblici. Il **gratuito** pool che non sono stati assegnati e sono ancora disponibili indirizzi numero rappresenta il numero di IP pubblici gli indirizzi IP pubblici. Il **% utilizzato** numero rappresenta il numero di usato o indirizzi assegnati come percentuale del numero totale di indirizzi IP pubblici nel pool di indirizzi IP pubblici in tale percorso.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Visualizzare gli indirizzi IP pubblici creati dalle sottoscrizioni di tenant
+
 Selezionare **indirizzi IP pubblici** sotto **alle risorse Tenant**. Esaminare l'elenco di indirizzi IP pubblici creati in modo esplicito dalle sottoscrizioni di tenant in un'area specifica.
 
 ![Indirizzi IP pubblici di tenant](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -55,6 +57,7 @@ Selezionare **indirizzi IP pubblici** sotto **alle risorse Tenant**. Esaminare l
 Il Controller di rete non assegna un indirizzo per la risorsa fino a quando non si esegue l'associazione a un'interfaccia, una scheda di interfaccia di rete (NIC), un servizio di bilanciamento del carico o un gateway di rete virtuale. Quando l'indirizzo IP pubblico viene associato a un'interfaccia, il Controller di rete alloca un indirizzo IP. L'indirizzo viene visualizzato nei **indirizzo** campo.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>Visualizzare il pubblico informazioni riepilogo tabella di indirizzi IP
+
 In diversi casi, vengono assegnati indirizzi IP pubblici che determinano se l'indirizzo viene visualizzato in un unico elenco o un altro.
 
 | **Caso di assegnazione indirizzo IP pubblico** | **Viene visualizzato nel riepilogo di utilizzo** | **Viene visualizzata nell'elenco di indirizzi IP pubblico tenant** |
@@ -66,4 +69,5 @@ In diversi casi, vengono assegnati indirizzi IP pubblici che determinano se l'in
 | Indirizzo IP pubblico creato per le istanze di VM IaaS in modo implicito e usato per NAT in uscita nella rete virtuale. Questi vengono creati dietro le quinte, ogni volta che un tenant crea un'istanza di macchina virtuale in modo che le macchine virtuali possono inviare informazioni a Internet. |Sì |No  |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Gestire gli account di archiviazione in Azure Stack](azure-stack-manage-storage-accounts.md)

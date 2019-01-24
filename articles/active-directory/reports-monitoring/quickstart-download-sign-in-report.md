@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653289"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214913"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Avvio rapido: Scaricare un report relativo agli accessi con il portale di Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare un report relativo agli accessi con il portale di Azure
 
 In questa guida introduttiva si apprenderà come scaricare i dati di accesso per il tenant relativi alle ultime 24 ore.
 
@@ -31,10 +31,10 @@ In questa guida introduttiva si apprenderà come scaricare i dati di accesso per
 
 È necessario:
 
-* Un tenant di Azure Active Directory con una licenza Premium per visualizzare il report delle attività di accesso. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
+* Un tenant di Azure Active Directory con una licenza Premium per visualizzare il report delle attività di accesso. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Si noti che se i dati sulle attività non erano disponibili prima dell'aggiornamento, ci vorranno un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza premium.
 * Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza**, **Ruolo con autorizzazioni di lettura per i report** o **Amministratore globale** per il tenant. Qualsiasi utente nel tenant, inoltre, può visualizzare i propri accessi.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Avvio rapido: Scaricare un report relativo agli accessi
+## <a name="quickstart-download-a-sign-in-report"></a>Guida introduttiva: Scaricare un report relativo agli accessi
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.

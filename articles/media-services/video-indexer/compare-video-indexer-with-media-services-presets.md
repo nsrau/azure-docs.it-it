@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 968614d183fe6857336ea92791ba4f1d279a5016
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291392"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198100"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Confrontare i set di impostazioni di Servizi multimediali di Azure v3 e di Video Indexer 
 
@@ -33,7 +33,7 @@ Attualmente è presente una sovrapposizione tra le funzionalità offerte dalle [
 |Informazioni dettagliate sui contenuti multimediali|[Avanzate](video-indexer-output-json-v2.md) |[Concetti fondamentali](../latest/intelligence-concept.md)|
 |Esperienze|Vedere l'elenco completo delle funzionalità supportate: <br/> [Overview](video-indexer-overview.md)|Vengono restituite solo informazioni dettagliate sui video|
 |Fatturazione|[Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Conformità|Da definire|Servizi multimediali è conforme con molte certificazioni. Aprire il file [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e cercare "Servizi multimediali" per vedere se è conforme con un certificato specifico.|
+|Conformità|[Conformità di Azure](https://aka.ms/AzureCompliance)|Servizi multimediali è conforme con molte certificazioni. Aprire il file [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e cercare "Servizi multimediali" per vedere se è conforme con un certificato specifico.|
 |Versione di valutazione gratuita|Stati Uniti orientali|Non disponibile|
 |Disponibilità |Stati Uniti occidentali, Asia orientale, Europa settentrionale|Vedere [Stato di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 

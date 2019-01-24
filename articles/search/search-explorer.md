@@ -1,5 +1,5 @@
 ---
-title: Esplora ricerche nel portale di Azure per le query negli indici - Ricerca di Azure
+title: Esplora ricerche nel portale di Azure per le query dei dati - Ricerca di Azure
 description: Usare gli strumenti del portale di Azure come Esplora ricerche per eseguire query negli indici in Ricerca di Azure. Immettere termini di ricerca o stringhe di ricerca complete con sintassi avanzata.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188726"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244801"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Come usare Esplora ricerche per eseguire query negli indici in Ricerca di Azure 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Esplora ricerche nel portale di Azure per le query dei dati in Ricerca di Azure 
 
-Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio.
-
-## <a name="start-search-explorer"></a>Avviare Esplora ricerche
-
-1. Nel [portale di Azure](https://portal.azure.com) aprire la pagina per la ricerca dei servizi dal dashboard o [trovare il servizio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nell'elenco.
-
-2. Nella pagina di panoramica del servizio fare clic su **Esplora ricerche**.
+Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio. 
 
    ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
 
-3. Selezionare l'indice su cui eseguire una query.
 
-   ![Selezionare l'indice per la query](./media/search-explorer/search-explorer-changeindex-se2.png "Selezionare l'indice")
-
-4. Facoltativamente, impostare la versione dell'API. Per impostazione predefinita, è selezionata la versione corrente dell'API disponibile a livello generale, ma è possibile scegliere un'anteprima o un'API precedente se la sintassi da usare dipende dalla versione.
-
-5. Dopo aver selezionato l'indice e la versione dell'API, immettere termini di ricerca o espressioni di query complete nella barra di ricerca e fare clic su **Cerca** per eseguire la query.
-
-   ![Immettere termini di ricerca e fare clic su Cerca](./media/search-explorer/search-explorer-query-string-example.png "Immettere termini di ricerca e fare clic su Cerca")
-
-Suggerimenti per la ricerca in **Esplora ricerche**:
-
-+ I risultati vengono restituiti come documenti JSON dettagliati, in modo che sia possibile visualizzare la struttura e il contenuto del documenti nel complesso. È possibile usare espressioni di query, come illustrato negli esempi, per limitare i campi restituiti.
-
-+ I documenti sono costituiti da tutti i campi contrassegnati come **recuperabili** nell'indice. Per visualizzare gli attributi dell'indice nel portale, fare clic su *realestate-us-sample* nell'elenco **Indici** nella pagina di panoramica della ricerca.
-
-+ Le query in formato libero, simili alle stringhe che è possibile immettere in un Web browser commerciale, sono utili per testare un'esperienza utente finale. Si supponga ad esempio di usare l'indice realestate predefinito. È possibile immettere "Seattle apartment lake washington" e quindi premere CTRL-F per trovare i termini nei risultati della ricerca. 
-
-+ Le espressioni di query e filtro devono essere riportate in una sintassi supportata da Ricerca di Azure. Per impostazione predefinita viene usata una [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
+Per informazioni su come iniziare, vedere [Avviare Esplora ricerche](#start-search-explorer).
 
 ## <a name="basic-search-strings"></a>Stringhe di ricerca di base
 
-Gli esempi seguenti presuppongono che venga usato l'indice di esempio realestate predefinito. Per altre informazioni sulla creazione di questo indice, vedere [Avvio rapido: Importare, indicizzare ed eseguire query nel portale di Azure](search-get-started-portal.md).
+Gli esempi seguenti presuppongono che venga usato l'indice di esempio realestate predefinito. Per informazioni sulla creazione dell'indice, vedere [Avvio rapido: Importare, indicizzare ed eseguire query nel portale di Azure](search-get-started-portal.md).
 
 ### <a name="example-1---empty-search"></a>Esempio 1: ricerca vuota
 
@@ -128,6 +105,37 @@ Aggiungere **$orderby** per ordinare i risultati in base a un campo in più risp
    ![Espressione order-by](./media/search-explorer/search-explorer-example-ordery.png "Modificare l'ordinamento")
 
 Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>Come avviare Esplora ricerche
+
+1. Nel [portale di Azure](https://portal.azure.com) aprire la pagina per la ricerca dei servizi dal dashboard o [trovare il servizio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nell'elenco.
+
+2. Nella pagina di panoramica del servizio fare clic su **Esplora ricerche**.
+
+   ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
+
+3. Selezionare l'indice su cui eseguire una query.
+
+   ![Selezionare l'indice per la query](./media/search-explorer/search-explorer-changeindex-se2.png "Selezionare l'indice")
+
+4. Facoltativamente, impostare la versione dell'API. Per impostazione predefinita, è selezionata la versione corrente dell'API disponibile a livello generale, ma è possibile scegliere un'anteprima o un'API precedente se la sintassi da usare dipende dalla versione.
+
+5. Dopo aver selezionato l'indice e la versione dell'API, immettere termini di ricerca o espressioni di query complete nella barra di ricerca e fare clic su **Cerca** per eseguire la query.
+
+   ![Immettere termini di ricerca e fare clic su Cerca](./media/search-explorer/search-explorer-query-string-example.png "Immettere termini di ricerca e fare clic su Cerca")
+
+Suggerimenti per la ricerca in **Esplora ricerche**:
+
++ I risultati vengono restituiti come documenti JSON dettagliati, in modo che sia possibile visualizzare la struttura e il contenuto del documenti nel complesso. È possibile usare espressioni di query, come illustrato negli esempi, per limitare i campi restituiti.
+
++ I documenti sono costituiti da tutti i campi contrassegnati come **recuperabili** nell'indice. Per visualizzare gli attributi dell'indice nel portale, fare clic su *realestate-us-sample* nell'elenco **Indici** nella pagina di panoramica della ricerca.
+
++ Le query in formato libero, simili alle stringhe che è possibile immettere in un Web browser commerciale, sono utili per testare un'esperienza utente finale. Si supponga ad esempio di usare l'indice realestate predefinito. È possibile immettere "Seattle apartment lake washington" e quindi premere CTRL-F per trovare i termini nei risultati della ricerca. 
+
++ Le espressioni di query e filtro devono essere riportate in una sintassi supportata da Ricerca di Azure. Per impostazione predefinita viene usata una [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

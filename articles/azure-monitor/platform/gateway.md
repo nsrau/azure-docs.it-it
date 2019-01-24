@@ -11,20 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194233"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353040"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a Internet tramite il gateway di Log Analytics
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway di Log Analytics quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway di Log Analytics, ovvero un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e a Log Analytics per conto dei computer.  
 
-Il gateway di Log Analytics gli elementi seguenti:
+Il gateway di Log Analytics supporta quanto segue:
 
+* Invio di informazioni alle stesse quattro aree di lavoro di Log Analytics con cui sono configurati gli agenti dietro il gateway  
 * Funzionalità Hybrid Runbook Workers di Automazione di Azure  
 * Computer Windows con Microsoft Monitoring Agent direttamente connesso a un'area di lavoro di Log Analytics
 * Computer Linux con l'agente di Log Analytics per Linux direttamente connesso a un'area di lavoro di Log Analytics  
@@ -36,11 +37,11 @@ Quando un gruppo di gestione di Operations Manager viene integrato con Log Analy
 
 Per offrire disponibilità elevata per i gruppi connessi diretti o di Operations Management che comunicano con Log Analytics tramite il gateway, è possibile usare il bilanciamento del carico di rete per reindirizzare e distribuire il traffico tra più server gateway.  Se un server gateway si arresta, il traffico viene reindirizzato a un altro nodo disponibile.  
 
-L'agente di Log Analytics è necessario sul computer che esegue il gateway di Log Analytics per identificare gli endpoint del servizio con cui comunicare e inoltre monitora il gateway di Log Analytics per analizzarne le prestazioni o i dati di evento.
+L'agente di Log Analytics per Windows deve essere installato nel computer che esegue il gateway di Log Analytics per consentire al gateway non solo di identificare gli endpoint di servizio con cui deve comunicare, ma anche di inviare informazioni alle stesse aree di lavoro con cui sono configurati gli agenti o il gruppo di gestione di Operations Manager dietro il gateway. Ciò è necessario affinché il gateway consenta loro di comunicare con l'area di lavoro assegnata. Un gateway può essere configurato in modalità multihomed con un massimo di quattro aree di lavoro, poiché questo è il numero totale di aree di lavoro supportate da un agente Windows.  
 
-Ogni agente deve avere connettività di rete per il gateway, in modo che gli agenti possano trasferire automaticamente dati da e verso il gateway. Non è consigliabile installare il gateway in un controller di dominio.
+Ogni agente deve disporre di connettività di rete al gateway in modo che gli agenti possano trasferire automaticamente i dati da e verso il gateway. Non è consigliabile installare il gateway in un controller di dominio.
 
-Il diagramma seguente illustra il flusso di dati dagli agenti diretti ad Automazione di Azure e Log Analytics tramite il server gateway.  La configurazione del proxy degli agenti deve corrispondere alla stessa porta con cui il gateway di Log Analytics è configurato per comunicare con il servizio.  
+Il diagramma seguente illustra il flusso di dati dagli agenti diretti ad Automazione di Azure e Log Analytics tramite il server gateway. La configurazione del proxy degli agenti deve corrispondere alla stessa porta con cui è configurato il gateway di Log Analytics.  
 
 ![Diagramma della comunicazione degli agenti diretti con i servizi](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -56,7 +57,7 @@ Quando si designa un computer per l'esecuzione del gateway di Log Analytics, il 
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET Framework 4.5
 * Almeno un processore a 4 core e 8 GB di memoria 
-* Agente di Log Analytics per Windows 
+* L'[agente di Log Analytics per Windows](agent-windows.md) viene installato e configurato in modo da inviare informazioni alla stessa area di lavoro degli agenti che comunicano tramite il gateway.  
 
 ### <a name="language-availability"></a>Lingue disponibili
 
@@ -83,12 +84,12 @@ Il gateway di Log Analytics è disponibile per lingue seguenti:
 Il gateway di Log Analytics supporta solo il protocollo TLS (Transport Layer Security) versioni 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).  Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare il gateway in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
-La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
+La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 kB di dati ogni 6 secondi. Il volume di dati per agente testato è di circa 2,7 GB al giorno.
 
 |Gateway |Numero approssimativo di agenti supportati|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ 2 core da 2,6 GHz<br> - Memoria: 4 GB<br> - Larghezza di banda della rete: 1 Gbps| 600|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ 4 core da 2,6 GHz<br> - Memoria: 8 GB<br> - Larghezza di banda della rete: 1 Gbps| 1000|  
+|- CPU: Intel XEON CPU E5-2660 v3 da 2,6 GHz a 2 core<br> - Memoria: 4 GB<br> - Larghezza di banda della rete: 1 Gbps| 600|  
+|- CPU: Intel XEON CPU E5-2660 v3 da 2,6 GHz a 4 core<br> - Memoria: 8 GB<br> - Larghezza di banda della rete: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Scaricare il gateway di Log Analytics
 
@@ -124,7 +125,8 @@ Per installare un gateway, eseguire questa procedura.  Se è installata una vers
 1. Se Microsoft Update non è abilitato, viene visualizzata la pagina di Microsoft Update in cui è possibile scegliere di abilitarlo. Effettuare una selezione e quindi fare clic su **Avanti**. In caso contrario, continuare con il passaggio successivo.
 1. Nella pagina **Cartella di destinazione** lasciare la cartella predefinita C:\Programmi\OMS Gateway oppure digitare il percorso in cui si vuole installare il gateway e quindi fare clic su **Avanti**.
 1. Nella pagina **Pronto per l'installazione** fare clic su **Installa**. È possibile che venga visualizzato Controllo account utente per la richiesta dell'autorizzazione all'installazione. In questo caso fare clic su **Sì**.
-1. Al termine dell'installazione fare clic su **Fine**. È possibile verificare se il servizio è in esecuzione aprendo lo snap-in services.msc e verificare che il **gateway di Log Analytics** venga visualizzato nell'elenco dei servizi e che lo stato sia **In esecuzione**.<br><br> ![Servizi - Gateway di Log Analytics](./media/gateway/gateway-service.png)  
+1. Al termine dell'installazione fare clic su **Fine**. È possibile verificare se il servizio è in esecuzione aprendo lo snap-in services.msc e verificare che il **gateway OMS** venga visualizzato nell'elenco dei servizi e che lo stato sia **In esecuzione**.<br><br> ![Servizi - Gateway di Log Analytics](./media/gateway/gateway-service.png)  
+
 
 ## <a name="configure-network-load-balancing"></a>Configurare il bilanciamento del carico di rete 
 È possibile configurare il gateway per la disponibilità elevata con il bilanciamento del carico di rete tramite Bilanciamento carico di rete Microsoft o servizi di bilanciamento del carico basati su hardware.  Il servizio di bilanciamento del carico gestisce il traffico reindirizzando le connessioni richieste dagli agenti di Log Analytics o dai server di gestione di Operations Manager nei nodi relativi. Se un server gateway si arresta, il traffico viene reindirizzato ad altri nodi.
@@ -140,7 +142,11 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 La sezione seguente include i passaggi per configurare gli agenti di Log Analytics connessi direttamente, un gruppo di gestione di Operations Manager o i ruoli di lavoro ibridi per runbook di Automazione di Azure con il gateway di Log Analytics per comunicare con Automazione di Azure o Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurare l'agente di Log Analytics autonomo
-Per conoscere i requisiti e la procedura di installazione dell'agente di Log Analytics nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](agent-windows.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Anziché specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server gateway di Log Analytics.  Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente di Log Analytics corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
+Per conoscere i requisiti e la procedura di installazione dell'agente di Log Analytics nel gateway e nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](agent-windows.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Anziché specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server gateway di Log Analytics. Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente di Log Analytics corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
+
+Dopo aver installato l'agente nel server gateway, è possibile configurarlo in modo da inviare informazioni agli agenti delle aree di lavoro che comunicano con il gateway. Se l'agente di Log Analytics per Windows non è installato nel gateway, nel **log del gateway OMS** viene scritto l'evento 300 per segnalare che è necessaria l'installazione. Se l'agente è installato ma non è configurato per inviare informazioni alla stessa area di lavoro degli agenti che comunicano attraverso di esso, nello stesso registro eventi viene scritto l'evento 105 per indicare che l'agente nel gateway deve essere configurato in modo da inviare informazioni alla stessa area di lavoro degli agenti che comunicano con il gateway.
+
+Al termine della configurazione, è necessario riavviare il servizio **Gateway OMS** per rendere effettive le modifiche. In caso contrario, il gateway rifiuterà gli agenti che provano a comunicare con Log Analytics e segnalerà l'ID evento 105 nel **log del gateway OMS**. Questo vale anche quando si aggiunge o si rimuove un'area di lavoro nel file di configurazione dell'agente nel server gateway.   
 
 Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -149,18 +155,20 @@ Configurare Operations Manager per aggiungere il server gateway.  La configurazi
 
 Per usare il gateway per il supporto di Operations Manager, è necessario avere:
 
-* Microsoft Monitoring Agent (versione dell'agente **8.0.10900.0** o successiva) installato nel server gateway e configurato per le aree di lavoro Log Analytics con cui si vuole comunicare.
+* Microsoft Monitoring Agent (versione dell'agente **8.0.10900.0** o successiva) installato nel server gateway e configurato con le stesse aree di lavoro di Log Analytics definite nella configurazione del gruppo di gestione per l'invio di informazioni.
 * Il gateway deve disporre di connettività Internet o essere connesso a un server proxy che dispone di tale connettività.
 
 > [!NOTE]
 > Se non si specifica un valore per il gateway, viene effettuato il push di valori vuoti a tutti gli agenti.
 > 
 
-Se questa è la prima volta che il gruppo di gestione di Operations Manager si registra in un'area di lavoro di Log Analytics, l'opzione per specificare la configurazione proxy per il gruppo di gestione non è disponibile nella console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  È necessario aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
+Se è la prima volta che il gruppo di gestione di Operations Manager si registra in un'area di lavoro di Log Analytics, l'opzione per specificare la configurazione del proxy per il gruppo di gestione non è disponibile nella console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  Aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
 
 1. Aprire un prompt dei comandi con privilegi elevati.
-   a. Passare a **Start** e digitare **cmd**.
-   b. Fare clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionare Esegui come amministratore**.
+
+    a. Passare a **Start** e digitare **cmd**.  
+    b. Fare clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionare **Esegui come amministratore**.  
+
 1. Immettere il comando seguente e premere **INVIO**:
 
     `netsh winhttp set proxy <proxy>:<port>`

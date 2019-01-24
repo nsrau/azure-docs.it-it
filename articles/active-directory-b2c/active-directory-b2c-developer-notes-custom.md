@@ -3,19 +3,19 @@ title: Note per sviluppatori sull'uso di criteri personalizzati in Azure Active 
 description: Note per gli sviluppatori sulla configurazione e la gestione di Azure AD B2C con criteri personalizzati.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272705"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844977"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Note sulla versione di anteprima pubblica dei criteri personalizzati di Azure Active Directory B2C
 Il set di funzionalità dei criteri personalizzati è ora disponibile per la valutazione in anteprima pubblica per tutti i clienti di Azure Active Directory B2C (Azure AD B2C). Questo set di funzionalità è destinato agli sviluppatori esperti che creano le soluzioni di gestione delle identità più complesse.  
@@ -62,7 +62,7 @@ Pubblicare domande su Stack Overflow all'indirizzo [https://aka.ms/aadb2cso](htt
 ### <a name="identity-providers-tokens-protocols"></a>Provider di identità, token, protocolli
 Interfacce con applicazioni e componenti esterni
 
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | Ad esempio, Google+ |
 | IDP-OAUTH2 |  | x |  | Ad esempio, Facebook  |
@@ -79,7 +79,7 @@ Interfacce con applicazioni e componenti esterni
 ### <a name="component-support"></a>Supporto dei componenti
 
 
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |-------------------------------------------|-------------|---------|----|-------|
 | Azure Multi-Factor Authentication |  | x |  |  |
 | Azure Active Directory come directory locale |  | x |  |  |
@@ -90,7 +90,7 @@ Interfacce con applicazioni e componenti esterni
 
 ### <a name="content-definition"></a>Definizione del contenuto
 
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   Pagina di errore, api.error |  | x |  |  |
 |   Pagina di selezione IDP, api.idpselections |  | x |  |  |
@@ -105,7 +105,7 @@ Interfacce con applicazioni e componenti esterni
 
 
 ### <a name="app-ief-integration"></a>Integrazione del framework dell'esperienza di gestione delle identità dell'app
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Parametro di stringa della query id_token_hint | x |  |  |  |
 | Parametro di stringa della query domain_hint |  | x |  | Disponibile come attestazione, può essere passato a all'IDP |
@@ -116,22 +116,22 @@ Interfacce con applicazioni e componenti esterni
 
 ### <a name="session-management"></a>Gestione delle sessioni
 
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |---------------------------------|-------------|---------|----|-------|
 | Provider di sessioni SSO |  | x |  |  |
 | Provider di sessioni di accesso esterno |  | x |  |  |
 | Provider di sessioni SSO SAML |  | x |  |  |
 
 
-### <a name="security"></a>Sicurezza
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+### <a name="security"></a>Security
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |---------------------------------------------|-------------|---------|----|-------|
 | Chiavi dei criteri: generazione, manuale, caricamento |  | x |  |  |
 | Chiavi dei criteri: RSA/certificato, segreti |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>Interfaccia di sviluppo
-| Funzionalità | Sviluppo. | Preview | GA | Note |
+| Funzionalità | Sviluppo. | Anteprima | GA | Note |
 |---------------------------------------------|-------------|---------|----|-------|
 | Portale di Azure: esperienza utente del framework dell'esperienza di gestione delle identità |  | x |  |  |
 | Log UserJourney di Application Insights  |  | x |  |  |

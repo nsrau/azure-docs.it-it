@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244988"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391321"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse SQL
 
-Il provider di risorse SQL viene eseguito in una macchina virtuale bloccata. Per abilitare le operazioni di manutenzione, è necessario aggiornare la protezione della macchina virtuale. A questo scopo si utilizza il principio del privilegio minimo, è possibile usare [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Il pacchetto di installazione di provider di risorse include uno script per questa operazione.
+Il provider di risorse SQL viene eseguito in una macchina virtuale bloccata. Per abilitare le operazioni di manutenzione, è necessario aggiornare la protezione della macchina virtuale. Per eseguire questa operazione usando il principio del privilegio minimo, è possibile usare [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Il pacchetto di installazione di provider di risorse include uno script per questa operazione.
 
 ## <a name="patching-and-updating"></a>L'applicazione di patch e aggiornamento
 
@@ -97,7 +97,7 @@ Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>Parametri SecretRotationSQLProvider.ps1
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
 |Parametro|DESCRIZIONE|
 |-----|-----|

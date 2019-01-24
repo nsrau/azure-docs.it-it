@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Informazioni su tutte le funzionalità disponibili in Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754746"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389330"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
 
@@ -139,15 +139,15 @@ Quando si apre o crea un nuovo modello, viene aperta la visualizzazione **Proget
 
 È possibile aggiungere elementi nella griglia in due modi:
 
-- **Trascinamento**: trascinare l'elemento desiderato sulla griglia. Usare le proprietà dell'elemento per fornire informazioni aggiuntive.
-- **Clic con il pulsante destro del mouse**: fare clic con il pulsante destro del mouse in un punto qualsiasi della griglia e scegliere voci dal menu a discesa. Verrà visualizzata una rappresentazione generica dell'elemento selezionato.
+- **Trascinamento della selezione**: Trascinare l'elemento desiderato sulla griglia. Usare le proprietà dell'elemento per fornire informazioni aggiuntive.
+- **Fare clic con il pulsante destro del mouse**: Fare clic con il pulsante destro del mouse in un punto qualsiasi della griglia e scegliere voci dal menu a discesa. Verrà visualizzata una rappresentazione generica dell'elemento selezionato.
 
 ### <a name="connect-elements"></a>Connettere elementi
 
 È possibile connettere gli elementi in due modi:
 
-- **Trascinamento**: trascinare il flusso di dati desiderato sulla griglia e connettere entrambe le estremità agli elementi appropriati.
-- **Clic + MAIUSC**: fare clic sul primo elemento (invio di dati), tenere premuto il tasto MAIUSC e quindi selezionare il secondo elemento (ricezione di dati). Fare clic con il pulsante destro del mouse e scegliere **Connetti**. Se si usa un flusso di dati bidirezionale, l'ordine non è importante.
+- **Trascinamento della selezione**: Trascinare il flusso di dati desiderato sulla griglia e connettere entrambe le estremità agli elementi appropriati.
+- **Clic + MAIUSC**: Fare clic sul primo elemento (invio di dati), tenere premuto il tasto MAIUSC, quindi selezionare il secondo elemento (ricezione di dati). Fare clic con il pulsante destro del mouse e scegliere **Connetti**. Se si usa un flusso di dati bidirezionale, l'ordine non è importante.
 
 ### <a name="properties"></a>Properties
 
@@ -207,5 +207,5 @@ Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per rilasciare un modello alla community, visitare la nostra pagina [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
-* Per iniziare a usare lo strumento, passare alla pagina [Download](https://aka.ms/tmtpreview).
+- Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/threatmodelingtool)** Threat Modeling Tool per iniziare.
+- Per rilasciare un modello alla community, visitare la nostra pagina [GitHub](https://github.com/Microsoft/threat-modeling-templates).

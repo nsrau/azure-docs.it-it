@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 62474aba9eb429755ff5e7c78725ee3ce2d90117
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: ''
+ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728211"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467503"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -35,8 +35,8 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Log di archiviazione | Eventi | Archiviazione di Azure | <ul><li>**Tabella di archiviazione:** [Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Avvisi del Centro sicurezza | Eventi | Centro sicurezza di Azure | <ul><li>**API REST:** [Avvisi di sicurezza](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
 | Creazione di report in Active Directory | Eventi | Azure Active Directory | <ul><li>**API REST:** [API Graph di Azure Active Directory](../../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
-| Stato delle risorse del Centro sicurezza | Status | [Tutte le risorse supportate](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**API REST:** [stati di sicurezza](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
-| Integrità delle risorse | Status | Servizi supportati | <ul><li>**API REST:** [API REST per l'integrità delle risorse](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
+| Stato delle risorse del Centro sicurezza | Stato | [Tutte le risorse supportate](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**API REST:** [stati di sicurezza](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
+| Integrità delle risorse | Stato | Servizi supportati | <ul><li>**API REST:** [API REST per l'integrità delle risorse](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Avvisi delle metriche di Monitoraggio di Azure | Notifiche | [Vedere l'elenco di seguito](metrics-supported.md) | <ul><li>**Webhook:** [avvisi delle metriche di Azure](alerts-webhooks.md)</li></ul> |
 | Avvisi di Log attività di Monitoraggio di Azure | Notifiche | Tutti i servizi di Azure | <ul><li>**Webhook:** avvisi dei log attività di Azure</li></ul> |
 | Notifiche relative alla scalabilità automatica | Notifiche | [Vedere l'elenco di seguito](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [schema di payload del webhook di notifica di scalabilità automatica](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
@@ -49,3 +49,4 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 - Altre informazioni sulle [metriche di Monitoraggio di Azure](data-collection.md)
 - Altre informazioni su [Log attività di Azure](activity-logs-overview.md)
 - Altre informazioni sui [Log di diagnostica di Azure](diagnostic-logs-overview.md)
+

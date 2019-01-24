@@ -1,10 +1,11 @@
 ---
-title: Creare un Load Balancer Standard con un front-end con ridondanza della zona usando il portale di Azure
+title: Creare un servizio di Load Balancer con un front-end con ridondanza della zona - Portale di Azure
 titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un Load Balancer Standard con un front-end di indirizzo IP pubblico con ridondanza della zona con il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135688"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247436"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Creare un Load Balancer Standard pubblico con un front-end con ridondanza della zona usando il portale di Azure
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Creare un Load Balancer Standard con un front-end con ridondanza della zona usando il portale di Azure
 
-Questo articolo illustra la creazione di un [servizio di bilanciamento del carico standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end con ridondanza della zona tramite un indirizzo standard IP pubblico. Un indirizzo IP front-end singolo in un servizio Load Balancer Standard offre per impostazione predefinita la ridondanza della zona.
+Questo articolo illustra la creazione di un [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end con ridondanza della zona tramite un indirizzo standard IP pubblico. Un indirizzo IP front-end singolo in un servizio Load Balancer Standard offre per impostazione predefinita la ridondanza della zona.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

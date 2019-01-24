@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050116"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413754"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -55,7 +55,7 @@ Per le applicazioni .NET, il modo più semplice per usare l'identità del serviz
 
 La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Di conseguenza non è necessario controllare la scadenza prima di chiamare il metodo `GetAccessTokenAsync`. Per usare il token, è sufficiente chiamare il metodo. 
 
-Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni, consultare [quali servizi di Azure supportano le identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni, consultare [quali servizi di Azure supportano le identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
 
 <a name="samples"></a>

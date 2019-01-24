@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722076"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359868"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
 Funzioni di Azure viene eseguito in due modalità diverse: piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice. Il numero di istanze dell'app viene aumentato in base alla necessità per gestire il carico e ridotto quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive, né riservare in anticipo la capacità.
 
 > [!NOTE]  
-> L'[hosting in Linux](functions-create-first-azure-function-azure-cli-linux.md) è attualmente disponibile solo per i piani di servizio app.
+> Il piano di consumo per Linux ora è in [Anteprima pubblica](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
 
 Se non si ha ancora familiarità con Funzioni di Azure, vedere la [panoramica di Funzioni di Azure](functions-overview.md).
 

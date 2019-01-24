@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4184d3605c464b5da495de0698155dda1ae4e474
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215304"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438712"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
 
@@ -62,7 +62,7 @@ Questa sezione prende in considerazione uno script di esempio e analizza in dett
 Prima di iniziare, assicurarsi di disporre di:
 
 *   Azure PowerShell installato. Per installare i moduli di Azure PowerShell:
-    * In un ambiente Windows seguire i passaggi descritti in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell). È possibile installare Azure PowerShell nell'host Windows Server per StorSimple, se disponibile.
+    * In un ambiente Windows seguire i passaggi descritti in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell). È possibile installare Azure PowerShell nell'host Windows Server per StorSimple, se disponibile.
     * In un ambiente Linux o MacOS seguire i passaggi descritti in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell in MacOS o Linux).
 
 Per altre informazioni sull'uso di Azure PowerShell, vedere [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0) (Iniziare a usare Azure PowerShell).

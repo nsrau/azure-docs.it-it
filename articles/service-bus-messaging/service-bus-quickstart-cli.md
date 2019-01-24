@@ -1,22 +1,22 @@
 ---
-title: Guida introduttiva - Usare l'interfaccia della riga di comando di Azure e Java per inviare e ricevere messaggi dal bus di servizio di Azure | Microsoft Docs
-description: In questa guida introduttiva viene illustrato come inviare e ricevere i messaggi del bus di servizio di Azure usando l'interfaccia della riga di comando di Azure e un'applicazione Java di esempio
+title: Guida introduttiva - Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio | Microsoft Docs
+description: In questa guida introduttiva si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio. Quindi si userà un'applicazione Java di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998677"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258325"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Avvio rapido: Inviare e ricevere messaggi usando l'interfaccia della riga di comando di Azure e Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Avvio rapido: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
 
 Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi (non è necessario che le applicazioni siano online contemporaneamente), il trasferimento delle modifiche apportate ai dati o allo stato e l'invio di messaggi tra le applicazioni. 
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratui
 
 Fare clic sul pulsante Cloud Shell del menu nell'angolo in alto a destra del portale di Azure e nell'elenco a discesa **Seleziona ambiente** selezionare **Bash**. 
 
-## <a name="use-cli-to-create-resources"></a>Usare l'interfaccia della riga di comando per creare risorse
+## <a name="use-the-azure-cli-to-create-resources"></a>Usare l'interfaccia della riga di comando di Azure per creare risorse
 
 In Cloud Shell, dal prompt di Bash eseguire i comandi seguenti per il provisioning delle risorse del bus di servizio. Assicurarsi di sostituire tutti i segnaposto con i valori appropriati:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e altre risorse necessarie per inviare e ricevere messaggi da una coda. Per altre informazioni sulla scrittura di codice per inviare e ricevere messaggi, continuare per l'esercitazione seguente per il bus di servizio:
 
 > [!div class="nextstepaction"]
-> [Aggiornare l'inventario usando l'interfaccia della riga di comando e Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Aggiornare l'inventario con l'interfaccia della riga di comando di Azure e Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

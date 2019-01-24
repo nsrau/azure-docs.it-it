@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434241"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare Azure-SSIS Integration Runtime in Azure Data Factory
 Questo articolo illustra la procedura per il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire ed eseguire pacchetti SQL Server Integration Services (SSIS) in questo runtime di integrazione in Azure. 
@@ -50,7 +50,7 @@ Quando si effettua il provisioning di Azure-SSIS IR, vengono installati anche il
     - Si ospita il database SSISDB nel server di database SQL di Azure con endpoint di servizio di rete virtuale o in Istanza gestita all'interno di una rete virtuale. 
     - Si vuole connettersi ad archivi dati locali da pacchetti SSIS in esecuzione su Azure-SSIS IR. 
 
-- **Azure PowerShell**. Seguire le istruzioni riportate in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps) se si vuole eseguire uno script di PowerShell per effettuare il provisioning di Azure-SSIS IR. 
+- **Azure PowerShell**. Seguire le istruzioni riportate in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) se si vuole eseguire uno script di PowerShell per effettuare il provisioning di Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Supporto di area
 Per un elenco delle aree di Azure in cui sono attualmente disponibili ADF e Azure-SSIS IR, vedere [Disponibilità di ADF + SSIS IR per area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

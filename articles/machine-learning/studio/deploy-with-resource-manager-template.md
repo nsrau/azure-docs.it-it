@@ -1,26 +1,7 @@
 ---
-title: Distribuire un'area di lavoro di Studio con Azure Resource Manager - Azure Machine Learning Studio | Microsoft Docs
-description: Come distribuire un'area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/05/2018
-ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268921"
+title: Distribuire l'area di lavoro di Studio con Azure Resource Manager titleSuffix: Azure Machine Learning Studio description: Come distribuire un'area di lavoro di Azure Machine Learning usando il modello di Azure Resource Manager services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro di Azure Machine Learning Studio con Azure Resource Manager
 

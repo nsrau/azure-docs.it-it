@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
-ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110599"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319402"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Note sulla versione dell'aggiornamento 0.4 per l'array virtuale StorSimple
 
@@ -53,19 +53,19 @@ L'aggiornamento 0.4 è principalmente una build di correzioni di bug a cui sono 
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| di serie | Funzionalità | Problema |
+|  No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Prestazioni del backup|Nelle versioni precedenti il completamento dei backup che coinvolgono un numero elevato di file richiede molto tempo (nell'ordine di giorni). In questa versione il tempo necessario per completare sia i backup completi che quelli incrementali è considerevolmente ridotto. |
 | 2 |Pacchetto di supporto|Le statistiche relative a disco, CPU, memoria, rete e cloud vengono ora registrate nei log di supporto, facendo i pacchetti per il supporto uno strumento molto efficace per la risoluzione dei problemi dei dispositivi.|
 | 3 |Backup |Nelle versioni precedenti i backup a esecuzione prolungata possono ridurre lo spazio sul dispositivo causando errori di backup. Il bug è stato risolto in questa versione consentendo l'accodamento di non più di 5 backup contemporaneamente.|
-| 4 |iSCSI | Nelle versioni precedenti la prenotazione locale per i volumi a livelli o aggiunti in locale è il 10% delle dimensioni del volume di cui è stato effettuato il provisioning. In questa versione la prenotazione locale per tutti i volumi iSCSI (aggiunti in locale o a livelli) è limitata al 10 % con un massimo di 200 GB (per i volumi a livelli superiori a 2 TB), liberando quindi più spazio sul dico locale. È consigliabile limitare i volumi aggiunti in locale a 200 GB.|
+| 4 |iSCSI | Nelle versioni precedenti la prenotazione locale per i volumi a livelli o aggiunti in locale è il 10% delle dimensioni del volume di cui è stato effettuato il provisioning. In questa versione la prenotazione locale per tutti i volumi iSCSI (aggiunti in locale o a livelli) è limitata al 10% con un massimo di 200 GB (per i volumi a livelli superiori a 2 TB), liberando quindi più spazio sul dico locale. È consigliabile limitare i volumi aggiunti in locale a 200 GB.|
 
 
 ## <a name="known-issues-in-the-update-04"></a>Problemi noti nell'aggiornamento 0.4
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. 
 
-| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
+|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

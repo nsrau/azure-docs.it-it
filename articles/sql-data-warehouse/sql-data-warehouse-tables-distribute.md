@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307518"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413873"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
 Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
 
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere [Azure SQL Data Warehouse - Architettura MPP (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere [Azure SQL Data Warehouse - Architettura MPP (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
 Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin.  
@@ -29,11 +29,11 @@ Le **tabella con distribuzione hash** migliorano le prestazioni delle query nell
 
 Un'altra opzione di archiviazione delle tabelle prevede la replica di una tabella di piccole dimensioni in tutti i nodi di calcolo. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Per scegliere rapidamente tra queste tre opzioni, vedere Tabelle distribuite nell'articolo di [panoramica sulle tabelle](sql-data-warehouse-tables-overview.md). 
 
-Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
-- Quali sono le dimensioni della tabella?   
-- Quanto spesso viene aggiornata la tabella?   
-- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
+- Quali sono le dimensioni della tabella?   
+- Quanto spesso viene aggiornata la tabella?   
+- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
 
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;
@@ -174,7 +174,7 @@ Per decidere se sia necessario risolvere la differenza dati di una tabella, è n
 Non essendo possibile modificare la colonna di distribuzione in una tabella esistente, il modo più comune per risolvere l'asimmetria dei dati consiste nel ricreare la tabella con una colonna di distribuzione diversa.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Ricreare la tabella con una nuova colonna di distribuzione
-Questo esempio usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) per ricreare una tabella con una colonna di distribuzione hash diversa.
+Questo esempio usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) per ricreare una tabella con una colonna di distribuzione hash diversa.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

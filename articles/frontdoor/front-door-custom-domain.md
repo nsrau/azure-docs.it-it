@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716498"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330926"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Esercitazione: Aggiungere un dominio personalizzato alla frontdoor
 Questa esercitazione mostra come aggiungere un dominio personalizzato alla propria frontdoor. Quando si usa il servizio Frontdoor di Azure per la distribuzione dell'applicazione, un dominio personalizzato è necessario se si vuole che il nome di dominio sia visibile nella richiesta dell'utente finale. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione.
 
-Dopo aver creato una frondoor, l'host di front-end predefinito, ovvero un sottodominio di `azurefd.net`, è incluso nell'URL per la distribuzione dei contenuti frontdoor dal back-end per impostazione predefinita (ad esempio, https:\//contoso.azurefd.net/activeusers.htm). Per comodità, Frontdoor di Azure offre la possibilità di associare un dominio personalizzato all'host predefinito. Grazie a questa possibilità, si distribuisce il contenuto con un dominio personalizzato nell'URL invece che con un nome di dominio di proprietà di Frontdoor (ad esempio, https:\//www.contoso.com/photo.png). 
+Dopo aver creato una frondoor, l'host di front-end predefinito, ovvero un sottodominio di `azurefd.net`, è incluso nell'URL per la distribuzione dei contenuti frontdoor dal back-end per impostazione predefinita (ad esempio, https:\//contoso.azurefd.net/activeusers.htm). Per comodità, Frontdoor di Azure offre la possibilità di associare un dominio personalizzato all’host predefinito. Grazie a questa possibilità, si distribuisce il contenuto con un dominio personalizzato nell'URL invece che con un nome di dominio di proprietà di Frontdoor (ad esempio, https:\//www.contoso.com/photo.png). 
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor. Per altre informazioni, vedere [Guida introduttiva: Creare una frontdoor](quickstart-create-front-door.md).
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor. Per altre informazioni, vedere [Avvio rapido: Creare una frontdoor](quickstart-create-front-door.md).
 
 Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
@@ -43,14 +43,14 @@ Se si usa Azure per ospitare i [domini DNS](https://docs.microsoft.com/azure/dns
 
 ## <a name="create-a-cname-dns-record"></a>Creare un record DNS CNAME
 
-Prima di poter usare un dominio personalizzato con la propria frontdoor, è necessario creare un record di nome canonico (CNAME) con il provider del dominio per puntare all'endpoint della rete CDN all'host di front-end predefinito della frontdoor (ad esempio contose.azurefd.net). Un record CNAME è un tipo di record DNS che esegue il mapping di un nome di dominio di origine a uno di destinazione. Per il servizio Frontdoor di Azure, il nome di dominio di origine è il nome di dominio personalizzato, mentre il nome di dominio di destinazione è il nome host predefinito della frontdoor. Dopo che la frontdoor di Azure ha verificato il record CNAME creato, il traffico indirizzato al dominio personalizzato di origine (ad esempio, www.contoso.com) viene instradato all'host di front-end predefinito della frontdoor di destinazione specificato (ad esempio, contoso.azureedge.net). 
+Prima di poter usare un dominio personalizzato con la propria frontdoor, è necessario creare un record di nome canonico (CNAME) con il provider del dominio per puntare all'endpoint della rete CDN all'host di front-end predefinito della frontdoor (ad esempio contoso.azurefd.net). Un record CNAME è un tipo di record DNS che esegue il mapping di un nome di dominio di origine a uno di destinazione. Per il servizio Frontdoor di Azure, il nome di dominio di origine è il nome di dominio personalizzato, mentre il nome di dominio di destinazione è il nome host predefinito della frontdoor. Dopo che la frontdoor di Azure ha verificato il record CNAME creato, il traffico indirizzato al dominio personalizzato di origine (ad esempio, www.contoso.com) viene instradato all’host di front-end predefinito della frontdoor di destinazione specificato (ad esempio, contoso.azureedge.net). 
 
 Un dominio personalizzato e il relativo sottodominio possono essere associati a una frontdoor alla volta. È tuttavia possibile usare più sottodomini dello stesso dominio personalizzato per frontdoor diverse usando più record CNAME. È anche possibile eseguire il mapping di un dominio personalizzato con sottodomini diversi alla stessa frontdoor.
 
 
 ## <a name="map-the-temporary-afdverify-sub-domain"></a>Eseguire il mapping del sottodominio afdverify temporaneo
 
-Quando si esegue il mapping di un dominio esistente in fase di produzione, è necessario tenere presenti alcune considerazioni speciali. Mentre si sta registrando il dominio personalizzato nel portale di Azure, può verificarsi un breve tempo di inattività per il dominio. Per evitare l'interruzione del traffico Web, eseguire prima il mapping del dominio personalizzato all'host di front-end predefinito della propria frontdoor con il sottodominio afdverify di Azure per creare un mapping CNAME temporaneo. Con questo metodo, gli utenti possono accedere al dominio senza interruzioni durante l'esecuzione del mapping DNS.
+Quando si esegue il mapping di un dominio esistente in fase di produzione, è necessario tenere presenti alcune considerazioni speciali. Mentre si sta registrando il dominio personalizzato nel portale di Azure, può verificarsi un breve tempo di inattività per il dominio. Per evitare l'interruzione del traffico Web, eseguire prima il mapping del dominio personalizzato all’host di front-end predefinito della propria frontdoor con il sottodominio afdverify di Azure per creare un mapping CNAME temporaneo. Con questo metodo, gli utenti possono accedere al dominio senza interruzioni durante l'esecuzione del mapping DNS.
 
 In caso contrario, se si usa per la prima volta il dominio personalizzato in cui non è in esecuzione traffico di produzione, è possibile eseguire il mapping diretto del dominio personalizzato alla frontdoor. Continuare con [Eseguire il mapping del dominio personalizzato permanente](#map-the-permanent-custom-domain).
 
@@ -62,13 +62,13 @@ Per creare un record CNAME con il sottodominio afdverify:
 
 3. Creare una voce di record CNAME per il dominio personalizzato e completare i campi come illustrato nella tabella seguente (i nomi dei campi possono variare):
 
-    | Origine                    | Tipo  | Destinazione                     |
+    | Sorgente                    | type  | Destination                     |
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.NET |
 
     - Origine: immettere il nome di dominio personalizzato, incluso il sottodominio afdverify, nel formato seguente: afdverify._&lt;nome di dominio personalizzato&gt;_. Ad esempio, afdverify.www.contoso.com.
 
-    - Tipo: immettere *CNAME*.
+    - Digitare:  immettere *CNAME*.
 
     - Destinazione: immettere l'host di frontend della frontdoor predefinito, incluso il sottodominio afdverify, nel seguente formato: afdverify._&lt;nome endpoint&gt;_.azurefd.net. Ad esempio, afdverify.contoso.azurefd.net.
 
@@ -86,7 +86,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 5. Completare i campi seguenti della voce CNAME:
 
-    - Type (Tipo): lasciare selezionato *CNAME*.
+    - Digitare:  lasciare selezionato *CNAME*.
 
     - Host: immettere il sottodominio del dominio personalizzato da usare, incluso il nome del sottodominio afdverify. Ad esempio, afdverify.www.
 
@@ -122,14 +122,14 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo alla f
 
 ## <a name="verify-the-custom-domain"></a>Verificare il dominio personalizzato
 
-Dopo aver completato la registrazione del dominio personalizzato, verificare che il dominio personalizzato faccia riferimento all'host di front-end della frontdoor predefinito.
+Dopo aver completato la registrazione del dominio personalizzato, verificare che il dominio personalizzato faccia riferimento all’host di front-end della frontdoor predefinito.
  
 Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è robotics.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Verificare che il risultato è lo stesso come quando si accede alla frontdoor direttamente alla *&lt;frontdoor host&gt;*.azurefd.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
 
-Se si è verificato che il mapping del sottodominio afdverify alla frontdoor è stato eseguito correttamente (o se si usa un nuovo dominio personalizzato non in produzione), è possibile eseguire il mapping del dominio personalizzato direttamente all'host di front-end della frontdoor predefinito.
+Se si è verificato che il mapping del sottodominio afdverify alla frontdoor è stato eseguito correttamente (o se si usa un nuovo dominio personalizzato non in produzione), è possibile eseguire il mapping del dominio personalizzato direttamente all’host di front-end della frontdoor predefinito.
 
 Per creare un record CNAME per il dominio personalizzato:
 
@@ -139,13 +139,13 @@ Per creare un record CNAME per il dominio personalizzato:
 
 3. Creare una voce di record CNAME per il dominio personalizzato e completare i campi come illustrato nella tabella seguente (i nomi dei campi possono variare):
 
-    | Origine          | Tipo  | Destinazione           |
+    | Sorgente          | type  | Destination           |
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azurefd.net |
 
     - Origine: immettere il nome di dominio personalizzato (ad esempio, www.contoso.com).
 
-    - Tipo: immettere *CNAME*.
+    - Digitare:  immettere *CNAME*.
 
     - Destinazione: immettere l'host di front-end della frontdoor predefinito. Deve essere nel formato seguente:_&lt;nome host&gt;_.azurefd.net. Ad esempio, contoso.azurefd.net.
 
@@ -167,7 +167,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 5. Completare i campi della voce CNAME:
 
-    - Type (Tipo): lasciare selezionato *CNAME*.
+    - Digitare:  lasciare selezionato *CNAME*.
 
     - Host: immettere il sottodominio del dominio personalizzato da usare. Ad esempio, www o il profilo.
 

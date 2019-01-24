@@ -15,12 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: 3ea57a834bfbb1583c53bbb1be80daffe1f05de6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.component: disks
+ms.openlocfilehash: 1c96f51a49cd21c00f866af0b767ceb3e0a9ce2d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380268"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470008"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
 
@@ -210,9 +211,6 @@ Dopo aver espanso il disco della macchina virtuale è necessario passare nel sis
 4.  Al prompt di **DISKPART** digitare `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
 
 
-##<a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 È consentito allegare dischi anche usando il [portale di Azure](attach-managed-disk-portal.md).
-
-
-

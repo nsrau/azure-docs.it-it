@@ -2,22 +2,22 @@
 title: Schema di eventi del Registro contenitori della Griglia di eventi di Azure
 description: Descrive le proprietà disponibili per gli eventi del Registro contenitori con Griglia di eventi di Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141768"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462845"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schema di eventi di Griglia di eventi di Azure per il Registro contenitori
 
-Questo articolo illustra le proprietà e lo schema per gli eventi del Registro contenitori. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi del Registro contenitori. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
@@ -113,7 +113,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | L'ID evento. |
-| timestamp | stringa | L'ora in cui si è verificato l'evento. |
+|  timestamp | stringa | L'ora in cui si è verificato l'evento. |
 | action | stringa | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
 | richiesta | object | La richiesta che ha generato l'evento. |

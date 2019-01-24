@@ -1,26 +1,8 @@
 ---
-title: Ripetere il training di un servizio Web di Studio predittivo esistente - Azure Machine Learning Studio | Microsoft Docs
-description: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/07/2017
-ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250553"
+title: Ripetere il training di un servizio Web studio predittivo esistente titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Ripetere il training di un servizio Web di Azure Machine Learning Studio predittivo esistente
 

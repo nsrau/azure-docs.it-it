@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165238"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261248"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Panoramica di Azure DevOps Projects
 
@@ -29,7 +29,7 @@ ms.locfileid: "52165238"
 
 ## <a name="why-should-i-use-devops-projects"></a>Perché usare DevOps Projects?
 
-  DevOps Projects automatizza l'installazione di un'intera pipeline di integrazione continua (CI) e di recapito continuo (CD) in Azure.  È possibile iniziare con il codice esistente o usare una delle applicazioni di esempio fornite. Quindi sarà possibile distribuire rapidamente l'applicazione in vari servizi di Azure, ad esempio macchine virtuali, servizio app, servizi Kubernetes di Azure (AKS), database SQL di Azure e Azure Service Fabric.  
+  DevOps Projects automatizza l'installazione di un'intera pipeline di integrazione continua (CI) e di recapito continuo (CD) in Azure.  È possibile iniziare con il codice esistente o usare una delle applicazioni di esempio fornite. Quindi sarà possibile distribuire rapidamente l'applicazione in vari servizi di Azure, ad esempio Macchine virtuali, Servizio app, servizi Azure Kubernetes (AKS), Database SQL di Azure e Azure Service Fabric.  
 
   DevOps Projects esegue tutto il lavoro per la configurazione iniziale di una pipeline DevOps, ovvero tutte le operazioni che spaziano dalla configurazione del repository Git iniziale, la configurazione della pipeline CI/CD, la creazione di una risorsa di Application Insights per il monitoraggio, fino alla presentazione di una singola visualizzazione dell'intera soluzione con la creazione di un dashboard di DevOps Projects nel portale di Azure.
 

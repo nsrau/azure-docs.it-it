@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186498"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232924"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -269,7 +269,7 @@ Il pannello relativo alla **sicurezza del computer** mostra i dati provenienti d
 ![Riquadro relativo alla sicurezza dei computer](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integrazione degli aggiornamenti
-La gestione degli aggiornamenti di Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Anlaytics.
+L'integrazione di Mapping dei servizi con Gestione aggiornamenti è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
 
 Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti relativi al server selezionato. Il riquadro elenca un riepilogo degli aggiornamenti mancanti per il server durante l'intervallo di tempo selezionato.
 

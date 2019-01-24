@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721836"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306387"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -26,7 +26,27 @@ La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che
 > [!IMPORTANT]
 > Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
-## <a name="architecture-of-sql-data-sync"></a>Architettura della sincronizzazione dati SQL
+## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
+
+La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
+
+-   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
+
+-   **Applicazioni distribuite:** in molti casi è utile separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
+
+-   **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
+
+La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
+
+| Scenario | Alcune soluzioni raccomandate |
+|----------|----------------------------|
+| Ripristino di emergenza | [Backup con ridondanza geografica di Azure](sql-database-automated-backups.md) |
+| Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](sql-database-read-scale-out.md) |
+| ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migrazione da SQL Server locale al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## <a name="overview-of-sql-data-sync"></a>Panoramica di Sincronizzazione dati SQL
 
 La sincronizzazione dati si basa sul concetto di gruppo di sincronizzazione. Un gruppo di sincronizzazione è un gruppo di database che si vuole sincronizzare.
 
@@ -50,26 +70,6 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 -   I **criteri di risoluzione dei conflitti** sono criteri a livello di gruppo e le impostazioni possono essere *Priorità hub* o *Priorità client*.
 
-## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
-
-La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
-
--   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
-
--   **Applicazioni distribuite:** in molti casi è utile separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
-
--   **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
-
-La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
-
-| Scenario | Alcune soluzioni raccomandate |
-|----------|----------------------------|
-| Ripristino di emergenza | [Backup con ridondanza geografica di Azure](sql-database-automated-backups.md) |
-| Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](sql-database-read-scale-out.md) |
-| ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| Migrazione da SQL Server locale al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
-|||
-
 ## <a name="how-does-data-sync-work"></a>Come funziona la sincronizzazione dati? 
 
 -   **Rilevamento delle modifiche ai dati:** la sincronizzazione dei dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
@@ -79,6 +79,14 @@ La sincronizzazione dei dati non è la soluzione preferita per gli scenari segue
 -   **Risoluzione dei conflitti:** la sincronizzazione dei dati offre due opzioni per la risoluzione dei conflitti, ovvero *Priorità hub* o *Priorità client*.
     -   Se si seleziona *Priorità hub*, le modifiche nell'hub sovrascrivono sempre le modifiche nel membro.
     -   Se si seleziona *Priorità client*, le modifiche nel membro sovrascrivono sempre le modifiche nell'hub. In presenza di più di un membro, il valore finale dipende dal membro sincronizzato per primo.
+
+## <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
+
+| | Sincronizzazione dei dati | Replica transazionale |
+|---|---|---|
+| Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
+| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo SQL di Azure<br/>-    Alti costi di manutenzione |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introduzione alla sincronizzazione dati SQL
 

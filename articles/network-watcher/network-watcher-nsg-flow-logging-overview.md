@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824286"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332303"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -33,10 +33,12 @@ Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di r
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+È possibile analizzare i log dei flussi e ottenere informazioni approfondite del traffico di rete usando l'[analisi del traffico](traffic-analytics.md).
+
 Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Per i criteri di conservazione dei log è possibile impostare da 1 a 2147483647 giorni. Se non viene impostato alcun criterio di conservazione, i log vengono conservati per sempre.
 
-È anche possibile analizzare i log dei flussi usando l'[analisi del traffico](traffic-analytics.md).
+> [!NOTE] 
+> L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0.
 
 
 ## <a name="log-file"></a>File di log
@@ -71,7 +73,7 @@ I log dei flussi includono le proprietà seguenti:
 
 ## <a name="nsg-flow-logs-version-2"></a>Log di flusso del gruppo di sicurezza di rete versione 2
 > [!NOTE] 
-> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. La configurazione è disponibile tramite il portale di Azure e l'API REST. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
+> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
 
 La versione 2 dei log introduce lo stato del flusso. È possibile configurare la versione del log di flusso ricevuta. Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
 
@@ -86,6 +88,12 @@ Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono contegg
 Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono conteggi aggregati dal momento della registrazione della tupla del flusso precedente. Facendo riferimento alla conversazione di esempio precedente, il numero totale di pacchetti trasferiti è 1021+52+8005+47=9125. Il numero totale di byte trasferiti è 588096+29952+4610880+27072=5256000.
 
 Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
+
+## <a name="nsg-flow-logging-considerations"></a>Considerazioni relative alla registrazione dei flussi dei gruppi di sicurezza di rete
+
+**Abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete associati a una risorsa**: la registrazione dei flussi in Azure viene configurata nella risorsa del gruppo di sicurezza di rete. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Modalità di valutazione del traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated). 
+
+**Costi di registrazione dei flussi**: i costi per la registrazione dei flussi dei gruppi di sicurezza di rete vengono addebitati in base al volume dei log generati. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per altre informazioni, vedere [Prezzi di Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/en-us/pricing/details/storage/).
 
 ## <a name="sample-log-records"></a>Record di log di esempio
 

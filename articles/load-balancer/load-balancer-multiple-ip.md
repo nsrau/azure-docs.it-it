@@ -1,5 +1,5 @@
 ---
-title: Bilanciamento del carico in più configurazioni IP in Azure
+title: Bilanciamento del carico in più configurazioni IP - Portale di Azure
 titlesuffix: Azure Load Balancer
 description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
 services: load-balancer
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163532"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199137"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 

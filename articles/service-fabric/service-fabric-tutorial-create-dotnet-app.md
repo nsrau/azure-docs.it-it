@@ -1,5 +1,5 @@
 ---
-title: Creare un'app .NET su Service Fabric in Azure | Microsoft Docs
+title: Creare un’app .NET su Service Fabric in Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare un'applicazione con un front-end ASP.NET Core e un back-end con stato Reliable Services e come distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078495"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321739"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Creare un'applicazione di Service Fabric .NET
 > * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Aggiungere un endpoint HTTPS a un servizio front-end ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurare CI/CD usando Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -326,8 +326,6 @@ In Esplora soluzioni aprire *VotingWeb/PackageRoot/ServiceManifest.xml*.  Trovar
 
 Aggiornare anche il valore della proprietà URL applicazione nel progetto Voting in modo che, quando si esegue il debug dell'applicazione, un Web browser si apra sulla porta corretta.  In Esplora soluzioni selezionare il progetto **Voting** e aggiornare la proprietà **URL applicazione** impostandola su **8080**.
 
-![URL applicazione](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Distribuire ed eseguire l'applicazione Voting in locale
 È ora possibile andare avanti con l'esercitazione ed eseguire il debug dell'applicazione Voting. In Visual Studio premere **F5** per distribuire l'applicazione nel cluster di Service Fabric locale in modalità di debug. L'applicazione ha esito negativo se in precedenza Visual Studio non è stato aperto come **amministratore**.
 
@@ -454,12 +452,7 @@ In questo successivo passaggio, connettere i due servizi e configurare l'applica
 
 L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. All'interno di una singola applicazione possono esserci servizi accessibili tramite TCP. Altri servizi potrebbero essere accessibili tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md).
 
-In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e il [proxy inverso di Service Fabric](service-fabric-reverseproxy.md) affinché il servizio Web front-end VotingWeb possa comunicare con il servizio back-end VotingData. Per impostazione predefinita, il proxy inverso viene configurato per usare la porta 19081. Dovrebbe funzionare per questa esercitazione. La porta è impostata nel modello di ARM usato per configurare il cluster. Per individuare quale porta viene usata, verificare il modello di cluster nella risorsa **Microsoft.ServiceFabric/clusters** o esaminare l'elemento HttpApplicationGatewayEndpoint nel manifesto del cluster.
-
-> [!NOTE]
-> Il proxy inverso è supportato solo in un cluster che esegue Windows 8 e versioni successive oppure Windows Server 2012 e versioni successive.
-
-<u>Risorsa reverseProxyEndpointPort di Microsoft.ServiceFabric/clusters </u>
+In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e il [proxy inverso di Service Fabric](service-fabric-reverseproxy.md) affinché il servizio Web front-end VotingWeb possa comunicare con il servizio back-end VotingData. Per impostazione predefinita, il proxy inverso viene configurato per usare la porta 19081. Dovrebbe funzionare per questa esercitazione. La porta del proxy inverso è impostata nel modello di Azure Resource Manager usato per configurare il cluster. Per individuare la porta usata, esaminare il modello del cluster nella risorsa **Microsoft.ServiceFabric/cluster**: 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliabl
           }
         ],
 ```
-Per visualizzare l'elemento HttpApplicationGatewayEndpoint nel manifesto del cluster di Service Fabric locale:
-1. Aprire una finestra del browser e passare a http://localhost:19080.
-2. Fare clic su **Manifesto**.
+Per trovare la porta del proxy inverso usata nel cluster di sviluppo locale, visualizzare l'elemento **HttpApplicationGatewayEndpoint** nel manifesto del cluster di Service Fabric locale:
+1. Aprire una finestra del browser e passare a http://localhost:19080 per aprire lo strumento Service Fabric Explorer.
+2. Selezionare **Cluster -> Manifest**.
 3. Annotare la porta dell'elemento HttpApplicationGatewayEndpoint. Per impostazione predefinita, dovrebbe essere la 19081. Se non è la 19081, è necessario modificare la porta nel metodo GetProxyAddress del codice VotesController.cs seguente.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di s
 
 Per osservare che cosa avviene nel codice, completare la procedura seguente:
 
-1. Aprire il file **VotingWeb\VotesController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 63).
+1. Aprire il file **VotingWeb\VotesController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 72).
 
-2. Aprire il file **VotingData\VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 53).
+2. Aprire il file **VotingData\VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 54).
 
 3. Premere **F5** per avviare l'applicazione in modalità di debug.
 

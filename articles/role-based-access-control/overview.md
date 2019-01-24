@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867899"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303320"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo?
 
@@ -76,9 +76,9 @@ Il resto dei ruoli predefiniti consente la gestione di risorse di Azure specific
 
 Azure ha introdotto operazioni sui dati (attualmente in anteprima) che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account. Per altre informazioni, vedere [Informazioni sulle definizioni del ruolo](role-definitions.md).
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 
-*Ambito* è il limite al quale si applica l'accesso. Quando si assegna un ruolo, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un [collaboratore di siti Web](built-in-roles.md#website-contributor), ma solo per un gruppo di risorse.
+*Ambito* è il set di risorse a cui si applica l'accesso. Quando si assegna un ruolo, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un [collaboratore di siti Web](built-in-roles.md#website-contributor), ma solo per un gruppo di risorse.
 
 In Azure, è possibile specificare un ambito su più livelli: [gruppo di gestione](../azure-resource-manager/management-groups-overview.md), sottoscrizione, gruppo di risorse o risorsa. Gli ambiti sono strutturati in una relazione padre-figlio.
 
@@ -99,6 +99,12 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 ![Assegnazione di ruolo per controllare l'accesso](./media/overview/rbac-overview.png)
 
 È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile avere fino a 2000 assegnazioni di ruolo in ogni sottoscrizione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
+
+Cosa succede se si hanno più assegnazioni di ruolo sovrapposte? Il controllo degli accessi in base al ruolo è un modello additivo, quindi le autorizzazioni effettive corrispondono alla somma delle assegnazioni di ruolo. Nell'esempio seguente a un utente viene concesso il ruolo Collaboratore nell'ambito della sottoscrizione e il ruolo Lettore in un gruppo di risorse. La somma delle autorizzazioni di Collaboratore e di quelle di Lettore rende effettivo il ruolo di Collaboratore per il gruppo di risorse. Quindi, in questo caso, l'assegnazione del ruolo Lettore non ha alcun impatto.
+
+![Più assegnazioni di ruolo](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Assegnazioni di rifiuto
 
@@ -126,7 +132,7 @@ Di seguito è indicata la procedura generale seguita dal controllo degli accessi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Guida introduttiva: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e il portale di Azure)
+- [Avvio rapido: Concedere l'accesso a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
 - [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
 - [Comprendere i diversi ruoli in Azure](rbac-and-directory-admin-roles.md)
 - [Adozione del cloud nell'organizzazione: gestione dell'accesso alle risorse in Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

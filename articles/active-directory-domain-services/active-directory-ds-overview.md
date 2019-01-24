@@ -4,7 +4,7 @@ description: Panoramica dei Servizi di dominio Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
+ms.date: 01/10/2019
 ms.author: ergreenl
-ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ef8395f7fab2b2673c4eadd1eb6db6405432b75a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155168"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856109"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Panoramica
@@ -65,10 +65,10 @@ Di seguito sono illustrati alcuni degli aspetti più importanti del dominio gest
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Servizi di dominio Azure AD per le organizzazioni ibride
 Le organizzazioni con un'infrastruttura IT ibrida utilizzano una combinazione di risorse cloud e risorse locali. Queste organizzazioni sincronizzano le informazioni relative alle identità della directory locale con il tenant Azure AD. Poiché le organizzazioni ibride hanno l'obiettivo di eseguire la migrazione della maggior parte delle applicazioni locali nel cloud, in particolare le applicazioni legacy compatibili con le directory, Servizi di dominio Azure AD può risultare utile.
 
-Litware Corporation ha distribuito [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)in modo da sincronizzare le informazioni relative alle identità della directory locale con il tenant Azure AD. Le informazioni sull'identità sincronizzate includono gli account utente, i relativi hash delle credenziali per l'autenticazione (sincronizzazione delle password) e le appartenenze ai gruppi.
+Litware Corporation ha distribuito [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)in modo da sincronizzare le informazioni relative alle identità della directory locale con il tenant Azure AD. Le informazioni sulle identità sincronizzate includono gli account utente, i relativi hash delle credenziali per l'autenticazione (sincronizzazione hash delle password) e le appartenenze ai gruppi.
 
 > [!NOTE]
-> **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
+> **La sincronizzazione hash delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Azure AD Domain Services**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
 >
 >
 

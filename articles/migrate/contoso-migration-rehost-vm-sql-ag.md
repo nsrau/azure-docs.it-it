@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880217"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267386"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migrazione di Contoso: eseguire il rehosting di un'app locale in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server
 
@@ -36,7 +36,7 @@ Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in u
 [Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app nei contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
-[Articolo 14: Ridimensionare una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
+[Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
 
 In questo articolo Contoso esegue la migrazione in Azure dell'app a due livelli SmartHotel360 di Windows .NET in esecuzione nelle macchine virtuali VMware. Questa app è disponibile per l'uso in modalità open source e può essere scaricata da [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -95,7 +95,7 @@ In questo scenario:
 
 ### <a name="database-considerations"></a>Considerazioni sul database
 
-Come parte del processo di progettazione della soluzione, Contoso ha eseguito un confronto delle funzionalità tra Database SQL di Azure e SQL Server. Le considerazioni seguenti hanno portato alla decisione di utilizzare un server SQL con in esecuzione una macchina virtuale Iaas di Azure:
+Come parte del processo di progettazione della soluzione, Contoso ha eseguito un confronto delle funzionalità tra Database SQL di Azure e SQL Server. Le considerazioni seguenti hanno portato alla decisione di usare una macchina virtuale Iaas di Azure con SQL Server:
 
  - L'uso di una macchina virtuale di Azure con SQL Server sembra essere una soluzione ottimale se Contoso ha l'esigenza di personalizzare il sistema operativo o il server di database oppure se vuole posizionare ed eseguire app di terze parti nella stessa macchina virtuale.
  - Utilizzando il Data Migration Assistant, Contoso può facilmente valutare e migrare in un database SQL di Azure.
@@ -107,7 +107,7 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 
 **Considerazioni** | **Dettagli**
 --- | ---
-**Vantaggi** | WEBVM verrà spostata in Azure senza modifiche, semplificando così la migrazione.<br/><br/> Il livello SQL Server verrà eseguito su SQL Server 2017 e Windows Server 2016. In questo modo viene ritirato il sistema operativo Windows Server 2008 R2 e l'esecuzione di SQL Server 2017 supporta i requisiti tecnici e gli obiettivi di Contoso. L’IT garantisce compatibilità al 100% per l’abbandono di SQL Server 2008 R2.<br/><br/> Contoso può sfruttare l'investimento in Software Assurance usando l'offerta Vantaggio Azure Hybrid.<br/><br/> Un'implementazione SQL Server ad alta disponibilità in Azure fornisce tolleranza agli errori in modo che il livello dei dati delle app non sia più un singolo punto di failover.
+**Vantaggi** | WEBVM verrà spostata in Azure senza modifiche, semplificando così la migrazione.<br/><br/> Il livello SQL Server verrà eseguito su SQL Server 2017 e Windows Server 2016. In questo modo viene ritirato il sistema operativo Windows Server 2008 R2 e l'esecuzione di SQL Server 2017 supporta i requisiti tecnici e gli obiettivi di Contoso. L’IT garantisce compatibilità al 100% per l’abbandono di SQL Server 2008 R2.<br/><br/> Contoso può sfruttare l'investimento in Software Assurance usando l'offerta Vantaggio Azure Hybrid.<br/><br/> Una distribuzione di SQL Server ad alta disponibilità in Azure fornisce tolleranza di errore in modo che il livello di dati delle app non sia più un singolo punto di failover.
 **Svantaggi** | WEBVM esegue Windows Server 2008 R2. Il sistema operativo è supportato da Azure per ruoli specifici (luglio 2018). [Altre informazioni](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)<br/><br/> I livelli Web dell'app rimarranno come singolo punto di failover.</br><br/> Contoso dovrà continuare a supportare il livello Web come VM di Azure anziché passare a un servizio gestito come Servizio app di Azure.<br/><br/> Con la soluzione scelta, Contoso dovrà continuare a gestire due macchine virtuali SQL Server piuttosto che passare a una piattaforma gestita come Istanza gestita di database SQL di Azure. Con Software Assurance, poi, Contoso ha potuto sostituire le licenze esistenti con licenze a tariffe scontate su Istanza gestita di database SQL di Azure.
 
 

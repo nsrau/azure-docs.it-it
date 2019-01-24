@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707147"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200923"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Esercitazione: Trasmettere dati in Azure Databricks tramite Hub eventi
 
@@ -384,4 +384,4 @@ Questa esercitazione ha illustrato come:
 Passare all'esercitazione successiva per apprendere come eseguire l'analisi del sentiment sui dati trasmessi con Azure Databricks e l'[API Servizi cognitivi Microsoft](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Analisi del sentiment sui dati in streaming con Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)
+>[Analisi della valutazione sui dati in streaming con Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

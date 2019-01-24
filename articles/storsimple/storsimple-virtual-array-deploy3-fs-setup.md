@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111849"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267182"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -28,13 +28,13 @@ ms.locfileid: "23111849"
 ## <a name="introduction"></a>Introduzione
 Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
 
-Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere [Distribuire un dispositivo StorSimple serie 8000 con Aggiornamento 2](storsimple-deployment-walkthrough-u2.md).
+Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere: [Deploy your StorSimple 8000 series device running Update 2](storsimple-deployment-walkthrough-u2.md) (Distribuire StorSimple serie 8000 con aggiornamento 2 in esecuzione).
 
 ## <a name="setup-prerequisites"></a>Prerequisiti di installazione
 Prima di configurare e installare l'array virtuale StorSimple, si deve:
 
 * Eseguire il provisioning di un array virtuale e connettersi come illustrato nell'articolo relativo al [provisioning dell'array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o al [provisioning dell'array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Avere ottenuto la chiave di registrazione del servizio dal servizio Gestione dispositivi StorSimple creato per gestire gli array virtuali StorSimple. Per altre informazioni, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
+* Avere ottenuto la chiave di registrazione del servizio dal servizio Gestione dispositivi StorSimple creato per gestire gli array virtuali StorSimple. Per altre informazioni, vedere il [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
 * Se questo è il secondo o l'ulteriore array virtuale registrato con un servizio Gestione dispositivi StorSimple esistente, è necessario disporre della chiave di crittografia del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come [ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) per StorSimple Virtual Array.
 
 ## <a name="step-by-step-setup"></a>Installazione passo per passo
@@ -49,7 +49,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    Usare l'URL di connessione indicata nel passaggio precedente. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. Accedere all'interfaccia utente Web dell'array virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare l'array virtuale nell'articolo relativo all'[esecuzione del provisioning di un array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di un array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web dell'array virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare l'array virtuale nell'articolo relativo all'[esecuzione del provisioning di un array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di un array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Si passa così alla **pagina iniziale**. Questa pagina illustra le varie impostazioni necessarie per configurare e registrare l'array virtuale con il servizio Gestione dispositivi StorSimple. Le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le uniche impostazioni obbligatorie sono le **Impostazioni del dispositivo** e le **Impostazioni cloud**.
@@ -103,7 +103,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 11. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
     
-    1. Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
+    1. Immettere la **Chiave di registrazione** ottenuta nel [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
     2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave di crittografia dati del servizio**. Copiare questo codice e salvarlo in un luogo sicuro. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. 
        
        Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la chiave di crittografia dati del servizio. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.

@@ -1,23 +1,23 @@
 ---
 title: Processi di moderazione e revisioni human-in-the-loop - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Applicare la supervisione umana alla moderazione automatica per risultati ottimali.
+description: Combinare funzionalità di moderazione automatica e human-in-the-loop usando l'API di revisione di Azure Content Moderator per ottenere risultati ottimali per l'azienda.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223256"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265346"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Revisioni e processi di moderazione
+# <a name="content-moderation-jobs-and-reviews"></a>Revisioni e processi di moderazione del contenuto
 
 Combinare funzionalità di moderazione automatica e human-in-the-loop usando l'[API di revisione](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) di Azure Content Moderator per ottenere risultati ottimali per l'azienda.
 
@@ -55,12 +55,12 @@ Usare l'operazione `Job.Get` e l'identificatore del processo per ottenere i dett
 
 Gli input includono le informazioni seguenti:
 
-- ID del team di revisione: identificatore del processo restituito dall'operazione precedente
+- ID del team di revisione: Identificatore del processo restituito dall'operazione precedente
 
 La risposta include le informazioni seguenti:
 
 - Identificatore della revisione creata. Usare questo ID per ottenere i risultati della revisione finale.
-- Stato del processo (completato o in corso): tag di moderazione assegnati (coppie chiave-valore).
+- Stato del processo (in corso o completato): Tag di moderazione assegnati (coppie chiave-valore).
 - Report di esecuzione del processo.
  
  

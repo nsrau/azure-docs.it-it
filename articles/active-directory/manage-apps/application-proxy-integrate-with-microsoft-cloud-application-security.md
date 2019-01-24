@@ -2,7 +2,7 @@
 title: Integrazione di app in locale con Cloud App Security - Azure Active Directory | Microsoft Docs
 description: Configurare un'applicazione in locale in Azure Active Directory in modo che collabori con Microsoft Cloud App Security (MCAS). Usare Controllo app per l'accesso condizionale di MCAS per monitorare e controllare le sessioni in tempo reale in base ai criteri di accesso condizionale. È possibile applicare questi criteri alle applicazioni locali che usano Proxy di applicazione in Azure Active Directory (Azure AD).
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e5e83d928893c2937df8be55d72bb22869891492
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215100"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472484"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurare il monitoraggio in tempo reale degli accessi alle applicazioni con Microsoft Cloud App Security e Azure Active Directory
 Configurare un'applicazione in locale in Azure Active Directory (Azure AD) per usare Microsoft Cloud App Security (MCAS) per il monitoraggio in tempo reale. MCAS utilizza Controllo app per l'accesso condizionale per monitorare e controllare le sessioni in tempo reale in base ai criteri di accesso condizionale. È possibile applicare questi criteri alle applicazioni locali che usano Proxy di applicazione in Azure Active Directory (Azure AD).
@@ -64,7 +64,7 @@ Per configurare l'applicazione con Controllo app per l’accesso condizionale, s
 
 ## <a name="test-conditional-access-app-control"></a>Verifica di Controllo app per l'accesso condizionale
 
-Per verificare la distribuzione di applicazioni di Azure AD con Controllo app per l’accesso condizionale, seguire le istruzioni riportate in [Verifica della distribuzione di app Azure AD](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+Per verificare la distribuzione di applicazioni di Azure AD con Controllo app per l’accesso condizionale, seguire le istruzioni riportate in [Verifica della distribuzione di app Azure AD](/cloud-app-security/proxy-deployment-aad).
 
 
 

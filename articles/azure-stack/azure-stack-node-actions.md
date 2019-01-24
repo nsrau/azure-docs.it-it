@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302681"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469203"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
@@ -148,10 +148,26 @@ Quando si esegue l'azione di ripristino, è necessario specificare l'indirizzo I
 
 Per eseguire l'azione di ripristino, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+Il **arresto** fist azione Sposta tutti i carichi di lavoro attivi per i restanti nodi nella stessa unità di scala. Quindi l'azione normalmente per interrompere l'esecuzione del nodo di unità di scala.
+
+Dopo l'avvio di un nodo che è stato arrestato, è necessario eseguire la [riprendere](#resume) azione. I carichi di lavoro precedenti che erano in esecuzione nel nodo di non eseguire il failback.
+
+Se l'operazione di arresto ha esito negativo, provare il [svuotare](#drain) operazione seguita dall'operazione di arresto.
+
+Per eseguire l'azione di arresto, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo amministratore dell'infrastruttura di Azure Stack, vedere [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).
+Per altre informazioni sul modulo amministratore dell'infrastruttura di Azure Stack, vedere [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

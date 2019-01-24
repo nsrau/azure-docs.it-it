@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51028141"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54357026"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -21,7 +21,7 @@ ms.locfileid: "51028141"
 
     ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    Quando si abilita **Esegui da ZIP**, l'app per le funzioni in Azure viene eseguita direttamente dal pacchetto di distribuzione. Per altre informazioni, vedere [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Esecuzione di Funzioni di Azure da un file di pacchetto).
+    Quando si abilita **Esegui da ZIP**, l'app per le funzioni in Azure passa in modalità di sola lettura e viene eseguita direttamente dal pacchetto di distribuzione. Per altre informazioni, vedere [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Esecuzione di Funzioni di Azure da un file di pacchetto).
      
     >[!CAUTION]
     >Se si sceglie **Seleziona esistente**, tutti i file nell'app per le funzioni esistente in Azure vengono sovrascritti da file del progetto locale. Usare questa opzione solo quando si ripubblicano gli aggiornamenti a un'app per le funzioni esistente.

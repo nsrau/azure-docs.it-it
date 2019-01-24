@@ -4,18 +4,18 @@ description: Personalizzare le attestazioni rilasciate nel token SAML per gli ut
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
-ms.author: twooley
-author: twooley
-manager: mtillman
+ms.author: mimart
+author: msmimart
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: f2617fb79fc20fcb385c7e2fc3596245ab18caba
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 7a06afd7e6e295510f393177d9828fe6dd7a3c0e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267092"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428904"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapping delle attestazioni utente per Collaborazione B2B in Azure Active Directory
 

@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975475"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230765"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -53,6 +53,7 @@ Azure Migrate supporta attualmente Europa, Stati Uniti e Azure per enti pubblici
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
 Azure Government | US Gov Virginia
+Asia | Asia sud-orientale
 Europa | Europa settentrionale o Europa occidentale
 Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
@@ -63,6 +64,17 @@ La connessione può avvenire tramite internet o usare ExpressRoute con peering p
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>È possibile rafforzare la macchina virtuale configurata con il modello OVA?
 
 È possibile aggiungere componenti aggiuntivi (ad esempio applicazioni antivirus) al modello OVA, purché la comunicazione e le regole del firewall necessarie perché l'appliance Azure Migrate funzioni vengano lasciate invariate.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Per aumentare l'appliance Azure Migrate, quali sono le esclusioni Antivirus (AV) consigliate?
+
+È necessario escludere le cartelle seguenti nell'appliance per l'analisi antivirus:
+
+- Cartella che contiene i file binari per il servizio Azure Migrate. Escludere tutte le sottocartelle.
+  %ProgramFiles%\ProfilerService  
+- Applicazione Web Azure Migrate. Escludere tutte le sottocartelle.
+  %SystemDrive%\inetpub\wwwroot
+- Cache locale per i file di Database e log. Il servizio di migrazione Azure necessita dell'accesso RW a questa cartella.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Individuazione
 
@@ -136,6 +148,7 @@ Se si dispone di un ambiente condiviso da più tenant e non si desidera individu
 
 È possibile individuare 1500 macchine virtuali in un singolo progetto di migrazione. Se nell'ambiente locale sono presenti più macchine, sono disponibili [altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente di grandi dimensioni in Azure Migrate.
 
+
 ## <a name="assessment"></a>Valutazione
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate supporta il Contratto Enterprise Agreement (EA) basato sulla stima dei costi?
@@ -144,6 +157,13 @@ Azure Migrate attualmente non supporta la stima dei costi per [offerta del Contr
 
   ![Discount](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Qual è la differenza tra il dimensionamento locale e il dimensionamento basato sulle prestazioni?
+
+Quando si specifica che il criterio di dimensionamento deve essere locale, Azure Migrate non considera i dati delle prestazioni delle macchine virtuali e le ridimensiona in base alla configurazione locale. Se il criterio di dimensionamento è basato sulle prestazioni, il dimensionamento viene eseguito in base ai dati di utilizzo. Ad esempio se è presente una macchina virtuale locale con 4 core e 8 GB di memoria, con un utilizzo della CPU e della memoria del 50%. Se il criterio di dimensionamento è il dimensionamento locale, è consigliato una SKU di macchina virtuale di Azure con 4 core e 8 GB di memoria, ma, se il criterio di dimensionamento è basato sulle prestazioni, è consigliato una SKU di macchina virtuale con 2 core e 4 GB perché, pur consigliando le dimensioni, va considerata la percentuale di utilizzo. Analogamente, per i dischi, il dimensionamento dei dischi dipende da due proprietà di valutazione: i criteri di dimensionamento e il tipo di archiviazione. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è automatico, vengono considerati i valori relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco per identificare il tipo di disco di destinazione (Standard o Premium). Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è Premium, è consigliabile un disco Premium. La SKU del disco Premium in Azure viene selezionato in base alle dimensioni del disco locale. La stessa logica si applica al dimensionamento del disco quando il criterio di dimensionamento è quello locale e il tipo di archiviazione è Standard o Premium.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Qual è l'impatto della cronologia delle prestazioni e dell'utilizzo percentile sulle dimensioni consigliate?
+
+Queste proprietà sono applicabili solo per il dimensionamento basato sulle prestazioni. Azure Migrate raccoglie la cronologia delle prestazioni dei computer locali e la usa per consigliare le dimensioni della macchina virtuale e il tipo di disco in Azure. L'appliance dell'agente di raccolta esegue continuamente una profilatura dell'ambiente locale per raccogliere i dati di utilizzo in tempo reale ogni 20 secondi. L'appliance esegue il rollup dei campioni raccolti ogni 20 secondi e crea un singolo punto dati ogni 15 minuti. Per creare il singolo punto dati, l'appliance seleziona il valore di picco da tutti i campioni raccolti ogni 20 secondi e lo invia ad Azure. Quando si crea una valutazione in Azure, in base alla durata delle prestazioni e al valore percentile della cronologia delle prestazioni, Azure Migrate calcola il valore di utilizzo effettivo e lo usa per il dimensionamento. Se ad esempio la durata delle prestazioni è stata impostata su 1 giorno e il valore percentile è stato impostato su 95, Azure Migrate usa i punti campione da 15 minuti inviati dall'agente di raccolta per l'ultimo giorno, li ordina in senso crescente e sceglie il valore del 95° percentile come utilizzo effettivo. Il valore del 95° percentile assicura che vengano ignorati eventuali outlier, come potrebbe invece verificarsi se si selezionasse il 99° percentile. Per scegliere il picco nell'utilizzo per il periodo di tempo senza perdere gli outlier, è consigliabile selezionare il 99° percentile.
 
 ## <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 

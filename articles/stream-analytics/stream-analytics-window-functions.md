@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893650"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231649"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduzione alle funzioni delle finestre di Analisi di flusso
 Negli scenari di flusso tempo eseguire operazioni solo sui dati contenuti in finestre temporali è un modello comune. Analisi di flusso offre supporto nativo per le funzioni delle finestre, consentendo agli sviluppatori di creare processi di elaborazione dei flussi complessi con il minimo sforzo.
 
-Esistono quattro finestre temporali tra cui scegliere: [**a cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**temporale scorrevole**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**sessione**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica.
+Esistono quattro tipi di finestre temporali tra cui scegliere: [**a cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**di salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**scorrevoli**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**della sessione**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica.
 
 Tutte le operazioni delle [finestre](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento di output sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. 
 
@@ -40,7 +40,7 @@ Le funzioni finestra temporale scorrevole, diversamente dalle finestre a cascata
 
 ![Finestra temporale di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="session-window-preview"></a>Finestra della sessione (anteprima)
+## <a name="session-window"></a>Finestra della sessione
 Le funzioni finestra della sessione raggruppano gli eventi che arrivano a intervalli di tempo simili, filtrando i periodi di tempo nei quali non sono presenti dati. Dispone di tre parametri principali: timeout, durata massima e chiave di partizionamento (facoltativo).
 
 ![Finestra della sessione di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)

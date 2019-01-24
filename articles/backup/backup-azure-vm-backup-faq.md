@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041289"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332252"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Domande frequenti su Backup di Azure
 
@@ -30,7 +30,7 @@ Questo articolo risponde alle domande comuni sul servizio [Backup di Azure](back
 ## <a name="backup"></a>Backup
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Un processo di backup su richiesta si basa sulla stessa pianificazione di conservazione dei backup pianificati?
- No. È necessario specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
+No. È necessario specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Di recente è stata abilitata la Crittografia dischi di Azure in alcune macchine virtuali. I backup continueranno a funzionare?
 È necessario fornire le autorizzazioni per consentire a Backup di Azure di accedere a Key Vault. Specificare le autorizzazioni in PowerShell come descritto nella sezione **Attivare un backup** nella documentazione relativa a [PowerShell di Backup di Azure](backup-azure-vms-automation.md).
@@ -54,17 +54,16 @@ Se si blocca il gruppo di risorse, il servizio Backup di Azure non è in grado d
 - Se dopo il blocco i backup non vengono eseguiti e viene generato un errore interno, [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>L'ora legale viene presa in considerazione dai criteri di backup?
- No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.
+No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quanti dischi dati è possibile collegare a una macchina virtuale sottoposta a backup tramite Backup di Azure?
-Backup di Azure è in grado di eseguire il backup di macchine virtuali con un massimo di 16 dischi. È disponibile il supporto per 16 dischi nella [versione più recente](backup-upgrade-to-vm-backup-stack-v2.md) (versione 2) dello stack di backup di macchine virtuali di Azure.
+Backup di Azure è in grado di eseguire il backup di macchine virtuali con un massimo di 16 dischi. Il supporto per 16 dischi è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Backup di Azure supporta Managed Disks SSD Standard?
-Backup di Azure supporta [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuovo tipo di risorsa di archiviazione durevole per le macchine virtuali di Azure. Il supporto per questa risorsa è disponibile nella [versione più recente](backup-upgrade-to-vm-backup-stack-v2.md) (versione 2) dello stack di backup di macchine virtuali di Azure.
+Backup di Azure supporta [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuovo tipo di risorsa di archiviazione durevole per le macchine virtuali di Azure. Il supporto per dischi gestiti SSD è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>È possibile eseguire il backup di una macchina virtuale con un disco con acceleratore di scrittura?
-Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup. L'esclusione del disco per le macchine virtuali con dischi con acceleratore di scrittura è supportata solo per le sottoscrizioni aggiornate alla versione 2 dello stack di backup di macchine virtuali di Azure. Per eseguire l'aggiornamento alla versione 2 dello stack di backup di macchine virtuali di Azure, vedere questo [articolo](backup-upgrade-to-vm-backup-stack-v2.md). Questa funzionalità è attualmente disponibile nelle aree seguenti: Giappone orientale, Europa settentrionale, Asia sud-orientale, Stati Uniti orientali, Stati Uniti occidentali 2, Europa occidentale e Stati Uniti orientali 2.
-
+Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup. L'esclusione del disco per le macchine virtuali con dischi con acceleratore di scrittura è supportata solo per gli abbonamenti aggiornati a Ripristino istantaneo.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>In una macchina virtuale sono presenti dischi con acceleratore di scrittura ed è installato SAP HANA. In che modo è possibile eseguire il backup?
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
@@ -104,7 +103,7 @@ Sì. Anche se si elimina la macchina virtuale, è possibile accedere all'element
 Per una macchina virtuale di Azure con dischi gestiti, il ripristino nei set di disponibilità è abilitato fornendo un'opzione nel modello durante il ripristino come dischi gestiti. Il parametro di input di questo modello è denominato **Set di disponibilità**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>In che modo si ottengono migliori prestazioni di ripristino?
-Per migliorare le prestazioni di ripristino, è consigliabile passare alla versione 2 dello stack di backup di macchine virtuali e usare la [funzionalità Instant RP](backup-upgrade-to-vm-backup-stack-v2.md).
+Per migliorare le prestazioni di ripristino, passare alla funzionalità di [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 

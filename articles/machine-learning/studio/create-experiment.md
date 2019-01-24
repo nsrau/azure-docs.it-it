@@ -1,33 +1,15 @@
 ---
-title: Esperimento semplice - Azure Machine Learning Studio | Microsoft Docs
-description: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
-keywords: esperimento,regressione lineare,algoritmi di machine learning,esercitazione su machine learning,tecniche di modellazione predittiva,esperimento di analisi scientifica dei dati
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262419"
+title: Esperimento semplice titleSuffix: Descrizione di Azure Machine Learning Studio: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
 ---
+
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Esercitazione: Creare il primo esperimento data science in Azure Machine Learning Studio
 
 Questa esercitazione è destinata agli utenti che non hanno mai usato **Azure Machine Learning Studio**.
 
-In questa esercitazione verrà illustrato come usare per la prima volta Studio per creare un esperimento di Machine Learning. L'esperimento testerà un modello analitico che stima il prezzo di un'automobile in base a diverse variabili, ad esempio la marca e le specifiche tecniche.
+Questa esercitazione illustrerà come usare per la prima volta Studio per creare un esperimento di Machine Learning. L'esperimento testerà un modello analitico che stima il prezzo di un'automobile in base a diverse variabili, ad esempio la marca e le specifiche tecniche.
 
 > [!NOTE]
 > Questa esercitazione offre le nozioni di base su come trascinare moduli nell'esperimento, connetterli, eseguire l'esperimento ed esaminare i risultati. Non verrà invece illustrato l'argomento generale di Machine Learning o come selezionare e usare i numerosi algoritmi predefiniti (più di 100) e i moduli di gestione dei dati inclusi in Studio.
@@ -142,7 +124,7 @@ Si aggiunge prima un modulo che rimuove completamente la colonna **normalized-lo
 
 3. Fare clic su [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Properties** (Proprietà).
 
-    - A sinistra, fare clic su **With rules**
+    - A sinistra, fare clic su **With rules** (Con regole)
     - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). In questo modo, [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) analizzerà tutte le colonne, ad eccezione di quelle che verranno escluse.
     - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
     - Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne (nella parte inferiore destra).
@@ -243,7 +225,7 @@ Il training e il test del modello verranno eseguiti con dati separati in un set 
     ***Impostare la frazione di divisione del modulo "Split Data" a 0,75***
 
     > [!TIP]
-    > Modificando il parametro **Random seed** , è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
+    > Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
 2. Eseguire l'esperimento. Durante l'esecuzione dell'esperimento, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) passano le definizioni di colonna ai moduli che saranno aggiunti successivamente.  
 
@@ -303,11 +285,11 @@ Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
-- **Errore assoluto medio** (MAE): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
-- **Radice dell'errore quadratico medio** (RMSE): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-- **Errore assoluto relativo**: media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-- **Errore quadratico relativo**: media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-- **Coefficiente di determinazione**: noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+- **Errore assoluto medio** (MAE): Media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
+- **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
+- **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+- **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+- **Coefficiente di determinazione**: Noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination**più il valore si avvicina a uno (1,0) più le stime sono migliori.
 

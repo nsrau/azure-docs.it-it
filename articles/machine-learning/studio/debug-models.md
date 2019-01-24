@@ -1,34 +1,17 @@
 ---
-title: Eseguire il debug del modello - Azure Machine Learning Studio | Microsoft Docs
-description: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268887"
+title: Eseguire il debug del modello titleSuffix: Descrizione di Azure Machine Learning Studio: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Debug del modello in Azure Machine Learning Studio
 
-In questo articolo vengono spiegati i potenziali motivi per i quali possono verificarsi i due errori indicati di seguito durante l'esecuzione di un modello:
+Quando si esegue un modello, è possibile riscontrare gli errori seguenti:
 
 * il modulo [Train Model][train-model] genera un errore 
 * il modulo [Score Model][score-model] genera risultati non corretti 
 
+Questo articolo spiega le cause potenziali di questi errori.
 
 
 ## <a name="train-model-module-produces-an-error"></a>Il modulo Train Model genera un errore
@@ -59,11 +42,11 @@ Il modulo [Score Model][score-model] richiede due input:
 1. Output del modello sottoposto a training dal modulo [Training modello][train-model].
 2. Un set di dati per la classificazione diverso da quello usato per il training del modello.
 
-Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Classificazione modello][score-model] produca risultati non corretti. Ciò può essere dovuto a diversi scenari:
+Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Classificazione modello][score-model] produca risultati non corretti. Questo problema può essere dovuto a diversi scenari:
 
 1. Se l'etichetta specificata è categorica e un modello di regressione è sottoposto a training sui dati, può essere prodotto un output errato dal modulo [Score Model][score-model]. Questo si verifica perché la regressione richiede una variabile di risposta continua. In questo caso sarebbe più opportuno usare un modello di classificazione. 
 
-2. Analogamente, se un modello di classificazione è sottoposto a training su un set di dati con numeri a virgola mobile nella colonna Etichetta, tale modello può produrre risultati indesiderati. Questo si verifica perché la classificazione richiede una variabile di risposta discreta che ammette solo valori all'interno di un set di classi finito e solitamente di dimensioni ridotte.
+2. Analogamente, se un modello di classificazione è sottoposto a training su un set di dati con numeri a virgola mobile nella colonna Etichetta, tale modello può produrre risultati indesiderati. Questo si verifica perché la classificazione richiede una variabile di risposta discreta che ammette solo valori all'interno di un set di classi finito e di dimensioni ridotte.
 
 3. Se il set di dati non contiene tutte le caratteristiche usate per eseguire il training del modello, il modulo [Score Model][score-model] genera un errore.
 

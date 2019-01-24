@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8d45ca0f55b373970bfc0b1d146d5b3e2d6d66fa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106563"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823403"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare l'SDK per Python per iniziare a usare Azure Machine Learning
 
@@ -37,7 +37,7 @@ Si crea un'area di lavoro e un file di configurazione da usare come prerequisiti
 
 Le risorse di Azure seguenti vengono aggiunte automaticamente all'area di lavoro quando sono disponibili a livello di area:
  
-- [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/)
+- [Registro Azure Container](https://azure.microsoft.com/services/container-registry/)
 - [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Insieme di credenziali chiave Azure](https://azure.microsoft.com/services/key-vault/)
@@ -52,7 +52,7 @@ Se non si dispone di una sottoscrizione di Azure, creare un account gratuito pri
 
 Il codice in questo articolo richiede Azure Machine Learning SDK versione 1.0.2 o successiva.
 
-Prima di installare l'SDK, è consigliabile creare un ambiente Python isolato. Anche se in questo articolo si usa [Miniconda](https://conda.io/docs/user-guide/install/index.html), si può usare la versione [Anaconda](https://www.anaconda.com/) completa installata o [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Prima di installare l'SDK, è consigliabile creare un ambiente Python isolato. Anche se in questo articolo si usa [Miniconda](https://docs.conda.io/en/latest/miniconda.html), si può usare la versione [Anaconda](https://www.anaconda.com/) completa installata o [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### <a name="install-miniconda"></a>Installare Miniconda
 

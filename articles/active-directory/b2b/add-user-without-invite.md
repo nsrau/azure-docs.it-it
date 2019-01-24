@@ -5,18 +5,18 @@ services: active-directory
 documentationcenter: ''
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: twooley
-author: twooley
-manager: mtillman
+ms.author: mimart
+author: msmimart
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 50c64386f1eab07c299112617283b1d8d7295295
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ddd5c0195bdd59deac453fe324b6d8c6898ec2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591052"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434207"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Aggiungere utenti guest di Collaborazione B2B senza un invito
 

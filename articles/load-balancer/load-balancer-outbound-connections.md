@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190969"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201381"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -91,7 +91,7 @@ Un esempio è una distribuzione di Azure Resource Manager in cui l'applicazione 
 
 ### <a name="multife"></a> Più front-end per i flussi in uscita
 
-#### <a name="load-balancer-standard"></a>Load Balancer Standard
+#### <a name="standard-load-balancer"></a>Load Balancer Standard
 
 Load Balancer Standard usa tutti i candidati per i flussi in uscita contemporaneamente quando sono presenti [più front-end IP (pubblici)](load-balancer-multivip-overview.md). Ogni front-end moltiplica il numero di porte SNAT preallocate disponibili se è abilitata una regola di bilanciamento del carico per le connessioni in uscita.
 

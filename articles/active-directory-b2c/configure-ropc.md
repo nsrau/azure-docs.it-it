@@ -3,19 +3,19 @@ title: Configurare il flusso delle credenziali password del proprietario della r
 description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726288"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845878"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 

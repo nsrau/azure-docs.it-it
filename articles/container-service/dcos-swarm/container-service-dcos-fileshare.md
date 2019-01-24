@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999851"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329821"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(DEPRECATO) Creare e montare una condivisione di file per un cluster DC/OS
 
@@ -35,7 +35,7 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Creare una condivisione file in Microsoft Azure
 
-Prima di usare una condivisione file di Azure con un cluster DC/OS del servizio contenitore di Azure, è necessario creare l'account di archiviazione e la condivisione file. Eseguire lo script seguente per creare l'account di archiviazione e la condivisione file. Aggiornare i parametri con valori appropriati dall'ambiente in uso.
+Prima di usare una condivisione file di Azure con un cluster DC/OS del servizio contenitore di Azure, è necessario creare l'account di archiviazione e la condivisione file. Eseguire lo script seguente per creare l'account di archiviazione e la condivisione file. Aggiornare i parametri con quelli dell'ambiente in uso.
 
 ```azurecli-interactive
 # Change these four parameters

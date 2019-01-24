@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406329"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353142"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
@@ -153,7 +153,7 @@ A partire da febbraio 2016 sono state aggiunte ad Azure Data Catalog le funziona
 
 * Una nuova esperienza di selezione dell'origine dati riprogettata nel tool di registrazione delle origini dati di Azure Data Catalog. Lo strumento di registrazione delle origini dati è stato aggiornato in modo da poter essere trovato e selezionato più facilmente dalle origini dati supportate da Azure Data Catalog.
 * Il portale e lo strumento di registrazione delle origini dati di Azure Data Catalog supportano ora altre 10 lingue. Oltre all'inglese, l'esperienza di Azure Data Catalog è ora disponibile in tedesco, spagnolo, francese, italiano, giapponese, coreano, portoghese brasiliano, russo, cinese semplificato e cinese tradizionale. L'esperienza utente di Azure Data Catalog è localizzata in base alle preferenze della lingua configurate in Windows o nel Web browser dell'utente.
-* Supporto della replica geografica dei dati di Azure Data Catalog per la continuità aziendale e il ripristino di emergenza. Tutto il contenuto di Azure Data Catalog, compresi i metadati delle origini dati e le annotazioni di crowdsourcing, vengono ora replicati tra due aree di Azure senza costi aggiuntivi per i clienti. Le aree di Azure sono pre-abbinate, ad almeno 500 miglia di distanza, e seguono il mapping come descritto in [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
+* Supporto della replica geografica dei dati di Azure Data Catalog per la continuità aziendale e il ripristino di emergenza. Tutto il contenuto di Azure Data Catalog, compresi i metadati delle origini dati e le annotazioni di crowdsourcing, vengono ora replicati tra due aree di Azure senza costi aggiuntivi per i clienti. Le aree di Azure sono pre-abbinate, ad almeno 500 miglia di distanza, e seguono il mapping come descritto in [Continuità aziendale e ripristino di emergenza: aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 * Supporto della modifica della sottoscrizione di Azure usata da Azure Data Catalog. Gli amministratori di Azure Data Catalog possono usare la pagina Impostazioni del portale di Azure Data Catalog per selezionare un'altra sottoscrizione di Azure ai fini della fatturazione.
 
 ## <a name="whats-new-for-january-2016"></a>Novità di gennaio 2016

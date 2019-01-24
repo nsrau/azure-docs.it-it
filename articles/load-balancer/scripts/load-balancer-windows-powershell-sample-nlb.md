@@ -1,13 +1,10 @@
 ---
-title: Esempio di PowerShell - Bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata - Azure | Microsoft Docs
+title: Esempio di PowerShell - Bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata - Azure
+titlesuffix: Azure Load Balancer
 description: Questo esempio di script di Azure PowerShell illustra come bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
@@ -15,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 31fd1e7d10692a1fbb552a483ae00e0088785a67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0440c7e2d2e79e2b954f975167389cf7698a6370
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181253"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201024"
 ---
-# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Esempio di script di Azure PowerShell: eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
+# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Esempio di script di Azure PowerShell: Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
 Questo script di esempio di Azure PowerShell crea tutti gli elementi necessari per eseguire più macchine virtuali Windows configurate in una configurazione a disponibilità elevata e con bilanciamento del carico. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, aggiunte a un set di disponibilità di Azure e accessibili tramite Azure Load Balancer.
 

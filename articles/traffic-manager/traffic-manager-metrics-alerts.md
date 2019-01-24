@@ -1,8 +1,7 @@
 ---
-title: Metriche e avvisi in Gestione traffico di Azure | Microsoft Docs
+title: Metriche e avvisi in Gestione traffico di Azure
 description: Questo articolo descrive le metriche disponibili per Gestione traffico in Azure.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437970"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200191"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
 
@@ -24,7 +23,7 @@ Gestione traffico offre un bilanciamento del carico basato su DNS, con diversi m
 
 ## <a name="metrics-available-in-traffic-manager"></a>Metriche disponibili in Gestione traffico 
 
-Gestione traffico offre le metriche seguenti per ogni profilo, che possono essere utilizzate dai clienti per comprendere l'uso di Gestione traffico e lo stato dei propri endpoint in tale profilo.  
+Gestione traffico offre le metriche seguenti per ogni profilo, che possono essere usate dai clienti per comprendere l'uso di Gestione traffico e lo stato dei propri endpoint in tale profilo.  
 
 ### <a name="queries-by-endpoint-returned"></a>Query da endpoint restituite
 Usare [questa metrica](../azure-monitor/platform/metrics-supported.md) per visualizzare il numero di query elaborate da un profilo di Gestione traffico in un periodo di tempo specifico. È anche possibile visualizzare le stesse informazioni con una granularità a livello di endpoint, per comprendere quante volte un endpoint è stato restituito nelle risposte alle query da Gestione traffico.
@@ -32,7 +31,7 @@ Usare [questa metrica](../azure-monitor/platform/metrics-supported.md) per visua
 Nell'esempio seguente, la Figura 1 visualizza tutte le risposte alle query restituite dal profilo di Gestione traffico. 
 
   
-![Metriche di Gestione traffico: visualizzazione aggregata di tutte le query](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Visualizzazione aggregata con tutte le query](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *Figura 1: visualizzazione aggregata con tutte le query*
   

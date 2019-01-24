@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0f98f815c0417d1ee8ad5708589b5402a033f83a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470716"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -47,7 +47,7 @@ Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
+Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -88,7 +88,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Creare un peering da *myVirtualNetwork1* a *myVirtualNetwork2* con [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). Se non si specifica il parametro `--allow-vnet-access`, il peering viene stabilito, ma non è possibile alcuna comunicazione attraverso di esso.
+Creare un peering da *myVirtualNetwork1* a *myVirtualNetwork2* con [az network vnet peering create](/cli/azure/network/vnet/peering). Se non si specifica il parametro `--allow-vnet-access`, il peering viene stabilito, ma non è possibile alcuna comunicazione attraverso di esso.
 
 ```azurecli-interactive
 az network vnet peering create \

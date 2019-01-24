@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275670"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413023"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -71,7 +71,7 @@ Quando si esegue il comando PowerShell seguente, è possibile specificare l'endp
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Parametri di script Get-AzureStackRootCert.ps1
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
@@ -96,7 +96,7 @@ Per creare i certificati, seguire questa procedura:
 3. Eseguire la *Create AppServiceCerts.ps1* script dalla cartella in cui sono stati estratti gli script helper. Questo script crea quattro certificati nella stessa cartella dello script necessarie per il servizio App per la creazione di certificati.
 4. Immettere una password per proteggere i file con estensione pfx e prendere nota di esso. È possibile immetterla nel servizio App nel programma di installazione di Azure Stack.
 
-#### <a name="create-appservicecertsps1-script-parameters"></a>Parametri dello script AppServiceCerts.ps1 creare
+#### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 script parameters
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
@@ -170,10 +170,10 @@ Rete virtuale - /16
 
 Subnet
 
-- ControllersSubnet da/24
-- ManagementServersSubnet da/24
+- ControllersSubnet /24
+- ManagementServersSubnet /24
 - FrontEndsSubnet da/24
-- PublishersSubnet da/24
+- PublishersSubnet /24
 - WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Preparare il file server
@@ -327,7 +327,7 @@ Gli amministratori devono configurare l'accesso SSO per:
 A tale scopo, seguire questa procedura:
 
 1. Aprire un'istanza di PowerShell come azurestack\AzureStackAdmin.
-2. Passare al percorso degli script che è stato scaricato ed estratto il [passaggio dei prerequisiti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Passare al percorso degli script che è stato scaricato ed estratto il [passaggio dei prerequisiti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).
 4. Eseguire la **Create AADIdentityApp.ps1** script. Quando richiesto, immettere l'ID tenant di Azure AD che sta usando per la distribuzione di Azure Stack. Ad esempio, immettere **myazurestack.onmicrosoft.com**.
 5. Nel **credenziale** finestra, immettere la password e account di amministratore del servizio di Azure AD. Selezionare **OK**.
@@ -371,7 +371,7 @@ Gli amministratori devono configurare l'accesso SSO per:
 A tale scopo, seguire questa procedura:
 
 1. Aprire un'istanza di PowerShell come azurestack\AzureStackAdmin.
-2. Passare al percorso degli script che è stato scaricato ed estratto il [passaggio dei prerequisiti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Passare al percorso degli script che è stato scaricato ed estratto il [passaggio dei prerequisiti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).
 4. Eseguire la **Create ADFSIdentityApp.ps1** script.
 5. Nel **credenziale** finestra, immettere la password e un account amministratore del cloud AD FS. Selezionare **OK**.

@@ -3,7 +3,7 @@ title: Installazione di driver GPU serie N di Azure per Linux | Microsoft Docs
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017264"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201041"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -51,9 +51,9 @@ Verrà visualizzato un output simile all'esempio seguente (che rappresenta una s
 
 Quindi eseguire i comandi di installazione specifici per la distribuzione.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. Scaricare e installare i driver CUDA.
+1. Scaricare e installare i driver CUDA dal sito Web NVIDIA. Ad esempio, per Ubuntu 16.04 LTS:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS o Red Hat Enterprise Linux 7.3 o 7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS o Red Hat Enterprise Linux
 
 1. Aggiornare il kernel (consigliato). Se si sceglie di non aggiornare il kernel, assicurarsi che le versioni di `kernel-devel` e `dkms` siano adeguate per il kernel.
 
@@ -174,7 +174,7 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. Eseguire il comando `lspci`. Verificare che la scheda o le schede NVIDIA M60 siano visualizzate come dispositivi PCI.
 

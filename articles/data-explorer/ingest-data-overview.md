@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 1/14/2019
+ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636000"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354621"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -27,13 +27,13 @@ Il servizio di gestione dei dati Esplora dati di Azure, responsabile dell'inseri
 
 1. **Invio in batch**: invia in batch i flussi di dati allo stesso database e alla stessa tabella per ottimizzare la velocità effettiva di inserimento.
 
-1. **Convalida**: convalida preliminare e conversione del formato, se necessario.
+1. **Convalida:** convalida preliminare e conversione del formato, se necessaria.
 
-1. **Manipolazione dei dati**: schema corrispondente, organizzazione, indicizzazione, codifica e compressione dei dati.
+1. **Manipolazione dei dati**: corrispondenza dello schema, organizzazione, indicizzazione, codifica e compressione dei dati.
 
 1. **Punto di persistenza nel flusso di inserimento**: gestisce il carico dell'inserimento sul motore e i nuovi tentativi in caso di errori temporanei.
 
-1. **Commit dell'inserimento dati**: rende i dati disponibili per le query.
+1. **Commit dell'inserimento dati**: rende disponibili i dati per le query.
 
 ## <a name="ingestion-methods"></a>Metodi di inserimento
 
@@ -41,10 +41,13 @@ Esplora dati di Azure supporta diversi metodi di inserimento, ognuno dei quali p
 
 ### <a name="ingestion-using-pipelines"></a>Inserimento tramite pipeline
 
-Esplora dati di Azure supporta attualmente la pipeline di Hub eventi, che può essere gestita usando la gestione guidata nel portale di Azure. Per altre informazioni, vedere [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md) (Guida introduttiva: Inserire dati dall'hub eventi a Esplora dati di Azure).
+Esplora dati di Azure supporta attualmente la pipeline di Hub eventi, che può essere gestita usando la gestione guidata nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md).
 
 ### <a name="ingestion-using-connectors-and-plugins"></a>Inserimento tramite connettori e plug-in
-Esplora dati di Azure supporta attualmente il plug-in Logstash. Per altre informazioni, vedere [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md) (Plug-in per output Logtash per Esplora dati di Azure).
+
+* Esplora dati di Azure supporta il plug-in Logstash. Per altre informazioni, vedere [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md) (Plug-in per output Logtash per Esplora dati di Azure).
+
+* Esplora dati di Azure supporta il connettore Kafka. Per altre informazioni, vedere [Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 
@@ -68,7 +71,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * Inserimento di dati tramite il servizio di gestione dati Esplora dati di Azure (velocità effettiva elevata e inserimento affidabile):
 
-  * [**Inserimento in batch**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornito dall'SDK): il client carica i dati in Archiviazione BLOB di Azure (designato dal servizio di gestione dati Esplora dati di Azure) e invia una notifica a una coda di Azure. Si tratta della tecnica consigliata per inserire grandi volumi di dati in modo affidabile ed economico.
+    [**Inserimento in batch**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornito dall'SDK): il client carica i dati in Archiviazione BLOB di Azure (designato dal servizio di gestione dati Esplora dati di Azure) e invia una notifica a una coda di Azure. L'inserimento dati in batch è la tecnica consigliata per inserire notevoli volumi di dati in modo affidabile ed economico.
 
 * Inserimento dei dati direttamente nel motore Esplora dati di Azure (il più appropriato per l'esplorazione e la creazione di prototipi):
 
@@ -88,7 +91,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 | **Inserimento in coda** | Tempo di invio in batch + tempo di elaborazione |
 | |
 
-Il tempo di elaborazione dipende dalle dimensioni dei dati. In genere richiede pochi secondi. Il tempo di invio in batch predefinito è pari a 5 minuti.
+Il tempo di elaborazione dipende dalle dimensioni dei dati. L'elaborazione richiede pochi secondi. Il tempo di invio in batch predefinito è pari a 5 minuti.
 
 ## <a name="choosing-the-most-appropriate-ingestion-method"></a>Scelta del metodo di inserimento più appropriato
 
@@ -109,7 +112,7 @@ Per le organizzazioni con un'infrastruttura esistente basata su un servizio di m
 
 ## <a name="supported-data-formats"></a>Formati di dati supportati
 
-Per tutti i metodi di inserimento diversi dall'inserimento da query, i dati devono essere formattati in uno dei formati supportati in modo che Esplora dati di Azure possa analizzarli.
+Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. Sono supportati i formati di dati seguenti:
 
 * CSV, TSV, PSV, SCSV, SOH
 * JSON (separato da righe, multiriga), Avro
@@ -119,21 +122,30 @@ Per tutti i metodi di inserimento diversi dall'inserimento da query, i dati devo
 > Quando i dati vengono inseriti, i tipi di dati vengono dedotti in base alle colonne della tabella di destinazione. Se un record è incompleto o un campo non può essere analizzato come tipo di dati necessario, le colonne della tabella corrispondenti verranno popolate con valori Null.
 
 ## <a name="ingestion-recommendations-and-limitations"></a>Limitazioni e consigli per l'inserimento
+
 * I criteri di conservazione effettivi dei dati inseriti sono derivati dai criteri di conservazione del database. Per informazioni dettagliate, vedere [Criteri di conservazione](/azure/kusto/concepts/retentionpolicy). Per inserire i dati, sono necessarie le autorizzazioni per l'**inserimento nella tabella** o per l'**inserimento nel database**.
-* L'inserimento supporta file di una dimensione massima di 5 GB. È consigliabile inserire file tra 100 MB e 1 GB.
+* L'inserimento supporta file di dimensione massima di 5 GB. È consigliabile inserire file di dimensione compresa tra 100 MB e 1 GB.
 
 ## <a name="schema-mapping"></a>Mapping dello schema
 
-Il mapping dello schema consente di associare in modo deterministico i campi dati di origine alle colonne della tabella di destinazione.
+Il mapping dello schema consente di associare i campi dati di origine alle colonne della tabella di destinazione.
 
-* Il [mapping CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facoltativo) usa tutti i formati basati sull'ordinale ed è possibile passarlo come parametro del comando di inserimento o [crearlo anticipatamente nella tabella](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e farvi riferimento dal parametro del comando di inserimento.
-* È possibile passare il [mapping JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obbligatorio) e il [mapping Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obbligatorio) come parametro del comando di inserimento o [crearli anticipatamente nella tabella](/azure/kusto/management/tables#create-ingestion-mapping) e farvi riferimento dal parametro del comando di inserimento.
+* Il [mapping CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facoltativo) funziona con tutti i formati basati su numeri ordinali. Può essere eseguito tramite il parametro del comando di inserimento o [creato anticipatamente nella tabella](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e definito come riferimento nel parametro del comando di inserimento.
+* Il [mapping JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obbligatorio) e il [mapping Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obbligatorio) possono essere eseguiti tramite il parametro del comando di inserimento o [creati anticipatamente nella tabella](/azure/kusto/management/tables#create-ingestion-mapping) e definiti come riferimento nel parametro del comando di inserimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
-[Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
 
-[Guida introduttiva: Inserire dati usando la libreria Node di Esplora dati di Azure](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Avvio rapido: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Avvio rapido: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)

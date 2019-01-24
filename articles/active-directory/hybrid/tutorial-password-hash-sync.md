@@ -4,7 +4,7 @@ description: Viene illustrato come configurare un ambiente ibrido di gestione de
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ed8b2ec0c31adebac72e105ecfc4c5ec28e7b74b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164705"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471872"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
 

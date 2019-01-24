@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089803"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230561"
 ---
 # <a name="what-is-azure-iot-edge"></a>Che cos'è Azure IoT Edge
 
@@ -41,31 +41,29 @@ Azure IoT Edge consente di distribuire funzionalità di intelligenza artificiale
 
 ### <a name="bring-your-own-code"></a>Usare un codice personalizzato
 
-Azure IoT Edge consente anche di distribuire il proprio codice nei dispositivi. Azure IoT Edge segue lo stesso modello di programmazione degli altri servizi di Azure IoT. Lo stesso codice può essere eseguito in un dispositivo o nel cloud. Poiché Azure IoT Edge supporta sia Linux che Windows, è possibile scrivere codice per la piattaforma preferita. Supporta Java, .NET Core 2.0, Node.js, C e Python, quindi gli sviluppatori possono scrivere codice in un linguaggio già conosciuto e usare la logica di business esistente senza scriverla da zero.
+Azure IoT Edge consente anche di distribuire il proprio codice nei dispositivi. Azure IoT Edge segue lo stesso modello di programmazione degli altri servizi di Azure IoT. Lo stesso codice può essere eseguito in un dispositivo o nel cloud. Poiché Azure IoT Edge supporta sia Linux che Windows, è possibile scrivere codice per la piattaforma preferita. Supporta Java, .NET Core 2.0, Node.js, C e Python, quindi gli sviluppatori possono scrivere codice in un linguaggio già conosciuto e usare la logica di business esistente.
 
 ## <a name="iot-edge-runtime"></a>Runtime di IoT Edge
 
 Il runtime di Azure IoT Edge consente la logica personalizzata e cloud sui dispositivi IoT Edge. Fa parte del dispositivo IoT Edge ed esegue operazioni di gestione e di comunicazione. Il runtime esegue diverse funzioni:
 
-* Installa e aggiorna i carichi di lavoro nel dispositivo.
-* Mantiene gli standard di sicurezza di Azure IoT Edge sul dispositivo.
-* Assicura che i moduli di IoT Edge siano sempre in esecuzione.
-* Segnala l'integrità dei moduli al cloud per il monitoraggio remoto.
-* Facilita la comunicazione tra i dispositivi foglia downstream e il dispositivo IoT Edge.
-* Facilita la comunicazione tra i moduli sul dispositivo IoT Edge.
-* Facilita la comunicazione tra il dispositivo IoT Edge e il cloud.
+* Installare e aggiornare i carichi di lavoro nel dispositivo.
+* Mantenere gli standard di sicurezza di Azure IoT Edge sul dispositivo.
+* Assicurare che i moduli di IoT Edge siano sempre in esecuzione.
+* Segnalare l'integrità dei moduli al cloud per il monitoraggio remoto.
+* Gestire la comunicazione tra i dispositivi foglia downstream e un dispositivo IoT Edge, tra i moduli in un dispositivo IoT Edge e tra un dispositivo IoT Edge e il cloud.
 
 ![Il runtime di IoT Edge invia informazioni dettagliate e report all'hub IoT](./media/about-iot-edge/runtime.png)
 
-È possibile usare un dispositivo Azure IoT Edge nel modo preferito. Il runtime viene spesso usato per distribuire l'intelligenza artificiale nei gateway che aggregano ed elaborano dati provenienti da diversi altri dispositivi locali, ma questa è solo un'opzione. I dispositivi foglia possono anche essere dispositivi Azure IoT Edge, indipendentemente dal fatto che siano connessi a un gateway o direttamente al cloud.
+È possibile usare un dispositivo Azure IoT Edge nel modo preferito. Il runtime viene spesso usato per distribuire l'intelligenza artificiale nei gateway che aggregano ed elaborano dati provenienti da diversi altri dispositivi locali, ma questo modello di distribuzione è solo un'opzione. I dispositivi foglia possono anche essere dispositivi Azure IoT Edge, indipendentemente dal fatto che siano connessi a un gateway o direttamente al cloud.
 
-Il runtime di Azure IoT Edge viene eseguito in un set completo di dispositivi IoT per consentire l'uso del runtime in svariati modi. Supporta sistemi operativi sia Linux che Windows ed estrae i dettagli sull'hardware. Usare un dispositivo inferiore a Raspberry Pi 3 se non si elaborano molti dati o non si passa a un server industrializzato per eseguire carichi di lavoro con un utilizzo intensivo delle risorse.
+Il runtime di Azure IoT Edge viene eseguito in un set completo di dispositivi IoT per consentire l'uso del runtime in svariati modi. Supporta sistemi operativi sia Linux che Windows ed estrae i dettagli sull'hardware. Usare un dispositivo inferiore a Raspberry Pi 3 se non si elaborano molti dati o usare un server industrializzato per eseguire carichi di lavoro con un utilizzo intensivo delle risorse.
 
 ## <a name="iot-edge-cloud-interface"></a>Interfaccia cloud di IoT Edge
 
 Gestire il ciclo di vita del software per i dispositivi aziendali è complesso. Gestire il ciclo di vita del software per milioni di dispositivi IoT diversi è ancora più difficile. È necessario creare e configurare carichi di lavoro per un particolare tipo di dispositivo, distribuirli su vasta scala in milioni di dispositivi della soluzione e monitorarli per individuare eventuali dispositivi non correttamente funzionanti. Queste attività non possono essere eseguite per ogni singolo dispositivo, ma devono essere eseguite su vasta scala.
 
-Azure IoT Edge si integra facilmente con gli acceleratori di soluzioni di Azure IoT offrendo un piano di controllo per le esigenze della soluzione. I servizi cloud consentono agli utenti di:
+Azure IoT Edge si integra facilmente con gli acceleratori di soluzioni di Azure IoT offrendo un piano di controllo per le esigenze della soluzione. I servizi cloud consentono di:
 
 * Creare e configurare un carico di lavoro da eseguire in un tipo specifico di dispositivo.
 * Inviare un carico di lavoro a un set di dispositivi.

@@ -3,7 +3,7 @@ title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di co
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2cc624cf47cddfe12532bdc7bf8cdc9a2858bb49
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139026"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468642"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -77,7 +77,7 @@ Considerare come esempio un'organizzazione con diverse macchine virtuali conness
   
 Con i gruppi di connettori del proxy di applicazione di Azure AD, è possibile abilitare un servizio comune per proteggere l'accesso a tutte le applicazioni senza creare una dipendenza aggiuntiva nella rete aziendale:
 
-![Più fornitori cloud IaaS per Azure AD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Fornitori di cloud IaaS multipli per Azure AD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Scenario a più foreste: gruppi di connettori diversi per ogni foresta
 

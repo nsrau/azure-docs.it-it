@@ -4,30 +4,30 @@ description: Questo articolo illustra la modalità in cui Servizi multimediali u
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782570"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350932"
 ---
 # <a name="storage-accounts"></a>Account di archiviazione
 
-Quando si crea un account di Servizi multimediali, è necessario specificare il nome di una risorsa dell'account di Archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali. 
+Quando si crea un account di Servizi multimediali, è necessario specificare il nome di una risorsa dell'account di Archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali. L'account di Servizi multimediali e l'account di archiviazione associato devono far parte dello stesso data center e dello stesso gruppo di risorse.
 
 È necessario avere un account di archiviazione **primario** ed è possibile avere un numero qualsiasi di account di archiviazione **secondari** associati all'account di Servizi multimediali. Servizi multimediali supporta account **Utilizzo generico v2** (GPv2) o **Utilizzo generico v1** (GPv1). 
 
 >[!NOTE]
 > Solo gli account di BLOB non sono consentiti come **primari**. 
 
-È consigliabile usare account GPv2, per poter scegliere tra livelli di archiviazione ad accesso frequente e livelli di archiviazione ad accesso sporadico. Per altre informazioni sugli account di archiviazione, vedere [Opzioni di account di archiviazione di Azure](../../storage/common/storage-account-options.md). 
+È consigliabile usare account GPv2, per poter scegliere tra livelli di archiviazione ad accesso frequente e livelli di archiviazione ad accesso sporadico. Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di Archiviazione di Azure](../../storage/common/storage-account-overview.md). 
 
 ## <a name="assets-in-a-storage-account"></a>Asset in un account di archiviazione
 

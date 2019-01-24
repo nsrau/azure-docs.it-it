@@ -1,22 +1,23 @@
 ---
-title: Moderazione del contenuto con supporto di computer e revisioni umane in Content Moderator | Microsoft Docs
+title: Includere la revisione umana nella moderazione del contenuto - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come la collaborazione tra persone e computer permetta di ottenere i risultati migliori per la moderazione del contenuto
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854221"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264734"
 ---
-# <a name="review-tool-overview"></a>Panoramica dello strumento di revisione
+# <a name="learn-about-the-review-tool"></a>Informazioni sullo strumento di revisione
 
 I risultati migliori per la moderazione del contenuto si ottengono grazie alla collaborazione tra persone e computer. I computer ottimizzano in modo efficace le revisioni umane nelle situazioni in cui l'attendibilità delle previsioni richiede supporto o deve essere adattata al contesto del mondo reale. Il risultato è un processo di moderazione del contenuto ibrido che offre prestazioni migliori rispetto all'uso distinto di revisioni umane e computer.
 

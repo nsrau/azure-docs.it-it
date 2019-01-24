@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 6427507a9a27ad41f9e0f0f5bfffd0eb55af2d78
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: metrics
+ms.openlocfilehash: 6944eb922250ac23aaae28997465af5a7c1e6032
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325455"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474728"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -132,5 +132,6 @@ Quando non servono più è possibile eliminare il gruppo di risorse, la macchina
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
+
 
 

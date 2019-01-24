@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68823ffb7b274b8afc31de9d85bded3da853fcac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040541"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438066"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -42,7 +42,7 @@ Il writeback delle password offre:
 * **Non richiede regole del firewall in entrata**: il writeback delle password usa un bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
 
 > [!Note]
-> Gli account utente presenti all'interno di gruppi protetti in Active Directory locale non possono essere usati con il writeback delle password. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Gli account utente presenti all'interno di gruppi protetti in Active Directory locale non possono essere usati con il writeback delle password. Gli account amministratore presenti all'interno di gruppi protetti nell'istanza locale di AD possono essere usati con il writeback delle password. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
@@ -58,6 +58,7 @@ Per usare il writeback delle password, è necessario disporre una delle licenze 
 * Microsoft 365 E3 o A3
 * Microsoft 365 E5 o A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono uno dei piani precedenti per l'uso della funzionalità.

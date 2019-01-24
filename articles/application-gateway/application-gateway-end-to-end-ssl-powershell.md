@@ -2,30 +2,25 @@
 title: Configurare SSL end-to-end con il gateway applicazione di Azure
 description: Questo articolo descrive come configurare SSL end-to-end con un gateway applicazione di Azure tramite PowerShell
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945332"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214063"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
 ## <a name="overview"></a>Panoramica
 
-Il gateway applicazione di Azure supporta la crittografia end-to-end del traffico. Il gateway applicazione termina la connessione SSL nel gateway applicazione stesso. Il gateway applica quindi le regole di routing al traffico, crittografa di nuovo il pacchetto e inoltra il pacchetto al server back-end appropriato in base alle regole di routing definite. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale.
+Il gateway applicazione di Azure supporta la crittografia end-to-end del traffico. Il gateway applicazione termina la connessione SSL nel gateway applicazione stesso. Il gateway applica quindi le regole di gestione al traffico, crittografa di nuovo il pacchetto e inoltra il pacchetto al server back-end appropriato in base alle regole di routing definite. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale.
 
-Il gateway applicazione supporta la definizione di opzioni SSL personalizzate. Il gateway applicazione supporta anche queste versioni del protocollo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, oltre alla definizione dei pacchetti di crittografia da usare e l'ordine di preferenza. Per altre informazioni sulle opzioni SSL configurabili, vedere [Panoramica dei criteri SSL](application-gateway-SSL-policy-overview.md).
+Il gateway applicazione supporta la definizione di opzioni SSL personalizzate. Supporta anche la disabilitazione delle seguenti versioni del protocollo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, oltre alla definizione dei pacchetti di crittografia da usare e l'ordine di preferenza. Per altre informazioni sulle opzioni SSL configurabili, vedere [Panoramica dei criteri SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 e SSL 3.0 sono disabilitati per impostazione predefinita e non possono essere abilitati. Sono considerati non sicuri e non possono essere usati con il gateway applicazione.
@@ -45,13 +40,13 @@ Questo scenario illustrerà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per configurare SSL end-to-end con un gateway applicazione, sono necessari un certificato per il gateway e i certificati per i server back-end. Il certificato del gateway viene usato per crittografare e decrittografare il traffico inviato tramite SSL. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
+Per configurare SSL end-to-end con un gateway applicazione, sono necessari un certificato per il gateway e i certificati per i server back-end. Il certificato del gateway viene usato per derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
 Per la crittografia SSL end-to-end, il back-end deve essere incluso nell'elenco elementi consentiti con il gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
 
 Questo processo di configurazione viene descritto nelle sezioni seguenti.
 
-## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Questa sezione descrive la creazione di un gruppo di risorse che contiene il gateway applicazione.
 
@@ -204,7 +199,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
    ```
 
-9. Creare la regola di routing del bilanciamento del carico per la configurazione del comportamento di bilanciamento del carico. In questo esempio viene creata una regola di round robin di base.
+9. Creare la regola di gestione del bilanciamento del carico per la configurazione del comportamento di bilanciamento del carico. In questo esempio viene creata una regola di round robin di base.
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
@@ -258,7 +253,7 @@ I passaggi precedenti descrivono la creazione di un'applicazione con SSL end-to-
 
    ```
 
-   3. Infine, aggiornare il gateway. Notare che questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, SSL end-to-end è configurato nel gateway applicazione.
+   3. Infine, aggiornare il gateway. Questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, SSL end-to-end è configurato nel gateway applicazione.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway
@@ -298,6 +293,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come rafforzare la sicurezza delle applicazioni Web con il web application firewall tramite il gateway applicazione, vedere [Panoramica del web application firewall](application-gateway-webapplicationfirewall-overview.md).
+Per altre informazioni su come rafforzare la sicurezza delle applicazioni Web con il Web application firewall tramite il gateway applicazione, vedere [Panoramica del Web application firewall](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

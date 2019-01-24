@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793513"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359902"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -94,11 +94,14 @@ Sì. Se si è scelto **Conserva i dati di backup** quando è stata interrotta la
 
 ## <a name="manage-backup"></a>Gestire il backup
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>È possibile usare PowerShell per configurare/gestire/ripristinare i backup di condivisioni file di Azure? <br/>
+Sì. Per altre informazioni, vedere la documentazione dettagliata [qui](backup-azure-afs-automation.md).
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>È possibile accedere agli snapshot creati da backup di Azure e montarli? <br/>
 È possibile accedere a tutti gli snapshot creati da Backup di Azure visualizzandoli nel portale, in PowerShell o nell'interfaccia della riga di comando. Per altre informazioni sugli snapshot di condivisione per File di Azure, vedere [Panoramica degli snapshot di condivisione per File di Azure (anteprima)](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>Qual è il periodo di conservazione massimo configurabile per i backup? <br/>
-Il backup di condivisioni file di Azure consente di conservare i backup giornalieri fino a 120 giorni.
+Il backup delle condivisioni file di Azure consente di configurare criteri di conservazione per un periodo massimo di 180 giorni. Se tuttavia si usa l'[opzione "backup su richiesta" in PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), è possibile conservare un punto di ripristino anche per 10 anni.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Cosa accade quando si modificano i criteri di backup per una condivisione file di Azure? <br/>
 Quando vengono applicati nuovi criteri a una o più condivisioni file, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione nel processo di pulizia successivo e vengono eliminati.

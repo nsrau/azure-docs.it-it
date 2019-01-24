@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568031"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359409"
 ---
-# <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: domande frequenti
+# <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
 La soluzione ibrida Microsoft Azure Data Box consente di inviare terabyte di dati in Azure in modo rapido, conveniente e affidabile tramite un dispositivo di trasferimento. L'articolo contiene le domande frequenti che possono sorgere quando si usa Data Box nel portale di Azure e le relative risposte. 
 
@@ -86,7 +86,7 @@ R. È possibile clonare l'ordine precedente. La clonazione consente di creare un
 ## <a name="configure-and-connect"></a>Configurazione e connessione
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>D: Come si sblocca Data Box? 
-R.  Nel portale di Azure accedere all'ordine di Data Box e andare a **Dettagli dispositivo**. Copiare la password di sblocco. Usare questa password per accedere all'interfaccia utente Web locale di Data Box. Per altre informazioni, vedere [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md) (Esercitazione: decomprimere, collegare i cavi e connettersi al dispositivo Azure Data Box).
+R.  Nel portale di Azure accedere all'ordine di Data Box e andare a **Dettagli dispositivo**. Copiare la password di sblocco. Usare questa password per accedere all'interfaccia utente Web locale di Data Box. Per altre informazioni, vedere l'[Esercitazione: Disimballare, cablare e connettersi ad Azure Data Box](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>D: È possibile usare un computer host Linux per connettersi e copiare i dati in Data Box?
 R.  Sì. È possibile usare Data Box per connettersi a client SMB e NFS. Per altre informazioni, passare all'elenco dei [sistemi operativi supportati](data-box-system-requirements.md) per il computer host.
@@ -95,7 +95,7 @@ R.  Sì. È possibile usare Data Box per connettersi a client SMB e NFS. Per alt
 R.  È possibile annullare l'ordine solo dopo l'ordine di Data Box e prima che l'ordine venga elaborato. Dopo l'elaborazione dell'ordine di Data Box, non è più possibile annullarlo. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>D: È possibile connettere un Data Box contemporaneamente a più computer host per trasferire i dati?
-R. Sì. Più computer host possono connettersi a Data Box per trasferire i dati e più processi di copia possono essere eseguiti in parallelo. Per altre informazioni, vedere [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Esercitazione: copiare i dati in Azure Data Box).
+R. Sì. Più computer host possono connettersi a Data Box per trasferire i dati e più processi di copia possono essere eseguiti in parallelo. Per altre informazioni, vedere l'[Esercitazione: Copiare i dati in Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -114,6 +114,9 @@ R. Se il LED indicatore di errore di sistema è acceso, il sistema non è integr
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>D: Non riesco ad accedere alla password di sblocco di Data Box nel portale di Azure. Quale può essere il motivo?
 R. Se non si è in grado di accedere alla password di sblocco nel portale di Azure, controllare le autorizzazioni per la sottoscrizione e per l'account di archiviazione. Verificare di disporre dell'autorizzazione di collaboratore o proprietario a livello di gruppo di risorse. In caso contrario, è necessario avere almeno l'autorizzazione di ruolo operatore di Data Box per visualizzare le credenziali di accesso.
+
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>D: La configurazione del canale delle porte è supportata in Data Box? E MPIO?
+R. In Data Box le configurazioni del canale delle porte, di MPIO (Multipath IO) o della vLAN non sono supportate.
 
 ## <a name="track-status"></a>Monitoraggio dello stato
 
@@ -142,12 +145,12 @@ R.  Se si usa un client SMB, è possibile usare uno strumento di copia SMB, ad e
 
 Se si usa un client NFS, è possibile usare [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/). 
 
-Per altre informazioni, vedere [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Esercitazione: copiare i dati in Azure Data Box).
+Per altre informazioni, vedere l'[Esercitazione: Copiare i dati in Azure Data Box](data-box-deploy-copy-data.md).
 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>D: Ci sono suggerimenti per velocizzare la copia dei dati?
 R.  Per velocizzare il processo di copia:
 
-- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md) (Esercitazione: copiare i dati in Azure Data Box ed eseguire la verifica).
+- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
 - Usare più sessioni.
 - È opportuno non eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete), ma assicurarsi che i dati si trovino in locale nel computer a cui è collegato il dispositivo Data Box.
 - Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://bluestop.org/fio/) per ottenere un benchmark delle prestazioni dell'hardware del server.
@@ -223,17 +226,17 @@ R.  Il servizio Azure Data Box offre in modo nativo report che è possibile usar
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Quale tipo di documentazione è disponibile per supportare la catena di custodia?
 R.  Per supportare la catena di custodia, è disponibile la documentazione seguente:
 
-- Logistica di trasporto da DHL e UPS.
+- Logistica di trasporto da UPS.
 - Registrazione dell'accensione e dell'accesso condiviso degli utenti.
 - File manifesto con un controllo di ridondanza ciclico a 64 bit (CRC-64) o checksum per ogni file inserito correttamente in Data Box.
 - Segnalazione di file che non è stato possibile caricare nell'account di archiviazione di Azure.
 - Bonifica dei processi del dispositivo Data Box (in base alle norme NIST 800 88R1) dopo che la data è stata copiata nell'account di archiviazione di Azure.
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>I documenti di accompagnamento del corriere (UPS/DHL) sono disponibili? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>I documenti di accompagnamento del corriere (UPS) sono disponibili? 
 R.  I documenti di accompagnamento del corriere vengono acquisiti nella cronologia ordini di Data Box. Tale report è disponibile all'utente dopo la restituzione del dispositivo al data center di Azure e dopo l'eliminazione dei dati dai dischi del dispositivo stesso. Per esigenze di controllo immediate, è anche possibile accedere direttamente al sito Web del corriere con il numero di tracciabilità dell'ordine e ottenere le informazioni necessarie.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>È possibile trasportare direttamente il dispositivo Data Box al data center di Azure? 
-R.   No. I data center di Azure non accettano attualmente la consegna di Data Box da parte di clienti o di corrieri diversi da UPS o DHL.
+R.   No. I data center di Azure non accettano attualmente la consegna di Data Box da parte di clienti o di corrieri diversi da UPS.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

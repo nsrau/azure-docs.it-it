@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720952"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811639"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -52,7 +52,7 @@ Questa esercitazione illustra come:
 
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -111,7 +111,7 @@ In questa sezione vengono inviate le richieste rilevanti per la codifica e la cr
 
 ### <a name="get-azure-ad-token"></a>Ottenere il token di Azure AD 
 
-1. Nella finestra a sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere token di autenticazione AAD).
+1. Nella finestra a sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere un token di autenticazione AAD).
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 

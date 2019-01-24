@@ -7,13 +7,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/14/2019
+ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438609"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265295"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -50,7 +50,7 @@ In questa esercitazione si apprenderà come:
 
 Visitare [Creare un cluster HDInsight con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) per informazioni su come creare gli utenti del dominio **sales_user** e **marketing_user**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
 
-## <a name="create-ranger-policy"></a>Creare un criterio di Ranger 
+## <a name="create-ranger-policy"></a>Creare un criterio di Ranger
 
 Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
@@ -74,7 +74,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
    ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE]   
+   >[!NOTE]
    >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
 
 4. Fare clic su **Aggiungi** per salvare il criterio.
@@ -94,17 +94,15 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Creare argomenti in un cluster Kafka con ESP
 
-Per creare due argomenti **salesevents** e **marketingspend**:
+Per creare due argomenti `salesevents` e `marketingspend`:
 
 1. Per aprire una connessione SSH al cluster, usare il comando seguente:
 
    ```bash
-   ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+   ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Sostituire `SSHUSER` con il nome utente SSH del cluster e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente SSH. Per altre informazioni sull'uso di `scp` con HDInsight, vedere [Use SSH with HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) (Uso di SSH con HDInsight).
-
-   In uno scenario di produzione, gli utenti del dominio configurati durante la creazione di cluster possono eseguire SSH nel cluster.
+   Sostituire `DOMAINADMIN` con l'utente amministratore per il cluster configurato durante la [creazione del cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp) e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente amministratore. Per altre informazioni sull'uso di `SSH` con HDInsight, vedere [Use SSH with HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) (Uso di SSH con HDInsight).
 
 2. Per salvare il nome del cluster in una variabile e installare un'utilità di analisi JSON `jq`, usare i comandi seguenti. Quando richiesto, immettere il nome del cluster Kafka.
 
@@ -113,14 +111,15 @@ Per creare due argomenti **salesevents** e **marketingspend**:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Per ottenere gli host del broker Kafka e gli host Apache Zookeeper, usare i comandi seguenti. Quando richiesto, immettere la password dell'account amministratore del cluster.
+3. Per ottenere gli host del broker Kafka, usare i comandi seguenti. Quando richiesto, immettere la password dell'account amministratore del cluster.
 
    ```bash
-   export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]  
-> Prima di continuare, può essere necessario configurare l'ambiente di sviluppo se non è stato ancora fatto. Sono necessari componenti quali Java JDK, Apache Maven e un client SSH con scp. Per maggiori dettagli, vedere queste [istruzioni di installazione](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+
+   > [!Note]  
+   > Prima di continuare, può essere necessario configurare l'ambiente di sviluppo se non è stato ancora fatto. Sono necessari componenti quali Java JDK, Apache Maven e un client SSH con scp. Per altri dettagli, vedere le [istruzioni di configurazione](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   
 1. Scaricare gli [esempi di producer e consumer Apache Kafka aggiunti a dominio](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
 1. Seguire i passaggi 2 e 3 sotto **Compilare e distribuire l'esempio** in [Esercitazione: Usare le API Apache Kafka Producer e Consumer](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
@@ -132,13 +131,9 @@ Per creare due argomenti **salesevents** e **marketingspend**:
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE]   
-   >Solo il proprietario del processo del servizio di Kafka, come radice, può scrivere negli Znode `/config/topics` di Zookeeper. I criteri di Ranger non vengono applicati quando un utente senza privilegi crea un argomento. Questo perché lo script `kafka-topics.sh` comunica direttamente con Zookeeper per creare l'argomento. Le voci vengono aggiunte ai nodi Zookeeper, mentre gli osservatori lato broker monitorano e creano argomenti corrispondenti. L'autorizzazione non può essere eseguita tramite il plug-in di Ranger e il comando precedente viene eseguito usando `sudo` tramite il broker Kafka.
-
-
 ## <a name="test-the-ranger-policies"></a>Testare i criteri di Ranger
 
-In base ai criteri di Ranger configurati, **sales_user** può produrre o utilizzare argomenti **salesevents** ma non argomenti **marketingspend**. Al contrario, **marketing_user** può produrre o utilizzare argomenti **marketingspend** ma non argomenti **salesevents**.
+In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzare risorse per l'argomento `salesevents` ma non per l'argomento `marketingspend`. Al contrario, **marketing_user** può creare o utilizzare risorse per l'argomento `marketingspend` ma non per l'argomento `salesevents`.
 
 1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere come  **sales_user1**:
 
@@ -152,59 +147,51 @@ In base ai criteri di Ranger configurati, **sales_user** può produrre o utilizz
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
    ```
 
-3. Usare i nomi di Zookeeper e del broker nella sezione precedente per impostare le variabili di ambiente seguenti:
+3. Usare i nomi dei broker della sezione precedente per impostare le variabili di ambiente seguenti:
 
    ```bash
-   export KAFKABROKERS=<brokerlist>:9092 
+   export KAFKABROKERS=<brokerlist>:9092
    ```
 
    Esempio: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
+4. Seguire il passaggio 3 in **Compilare e distribuire l'esempio** dell'[Esercitazione: Usare le API Apache Kafka Producer e Consumer](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) per assicurarsi che `kafka-producer-consumer.jar` sia disponibile anche per **sales_user**.
+
+5. Verificare che **sales_user1** possa creare risorse nell'argomento `salesevents` eseguendo il comando seguente:
+
    ```bash
-   export KAFKAZKHOSTS=<zklist>:2181
+   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-   Esempio: `export KAFKAZKHOSTS=zk1-khdicl.contoso.com:2181,zk2-khdicl.contoso.com:2181`
-
-4. Verificare che **sales_user1** può eseguire la produzione nell'argomento **salesevents**.
-   
-   Eseguire il comando seguente per avviare la console-producer per l'argomento **salesevents**:
+6. Eseguire il comando seguente per utilizzare risorse dall'argomento `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic salesevents --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
-   Quindi, digitare alcuni messaggi nella console. Premere **Ctrl + C** per chiudere lai console-producer.
+   Verificare che sia possibile leggere i messaggi.
 
-5. Eseguire il comando seguente da utilizzare a partire dall'argomento **salesevents**:
-
-   ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
-   ```
- 
-6. Verificare che i messaggi inseriti nel passaggio precedente vengano visualizzati,e che **sales_user1** non possa eseguire la produzione dell'argomento **marketingspend**.
-
-   Dalla stessa finestra ssh come illustrato in precedenza, eseguire il comando seguente per la produzione nell'argomento **marketingspend**:
+7. Verificare che **sales_user1** possa creare risorse nell'argomento `marketingspend` eseguendo il comando seguente nella stessa finestra ssh:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic marketingspend --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
-   Si verifica un errore di autorizzazione che può essere ignorato. 
+   Si verifica un errore di autorizzazione che può essere ignorato.
 
-7. Si noti che **marketing_user1** non può essere utilizzato dall'argomento **salesevents**.
+8. Si noti che **marketing_user1** non può utilizzare risorse dall'argomento `salesevents`.
 
-   Ripetere i passaggi da 1 a 3 di cui sopra, ma questa volta come **marketing_user1**.
+   Ripetere i passaggi da 1 a 4 precedenti, ma questa volta per **marketing_user1**.
 
-   Eseguire il comando seguente da utilizzare a partire dall'argomento **salesevents**:
+   Eseguire il comando seguente per utilizzare risorse dall'argomento `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic marketingspend --security-protocol PLAINTEXTSASL --from-beginning
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    I messaggi precedenti non possono essere visualizzati.
 
-8. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
+9. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
 
    ![Controllo dei criteri di Ranger dell'interfaccia utente](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 

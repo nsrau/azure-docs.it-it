@@ -3,18 +3,18 @@ title: Informazioni su Azure Active Directory | Microsoft Docs
 description: Informazioni su Azure Active Directory, tra cui la terminologia necessaria, i destinatari, i concetti fondamentali sulle licenze e le funzionalità associate.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085927"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450218"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory 
 Azure Active Directory (Azure AD) è il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. Azure AD consente ai dipendenti di connettersi e accedere alle risorse nei contesti seguenti:
@@ -57,7 +57,7 @@ Per altre informazioni sull'associazione di una sottoscrizione di Azure ad Azure
 ## <a name="terminology"></a>Terminologia
 Per una migliore comprensione di Azure AD e della rispettiva documentazione, esaminare la terminologia seguente.
 
-|Termine o concetto|Descrizione|
+|Termine o concetto|DESCRIZIONE|
 |---------------|-----------|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
 |Tenant di Azure| Istanza attendibile e dedicata di Azure AD che viene creata automaticamente quando l'organizzazione si registra a una sottoscrizione di un servizio cloud Microsoft, ad esempio Microsoft Azure, Microsoft Intune oppure Office 365. Un tenant di Azure rappresenta una singola organizzazione.|
@@ -75,7 +75,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, esa
 ## <a name="what-features-work-in-azure-ad"></a>Funzionalità disponibili in Azure AD
 Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a tutte le funzionalità seguenti per l'organizzazione:
 
-|Categoria|Descrizione|
+|Categoria|DESCRIZIONE|
 |-------|-----------|
 |Gestione delle applicazioni|Consente di gestire le app cloud e locali con Application Proxy, accesso Single Sign-On, portale App personali (definito anche pannello di accesso) e app SaaS (Software as a Service). Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md) e la [Documentazione della gestione delle applicazioni](../manage-apps/index.yml).|
 |Authentication|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|

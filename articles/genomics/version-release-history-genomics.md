@@ -3,28 +3,34 @@ title: Cronologia del rilascio delle versioni - Genomica di Microsoft
 titleSuffix: Azure
 description: La Genomica di Microsoft aggiorna regolarmente il client Microsoft Genomics Python per apportare correzioni e nuove funzionalità.
 services: genomics
-author: ruchir
+author: grhuynh
 manager: cgronlun
-ms.author: ruchir
+ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
-ms.date: 11/08/2018
-ms.openlocfilehash: e673d732d1d43e3f58a295a94d11fc42f3618d93
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 01/11/2019
+ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345863"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260278"
 ---
 # <a name="version-release-history"></a>Cronologia delle versioni
 Il team Genomica di Microsoft aggiorna regolarmente il client Microsoft Genomics Python per apportare correzioni e nuove funzionalità. 
 
 ## <a name="latest-release"></a>Versione più recente
-Il client Python corrente è una versione 0.7.4. È stato rilasciato il 5 marzo 2018 e supporta l'esecuzione di flussi di lavoro con GATK 3.5 e GATK4.
+Il client Python corrente è una versione 0.8.1. È stato rilasciato il 3 marzo 2018 e supporta l'esecuzione di flussi di lavoro con GATK 3.5 e GATK4. Supporta inoltre gli output gVCF.
 
 
 ## <a name="release-history"></a>Cronologia delle versioni 
 Nuove versioni del client Python di Genomica di Microsoft vengono rilasciate due volte all'anno. Quando viene rilasciata una nuova versione del client Python di Genomica di Microsoft, viene qui aggiornato un elenco di funzionalità e correzioni. Quando vengono rilasciate delle nuove versioni, le versioni precedenti continueranno a essere supportate per almeno 90 giorni. Quando le versioni precedenti non sono più supportate, verrà indicato in questa pagina. 
+
+### <a name="version-081"></a>Versione 0.8.1
+La versione 0.8.1 include piccole correzioni di bug.  
+
+### <a name="version-080"></a>Versione 0.8.0
+La versione 0.8.0 include il supporto per GATK4 e l'output di gVCFs.  
 
 ### <a name="version-074"></a>Versione 0.7.4
 La versione 0.7.4 include il supporto per l'accettazione dei token di firma di accesso condiviso invece delle chiavi dell'account nell'input `config.txt`. Per altre informazioni, vedere la [guida introduttiva relativa all'input dei token di firma di accesso condiviso](quickstart-input-sas.md). 

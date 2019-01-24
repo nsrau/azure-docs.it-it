@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: bb3f10c44ddf8ded35f4d80b599cda7d44226652
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6cc689471247af3782e7e733be463cfc3e21afe5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478434"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>Creare una macchina virtuale con IIS usando DSC
 
@@ -52,7 +52,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
 | [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Consente di aggiungere l'estensione dello script personalizzato alla macchina virtuale che richiama uno script per installare IIS. |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/vm#az_vm_open_port) | Consente di creare una regola del gruppo di sicurezza di rete per consentire il traffico in ingresso. In questo esempio, la porta 80 è aperta al traffico HTTP. |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | Consente di creare una regola del gruppo di sicurezza di rete per consentire il traffico in ingresso. In questo esempio, la porta 80 è aperta al traffico HTTP. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

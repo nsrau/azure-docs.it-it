@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146417"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353278"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.
@@ -49,7 +49,8 @@ Questa configurazione offre più tunnel attivi dallo stesso gateway VPN di Azure
 3. Per questa configurazione è necessario BGP. Per ogni gateway di rete locale che rappresenta un dispositivo VPN deve essere specificato un indirizzo IP univoco del peer BGP nella proprietà "BgpPeerIpAddress".
 4. Il campo della proprietà AddressPrefix di ogni gateway di rete locale non deve sovrapporsi. È consigliabile specificare "BgpPeerIpAddress" nel campo AddressPrefix in formato CIDR /32, ad esempio 10.200.200.254/32.
 5. È consigliabile usare BGP per annunciare gli stessi prefissi dei prefissi di rete locale al gateway VPN di Azure. Il traffico verrà inoltrato attraverso questi tunnel simultaneamente.
-6. Ogni connessione viene conteggiata rispetto al numero massimo di tunnel per il gateway VPN di Azure: 10 per SKU Basic e Standard e 30 per SKU HighPerformance. 
+6. È necessario usare Equal-cost multi path routing (ECMP).
+7. Ogni connessione viene conteggiata rispetto al numero massimo di tunnel per il gateway VPN di Azure: 10 per SKU Basic e Standard e 30 per SKU HighPerformance. 
 
 In questa configurazione, il gateway VPN di Azure è comunque in modalità attivo-standby, quindi si verificano lo stesso comportamento di failover e la stessa breve interruzione descritti [sopra](#activestandby). Questa configurazione protegge tuttavia da errori o interruzioni nella rete locale e nei dispositivi VPN.
 

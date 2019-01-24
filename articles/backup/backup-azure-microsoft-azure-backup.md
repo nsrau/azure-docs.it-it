@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728277"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351612"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Questo articolo illustra come preparare l'ambiente per eseguire il backup dei ca
 >
 >
 
-È anche possibile proteggere carichi di lavoro dell'infrastruttura distribuita come servizio (IaaS), ad esempio VM in Azure.
+MABS distribuito in una macchina virtuale di Azure può eseguire il backup della VM in Azure, tuttavia per l'abilitazione dell'operazione di backup è necessario che si trovino nello stesso dominio. Il processo per eseguire il backup di una VM di Azure rimane identico al backup di macchine virtuali locali, tuttavia la distribuzione di MABS in Azure presenta alcune limitazioni. Per altre informazioni sulle limitazioni, consultare [DPM come una macchina virtuale di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.

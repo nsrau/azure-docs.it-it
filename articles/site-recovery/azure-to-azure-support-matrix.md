@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103768"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452259"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -26,7 +26,7 @@ Questo articolo riepiloga le configurazioni e i componenti supportati quando si 
 --- | ---
 **Portale di Azure** | Supportato
 **PowerShell** | [Replica da Azure ad Azure con PowerShell](azure-to-azure-powershell.md)
-**API REST** | Attualmente non supportato
+**API REST** | Supportato
 **CLI** | Attualmente non supportato
 
 
@@ -44,9 +44,7 @@ Questo articolo riepiloga le configurazioni e i componenti supportati quando si 
 
 È possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti tenendo presente la latenza e la sovranità dei dati.
 
->[!NOTE]
->Se non si è in grado di vedere un'area all'interno di un cluster geografico durante l'abilitazione della replica, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. In caso contrario, generare una richiesta di supporto nella sottoscrizione "Tipo di problema".
->
+
 **Cluster geografico** | **Aree di Azure**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
@@ -59,9 +57,13 @@ Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale
 
 >[!NOTE]
 >
-> Per il Brasile meridionale, è possibile eseguire la replica e il failover in uno delle seguenti aree: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali.
->
-> Si noti che Azure Site Recovery consente di usare solo il Brasile meridionale come area di origine da cui è possibile proteggere le macchine virtuali. Non può essere usata come area di ripristino di emergenza (DR) di destinazione per aree di Azure quali, ad esempio gli Stati Uniti centro-meridionali. A causa della latenza osservata per la distanza geografica, si consiglia di selezionare qualsiasi altra area dell'America che non sia il Brasile meridionale.
+> - For il **Brasile meridionale** è possibile eseguire la replica e il failover in ina delle seguenti aree: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali. Si noti che Azure Site Recovery consente di usare solo il Brasile meridionale come area di origine da cui è possibile proteggere le macchine virtuali. **Non può essere usata come area di ripristino di emergenza (DR) di destinazione** per aree di Azure quali, ad esempio gli Stati Uniti centro-meridionali. A causa della latenza osservata per la distanza geografica, si consiglia di selezionare qualsiasi altra area dell'America che non sia il Brasile meridionale.
+> 
+> - Se **non è possibile vedere una regione** in cui si desidera **creare un insieme di credenziali** assicurarsi che la sottoscrizione abbia accesso alla creazione di risorse in tale area. Ad esempio:  Se non si è in grado di creare l'insieme di credenziali in Francia meridionale la sottoscrizione non ha accesso all'area della Francia meridionale. Segnalare con un ticket di supporto in Tipo di problema "gestione sottoscrizioni" e tipo di problema "altre domande generali" digitare il soggetto "sottoscrizione whiteelist per l'aree XXX di Azure"
+> 
+> - Se **non si è in grado di vedere un'area** all'interno di un cluster geografico **durante l'abilitazione della replica**, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. Ad esempio:  Se si sta provando a proteggere le macchine virtuali dall'area Francia centrale alla Francia meridionale e non viene visualizzata Francia meridionale l'area di elenco a discesa dell'area, la sottoscrizione non ha accesso per la distribuzione della macchina virtuale in quell'area. Segnalare con un ticket di supporto in Tipo di problema "gestione sottoscrizioni" e tipo di problema "altre domande generali" digitare il soggetto "sottoscrizione whiteelist per l'aree XXX di Azure"
+> - Nei cluster geografici indicati in precedenza non è possibile selezionare le aree.
+
 
 ## <a name="cache-storage"></a>Archiviazione cache
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957695"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215117"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
 Questo articolo descrive come risolvere i problemi quando ci si connette a una macchina virtuale di Azure e Servizi Desktop remoto, o TermService, non si avvia o restituisce un errore di avvio.
 
 > [!NOTE]  
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse, ovvero [Azure Resource Manager e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -37,14 +37,14 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 
 - Si visualizzano in modalità remota i log eventi nella macchina virtuale usando il Visualizzatore eventi. Si nota che Servizi Desktop remoto, o TermService, non si avvia o restituisce un errore di avvio. Di seguito è riportato un log di esempio:
 
-    **Nome log**:      System </br>
-    **Origine**:        Service Control Manager </br>
-    **Data**:          12/16/2017 11:19:36 AM</br>
+    **Nome del log**:      Sistema </br>
+    **Origine**:        Gestione controllo servizi </br>
+    **Data**:          16/12/2017 11:19:36</br>
     **ID evento**:      7022</br>
     **Categoria attività**: Nessuna</br>
-    **Livello**:         Errore</br>
-    **Parole chiave**:      Classic</br>
-    **Utente**:          N/A</br>
+    **Livello**:         Tipi di errore</br>
+    **Parole chiave**:      Classico</br>
+    **Utente**:          N/D</br>
     **Computer**:      vm.contoso.com</br>
     **Descrizione**: Servizi Desktop remoto non si avvia. 
 
@@ -112,7 +112,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Il servizio TermService viene arrestato a causa di un problema di accesso negato
 
-1. Connettersi alla [console seriale](serial-console-windows.md#) e aprire un'istanza di PowerShell.
+1. Connettersi alla [console seriale](serial-console-windows.md) e aprire un'istanza di PowerShell.
 2. Scaricare lo strumento di monitoraggio del processo eseguendo lo script seguente:
 
    ```
@@ -223,4 +223,4 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una risoluzione del problema.
+Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

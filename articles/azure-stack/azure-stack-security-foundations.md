@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306455"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819340"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Comportamento di sicurezza di Azure Stack dell'infrastruttura
 
@@ -41,7 +41,7 @@ Poiché l'infrastruttura viene eseguito su hardware ben definiti e software, Azu
 Perché Azure Stack viene recapitato come sistema integrato, il comportamento di sicurezza dell'infrastruttura di Azure Stack è definito da Microsoft. Proprio come in Azure, i tenant sono responsabili della definizione del comportamento di sicurezza di carichi di lavoro tenant. Questo documento fornisce una conoscenza di base sulle condizioni di sicurezza dell'infrastruttura di Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dati di crittografia dei dati inattivi
-Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante Bitlocker. Questa crittografia protegge da fisica perdita o furto di componenti di archiviazione di Azure Stack. Per altre informazioni, vedere [dati crittografia dei dati inattivi in Azure Stack](azure-stack-security-bitlocker.md).
+Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante BitLocker. Questa crittografia protegge da fisica perdita o furto di componenti di archiviazione di Azure Stack. Per altre informazioni, vedere [dati crittografia dei dati inattivi in Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Dati nella crittografia di transito
 I componenti dell'infrastruttura di Azure Stack comunicano tramite i canali crittografati con TLS 1.2. I certificati di crittografia vengono self-gestiti dall'infrastruttura. 

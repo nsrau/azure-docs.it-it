@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento TrustFrameworkPolicy di un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d54d4eccc89313a8e109d1598078cdb1cc5d7a14
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 820e98b200071c95dc3d9506dd0cd0bbe86e2aae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836730"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849686"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 

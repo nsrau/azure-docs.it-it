@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631436"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352139"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -21,7 +21,8 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 L'aggiornamento a un account di archiviazione per utilizzo generico v2 da un account per utilizzo generico v1 o un account di archiviazione BLOB è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. 
 
 > [!NOTE]
-> La modifica del livello di archiviazione può comportare costi aggiuntivi. Per altre informazioni, vedere la sezione [Prezzi e fatturazione](#pricing-and-billing).
+> L'aggiornamento dell'account di archiviazione a un account per utilizzo generico v2 è gratuito.
+> La modifica del livello di accesso alla risorsa di archiviazione può comportare modifiche alla fattura. Per altre informazioni, vedere la sezione [Prezzi e fatturazione](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Aggiornamento con il portale di Azure
 
@@ -62,7 +63,7 @@ I livelli di accesso consentono di scegliere l'archiviazione economicamente più
 
 Per impostazione predefinita, viene creato un nuovo account di archiviazione nel livello ad accesso frequente e un account di archiviazione per utilizzo generico v1 viene aggiornato al livello ad accesso frequente. Se si sta valutando il livello di accesso da usare per i dati dopo l'aggiornamento, prendere in considerazione lo specifico scenario. Esistono due tipici scenari utente per la migrazione a un account per utilizzo generico v2:
 
-* È disponibile un account di archiviazione per utilizzo generico v1 esistente e si vuole valutare una modifica per passare a un account di archiviazione per utilizzo generico v2 con il livello di archiviazione corretto per i dati BLOB.
+* È disponibile un account di archiviazione per utilizzo generico v1 esistente e si vuole valutare un aggiornamento per passare a un account di archiviazione per utilizzo generico v2 con il livello di accesso all'archiviazione corretto per i dati BLOB.
 * Si è deciso di usare un account di archiviazione per utilizzo generico v2 o ne è già disponibile uno e si vuole valutare se è opportuno usare il livello di archiviazione ad accesso frequente oppure quello ad accesso sporadico per i dati BLOB.
 
 In entrambi i casi, è prioritario stimare il costo di archiviazione, accesso e gestione dei dati archiviati in un account di archiviazione per utilizzo generico v2 e confrontarlo con i costi attuali.
@@ -71,7 +72,7 @@ In entrambi i casi, è prioritario stimare il costo di archiviazione, accesso e 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Quando si usa un account di archiviazione, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-* **Costi della risorsa di archiviazione**: oltre alla quantità di dati archiviati, il costo per l'archiviazione dei dati varia a seconda del livello di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+* **Costi della risorsa di archiviazione**: Oltre alla quantità di dati archiviati, il costo per l'archiviazione dei dati varia a seconda del livello di accesso alla risorsa di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
 
 * **Costi per l'accesso ai dati**: gli addebiti per l'accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
 
@@ -81,7 +82,7 @@ Tutti gli account di archiviazione usano per l'archivio BLOB un modello di deter
 
 * **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo della larghezza di banda per singolo gigabyte, come per gli account di archiviazione per utilizzo generico.
 
-* **Modifica del livello di archiviazione**: la modifica del livello di archiviazione dell'account da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
+* **Modifica del livello di accesso all'archiviazione**: La modifica del livello di accesso all'archiviazione dell'account da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di accesso all'archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
 
 > [!NOTE]
 > Per altre informazioni sul modello di determinazione prezzi per gli account di archiviazione, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -156,7 +157,7 @@ Per stimare i costi di accesso ai dati per gli account di archiviazione BLOB, è
 I costi di trasferimento dati con replica geografica per gli account di archiviazione BLOB possono anche essere calcolati usando la stima per la quantità di dati scritti quando si usa un account di archiviazione con ridondanza geografica o con ridondanza geografica e accesso in lettura.
 
 > [!NOTE]
-> Per un esempio più dettagliato relativo al calcolo dei costi per l'uso del livello di archiviazione ad accesso frequente o sporadico, vedere la domanda frequente *Che cosa sono i livelli di accesso frequente e accesso sporadico e come si determina quale usare?* nella [pagina Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+> Per un esempio più dettagliato relativo al calcolo dei costi per l'uso del livello di accesso all'archiviazione ad accesso frequente o sporadico, vedere la domanda frequente *"Che cosa sono i livelli di archiviazione ad accesso frequente e accesso sporadico e come si determina quale usare?"* nella [pagina Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

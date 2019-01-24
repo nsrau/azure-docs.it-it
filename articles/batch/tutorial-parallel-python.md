@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678577"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306336"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API Python
 
@@ -65,7 +65,7 @@ Nell'ambiente Python installare i pacchetti necessari usando `pip`.
 pip install -r requirements.txt
 ```
 
-Aprire il file `batch_python_tutorial_ffmpeg.py`. Aggiornare le stringhe delle credenziali degli account di archiviazione e Batch con valori univoci per gli account in uso. Ad esempio: 
+Aprire il file `config.py`. Aggiornare le stringhe delle credenziali degli account di archiviazione e Batch con valori univoci per gli account in uso. Ad esempio: 
 
 
 ```Python
@@ -75,8 +75,6 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ### <a name="run-the-app"></a>Esecuzione dell'app
 

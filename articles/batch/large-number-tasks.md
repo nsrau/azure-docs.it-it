@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052866"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261673"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
@@ -45,7 +45,7 @@ Le dimensioni massime della raccolta di attività che è possibile aggiungere in
 * Le API seguenti supportano raccolte di attività molto più grandi, limitate solo dalla disponibilità di RAM nel client richiedente. Queste API gestiscono in modo trasparente la divisione della raccolta di attività in "blocchi" per le API di livello inferiore e i tentativi in caso di errore durante l'aggiunta delle attività.
 
     * [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [API Java](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [API Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Estensione dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md) con i modelli dell'interfaccia della riga di comando di Batch
     * [Estensione di Python SDK](https://pypi.org/project/azure-batch-extensions/)
 

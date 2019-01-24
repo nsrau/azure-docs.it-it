@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036055"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358559"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box e verificare il caricamento dei dati in Azure
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare i dati in Azure Data Box ed eseguire la verifica](data-box-deploy-copy-data.md).
+Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
 
 ## <a name="ship-data-box-back"></a>Rispedire il Data Box
 
@@ -37,9 +37,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare i da
 
     Se il dispositivo viene spedito in Europa, l'etichetta di spedizione non viene visualizzata sullo schermo E-ink. L'etichetta indirizzo per la spedizione di ritorno è invece inserita all'interno dell'involucro trasparente sotto l'etichetta indirizzo di inoltro. Rimuovere l'etichetta indirizzo precedente e verificare che l'etichetta di spedizione sia chiaramente visibile.
     
-3. Pianificare un ritiro con UPS per la restituzione negli Stati Uniti. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura. Passare al sito Web di DHL Express del paese e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**. 
-
-    Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
+3. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro, chiamare l'UPS locale (numero verde specifico del paese) o consegnare il Data Box al più vicino punto di consegna.
 
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
 

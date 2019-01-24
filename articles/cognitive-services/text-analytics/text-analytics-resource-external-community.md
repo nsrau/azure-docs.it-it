@@ -1,5 +1,6 @@
 ---
-title: Contenuto esterno e della community per l'API Analisi del testo - Servizi cognitivi di Azure | Microsoft Docs
+title: Contenuto esterno e della community per l'API Analisi del testo
+titleSuffix: Azure Cognitive Services
 description: Blog di partner, video di YouTube, training per l'API Analisi del testo di Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: HeidiSteen
@@ -7,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: 63de50bac69c5b7358ee2e37f534d2f997fde592
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377777"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302258"
 ---
-# <a name="external--community-content-for-the-text-analytics-api"></a>Contenuto esterno e della community per l'API Analisi del testo
+# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenuto esterno e della community per il servizio cognitivo Analisi del testo
 
  I collegamenti in questo articolo rimandano a contenuto Web utile sviluppato e prodotto da partner e professionisti con esperienza nell'uso dell'API Analisi del testo.
 
@@ -24,7 +25,7 @@ ms.locfileid: "35377777"
 
 + [Annuncio originale dell'API Analisi del testo (blog di Azure)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell ](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/) (Uso dell'API di Servizi cognitivi per frasi chiave in analisi del testo) (blog di MSDN)
++ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell ](https://automationnext.wordpress.com/tag/text-analytics/) (Uso dell'API di Servizi cognitivi per frasi chiave in analisi del testo da PowerShell) (blog di AutomationNext)
 
 + [R Quick tip: Microsoft Cognitive Services' Text Analytics API](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/) (Suggerimento rapido su R: API Analisi del testo di Servizi cognitivi Microsoft) (R Bloggers)
 
@@ -48,5 +49,5 @@ Se si stanno cercando informazioni su una funzionalità o su un caso d'uso non t
 
 ## <a name="see-also"></a>Vedere anche 
 
- [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)  (StackOverflow: API Analisi del testo di Azure)  
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive) (StackOverflow: Servizi cognitivi di Azure)
+ [StackOverflow: API Analisi del testo di Azure Machine Learning](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Servizi cognitivi di Azure](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

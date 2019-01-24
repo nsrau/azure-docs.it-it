@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 312d1c8a1fdeb202d137b32a92e275b42c9934ee
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 09c162a905a64c59080486bf6d83127df4f066c2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Lifesize Cloud
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-lifesize-cloud-from-the-gallery"></a>Aggiunta di Lifesize Cloud dalla raccolta
 
-Per configurare l'integrazione di Lifesize Cloud in Azure AD, è necessario aggiungere Lifesize Cloud dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Lifesize Cloud in Azure AD, è necessario aggiungere Lifesize Cloud dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Lifesize Cloud dalla raccolta, seguire questa procedura:**
 
@@ -80,9 +80,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Lifesize Clou
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Lifesize Cloud](#configure-lifesize-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Lifesize Cloud](#create-lifesize-cloud-test-user)**: per avere una controparte di Britta Simon in Lifesize Cloud collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Lifesize Cloud, seguire
     d. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://webapp.lifesizecloud.com/?ent=<identifier>`
 
     > [!NOTE]
-    > Questi valori non sono reali. Aggiornarli con l'identificatore, l'URL di accesso e lo stato dell'inoltro effettivi. Contattare il [team di supporto clienti di Lifesize Cloud](https://www.lifesize.com/en/support) per ottenere i valori di URL di accesso e identificatore in modo da ricavare il valore dello stato dell'inoltro dalla configurazione SSO illustrata più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, Aggiornarli con l'identificatore, l'URL di accesso e lo stato dell'inoltro effettivi. Contattare il [team di supporto clienti di Lifesize Cloud](https://www.lifesize.com/en/support) per ottenere i valori di URL di accesso e identificatore in modo da ricavare il valore dello stato dell'inoltro dalla configurazione SSO illustrata più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Lifesize Cloud, seguire
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-lifesize-cloud-single-sign-on"></a>Configurare l'accesso Single Sign-On per Lifesize Cloud
 
@@ -168,9 +168,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Lifesize Cloud, seguire
 
 7. Fare clic sul pulsante **Aggiorna** in modo che tutte le impostazioni vengano salvate. Verrà generato il valore RelayState. Copiare il valore RelayState, che viene generato nella casella di testo, incollarlo nella casella di testo **Stato dell'inoltro** della sezione **URL e dominio Lifesize Cloud**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -193,15 +193,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Lifesize Cloud.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Lifesize Cloud**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Lifesize Cloud**.
+2. Nell'elenco di applicazioni selezionare **Lifesize Cloud**.
 
     ![Collegamento di Lifesize Cloud nell'elenco Applicazioni](common/all-applications.png)
 
@@ -221,7 +221,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-lifesize-cloud-test-user"></a>Creare l'utente di test di Lifesize Cloud
 
-In questa sezione viene creato un utente di nome Britta Simon in Lifesize Cloud. Lifesize Cloud supporta il provisioning utenti automatico. Dopo l'autenticazione in Azure AD sarà eseguito il provisioning automatico dell'utente nell'applicazione.
+In questa sezione viene creato un utente chiamato Britta Simon in Lifesize Cloud. Lifesize Cloud supporta il provisioning utenti automatico. Dopo l'autenticazione in Azure AD sarà eseguito il provisioning automatico dell'utente nell'applicazione.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

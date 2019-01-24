@@ -14,17 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341304"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258476"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure
 
+Quando si esegue la migrazione di applicazioni monolitiche per eseguire applicazioni native del cloud, incluse in contenitori, di importanza cruciale nell'ambiente di produzione, è possibile sfruttare le funzionalità dei contenitori, come quelle per l'aggiornamento e la distribuzione facili e veloci. Poiché il numero di contenitori distribuiti è in continua crescita, sono necessarie soluzioni di sicurezza per offrire visibilità sullo stato di sicurezza dei contenitori e aiutare a proteggerli dalle minacce.
 
-## <a name="recommendations"></a>Consigli
+Il Centro sicurezza di Azure offre le funzionalità seguenti per consentire di proteggere i contenitori:
+
+- **Visibilità dei contenitori ospitati in macchine virtuali Linux IaaS**<br>Nel Centro sicurezza di Azure la scheda dei contenitori visualizza tutte le macchine virtuali distribuite con Docker. Quando si esaminano i problemi di sicurezza in una macchina virtuale, il Centro sicurezza visualizza informazioni aggiuntive correlate ai contenitori nella macchina, ad esempio la versione di Docker e il numero di immagini in esecuzione sull'host.
+
+    ![Scheda dei contenitori](./media/security-center-container-recommendations/docker-recommendation.png)
+
+
+- **Raccomandazioni per la sicurezza basate sul benchmark CIS per Docker**<br>Il Centro sicurezza analizza le configurazioni di Docker e mostra le configurazioni errate, fornendo un elenco di tutte le regole non riuscite che sono state valutate. Visualizza inoltre linee guida per consentire di risolvere rapidamente questi problemi e risparmiare tempo. Il Centro sicurezza valuta costantemente le configurazioni di Docker e ne visualizza lo stato più recente.
+
+    ![Scheda dei contenitori](./media/security-center-container-recommendations/container-cis-benchmark.png)
+
+- **Rilevamento in tempo reale delle minacce per i contenitori**<br> Il Centro sicurezza offre una funzionalità di rilevamento in tempo reale delle minacce per i contenitori su macchine virtuali Linux con il componente AuditD. Gli avvisi identificano diverse attività sospette di Docker, ad esempio la creazione di un contenitore con privilegi nell'host, un'indicazione della presenza di un server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker o l'uso di cryptominer. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+
+    ![Scheda dei contenitori](./media/security-center-container-recommendations/docker-threat-detection.png)
+
+## <a name="recommendations"></a>Raccomandazioni
 Usare le tabelle seguenti come riferimento per conoscere i contenitori disponibili ospitati in computer IaaS Linux e la valutazione della sicurezza delle loro configurazioni Docker.
 
 | Raccomandazione | DESCRIZIONE | Correzione |

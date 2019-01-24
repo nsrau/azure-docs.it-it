@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194925"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Esercitazione: Integrazione di Azure Active Directory con InstaVR Viewer
 
@@ -79,8 +79,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con InstaVR Viewe
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di InstaVR Viewer](#configure-instavr-viewer-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di InstaVR Viewer](#create-instavr-viewer-test-user)**: per avere una controparte di Britta Simon in InstaVR Viewer collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di InstaVR Viewer](#create-instavr-viewer-test-user)**: per avere una controparte di Britta Simon in InstaVR Viewer collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,13 +105,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con InstaVR Viewer, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di InstaVR Viewer](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL accesso** digitare l'URL usando il modello seguente: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > L'URL di accesso non ha un criterio fisso. Viene generato quando il cliente di InstaVR Viewer crea il pacchetto Web. È univoco per ogni cliente e pacchetto. Per ottenere l'URL di accesso esatto è necessario eseguire l'accesso all'istanza di InstaVR Viewer e creare il pacchetto Web.
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il criterio seguente: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > Il valore dell'identificatore non è reale. Aggiornare questo valore con il valore effettivo dell'identificatore, come illustrato più avanti nell'esercitazione.
 

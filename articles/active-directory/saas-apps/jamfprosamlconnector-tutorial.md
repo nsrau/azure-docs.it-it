@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 35e86d08-c29e-49ca-8545-b0ff559c5faf
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 6cbdc767062ea81fc03b930c48309863dd5d3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810815"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Esercitazione: Integrazione di Azure Active Directory con Jamf Pro
 
@@ -155,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jamf Pro, seguire quest
 
     e. Incollare il valore `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` nella casella di testo **GROUP ATTRIBUTE NAME** (Nome attributo gruppo).
 
-7. Nella stessa pagina scorrere verso il basso fino a **IDENTITY PROVIDER** (Provider di identità) nella sezione **Single Sign-On** ed eseguire la procedura seguente:
+7. Nella stessa pagina scorrere fino a **IDENTITY PROVIDER** (PROVIDER DI IDENTITÀ) nella sezione **Single Sign-On** e seguire questa procedura:
 
     ![Configurazione di Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 

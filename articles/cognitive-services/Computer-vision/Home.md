@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584021"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229779"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -34,7 +34,7 @@ Il servizio Visione artificiale basato sul cloud consente agli sviluppatori di a
 
 Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'immagine:
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|Identificare e assegnare tag agli elementi visivi di un'immagine in base a un set di migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o non di conoscenza comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di uno scenario noto. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Rilevare gli oggetti](concept-object-detection.md)**| Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisce le coordinate del rettangolo di selezione per ogni tag applicato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare ulteriormente le relazioni tra gli oggetti in un'immagine. Questa funzionalità consente anche di sapere quando sono presenti più istanze dello stesso tag in un'immagine.|
@@ -69,6 +69,10 @@ Visione artificiale può analizzare immagini che rispettano i requisiti seguenti
 - Le dimensioni del file dell'immagine devono essere minori di 4 megabyte (MB)
 - Le dimensioni dell'immagine devono essere superiori a 50 x 50 pixel  
   Per l'OCR, le dimensioni dell'immagine devono essere comprese tra 50 x 50 e 4200 x 4200 pixel
+
+## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
+
+Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visione artificiale devono conoscere i criteri di Microsoft sui dati dei clienti. Per altre informazioni, vedere la [pagina sui Servizi cognitivi](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) nel Centro protezione di Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

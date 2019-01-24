@@ -4,18 +4,18 @@ description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Acti
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
-manager: mtillman
+ms.author: mimart
+author: msmimart
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: f0f291216a3031d50d304c02b97786f23d1a6267
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267108"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423630"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338584"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429090"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -99,9 +99,6 @@ L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-b
 |                   | Collaboratore            |
 |                   | Reader                 |
 |                   | Collaboratore di rete    |
-|Classico            | Amministratore dell'account  |
-|                   | Amministratore del servizio  |
-|                   | Co-amministratore       |
 
 Se l'account non è assegnato a uno dei ruoli predefiniti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione:
 
@@ -176,7 +173,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro.
 
-È inoltre possibile configurare analisi del traffico usando il cmdlet di PowerShell [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) nella versione del modulo 6.2.1 AzureRm PowerShell o in un secondo momento. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+È inoltre possibile configurare analisi del traffico usando il cmdlet di PowerShell [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) nella versione del modulo 6.2.1 AzureRm PowerShell o in un secondo momento. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Visualizzare Analisi del traffico
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966504"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468183"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Questo argomento usa gli account di archiviazione per i dischi rigidi virtuali f
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare un disco rigido virtuale in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#requirements).
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
+Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -41,7 +41,7 @@ Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az_grou
 az group create --name myResourceGroup --location westus
 ```
 
-Creare un account di archiviazione in cui salvare i dischi virtuali con [az storage account create](/cli/azure/storage/account#az_storage_account_create). Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`:
+Creare un account di archiviazione in cui salvare i dischi virtuali con [az storage account create](/cli/azure/storage/account). Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Specificare l'URI ne disco (`--image`) con [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
+Specificare l'URI ne disco (`--image`) con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -97,7 +97,7 @@ Per completare la procedura seguente, è necessario:
   * Creare un account di archiviazione e un contenitore in cui inserire il disco personalizzato e le VM create
   * Una volta create tutte le VM, è possibile eliminare il disco
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
+Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un account di archiviazione per il disco personalizzato e le VM con [az storage account create](/cli/azure/storage/account#az_storage_account_create). Le VM con dischi non gestiti create partendo dal disco personalizzato devono trovarsi nello stesso account di archiviazione del disco. 
+Creare un account di archiviazione per il disco personalizzato e le VM con [az storage account create](/cli/azure/storage/account). Le VM con dischi non gestiti create partendo dal disco personalizzato devono trovarsi nello stesso account di archiviazione del disco. 
 
 Nell'esempio seguente viene creato un account di archiviazione denominato `mystorageaccount` nel gruppo di risorse creato in precedenza:
 
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Creare la VM
-Per creare una macchina virtuale con dischi non gestiti, specificare l'URI del disco (`--image`) con [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
+Per creare una macchina virtuale con dischi non gestiti, specificare l'URI del disco (`--image`) con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
-Specificare il parametro `--image` con il comando [az vm create](/cli/azure/vm#az_vm_create) in modo da puntare al disco personalizzato. Assicurarsi che `--storage-account` corrisponda all'account di archiviazione in cui è archiviato il disco personalizzato. Non è necessario utilizzare lo stesso contenitore come disco personalizzato per archiviare le VM. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare il disco personalizzato.
+Specificare il parametro `--image` con il comando [az vm create](/cli/azure/vm) in modo da puntare al disco personalizzato. Assicurarsi che `--storage-account` corrisponda all'account di archiviazione in cui è archiviato il disco personalizzato. Non è necessario utilizzare lo stesso contenitore come disco personalizzato per archiviare le VM. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare il disco personalizzato.
 
 L'esempio seguente crea una VM denominata `myVM` dal disco personalizzato:
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fdd29bbfaf36619fd823220e5d32a48a1619679b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f0dd3b276adb815723673042060b2ad5d54a1ac7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842068"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382638"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creare la prima funzione con Java e Maven (anteprima)
 
@@ -54,7 +54,7 @@ Per eseguire l'installazione, vedere la sezione [Installing](https://github.com/
 Per procedere con un'installazione basata su npm, eseguire:
 
 ```
-npm install -g azure-functions-core-tools@core
+npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]

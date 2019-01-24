@@ -4,22 +4,22 @@ description: Passaggi per configurare un'applicazione OpenID/OAuth dalla raccolt
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: daveba
+ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2ed840065b4efd4b0e519333307388dca61827d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807015"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -27,19 +27,19 @@ ms.locfileid: "51287439"
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro. 
 
-    ![Pulsante Azure Active Directory](./media/openidoauth-tutorial/tutorial_general_01.png)
+    ![Pulsante Azure Active Directory](common/select-azuread.png))
 
 2. Passare ad **Applicazioni aziendali** > **Tutte le applicazioni**.
 
-    ![Pannello delle applicazioni aziendali](./media/openidoauth-tutorial/tutorial_general_02.png)
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
 3. Selezionare **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
-    ![Pulsante Nuova applicazione](./media/openidoauth-tutorial/tutorial_general_03.png)
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
 4. Nella casella di ricerca digitare il nome dell'applicazione. Selezionare l'applicazione desiderata dal pannello dei risultati e iscriversi all'applicazione.
 
-    ![Aggiunta dell'applicazione](./media/openidoauth-tutorial/addfromgallery.png)
+    ![OpenID nell'elenco dei risultati](common/search-new-app.png)
 
     > [!NOTE]
     > Per le app OpenID Connect e OAuth il pulsante **Aggiungi** è disabilitato per impostazione predefinita. In questo caso l'amministratore del tenant deve selezionare il pulsante di iscrizione e fornire il consenso all'applicazione. L'applicazione viene quindi aggiunta al tenant del cliente, in cui è possibile eseguire le configurazioni. Non è necessario aggiungere l'applicazione in modo esplicito.

@@ -3,7 +3,7 @@ title: Come gestire le password per le app in Azure Active Directory | Microsoft
 description: Questa pagina descrive che cosa sono le password per le app e per cosa vengono usate nell'ambito della verifica in due passaggi.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 80b04f723c4e5b7ea541833df7575be763001ace
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300914"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827636"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 

@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264206"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193404"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
@@ -44,7 +44,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Standard.
 
 **Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Dischi SSD Standard:** i dischi SSD Standard offrono prestazioni più affidabili rispetto ai dischi HDD Standard e sono attualmente disponibili. Per altre informazioni sulla disponibilità dei dischi SSD Standard nelle varie aree, vedere la [disponibilità a livello di area dei dischi SSD Standard](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Dischi SSD Standard**: i dischi SSD Standard offrono prestazioni più affidabili rispetto ai dischi HDD Standard e sono attualmente disponibili. Per altre informazioni sulla disponibilità dei dischi SSD Standard nelle varie aree, vedere la [disponibilità a livello di area dei dischi SSD Standard](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Dischi HDD Standard**: i dischi HDD Standard possono essere collegati a tutte le macchine virtuali di Azure, incluse le macchine virtuali di serie di dimensioni usate con Archiviazione Premium come DSv2 e GS. Un disco HDD Standard può essere collegato a una sola VM. È tuttavia possibile collegare a una VM uno o più dischi di questo tipo, fino al numero massimo di dischi definito per la specifica dimensione di VM. Nella sezione seguente sugli obiettivi di scalabilità e prestazioni di archiviazione Standard verranno descritte in dettaglio le specifiche.
 
@@ -75,15 +75,7 @@ Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un si
 
 ### <a name="standard-disks-limits"></a>Limiti dei dischi Standard
 
-A differenza dei dischi Premium, per i dischi Standard non viene effettuato il provisioning delle operazioni di I/O al secondo e della velocità effettiva (larghezza di banda). Le prestazioni dei dischi Standard variano in base alla dimensione della VM a cui il disco è collegato e non dipendono dalle dimensioni del disco. La tabella seguente elenca i limiti di prestazioni che si può prevedere di raggiungere.
-
-**Limiti dei dischi Standard (gestiti e non gestiti)**
-
-| **Livello VM**            | **VM livello Basic** | **VM livello Standard** |
-|------------------------|-------------------|----------------------|
-| Dimensioni massime disco          | 32.767 GiB           | 32.767 GiB        |
-| Numero massimo di operazioni di I/O al secondo da 8 KB per disco | Fino a 2.000         | Fino a 2.000        |
-| Larghezza di banda massima per disco | Fino a 500 MB/s     | Fino a 500 MB/s      |
+A differenza dei dischi Premium, per i dischi Standard non viene effettuato il provisioning delle operazioni di I/O al secondo e della velocità effettiva (larghezza di banda). Le prestazioni dei dischi Standard variano in base alla dimensione della VM a cui il disco è collegato e alle dimensioni del disco.
 
 Se il carico di lavoro richiede un supporto dei dischi a bassa latenza e prestazioni elevate, è consigliabile valutare la possibilità di usare Archiviazione Premium. Per informazioni sui vantaggi aggiuntivi di Archiviazione Premium, vedere [Archiviazione Premium a prestazioni elevate e dischi delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -117,7 +109,7 @@ Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti
 * Trasferimenti di dati in uscita
 * Transazioni
 
-**Dimensioni dei dischi e dei dati di archiviazione non gestiti:** per i dischi non gestiti e altri dati (BLOB, tabelle, code e file) viene addebitata solo la quantità di spazio usata. Se per il BLOB di pagine di una VM è stato effettuato il provisioning per 127 GB ma la VM usa in realtà solo 10 GB di spazio, verranno fatturati solo 10 GB. È supportato un massimo di archiviazione Standard di 8191 GB e un massimo di dischi non gestiti Standard di 4095 GB. 
+**Dimensioni dei dati e dei dischi di archiviazione non gestiti**: per i dischi non gestiti e altri dati (BLOB, tabelle, code e file) viene addebitata solo la quantità di spazio usato. Se per il BLOB di pagine di una VM è stato effettuato il provisioning per 127 GB ma la VM usa in realtà solo 10 GB di spazio, verranno fatturati solo 10 GB. È supportato un massimo di archiviazione Standard di 8191 GB e un massimo di dischi non gestiti Standard di 4095 GB. 
 
 **Dischi gestiti**: per un disco gestito Standard, la fatturazione dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa la dimensione del disco, arrotondata per eccesso, all'opzione relativa a Managed Disks più vicina, come specificato nelle tabelle seguenti. Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning supportate e viene eseguita la relativa fatturazione. Se, ad esempio, si crea un disco gestito Standard e si specifica una dimensione del disco di cui è stato effettuato il provisioning pari a 200 GB, i costi addebitati si basano sui prezzi del tipo di disco S15.
 
@@ -128,11 +120,11 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima.
 | Dimensione disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.385 GiB (16 TiB) | 32.767 GiB (32 TiB) |
 
 
-**Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+**Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata dagli snapshot. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Trasferimenti di dati in uscita**: [i trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/)  (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
-**Transazioni**: per Archiviazione Standard, Azure addebita $ 0,0036 per 100.000 transazioni. Le transazioni includono le operazioni sia di lettura che di scrittura nello spazio di archiviazione.
+**Transazioni**: per Archiviazione Standard, Azure addebita 0,0036 $ per 100.000 transazioni. Le transazioni includono le operazioni sia di lettura che di scrittura nello spazio di archiviazione.
 
 Per informazioni dettagliate sui prezzi di Archiviazione Standard, Macchine virtuali e Managed Disks, vedere:
 

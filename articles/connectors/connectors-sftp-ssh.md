@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979098"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320787"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -27,7 +27,7 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-Rispetto al [connettore SFTP](../connectors/connectors-create-api-sftp.md), il connettore SFTP-SSH può leggere e scrivere file fino a un massimo di *1 GB*. Per i file di dimensione superiore a 1 GB, è possibile usare il connettore SFTP-SSH ed eseguire la [suddivisione in blocchi per la gestione di messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). Per altre differenze, vedere [SFTP-SSH e SFTP a confronto](#comparison) più avanti in questo articolo.
+Rispetto al [connettore SFTP](../connectors/connectors-create-api-sftp.md), il connettore SFTP-SSH può leggere e scrivere file fino a un massimo di *1 GB*. Per altre differenze, vedere [SFTP-SSH e SFTP a confronto](#comparison) più avanti in questo articolo.
 
 È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com.
 Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
@@ -48,7 +48,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impronta digitale**: MD5
 
-* Legge o scrive file per una dimensione massima di *1 GB* rispetto al connettore SFTP. Per i file di dimensione superiore a 1 GB, usare la [suddivisione in blocchi per la gestione di messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). 
+* Legge o scrive file per una dimensione massima di *1 GB* rispetto al connettore SFTP, ma gestisce i dati in parti di 50 MB, non di 1 GB.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -137,13 +137,13 @@ Quando richiede il contenuto del file, il trigger non recupera i file di dimensi
 
 ## <a name="examples"></a>Esempi
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP-SSH: Quando viene aggiunto o modificato un file
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP - SSH: When a file is added or modified (Quando un file viene aggiunto o modificato)
 
 Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP. 
 
-**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
-### <a name="sftp---ssh-action-get-content"></a>Azione SFTP-SSH: Ottieni contenuto file
+### <a name="sftp---ssh-action-get-content"></a>Azione SFTP - SSH: Ottieni il contenuto
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto. 
 

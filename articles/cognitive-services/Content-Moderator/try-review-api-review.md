@@ -1,21 +1,21 @@
 ---
 title: Moderare il contenuto mediante la revisione umana con la console API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare revisioni umane nella console per le API di Content Moderator.
+description: Usare le operazioni di revisione dell'API di revisione per creare revisioni di immagini o testo per la moderazione umana.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219754"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260210"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Creare revisioni dalla console per le API
 
@@ -26,10 +26,10 @@ Dopo che un moderatore umano ha esaminato i tag assegnati automaticamente e i da
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 Per eseguire il test drive dell'API usando la console online, sono necessari alcuni valori da immettere nella console:
 
-- **teamName**: nome del team creato quando è stato configurato l'account dello strumento di revisione. 
-- **ContentId**: questa stringa viene passata all'API e restituita tramite il callback. ContentId è utile per associare i metadati o gli identificatori interni ai risultati di un processo di moderazione.
-- **Metadata**: coppia chiave-valore personalizzata restituita all'endpoint API durante il callback. Se la chiave è un codice breve che viene definito nello strumento di revisione, viene visualizzata come tag.
-- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+- **teamName**: Nome del team creato quando è stato configurato l'account dello strumento di revisione. 
+- **ContentId**: Questa stringa viene passata all'API e restituita tramite il callback. ContentId è utile per associare i metadati o gli identificatori interni ai risultati di un processo di moderazione.
+- **Metadati**: Coppia chiave-valore personalizzata restituita all'endpoint API durante il callback. Se la chiave è un codice breve che viene definito nello strumento di revisione, viene visualizzata come tag.
+- **Ocp-Apim-Subscription-Key**: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
 Il modo più semplice per accedere a una console di test è dalla finestra **Credentials** (Credenziali).
 

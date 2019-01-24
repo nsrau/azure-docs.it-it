@@ -3,19 +3,19 @@ title: Configurare l'accesso con un account Twitter usando criteri personalizzat
 description: Configurare l'accesso con un account Twitter usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 75d26387c8a9db1fa9acdc9d6b71bde63453c22d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e1b99b405bd11c01f986162ecbf499d9fa4cf110
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887350"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851029"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Twitter usando criteri personalizzati in Azure Active Directory B2C
 
@@ -173,4 +173,4 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_twitter`
 4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignTwitter).
 5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.
-6. Verificare che in **Selezionare l'applicazione** sia selezionata l'applicazione Azure AD B2C creata e quindi testarla facendo clic su **Esegui adesso**.
+6. Verificare che nel campo **Selezionare l'applicazione** sia selezionata l'applicazione Azure AD B2C creata e quindi testarla facendo clic su **Esegui adesso**.

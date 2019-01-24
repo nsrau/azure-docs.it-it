@@ -3,7 +3,7 @@ title: Come usare il pacchetto di contenuto Power BI di Azure Active Directory |
 description: Informazioni su come usare il pacchetto di contenuto Power BI di Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: ''
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: eeabbf70650b4304788d1cd6a40d5924a22f3650
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651453"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812744"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -101,13 +101,45 @@ Se si vuole aggiornare il pacchetto di contenuto a una versione più recente:
 
 Dopo aver verificato che la nuova versione del pacchetto di contenuto funziona come previsto, è possibile rimuovere la versione precedente, se necessario, eliminando i report e i set di dati sottostanti associati.
 
-## <a name="still-having-issues"></a>Se i problemi persistono 
+## <a name="troubleshoot-content-pack-errors"></a>Risoluzione dei problemi relativi ai pacchetti di contenuto
 
-Vedere la [Guida per la risoluzione dei problemi](troubleshoot-content-pack.md). Per informazioni generali su Power BI, vedere questi [articoli della Guida](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+Quando si usa il pacchetto di contenuto, è possibile che si verifichino gli errori seguenti: 
+
+- [Aggiornamento non riuscito](#refresh-failed) 
+- [L'aggiornamento delle credenziali dell'origine dati non è riuscito](#failed-to-update-data-source-credentials) 
+- [L'importazione dei dati richiede troppo tempo](#data-import-is-too-slow) 
+
+Per informazioni generali su Power BI, vedere questi [articoli della Guida](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### <a name="refresh-failed"></a>Aggiornamento non riuscito 
+ 
+**Modalità di esposizione dell’errore**: Messaggio di posta elettronica inviato da Power BI o stato di errore nella cronologia aggiornamenti. 
+
+
+| Causa | Modalità di correzione |
+| ---   | ---        |
+| Gli errori di aggiornamento non riuscito possono verificarsi quando le credenziali degli utenti che si connettono al pacchetto di contenuto sono state reimpostate ma non sono state aggiornate nelle impostazioni di connessione del pacchetto di contenuto. | Individuare in Power BI il set di dati corrispondente al dashboard dei log attività di Azure AD (**Log attività di Azure Active Directory**), scegliere Pianifica aggiornamenti e quindi immettere le credenziali di Azure AD. |
+| Un aggiornamento può non riuscire a causa di problemi relativi ai dati nel pacchetto di contenuto sottostante. | [Inviare un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>L'aggiornamento delle credenziali dell'origine dati non è riuscito 
+ 
+**Modalità di esposizione dell’errore**: In Power BI durante la connessione al pacchetto di contenuto dei log attività di Azure AD. 
+
+| Causa | Modalità di correzione |
+| ---   | ---        |
+| L'utente che sta tentando di connettersi non è un amministratore globale, non dispone di un ruolo con autorizzazioni di lettura per la sicurezza né è un amministratore della sicurezza. | Per accedere ai pacchetti di contenuto, usare un account di amministratore globale, di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza. |
+| Il tenant non è un tenant Premium o non include almeno un utente con un file di licenza Premium. | [Inviare un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>L'importazione dei dati è troppo lenta 
+ 
+**Modalità di esposizione dell’errore**: In Power BI, dopo la connessione del pacchetto di contenuto, viene avviato il processo di importazione dei dati per preparare il dashboard per il log attività di Azure AD. Viene visualizzato il messaggio: **Importazione di dati...** senza alcun ulteriore avanzamento.  
+
+| Causa | Modalità di correzione |
+| ---   | ---        |
+| A seconda delle dimensioni del tenant, questo passaggio può richiedere da alcuni minuti a 30 minuti. | Se entro un'ora il messaggio non cambia e non viene visualizzato il dashboard, [inviare un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare un pacchetto di contenuto di Power BI](quickstart-install-power-bi-content-pack.md).
-* [Risoluzione dei problemi relativi ai pacchetti di contenuto](troubleshoot-content-pack.md).
 * [Informazioni sui report di Azure AD](overview-reports.md).

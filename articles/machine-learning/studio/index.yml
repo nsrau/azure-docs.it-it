@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 542bd4f23c32d4d59b11875ef96f8e1f261605ba
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302274"
 documentType: LandingData
-title: Documentazione di Azure Machine Learning Studio
+title: Documentazione di Machine Learning Studio
 metadata:
-  title: 'Documentazione - Azure Machine Learning Studio: esercitazioni, informazioni di riferimento | Microsoft Docs'
-  description: Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.
+  title: 'Documentazione di Azure Machine Learning Studio: esercitazioni e informazioni di riferimento | Microsoft Docs'
+  description: 'Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.'
   services: machine-learning
   ms.service: machine-learning
   ms.component: studio
@@ -18,67 +12,57 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 09/24/2018
+  ms.date: 01/24/2019
 abstract:
-  description: Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.
+  description: 'Azure Machine Learning Studio è uno strumento di trascinamento collaborativo per la compilazione, i test e la distribuzione di soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+  - title: Guide introduttive di 5 minuti
     items:
-    - title: Informazioni su Azure Machine Learning Studio
-      href: create-experiment
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-        href: create-experiment
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come iniziare a usare Machine Learning Studio:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come iniziare a usare Machine Learning Studio:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="create-experiment">Creare la prima sperimentazione di Studio</a>
+          - html: <a href="algorithm-choice">Scegliere l'algoritmo migliore</a>
+          - html: <a href="deploy-consume-web-service-guide">Distribuire modelli come servizi Web</a>
+          - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Informazioni su "Data science per principianti"</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="create-experiment">Creare la prima sperimentazione</a>
-    - html: <a href="algorithm-choice">Scegliere l'algoritmo migliore</a>
-    - html: <a href="deploy-consume-web-service-guide">Rendere operativo il modello</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Informazioni su data science</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Seguire le esercitazioni dettagliate che illustrano la creazione e la distribuzione dei modelli:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Seguire le esercitazioni dettagliate che illustrano la creazione e la distribuzione dei modelli:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="walkthrough-develop-predictive-solution">Creare e distribuire una soluzione predittiva</a>
+          - html: <a href="azure-ml-customer-churn-scenario">Esempio di varianza dei clienti</a>
+  - title: riferimento
     items:
-    - html: <a href="walkthrough-develop-predictive-solution">Creare e distribuire una soluzione predittiva</a>
-    - html: <a href="azure-ml-customer-churn-scenario">Esempio di varianza dei clienti</a>
-- title: Altre tecnologie di Azure Machine Learning
-  items:
-  - type: paragraph
-    text: 'Altre tecnologie disponibili in Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="powershell-module">Moduli di PowerShell</a></p>
+          - title: Moduli
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Informazioni di riferimento su algoritmi e moduli</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API di gestione REST</a></p><p><a href="web-service-error-codes">Codici di errore del servizio Web</a></p>'
+  - title: Altre tecnologie di Azure Machine Learning
     items:
-    - title: Servizio Azure Machine Learning
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Macchina virtuale di data science
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Riga di comando
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">Modulo di PowerShell (nuovo)</a></p><p><a href="powershell-module">Modulo di PowerShell (classico)</a></p>
-    - title: Moduli
-      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Informazioni di riferimento su algoritmi e moduli</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API di gestione REST</a></p><p><a href="web-service-error-codes">Codici di errore del servizio Web</a></p>
+      - type: paragraph
+        text: 'Altre tecnologie disponibili in Azure Machine Learning:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Servizio Azure Machine Learning
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Macchina virtuale di data science
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

@@ -3,23 +3,23 @@ title: "Azure AD Connect: Configurare le autorizzazioni dell'account del connett
 description: Questo documento illustra in dettaglio come configurare l'account del connettore di AD DS con il nuovo modulo di PowerShell ADSyncConfig
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809880"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463389"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
-Un nuovo modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
+Il modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
 
 ## <a name="overview"></a>Panoramica 
 I cmdlet di PowerShell seguenti possono essere usati per configurare le autorizzazioni di Active Directory dell'account del connettore di AD DS, per ogni funzionalità che si intende abilitare in Azure AD Connect. Per evitare problemi, è consigliabile preparare le autorizzazioni di Active Directory in anticipo ogni volta che si vuole installare Azure AD Connect usando un account di dominio personalizzato per la connessione alla foresta. Questo modulo ADSyncConfig può essere usato anche per configurare le autorizzazioni dopo la distribuzione di Azure AD Connect.
@@ -280,7 +280,7 @@ ad esempio:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Questo cmdlet imposterà le autorizzazioni seguenti: 

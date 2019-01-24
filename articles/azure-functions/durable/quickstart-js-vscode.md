@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034319"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359460"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
@@ -94,7 +94,7 @@ Successivamente, si crea un'altra funzione che fungerà da agente di orchestrazi
 
 ## <a name="create-an-activity-function"></a>Creare una funzione di attività
 
-1. Ripetere i passaggi delle sezioni precedenti per creare una terza funzione usando il modello di trigger HTTP, ma questa volta assegnare alla funzione il nome `SayHello`.
+1. Ripetere i passaggi delle sezioni precedenti per creare una terza funzione usando il modello di trigger HTTP, ma questa volta assegnare alla funzione il nome `E1_SayHello`.
 
 2. Aprire il file index.js per la nuova funzione e sostituire il contenuto con il codice seguente:
 
@@ -121,9 +121,11 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
     ![Output locale di Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser e visualizzare lo stato dell'orchestrazione.
+4. Sostituire `{functionName}` con `OrchestratorFunction`.
 
-5. Per interrompere il debug, premere MAIUSC+F1.
+5. Con uno strumento come [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), inviare una richiesta HTTP POST all'endpoint URL.
+
+6. Per interrompere il debug, premere MAIUSC+F1 in VS Code.
 
 Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile pubblicare il progetto in Azure.
 

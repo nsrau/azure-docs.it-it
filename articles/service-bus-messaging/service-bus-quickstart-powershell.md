@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Inviare e ricevere messaggi da e verso il bus di servizio di Azure | Microsoft Docs
-description: In questa guida introduttiva viene illustrato come inviare e ricevere i messaggi del bus di servizio usando PowerShell e il client .NET Standard
+title: Guida introduttiva - Usare Azure PowerShell per creare una coda del bus di servizio | Microsoft Docs
+description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una coda del bus di servizio. Quindi si userà un'applicazione di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242433"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426846"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando Azure PowerShell e .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
 Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e completa affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi e il trasferimento delle modifiche apportate ai dati o allo stato. Scenari di questo tipo potrebbero comportare la pianificazione di più processi batch in un'altra applicazione o servizio oppure l'attivazione dell'evasione degli ordini. Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo scenario l'app client invia e riceve messaggi verso e da una coda del bus di servizio.
 
 ![coda](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -264,4 +263,4 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e a
 > [Aggiornare l'inventario usando Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installare e configurare Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Installare e configurare Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039164"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359069"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Usare l'API di Azure Cosmos DB per il supporto di MongoDB per le funzionalità e la sintassi di MongoDB
 
@@ -20,13 +20,13 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantaggi di MongoDB con tutte le funzionalità aziendali offerte da Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
 
-## <a name="mongodb-protocol-support"></a>Supporto dei protocolli per MongoDB
+## <a name="protocol-support"></a>Protocolli supportati
 
-Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione **3.2**. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. Le funzionalità o gli operatori di query aggiunti nella versione **3.4** di MongoDB sono attualmente disponibili come funzionalità in anteprima. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB.
+Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione **3.2** del server MongoDB. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. Le funzionalità o gli operatori di query aggiunti nella versione **3.4** di MongoDB sono attualmente disponibili come funzionalità in anteprima. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB.
 
 La [pipeline di aggregazione di MongoDB](#aggregation-pipeline) è attualmente disponibile come funzionalità in anteprima separata.
 
-## <a name="mongodb-query-language-support"></a>Supporto del linguaggio di query MongoDB
+## <a name="query-language-support"></a>Linguaggi di query supportati
 
 L'API di Azure Cosmos DB per MongoDB offre il supporto completo dei costrutti del linguaggio di query MongoDB. Di seguito è possibile trovare l'elenco dettagliato di operazioni, operatori, fasi, comandi e opzioni attualmente supportati.
 
@@ -333,8 +333,8 @@ Cosmos DB supporta il partizionamento orizzontale automatico lato server. Cosmos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [usare Studio 3T](mongodb-mongochef.md) con l'API Azure Cosmos DB per MongoDB.
-- Informazioni su come [usare Robo 3T](mongodb-robomongo.md) con l'API Azure Cosmos DB per MongoDB.
+- Informazioni su come [usare Studio 3T](mongodb-mongochef.md) con l'API di Azure Cosmos DB per MongoDB.
+- Informazioni su come [usare Robo 3T](mongodb-robomongo.md) con l'API di Azure Cosmos DB per MongoDB.
 - Esplorare gli [esempi](mongodb-samples.md) di MongoDB con l'API di Azure Cosmos DB per MongoDB.
 
 <sup>Nota: Questo articolo illustra una funzionalità di Azure Cosmos DB che fornisce la compatibilità del protocollo di collegamento con i database di MongoDB. Microsoft non esegue database MongoDB per fornire questo servizio. Azure Cosmos DB non è affiliato a MongoDB, Inc.</sup>

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Traduzione vocale - C#'
+title: 'Avvio rapido: API Traduzione vocale C#'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913530"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259023"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Avvio rapido: API Traduzione vocale con C# 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -26,7 +26,7 @@ Questo articolo illustra come usare l'API Traduzione vocale per tradurre il test
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition. Se si usa Mac OS o Linux, è possibile anche usare l'editor di testo [Visual Studio Code] (https://code.visualstudio.com/Download) come alternativa.
+Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition. Se si usa Mac OS o Linux, è possibile anche usare l'editor di testo [Visual Studio Code](https://code.visualstudio.com/Download) come alternativa.
 
 È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
 

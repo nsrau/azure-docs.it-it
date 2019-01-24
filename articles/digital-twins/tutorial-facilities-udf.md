@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556102"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229397"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Gemelli digitali di Azure
 
@@ -30,6 +30,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che sia stata [completata l'installazione di Gemelli digitali di Azure](tutorial-facilities-setup.md). Prima di procedere, assicurarsi di avere:
+
 - Un [account Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un'istanza di Gemelli digitali in esecuzione. 
 - Gli [esempi C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp) scaricati ed estratti nel computer di lavoro. 
@@ -37,6 +38,7 @@ Questa esercitazione presuppone che sia stata [completata l'installazione di Gem
 - [Visual Studio Code](https://code.visualstudio.com/) per esplorare il codice di esempio. 
 
 ## <a name="define-conditions-to-monitor"></a>Definire le condizioni da monitorare
+
 È possibile definire un set di condizioni specifiche da monitorare nei dati dei dispositivi o dei sensori, denominate *matcher*. È quindi possibile definire funzioni chiamate *funzioni definite dall'utente*. che eseguono la logica personalizzata sui dati provenienti dagli spazi e dai dispositivi, quando si verificano le condizioni specificate dai matcher. Per altre informazioni, vedere [Elaborazione dati e funzioni definite dall'utente](concepts-user-defined-functions.md). 
 
 Dal progetto di esempio **occupancy-quickstart** aprire il file **src\actions\provisionSample.yaml** in Visual Studio Code. Si noti la sezione che inizia con il tipo **matchers**. Ogni voce di questo tipo crea un matcher con il **nome** specificato, che monitorerà un sensore di tipo **dataTypeValue**. Si noti che è correlato allo spazio *Focus Room A1*, che ha un nodo **devices**, contenente alcuni sensori. Per effettuare il provisioning di un matcher che terrà traccia di questi sensori, assicurarsi che **dataTypeValue** corrisponda all'elemento **dataType** del sensore. 
@@ -48,14 +50,15 @@ Aggiungere il matcher seguente sotto i matcher esistenti. Assicurarsi che le chi
         dataTypeValue: Temperature
 ```
 
-Tale matcher terrà traccia del sensore SAMPLE_SENSOR_TEMPERATURE aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga. 
+Tale matcher terrà traccia del sensore SAMPLE_SENSOR_TEMPERATURE aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Creare una funzione definita dall'utente
+
 Le funzioni definite dall'utente consentono di personalizzare l'elaborazione dei dati dei sensori. Sono costituite da codice JavaScript personalizzato che può essere eseguito all'interno dell'istanza di Gemelli digitali di Azure, quando si verificano condizioni specifiche descritte dai matcher. È possibile creare matcher e funzioni definite dall'utente per ogni sensore che si vuole monitorare. Per altre informazioni, vedere [Elaborazione dati e funzioni definite dall'utente](concepts-user-defined-functions.md). 
 
-Nel file provisionSample.yaml di esempio cercare una sezione che inizia con il tipo **userdefinedfunctions**. Questa sezione effettua il provisioning di una funzione definita dall'utente con un **nome** specificato, che agisce sull'elenco di matcher in **matcherNames**. Tenere presente che è possibile fornire il proprio file JavaScript per la funzione definita dall'utente come **script**. 
+Nel file provisionSample.yaml di esempio cercare una sezione che inizia con il tipo **userdefinedfunctions**. Questa sezione effettua il provisioning di una funzione definita dall'utente con un **nome** specificato, che agisce sull'elenco di matcher in **matcherNames**. Tenere presente che è possibile fornire il proprio file JavaScript per la funzione definita dall'utente come **script**.
 
 Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Amministratore dello spazio alla funzione definita dall'utente. Questo ruolo consente di accedere agli eventi provenienti da uno qualsiasi degli spazi con provisioning. 
 
@@ -188,7 +191,7 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
 > [!TIP]
 > Se viene visualizzato un messaggio di errore simile a "The I/O operation has been aborted because of either a thread exit or an application request", durante il provisioning, provare a eseguire nuovamente il comando. Questa situazione può verificarsi se il client HTTP ha raggiunto il timeout a causa di un problema di rete.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulare i dati dei sensori
 
@@ -202,13 +205,13 @@ In questa sezione si userà il progetto denominato *device-connectivity* nell'es
     dotnet restore
     ```
 
-1. Aprire il file **appSettings.json** nell'editor e modificare i valori seguenti:
+1. Aprire il file [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) nell'editor e modificare i valori seguenti:
 
    a. **DeviceConnectionString**: assegnare il valore di `ConnectionString` nella finestra di output della sezione precedente. Copiare questa stringa completamente, all'interno delle virgolette, per consentire al simulatore di connettersi senza problemi all'hub IoT.
 
    b. **HardwareId** nella matrice **Sensors**: dal momento che si stanno simulando eventi dai sensori di cui è stato effettuato il provisioning nell'istanza di Gemelli digitali di Azure, l'ID hardware e i nomi dei sensori in questo file corrisponderanno a quelli del nodo `sensors` del file provisionSample.yaml.
 
-      Aggiungere una nuova voce per il sensore della temperatura. Il nodo **Sensors** in appSettings.json sarà simile al seguente:
+      Aggiungere una nuova voce per il sensore della temperatura. Il nodo **Sensors** in appsettings.json sarà simile al seguente:
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ In questa sezione si userà il progetto denominato *device-connectivity* nell'es
    > Dal momento che l'esempio di simulazione non comunica direttamente con l'istanza Gemelli digitali, non richiede l'autenticazione.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Ottenere i risultati della funzione definita dall'utente
+
 La funzione definita dall'utente viene eseguita ogni volta che l'istanza riceve i dati dei sensori e dei dispositivi. Questa sezione esegue una query dell'istanza di Gemelli digitali di Azure per ottenere i risultati della funzione definita dall'utente. Si noterà quasi in tempo reale quando un locale è disponibile, l'aria è fresca e la temperatura è giusta. 
 
 1. Aprire la finestra di comando usata per effettuare il provisioning dell'esempio o una nuova finestra di comando e passare nuovamente alla cartella **occupancy-quickstart\src** dell'esempio.

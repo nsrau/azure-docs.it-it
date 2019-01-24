@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139687"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243883"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminare un tenant di Azure Active Directory
+
 Quando viene eliminato un tenant, vengono eliminate anche tutte le risorse in esso contenute. È necessario preparare il tenant, riducendo al minimo le risorse ad esso associate prima di eliminarlo. Solo un amministratore globale di Azure Active Directory (Azure AD) può eliminare un tenant di Azure AD dal portale.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparare il tenant per l'eliminazione
@@ -59,17 +60,17 @@ Stato sottoscrizione | Dati | Accesso ai dati
 Attivo (30 giorni per la versione di prova gratuita)  | Dati accessibili a tutti    | <li>Gli utenti hanno accesso normale ai file di Office 365 o alle app<li>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Office 365 e alle risorse 
 Scaduto (30 giorni)   | Dati accessibili a tutti    | <li>Gli utenti hanno accesso normale ai file di Office 365 o alle app<li>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Office 365 e alle risorse
 Disattivato (30 giorni) | Dati accessibili solo all'amministratore  | <li>Gli utenti non possono accedere ai file di Office 365 o alle app<li>Gli amministratori possono accedere all'interfaccia di amministrazione di Office 365, ma non possono assegnare licenze o aggiornare gli utenti
-Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | <li>Gli utenti non possono accedere ai file di Office 365 o alle app<li>Gli amministratori possono accedere all'interfaccia di amministrazione di Office 365 per acquistare e gestire altre sottoscrizioni 
+Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | <li>Gli utenti non possono accedere ai file di Office 365 o alle app<li>Gli amministratori possono accedere all'interfaccia di amministrazione di Office 365 per acquistare e gestire altre sottoscrizioni
 
 È possibile inserire una sottoscrizione con stato **Deprovisoning eseguito** per essere eliminata dopo 3 giorni tramite l'interfaccia di amministrazione di Microsoft Store Business. Questa funzionalità sarà presto disponibile all'interfaccia di amministrazione di Office 365.
 
 1. Accedere all'[interfaccia di amministrazione di Microsoft Store Business](https://businessstore.microsoft.com/manage/) con un account di amministratore globale nel tenant. Se si sta tentando di eliminare il tenant "Contoso" che presenta contoso.onmicrosoft.com come dominio predefinito iniziale, accedere con un nome UPN, ad esempio admin@contoso.onmicrosoft.com.
 
-2. Andare alla scheda **Gestisci** e selezionare **Prodotti e servizi**, quindi scegliere la sottoscrizione da annullare. Dopo aver fatto clic su **Annulla**, aggiornare la pagina.
+2. Andare alla scheda **Gestisci** e selezionare **Prodotti e servizi**, quindi scegliere l'abbonamento da annullare e selezionare **Elimina**.
   
   ![Eliminare il collegamento per l'eliminazione della sottoscrizione](./media/directory-delete-howto/delete-command.png)
   
-3. Selezionare **Elimina** per eliminare la sottoscrizione e accettare i termini e le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile riattivare la sottoscrizione nel corso dei tre giorni.
+3. Selezionare **Elimina abbonamento** per accettare i termini e le condizioni ed eliminare l’abbonamento. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile riattivare l’abbonamento nel corso dei tre giorni.
   
   ![termini e condizioni](./media/directory-delete-howto/delete-terms.png)
 

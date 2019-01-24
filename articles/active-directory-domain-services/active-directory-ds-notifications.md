@@ -4,7 +4,7 @@ description: Impostazioni di notifica per Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ebac78ff3912d2aafba97b020b37df16020bd7fb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958526"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853664"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Impostazioni di notifica in Azure AD Domain Services
 
@@ -65,7 +65,7 @@ Quando si rileva un [nuovo avviso](active-directory-ds-troubleshoot-alerts.md) p
 
  È consigliabile che l'elenco di destinatari di posta elettronica per Azure AD Domain Services includa gli utenti che possono amministrare e apportare modifiche al dominio gestito. Questo elenco deve essere considerato come la prima risorsa per rispondere agli eventuali problemi riscontrati. Se gli indirizzi da aggiungere sono più di cinque, è consigliabile creare una lista di distribuzione da aggiungere all'elenco di notifiche.
 
-È possibile aggiungere fino a cinque indirizzi aggiuntivi per le notifiche relative ad Azure Active Directory Domain Services. È possibile anche fare in modo che tutti gli amministratori globali di directory e ogni membro del gruppo di amministratori AAD DC ricevano le notifiche di posta elettronica per Azure AD Domain Services. Azure AD Domain Services invierà notifiche solo a un massimo di 100 indirizzi, incluso l'elenco di amministratori globali e di amministratori AAD DC.
+È possibile aggiungere fino a cinque indirizzi aggiuntivi per le notifiche relative ad Azure AD Domain Services. È possibile anche fare in modo che tutti gli amministratori globali di directory e ogni membro del gruppo di amministratori AAD DC ricevano le notifiche di posta elettronica per Azure AD Domain Services. Azure AD Domain Services invierà notifiche solo a un massimo di 100 indirizzi, incluso l'elenco di amministratori globali e di amministratori AAD DC.
 
 
 ## <a name="how-to-add-an-additional-email-recipient"></a>Come aggiungere un destinatario aggiuntivo

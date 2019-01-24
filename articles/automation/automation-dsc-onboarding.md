@@ -3,18 +3,18 @@ title: Onboarding di computer per la gestione tramite Configurazione stato di Au
 description: Come impostare computer per la gestione con Configurazione stato di Automazione di Azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284813"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436400"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 

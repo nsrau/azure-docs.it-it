@@ -4,7 +4,7 @@ description: Comprendere e risolvere gli errori di directory senza corrispondenz
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955073"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844212"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 Si dispone di un dominio gestito di Azure AD Domain Services. Quando si passa al portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:

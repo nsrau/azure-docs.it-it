@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613427"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466857"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire macchine virtuali Linux con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure
 
 Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. Questa esercitazione illustra gli elementi di base della distribuzione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una VM, la selezione dell'immagine di una VM e la distribuzione di una VM. Si apprenderà come:
 
@@ -155,7 +155,7 @@ La dimensioni di una macchina virtuale determinano la quantità di risorse di ca
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
 
-| type                     | Dimensioni           |    Descrizione       |
+| type                     | Dimensioni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Ridimensionare una VM
 
-Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse. È possibile visualizzare la dimensione attuale di una macchina virtuale con [az vm show](/cli/azure/vm#az_vm_show):
+Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse. È possibile visualizzare la dimensione attuale di una macchina virtuale con [az vm show](/cli/azure/vm):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata m
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Se nel cluster corrente non sono disponibili le dimensioni desiderate, è necessario deallocare la VM prima di poter eseguire l'operazione di ridimensionamento. Usare il comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) per arrestare e deallocare la VM. Tenere presente che, quando la VM viene riaccesa, i dati sul disco temporaneo potrebbero essere rimossi. Anche l'indirizzo IP pubblico viene modificato a meno che non venga usato un indirizzo IP statico. 
+Se nel cluster corrente non sono disponibili le dimensioni desiderate, è necessario deallocare la VM prima di poter eseguire l'operazione di ridimensionamento. Usare il comando [az vm deallocate]( /cli/azure/vm) per arrestare e deallocare la VM. Tenere presente che, quando la VM viene riaccesa, i dati sul disco temporaneo potrebbero essere rimossi. Anche l'indirizzo IP pubblico viene modificato a meno che non venga usato un indirizzo IP statico. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -252,7 +252,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="power-states"></a>Stati di alimentazione
 
-| Stato di alimentazione | Descrizione
+| Stato di alimentazione | DESCRIZIONE
 |----|----|
 | Avvio in corso | Indica che è in corso l'avvio della macchina virtuale. |
 | In esecuzione | Indica che la macchina virtuale è in esecuzione. |
@@ -315,7 +315,7 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate la creazione e la gestione di VM di base, ad esempio:
+In questa esercitazione sono illustrate la creazione e la gestione di VM di base, ad esempio:
 
 > [!div class="checklist"]
 > * Creare e connettersi a una macchina virtuale

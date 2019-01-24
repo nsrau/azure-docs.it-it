@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118816"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302426"
 ---
 # <a name="public-preview-service-limits"></a>Limiti del servizio durante l'anteprima pubblica
 
@@ -35,7 +35,7 @@ Durante l'anteprima pubblica, ogni sottoscrizione di Azure può creare o eseguir
 
 A sua volta, ogni istanza di Gemelli digitali di Azure può avere:
 
-- Esattamente una risorsa **IotHub**.
+- Esattamente una risorsa **IoTHub** incorporata che viene creata automaticamente durante il provisioning del servizio.
 - Esattamente un endpoint **EventHub** per il tipo di evento **DeviceMessage**.
 - Fino a tre endpoint **EventHub**, **ServiceBus** o **EventGrid** per il tipo di evento **SensorChange**, **SpaceChange**, **TopologyOperation** o **UdfCustom**.
 
@@ -51,7 +51,7 @@ I limiti per il numero di richieste per l'API di gestione di Gemelli digitali di
 - Fino a 1000 oggetti restituiti da una singola query sull'API di gestione di Gemelli digitali di Azure.
 
 > [!IMPORTANT]
-> Se si supera il limite di 1000 oggetti, si riceverà un errore e sarà necessario semplificare la query.
+> Se si supera il limite di 1.000 oggetti, si riceverà un errore e sarà necessario semplificare la query.
 
 ## <a name="user-defined-functions-rate-limits"></a>Limiti al numero di funzioni definite dall'utente
 

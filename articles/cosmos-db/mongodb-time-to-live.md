@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032857"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351727"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Impostare la scadenza dei dati con l'API di Azure Cosmos DB per MongoDB
 
@@ -55,7 +55,7 @@ Il valore di durata deve essere di tipo Int32 oppure, in alternativa, un oggetto
 
 Il valore di durata per il documento è facoltativo. Nella raccolta possono essere inseriti documenti senza un valore di durata (TTL).  In tal caso verrà applicato il valore di durata della raccolta. 
 
-I documenti seguenti hanno valori di durata validi. Dopo l'inserimento, i valori di durata dei documenti sostituiranno quelli della raccolta. I documenti verranno quindi rimossi dopo 20 secondi.  
+I documenti seguenti hanno valori di durata validi. Dopo l'inserimento, i valori di durata dei documenti sostituiranno quelli della raccolta. I documenti verranno quindi rimossi dopo 20 secondi.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 
@@ -63,7 +63,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberInt(20)})
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(20)}) 
 ```
 
-I seguenti documenti hanno valori di durata non validi. I documenti verranno inseriti, ma il loro valore di durata non sarà rispettato. I documenti verranno quindi rimossi dopo dieci secondi, in base al valore di durata della raccolta. 
+I seguenti documenti hanno valori di durata non validi. I documenti verranno inseriti, ma il loro valore di durata non sarà rispettato. I documenti verranno quindi rimossi dopo 10 secondi, in base al valore di durata della raccolta. 
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL value contains non-zero decimal part. 

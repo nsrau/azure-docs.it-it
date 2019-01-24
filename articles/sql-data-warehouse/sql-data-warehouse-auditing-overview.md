@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260381"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267437"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -196,7 +196,7 @@ Un elenco parziale di "client di livello inferiore" include:
 * JDBC (mentre JDBC supporta TDS 7.4, la funzionalità di reindirizzamento TDS non è del tutto supportata)
 * Tedious (per Node.JS)
 
-**Nota:** la precedente modifica del nome di dominio completo del server può risultare utile per applicare criteri di controllo a livello di SQL Server senza dover eseguire una procedura di configurazione in ogni database (attenuazione temporanea).     
+**Commento:** la precedente modifica del nome di dominio completo del server può risultare utile per applicare criteri di controllo a livello di SQL Server senza dover eseguire una procedura di configurazione in ogni database (attenuazione temporanea).     
 
 
 

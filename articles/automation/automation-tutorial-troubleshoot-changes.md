@@ -3,7 +3,7 @@ title: Risolvere i problemi delle modifiche in una macchina virtuale di Azure | 
 description: Usare Rilevamento modifiche per risolvere i problemi relativi alle modifiche in una macchina virtuale di Azure.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: modifica, rilevamento, automazione
 author: jennyhunter-msft
 ms.author: jehunte
@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190017"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433680"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -97,11 +97,11 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 
 1. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Aggiungere un file di Windows
@@ -110,11 +110,11 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 
 1. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"         |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
@@ -125,11 +125,11 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 
 1. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -228,3 +228,4 @@ Per altre informazioni, passare alla panoramica della soluzione Rilevamento modi
 
 > [!div class="nextstepaction"]
 > [Soluzione di gestione del cambiamento e inventario](automation-change-tracking.md)
+

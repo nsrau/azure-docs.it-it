@@ -3,7 +3,7 @@ title: Domande frequenti (FAQ) - Azure Active Directory | Microsoft Docs
 description: Domande frequenti su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10b22270ed31c98bc3bb30128a7f31ff113409d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084094"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452616"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -131,7 +131,7 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 
 - - -
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 **D: Gli account vengono bloccati dopo un numero specifico di tentativi non riusciti o la strategia usata è più sofisticata?**
 
 La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  

@@ -7,18 +7,18 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542017"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352313"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Cos'è Database di Azure per MariaDB?
 
 Database di Azure per MariaDB è un servizio di database relazionale nel cloud Microsoft. Database di Azure per MariaDB è basato sul motore di database dell'[edizione per la community di MariaDB](https://mariadb.org/download/), versione 10.2.
 
-Database di Azure per le esigenze di MariaDB:
+Database di Azure per MariaDB offre:
 
 - Disponibilità elevata integrata senza costi aggiuntivi.
 - Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo.
@@ -45,7 +45,7 @@ Database di Azure per MariaDB offre vari livelli di servizio: piani Basic, Per u
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Come si decide quando aumentare o ridurre le prestazioni? È possibile usare le funzionalità predefinite di monitoraggio delle prestazioni e avviso di Database di Azure per MariaDB, in combinazione con le classificazioni delle prestazioni basate sui vCore. Con questi strumenti, è possibile valutare rapidamente gli effetti dell'aumento o della riduzione dei vCore in base alle esigenze attuali o previste in termini di prestazioni. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+Come si decide quando aumentare o ridurre le prestazioni? È possibile usare le funzionalità predefinite di monitoraggio delle prestazioni e avviso di Database di Azure per MariaDB, in combinazione con le classificazioni delle prestazioni basate sui vCore. Con questi strumenti, è possibile valutare rapidamente gli effetti dell'aumento o della riduzione dei vCore in base alle esigenze attuali o previste in termini di prestazioni. Per informazioni dettagliate, vedere [Avvisi](howto-alert-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenere l'applicazione e l’esecuzione dell’azienda
 
@@ -55,7 +55,7 @@ Il contratto di servizio di Azure con disponibilità del 99,99% leader del setto
 
 I servizi di database di Azure vantano una tradizione di sicurezza dei dati ereditata anche da Database di Azure per MariaDB. Database di Azure per MariaDB offre funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://www.microsoft.com/en-us/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure.
 
-Il servizio Database di Azure per MariaDB usa la crittografia di archiviazione per i dati inattivi. I dati, inclusi i dati di backup, vengono crittografati su disco. (I file temporanei creati dal motore durante l'esecuzione di query non vengono crittografati su disco.) Il servizio usa la crittografia AES a 256 bit, inclusa nella crittografia di Archiviazione di Azure. Le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata.
+Il servizio Database di Azure per MariaDB usa la crittografia del servizio di archiviazione per i dati inattivi ed è conforme allo standard FIPS 140-2. I dati, inclusi i dati di backup, vengono crittografati su disco. (I file temporanei creati dal motore durante l'esecuzione di query non vengono crittografati su disco.) Il servizio usa la crittografia AES a 256 bit, inclusa nella crittografia di Archiviazione di Azure. Le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata.
 
 Per impostazione predefinita, il servizio Database di Azure per MariaDB è configurato per richiedere la [sicurezza di connessione SSL](./concepts-ssl-connection-security.md) per i dati in transito nella rete. L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione. Se l'applicazione client non supporta la connettività SSL, è possibile disabilitare facoltativamente il requisito SSL per la connessione al servizio di database.
 

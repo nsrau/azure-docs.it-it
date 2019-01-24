@@ -1,10 +1,11 @@
 ---
-title: Creare un servizio Load Balancer Standard con un front-end di indirizzo IP di zona - Portale di Azure
+title: Creare un servizio Load Balancer con un front-end di zona - Portale di Azure
 titlesuffix: Azure Load Balancer
-description: Informazioni su come creare un servizio Load Balancer Standard pubblico con un front-end di indirizzo IP pubblico di zona con il portale di Azure
+description: Informazioni su come creare un Load Balancer Standard con un front-end di zona usando il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095337"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247192"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Creare un servizio Load Balancer Standard pubblico con un front-end di indirizzo IP pubblico di zona usando il portale di Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Creare un Load Balancer Standard con un front-end di zona usando il portale di Azure
 
-Questo articolo illustra la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona. Per comprendere il funzionamento delle zone di disponibilità con il servizio Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md). 
+Questo articolo illustra i passaggi per la creazione di un [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con una configurazione dell'indirizzo IP front-end di zona. Per comprendere il funzionamento delle zone di disponibilità con il servizio Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md). 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -48,7 +49,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 7. In **Gruppo di risorse** fare clic su **Crea nuovo** e quindi digitare **myResourceGroupZLB** come nome del gruppo di risorse.
 8. Per **Posizione** selezionare **Europa occidentale**, quindi fare clic su **OK**. Il servizio di bilanciamento del carico avvia la distribuzione e richiede alcuni minuti per completare correttamente la distribuzione.
 
-    ![Creare un servizio di bilanciamento del carico standard con ridondanza della zona con il portale di Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![Creare un Load Balancer Standard con ridondanza di zona con il portale di Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

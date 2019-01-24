@@ -2,8 +2,7 @@
 title: Guida introduttiva - Creare un profilo di Gestione traffico per la disponibilità elevata delle applicazioni usando il portale di Azure
 description: Questa guida introduttiva descrive come creare un profilo di Gestione traffico per creare applicazioni Web a disponibilità elevata.
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
+dauthor: kumudd
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: 5520b78ce3899c39167663ac426fa6702369c944
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634779"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198220"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata
 

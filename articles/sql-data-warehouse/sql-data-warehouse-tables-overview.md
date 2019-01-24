@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302314"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212550"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in
 ## <a name="columnstore-indexes"></a>Indici Columnstore
 Per impostazione predefinita, SQL Data Warehouse archivia una tabella come indice columnstore cluster. Questo modulo di archiviazione dei dati raggiunge compressione dei dati e prestazioni di query elevate su tabelle di grandi dimensioni.  L'indice columnstore cluster è in genere la scelta migliore, ma in alcuni casi un indice cluster o un heap è la struttura di archiviazione appropriata.
 
-Per un elenco delle funzionalità columnstore, vedere [Indici columnstore - Novità](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Per migliorare le prestazioni dell'indice columnstore, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Per un elenco delle funzionalità columnstore, vedere [Indici columnstore - Novità](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Per migliorare le prestazioni dell'indice columnstore, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistiche
 Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le statistiche a livello di colonna. Per migliorare le prestazioni delle query, è importante creare statistiche su singole colonne, in particolare sulle colonne usate nei join delle query. La creazione e l'aggiornamento delle statistiche non vengono eseguiti automaticamente. [Creare le statistiche](/sql/t-sql/statements/create-statistics-transact-sql) dopo la creazione di una tabella. Aggiornare le statistiche dopo l'aggiunta o la modifica di un numero significativo di righe. Aggiornare, ad esempio, le statistiche dopo un carico. Per altre informazioni, vedere [Indicazioni sulle statistiche](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ SQL Data Warehouse supporta molte delle funzionalità per tabelle offerte da alt
 - [Viste indicizzate](/sql/relational-databases/views/create-indexed-views)
 - [Sequenza](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Colonne di tipo sparse](/sql/relational-databases/tables/use-sparse-columns)
-- [Chiavi surrogate](). Implementare con [Identity](sql-data-warehouse-tables-identity.md).
+- Chiavi surrogate. Implementare con [Identity](sql-data-warehouse-tables-identity.md).
 - [Sinonimi](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Trigger](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Indici univoci](/sql/t-sql/statements/create-index-transact-sql)

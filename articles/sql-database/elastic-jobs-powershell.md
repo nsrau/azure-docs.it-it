@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021323"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452752"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
 
-I [processi elastici](elastic-jobs-overview.md) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
+I [processi elastici](sql-database-job-automation-overview.md#elastic-database-jobs) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
 
 Questa esercitazione illustra la procedura necessaria per eseguire una query tra più database:
 
@@ -39,7 +39,7 @@ Questa esercitazione illustra la procedura necessaria per eseguire una query tra
 
 Se non si ha già una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Installare il modulo in anteprima **AzureRM.Sql** 4.8.1per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
+- Installare il modulo **AzureRM.Sql** 4.8.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 
   ```powershell
   # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -65,7 +65,7 @@ Se non si ha già una sottoscrizione di Azure, creare un [account gratuito](http
 
 ## <a name="create-required-resources"></a>Creare le risorse necessarie
 
-La creazione di un agente processo elastico richiede un database (S0 o versione successiva) da usare come [database di processo](elastic-jobs-overview.md#job-database). 
+La creazione di un agente processo elastico richiede un database (S0 o versione successiva) da usare come [database di processo](sql-database-job-automation-overview.md#job-database). 
 
 *Lo script seguente crea un nuovo gruppo di risorse, un server e un database da usare come database di processo. Viene inoltre creato un secondo server con due database vuoti per l'esecuzione dei processi.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definire i database di destinazione in cui eseguire il processo
 
-Un [gruppo di destinazione](elastic-jobs-overview.md#target-group) definisce il set di uno o più database in cui verrà eseguito il passaggio di un processo. 
+Un [gruppo di destinazione](sql-database-job-automation-overview.md#target-group) definisce il set di uno o più database in cui verrà eseguito il passaggio di un processo. 
 
 Il frammento di codice seguente crea due gruppi di destinazione: *ServerGroup*, e *ServerGroupExcludingDb2*. *ServerGroup* ha come destinazione tutti i database esistenti nel server durante la fase di esecuzione, mentre *ServerGroupExcludingDb2* ha come destinazione tutti i database nel server, ad eccezione di *TargetDb2*:
 

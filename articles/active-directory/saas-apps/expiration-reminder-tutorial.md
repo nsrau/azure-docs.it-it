@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020600"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Esercitazione: Integrazione di Azure Active Directory con Expiration Reminder
 
@@ -78,8 +78,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Expiration Re
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Expiration Reminder](#configure-expiration-reminder-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di Expiration Reminder](#create-expiration-reminder-test-user)**: per avere una controparte di Britta Simon in Expiration Reminder collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Expiration Reminder](#create-expiration-reminder-test-user)**: per avere una controparte di Britta Simon in Expiration Reminder collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -104,7 +104,7 @@ Per configurare Single Sign-On di Azure AD con Expiration Reminder, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Expiration Reminder](common/sp-signonurl.png)
 
-    Nella casella di testo **URL di accesso** digitare un URL: `https://app.expirationreminder.net/account/sso`.
+    Nella casella di testo **URL di accesso** digitare un URL: `https://app.expirationreminder.net/account/sso`
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 

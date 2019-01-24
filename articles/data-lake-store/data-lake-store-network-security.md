@@ -1,6 +1,6 @@
 ---
 title: Sicurezza di rete in Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Informazioni sul funzionamento del firewall IP e del servizio di integrazione della rete virtuale in Azure Data Lake Storage Gen1
+description: Informazioni sul funzionamento dell'integrazione della rete virtuale in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288000"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359307"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integrazione della rete virtuale per Azure Data Lake Storage Gen1 - Anteprima
 
-Questo articolo presenta l'integrazione della rete virtuale per Azure Data Lake Storage Gen1, disponibile in anteprima. Con l'integrazione della rete virtuale, è possibile configurare gli account in modo che accettino solo il traffico proveniente da reti virtuali e subnet specifiche. 
+Questo articolo presenta l'integrazione della rete virtuale per Azure Data Lake Storage Gen1. Con l'integrazione della rete virtuale, è possibile configurare gli account in modo che accettino solo il traffico proveniente da reti virtuali e subnet specifiche. 
 
 Questa funzionalità consente di proteggere l'account Data Lake Storage da minacce esterne.
 
@@ -73,11 +73,11 @@ Alcune opzioni disponibili sono:
 
 ## <a name="limitations"></a>Limitazioni
 
-- I cluster HDI creati prima che fosse disponibile il supporto dell'integrazione della rete virtuale per Data Lake Storage Gen1 devono essere ricreati per supportare questa nuova funzionalità.
+- I cluster HDInsight creati prima che fosse disponibile il supporto dell'integrazione della rete virtuale per Data Lake Storage Gen1 devono essere ricreati per supportare questa nuova funzionalità.
  
-- Quando si crea un nuovo cluster HDInsight e si seleziona un account Data Lake Storage Gen1 con l'integrazione della rete virtuale abilitata, il processo ha esito negativo. Per prima cosa, disabilitare la regola della rete virtuale. In alternativa, nel pannello **Firewall e reti virtuali** dell'account Data Lake Storage selezionare l'opzione per **consentire l'accesso da tutte le reti e i servizi**. Per altre informazioni, vedere la sezione [Eccezioni](##Exceptions).
+- Quando si crea un nuovo cluster HDInsight e si seleziona un account Data Lake Storage Gen1 con l'integrazione della rete virtuale abilitata, il processo ha esito negativo. Per prima cosa, disabilitare la regola della rete virtuale. In alternativa, nel pannello **Firewall e reti virtuali** dell'account Data Lake Storage selezionare l'opzione per **consentire l'accesso da tutte le reti e i servizi**. Creare quindi il cluster HDInsight prima di riabilitare la regola della rete virtuale o di deselezionare **Consentire l'accesso da tutte le reti e servizi**. Per altre informazioni, vedere la sezione [Eccezioni](##Exceptions).
 
-- L'anteprima del servizio di integrazione della rete virtuale per Data Lake Storage Gen1 non funziona con le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- L'integrazione della rete virtuale per Data Lake Storage Gen1 non funziona con le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - I dati di file e cartelle contenuti in un account Data Lake Storage Gen1 abilitato per le reti virtuali non sono accessibili dal portale. Questa limitazione include l'accesso da una macchina virtuale che si trova all'interno della rete virtuale e le attività come l'uso di Esplora dati. Le attività di gestione dell'account continuano a funzionare. I dati di file e cartelle contenuti in un account Data Lake Storage abilitato per le reti virtuali sono accessibili tramite tutte le risorse diverse dal portale. Queste risorse includono SDK, script di PowerShell e altri servizi di Azure, se non originati dal portale. 
 

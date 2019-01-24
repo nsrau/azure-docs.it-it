@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263967"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464789"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -158,3 +158,5 @@ Se non si desidera più più tenant in Azure Stack, è possibile disabilitare mu
 
 - [Gestire i provider delegati](azure-stack-delegated-provider.md)
 - [Concetti chiave di Azure Stack](azure-stack-key-features.md)
+- [Gestire l'uso e la fatturazione per Azure Stack come provider di servizi cloud](azure-stack-add-manage-billing-as-a-csp.md)
+- [Aggiungere un tenant per l'uso e la fatturazione ad Azure Stack](azure-stack-csp-howto-register-tenants.md)

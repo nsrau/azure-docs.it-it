@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106677"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244585"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
@@ -411,17 +411,13 @@ Al termine delle attività con un notebook, usare il comando **File** > **Close 
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Eseguire il debug dei notebook con Visual Studio Code
 
-Se le celle di codice nel notebook non funzionano come previsto, possono essere presenti bug nel codice o altri difetti. Tuttavia, a parte l'uso delle istruzioni `print` per visualizzare il valore delle variabili, un notebook di Jupyter non offre funzionalità di debug.
+Se le celle di codice nel notebook non funzionano come previsto, possono essere presenti bug nel codice o altri difetti. Tuttavia, a parte l'uso delle istruzioni `print` per visualizzare il valore delle variabili, un ambiente di Jupyter non offre funzionalità di debug.
 
-Fortunatamente, l'estensione Python per Visual Studio Code può importare direttamente un notebook di Jupyter come un singolo file di codice con le celle di Markdown nei commenti. È quindi possibile eseguire il debugger di Visual Studio Code per esaminare il codice, impostare punti di interruzione, esaminare lo stato e così via. 
+Fortunatamente, è possibile scaricare il file del notebook *.ipynb*, quindi aprirlo in Visual Studio Code con l'estensione di Python. L'estensione importa direttamente un notebook come un singolo file di codice, mantenendo le celle di Markdown nei commenti. Una volta importato il notebook, è quindi possibile eseguire il debugger di Visual Studio Code per esaminare il codice, impostare punti di interruzione, esaminare lo stato e così via. Dopo aver apportato le correzioni al codice, esportare il file *.ipynb* da Visual Studio Code e caricarlo nuovamente in Azure Notebooks.
 
-Dopo aver apportato le correzioni al codice, salvare il file *.ipynb*, quindi caricarlo in Azure Notebooks.
+Per altre informazioni, vedere [Debug a Jupyter notebook (Eseguire il debug di un notebook Jupyter)](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) nella documentazione di Visual Studio Code.
 
-Per altre informazioni, vedere gli articoli seguenti nella documentazione di Visual Studio Code:
-
-- [Overview of Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks) (Panoramica dei notebook di Jupyter in Visual Studio Code)
-- [Python tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger) (Esercitazione su Python - Configurare ed eseguire il debugger)
-- [Editing - Jupyter code cells](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells) (Modifica - Celle di codice di Jupyter)
+Vedere anche [Visual Studio Code - Jupyter support (Visual Studio Code - supporto di Jupyter)](https://code.visualstudio.com/docs/python/jupyter-support) per funzionalità aggiuntive di Visual Studio Code per i notebook di Jupyter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

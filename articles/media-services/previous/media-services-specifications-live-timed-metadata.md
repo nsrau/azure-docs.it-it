@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384684"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265891"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live
 
@@ -89,7 +89,7 @@ Per la modalità semplice RTMP, Servizi multimediali supporta un singolo messagg
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 Annullamento e aggiornamenti
+#### <a name="211-cancellation-and-updates"></a>2.1.1 Annullamento e aggiornamenti
 
 I messaggi possono essere annullati o aggiornati inviando più messaggi con ora di presentazione e ID uguali. L'ora di presentazione e l'ID identificano in modo univoco l'evento e l'ultimo messaggio ricevuto per un'ora di presentazione specifica che soddisfa i vincoli preroll è il messaggio su cui viene eseguita un'operazione. L'evento aggiornato sostituisce eventuali messaggi ricevuti in precedenza. Il vincolo di preroll è 4 secondi. Sui messaggi ricevuti almeno quattro secondi prima dell'ora di presentazione verranno eseguite le operazioni.
 
@@ -157,7 +157,7 @@ La casella MediaDataBox ('mdat') deve (MUST) avere il formato seguente:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 Annullamento e aggiornamenti
+### <a name="224-cancellation-and-updates"></a>2.2.4 Annullamento e aggiornamenti
 I messaggi possono essere annullati o aggiornati inviando più messaggi con ora di presentazione e ID uguali.  Il tempo di presentazione e l'ID identificano in modo univoco l'evento. L'ultimo messaggio ricevuto per un'ora di presentazione specifica che soddisfa i vincoli preroll è il messaggio su cui viene eseguita un'operazione. Il messaggio aggiornato sostituisce eventuali messaggi ricevuti in precedenza.  Il vincolo di preroll è 4 secondi. Sui messaggi ricevuti almeno quattro secondi prima dell'ora di presentazione verranno eseguite le operazioni. 
 
 

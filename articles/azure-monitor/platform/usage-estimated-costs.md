@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
-ms.component: ''
-ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: ''
+ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460720"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -112,7 +112,7 @@ Per spostare una sottoscrizione nel nuovo modello tariffario, è sufficiente sel
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatizzare il passaggio al nuovo modello di prezzi
 
-Gli script riportati richiedono il modulo Azure PowerShell. Per verificare se si ha la versione più recente, vedere l'articolo su come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+Gli script riportati richiedono il modulo Azure PowerShell. Per verificare se si ha la versione più recente, vedere l'articolo su come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
 
 Quando si dispone della versione più recente di Azure PowerShell, è innanzitutto necessario eseguire ``Connect-AzureRmAccount``.
 

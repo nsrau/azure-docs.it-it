@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure'
+title: 'Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117368"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352734"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure
  
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento (caricamento dei dati) da Kafka. Kafka è una piattaforma di streaming distribuito che consente di creare pipeline di dati in streaming in tempo reale che spostano in modo affidabile i dati tra applicazioni o sistemi. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento (caricamento dei dati) da Kafka. Kafka è una piattaforma di streaming distribuito che consente di creare pipeline di dati in streaming in tempo reale che spostano in modo affidabile i dati tra applicazioni o sistemi.
  
 ## <a name="prerequisites"></a>Prerequisiti
  
@@ -30,9 +30,11 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 * [Visual Studio 2017 versione 15.3.2 o successiva](https://www.visualstudio.com/vs/) per eseguire l'app di esempio
  
 ## <a name="kafka-connector-setup"></a>Installazione del connettore Kafka
+
 Kafka Connect è uno strumento per lo streaming dei dati scalabile e affidabile tra Apache Kafka e altri sistemi. Rende più semplice definire rapidamente i connettori che gestiscono lo spostamento di grandi raccolte di dati all'interno e all'esterno di Kafka. Kafka Sink di ADX funge da connettore con Kafka.
  
-### <a name="bundle"></a>Bundle 
+### <a name="bundle"></a>Bundle
+
 Kafka è in grado di caricare un file `.jar` come plug-in che funge da connettore personalizzato. Per generare questo file `.jar`, si clonerà il codice localmente e lo si compilerà usando Maven. 
 
 #### <a name="clone"></a>Clone
@@ -41,7 +43,7 @@ Kafka è in grado di caricare un file `.jar` come plug-in che funge da connettor
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>Compilare
 
 Compilare in locale con Maven per produrre un file `.jar` completo di dipendenze.
@@ -55,9 +57,9 @@ All'interno della directory radice *kafka-sink-azure-kusto* eseguire:
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>Distribuire 
- 
+
 Caricare il plug-in Kafka. Un esempio di distribuzione che usa Docker è reperibile in [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
@@ -112,13 +114,16 @@ Creare una tabella in ADX a cui Kafka può inviare dati. Creare la tabella nel c
 Ora che il cluster Kafka è connesso a ADX, usare l'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) scaricata per generare dati.
 
 ### <a name="clone"></a>Clone
+
 Clonare l'app di esempio in locale:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>Esecuzione dell'app
+
 1. Aprire la soluzione dell'app di esempio in Visual Studio.
 
 1. Nel file `Program.cs` aggiornare la costante `connectionString` assegnandole la stringa di connessione a Kafka.
@@ -127,11 +132,11 @@ cd ./azure-kusto-samples-dotnet/kafka/
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Compilare ed eseguire l'app. L'app invia messaggi al cluster Kafka e visualizza lo stato ogni dieci secondi.
+1. Compilare ed eseguire l'app. L'app invia messaggi al cluster Kafka e visualizza lo stato ogni 10 secondi.
 
 1. Dopo che l'app ha inviato alcuni messaggi, procedere con il passaggio successivo.
  
-## <a name="query-and-review-the-data"></a>Eseguire una query ed esaminare i dati 
+## <a name="query-and-review-the-data"></a>Eseguire una query ed esaminare i dati
 
 1. Per assicurarsi non si siano verificati errori durante l'inserimento:
 
@@ -159,4 +164,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>Passaggi successivi
  
 > [!div class="nextstepaction"]
-> [Avvio rapido: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155151"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260465"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Domande frequenti: Replica da Azure ad Azure
 
@@ -74,12 +74,18 @@ Il punto di recupero coerente con l'arresto anomalo del sistema rappresenta i da
 
 La maggior parte delle applicazioni esegue ora correttamente il ripristino da snapshot coerenti con l'arresto anomalo del sistema. Un punto di recupero coerente con l'arresto anomalo del sistema è in genere sufficiente per sistemi operativi senza database e per applicazioni quali file server, server DHCP e server di stampa.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual è la frequenza di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Che cos'è un punto di recupero coerente con l'applicazione? 
 I punti di recupero coerenti con l'applicazione vengono creati dagli snapshot coerenti con l'applicazione. Questi ultimi acquisiscono gli stessi dati di snapshot coerenti con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e a tutte le transazioni in corso. 
 
 Per via del loro contenuto aggiuntivo, gli snapshot coerenti con l'applicazione impiegano più tempo di esecuzione e sono i più coinvolti. È consigliabile usare i punti di recupero coerenti con l'applicazione per sistemi operativi e applicazioni di database come SQL Server.
 
-### <a name="how-are-recovery-points-generated-and-saved"></a>Come vengono generati e salvati i punti di recupero?
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual è la frequenza minima di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+Site Recovery può creare un punto di recupero coerente nell'applicazione con una frequenza minima di 1 ora.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>Come vengono generati e salvati i punti di ripristino?
 Per comprendere il modo in cui Site Recovery genera i punti di recupero, si consideri l'esempio dei criteri di replica con una finestra di conservazione del punto di recupero di 24 ore e uno snapshot di frequenza coerente con l'app di 1 ora.
 
 Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti. L'utente non può modificare questa frequenza. Pertanto, per l'ultima ora l'utente potrà scegliere tra 12 punti coerenti con l'arresto anomalo del sistema e 1 punto coerente con l'app. Col passare del tempo, Site Recovery elimina tutti i punti di recupero oltre l'ultima ora e salva solo 1 punto di recupero per ogni ora.
@@ -149,10 +155,13 @@ L'opzione **Più recente (RPO più basso)** elabora tutti i dati inviati al serv
 Sì. Site Recovery elabora tutti i dati in sospeso prima dell'esecuzione del failover, pertanto questa opzione ha un valore di RTO maggiore rispetto ad altre opzioni.
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Che cosa significa l'opzione **Elaborato più recente** nei punti di recupero?
-L'opzione **Elaborato più recente** consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di recupero più recente elaborato da Site Recovery. Per vedere il punto di recupero più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Questa opzione offre un RTO basso poiché non viene impiegato tempo per la gestione di dati non elaborati.
+L'opzione **Elaborato più recente** consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di recupero più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Questa opzione offre un RTO basso poiché non viene impiegato tempo per la gestione di dati non elaborati.
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Se si esegue la replica tra due aree di Azure, che cosa accade nel caso di un'interruzione prevista nell'area primaria?
 Dopo l'interruzione è possibile attivare un failover. Per eseguire il failover, in Site Recovery non è necessaria la connettività dall'area primaria.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Che cos'è un RTO di un failover della macchina virtuale?
+Site Recovery ha un [RTO SLA di 2 ore](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Tuttavia, nella maggior parte dei casi, Site Recovery esegue il failover delle macchine virtuali in pochi minuti. È possibile calcolare l'RTO visitando il failover dei processi che mostra il tempo impiegato per far apparire la macchina virtuale. Per pianificare l'RTO del piano di ripristino, fare riferimento alla sezione seguente. 
 
 ## <a name="recovery-plan"></a>Piano di ripristino
 
@@ -163,7 +172,7 @@ I piani di ripristino in Site Recovery gestiscono il ripristino del failover del
 - Definizione di dipendenze tra macchine virtuali, affinché l'applicazione venga visualizzata in modo accurato.
 - Automatizzazione del ripristino con azioni manuali personalizzate, in modo che si possano effettuare attività diverse dal failover delle macchine virtuali.
 
-[Altre informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
+[Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Come si esegue la sequenziazione in un piano di ripristino?
 

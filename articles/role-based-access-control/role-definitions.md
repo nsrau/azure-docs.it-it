@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ea022ce9b02fd54be7959f5e9521ca5dc34e4e7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715771"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426422"
 ---
 # <a name="understand-role-definitions"></a>Informazioni sulle definizioni del ruolo
 
@@ -163,15 +163,23 @@ Le autorizzazioni di Bob sono limitate alle sezioni `Actions` e `DataActions` sp
 
 Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre delle versioni corrette degli strumenti o degli SDK:
 
-| Strumento  | Version  |
+| Strumento  | Versione  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 o successiva |
+| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 o successiva |
 | [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
 | [Azure per .NET](/dotnet/azure/) | 2.8.0-Preview o successiva |
 | [Azure SDK per Go](/go/azure/azure-sdk-go-install) | 15.0.0 o successiva |
 | [Azure per Java](/java/azure/) | 1.9.0 o successiva |
 | [Azure per Python](/python/azure) | 0.40.0 o successiva |
 | [Azure SDK per Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 o successiva |
+
+Per visualizzare e usare le operazioni di dati di API REST, è necessario impostare il parametro **api-version** per la seguente versione o versioni successive:
+
+- anteprima 01/01/2018
+
+Il portale di Azure consente anche agli utenti di esplorare e gestire i contenuti di Coda e contenitori Blob tramite l'esperienza di anteprima di Azure AD. Per visualizzare e gestire il contenuto di Coda o contenitori Blob fare clic **Esplora i dati usando l'anteprima di Azure AD** nella panoramica dell'account di archiviazione.
+
+![Esplorare i Code e contenitori Blob tramite l'anteprima di Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>Azioni
 

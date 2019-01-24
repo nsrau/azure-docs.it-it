@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: alerts
+ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720306"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433170"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso di log in Azure](alerts-log.md), è possibile scegliere di [configurarlo con gruppi di azioni](action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -202,3 +202,4 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
 - Creare e gestire [gruppi di azioni in Azure](action-groups.md)
 - Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)
 - Altre informazioni su [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+

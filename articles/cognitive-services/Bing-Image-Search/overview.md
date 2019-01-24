@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 71e8e363a02e08a099d9051c7f851e11bbd9b80b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258305"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467282"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Che cos'è l'API Ricerca immagini Bing?
 
@@ -32,7 +32,7 @@ Ricerca immagini Bing trova e restituisce principalmente immagini rilevanti da u
 
 | Funzionalità                                                                                                                                                                                 | DESCRIZIONE                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Suggerimento dei termini di ricerca in tempo reale](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#using-and-suggesting-search-terms) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
+| [Suggerimento dei termini di ricerca in tempo reale](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 | [Filtro e limitazione delle immagini restituite come risultato](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | È possibile filtrare le immagini restituite da Bing modificando i parametri di query.                                                                                                       |
 | [Ritaglio, ridimensionamento e visualizzazione anteprime](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | È possibile modificare e visualizzare le anteprime delle immagini restituite dalla Ricerca immagini Bing.                                                                                      |
 | [Espansione e trasformazione tramite pivot delle query di ricerca utente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | È possibile espandere le funzionalità di ricerca includendo e visualizzando i termini di ricerca suggeriti da Bing per le query.                                                                    |

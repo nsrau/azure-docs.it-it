@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9130bf5c2708f7eecf6fc1b5db2ffbb3c2fffc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435413"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201279"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -62,10 +62,10 @@ Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
 Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie e la versione corrente è `2017-08-01`.
 
-| Version | Tipo di versione | Regioni | Note sulla versione | 
+| Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - |
 | 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
-| 2017-03-01 | Preview | Tutti |<li>Versione iniziale
+| 2017-03-01 | Anteprima | Tutti |<li>Versione iniziale
 
 > [!NOTE] 
 > Le versioni precedenti di anteprima di eventi pianificati {ultima} sono supportate come versione dell'API. Questo formato non è più supportato e verrà rimosso in futuro.
@@ -113,7 +113,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una seri
 DocumentIncarnation è un ETag e fornisce un modo semplice per verificare se il payload degli eventi è stato modificato dall'ultima query.
 
 ### <a name="event-properties"></a>Proprietà dell'evento
-|Proprietà  |  DESCRIZIONE |
+|Proprietà  |  Descrizione |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: per la macchina virtuale è pianificata una pausa di pochi secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: per la macchina virtuale è pianificato un riavvio (la memoria non permanente andrà persa). <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo (i dischi temporanei andranno persi). |
@@ -128,7 +128,7 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 |EventType  | Minimum Notice |
 | - | - |
 | Freeze| 15 minuti |
-| Reboot | 15 minuti |
+| Riavvio | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
 
 ### <a name="event-scope"></a>Ambito degli eventi     

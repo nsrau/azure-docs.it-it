@@ -3,18 +3,18 @@ title: Il primo runbook Python in Automazione di Azure
 description: Esercitazione che illustra la creazione, i test e la pubblicazione di un semplice runbook Python.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/26/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 386c2ecfdac44158f5d87034657491fa9598e3ad
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13bb12c2c624bfd50933b624a28145172f521747
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018234"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427679"
 ---
 # <a name="my-first-python-runbook"></a>Il primo runbook Python
 
@@ -26,7 +26,7 @@ ms.locfileid: "37018234"
 
 Questa esercitazione illustra la creazione di un [runbook Python](automation-runbook-types.md#python-runbooks) in Automazione di Azure. Iniziare con un runbook semplice che viene testato e pubblicato. Si modifica quindi il runbook per gestire effettivamente le risorse di Azure, avviando in questo caso una macchina virtuale di Azure. Si rende infine il runbook più affidabile aggiungendo i relativi parametri.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -92,15 +92,15 @@ In questo caso, non esiste ancora una versione pubblicata perché il runbook è 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Aggiungere l'autenticazione per gestire le risorse di Azure
 
 Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure.
-Per gestire le risorse di Azure, lo script deve eseguire l'autenticazione tramite le credenziali dell'[account di Automazione](automation-offering-get-started.md).
+Per gestire le risorse di Azure, lo script deve eseguire l'autenticazione tramite le credenziali dell'account di Automazione. Per semplificare l'autenticazione e l'interazione con le risorse di Azure, è possibile usare il [pacchetto di utilità di Automazione di Azure](https://github.com/azureautomation/azure_automation_utility).
 
 > [!NOTE]
-> L'account di Automazione deve essere stato creato con la funzionalità entità servizio perché sia disponibile un certificato runas.
+> Perché sia disponibile un certificato RunAs, è necessario che l'account di Automazione sia stato creato con l'entità servizio.
 > Se l'account di Automazione non è stato creato con l'entità servizio, è possibile eseguire l'autenticazione tramite il metodo descritto in [Eseguire l'autenticazione con le librerie di gestione di Azure per Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
 
 1. Aprire l'editor di testo facendo clic su **Modifica** nel pannello MyFirstRunbook-Python.
 
-1. Aggiungere il codice seguente per l'autenticazione in Azure:
+2. Aggiungere il codice seguente per l'autenticazione in Azure:
 
    ```python
    import os
@@ -160,7 +160,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-_MyResourceGroup_ è il nome del gruppo di risorse che contiene la macchina virtuale e _TestVM_ è il nome della macchina virtuale che si desidera avviare. 
+_MyResourceGroup_ è il nome del gruppo di risorse che contiene la macchina virtuale e _TestVM_ è il nome della macchina virtuale che si desidera avviare.
 
 Testare ed eseguire nuovamente il runbook per verificare che venga avviata la macchina virtuale.
 

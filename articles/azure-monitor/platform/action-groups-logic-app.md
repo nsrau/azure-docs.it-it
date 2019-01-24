@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342987"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432031"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Il processo generale è il seguente:
 
 Il processo è simile se si vuole che l'app per la logica esegua un'azione diversa.
 
-## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: Amministrativo
+## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: Administrative
 
 1.  Nel portale di Azure selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
@@ -298,3 +298,4 @@ App per la logica dispone di una serie di connettori diversi che consentono di a
 * Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi quando viene inviata una notifica sull'integrità dei servizi di Azure](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).
+

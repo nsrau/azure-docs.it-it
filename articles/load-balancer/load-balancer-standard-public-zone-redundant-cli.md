@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250808"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197794"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Bilanciare il carico delle macchine virtuali in tutte le zone di disponibilità tramite l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Creare un servizio Azure Load Balancer Standard
+## <a name="create-azure-standard-load-balancer"></a>Creare un servizio Azure Load Balancer Standard
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
 - Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
 - Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.

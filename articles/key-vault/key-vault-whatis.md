@@ -1,6 +1,6 @@
 ---
 title: Cos'è l'insieme di credenziali chiave di Azure? - Azure Key Vault | Microsoft Docs
-description: L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure i clienti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM).
+description: Azure Key Vault consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. I clienti possono crittografare chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password usando chiavi protette da moduli di protezione hardware (HSM).
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f8826f0c0cb63068313a570b050531511126dbc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076332"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422924"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -76,7 +76,7 @@ Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di creden
 
 L'amministratore quindi fornirebbe agli sviluppatori gli URI da chiamare dalle applicazioni e fornirebbe all'amministrazione della sicurezza le informazioni sulla registrazione dell'utilizzo delle chiavi. 
 
-![Panoramica dell'insieme di credenziali delle chiavi di Azure][1]
+![Panoramica del funzionamento di Azure Key Vault][1]
 
 Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](key-vault-developers-guide.md).
 

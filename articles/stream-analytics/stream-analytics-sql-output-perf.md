@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057819"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303276"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
 Questo articolo fornisce suggerimenti per ottenere migliori prestazioni di velocità effettiva di scrittura quando si caricano dati nel Database SQL di Azure mediante l'Analisi di flusso di Azure.
 
-L'output di SQL nell'Analisi di flusso di Azure supporta la scrittura in parallelo come opzione. Questa opzione consente di avere topologie [perfettamente parallele](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs), dove più partizioni di output vengono scritte in parallelo sulla tabella di destinazione. L'abilitazione di questa opzione in Analisi di flusso di Azure, tuttavia, potrebbe non essere sufficiente per ottenere una maggiore velocità effettiva, in quanto dipende in modo significativo dalla configurazione del database SQL di Azure e dallo schema tabella. La scelta degli indici, la chiave di clustering, il fattore di riempimento indice e la compressione possono influire sui tempi di caricamento delle tabelle. Per altre informazioni su come ottimizzare il database SQL di Azure per migliorare la query e caricare le prestazioni in base ai benchmark interni, vedere le [linee guida sulle prestazioni del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance).
+L'output di SQL nell'Analisi di flusso di Azure supporta la scrittura in parallelo come opzione. Questa opzione consente di avere topologie [perfettamente parallele](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs), dove più partizioni di output vengono scritte in parallelo sulla tabella di destinazione. L'abilitazione di questa opzione in Analisi di flusso di Azure, tuttavia, potrebbe non essere sufficiente per ottenere una maggiore velocità effettiva, in quanto dipende in modo significativo dalla configurazione del database SQL di Azure e dallo schema tabella. La scelta degli indici, la chiave di clustering, il fattore di riempimento indice e la compressione possono influire sui tempi di caricamento delle tabelle. Per altre informazioni su come ottimizzare il database SQL di Azure per migliorare la query e caricare le prestazioni in base ai benchmark interni, vedere le [linee guida sulle prestazioni del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance). L'ordinamento delle operazioni di scrittura non è garantito quando si scrive in parallelo sul Database SQL di Azure.
 
 Ecco alcune configurazioni all'interno di ogni servizio che consentono di migliorare la velocità effettiva complessiva della soluzione.
 
