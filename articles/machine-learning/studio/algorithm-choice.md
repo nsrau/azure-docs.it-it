@@ -1,23 +1,21 @@
 ---
-title: Come scegliere gli algoritmi per Azure Machine Learning Studio | Microsoft Docs
+title: Come scegliere gli algoritmi
+titleSuffix: Azure Machine Learning Studio
 description: Come scegliere gli algoritmi di Azure Machine Learning Studio per l'apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione.
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-tags: ''
-ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 20debfe2a1f3cf92e1a90867ca2b3a01852f7f9c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256928"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267352"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Come scegliere gli algoritmi di Azure Machine Learning Studio
 
@@ -132,7 +130,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Footprint della memoria ridotto |
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visualizzare le proprietà del metodo a due classi selezionato |
-| **Regressione** | | | | | |
+| **Regressionee** | | | | | |
 | [lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Regressione lineare Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |

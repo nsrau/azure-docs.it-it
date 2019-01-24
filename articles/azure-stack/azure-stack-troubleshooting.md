@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957641"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857166"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack
 
@@ -32,11 +32,31 @@ Questo documento fornisce informazioni sulla risoluzione dei problemi comuni per
 I consigli per la risoluzione dei problemi descritti in questa sezione derivano da origini diverse e possono o potrebbero non risolvere il problema specifico. Esempi di codice vengono forniti come sono e non è possibile garantire i risultati previsti. In questa sezione è soggetta a modifiche frequenti e gli aggiornamenti come vengono implementati i miglioramenti al prodotto.
 
 ## <a name="deployment"></a>Distribuzione
-### <a name="deployment-failure"></a>Errore di distribuzione
+### <a name="general-deployment-failure"></a>Errore di distribuzione generale
 Se si verifica un errore durante l'installazione, è possibile riavviare la distribuzione del passaggio non riuscito con l'opzione - opzione riesecuzione dello script di distribuzione.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al termine della distribuzione ASDK, la sessione di PowerShell è ancora aperta e non visualizza alcun output.
 Questo comportamento è probabile che solo il risultato del comportamento predefinito di una finestra di comando di PowerShell, quando è stata selezionata. La distribuzione di kit di sviluppo ha avuto esito positivo, ma lo script è stato sospeso quando si seleziona la finestra. È possibile verificare il programma di installazione è stata completata cercando la parola "seleziona" sulla barra del titolo della finestra di comando.  Premere il tasto ESC per deselezionarlo, e deve essere visualizzato il messaggio di completamento dopo di esso.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Distribuzione causati da mancanza di accesso esterno
+Quando la distribuzione ha esito negativo in fasi in cui è richiesto l'accesso esterno, verrà restituita un'eccezione simile all'esempio seguente:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Se si verifica questo errore, verificare che siano stati soddisfatti tutti i requisiti di rete minima, vedere la [documentazione sul traffico di rete di distribuzione](deployment-networking.md). Uno strumento di controllo di rete è disponibile per i partner anche come parte del Toolkit di Partner.
+
+Gli errori di distribuzione con l'eccezione precedente sono in genere a causa di problemi di connessione alle risorse su Internet
+
+Per verificare che questo è il problema, è possibile eseguire i passaggi seguenti:
+
+1. Aprire Powershell
+2. Con Enter-PSSession per il WAS01 o tutte le macchine virtuali ERCs
+3. Eseguire il cmdlet: Test-NetConnection login.windows.net-porta 443
+
+Se questo comando non riesce, verificare il commutatore TOR e la configurazione per tutti gli altri dispositivi di rete [consentano il traffico di rete](azure-stack-network.md).
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 ### <a name="default-image-and-gallery-item"></a>Elemento di raccolta e di immagine predefinito

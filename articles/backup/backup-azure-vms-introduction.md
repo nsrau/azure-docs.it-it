@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107430"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265414"
 ---
 # <a name="about-azure-vm-backup"></a>Informazioni sul backup di macchine virtuali di Azure
 
@@ -55,6 +55,10 @@ Per acquisire snapshot mentre le app sono in esecuzione, Backup di Azure crea sn
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Eseguire il comando seguente dal prompt dei comandi con privilegi elevati (come amministratore), per impostare la chiave del Registro di sistema precedente:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Macchine virtuali Linux**: per assicurarsi che le macchine virtuali Linux siano coerenti con le app quando Backup di Azure crea uno snapshot, è possibile usare il framework di script di pre-backup e post-backup Linux. Per garantire la coerenza quando si crea uno snapshot delle macchine virtuali è possibile scrivere script personalizzati.
     -  Backup di Azure richiama solo script di pre-backup e post-backup scritti dal cliente.
     - Se gli script di pre-backup e post-backup vengono eseguiti correttamente, Backup di Azure contrassegna il punto di ripristino come coerente con le applicazioni. È tuttavia il cliente a essere responsabile della coerenza con le applicazioni quando usa script personalizzati.
@@ -132,11 +136,10 @@ Un'operazione di ripristino comprende due attività principali: la copia dei dat
 
 Quando si configurano i backup per le macchine virtuali, è consigliabile seguire queste procedure:
 
-- Aggiornare gli insiemi di credenziali a Instant RP. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - È possibile modificare l'orario dei criteri fornito come impostazione predefinita per la creazione degli snapshot al fine di garantire un uso ottimale delle risorse (ad esempio se l'orario predefinito dei criteri è impostato alle 12:00 prendere in considerazione un incremento di alcuni minuti).
 - Per il backup di una macchina virtuale Premium senza la funzionalità Instant RP, viene allocato circa il 50% dello spazio totale dell'account di archiviazione. Il servizio Backup richiede questo spazio per copiare lo snapshot nello stesso account di archiviazione e trasferirlo nell'insieme di credenziali.
 - Per il ripristino di macchine virtuali da un unico insieme di credenziali è consigliabile usare diversi [account di archiviazione v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) per assicurarsi che non vengano applicate limitazioni all'account di archiviazione di destinazione. Ad esempio ogni macchina virtuale deve avere un account di archiviazione diverso (per il ripristino di 10 macchine virtuali è consigliabile usare 10 account di archiviazione diversi).
-- I ripristini dal livello di archiviazione 1 (snapshot) verranno completati in pochi minuti (dato che si tratta dello stesso account di archiviazione) rispetto a quelli dal livello di archiviazione 2 (insieme di credenziali) che possono richiedere alcune ore. È consigliabile usare la funzionalità [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) per ripristini più rapidi in caso i dati siano disponibili nel livello 1 (se i dati devono essere ripristinati dall'insieme di credenziali, sarà necessario del tempo).
+- I ripristini dal livello di archiviazione 1 (snapshot) verranno completati in pochi minuti (dato che si tratta dello stesso account di archiviazione) rispetto a quelli dal livello di archiviazione 2 (insieme di credenziali) che possono richiedere alcune ore. È consigliabile usare la funzionalità [Instant Restore](backup-instant-restore-capability.md) per ripristini più rapidi in caso i dati siano disponibili nel livello 1 (se i dati devono essere ripristinati dall'insieme di credenziali, sarà necessario un po' di tempo).
 - Il limite sul numero di dischi per account di archiviazione dipende dalla modalità in cui le applicazioni in esecuzione nella macchina virtuale IaaS accedono ai dischi. Verificare se più dischi sono ospitati in un singolo account di archiviazione. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
 ## <a name="backup-costs"></a>Costi di backup

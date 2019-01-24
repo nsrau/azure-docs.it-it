@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319649"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847903"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Note sulla versione per la convalida come servizio
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Questo articolo contiene le note sulla versione per la convalida di Azure Stack come servizio.
+
+## <a name="version-405"></a>Versione 4.0.5
+17 gennaio 2019
+
+-  Test di identificazione del disco aggiornati alle incoerenze di pool di archiviazione indirizzo. Versione: 5.1.14.0  -> 5.1.15.0
+-  Azure Stack mensile verificare l'aggiornamento aggiornata all'indirizzo approvate le incoerenze di convalida del software e contenuti. Versione: 5.1.14.0  -> 5.1.15.0
+-  Verifica del pacchetto estensione OEM aggiornata per eseguire i controlli necessari *prima di* il passaggio di aggiornamento di Azure Stack. Versione: 5.1.14.0  -> 5.1.15.0
+-  Correzioni di bug interne
+
+
 
 ## <a name="version-402"></a>Nella versione 4.0.2
 

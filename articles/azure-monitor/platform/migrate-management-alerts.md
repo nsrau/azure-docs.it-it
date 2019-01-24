@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 130ea829e7f218648cf27650cd90b1e2163f94ae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.subservice: alerts
+ms.openlocfilehash: 55d0269aaa330f928a9d037eec6a3445825a5ed3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321841"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470342"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 
@@ -116,3 +116,4 @@ Gli avvisi di eventi di gestione creati in precedenza non verranno automaticamen
 * Esaminare lo [schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Altre informazioni sulle [notifiche del servizio](../../azure-monitor/platform/service-notifications.md)
 * Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md)
+

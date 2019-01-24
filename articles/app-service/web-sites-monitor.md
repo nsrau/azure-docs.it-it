@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994947"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247260"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).
@@ -39,7 +39,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Quota | Descrizione |
+| Quota | DESCRIZIONE |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -69,7 +69,7 @@ Le metriche forniscono informazioni sull'app o sul comportamento del piano di se
 
 Le metriche disponibili per un'app sono:
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, espresso in millisecondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
@@ -93,7 +93,7 @@ Le metriche disponibili per un piano di servizio app sono:
 > Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
 > 
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | **Percentuale di CPU** | CPU media usata tra tutte le istanze del piano. |
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |
@@ -141,14 +141,12 @@ Per altre informazioni sulle metriche, vedere [Monitorare le metriche del serviz
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
 Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo. 
+Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo.
 
 Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../monitoring-and-diagnostics/insights-how-to-scale.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

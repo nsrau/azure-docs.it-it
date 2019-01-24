@@ -1,6 +1,6 @@
 ---
 title: Modalità di integrazione di Cloud Foundry con Azure | Microsoft Docs
-description: Viene descritto in che modo Cloud Foundry può utilizzare i servizi di Azure per migliorare l'esperienza aziendale
+description: Descrive come Cloud Foundry utilizza i servizi di Azure per migliorare l'esperienza aziendale
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406144"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329804"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) è una piattaforma PaaS in esecuzione sulla piattaforma IaaS dei provider di servizi cloud. Offre un'esperienza coerente di distribuzione delle applicazioni tra i diversi provider di servizi cloud. Si integra inoltre con diversi servizi di Azure, per offrire disponibilità elevata di livello aziendale, scalabilità e risparmio sui costi.
-Ci sono [6 sottosistemi di Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/) che consentono scalabilità flessibile online, relativi a routing, autenticazione, gestione del ciclo di vita delle applicazioni, gestione dei servizi, messaggistica e monitoraggio. Per ognuno dei sottosistemi, è possibile configurare Cloud Foundry per utilizzare il servizio di Azure corrispondente. 
+Esistono [6 sottosistemi di Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), che possono essere ridimensionati online in modo flessibile, tra cui: Routing, Autenticazione, Gestione del ciclo di vita delle applicazioni, Gestione dei servizi, Messaggistica e Monitoraggio. Per ognuno dei sottosistemi, è possibile configurare Cloud Foundry per utilizzare il servizio di Azure corrispondente. 
 
 ![Architettura dell'integrazione di Cloud Foundry in Azure](media/CFOnAzureEcosystem-colored.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994675"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354502"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparare il backup delle macchine virtuali di Azure
 
@@ -61,8 +61,6 @@ Questo articolo descrive come preparare per il backup una macchina virtuale di A
     - Non è necessario specificare gli account di archiviazione per archiviare i dati di backup. L'insieme di credenziali e il servizio Backup di Azure gestiscono questo aspetto automaticamente.
 - Verificare che l'agente di macchine virtuali sia installato nelle macchine virtuali di Azure di cui si vuole eseguire il backup.
 
-
-
 ### <a name="install-the-vm-agent"></a>Installare l'agente di macchine virtuali
 
 Per abilitare il backup, Backup di Azure installa un'estensione di backup (VM Snapshot o VM Snapshot Linux) nell'agente di macchine virtuali eseguito nella macchina virtuale di Azure.
@@ -71,7 +69,7 @@ Per abilitare il backup, Backup di Azure installa un'estensione di backup (VM Sn
 
 Se necessario, installare l'agente come indicato di seguito.
 
-**Macchina virtuale** | **Dettagli**
+**VM** | **Dettagli**
 --- | ---
 **Macchine virtuali di Windows** | [Scaricare e installare](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) l'agente nel computer con autorizzazioni di amministratore.<br/><br/> Per verificare l'installazione, in *C:\WindowsAzure\Packages* nella macchina virtuale fare clic con il pulsante destro del mouse su WaAppAgent.exe > **Proprietà** > scheda **Dettagli**. Il campo **Versione prodotto** deve essere impostato su 2.6.1198.718 o su una versione superiore.
 **Macchine virtuali di Linux** | Il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure prevede l'installazione tramite un pacchetto RPM o DEB dal repository di pacchetti della distribuzione. Tutti i [provider di distribuzione supportati](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository. L'agente è disponibile in [GitHub](https://github.com/Azure/WALinuxAgent), ma non è consigliabile installarlo direttamente da questa posizione.
@@ -79,12 +77,14 @@ In caso di problemi con il backup della VM di Azure, usare la tabella seguente p
 
 ### <a name="establish-network-connectivity"></a>Stabilire la connettività di rete
 
-L'estensione di backup in esecuzione nella macchina virtuale deve avere accesso in uscita agli indirizzi IP pubblici di Azure. Per consentire l'accesso, è possibile:
+L'estensione di backup in esecuzione nella macchina virtuale deve avere accesso in uscita agli indirizzi IP pubblici di Azure.
 
+> [!NOTE]
+> Alla macchina virtuale di Azure non è richiesto nessun accesso esplicito alla rete in uscita per comunicare con il servizio Backup di Azure. Tuttavia, alcune macchine virtuali meno recenti potrebbero riscontrare problemi e generare l'errore **ExtensionSnapshotFailedNoNetwork**; per risolvere questo errore, scegliere una delle opzioni seguenti per consentire all'estensione backup di comunicare con gli indirizzi IP pubblici di Azure al fine di fornire un percorso chiaro per il traffico di backup.
 
-- **Regole del gruppo di sicurezza di rete**: consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). È possibile aggiungere una regola che consenta l'accesso al servizio Backup di Azure usando un [tag del servizio](../virtual-network/security-overview.md#service-tags), anziché consentire singolarmente ogni intervallo di indirizzi e gestire tali indirizzi nel tempo.
-- **Proxy**: distribuire un server proxy HTTP per eseguire il routing del traffico
-- **Firewall di Azure**: consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure.
+- **Regole del gruppo di sicurezza di rete**: consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). È possibile aggiungere una regola che consenta l'accesso al servizio Backup di Azure usando un [tag del servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), anziché consentire singolarmente ogni intervallo di indirizzi e gestire tali indirizzi nel tempo. Per altre informazioni sul tag di servizio vedere questo [articolo](../virtual-network/security-overview.md#service-tags).
+- **Proxy**: Distribuire un server proxy HTTP per eseguire il routing del traffico
+- **Firewall di Azure**: Consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure
 
 Nel valutare le opzioni, prendere in considerazione vantaggi e svantaggi.
 
@@ -94,22 +94,17 @@ Nel valutare le opzioni, prendere in considerazione vantaggi e svantaggi.
 **Proxy HTTP** | Possibilità di controllo granulare sugli URL di archiviazione.<br/><br/> Singolo punto di accesso Internet per le macchine virtuali.<br/><br/> Costi aggiuntivi per il proxy.
 **Tag FQDN** | Semplicità d'uso se è configurato Firewall di Azure in una subnet di rete virtuale. | Impossibile creare tag FQDN personalizzati o modificare FQDN in un tag.
 
-
-
 Se si usa Azure Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurare una regola del gruppo di sicurezza di rete per consentire l'accesso in uscita ad Azure
 
 Se l'accesso della macchina virtuale di Azure è gestito da un gruppo di sicurezza di rete, è necessario consentire l'accesso in uscita per l'archiviazione di backup sulle porte e sugli intervalli necessari.
 
-
-
 1. Nella macchina virtuale > **Rete** fare clic su **Aggiungi regola porta in uscita**.
-- Se è configurata una regola che nega l'accesso, la nuova regola di assenso deve avere un valore superiore. Se ad esempio la priorità di una regola **Deny_All** è impostata su 1000, la nuova regola deve essere impostata su un valore minore di 1000.
+
+  - Se è configurata una regola che nega l'accesso, la nuova regola di assenso deve avere un valore superiore. Se ad esempio la priorità di una regola **Deny_All** è impostata su 1000, la nuova regola deve essere impostata su un valore minore di 1000.
 2. In **Aggiungi regola di sicurezza in uscita** fare clic su **Avanzate**.
-3. In Origine selezionare **Rete virtuale**.
+3. In **Origine** selezionare **Rete virtuale**.
 4. In **Intervalli di porte di origine** immettere un asterisco (*) per consentire l'accesso in uscita da qualsiasi porta.
 5. In **Destinazione** selezionare **Service Tag** (Tag del servizio). Nell'elenco selezionare Archiviazione.<region> L'area è quella in cui si trovano l'insieme di credenziali e le macchine virtuali di cui si vuole eseguire il backup.
 6. In **Intervalli di porte di destinazione** selezionare la porta.
@@ -117,9 +112,9 @@ Se l'accesso della macchina virtuale di Azure è gestito da un gruppo di sicurez
     - Macchina virtuale con dischi non gestiti e account di archiviazione non crittografato: 80
     - Macchina virtuale con dischi non gestiti e account di archiviazione crittografato: 443 (impostazione predefinita)
     - Macchina virtuale gestita: 8443
-1. In **Protocollo** selezionare **TCP**.
-2. In **Priorità** assegnare un valore di priorità inferiore a tutte le regole di negazione di livello superiore.
-3. Specificare un nome e una descrizione per la regola e fare clic su **OK**.
+7. In **Protocollo** selezionare **TCP**.
+8. In **Priorità** assegnare un valore di priorità inferiore a tutte le regole di negazione di livello superiore.
+9. Specificare un nome e una descrizione per la regola e fare clic su **OK**.
 
 È possibile applicare la regola del gruppo di sicurezza di rete a più macchine virtuali per consentire a Backup di Azure l'accesso in uscita ad Azure.
 
@@ -127,12 +122,12 @@ Questo video illustra la procedura descritta.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> I tag del servizio di archiviazione sono in versione di anteprima. Sono disponibili solo in aree specifiche. Per un elenco delle aree, vedere [Tag di servizio per l'archiviazione](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Instradare il traffico di backup attraverso un proxy
 
 È possibile instradare il traffico di backup attraverso un proxy e quindi concedere al proxy l'accesso agli intervalli di Azure necessari.
-
 È necessario configurare la macchina virtuale del proxy per consentire quanto segue:
 
 - La macchina virtuale di Azure deve instradare tutto il traffico HTTP diretto alla rete Internet pubblica attraverso il proxy.
@@ -167,8 +162,9 @@ Se non si ha un proxy di account di sistema, configurarne uno come indicato di s
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Consentire le connessioni in ingresso sul proxy
 
-1. Consentire le connessioni in ingresso nelle impostazioni del proxy.
-2. Ad esempio, aprire **Windows Firewall con sicurezza avanzata**.
+Consentire le connessioni in ingresso nelle impostazioni del proxy.
+
+- Ad esempio, aprire **Windows Firewall con sicurezza avanzata**.
     - Fare clic con il pulsante destro del mouse su **Regole in entrata** > **Nuova regola**.
     - In **Tipo di regola** selezionare **Personalizzate** > **Avanti**.
     - In **Programma** selezionare **Tutti i programmi** > **Avanti**.
@@ -186,13 +182,13 @@ Nel gruppo di sicurezza di rete **NSF-lockdown** consentire il traffico da quals
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>Consentire l'accesso firewall con il tag FQDN
 
 È possibile configurare Firewall di Azure per consentire l'accesso in uscita del traffico di rete a Backup di Azure.
 
 - [Informazioni](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) sulla distribuzione di Firewall di Azure.
 - [Informazioni](https://docs.microsoft.com/azure/firewall/fqdn-tags) sui tag FQDN.
-
 
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
@@ -227,7 +223,7 @@ Al termine della creazione, l'insieme di credenziali verrà visualizzato nell'el
 
 ## <a name="set-up-storage-replication"></a>Configurare la replica di archiviazione
 
-Per impostazione predefinita, l'insieme di credenziali prevede l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). È consigliabile l'archiviazione con ridondanza geografica per il backup primario, ma è possibile usare l'[archiviazione con ridondanza locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per un'opzione più economica. 
+Per impostazione predefinita, l'insieme di credenziali prevede l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). È consigliabile l'archiviazione con ridondanza geografica per il backup primario, ma è possibile usare l'[archiviazione con ridondanza locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per un'opzione più economica.
 
 Modificare la replica di archiviazione nel modo seguente:
 
@@ -285,5 +281,5 @@ Dopo l'abilitazione del backup:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Risolvere eventuali problemi che si verificano con gli [agenti di macchine virtuali di Azure](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o con il [backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md).
+- Risolvere eventuali problemi che si verificano con gli [agenti di macchine virtuali di Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o con il [backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md).
 - [Eseguire un backup delle VM di Azure](backup-azure-vms-first-look-arm.md)

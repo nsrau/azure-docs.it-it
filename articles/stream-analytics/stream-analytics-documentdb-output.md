@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106567"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267131"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -58,16 +58,17 @@ Per le raccolte di Azure Cosmos DB fisse, Analisi di flusso di Azure non consent
 La scrittura in più contenitori fissi verrà deprecata e non costituisce l'approccio consigliato per il ridimensionamento del processo di Analisi di flusso di Azure. Per altre informazioni, vedere [Partizionamento e scalabilità in Cosmos DB](../cosmos-db/sql-api-partition-data.md).
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Impostazioni di Cosmos DB per l'output JSON
-La creazione di Cosmos DB come output nell'analisi di flusso genera una richiesta di informazioni, come illustrato di seguito. Questa sezione fornisce una spiegazione della definizione delle proprietà.
 
+La creazione di Cosmos DB come output nell'analisi di flusso genera una richiesta di informazioni, come illustrato di seguito. Questa sezione fornisce una spiegazione della definizione delle proprietà.
 
 ![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Campo           | DESCRIZIONE 
--------------   | -------------
-Alias di output    | Alias per fare riferimento a questo output nella query ASA   
-Nome account    | Nome o URI endpoint dell'account Azure Cosmos DB 
-Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB
-Database        | Nome del database Azure Cosmos DB
-Nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio di input valido. Una raccolta denominata `MyCollection` deve essere presente.  
-Document ID     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.
+|Campo           | DESCRIZIONE|
+|-------------   | -------------|
+|Alias di output    | Un alias per fare riferimento a questo output nella query ASA.|
+|Sottoscrizione    | Scegliere la sottoscrizione di Azure.|
+|Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
+|Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
+|Database        | Nome del database Azure Cosmos DB.|
+|Modello nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio di input valido. Una raccolta denominata `MyCollection` deve essere presente.  |
+|Document ID     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.|
