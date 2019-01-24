@@ -18,8 +18,8 @@ ms.locfileid: "34600630"
 # <a name="consumption-model"></a>Modello di utilizzo
 
 Pianificazione percorso fornisce un set di parametri per una descrizione dettagliata del modello di consumo specifico del veicolo.
-A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _Combustion_ ed _Electric_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
-Non è possibile usare il modello di consumo con i valori _bicycle_ e _pedestrian_ di **travelMode**.
+A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _Combustione_ e _Elettrico_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
+Non è possibile usare il modello di consumo con i valori _bicicletta_ e _pedone_ di **travelMode**.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Vincoli dei parametri per il modello di consumo
 
