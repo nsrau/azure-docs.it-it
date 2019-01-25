@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626930"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854786"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -46,7 +46,7 @@ La distribuzione richiede in genere meno di un'ora.
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Com'è possibile evitare le fasi di allineamento e segmentazione delle frasi se i miei file sono già allineati?
 
-Custom Translator non esegue l'allineamento e la segmentazione delle frasi con file TMX e file di testo con estensione `.align`. I file `.align` consentono agli utenti di scegliere se usare o meno i processi di allineamento e segmentazione delle frasi di Custom Translator per i file che sono già perfettamente allineati e non richiedono ulteriori elaborazioni. È consigliabile usare l'estensione `.align` solo per i file perfettamente allineati.
+Custom Translator non esegue l'allineamento e la segmentazione delle frasi con file TMX e file di testo con estensione `.align`. I file `.align` consentono agli utenti di ignorare i processi di allineamento e segmentazione delle frasi di Custom Translator per i file che sono già perfettamente allineati e non richiedono ulteriori elaborazioni. È consigliabile usare l'estensione `.align` solo per i file perfettamente allineati.
 
 Se il numero di frasi estratte non corrisponde ai due file con lo stesso nome di base, Custom Translator eseguirà comunque il processo di allineamento sui file `.align`.
 

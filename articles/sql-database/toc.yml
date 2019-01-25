@@ -279,6 +279,8 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transazioni elastiche
       href: sql-database-elastic-transactions-overview.md
+    - name: Processi di database elastici
+      href: elastic-jobs-overview.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
   - name: Monitoraggio e ottimizzazione
@@ -305,12 +307,6 @@ items:
         href: sql-database-performance.md
       - name: Consigli sulle prestazioni di Database Advisor
         href: sql-database-advisor.md
-  - name: Caricare e spostare dati
-    items:
-    - name: Sincronizzazione dati SQL
-      href: sql-database-sync-data.md
-    - name: Replica transazionale
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Funzionalità dei database
     items:
     - name: Funzionalità dei database
@@ -321,8 +317,6 @@ items:
       href: sql-database-in-memory.md
     - name: Tabelle temporali
       href: sql-database-temporal-tables.md
-    - name: Automazione dei processi
-      href: sql-database-job-automation-overview.md
 - name: Guide alle procedure
   items:
   - name: Panoramica
@@ -335,14 +329,12 @@ items:
       href: sql-database-cloud-migrate.md
     - name: Gestire il database SQL dopo la migrazione
       href: sql-database-manage-after-migration.md
-    - name: Configurare la replica
+    - name: Configurare la replica transazionale
       href: replication-to-sql-database.md
     - name: Configurare il rilevamento delle minacce
       href: sql-database-threat-detection.md
     - name: Configurare la conservazione dei backup con archiviazione BLOB di Azure
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Configurare i processi di database elastico
-      href: elastic-jobs-overview.md
     - name: Configurare la maschera dati dinamica
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configurare la replica geografica - Portale
@@ -447,6 +439,8 @@ items:
       href: sql-database-export.md
     - name: Sincronizzazione dei dati
       items:
+      - name: Sincronizzazione dati SQL
+        href: sql-database-sync-data.md
       - name: Agente di sincronizzazione dati
         href: sql-database-data-sync-agent.md
       - name: Replicare le modifiche dello schema
@@ -601,7 +595,7 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -688,9 +682,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447990"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230903"

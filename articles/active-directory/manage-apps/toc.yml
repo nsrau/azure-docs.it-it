@@ -100,8 +100,6 @@ items:
       href: application-proxy-configure-custom-home-page.md
     - name: Tradurre i collegamenti inline
       href: application-proxy-configure-hard-coded-link-translation.md
-    - name: Configurare le impostazioni dei cookie
-      href: application-proxy-configure-cookie-settings.md
     - name: Eseguire la pubblicazione con caratteri jolly
       href: application-proxy-wildcard.md
     - name: Rimuovere i dati personali
@@ -286,9 +284,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 28319f3c529491a7ae994ba9d323b66181d7486b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c36be070b739f75760e3c7419da2aa76335a59d1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473334"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157004"

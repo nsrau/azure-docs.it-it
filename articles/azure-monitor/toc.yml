@@ -634,14 +634,18 @@ items:
         href: platform/view-designer-parts.md
       - name: Filtri
         href: platform/view-designer-filters.md
+    - name: Dashboard
+      items:
+      - name: Log
+        href: platform/dashboards.md
+      - name: APPLICAZIONI
+        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Esportare i dati di log
         href: platform/powerbi.md
       - name: Esportare i dati dell'applicazione
         href: app/export-power-bi.md
-    - name: Dashboard
-      href: app/app-insights-dashboards.md
     - name: Inviare dati a Grafana
       href: platform/grafana-plugin.md
   - name: Analizzare i dati
@@ -965,7 +969,7 @@ items:
   - name: Schemi
     items:
     - name: Servizi, categorie e schemi dei log di diagnostica
-      href: platform/diagnostic-logs-schema.md
+      href: platform/tutorial-dashboards.md
     - name: Schema degli eventi del log attività
       href: platform/activity-log-schema.md
     - name: Schema dell'estensione Diagnostica di Azure
@@ -1017,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888023"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448687"
