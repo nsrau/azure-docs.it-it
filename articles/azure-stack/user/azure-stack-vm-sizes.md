@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 99491fdc9758c5ec930db5f584f009eb6705f789
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231250"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884513"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
@@ -43,7 +43,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
 |**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
 |**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16 X 300 |1   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1   |
 
 ### <a name="standard-a"></a>Oggetto standard 
 |Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Schede di interfaccia di rete max |    
@@ -134,14 +134,14 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 ### <a name="fsv2-series"></a>Serie Fsv2
 *Richiede la versione di Azure Stack 1804 o versioni successive* 
 
-|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |Moderata |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |Moderata |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |Alto     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |Alto     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |Alto  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |Estremamente elevate  |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
 
 
 ## <a name="memory-optimized"></a>Ottimizzate per la memoria

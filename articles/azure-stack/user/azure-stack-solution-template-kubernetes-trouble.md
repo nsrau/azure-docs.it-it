@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi di distribuzione in Kubernetes in Azure Stack | Microsoft Docs
-description: Informazioni su come risolvere i problemi di distribuzione in Kubernetes in Azure Stack.
+title: Risolvere i problemi della distribuzione di Kubernetes da Azure Stackk | Microsoft Docs
+description: Informazioni su come risolvere i problemi di distribuzione di Kubernetes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390682"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904217"
 ---
-# <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Risolvere i problemi di distribuzione in Kubernetes in Azure Stack
+# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -113,7 +113,7 @@ Quando si distribuisce il cluster Kubernetes, è possibile esaminare lo stato de
     | ----     | ----        |
     | Risorsa | Nome della risorsa. |
     | type | Il provider di risorse e il tipo di risorsa. |
-    | Status | Lo stato dell'elemento. |
+    | Stato | Lo stato dell'elemento. |
     | TimeStamp | Il timestamp UTC del tempo. |
     | Dettagli dell'operazione | I dettagli dell'operazione, ad esempio il provider di risorse che è stato coinvolto nell'operazione, l'endpoint di risorse e il nome della risorsa. |
 

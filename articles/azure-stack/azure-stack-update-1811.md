@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853239"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904421"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -353,6 +353,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
     Le altre opzioni non sono supportate come i tag di origine in Azure Stack. Analogamente, se si aggiunge una regola di sicurezza in uscita e selezionare **Tag del servizio** come destinazione, lo stesso elenco di opzioni per **Tag origine** viene visualizzato. Le uniche opzioni valide sono uguali a quelle per **Tag origine**, come descritto nell'elenco precedente.
 
 - Il **New-AzureRmIpSecPolicy** cmdlet di PowerShell non supporta l'impostazione **DHGroup24** per il `DHGroup` parametro.
+
+- Gruppi di sicurezza di rete (Nsg) non funzionano nello Stack di Azure nel portale di Azure stesso modo a livello globale. In Azure, è possibile impostare più porte per una regola NSG (usando il portale, PowerShell e i modelli di Resource Manager). In Azure Stack, non è possibile impostare più porte su una regola NSG tramite il portale. Per risolvere questo problema, usare un modello di Resource Manager per impostare queste regole aggiuntive.
 
 ### <a name="infrastructure-backup"></a>Backup dell'infrastruttura
 
