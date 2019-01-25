@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992203"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428170"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualizzare la topologia di una rete virtuale di Azure
 
@@ -85,7 +85,7 @@ L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) nec
 
 I comandi descritti nei passaggi seguenti possono essere eseguiti in due modi:
 - In Azure Cloud Shell, selezionando **Prova** nell'angolo in alto a destra di ogni comando. Azure Cloud Shell è una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con un account.
-- Tramite PowerShell dal computer. Se si adotta questa seconda soluzione, per eseguire i passaggi descritti in questo articolo è necessario disporre della versione 5.7.0 o successiva del modulo AzureRm. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+- Tramite PowerShell dal computer. Se si adotta questa seconda soluzione, per eseguire i passaggi descritti in questo articolo è necessario disporre della versione 5.7.0 o successiva del modulo AzureRm. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
 L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) necessarie.
 
@@ -138,12 +138,12 @@ Tutte le risorse restituite in una topologia sono correlate in base a uno dei ti
 
 Tutte le risorse restituite in una topologia hanno le proprietà seguenti:
 
-- **Name**: nome della risorsa.
+- **Nome**: nome della risorsa.
 - **Id**: URI della risorsa.
-- **Location**: area di Azure in cui si trova la risorsa.
-- **Associations**: elenco delle associazioni all'oggetto di riferimento. Ogni associazione ha le proprietà seguenti:
-    - **AssociationType**: il valore fa riferimento alla relazione tra oggetto figlio e oggetto padre. I valori validi sono *Contains* o *Associated*.
-    - **Name**: nome della risorsa di riferimento.
+- **Località**: area di Azure in cui si trova la risorsa.
+- **Associazioni**: elenco delle associazioni all'oggetto di riferimento. Ogni associazione ha le proprietà seguenti:
+    - **AssociationType**: fa riferimento alla relazione tra l'oggetto figlio e l'oggetto padre. I valori validi sono *Contains* o *Associated*.
+    - **Name**: nome della risorsa a cui si fa riferimento.
     - **ResourceId**: URI della risorsa di riferimento nell'associazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

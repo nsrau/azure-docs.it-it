@@ -3,7 +3,7 @@ title: Punteggio di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
 description: " Definire la priorità delle raccomandazioni sulla sicurezza con il punteggio di sicurezza nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261299"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425894"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -45,7 +45,7 @@ Per visualizzare il punteggio di sicurezza complessivo:
 2. Nella parte superiore è possibile visualizzare le informazioni in evidenza del punteggio di sicurezza:
    - Il **punteggio di sicurezza complessivo** rappresenta il punteggio in base ai criteri e alla sottoscrizione selezionata
    - Il **punteggio di sicurezza in base alla categoria** mostra le risorse che richiedono più attenzione
-   - **Le raccomandazioni principali in base all'impatto del punteggio di sicurezza** forniscono un elenco di raccomandazioni che consentono di migliorare il punteggio di sicurezza al massimo vengono corrette.
+   - Le **raccomandazioni principali in base all'impatto del punteggio di sicurezza** forniscono un elenco di raccomandazioni che, se implementate, migliorano al massimo il punteggio di sicurezza.
  
    ![punteggio di sicurezza](./media/security-center-secure-score/secure-score-dashboard.png)
 
