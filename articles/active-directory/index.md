@@ -5,22 +5,22 @@ title: Documentazione di Azure Active Directory - Esercitazioni e informazioni d
 description: Azure Active Directory (Azure AD) è il servizio directory e di gestione delle identità basato sul cloud multi-tenant di Microsoft, che combina i principali servizi directory, la gestione dell'accesso alle applicazioni e la protezione delle identità in un'unica soluzione.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
-ms.openlocfilehash: 5984ff3547a30a7140f34f89660787d00063d302
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.openlocfilehash: e8e422e6ba69669b24fc141b2688d6777ab85384
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472977"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900970"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentazione di Azure Active Directory</h1>
-        <p>Azure Active Directory (Azure AD) è un servizio di gestione di identità e directory multi-tenant basato sul cloud.</p><p></p>
+        <p>Azure Active Directory (Azure AD) è un servizio di gestione di identità e accesso multitenant e basato sul cloud.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">

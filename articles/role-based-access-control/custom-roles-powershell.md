@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437019"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428121"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Creare ruoli personalizzati con Azure PowerShell
 
 Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con Azure PowerShell.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare ruoli personalizzati è necessario:
 
 - Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
-- Avere [Azure PowerShell](/powershell/azure/install-azurerm-ps) installato in locale
+- Avere [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installato in locale
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: Creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati in Azure](custom-roles.md)
 - [Operazioni di provider di risorse con Azure Resource Manager](resource-provider-operations.md)
