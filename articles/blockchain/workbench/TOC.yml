@@ -74,11 +74,9 @@ items:
     href: ../templates/ethereum-deployment.md
   - name: Hyperledger Fabric Consortium
     href: ../templates/hyperledger-fabric-consortium-blockchain.md
-  - name: Singolo membro Hyperledger Fabric
-    href: ../templates/hyperledger-fabric-single-member-blockchain.md
-ms.openlocfilehash: 5eb5ae905753fc69f1d1715040e6bccb1ad24f19
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9195465017217b50d67265feff88281c461e43aa
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813203"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884079"

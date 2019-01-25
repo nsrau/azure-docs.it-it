@@ -28,7 +28,7 @@
 ### [Controllo di accesso](data-lake-store-access-control.md)
 ### [Protezione dei dati archiviati](data-lake-store-secure-data.md)
 ### [Crittografia](data-lake-store-encryption.md)
-### [Integrazione della rete virtuale](data-lake-store-network-security.md)
+### [Integrazione rete virtuale (anteprima)](data-lake-store-network-security.md)
 
 ## Eseguire l'autenticazione con Data Lake Storage Gen1
 ### [Opzioni di autenticazione](data-lakes-store-authentication-using-azure-active-directory.md)

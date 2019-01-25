@@ -279,6 +279,8 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transazioni elastiche
       href: sql-database-elastic-transactions-overview.md
+    - name: Processi di database elastici
+      href: elastic-jobs-overview.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
   - name: Monitoraggio e ottimizzazione
@@ -321,8 +323,6 @@ items:
       href: sql-database-in-memory.md
     - name: Tabelle temporali
       href: sql-database-temporal-tables.md
-    - name: Automazione dei processi
-      href: sql-database-job-automation-overview.md
 - name: Guide alle procedure
   items:
   - name: Panoramica
@@ -341,8 +341,6 @@ items:
       href: sql-database-threat-detection.md
     - name: Configurare la conservazione dei backup con archiviazione BLOB di Azure
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Configurare i processi di database elastico
-      href: elastic-jobs-overview.md
     - name: Configurare la maschera dati dinamica
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configurare la replica geografica - Portale
@@ -601,7 +599,7 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -688,9 +686,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447990"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331402"
