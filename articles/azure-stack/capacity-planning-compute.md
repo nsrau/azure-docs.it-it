@@ -16,12 +16,12 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962182"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076792"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Pianificazione della capacità di calcolo di Azure Stack
 Il [le dimensioni di macchina virtuale supportate in Azure Stack](./user/azure-stack-vm-sizes.md) sono un subset di quelli supportati in Azure. Azure impone limiti delle risorse lungo molti vettori per evitare l'uso eccessivo delle risorse (server locali e a livello di servizio). Senza imporre alcune limitazioni all'uso di tenant, l'esperienza utente tenant ne risentiranno quando altri tenant overconsume le risorse. Rete in uscita dalla macchina virtuale, esistono limiti di larghezza di banda posto in Azure Stack che corrispondono a limitazioni di Azure. Per le risorse di archiviazione, i limiti di IOPs di archiviazione sono stati implementati in Azure Stack per evitare di base uso eccessivo delle risorse dai tenant per l'accesso di archiviazione.  
@@ -29,10 +29,7 @@ Il [le dimensioni di macchina virtuale supportate in Azure Stack](./user/azure-s
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Selezione host VM e ricorrere all'overprovisioning core virtuale a fisico
 In Azure Stack, non è possibile per un tenant specificare un server specifico da utilizzare per la selezione host di macchina virtuale. La considerazione sola quando si creano le macchine virtuali è se è disponibile memoria sufficiente nell'host per il tipo di macchina virtuale. Azure Stack non overcommit la memoria. Tuttavia, è consentito un overcommit del numero di core. Poiché non è Esaminiamo esistente al rapporto tra core fisici ricorrere all'overprovisioning come fattore virtuale gli algoritmi di selezione host, ogni host può avere un rapporto diverso. 
 
-In Azure, per ottenere disponibilità elevata di un sistema di produzione di più macchine Virtuali, macchine virtuali vengono inserite in un set di disponibilità per essere distribuito tra più domini di errore. Ciò significa che le macchine virtuali inserite in un set di disponibilità sono fisicamente isolate tra loro in un rack per consentire la resilienza di errore come illustrato nel diagramma seguente:
-
-![Domini di errore e aggiornamento](media/azure-stack-capacity-planning/domains.png)
-
+In Azure, per ottenere disponibilità elevata di un sistema di produzione di più macchine Virtuali, macchine virtuali vengono inserite in un set di disponibilità per essere distribuito tra più domini di errore. In Azure Stack, un dominio di errore in un set di disponibilità è definito come un singolo nodo nell'unità di scala.
 
 Mentre l'infrastruttura di Azure Stack è resiliente agli errori, la tecnologia sottostante (clustering di failover) ancora comporta tempi di inattività per le macchine virtuali in un server fisico interessati in caso di errore hardware. Attualmente, Azure Stack supporta un set di disponibilità con un massimo di tre domini di errore siano coerenti con Azure. Le macchine virtuali inserite in un set di disponibilità è fisicamente isolate una da altra per la distribuzione di in modo più uniforme possibile in più domini di errore (nodi di Azure Stack). Se si verifica un errore hardware, le macchine virtuali dal dominio di errore vengono riavviate in altri nodi, ma, se possibile, mantenute in domini di errore da altre macchine virtuali nello stesso set di disponibilità. Quando l'hardware ritorna in linea, le macchine virtuali saranno ribilanciate per mantenere la disponibilità elevata.
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386775"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913448"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connettere storage explorer per una sottoscrizione di Azure Stack o un account di archiviazione
 
@@ -37,7 +37,10 @@ Dopo la connessione a una sottoscrizione di Azure Stack o un account di archivia
 
 È necessario l'accesso diretto a una connessione VPN di storage explorer accedere alla sottoscrizione di Azure Stack o Azure Stack. Per informazioni su come configurare una connessione VPN ad Azure Stack, vedere [Connettersi ad Azure Stack con VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Per Azure Stack Development Kit, è necessario esportare il certificato radice dell'autorità di Azure Stack.
+Per il Azure Stack Development Kit (ASDK), è necessario esportare il certificato radice dell'autorità di Azure Stack.
+
+> [!Note]  
+> Per il ASDK, se ci si connette a di ASDK tramite VPN, non usare il certificato radice (CA.cer) che è stato creato durante il processo di configurazione VPN.  Questo è un certificato con codifica DER e non consentirà di Storage Explorer recuperare le sottoscrizioni di Azure Stack. Attenersi alla procedura seguente per esportare un certificato con codificata Base 64 da usare con Storage Explorer.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Esportare e quindi importare il certificato di Azure Stack
 
