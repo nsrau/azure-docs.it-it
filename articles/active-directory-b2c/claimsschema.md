@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento ClaimsSchema di criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568643"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849091"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| NOME | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
+| NOME | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
 | PartnerClaimType | Yes | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -163,7 +163,7 @@ L'elemento **Enumeration** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | Text | Yes | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |Valore | Yes | Valore di attestazione che viene associato alla selezione di questa opzione. |
-| SelectByDefault | No  | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
+| SelectByDefault | No  | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. Valori possibili: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
 
