@@ -74,9 +74,9 @@ Per seguire questo articolo, ecco gli elementi necessari:
 
    | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
    |----------|----------|-------|--------------|
-   | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
-   | type | Yes | <*variable-type*> | Tipo di dati per la variabile | 
-   | Valore | No  | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore iniziale della variabile. | 
+   | Name | Yes | <*variable-name*> | Nome della variabile da incrementare | 
+   | Type | Yes | <*variable-type*> | Tipo di dati per la variabile | 
+   | Value | No  | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore iniziale della variabile. | 
    ||||| 
 
    ![Inizializzare una variabile](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Per aumentare o *incrementare* una variabile di un valore costante aggiungere l'
 
    | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
    |----------|----------|-------|--------------|
-   | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
-   | Valore | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per incrementare la variabile. | 
+   | Name | Yes | <*variable-name*> | Nome della variabile da incrementare | 
+   | Value | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per incrementare la variabile. | 
    |||| 
 
    Ad esempio:  
@@ -330,8 +330,8 @@ Ecco le proprietà per l'azione **Decrementare una variabile**:
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
 |----------|----------|-------|--------------|
-| NOME | Yes | <*variable-name*> | Nome della variabile da decrementare | 
-| Valore | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per decrementare la variabile. | 
+| Name | Yes | <*variable-name*> | Nome della variabile da decrementare | 
+| Value | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per decrementare la variabile. | 
 ||||| 
 
 Passando dalla finestra di progettazione all'editor di visualizzazione del codice, ecco come viene visualizzata l'azione **Decrementare una variabile** all'interno della definizione dell'app per la logica, nel formato JSON.
@@ -365,8 +365,8 @@ Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
-| NOME | Yes | <*variable-name*> | Nome della variabile da modificare | 
-| Valore | Yes | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. | 
+| Name | Yes | <*variable-name*> | Nome della variabile da modificare | 
+| Value | Yes | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Ecco le proprietà per le azioni **Append to...** (Accodare a...):
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
-| NOME | Yes | <*variable-name*> | Nome della variabile da modificare | 
-| Valore | Yes | <*append-value*> | Valore da accodare, di qualsiasi tipo | 
+| Name | Yes | <*variable-name*> | Nome della variabile da modificare | 
+| Value | Yes | <*append-value*> | Valore da accodare, di qualsiasi tipo | 
 |||||  
 
 Passando dalla finestra di progettazione all'editor di visualizzazione del codice, ecco come viene visualizzata l'azione **Append to array variable** (Accodare a una variabile matrice) all'interno della definizione dell'app per la logica, nel formato JSON.
