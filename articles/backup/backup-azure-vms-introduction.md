@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265414"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827330"
 ---
 # <a name="about-azure-vm-backup"></a>Informazioni sul backup di macchine virtuali di Azure
 
@@ -40,7 +40,7 @@ Ecco come il servizio Backup di Azure esegue un backup per le macchine virtuali 
 
 Il servizio Backup di Azure non esegue la crittografia dei dati come parte del processo di backup. Backup di Azure supporta il backup di macchine virtuali di Azure crittografate tramite Crittografia dischi di Azure.
 
-- Il backup di macchine virtuali crittografate solo con BEK (Bitlocker Encryption Key) e con BEK e KEK (Key Encryption Key) è supportato per le macchine virtuali di Azure gestite e non gestite.
+- Il backup di macchine virtuali crittografate solo con BEK (BitLocker Encryption Key) e con BEK e KEK (Key Encryption Key) è supportato per le macchine virtuali di Azure gestite e non gestite.
 - I dati BEK (segreti) e KEK (chiavi) sottoposti a backup vengono crittografati in modo da poter essere letti e usati solo quando ripristinati nell'insieme di credenziali delle chiavi dagli utenti autorizzati.
 - Poiché anche i dati BEK vengono sottoposti a backup, nei casi in cui i questi vengono persi, gli utenti autorizzati possono ripristinarli nell'insieme di credenziali delle chiavi e recuperare la macchina virtuale crittografata. Le chiavi e i segreti delle macchine virtuali crittografate vengono sottoposti a backup in formato crittografato. In questo modo, né Azure né gli utenti non autorizzati possono leggere o usare le chiavi e i segreti sottoposti a backup. Solo gli utenti con il livello di autorizzazioni corretto possono eseguire il backup e il ripristino di macchine virtuali crittografate, nonché di chiavi e segreti.
 
@@ -69,11 +69,11 @@ Per acquisire snapshot mentre le app sono in esecuzione, Backup di Azure crea sn
 
 La tabella seguente illustra i vari tipi di coerenza.
 
-**Snapshot** | **Basato su VSS** | **Dettagli** | **Ripristino**
+**Snapshot** | **Dettagli** | **Ripristino** | **Considerazioni**
 --- | --- | --- | ---
-**Coerenza con le applicazioni** | Sì (solo Windows) | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con le app usano writer VSS (o script di pre/post-backup per Linux) che assicurano la coerenza dei dati delle app prima dell'esecuzione di un backup. | Quando si esegue il ripristino con uno snapshot coerente con le app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente.
-**Coerenza con il file system** | Sì (solo Windows) |  I backup coerenti con i file forniscono backup coerenti dei file su disco creando uno snapshot di tutti i file nello stesso momento.<br/><br/> I punti di ripristino di Backup di Azure sono coerenti con i file per:<br/><br/> - Backup di macchine virtuali Linux che non hanno script di pre/post-backup o in cui lo script non è riuscito.<br/><br/> - Backup di macchine virtuali Windows in cui VSS non è riuscito. | Quando si esegue il ripristino con uno snapshot coerente con i file, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti.
-**Coerenza con l'arresto anomalo del sistema** | No  | Un backup coerente con l'arresto anomalo del sistema si verifica spesso quando una macchina virtuale di Azure si arresta in fase di backup.  Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup.<br/><br/> Un punto di ripristino coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o l'app. | Anche se non vi sono garanzie, la macchina virtuale viene avviata e viene eseguito un controllo del disco per correggere eventuali errori di danneggiamento. Le operazioni di scrittura o i dati in memoria che non sono stati trasferiti nel disco vengono persi. Le app implementano una propria procedura di verifica dei dati. Per un'app di database, ad esempio, se un log delle transazioni contiene voci non presenti nel database, il software del database esegue un rollback finché i dati non sono coerenti.
+**Coerenza con le applicazioni** | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con le app usano writer VSS (o script di pre/post-backup per Linux) che assicurano la coerenza dei dati delle app prima dell'esecuzione di un backup. | Quando si esegue il ripristino con uno snapshot coerente con le app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente. | Windows: tutti i VSS writer sono riusciti correttamente<br/><br/> Linux: gli script pre/post sono stati configurati e sono riusciti correttamente
+**Coerenza con il file system** | I backup coerenti con i file forniscono backup coerenti dei file su disco creando uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino con uno snapshot coerente con i file, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni VSS writer non sono riusciti <br/><br/> Linux: predefinito (se gli script pre/post non sono stati configurati o non sono riusciti)
+**Coerenza con l'arresto anomalo del sistema** | Un backup coerente con l'arresto anomalo del sistema si verifica spesso quando una macchina virtuale di Azure si arresta in fase di backup.  Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup.<br/><br/> Un punto di ripristino coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o l'app. | Anche se non vi sono garanzie, la macchina virtuale viene avviata e viene eseguito un controllo del disco per correggere eventuali errori di danneggiamento. Le operazioni di scrittura o i dati in memoria che non sono stati trasferiti nel disco vengono persi. Le app implementano una propria procedura di verifica dei dati. Per un'app di database, ad esempio, se un log delle transazioni contiene voci non presenti nel database, il software del database esegue un rollback finché i dati non sono coerenti. | Macchina virtuale in stato di arresto
 
 
 ## <a name="service-and-subscription-limits"></a>Limiti del servizio e della sottoscrizione

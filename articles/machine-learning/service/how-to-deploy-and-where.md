@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353312"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850587"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -30,7 +30,7 @@ Il servizio Azure Machine Learning offre diversi modi per distribuire un modello
 | Destinazione del calcolo | Tipo di distribuzione | DESCRIZIONE |
 | ----- | ----- | ----- |
 | [Istanze di Azure Container](#aci) | Servizio Web | Distribuzione rapida. Soluzione ideale per lo sviluppo o il test. |
-| [servizio Kubernetes di Azure](#aks) | Servizio Web | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
+| [Servizio Azure Kubernetes](#aks) | Servizio Web | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
 | [Azure IoT Edge](#iotedge) | Modulo IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
 | [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
 
@@ -209,7 +209,7 @@ Per altre informazioni, vedere la documentazione di riferimento per la [classe C
 
 Quando si raggiunge la fase di distribuzione, il processo varia leggermente a seconda della destinazione di calcolo. Vedere le sezioni seguenti per informazioni su come eseguire la distribuzione in:
 
-* [Istanze di contenitore di Azure](#aci)
+* [Istanze di Azure Container](#aci)
 * [Servizio Azure Kubernetes](#aks)
 * [Project Brainwave (dispositivi FPGA)](#fpga)
 * [Dispositivi Azure IoT Edge](#iotedge)
@@ -245,17 +245,17 @@ Per eseguire la distribuzione in Istanze di Azure Container, seguire questa proc
     **Tempo stimato**: circa 3 minuti.
 
     > [!TIP]
-    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio AKS. Le informazioni registrate potrebbero indicare la causa dell'errore.
+    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
 
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Eseguire la distribuzione nel servizio Azure Kubernetes
 
-Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile usare un cluster AKS esistente o crearne uno nuovo tramite il SDK di Azure Machine Learning, l'interfaccia della riga di comando o il portale di Azure.
+Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile usare un cluster servizio Azure Kubernetes esistente o crearne uno nuovo tramite il SDK di Azure Machine Learning, l'interfaccia della riga di comando o il portale di Azure.
 
-La creazione di un cluster AKS si esegue una sola volta per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
+La creazione di un cluster servizio Azure Kubernetes si esegue una sola volta per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
 
-Il servizio Kubernetes di Azure offre le funzionalità seguenti:
+Il servizio Azure Kubernetes offre le funzionalità seguenti:
 
 * Scalabilità automatica
 * Registrazione
@@ -267,7 +267,7 @@ Il servizio Kubernetes di Azure offre le funzionalità seguenti:
 Per creare un nuovo cluster del servizio Azure Kubernetes, usare il codice seguente:
 
 > [!IMPORTANT]
-> La creazione del cluster AKS si esegue una sola volta per l'area di lavoro. Dopo aver creato il cluster, è possibile riutilizzarlo per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
+> La creazione del cluster servizio Azure Kubernetes si esegue una sola volta per l'area di lavoro. Dopo aver creato il cluster, è possibile riutilizzarlo per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
 > Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si selezionano valori personalizzati per agent_count e vm_size, è necessario verificare che il valore di agent_count moltiplicato per il valore di vm_size sia maggiore o uguale a 12 CPU virtuali. Ad esempio, se come vm_size si usa "Standard_D3_v2", che dispone di 4 CPU virtuali, per agent_count è consigliabile selezionare 3 o un valore superiore.
 
 ```python
@@ -300,7 +300,7 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attatch the cluster to your workgroup
+# Attach the cluster to your workgroup
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
@@ -335,7 +335,7 @@ print(service.state)
 **Tempo stimato**: circa 3 minuti.
 
 > [!TIP]
-> Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio AKS. Le informazioni registrate potrebbero indicare la causa dell'errore.
+> Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
 
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 

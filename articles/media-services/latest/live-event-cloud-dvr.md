@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3646c6167f901fe43080d39df42fdb127b1c7fc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828146"
 ---
 # <a name="using-a-cloud-dvr"></a>Utilizzo di un DVR cloud
 
@@ -37,8 +37,7 @@ Un **LiveEvent** supporta fino a tre **LiveOutput** in esecuzione simultanea, qu
 > [!NOTE]
 > I **LiveOutput** iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina il **LiveOutput**, non si elimina l'**Asset** sottostante e il contenuto dell'asset. 
 >
-> Se è stato pubblicato il **Localizzatore di streaming** nell'asset per il **LiveOutput**, l'evento (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzato fino alla fine dell'operazione del **Localizzatore di streaming**  o fino a quando si elimina l'indicatore di posizione, a seconda del valore raggiunto per primo.   
-  
+> Se l'asset **LiveOutput** è stato pubblicato usando un **StreamingLocator**, il **LiveEvent** (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione di **StreamingLocator**, a seconda del valore raggiunto per primo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

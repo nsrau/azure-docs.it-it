@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104085"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847544"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
 Un progetto di Azure Notebooks è essenzialmente una configurazione della macchina virtuale Linux sottostante in cui vengono eseguiti i notebook di Jupyter, insieme a una cartella di file e a metadati descrittivi. Il dashboard del progetto in Azure Notebooks consente di gestire i file ed eventualmente configurare le caratteristiche del progetto:
 
-- I metadati del progetto includono un nome, una descrizione, un identificatore usato quando si condivide il progetto e una voce che indica se il progetto è pubblico o privato.
-- È possibile gestire il notebook, i dati e altri file del progetto come qualsiasi altro file system.
-- È possibile configurare l'ambiente di un progetto tramite script di avvio o direttamente con il terminale.
-- Se si usa il terminale, è possibile accedere ai log.
+- Il livello di calcolo in cui viene eseguito il progetto, che può essere il livello gratuito o una macchina virtuale di Azure.
+- I metadati del progetto, che includono un nome, una descrizione, un identificatore usato quando si condivide il progetto e una voce che indica se il progetto è pubblico o privato.
+- Il notebook, i dati e altri file del progetto, che vengono gestiti come qualsiasi altro file system.
+- Un ambiente di un progetto, gestito tramite script di avvio o direttamente con il terminale.
+- Log, a cui si accede tramite il terminale.
 
 > [!Note]
-> Non è possibile gestire progetti di cui non si è proprietari, a meno che non si sia stati nominati collaboratori dal proprietario. In caso contrario, le funzionalità di gestione e configurazione descritte in questo articolo non saranno disponibili.
+> Le funzionalità di gestione e configurazione descritte di seguito sono disponibili solo per il proprietario del progetto che ha creato il progetto iniziale. È possibile, tuttavia, clonare il progetto nel proprio account; in tal caso si diventa il proprietario e si può configurare il progetto in base alle proprie esigenze.
 
 Azure Notebooks avvia la macchina virtuale sottostante ogni volta che viene eseguito un notebook o un altro file. Il server salva automaticamente i file e si arresta dopo 60 minuti di inattività. È comunque possibile arrestare il server in qualsiasi momento con il comando **Shutdown** (tasto di scelta rapida: h).
+
+## <a name="compute-tier"></a>Livello di calcolo
+
+Nell'elenco a discesa**Run** (Esegui) nel dashboard del progetto è possibile selezionare il livello di calcolo in cui viene eseguito il progetto. Per impostazione predefinita, i progetti vengono eseguiti nel livello di **Free Compute** (Calcolo gratuito), che è limitato a 4 GB di memoria e 1 GB di dati per impedirne l'uso improprio:
+
+![Elenco a discesa di livello di calcolo nel dashboard del progetto](media/project-compute-tier-list.png)
+
+È possibile aggirare queste limitazioni usando un'altra macchina virtuale per cui è stato effettuato il provisioning in una sottoscrizione di Azure. È inoltre necessario installare Jupyter su tale macchina virtuale. Le immagini di Data Science Virtual Machine rappresentano un'ottima scelta perché includono Jupyter per impostazione predefinita.
+
+È possibile connettersi a qualsiasi macchina virtuale di Azure configurata opportunamente usando l'opzione **Direct Compute** (Calcolo diretto) nell'elenco a discesa. Se si seleziona questa opzione viene richiesto un nome (da visualizzare nell'elenco), l'indirizzo IP e la porta della macchina virtuale (in genere 8000 è la porta predefinita da cui JupyterHub è in ascolto) e le credenziali della macchina virtuale:
+
+![Richiesta di raccolta informazioni sul server per l'opzione di calcolo diretto](media/project-compute-tier-direct.png)
+
+Se le condizioni seguenti vengono soddisfatte, l'elenco a discesa mostra anche le istanze della [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Se una qualsiasi di queste condizioni non viene soddisfatta, è comunque possibile connettersi alla DSVM usando l'opzione di calcolo diretto e immettendo i valori ottenuti dal portale di Azure.)
+
+- Si è connessi ad Azure Notebooks con un account che usa Azure Active Directory (AAD), ad esempio un account aziendale.
+- L'account è connesso a una sottoscrizione di Azure.
+- Si dispone di una o più macchine virtuali in tale sottoscrizione, con almeno accesso in lettura, che usano Data Science Virtual Machine per l'immagine di Linux (Ubuntu).
+
+![Istanze di Data Science Virtual Machine nell'elenco a discesa nel dashboard del progetto](media/project-compute-tier-dsvm.png)
+
+Quando si seleziona un'istanza di DSVM, Azure Notebooks può richiedere le credenziali specifiche del computer usate durante la creazione della macchina virtuale.
+
+Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). È *necessario* usare l'immagine della **macchina virtuale data science per Linux (Ubuntu)** perché Azure Notebooks non visualizza DSVM che usano le immagini di Windows o CentOS.
 
 ## <a name="edit-project-metadata"></a>Modificare i metadati del progetto
 
@@ -79,14 +104,14 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Esegui | r (o clic) | Esegue un file di notebook. Altri tipi di file sono aperti per la visualizzazione.  |
 | Copy Link (Copia collegamento) | y | Copia un collegamento al file negli Appunti. |
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
-| Preview | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
+| Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
 | Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
 | Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
 | Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
 | Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
-#### <a name="preview"></a>Preview
+#### <a name="preview"></a>Anteprima
 
 L'anteprima di un file o un notebook è una visualizzazione di sola lettura del relativo contenuto; l'esecuzione delle celle del notebook è disabilitata. L'anteprima viene illustrata a chiunque disponga di un collegamento al file o al notebook, ma non ha eseguito l'accesso ad Azure Notebooks. Dopo aver eseguito l'accesso, un utente può clonare il notebook sul proprio account oppure può scaricare il notebook nel computer locale.
 

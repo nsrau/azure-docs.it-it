@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065495"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853817"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: Valutare i carichi di lavoro locali per la migrazione in Azure
 
@@ -21,7 +21,7 @@ Questo articolo descrive come Contoso valuta l'app SmartHotel360 locale per la m
 
 Questo articolo fa parte di una serie di articoli che descrivono come la società fittizia Contoso esegue la migrazione delle risorse locali al cloud di Microsoft Azure. La serie include informazioni generali e scenari di distribuzione dettagliati che illustrano la configurazione di un'infrastruttura di migrazione, l'idoneità delle risorse locali per la migrazione e l'esecuzione di diversi tipi di migrazioni. La complessità degli scenari aumenta man mano che si procede. Alla serie verranno aggiunti altri articoli in futuro.
 
-Articolo | Dettagli | Status
+Articolo | Dettagli | Stato
 --- | --- | ---
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie. | Disponibile
@@ -206,7 +206,7 @@ I risultati vengono visualizzati non appena disponibili. Se Contoso corregge i p
 > [!NOTE]
 > Per le valutazioni su larga scala:
 > - Eseguire più valutazioni contemporaneamente e visualizzarne lo stato nella pagina **Tutte le valutazioni**.
-> - Consolidare le valutazioni in un [database di SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Consolidare le valutazioni in un [database di SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolidare le valutazioni in un [report di Power BI](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Passaggio 3: Preparare la valutazione delle macchine virtuali con Azure Migrate

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351510"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381527"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
@@ -93,7 +93,7 @@ Con il modello di Resource Manager: Per istruzioni dettagliate, vedere [Esercita
 
 Oltre a impostare `enabledForTemplateDeployment` su `true`, l'utente che distribuisce il modello deve avere l'autorizzazione `Microsoft.KeyVault/vaults/deploy/action` per l'ambito che contiene Key Vault inclusi il gruppo di risorse e Key Vault. Entrambi i ruoli [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso. Se si crea Key Vault si è i proprietari e pertanto si dispone dell'autorizzazione. Se Key Vault è in un'altra sottoscrizione, il proprietario dell'insieme di Key Vault deve fornire l'accesso.
 
-La procedura seguente illustra come creare un ruolo con le autorizzazioni minime e come assegnarle all'utente
+La procedura seguente illustra come creare un ruolo con le autorizzazioni minime e come assegnarlo all'utente
 1. Creare un file JSON di definizione del ruolo personalizzato:
 
     ```json

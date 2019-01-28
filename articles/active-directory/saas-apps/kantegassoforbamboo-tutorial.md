@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Kantega SSO for Bamboo | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Kantega SSO for Bamboo | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kantega SSO for Bamboo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 33732a2d08900d41653b5e6a494cf1633d4be055
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b4cf9e8b907bfa2d7ff47b40c4fca8927a9e9335
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823853"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815828"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Esercitazione: integrazione di Azure Active Directory con Kantega SSO for Bamboo
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Esercitazione: Integrazione di Azure Active Directory con Kantega SSO for Bamboo
 
 Questa esercitazione descrive come integrare Kantega SSO for Bamboo con Azure Active Directory (Azure AD).
 
@@ -218,7 +218,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     c. Fare clic su **Save**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

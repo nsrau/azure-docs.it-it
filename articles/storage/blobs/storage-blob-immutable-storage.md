@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634270"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848649"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -197,7 +197,7 @@ Sì. Quando vengono creati per la prima volta, i criteri di conservazione basati
 
 **La funzionalità è disponibile nei cloud nazionali e per enti pubblici?**
 
-L'archiviazione non modificabile è attualmente disponibile solo nelle aree pubbliche di Azure. Qualora si sia interessati a un cloud nazionale specifico, inviare un messaggio di posta elettronica a azurestoragefeedback@microsoft.com.
+L'archiviazione non modificabile è disponibile nelle aree pubbliche di Azure, in Cina e per gli enti pubblici. Se l'archiviazione non modificabile non è disponibile nella propria area, inviare un messaggio di posta elettronica a azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Codice PowerShell di esempio
 

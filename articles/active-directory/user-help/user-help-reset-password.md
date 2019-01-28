@@ -3,7 +3,7 @@ title: Reimpostare le password usando le informazioni di sicurezza - Azure Activ
 description: Come reimpostare la password se la si dimentica, usando la verifica in due passaggi e le informazioni di sicurezza.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347846"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815940"
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o dell’istituto di istruzione
 
@@ -159,7 +159,7 @@ Di seguito sono riportati alcuni degli errori più comuni e le relative soluzion
 |Quando si tenta di modificare la password, viene visualizzato un errore. |La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare.| Riprovare con una password più complessa.|
 |Dopo avere immesso l'ID utente, viene visualizzata una pagina in cui è indicato "Contattare l'amministratore".|Microsoft ha stabilito che la password dell'account utente è gestita dall'amministratore in un ambiente locale. Di conseguenza, non è possibile reimpostare la password dal collegamento "Problemi di accesso all'account?". |Contattare l'amministratore per ulteriore assistenza.|
 |Dopo aver immesso l'ID utente, viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password".|L'amministratore non ha configurato l'account in modo da consentire la reimpostazione della password.|L'amministratore non ha attivato la reimpostazione della password per l'organizzazione dal collegamento "Problemi di accesso all'account?" o non consente all'utente di usare la funzionalità.<br><br> Per reimpostare la password, è necessario selezionare il collegamento "Contattare l'amministratore" e inviare un messaggio di posta elettronica all'amministratore dell'azienda per richiedere la reimpostazione della password.|
-|Dopo aver immesso l'ID utente, viene visualizzato l'errore "Impossibile verificare l'account".|Durante il processo di accesso non è stato possibile verificare le informazioni dell'account.|Questo messaggio potrebbe essere visualizzato per due motivi.<br><br>1. L'amministratore ha attivato la reimpostazione della password per l'organizzazione, ma l'utente non ha ancora eseguito la registrazione per l'uso del servizio. Per eseguire la registrazione per la reimpostazione della password, vedere uno degli articoli seguenti, in base al metodo di verifica in uso: [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md), [Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica (anteprima)](security-info-setup-phone-number.md), [Configurare le informazioni di sicurezza per l'uso di SMS (anteprima)](security-info-setup-text-msg.md), [Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)](security-info-setup-email.md) o [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza (anteprima) ](security-info-setup-questions.md).<br><br>2. L'amministratore non ha ancora attivato la reimpostazione della password per l'organizzazione. In questa situazione, è necessario selezionare il collegamento "Contattare l'amministratore" per inviare un messaggio di posta elettronica all'amministratore e richiedere la reimpostazione della password.|
+|Dopo aver immesso l'ID utente, viene visualizzato l'errore "Impossibile verificare l'account".|Durante il processo di accesso non è stato possibile verificare le informazioni dell'account.|Questo messaggio potrebbe essere visualizzato per due motivi.<br><br>1. L'amministratore ha attivato la reimpostazione della password per l'organizzazione, ma l'utente non ha ancora eseguito la registrazione per l'uso del servizio. Per registrare la reimpostazione della password, vedere uno degli articoli seguenti, basati sul proprio metodo di verifica: [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md), [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima)](security-info-setup-phone-number.md), [Configurare le informazioni di sicurezza per l'uso di SMS (anteprima)](security-info-setup-text-msg.md), [Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)](security-info-setup-email.md) o [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza (anteprima)](security-info-setup-questions.md).<br><br>2. L'amministratore non ha ancora attivato la reimpostazione della password per l'organizzazione. In questa situazione, è necessario selezionare il collegamento "Contattare l'amministratore" per inviare un messaggio di posta elettronica all'amministratore e richiedere la reimpostazione della password.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

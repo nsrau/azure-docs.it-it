@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812540"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -73,7 +73,7 @@ La connessione può avvenire tramite internet o usare ExpressRoute con peering p
   %ProgramFiles%\ProfilerService  
 - Applicazione Web Azure Migrate. Escludere tutte le sottocartelle.
   %SystemDrive%\inetpub\wwwroot
-- Cache locale per i file di Database e log. Il servizio di migrazione Azure necessita dell'accesso RW a questa cartella.
+- Cache locale per i file di database e log. Il servizio Azure Migrate necessita dell'accesso in lettura/scrittura a questa cartella.
   %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Individuazione

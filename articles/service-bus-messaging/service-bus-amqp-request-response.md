@@ -3,23 +3,23 @@ title: AMQP 1.0 nelle operazioni basate su richiesta/risposta del bus di servizi
 description: Elenco delle operazioni basate su richiesta/risposta del bus di servizio di Microsoft Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159095"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852476"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 nel bus di servizio di Microsoft Azure: operazioni basate su richiesta/risposta
 
@@ -135,7 +135,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
  Il corpo del messaggio di richiesta deve essere costituito da una sezione amqp-value contenente un mapping con le voci seguenti:  
   
@@ -153,8 +153,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione amqp-value contenente un mapping con le voci seguenti:  
   
@@ -173,7 +173,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -188,14 +188,14 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+| del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti:  
   
@@ -214,22 +214,22 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+| del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |message-id|stringa|Yes|`amqpMessage.Properties.MessageId` in formato stringa|  
-|session-id|stringa|No|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|stringa|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|tramite chiave di partizione|stringa|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|session-id|stringa|No |`amqpMessage.Properties.GroupId as string`|  
+|partition-key|stringa|No |`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|tramite chiave di partizione|stringa|No |`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Message|matrice di byte|Yes|Messaggio con codifica in transito AMQP 1.0.|  
   
 #### <a name="response"></a>Risposta  
@@ -238,8 +238,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un mapping con le voci seguenti:  
   
@@ -258,7 +258,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -272,8 +272,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo.|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un mapping con le voci seguenti:  
   
@@ -294,7 +294,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:renew-session-lock`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -308,14 +308,14 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un mapping con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|expiration|timestamp|Yes|Nuova scadenza.|  
+|expiration| timestamp|Yes|Nuova scadenza.|  
   
 ### <a name="peek-session-message"></a>Visualizzazione del messaggio di sessione  
 
@@ -328,7 +328,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -344,14 +344,14 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un mapping con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+| del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
  Il mapping che rappresenta un messaggio deve contenere le voci seguenti:  
   
@@ -370,7 +370,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:set-session-state`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -385,8 +385,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 ### <a name="get-session-state"></a>Recupero dello stato della sessione  
 
@@ -399,7 +399,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -413,8 +413,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -433,13 +433,13 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|Yes|Filtro per includere solo le sessioni aggiornate dopo un determinato momento.|  
+|last-updated-time| timestamp|Yes|Filtro per includere solo le sessioni aggiornate dopo un determinato momento.|  
 |skip|int|Yes|Numero di sessioni da ignorare.|  
 |top|int|Yes|Numero massimo di sessioni.|  
   
@@ -449,8 +449,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) se sono presenti altri messaggi<br /><br /> 204: (Nessun contenuto) se non sono presenti altri messaggi|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -470,7 +470,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:add-rule`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -497,15 +497,15 @@ Il mapping **correlation-filter** deve includere almeno una delle voci seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|correlation-id|stringa|No||  
-|message-id|stringa|No||  
-|to|stringa|No||  
-|reply-to|stringa|No||  
-|label|stringa|No||  
-|session-id|stringa|No||  
-|reply-to-session-id|stringa|No||  
-|content-type|stringa|No||  
-|properties|map|No|Mapping alle [proprietà della classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) del bus di servizio.|  
+|correlation-id|stringa|No ||  
+|message-id|stringa|No ||  
+|to|stringa|No ||  
+|reply-to|stringa|No ||  
+|label|stringa|No ||  
+|session-id|stringa|No ||  
+|reply-to-session-id|stringa|No ||  
+|content-type|stringa|No ||  
+|properties|map|No |Mapping alle [proprietà della classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) del bus di servizio.|  
   
 Il mapping **sql-rule-action** deve includere le voci seguenti:  
   
@@ -519,8 +519,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 ### <a name="remove-rule"></a>Rimozione di una regola  
   
@@ -531,7 +531,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -545,8 +545,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 ### <a name="get-rules"></a>Regole Get
 
@@ -557,7 +557,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:enumerate-rules`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
 
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -572,7 +572,7 @@ Il messaggio di risposta include le proprietà seguenti:
 
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
 |regole| matrice di mapping|Yes|Matrice di regole. Ogni regola è rappresentata da una mappa.|
 
 Ogni voce della mappa nella matrice include le proprietà seguenti:
@@ -640,7 +640,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -655,14 +655,14 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|  
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|  
   
 Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+| del cloud al dispositivo|elenco di mapping|Yes|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti:  
   
@@ -682,7 +682,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |operation|stringa|Yes|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|No|Timeout del server per l'operazione, in millisecondi.|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
   
@@ -690,9 +690,9 @@ Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp
 |---------|----------------|--------------|--------------------|  
 |disposition-status|stringa|Yes|completed<br /><br /> abandoned<br /><br /> suspended|  
 |lock-tokens|matrice di UUID|Yes|Token di blocco dei messaggi per aggiornare lo stato di ricezione.|  
-|deadletter-reason|stringa|No|Può essere impostato se lo stato di ricezione è **suspended**.|  
-|deadletter-description|stringa|No|Può essere impostato se lo stato di ricezione è **suspended**.|  
-|properties-to-modify|map|No|Elenco delle proprietà dei messaggi negoziati del bus di servizio da modificare.|  
+|deadletter-reason|stringa|No |Può essere impostato se lo stato di ricezione è **suspended**.|  
+|deadletter-description|stringa|No |Può essere impostato se lo stato di ricezione è **suspended**.|  
+|properties-to-modify|map|No |Elenco delle proprietà dei messaggi negoziati del bus di servizio da modificare.|  
   
 #### <a name="response"></a>Risposta  
 
@@ -700,8 +700,8 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
-|statusDescription|stringa|No|Descrizione dello stato.|
+|statusCode|int|Yes|Codice di risposta HTTP [RFC2616]<br /><br /> 200: (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|statusDescription|stringa|No |Descrizione dello stato.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

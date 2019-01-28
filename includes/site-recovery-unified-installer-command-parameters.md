@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 4b0c8ad227b9aa8a0692ff453c3751aaa38a4849
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164932"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841428"
 ---
 |Nome parametro| type | DESCRIZIONE| Valori possibili|
 |-|-|-|-|
@@ -17,7 +17,7 @@ ms.locfileid: "50164932"
 |/InstallLocation|Mandatory|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
 |/MySQLCredsFilePath|Mandatory|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
 |/VaultCredsFilePath|Mandatory|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Mandatory|Tipo di ambiente che si desidera proteggere |VMware<br>NonVMware|
+|/EnvType|Mandatory|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
 |/PSIP|Mandatory|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
 |/CSIP|Mandatory|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
 |/PassphraseFilePath|Mandatory|Percorso completo del file della passphrase|Percorso del file valido|

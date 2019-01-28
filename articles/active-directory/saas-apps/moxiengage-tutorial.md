@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1135a879-8f00-43b0-ac8a-831593d9586d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 200382578d7cf2cce96b9cb73097bce632c88767
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7e130245cd61924c5f70645729551fd9e55702e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Esercitazione: Integrazione di Azure Active Directory con Moxi Engage
 
@@ -128,7 +128,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Moxi Engage** è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Moxi Engage](mailto:support@moxiworks.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-moxi-engage-test-user"></a>Creazione di un utente test per Moxi Engage
 
-In questa sezione viene creato un utente di nome Britta Simon in Moxi Engage. Collaborare con il [team di supporto di Moxi Engage](mailto:support@moxiworks.com) per aggiungere gli utenti alla piattaforma Moxi Engage.
+In questa sezione viene creato un utente di nome Britta Simon in Moxi Engage. Collaborare con il [team di supporto di Moxi Engage](mailto:support@moxiworks.com) per aggiungere gli utenti alla piattaforma Moxi Engage.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
