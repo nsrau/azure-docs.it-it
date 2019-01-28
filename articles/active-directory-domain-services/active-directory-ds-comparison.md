@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: confronto tra Azure Active Directory Domain Services e controller di dominio fai da te | Documentazione Microsoft'
+title: 'Azure AD Domain Services: Confrontare Azure Active Directory Domain Services con i controller di dominio fai da te | Microsoft Docs'
 description: Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155798"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847629"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Con Azure Active Directory Domain Services è possibile distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità in Azure. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è facile da distribuire e offre il monitoraggio e la correzione dell'integrità automatizzati. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.
@@ -36,21 +36,26 @@ La tabella seguente riporta informazioni utili per scegliere se usare Servizi di
 
 | **Funzionalità** | **Servizi di dominio Azure Active Directory** | **AD "fai da te" in VM di Azure** |
 | --- |:---:|:---:|
-| [**Servizi gestiti**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&amp;#x2715;** |
+| [**Servizi gestiti**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |
+  **&#x2715;** |
 | [**Distribuzioni sicure**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |L'amministratore deve proteggere la distribuzione. |
 | [**Server DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (servizio gestito) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&amp;#x2715;** |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |
+  **&#x2715;** |**&#x2713;** |
 | [**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Delega vincolata Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basata sulle risorse|basata sulle risorse e basata su account|
 | [**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions) |**&amp;#x2715;** |**&#x2713;** |
+| [**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions) |
+  **&#x2715;** |**&#x2713;** |
 | [**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**LDAP sicuro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&amp;#x2715;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |
+  **&#x2715;** |**&#x2713;** |
 | [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Distribuzione in diverse aree geografiche**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&amp;#x2715;** |**&#x2713;** |
+| [**Distribuzione in diverse aree geografiche**](active-directory-ds-comparison.md#geo-dispersed-deployments) |
+  **&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Servizi gestiti
 Servizi di dominio Azure AD è gestito da Microsoft. Non è necessario preoccuparsi di patch, aggiornamenti, monitoraggio, backup e di garantire la disponibilità del dominio. Queste attività di gestione sono disponibili come servizio di Microsoft Azure per i domini gestiti.
@@ -106,8 +111,8 @@ I domini gestiti di Servizi di dominio Azure AD sono disponibili in una singola 
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>Opzioni di distribuzione AD "fai da te"
 Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle funzionalità offerte da un'installazione Active Directory di Windows Server. In questi casi è possibile prendere in considerazione una delle seguenti opzioni fai da te:
 
-* **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo usando macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
-* **Distribuzione di foreste di risorse:** è possibile configurare un dominio nella topologia delle foreste di risorse usando macchine virtuali Azure configurate come controller di dominio. Quindi si può impostare una relazione di trust di Active Directory con l'ambiente Active Directory locale. È possibile aggiungere computer (VM Azure) al dominio in questa foresta di risorse nel cloud. L'autenticazione utente avviene tramite una connessione VPN o ExpressRoute alla directory locale.
+* **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo con macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
+* **Distribuzione della foresta di risorse:** è possibile configurare un dominio nella topologia della foresta di risorse con macchine virtuali di Azure configurate come controller di dominio. Quindi si può impostare una relazione di trust di Active Directory con l'ambiente Active Directory locale. È possibile aggiungere computer (VM Azure) al dominio in questa foresta di risorse nel cloud. L'autenticazione utente avviene tramite una connessione VPN o ExpressRoute alla directory locale.
 * **Estendere il dominio locale in Azure:** è possibile connettere una rete virtuale di Azure alla rete locale tramite una connessione VPN o ExpressRoute. Questa impostazione consente di aggiungere le macchine virtuali di Azure all'AD locale. Un'alternativa è alzare di livello dei controller di dominio di replica del dominio locale in Azure portandoli al livello di VM. È possibile configurare il sistema in modo che la replica sia eseguita tramite una connessione VPN o ExpressRoute alla directory locale. Questa modalità di distribuzione estende efficacemente il dominio locale in Azure.
 
 > [!NOTE]

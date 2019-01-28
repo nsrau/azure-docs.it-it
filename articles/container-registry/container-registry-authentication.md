@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'autenticazione a un registro contenitori di Azure
+title: Eseguire l'autenticazione con un registro contenitori di Azure
 description: Opzioni di autenticazione per un registro contenitori di Azure, inclusi l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 services: container-registry
 author: stevelas
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752878"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851726"
 ---
-# <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione a un registro contenitori Docker privato
+# <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
-Esistono diversi modi per eseguire l'autenticazione a un registro contenitori di Azure, ognuno dei quali è applicabile a uno o più scenari di utilizzo del registro.
+Esistono diversi modi per eseguire l'autenticazione con un registro contenitori di Azure, ognuno dei quali è applicabile a uno o più scenari di utilizzo del registro.
 
 È possibile accedere a un registro direttamente tramite l'[accesso individuale](#individual-login-with-azure-ad). In alternativa, le applicazioni e gli agenti di orchestrazione dei contenitori possono eseguire l'autenticazione automatica o "headless", usando un'[entità servizio](#service-principal) di Azure Active Directory (Azure AD).
 
@@ -26,13 +26,15 @@ Registro Azure Container non supporta le operazioni di Docker non autenticate o 
 
 ## <a name="individual-login-with-azure-ad"></a>Accesso individuale con Azure AD
 
-Quando si usa direttamente il registro, ad esempio per eseguire il pull o il push delle immagini dalla workstation di sviluppo, eseguire l'autenticazione usando il comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli):
+Quando si usa direttamente il registro, ad esempio per eseguire il pull o il push delle immagini da una workstation di sviluppo, eseguire l'autenticazione usando il comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il token creato quando si è eseguito [az login](/cli/azure/reference-index#az-login) per l'autenticazione semplificata della sessione al registro. Dopo avere effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` non richiedono il nome utente o la password. In caso di scadenza del token, è possibile aggiornarlo usando di nuovo il comando `az acr login` per eseguire nuovamente l'autenticazione. L'uso di `az acr login` con le identità di Azure offre l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md).
+
+Per alcuni scenari è possibile accedere a un registro con la propria identità singola in Azure AD. Per gli scenari tra servizi o per coordinare le esigenze di un gruppo di lavoro in cui non si vuole gestire l'accesso singolo, è anche possibile accedere con un'[identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Entità servizio
 

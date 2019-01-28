@@ -3,28 +3,28 @@ title: Panoramica del protocollo AMQP 1.0 nel bus di servizio di Azure | Documen
 description: Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393333"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844705"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
 Il protocollo AMQP (Advanced Message Queueing Protocol) 1.0 è supportato sia nel servizio cloud del bus di servizio di Azure sia nel [bus di servizio per Windows Server (Bus di servizio 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) locale. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard. È possibile creare applicazioni usando componenti creati in linguaggi e framework diversi e in esecuzione su sistemi operativi diversi. Tutti questi componenti possono connettersi al bus di servizio e scambiare in modo lineare ed efficiente messaggi di business strutturati con assoluta fedeltà.
 
-## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introduzione: informazioni sul protocollo AMQP 1.0 e sulla sua rilevanza
+## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introduzione: Informazioni sul protocollo AMQP 1.0 e sulla sua rilevanza
 I prodotti middleware orientati ai messaggi hanno tradizionalmente usato protocolli proprietari per le comunicazioni tra applicazioni client e broker. Dopo la selezione di un broker di messaggistica di un fornitore specifico, è pertanto necessario utilizzare le librerie di tale fornitore per connettere le applicazioni client a tale broker. Ne risulta un livello di dipendenza rispetto a tale fornitore, poiché il trasferimento di un'applicazione a un prodotto diverso richiede la modifica del codice per tutte le applicazioni connesse. 
 
 La connessione di broker di messaggistica da fornitori diversi è inoltre complicata e richiede in genere bridging a livello di applicazione per lo spostamento dei messaggi da un sistema all'altro e per la conversione nei diversi formati di messaggio proprietari. Questa esigenza è molto comune, ad esempio, quando è necessario fornire una nuova interfaccia unificata per sistemi diversi precedenti oppure integrare sistemi IT diversi dopo una fusione tra società.
@@ -67,7 +67,7 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 
 ![][0]
 
-**Figura 1: Scenario di distribuzione di esempio, in cui per la messaggistica tra diverse piattaforme usa il bus di servizio e il protocollo AMQP 1.0**
+**Figura 1: Scenario di distribuzione di esempio in cui la messaggistica multipiattaforma usa il bus di servizio e il protocollo AMQP 1.0**
 
 È attualmente possibile utilizzare le librerie client seguenti con il bus di servizio:
 

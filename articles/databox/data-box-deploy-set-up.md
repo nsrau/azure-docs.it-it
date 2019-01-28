@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791320"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391155"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Esercitazione: Cablare e connettersi ad Azure Data Box
 
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare, verificare che:
 
 1. Aver completato l'esercitazione descritta in [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
 2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. 
@@ -40,7 +40,7 @@ Prima di iniziare, assicurarsi di:
     - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
 6. Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
 7. Si disponga dei cavi seguenti per collegare il Data Box al computer host.
-    - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con le interfacce di rete DATA 1, DATA 2)
+    - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con interfacce di rete DATA 1 e DATA 2). Data Box include schede Mellanox ConnectX®-3 Pro EN 10GBASE-T a due porte con interfaccia di rete PCI Express 3.0, quindi i cavi compatibili con questa interfaccia dovrebbero funzionare. Per i test interni, ad esempio, è stato usato un cavo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M.
     - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
     - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
 

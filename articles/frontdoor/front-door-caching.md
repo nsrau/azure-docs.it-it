@@ -26,7 +26,7 @@ Servizio Frontdoor di Azure recapita i file di grandi dimensioni senza limiti su
 
 </br>Quando il blocco arriva all'ambiente Frontdoor, viene memorizzato nella cache e reso immediatamente disponibile all'utente. Frontdoor esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua finché non viene scaricato l'intero file (se richiesto), non sono disponibili tutti gli intervalli di byte (se richiesto) o il client non termina la connessione.
 
-</br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Frontdoor memorizza nella cache tutti i blocchi alla loro ricezione e pertanto l'intero file non deve essere memorizzato nella cache di Frontdoor. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache. Se non tutti i blocchi vengono memorizzati nella cache, viene usata la prelettura per richiedere i blocchi dal back-end. Questa ottimizzazione si basa sulla capacità del server di back-end di supportare le richieste di intervallo di byte. Se il server di back-end non supporta le richieste di intervallo di byte, questa ottimizzazione non è efficace.
 
 ## <a name="file-compression"></a>Compressione dei file

@@ -3,24 +3,24 @@ title: Eseguire la migrazione di utenti con identità di social network in Azure
 description: Presentazione dei concetti di base sulla migrazione di utenti con identità di social network in Azure AD B2C usando l'API Graph.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445144"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846558"
 ---
-# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: eseguire la migrazione di utenti con identità di social networking
-Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. Questo articolo spiega come eseguire la migrazione in Azure AD B2C di account esistenti con identità di social networking, come account di Facebook, LinkedIn, Microsoft e Google. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
+# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Eseguire la migrazione di utenti con identità dei social network
+Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti ed è incentrato sulla migrazione di identità di social networking. Prima di iniziare, leggere [Migrazione degli utenti](active-directory-b2c-user-migration.md).
 
 ## <a name="social-identities-migration-introduction"></a>Introduzione alla migrazione di identità di social networking
@@ -63,7 +63,7 @@ L'elenco seguente include le proprietà obbligatorie per la creazione di un uten
 * **userIdentities** - Uno o più record UserIdentity che specificano il tipo di account di social networking e l'identificatore utente univoco dal provider di identità basato su social network.
 * [facoltativo] **otherMails** - Solo per gli account di social networking, indirizzi di posta elettronica dell'utente 
 
-Per altre informazioni, vedere le [informazioni di riferimento per l'API Graph](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser).
+Per altre informazioni, vedere: [Informazioni di riferimento per l'API Graph](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Eseguire la migrazione (solo) di account di social networking
 Per creare solo account di social networking, senza credenziali per account locali. Inviare una richiesta HTTPS POST all'API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare. Come minimo, è necessario specificare le proprietà obbligatorie. 
@@ -236,4 +236,4 @@ Inviare i dati di form seguenti:
 > [!NOTE]
 > Se non si aggiorna il file UsersData.json nell'esempio con i dati reali, è possibile accedere con le credenziali dell'account locale di esempio ma non con gli esempi di account di social networking. Per eseguire la migrazione degli account di social networking reali, specificare i dati corrispondenti.
 
-Per altre informazioni su come usare l'app di esempio, vedere [Azure Active Directory B2C: migrazione degli utenti](active-directory-b2c-user-migration.md)
+Per altre informazioni su come usare l'app di esempio, vedere [Azure Active Directory B2C: Migrazione degli utenti](active-directory-b2c-user-migration.md)

@@ -38,6 +38,10 @@ items:
         href: tutorial-net-windows-virtual-machine.md
       - name: Python
         href: tutorial-python-windows-virtual-machine.md
+  - name: Integrazione dell'insieme di credenziali delle chiavi di Archiviazione di Azure - Chiavi dell'account di archiviazione gestite - Interfaccia della riga di comando di Azure
+    href: key-vault-ovw-storage-keys.md
+  - name: Integrazione dell'insieme di credenziali delle chiavi di Archiviazione di Azure - Chiavi dell'account di archiviazione gestite - PowerShell
+    href: key-vault-overview-storage-keys-powershell.md
   - name: Contenitori di Azure
     href: ../container-instances/container-instances-managed-identity.md
   - name: Modello di Azure Resource Manager
@@ -58,10 +62,6 @@ items:
     href: key-vault-ovw-security-worlds.md
   - name: Eliminazione temporanea
     href: key-vault-ovw-soft-delete.md
-  - name: Chiavi dell'account di archiviazione gestita di Azure - Interfaccia della riga di comando di Azure
-    href: key-vault-ovw-storage-keys.md
-  - name: Chiavi dell'account di archiviazione gestita di Azure - PowerShell
-    href: key-vault-overview-storage-keys-powershell.md
   - name: Limitazione
     href: key-vault-ovw-throttling.md
   - name: Endpoint del servizio Rete virtuale
@@ -163,9 +163,9 @@ items:
     href: http://blogs.technet.com/b/kv/
 - name: Commenti e suggerimenti sul prodotto
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 406f1dcfca9f05197a38e66e1c5d26b06a47791f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3f18c68ada3be52e4f5716f86d68d89da317fa2c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321161"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080991"

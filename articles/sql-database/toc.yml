@@ -9,6 +9,8 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Guide introduttive
   items:
+  - name: Guida introduttiva dell'istanza gestita
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items:
     - name: Database singolo
@@ -195,7 +197,7 @@ items:
         href: sql-database-disaster-recovery.md
       - name: Analisi di ripristino
         href: sql-database-disaster-recovery-drills.md
-  - name: Sicurezza
+  - name: Security
     items:
     - name: Panoramica della sicurezza
       href: sql-database-security-index.yml
@@ -279,8 +281,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transazioni elastiche
       href: sql-database-elastic-transactions-overview.md
-    - name: Processi di database elastici
-      href: elastic-jobs-overview.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
   - name: Monitoraggio e ottimizzazione
@@ -323,6 +323,8 @@ items:
       href: sql-database-in-memory.md
     - name: Tabelle temporali
       href: sql-database-temporal-tables.md
+    - name: Automazione dei processi
+      href: sql-database-job-automation-overview.md
 - name: Guide alle procedure
   items:
   - name: Panoramica
@@ -341,6 +343,8 @@ items:
       href: sql-database-threat-detection.md
     - name: Configurare la conservazione dei backup con archiviazione BLOB di Azure
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Configurare i processi di database elastico
+      href: elastic-jobs-overview.md
     - name: Configurare la maschera dati dinamica
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configurare la replica geografica - Portale
@@ -599,7 +603,7 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -686,9 +690,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a991b2f6a7ac90d38c653b4daf12948b1b800638
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331402"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078203"

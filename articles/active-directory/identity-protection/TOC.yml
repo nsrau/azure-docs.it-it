@@ -20,27 +20,45 @@ items:
   expanded: false
 - name: Guide alle procedure
   items:
-  - name: Abilitare Azure AD Identity Protection
-    href: enable.md
-  - name: Configurare i criteri della registrazione MFA
-    href: howto-mfa-policy.md
-  - name: Configurare i criteri di rischio di accesso
-    href: howto-sign-in-risk-policy.md
-  - name: Configurare i criteri di rischio utente
-    href: howto-user-risk-policy.md
-  - name: Chiudere gli eventi di rischio attivi
-    href: howto-close-active-risk-events.md
-  - name: Sbloccare gli utenti
-    href: howto-unblock-user.md
-  - name: Simulare eventi di rischio
-    href: playbook.md
-  - name: Usare l'API Microsoft Graph
-    href: graph-get-started.md
-  - name: Domande frequenti
-    href: faqs.md
+  - name: Identity Protection
+    items:
+    - name: Abilitare Azure AD Identity Protection
+      href: enable.md
+    - name: Configurare i criteri della registrazione MFA
+      href: howto-mfa-policy.md
+    - name: Configurare i criteri di rischio di accesso
+      href: howto-sign-in-risk-policy.md
+    - name: Configurare i criteri di rischio utente
+      href: howto-user-risk-policy.md
+    - name: Chiudere gli eventi di rischio attivi
+      href: howto-close-active-risk-events.md
+    - name: Sbloccare gli utenti
+      href: howto-unblock-user.md
+    - name: Simulare eventi di rischio
+      href: playbook.md
+    - name: Domande frequenti
+      href: faqs.md
+  - name: Identity Protection (aggiornamento)
+    items:
+    - name: Panoramica
+      href: overview-v2.md
+    - name: Panoramica della sicurezza
+      href: security-overview.md
+    - name: Analizzare utenti e accessi a rischio
+      href: howto-investigate-risky-users-signins.md
+    - name: Configurare i criteri di rischio
+      href: howto-configure-risk-policies.md
+    - name: Migliorare l'accuratezza del rilevamento
+      href: howto-improve-detection-accuracy.md
+    - name: Domande frequenti e problemi noti
+      href: known-issues.md
   expanded: true
 - name: riferimento
   items:
+  - name: Usare l'API Microsoft Graph
+    href: graph-get-started.md
+  - name: Eventi di rischio
+    href: risk-events-reference.md
   - name: Glossario
     href: glossary.md
 - name: Risorse
@@ -57,9 +75,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8e684f77d25e4ee685b715e8394faf00e3998be9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423297"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910947"

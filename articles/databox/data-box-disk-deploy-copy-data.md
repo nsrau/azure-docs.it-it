@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155202"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449351"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -67,9 +67,9 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     I parametri e le opzioni del comando sono riportati nella tabella seguente:
     
-    |Parametri/opzioni  |Descrizione |
+    |Parametri/opzioni  |DESCRIZIONE |
     |--------------------|------------|
-    |Sorgente            | Specifica il percorso della directory di origine.        |
+    |Source (Sorgente)            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |
     |/E                  | Copia le sottodirectory, incluse le directory vuote. |
     |/MT[:N]             | Crea copie multi-thread con N thread, dove N è un numero intero compreso tra 1 e 128. <br>Il valore predefinito per N è 8.        |
@@ -161,7 +161,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     Per altre informazioni sul comando Robocopy, vedere [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy e alcuni esempi).
 
-6. Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log per la risoluzione dei problemi. I file di log si trovano nella posizione specificata nel comando robocopy.
+6. Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log per la risoluzione dei problemi. I file di log si trovano nella posizione specificata nel comando Robocopy.
  
 > [!IMPORTANT]
 > - È responsabilità dell'utente assicurarsi di copiare i dati nelle cartelle corrispondenti al formato dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella cartella per i BLOB in blocchi. Se il formato dei dati non corrisponde alla cartella appropriata (tipo di archiviazione), il caricamento dei dati in Azure avrà negativo.
@@ -208,7 +208,7 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
  
 7. Aprire una finestra del prompt dei comandi. 
 
-8. Eseguire `DataBoxDiskSplitCopy.exe`. Digitare:
+8. Eseguire `DataBoxDiskSplitCopy.exe`. type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -251,7 +251,7 @@ Se non si è usato lo strumento di divisione della copia per copiare i dati, sar
     ![Output del checksum](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
     > [!TIP]
-    > - Reimpostare lo strumento dopo ogni esecuzione.
+    > - Reimpostare lo strumento tra due esecuzioni.
     > - Usare l'opzione 1 nel caso di set di dati di grandi dimensioni che contengono file piccoli (~ KB). Con questa opzione viene eseguita solo la convalida dei file perché la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risentirne negativamente.
 
 3. Se si usano più dischi, eseguire il comando per ciascun disco.

@@ -3,18 +3,19 @@ title: Procedure consigliate per ottimizzare le prestazioni tramite il bus di se
 description: Descrive come usare il bus di servizio per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392636"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848573"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -36,7 +37,7 @@ AMQP e SBMP sono più efficienti, poiché mantengono la connessione al bus di se
 
 ## <a name="reusing-factories-and-clients"></a>Riutilizzo di factory e client
 
-Gli oggetti client del bus di servizio, ad esempio [QueueClient][QueueClient] o [MessageSender][MessageSender], vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] che offre anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare l'oggetto [QueueClient][QueueClient] per inviare messaggi da più thread e operazioni asincrone simultanee. 
+Gli oggetti client del bus di servizio, ad esempio [QueueClient][QueueClient] o [MessageSender][MessageSender], vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] che offre anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread. 
 
 ## <a name="concurrent-operations"></a>Operazioni simultanee
 
@@ -127,42 +128,13 @@ La proprietà di durata (TTL) di un messaggio viene controllata dal server nel m
 
 La prelettura non influisce sul numero di operazioni di messaggistica fatturabili ed è disponibile solo per il protocollo client del bus di servizio. Il protocollo HTTP non supporta la prelettura. Questa funzionalità è disponibile per le operazioni di ricezione sincrone e asincrone.
 
-## <a name="express-queues-and-topics"></a>Code e argomenti rapidi
-
-Le entità express consentono scenari che prevedono velocità effettiva elevata e latenza minima e sono supportate solo nel livello di messaggistica Standard. Le entità create negli [spazi dei nomi Premium](service-bus-premium-messaging.md) non supportano l'opzione express. Quando si usano le entità rapide, un messaggio inviato a una coda o a un argomento non viene archiviato immediatamente nell'archivio di messaggistica, ma viene memorizzato nella cache in memoria. Se un messaggio resta nella coda per più di alcuni secondi, viene automaticamente scritto in un'archiviazione stabile, proteggendolo così da eventuali perdite a causa di un'interruzione. La scrittura di un messaggio in una cache consente di incrementare la velocità effettiva e di ridurre la latenza, perché al momento dell'invio del messaggio non si verificano tentativi di accesso all'archiviazione stabile. I messaggi usati nell'arco di pochi secondi non vengono inseriti nell'archivio di messaggistica. L'esempio seguente illustra la creazione di un argomento rapido.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Se un messaggio contenente informazioni critiche che non devono andare perdute viene inviato a un'entità espressa, il mittente può forzare il bus di servizio perché mantenga subito e in modo permanente il messaggio nell'archivio stabile impostando la proprietà [ForcePersistence][ForcePersistence] su **true**.
-
-> [!NOTE]
-> Le entità express non supportano le transazioni.
-
-## <a name="partitioned-queues-or-topics"></a>Code o argomenti partizionati
-
-Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una [coda o un argomento partizionato](service-bus-partitioning.md), al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
-
-> [!NOTE]
-> Le entità partizionate non sono supportate nello SKU [Premium](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Più code
 
-Se non è possibile usare una coda o un argomento partizionato o se il carico previsto non può essere gestito da una singola coda o argomento partizionato, è necessario usare più entità di messaggistica. Se si usano più entità, è consigliabile creare un client dedicato per ogni entità invece di usare lo stesso client per tutte.
+Se il carico previsto non può essere gestito da una singola coda o argomento partizionati, è necessario usare più entità di messaggistica. Se si usano più entità, è consigliabile creare un client dedicato per ogni entità invece di usare lo stesso client per tutte.
 
 ## <a name="development-and-testing-features"></a>Funzionalità di sviluppo e test
 
-Il bus di servizio presenta una funzionalità usata in particolare per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Il bus di servizio presenta una funzionalità usata specificamente per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Quando vengono aggiunti nuovi filtri o nuove regole all'argomento, è possibile usare [TopicDescription.EnableFilteringMessagesBeforePublishing][] per verificare che la nuova espressione di filtro funzioni come previsto.
 
@@ -215,7 +187,7 @@ Per ottimizzare la velocità effettiva, seguire questa procedura:
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Coda con un numero elevato di ricevitori
 
-Obiettivo: aumentare la velocità di ricezione di una coda o di una sottoscrizione con un numero elevato di ricevitori. Ogni ricevitore riceve messaggi a una velocità moderata. Il numero di mittenti è limitato.
+Obiettivo: aumentare la velocità di ricezione di una coda o di una sottoscrizione con un numero elevato di destinatari. Ogni ricevitore riceve messaggi a una velocità moderata. Il numero di mittenti è limitato.
 
 Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità. Se una coda richiede più di 1000 ricevitori, sostituirla con un argomento e più sottoscrizioni. Ogni sottoscrizione può supportare fino a 1000 connessioni simultanee. In alternativa, i ricevitori possono accedere alla coda tramite il protocollo HTTP.
 

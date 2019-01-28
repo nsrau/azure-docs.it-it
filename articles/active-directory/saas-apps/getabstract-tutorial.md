@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 1bb43f65bd77315be398a9c22e7fc1500de07754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 11515f74ae95cc317fe27de323da2de6c46c163c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424821"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825103"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Esercitazione: integrazione di Azure Active Directory con Getabstract
+# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Esercitazione: Integrazione di Azure Active Directory con Getabstract
 
 Questa esercitazione descrive come integrare Getabstract con Azure Active Directory (Azure AD).
 
@@ -146,7 +146,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Getabstract** è necessario inviare il file **XML metadati** scaricato al [team di supporto di Getabstract](https://www.getabstract.com/en/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -184,7 +184,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Getabstract. Getabstract supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Getabstract viene creato un nuovo utente, se questo non esiste già.
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Getabstract](https://www.getabstract.com/en/contact).
+>Per creare un utente manualmente, è necessario contattare il  [team di supporto di Getabstract](https://www.getabstract.com/en/contact)
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
@@ -222,7 +222,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Getabstract nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Getabstract.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

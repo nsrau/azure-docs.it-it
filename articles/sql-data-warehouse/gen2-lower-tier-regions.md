@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884885"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819357"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Supporto per i livelli inferiori di calcolo di Azure SQL Data Warehouse Gen2
 
@@ -29,7 +29,7 @@ Il portale non supporta ancora la distribuzione o il ridimensionamento alle ista
 I clienti possono decidere di distribuire una nuova istanza di Gen2 o aggiornare un'istanza di data warehouse di Gen1 esistente per sperimentare la flessibilità e le prestazioni dei data warehouse di nuova generazione. 
 
 Provare il [livello Gen2 con ottimizzazione per il calcolo di Azure SQL Data Warehouse.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-Aggiornare [Gen1 con ottimizzazione per il calcolo di Azure SQL Data Warehouse a Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation). È possibile vedere Azure SQL Data Warehouse Gen2 in azione in questo video [Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
+Aggiornare [Gen1 con ottimizzazione per il calcolo di Azure SQL Data Warehouse a Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation). È possibile vedere Azure SQL Data Warehouse Gen2 in azione in questo [video Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Aree supportate per i livelli inferiori di calcolo
@@ -52,4 +52,4 @@ Aggiornare [Gen1 con ottimizzazione per il calcolo di Azure SQL Data Warehouse a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni](upgrade-to-latest-generation.md) su come ottimizzare le prestazioni aggiornando Azure SQL Data Warehouse. 
+- [Altre informazioni](upgrade-to-latest-generation.md) sulle prestazioni con ottimizzazione per il calcolo aggiornando Azure SQL Data Warehouse. 

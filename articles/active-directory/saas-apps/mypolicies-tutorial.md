@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con myPolicies | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con myPolicies | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f4c34d224c65a6e339f12def01079a87247d2d60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8d6db758f01e3ef46a8c770477e1231ee8a8c08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429115"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809276"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Esercitazione: integrazione di Azure Active Directory con myPolicies
+# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Esercitazione: Integrazione di Azure Active Directory con myPolicies
 
 Questa esercitazione descrive come integrare myPolicies con Azure Active Directory (Azure AD).
 
@@ -155,7 +155,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **myPolicies**, è necessario inviare il **certificato (Base64)** scaricato e l'**URL del servizio Single Sign-On SAML** al [team di supporto di myPolicies](mailto:support@mypolicies.com). 
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-mypolicies-test-user"></a>Creazione di un utente di test di myPolicies
 
-In questa sezione viene creato un utente di nome Britta Simon in myPolicies. Collaborare con il [team di supporto di myPolicies](mailto:support@mypolicies.com) per aggiungere gli utenti alla piattaforma myPolicies. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in myPolicies. Collaborare con il  [team di supporto di myPolicies](mailto:support@mypolicies.com) per aggiungere gli utenti alla piattaforma myPolicies. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

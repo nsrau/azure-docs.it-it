@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826480"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Usare DNS di Azure per i domini privati
 
@@ -64,9 +64,9 @@ DNS di Azure offre le funzionalità seguenti:
 DNS di Azure presenta le limitazioni seguenti:
 
 * È consentita una sola rete virtuale di registrazione per zona privata.
-* Sono consentite fino a 10 reti virtuali di risoluzione per zona privata.
+* Sono consentite fino a 10 reti virtuali di risoluzione per zona privata. Il limite verrà rimosso quando la funzionalità sarà disponibile a livello generale.
 * Una determinata rete virtuale può essere collegata a una sola zona privata come rete virtuale di registrazione.
-* Una determinata rete virtuale può essere collegata a un massimo di 10 zone private come rete virtuale di risoluzione.
+* Una determinata rete virtuale può essere collegata a un massimo di 10 zone private come rete virtuale di risoluzione. Il limite verrà rimosso quando la funzionalità sarà disponibile a livello generale.
 * Se si specifica una rete virtuale di registrazione, i record DNS per le macchine virtuali di tale rete che sono registrati nella zona privata non sono visualizzabili né recuperabili tramite Azure PowerShell o le API dell'interfaccia della riga di comando di Azure, ma sono effettivamente registrati e vengono risolti correttamente.
 * Il DNS inverso funziona solo per lo spazio IP privato nella rete virtuale di registrazione.
 * Il DNS inverso per un indirizzo IP privato che non è registrato nella zona privata, ad esempio un indirizzo IP privato per una macchina virtuale in una rete virtuale collegata a una zona privata come rete virtuale di risoluzione a una zona privata, restituisce *internal.cloudapp.net* come suffisso DNS. Tuttavia questo suffisso non è risolvibile.

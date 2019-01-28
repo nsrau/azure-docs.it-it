@@ -86,6 +86,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Pulire il cluster ed eliminare l'infrastruttura
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Procedure consigliate
+  items:
+  - name: Panoramica delle procedure consigliate per Service Fabric
+    href: service-fabric-best-practices-overview.md
+  - name: Security
+    href: service-fabric-best-practices-security.md
+  - name: Rete
+    href: service-fabric-best-practices-networking.md
+  - name: Pianificazione e scalabilità dell'ambiente di calcolo
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Monitoraggio e diagnostica
+    href: service-fabric-best-practices-monitoring.md
+  - name: Elenco di controllo per l'idoneità per la produzione
+    href: service-fabric-production-readiness-checklist.md
 - name: Esempi
   items:
   - name: Esempi di codice
@@ -702,10 +718,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Risolvere i problemi del cluster locale
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Procedure consigliate
-    items:
-    - name: Elenco di controllo per l'idoneità per la produzione
-      href: service-fabric-production-readiness-checklist.md
 - name: riferimento
   items:
   - name: Azure PowerShell
@@ -827,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: abf77c080d6093e9028f82ccac7b20d24389bdbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5b487a8212cabb6809a9152e10dde7a1c9c7158f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352479"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913530"
