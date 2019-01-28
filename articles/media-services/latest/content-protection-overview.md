@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187978"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828257"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -39,9 +39,9 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
 1. Codice di Servizi multimediali di Azure
   
-  * Modelli di licenza per PlayReady, Widevine e/o FairPlay. I modelli consentono di configurare diritti e autorizzazioni per ognuno dei DRM utilizzati
-  * Autorizzazione di recapito di licenza, che specifica la logica del controllo dell'autorizzazione in base ad attestazioni in JWT
-  * Chiavi simmetriche, protocolli di streaming e DRM corrispondenti applicati, che definiscono la crittografia DRM
+  * Configurare modelli di licenza per PlayReady, Widevine e/o FairPlay. I modelli consentono di configurare diritti e autorizzazioni per ognuno dei Digital Rights Management utilizzati.
+  * Definire l'autorizzazione di recapito di licenza, che specifica la logica del controllo dell'autorizzazione in base ad attestazioni nel token JWT.
+  * Configurare la crittografia dei Digital Rights Management specificando la chiave simmetrica e i flussi di protocollo da usare.
 
   > [!NOTE]
   > È possibile crittografare ogni asset con più tipi di crittografia (AES-128, PlayReady, Widevine, FairPlay). Per informazioni su come combinarli efficacemente, vedere [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types) (Protocolli di streaming e tipi di crittografia).

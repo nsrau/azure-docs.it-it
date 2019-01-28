@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043465"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848373"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET tabella per Azure Cosmos DB: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -36,6 +36,9 @@ ms.locfileid: "54043465"
 >
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Correzioni di bug
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * È stato aggiunto il supporto per la scrittura in più aree
@@ -70,8 +73,10 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 <br/>
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |22 gennaio 2019|--- |
+| [2.0.0](#2.0.0) |26 settembre 2018|--- |
 | [1.1.3](#1.1.3) |17 luglio 2018|--- |
 | [1.1.1](#1.1.1) |26 marzo 2018|--- |
 | [1.1.0](#1.1.0) |21 febbraio 2018|--- |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582430"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857013"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -64,6 +64,24 @@ Per verificare se è attivo il limite di spesa, passare alla [visualizzazione So
 
 Fare clic sul banner e seguire le istruzioni per rimuovere il limite di spesa. Se al momento dell'iscrizione non si sono immesse le informazioni relative alla carta di credito, per rimuovere il limite di spesa è necessario inserirle. Per altre informazioni, vedere [Limite di spesa di Azure - Come funziona e come abilitarlo o rimuoverlo](https://azure.microsoft.com/pricing/spending-limits/).
 
+È possibile usare il servizio [Cloudyn](https://www.cloudyn.com/) per la creazione di avvisi che avvertano automaticamente gli stakeholder riguardo ad anomalie di spesa e rischi di costi eccessivi. È possibile creare avvisi usando report che supportano avvisi basati su soglie di budget e costo. Per altre informazioni sull'uso di Cloudyn, consultare [Esercitazione: Esaminare l'utilizzo e i costi](../cost-management/tutorial-review-usage.md).
+
+Questo esempio usa il report **Actual Cost Over Time** (Costo effettivo nel tempo) per inviare una notifica quando la spesa di una macchina virtuale di Azure si avvicina al budget totale. In questo scenario si dispone di un budget totale di 20.000 $ e si vuole ricevere una notifica quando i costi si avvicinano alla prima metà del budget, 9.000 $, e un ulteriore avviso quando i costi raggiungono i 10.000 $.
+
+1. Dal menu nella parte superiore del portale di Cloudyn selezionare **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). 
+2. Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). 
+3. Nella parte superiore destra del report selezionare **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
+4. Per inviare a se stessi un messaggio di posta elettronica del report a intervalli pianificati, selezionare la scheda **Scheduling** (Pianificazione) nella finestra di report **Save or Schedule this report** (Salva o pianifica report). Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. 
+5. Selezionare la scheda **Threshold** (Soglia) e quindi selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). 
+   1. Nella casella di soglia **Red alert** (Avviso rosso) immettere 10000. 
+   2. Nella casella di soglia **Yellow alert** (Avviso giallo) immettere 9000. 
+   3. Nella casella **Number of consecutive alerts** (Numero di avvisi consecutivi) immettere il numero di avvisi consecutivi da ricevere. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. 
+6. Selezionare **Salva**.
+
+    ![Esempio che mostra gli avvisi di colore giallo e rosso in base alle soglie di spesa](./media/billing-getting-started/schedule-alert01.png)
+
+È anche possibile scegliere la metrica di soglia **Cost Percentage vs. Budget** (Percentuale costo/budget) per la creazione degli avvisi. In questo modo è possibile specificare le soglie come percentuali del budget anziché come valori di valuta.
+
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Modi per monitorare i costi quando si usano i servizi di Azure
 
 ### <a name="tags"></a>Aggiungere tag alle risorse per raggruppare i dati di fatturazione
@@ -90,7 +108,7 @@ Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta i
 
     ![Screenshot della visualizzazione dell'analisi dei costi nel portale di Azure](./media/billing-getting-started/cost-analysis.PNG)
 
-4. È possibile filtrare la visualizzazione in base a diverse proprietà, come [tag](#tags), gruppo di risorse e intervallo di tempo. Fare clic su **Applica** per confermare i filtri e su **Scarica** per esportare la visualizzazione in un file con valori delimitati da virgole (CSV).
+4. È possibile filtrare la visualizzazione in base a diverse proprietà come [tag](#tags), tipo di risorsa, gruppo di risorse e intervallo di tempo. Fare clic su **Applica** per confermare i filtri e su **Scarica** per esportare la visualizzazione in un file con valori delimitati da virgole (CSV).
 
 5. È anche possibile fare clic su una risorsa per visualizzare la cronologia di spesa e il costo giornaliero della risorsa.
 

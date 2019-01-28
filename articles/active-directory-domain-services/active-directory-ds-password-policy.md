@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: criteri password | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Criteri password | Microsoft Docs'
 description: Comprendere i criteri password nei domini gestiti
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284609"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852695"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 Questo articolo illustra i criteri password predefiniti in un dominio gestito, oltre al modo in cui è possibile configurarli.
@@ -53,7 +53,7 @@ Lo screenshot seguente illustra i criteri granulari per le password predefiniti,
 ## <a name="password-policy-settings"></a>Impostazioni criteri password
 In un dominio gestito, per impostazione predefinita sono configurati i criteri password seguenti:
 * Lunghezza minima password (caratteri): 7
-* Validità massima password (durata): 90 giorni
+* Validità massima della password (durata): 90 giorni
 * Le password devono soddisfare i requisiti di complessità
 
 ### <a name="account-lockout-settings"></a>Impostazioni blocco account
@@ -113,7 +113,7 @@ Per creare un criterio granulare per le password personalizzato in un dominio ge
   ![Criteri granulari per le password non applicati](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Per applicare criteri password personalizzati per gli account utente in un'unità organizzativa personalizzata:** è possibile applicare i criteri granulari per le password solo ai gruppi. Per configurare i criteri password personalizzati solo per gli utenti da un'unità organizzativa personalizzata, creare un gruppo che includa gli utenti in tale unità organizzativa.
+> **Per applicare i criteri password personalizzati per gli account utente in un'unità organizzativa personalizzata:** i criteri granulari per le password possono essere applicati solo ai gruppi. Per configurare i criteri password personalizzati solo per gli utenti da un'unità organizzativa personalizzata, creare un gruppo che includa gli utenti in tale unità organizzativa.
 >
 >
 

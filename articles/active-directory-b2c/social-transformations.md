@@ -3,19 +3,19 @@ title: Esempi di trasformazione di attestazioni dell'account di social networkin
 description: Esempi di trasformazione di attestazioni dell'account di social networking per lo Schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9b592e7f61b87860e4f6fa2aa4d46e253b6257e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9ef8f9c68a09e998c393584ceb6e3be53f91a9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44383082"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848802"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
@@ -66,7 +66,7 @@ Usare questa trasformazione delle attestazioni per generare un tipo di attestazi
     - **chiave**: 12334
     - **identityProvider**: Facebook.com
 - Attestazioni di output:
-    - **alternativeSecurityId**: { "autorità di certificazione": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
@@ -74,7 +74,7 @@ Aggiunge un `AlternativeSecurityId` a un'attestazione `alternativeSecurityIdColl
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | stringa | Il tipo di attestazione da aggiungere all'attestazione di output. |
+| InputClaim | item | stringa | Il ClaimType da aggiungere all'attestazione di output. |
 | InputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione che vengono usati dalla trasformazione delle attestazioni, se disponibili nei criteri. Se specificato, la trasformazione delle attestazioni aggiunge il `item` alla fine della raccolta. |
 | OutputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. La nuova raccolta che contiene sia gli elementi dell'input `collection` che `item`. |
 
@@ -100,10 +100,10 @@ L'esempio seguente collega una nuova identità di social networking a un account
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **elemento**: { "autorità di certificazione": "facebook.com", "issuerUserId": "MTIzNDU=" }
-    - **raccolta**: [ { "autorità di certificazione": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **elemento**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" }
+    - **raccolta**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
 - Attestazioni di output:
-    - **raccolta**: [ { "autorità di certificazione": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **raccolta**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -128,7 +128,7 @@ La trasformazione delle attestazioni seguente legge l'attestazione **alternative
 ```
 
 - Attestazioni di input:
-    - **alternativeSecurityIdCollection**: [ { "autorità di certificazione": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Attestazioni di output:
     - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
@@ -165,6 +165,6 @@ Nell'esempio seguente viene scollegata l'identità di social networking dall'acc
 
 - Attestazioni di input:
     - **identityProvider**: facebook.com
-    - **raccolta**: [ { "autorità di certificazione": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **raccolta**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Attestazioni di output:
-    - **raccolta**: [ { "autorità di certificazione": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **raccolta**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]

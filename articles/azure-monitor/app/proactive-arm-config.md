@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020405"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853596"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -154,6 +154,17 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 | Potenziale perdita di memoria rilevata (anteprima) | extension_memoryleakextension |
 | Potenziale problema di sicurezza rilevato (anteprima) | extension_securityextensionspackage |
 | Problema di utilizzo delle risorse rilevato (anteprima) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
+
+Questa sezione si applica esclusivamente agli avvisi classici di rilevamento intelligente e facilita l'ottimizzazione delle notifiche di avviso per garantire che solo i destinatari desiderati ricevano le notifiche. Per comprendere meglio la differenza tra gli [avvisi classici] (../platform/alerts-classic.overview.md e la nuova esperienza di avvisi, consultare l'[articolo di panoramica sugli avvisi](../platform/alerts-overview.md). Attualmente gli avvisi di rilevamento intelligente supportano solo l'esperienza di avvisi classici. L'unica eccezione sono gli [avvisi di rilevamento intelligente nei servizi cloud di Azure](./proactive-cloud-services.md). Per controllare la notifica di avviso degli avvisi di rilevamento intelligente nei servizi cloud di Azure, usare [gruppi di azioni](../platform/action-groups.md).
+
+* È consigliabile l'uso di destinatari specifici per le notifiche di avviso classiche o di rilevamento intelligente.
+
+* Per gli avvisi di rilevamento intelligente, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con i ruoli proprietario, collaboratore o lettore nella sottoscrizione. _Tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights si trovano nell'ambito e riceveranno le notifiche. 
+
+> [!NOTE]
+> Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

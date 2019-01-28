@@ -3,19 +3,19 @@ title: Gestire l'accesso utente in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come identificare i minori, raccogliere dati su paese e data di nascita e ottenere l'accettazione delle condizioni di uso nell'applicazione con Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146271"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852032"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Le applicazioni e le organizzazioni possono decidere di impedire ai minorenni l'
 
 Se un utente viene identificato come minore, il flusso utente in Azure AD B2C può essere impostato su una di queste tre opzioni:
 
-- **Invio di un token JWT id_token firmato all'applicazione**: l'utente viene registrato nella directory e viene restituito un token all'applicazione. L'applicazione quindi procede applicando le regole business. Ad esempio, l'applicazione può continuare con un processo di consenso dei genitori. Per usare questo metodo, scegliere di ricevere le attestazioni **ageGroup** e **consentProvidedForMinor** dall'applicazione.
+- **Inviare un id_token JWT firmato all'applicazione**: L'utente è registrato nella directory e viene restituito un token all'applicazione. L'applicazione quindi procede applicando le regole business. Ad esempio, l'applicazione può continuare con un processo di consenso dei genitori. Per usare questo metodo, scegliere di ricevere le attestazioni **ageGroup** e **consentProvidedForMinor** dall'applicazione.
 
-- **Invio di un token JSON non firmato all'applicazione**: Azure AD B2C comunica all'applicazione che l'utente è minorenne e invia lo stato del consenso dei genitori dell'utente. L'applicazione quindi procede applicando le regole business. Se un token JSON non completa l'autenticazione in modo corretto, l'applicazione deve elaborare l'utente non autenticato in base alle attestazioni incluse nel token JSON, che possono includere **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
+- **Inviare un token JSON non firmato all'applicazione**: Azure AD B2C comunica all'applicazione che l'utente è minorenne e invia lo stato del consenso dei genitori dell'utente. L'applicazione quindi procede applicando le regole business. Se un token JSON non completa l'autenticazione in modo corretto, l'applicazione deve elaborare l'utente non autenticato in base alle attestazioni incluse nel token JSON, che possono includere **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
 
-- **Blocco dell'utente**: se un utente è minorenne e non è stato inviato il consenso dei genitori, Azure AD B2C può notificare all'utente che è stato bloccato. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
+- **Bloccare l'utente**: Se un utente è minorenne e non è stato fornito il consenso dei genitori, Azure AD B2C può notificare all'utente che è stato bloccato. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
 
 ## <a name="get-parental-consent"></a>Ottenere il consenso dei genitori
 

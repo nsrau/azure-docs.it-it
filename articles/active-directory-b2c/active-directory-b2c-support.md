@@ -3,19 +3,19 @@ title: Supporto di Azure Active Directory B2C | Microsoft Docs
 description: Come inviare richieste di supporto per Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 04eae00d40470d5f6c992d9a0c8c9b0b49d7495f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 003a65e0c9cc70639850ab9bacef5df3762dedc3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007638"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852439"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
@@ -54,7 +54,7 @@ ms.locfileid: "51007638"
     ![Supporto - Contatto](./media/active-directory-b2c-support/support-contact.png)
 8. Dopo aver inviato la richiesta di supporto, è possibile monitorarla facendo clic su **Guida e supporto** nella schermata iniziale, quindi su **Gestisci richieste di supporto**.
 
-## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Problema noto: invio di una richiesta di supporto nel contesto di un Tenant B2C
+## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Problema noto: Invio di una richiesta di supporto nel contesto di un tenant B2C
 Se non è stato svolto il passaggio 2 precedente e si tenta di creare una richiesta di supporto nel contesto del tenant B2C, verrà visualizzato il seguente errore.
 
 > [!IMPORTANT]

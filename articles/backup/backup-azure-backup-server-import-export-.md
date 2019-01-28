@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818558"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
@@ -42,7 +42,7 @@ Il backup offline è supportato per tutti i modelli di distribuzione di Backup d
 > * Backup di tutti i carichi di lavoro e i file con System Center Data Protection Manager (SC DPM) 
 > * Backup di tutti i carichi di lavoro e i file con il server di Backup di Microsoft Azure <br/>
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flusso di lavoro di backup offline
 * Deve essere stato creato un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md). Per crearne uno, vedere la procedura descritta in [questo articolo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * L'agente o il server di Backup di Azure oppure System Center Data Protection Manager deve essere installato su Windows Server o nel client Windows, a seconda dei casi, e il computer deve essere registrato con l'insieme di credenziali di Servizi di ripristino. Assicurarsi di usare solo la [versione più recente di Backup di Azure](https://go.microsoft.com/fwlink/?linkid=229525). 
@@ -74,12 +74,12 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
     Di seguito è riportata la descrizione degli input.
 
-    * **Percorso di gestione temporanea**: posizione di archiviazione temporanea in cui verrà scritta la copia del backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
-    * **Nome processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
-    * **Impostazioni di pubblicazione di Azure**: specificare il percorso locale del file di impostazioni di pubblicazione.
-    * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file di impostazioni di pubblicazione di Azure. 
-    * **Account di Archiviazione di Microsoft Azure**: il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
-    * **Contenitore di archiviazione di Azure**: nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
+    * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
+    * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
+    * **Impostazioni di pubblicazione di Azure**: Specificare il percorso locale del file di impostazioni di pubblicazione.
+    * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file delle impostazioni di pubblicazione di Azure. 
+    * **Account di Archiviazione di Microsoft Azure**: Il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
+    * **Contenitore di archiviazione di Azure**: Nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
 
      Salvare il *percorso di gestione temporanea* e il *nome del processo di importazione di Azure* specificato perché sono necessari per preparare i dischi.  
      
