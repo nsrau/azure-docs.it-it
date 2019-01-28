@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232686"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828316"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming
 
@@ -142,7 +142,7 @@ Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di d
    Il controllo MediaElement viene utilizzato per riprodurre i file multimediali. Nella lezione successiva verrà utilizzato il controllo del dispositivo di scorrimento denominato sliderProgress per controllare l'avanzamento del file multimediale.
 3. Premere **CTRL+S** per salvare il file.
 
-Il controllo MediaElement non supporta il contenuto Smooth Streaming per impostazione predefinita. Per abilitare il supporto Smooth Streaming, è necessario registrare il gestore del flusso di byte in base all'estensione del nome file e al tipo MIME.  Per effettuare la registrazione è necessario usare il metodo MediaExtensionManager.RegisterByteStremHandler dello spazio dei nomi Windows.Media.
+Il controllo MediaElement non supporta il contenuto Smooth Streaming per impostazione predefinita. Per abilitare il supporto Smooth Streaming, è necessario registrare il gestore del flusso di byte in base all'estensione del nome file e al tipo MIME.  Per effettuare la registrazione è necessario usare il metodo MediaExtensionManager.RegisterByteStreamHandler dello spazio dei nomi Windows.Media.
 
 Nel file XAML alcuni gestori di eventi sono associati ai controlli.  Sarà quindi necessario definire tali gestori di eventi.
 
