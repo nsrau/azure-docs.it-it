@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096617"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844739"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -30,17 +30,17 @@ Verrà visualizzata la finestra mostrata di seguito:
 ## <a name="metrics-available-for-stream-analytics"></a>Metriche disponibili per l'analisi di flusso
 | Metrica                 | Definizione                               |
 | ---------------------- | ---------------------------------------- |
-| Eventi di input con backlog       | Numero di eventi di input con backlog. |
-| Errori di conversione dati | Numero di eventi di output che non è stato possibile convertire nello schema di output previsto. |
-| Eventi di input anticipati       | Numero di eventi ricevuti in anticipo. |
+| Eventi di input con backlog       | Numero di eventi di input con backlog. Un valore diverso da zero per questa metrica implica che il processo non è in grado di rimanere aggiornato con il numero di eventi in arrivo. Se il valore aumenta lentamente o in modo coerente con un numero diverso da zero, è necessario ampliare il processo. Per altre informazioni, visitare [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md). |
+| Errori di conversione dati | Numero di eventi di output che non è stato possibile convertire nello schema di output previsto. Criteri di errore possono essere modificati in "Drop" (rilascia) per rimuovere gli eventi che verificano questo scenario. |
+| Eventi di input anticipati       | Eventi il cui timestamp di applicazione è precedente all'ora di arrivo di più di 5 minuti. |
 | Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
 | Eventi di funzioni        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |
 | Richieste di funzioni      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
-| Errori di deserializzazione dell'input       | Numero di eventi che non è stato possibile deserializzare.  |
+| Errori di deserializzazione dell'input       | Numero di eventi di input che non è stato possibile deserializzare.  |
 | Byte evento di input      | Quantità di dati ricevuta dal processo di Analisi di flusso, in termini di byte. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
-| Eventi di input           | Quantità di dati ricevuta dal processo di Analisi di flusso, in termini di numero di eventi. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
-| Origini di input ricevute       | Numero di eventi provenienti da un'origine di input. |
-| Ultimi eventi di input      | Numero di eventi che arrivano in ritardo dall'origine che sono stati eliminati oppure il cui timestamp è stato modificato, in base alla configurazione dei Criteri di ordinamento eventi dell'impostazione della Finestra di tolleranza elementi non in ordine. |
+| Eventi di input           | Numero di record deserializzati da eventi di input. |
+| Origini di input ricevute       | Numero di eventi ricevuti dal processo. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
+| Ultimi eventi di input      | Eventi arrivati in un secondo momento rispetto alla finestra di tolleranza per arrivo in ritardo configurata. Altre informazioni sulle [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md). |
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Eventi di output          | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di numero di eventi. |
 | Errori di runtime         | Numero totale di errori correlati all'elaborazione delle query (esclusi gli errori rilevati durante l'inserimento di eventi o l'output dei risultati) |

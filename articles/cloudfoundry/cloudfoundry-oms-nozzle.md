@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819034"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 
@@ -64,10 +64,10 @@ Verificare che sia installato Rubygems prima di configurare il client della riga
 2. Selezionare **Crea** e quindi scegliere le opzioni per gli elementi seguenti:
 
    * **Area di lavoro di Log Analytics**: immettere un nome per l'area di lavoro.
-   * **Sottoscrizione:** se sono disponibili più sottoscrizioni, scegliere quella con la stessa distribuzione di Cloud Foundry.
-   * **Gruppo di risorse:** è possibile creare un nuovo gruppo di risorse o usare quello con la stessa distribuzione di Cloud Foundry.
+   * **Sottoscrizione** se sono disponibili più sottoscrizioni, scegliere quella con la stessa distribuzione di Cloud Foundry.
+   * **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usare quello con la stessa distribuzione di Cloud Foundry.
    * **Località**: immettere la località.
-   * **Piano tariffario:** fare clic su **OK** per completare.
+   * **Piano tariffario**: selezionare **OK** per completare.
 
 Per altre informazioni, vedere [Introduzione a Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -78,7 +78,7 @@ Per altre informazioni, vedere [Introduzione a Log Analytics](https://docs.micro
 3. Digitare "Cloud Foundry" nella finestra di ricerca e selezionare "Cloud Foundry Monitoring Solution" (Soluzione di monitoraggio Cloud Foundry).
 4. Verrà caricata la prima pagina del modello della soluzione di monitoraggio Cloud Foundry. Fare clic su "Crea" per avviare il pannello del modello.
 5. Immettere i parametri richiesti:
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure per l'area di lavoro di Log Analytics, in genere la stessa della distribuzione di Cloud Foundry.
+    * **Sottoscrizione** selezionare una sottoscrizione di Azure per l'area di lavoro di Log Analytics, in genere la stessa della distribuzione di Cloud Foundry.
     * **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo per l'area di lavoro di Log Analytics.
     * **Località del gruppo di risorse**: selezionare la località del gruppo di risorse.
     * **OMS_Workspace_Name**: immettere un nome dell'area di lavoro. Se l'area di lavoro non esiste, il modello ne creerà una nuova.

@@ -4,7 +4,7 @@ description: Abilitare Azure Active Directory Domain Services tramite il portale
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155083"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850417"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
@@ -61,11 +61,11 @@ Nella pagina **Informazioni di base** della procedura guidata specificare il nom
 
    > [!NOTE]
    > **Linee guida per la selezione di un nome di dominio DNS**
-   > * **Nome di dominio predefinito**: per impostazione predefinita, la procedura guidata specifica il nome di dominio predefinito della directory con suffisso **.onmicrosoft.com**. Se si sceglie di abilitare l'accesso LDAP sicuro al dominio gestito su Internet, si verificheranno problemi nella creazione di un record DNS pubblico o nell'ottenimento di un certificato LDAP sicuro da un'autorità di certificazione pubblica per questo nome di dominio. Microsoft è proprietaria del dominio *.onmicrosoft.com* e l'autorità di certificazione non emette certificati a garanzia di questo dominio.
-   * **Nomi di dominio personalizzato**: è anche possibile immettere un nome di dominio personalizzato. In questo esempio, il nome di dominio personalizzato è *contoso100.com*.
-   * **Suffissi di dominio non instradabili**: in genere è consigliabile evitare suffissi di dominio non instradabili. È ad esempio preferibile evitare di creare un dominio con il nome di dominio DNS 'contoso.local'. Il suffisso DNS '.local' non è instradabile e può causare problemi con la risoluzione DNS.
-   * **Limitazioni dei prefissi di dominio**: il prefisso del nome di dominio specificato, ad esempio *contoso100* nel nome di dominio *contoso100.com*, può contenere al massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
-   * **Conflitti dei nomi di rete**: assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. In particolare, verificare se:
+   > * **Nome di dominio predefinito:** per impostazione predefinita, la procedura guidata specifica il nome di dominio predefinito della directory con suffisso **.onmicrosoft.com**. Se si sceglie di abilitare l'accesso LDAP sicuro al dominio gestito su Internet, si verificheranno problemi nella creazione di un record DNS pubblico o nell'ottenimento di un certificato LDAP sicuro da un'autorità di certificazione pubblica per questo nome di dominio. Microsoft è proprietaria del dominio *.onmicrosoft.com* e l'autorità di certificazione non emette certificati a garanzia di questo dominio.
+   * **Nomi di dominio personalizzati:** È anche possibile immettere un nome di dominio personalizzato. In questo esempio, il nome di dominio personalizzato è *contoso100.com*.
+   * **Suffissi di dominio non instradabili:** in genere è consigliabile evitare suffissi di dominio non instradabili. È ad esempio preferibile evitare di creare un dominio con il nome di dominio DNS 'contoso.local'. Il suffisso DNS '.local' non è instradabile e può causare problemi con la risoluzione DNS.
+   * **Limitazioni dei prefissi di dominio:** Il prefisso del nome del dominio specificato (ad esempio, *contoso100* nel nome di dominio *contoso100.com*) può contenere massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
+   * **Conflitti nei nomi di rete:** Assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. In particolare, verificare se:
        * È già presente un dominio di Active Directory con lo stesso nome di dominio DNS nella rete virtuale.
        * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.
        * Esiste un servizio cloud con lo stesso nome della rete virtuale.

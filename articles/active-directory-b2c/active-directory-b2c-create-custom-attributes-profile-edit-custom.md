@@ -3,21 +3,21 @@ title: Aggiungere propri attributi ai criteri personalizzati in Azure Active Dir
 description: Procedura dettagliata che illustra come usare proprietà di estensione e attributi personalizzati e includerli nell'interfaccia utente.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338745"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854055"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Uso di attributi personalizzati in criteri personalizzati di modifica del profilo
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -53,14 +53,14 @@ Le istruzioni sono comprese nella sezione **Passaggi successivi** di questo arti
 2. Nel menu di spostamento a sinistra fare clic su **Azure Active Directory**. Potrebbe essere necessario selezionare **Altri servizi** per trovarlo.
 3. Selezionare **Registrazioni per l'app**. Selezionare **Registrazione nuova applicazione**.
 4. Aggiungere le voci seguenti:
-    * Nome per l'applicazione Web: **WebApp-GraphAPI-DirectoryExtensions**.
-    * Tipo di applicazione: **app Web/API**.
+    * Un nome per l'applicazione Web: **WebApp-GraphAPI-DirectoryExtensions**.
+    * Il tipo di applicazione: **App/API Web**.
     * URL di accesso: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Selezionare **Create**.
 6. Selezionare l'applicazione Web appena creata.
 7. Selezionare **Impostazioni** > **Autorizzazioni necessarie**.
 8. Selezionare l'API **Microsoft Azure Active Directory**.
-9. Immettere un segno di spunta in Autorizzazioni per l'applicazione: **Legge e scrive i dati della directory**. Selezionare quindi **Salva**.
+9. Immettere un segno di spunta in Autorizzazioni dell'applicazione: **Lettura e scrittura dati directory**. Selezionare quindi **Salva**.
 10. Selezionare **Concedere le autorizzazioni** e quindi fare clic su **Sì** per confermare.
 11. Copiare negli Appunti e salvare gli identificatori seguenti:
     * **ID applicazione**. Esempio: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Le istruzioni sono comprese nella sezione **Passaggi successivi** di questo arti
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modifica dei criteri personalizzati per l'aggiunta di **ApplicationObjectId**
 
-Con la procedura descritta in [Azure Active Directory B2C: Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) sono stati scaricati e modificati i [file di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominati **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. In questo passaggio, vengono apportate altre modifiche a tali file.
+Quando è stata eseguita la procedura descritta in [Azure Active Directory B2C: Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), sono stati scaricati e modificati [file di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominati **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. In questo passaggio, vengono apportate altre modifiche a tali file.
 
 * Aprire il file **TrustFrameworkBase.xml** e aggiungere la sezione `Metadata` come illustrato nell'esempio seguente. Inserire l'ID oggetto registrato in precedenza per il valore `ApplicationObjectId` e l'ID applicazione registrato per il valore `ClientId`: 
 

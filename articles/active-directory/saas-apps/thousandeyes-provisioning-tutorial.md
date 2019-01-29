@@ -1,11 +1,11 @@
 ---
-title: 'Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: "Esercitazione: Configurare ThousandEyes per effettuare il provisioning automatico dell'utente con Azure Active Directory | Microsoft Docs"
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in ThousandEyes.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2df899e6cb0078cdf949c3f8257719b00554e85b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345761"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815720"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per effettuare il provisioning automatico dell'utente
 
 
 Questa esercitazione descrive le procedure da eseguire in ThousandEyes e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a ThousandEyes. 
@@ -74,7 +74,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Nella sezione **Credenziali amministratore** immettere il **Token segreto** generato dall'account di ThousandEyes. È possibile trovare il token nell'account ThousandEyes: **Security & Authentication** (Sicurezza e autenticazione). 
+5. Nella sezione **Credenziali amministratore** inserire il **token di connessione OAuth** generato dal proprio account ThousandEyes (è possibile trovare o generare il token nella sezione **Profilo** dell'account ThousandEyes.
 
     ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620762"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457075"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Per completare l'esercitazione, è necessario un account Azure attivo. Se non si
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di scrivere il codice per il dispositivo, distribuire l'acceleratore di soluzioni Monitoraggio remoto e aggiungere un nuovo dispositivo fisico alla soluzione.
+Prima di scrivere il codice per il dispositivo, distribuire l'acceleratore di soluzioni Monitoraggio remoto e aggiungere un nuovo dispositivo reale alla soluzione.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni Monitoraggio remoto
 
@@ -62,7 +62,7 @@ Per aggiungere un dispositivo alla soluzione Monitoraggio remoto, completare i p
 
 1. Scegliere **Nuovo dispositivo** e quindi come **Tipo di dispositivo** scegliere **Fisico**:
 
-    ![Aggiungere un dispositivo fisico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Aggiungere un dispositivo reale](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Immettere **Fisico-chiller** come ID del dispositivo. Scegliere le opzioni **Chiave simmetrica** e **Genera chiavi automaticamente**:
 
@@ -72,7 +72,7 @@ Per aggiungere un dispositivo alla soluzione Monitoraggio remoto, completare i p
 
     ![Recuperare le credenziali](media/iot-suite-selector-connecting/credentials.png)
 
-A questo punto è stato aggiunto un dispositivo fisico all'acceleratore di soluzioni Monitoraggio remoto e ne è stata annotata la stringa di connessione. Nelle sezioni seguenti si implementerà l'applicazione client che usa la stringa di connessione del dispositivo per connettersi alla soluzione.
+A questo punto è stato aggiunto un dispositivo reale all'acceleratore di soluzioni Monitoraggio remoto e ne è stata annotata la stringa di connessione. Nelle sezioni seguenti si implementerà l'applicazione client che usa la stringa di connessione del dispositivo per connettersi alla soluzione.
 
 L'applicazione client implementa il modello di dispositivo **Chiller** predefinito. Un modello di dispositivo per l'acceleratore di soluzioni specifica le informazioni seguenti per il dispositivo:
 
