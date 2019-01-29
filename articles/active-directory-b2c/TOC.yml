@@ -153,7 +153,9 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Tenere traccia del comportamento degli utenti
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Informazioni di riferimento
+    - name: Proteggere un'app Web Java
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+    - name: riferimento
       items:
       - name: Resolver di attestazioni
         href: claim-resolver-overview.md
@@ -280,7 +282,7 @@ items:
     href: b2clogin.md
   - name: Usare l'API Graph di Azure AD
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: Esempi di codice
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
@@ -318,9 +320,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 505d4be048f287179c4601296d12294942535520
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244393"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091922"

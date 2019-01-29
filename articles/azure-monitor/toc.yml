@@ -987,6 +987,8 @@ items:
       href: platform/alerts-extend.md
     - name: Copiare avvisi dal portale OMS al portale di Azure
       href: platform/alerts-extend-tool.md
+    - name: Cambiare le preferenze dell'API per gli avvisi del log
+      href: platform/alerts-log-api-switch.md
 - name: Risorse
   items:
   - name: Roadmap per Azure
@@ -1017,9 +1019,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8c78f79b08b389f7570d1a726e5ffcaef56bdfa3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888023"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104592"

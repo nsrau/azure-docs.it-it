@@ -172,7 +172,7 @@ items:
       href: optimize-dev-test.md
     - name: Ottimizzare con la capacità riservata
       href: cosmos-db-reserved-capacity.md
-  - name: Sicurezza
+  - name: Security
     items:
     - name: Panoramica
       href: database-security.md
@@ -264,7 +264,7 @@ items:
           href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Tipi di dati
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: GeoSpatial
           href: geospatial.md
@@ -272,6 +272,16 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Libreria Java
           href: bulk-executor-java.md
+      - name: Sviluppo Java
+        items:
+        - name: Usare Spring Boot Starter
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+        - name: Usare l'API Spring Data Apache Cassandra
+          href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+        - name: Usare Spring Data Gremlin Starter
+          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+        - name: Usare l'API Spring Data MongoDB
+          href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
     - name: riferimento
       items:
       - name: .NET
@@ -483,7 +493,7 @@ items:
       items:
       - name: Configurare l'indicizzazione
         href: how-to-manage-indexing-policy.md
-  - name: Sicurezza
+  - name: Security
     items:
     - name: Configurare il firewall IP
       href: how-to-configure-firewall.md
@@ -617,9 +627,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: 75984b49a5af0538c7534fb326808dcb3c35b46c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359800"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094479"

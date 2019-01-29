@@ -35,7 +35,10 @@
 #### [Promuovere la propria attività con Microsoft](./gtm-promote-your-business.md)
 #### [Soluzioni preferite](./preferred-solutions.md) 
 
-### [Supporto per Azure Marketplace e AppSource](./support-azure-marketplace.md)  
+### [Supporto per Azure Marketplace e AppSource](./support-azure-marketplace.md)
+#### [Domande frequenti su Marketplace](./marketplace-faq-publisher-guide.md)
+#### [Condizioni di Marketplace](./marketplace-terms.md)
+#### [Criteri di partecipazione a Marketplace](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
@@ -151,7 +154,6 @@
 #### [Pubblicare un'offerta](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Aggiornare un'offerta esistente](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 #### [API SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-#### [Client di verifica automatica SaaS](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 ### [Offerta per le macchine virtuali](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Prerequisiti](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -176,6 +178,7 @@
 ###### [Modello di distribuzione del disco rigido virtuale](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
 ###### [Distribuire una macchina virtuale dal marketplace](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 ##### [Certificare l'immagine di macchina virtuale](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+##### [Client di verifica automatica VM](./cloud-partner-portal/virtual-machine/cpp-selftest-client.md)
 ##### [Ottenere l'URI di firma di accesso condiviso](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 ##### [Problemi comuni degli URL di firma di accesso condiviso](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 #### [Pubblicare un'offerta per le VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
