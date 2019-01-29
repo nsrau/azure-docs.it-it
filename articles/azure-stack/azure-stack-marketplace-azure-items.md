@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306608"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196209"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack.*
 
-## <a name="virtual-machine-extensions"></a>Estensioni della macchina virtuale
+## <a name="virtual-machine-extensions"></a>Estensioni di macchina virtuale
 
 Ogni volta che sono presenti aggiornamenti per le estensioni di macchina virtuale (VM) è utilizzare, è necessario scaricarli. Le estensioni fornite nel prodotto non vengono aggiornano nel normale processo di aggiornamento e patch; quindi, Cerca gli aggiornamenti frequenti. Altre estensioni sono disponibili solo tramite Gestione di Marketplace.
 
@@ -46,7 +46,7 @@ Ogni volta che sono presenti aggiornamenti per le estensioni di macchina virtual
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Agente protezione di Cloud ibrido Kaspersky per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Kaspersky Hybrid Cloud Security, è possibile eseguire il provisioning di funzionalità per la sicurezza informatica direttamente all'interno dei carichi di lavoro cloud tramite le estensioni di Azure. | Kaspersky Lab |  Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent per Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Kaspersky Hybrid Cloud Security, è possibile eseguire il provisioning di funzionalità per la sicurezza informatica direttamente all'interno dei carichi di lavoro cloud tramite le estensioni di Azure. | Kaspersky Lab | Linux |
 
-## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Modelli di soluzione e immagini di macchine virtuali di Microsoft
+## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Le immagini di macchina virtuale di Microsoft e i modelli di soluzione
 
 Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplace e i modelli di soluzione. Scarica le eventuali dipendenze separatamente, come indicato. Le applicazioni come SQL Server e di Machine Learning Server richiedono delle licenze appropriate, ad eccezione di dove contrassegnato come versione di valutazione o gratuito.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Modelli di soluzione e immagini BYOL di terze parti, gratuito e versione di valutazione
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL di terze parti, le immagini di prova gratuite e modelli di soluzione
 
 |  | Nome dell'elemento | DESCRIZIONE | Editore |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Le reti A10 vThunder Application Delivery Controller per Microsoft Azure è appositamente progettato per prestazioni elevate, flessibilità, e server e il recapito per distribuire un'applicazione del bilanciamento del carico e ottimizzati per l'esecuzione in modo nativo nel cloud di Azure. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Il vEOS Arista Router è un ricco, multi-cloud e router virtuale basati su più hypervisor che permette alle aziende e provider di servizi cloud per compilare coerenti e a sicurezza elevata e reti ibride scalabile. | Arista Networks |
 | ![Centro di controllo di sicurezza dell'applicazione barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro di controllo di sicurezza dell'applicazione barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Gestire centralmente più Barracuda Web Application firewall (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Gateway di protezione di posta elettronica per la protezione contro le minacce tramite posta elettronica in ingresso. | Barracuda Networks, Inc. |
