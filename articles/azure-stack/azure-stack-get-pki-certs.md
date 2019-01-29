@@ -10,28 +10,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6716f9b959169d6aa9bc5546f6f69c26bdd23320
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514197"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099850"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Firma richiedere la generazione di certificati di Azure Stack
 
-Lo strumento di controllo di conformità di Azure Stack descritto in questo articolo è disponibile [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Lo strumento crea richieste di firma del certificato (CSR) appropriato per la distribuzione di Azure Stack. Certificati devono essere richiesti, generati e convalidati un periodo di tempo sufficiente per eseguire il test prima della distribuzione.
+È possibile utilizzare lo strumento di controllo di conformità di Azure Stack per creare richieste di firma del certificato (CSR) appropriati per la distribuzione di Azure Stack. Certificati devono essere richiesti, generati e convalidati un periodo di tempo sufficiente per eseguire il test prima della distribuzione. È possibile ottenere lo strumento [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
-Lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) esegue le richieste di certificato seguenti:
+È possibile usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per richiedere i certificati seguenti:
 
- - **Richieste di certificati standard**  
-    Richiesta in base alla [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md).
+ - **Le richieste di certificato standard** in base ai [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
     È possibile richiedere i nomi di platform-as-a-service (PaaS) per i certificati come specificato nella [requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack - certificati PaaS facoltativo](azure-stack-pki-certs.md#optional-paas-certificates).
-
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,43 +50,43 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
 1.  Installare AzsReadinessChecker da un prompt di PowerShell (5.1 o versione successiva) eseguendo il cmdlet seguente:
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
-    ````
+    ```
 
 2.  Dichiarare la **soggetto** come un dizionario ordinato. Ad esempio:  
 
-    ````PowerShell  
+    ```PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
-    ````
+    ```
     > [!note]  
     > Se viene fornito un nome comune (CN) questo verrà sovrascritto dal nome DNS prima della richiesta di certificato.
 
 3.  Dichiarare una directory di output esiste già. Ad esempio: 
 
-    ````PowerShell  
+    ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
-    ````
+    ```
 4.  Dichiarare il sistema di identità
 
     Azure Active Directory
 
     ```PowerShell
     $IdentitySystem = "AAD"
-    ````
+    ```
 
     Active Directory Federation Services
 
     ```PowerShell
     $IdentitySystem = "ADFS"
-    ````
+    ```
 
 5. Dichiarare **nome dell'area** e un **FQDN esterno** destinata la distribuzione di Azure Stack.
 
     ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
-    ````
+    ```
 
     > [!note]  
     > `<regionName>.<externalFQDN>` costituisce la base su cui vengono creati tutti i nomi DNS esterni in Azure Stack, in questo esempio, il portale sarebbe `portal.east.azurestack.contoso.com`.  
@@ -98,7 +95,7 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     Per includere i servizi PaaS, specificare il commutatore ```-IncludePaaS```
 
@@ -106,13 +103,13 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     Per includere i servizi PaaS, specificare il commutatore ```-IncludePaaS```
     
 8. Esaminare l'output:
 
-    ````PowerShell  
+    ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
     
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
@@ -123,7 +120,7 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     New-AzsCertificateSigningRequest Completed
-    ````
+    ```
 
 9.  Inviare il **. REQ** file generato da un'autorità di certificazione (interno o pubblico).  La directory di output **New-AzsCertificateSigningRequest** contiene il CSR(s) necessari per l'invio a un'autorità di certificazione.  La directory contiene inoltre, per riferimento, una directory figlio che contiene i file INF usati durante la generazione della richiesta di certificato. Assicurarsi che l'autorità di certificazione genera certificati usando la richiesta generata che soddisfano le [requisiti di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md).
 

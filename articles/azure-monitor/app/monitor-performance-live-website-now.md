@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199386"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819136"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentare app Web in fase di esecuzione con Application Insights Status Monitor
 
@@ -32,11 +32,13 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 ![Screenshot dei grafi della panoramica di Application Insights contenente informazioni su richieste non riuscite, tempo di risposta del server e richieste server](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-È possibile scegliere di applicare Application Insights alle applicazioni Web .NET in tre modi:
+È possibile scegliere di applicare Application Insights alle applicazioni Web .NET in due modi:
 
 * **Fase di compilazione:** [aggiungere Application Insights SDK][greenbrown] al codice dell'app Web.
 * **Fase di esecuzione:** instrumentare l'app Web sul server, come descritto di seguito, senza ricompilare e ridistribuire il codice.
-* **Entrambe le opzioni:** compilare l'SDK nel codice dell'app Web e applicare anche le estensioni della fase di esecuzione, sfruttando il meglio delle due opzioni.
+
+> [!NOTE]
+> Se si usa la strumentazione in fase di compilazione, la strumentazione in fase di esecuzione non funzionerà anche se è attivata.
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 

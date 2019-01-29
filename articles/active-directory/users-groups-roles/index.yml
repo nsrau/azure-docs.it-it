@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 153c3884d3802259fafac82650d79534472d7641
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb192b32928ef66f5722b4a0141eab437bddd27
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209079"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203352"
 documentType: LandingData
 title: Documentazione sulla gestione degli utenti in Azure Active Directory
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Documentazione su utenti, gruppi, ruoli e licenze di Azure Active Directory
   description: Informazioni su come usare utenti, gruppi, ruoli e licenze per gestire l'autenticazione ai servizi cloud di Azure nel tenant.
   services: active-directory
-  ms.component: users-groups-roles
+  ms.subservice: users-groups-roles
   author: curtand
   manager: mtillman
   ms.service: active-directory
@@ -42,7 +42,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Creare un gruppo popolato in modo dinamico</a>
-- title: Informazioni di riferimento
+- title: riferimento
   items:
   - type: list
     style: cards

@@ -3,19 +3,19 @@ title: Esempi di trasformazione delle attestazioni di data per lo schema del fra
 description: Esempi di trasformazione delle attestazioni di data per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405821"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850060"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -111,9 +111,9 @@ L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 01/06/2019
 - Attestazioni di output:
-    - **outputClaim**: 1559347200 (1 giugno 2019 12:00:00 AM)
+    - **outputClaim**: 1559347200 (1° giugno 2019, mezzanotte)
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -134,7 +134,7 @@ Ottiene la data e ora UTC correnti e aggiunge il valore a un ClaimType.
 ### <a name="example"></a>Esempio
 
 * Attestazioni di output:
-    * **currentDateTime**: 1534418820 (16 agosto 2018 11:27:00 AM)
+    * **currentDateTime**: 1534418820 (16 agosto 2018, 11:27)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
