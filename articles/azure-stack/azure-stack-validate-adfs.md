@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416512"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101729"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Convalidare l'integrazione di AD FS per Azure Stack
 
@@ -29,7 +29,7 @@ Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessCheck
 Il controllo di conformità di convalida:
 
 * Il *metadati della federazione* contiene gli elementi XML validi per la federazione.
-* Il *certificato SSL di AD FS* può essere recuperato e una catena di trust può essere compilato. In corrispondenza del timestamp ADFS devono considerare attendibile la catena di certificati SSL. Il certificato deve essere firmato dallo stesso *autorità di certificazione* come i certificati di distribuzione di Azure Stack o da un partner di autorità radice attendibile. Per l'elenco completo dei partner dell'autorità radice attendibile, vedere [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Il *certificato SSL di AD FS* può essere recuperato e una catena di trust può essere compilato. In corrispondenza del timestamp ADFS devono considerare attendibile la catena di certificati SSL. Il certificato deve essere firmato dallo stesso *autorità di certificazione* usato per i certificati di distribuzione di Azure Stack o da un partner di autorità radice attendibile. Per l'elenco completo dei partner dell'autorità radice attendibile, vedere [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * Il *certificato di firma di AD FS* è attendibile e non sta raggiungendo una condizione di scadenza.
 
 Per altre informazioni sull'integrazione di Data Center di Azure Stack, vedere [integrazione di Data Center di Azure Stack - identità](azure-stack-integrate-identity.md).
@@ -101,8 +101,8 @@ Per impostazione predefinita, entrambi i file vengono scritti `C:\Users\<usernam
 
 Usare:
 
-* **-OutputPath**: il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
-* **-CleanReport**: il parametro alla fine del comando di esecuzione per cancellare AzsReadinessCheckerReport.json delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: Il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
+* **-CleanReport**: Il parametro alla fine del comando di esecuzione per cancellare AzsReadinessCheckerReport.json delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Errori di convalida
 
@@ -114,9 +114,9 @@ Gli esempi seguenti forniscono informazioni aggiuntive sugli errori di convalida
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Causa**: Autoload PowerShell non è riuscito a caricare correttamente il modulo di controllo di conformità.
+**Causa**: Autoload PowerShell non è stato possibile caricare correttamente il modulo di controllo di conformità.
 
-**Risoluzione**: importare il modulo di controllo di conformità in modo esplicito. Copiare e incollare il codice seguente in PowerShell e l'aggiornamento \<versione\> con il numero per la versione attualmente installata.
+**Risoluzione**: Importare il modulo di controllo di conformità in modo esplicito. Copiare e incollare il codice seguente in PowerShell e l'aggiornamento \<versione\> con il numero per la versione attualmente installata.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

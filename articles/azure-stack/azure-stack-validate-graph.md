@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbc6e7586e116df1fa19c6c9e0c5a5b17f00d646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416232"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096765"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Convalidare l'integrazione di graph per Azure Stack
 
@@ -94,7 +94,7 @@ I seguenti prerequisiti sono necessari.
     Invoke-AzsGraphValidation Completed
     ```
 
-Negli ambienti di produzione, testare la connettività di rete da workstation dell'operatore non è completamente indicativo della connettività disponibili in Azure Stack. Rete di indirizzi VIP pubblici del timbro Azure Stack sarà necessario la connettività per il traffico LDAP eseguire l'integrazione delle identità.
+Negli ambienti di produzione, testare la connettività di rete da workstation dell'operatore non è completamente indicativo della connettività disponibili in Azure Stack. Rete VIP pubblico dell'indicatore di Azure Stack richiede la connettività per il traffico LDAP eseguire l'integrazione delle identità.
 
 ## <a name="report-and-log-file"></a>File di log e report
 
@@ -106,8 +106,8 @@ Per impostazione predefinita, entrambi i file vengono scritti `C:\Users\<usernam
 
 Usare:
 
-* **-OutputPath**: il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
-* **-CleanReport**: il parametro alla fine del comando di esecuzione per cancellare *AzsReadinessCheckerReport.json* delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: Il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
+* **-CleanReport**: Il parametro alla fine del comando di esecuzione per cancellare *AzsReadinessCheckerReport.json* delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Errori di convalida
 

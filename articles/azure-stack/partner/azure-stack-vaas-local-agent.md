@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 53309eceaab566836cef5f73dff2b69db5d9c135
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247810"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102414"
 ---
 # <a name="deploy-the-local-agent"></a>Distribuire l'agente locale
 
@@ -114,9 +114,9 @@ L'esecuzione di azioni remote dei test. Il computer che esegue il test deve aver
 
 2. Eseguire il comando seguente:
 
-    ````PowerShell
+    ```PowerShell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
-    ````
+    ```
 
       **Parameters**  
     | Parametro | DESCRIZIONE |
@@ -139,4 +139,4 @@ Un agente viene identificato in base al relativo nome. Per impostazione predefin
 
 - [Risolvere i problemi di convalida come servizio](azure-stack-vaas-troubleshoot.md)
 - [Convalida di un concetti chiave di servizio](azure-stack-vaas-key-concepts.md)
-- [Avvio rapido: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
+- [Guida introduttiva: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)

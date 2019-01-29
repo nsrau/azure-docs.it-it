@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 4267984ba2a08b4cc7c32a7b7d8442f19d5842d0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304398"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095505"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -141,60 +141,60 @@ Migrazione consolida tutti un blob in contenitori nella nuova condivisione.
 1. Verificare di avere [Azure PowerShell installato e configurato](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Esaminare il contenitore per comprendere quali dati sono nella condivisione che si intende eseguire la migrazione. Per identificare i contenitori di candidati ottimali per la migrazione in un volume, usare il **Get-AzsStorageContainer** cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     $shares = Get-AzsStorageShare -FarmName $farm_name
     $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ````
+    ```
     Esaminare quindi $containers:
 
-    ````PowerShell
+    ```PowerShell
     $containers
-    ````
+    ```
 
     ![Esempio: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
 3.  Identificare le condivisioni di destinazione migliore per contenere il contenitore che si esegue la migrazione:
 
-    ````PowerShell
+    ```PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
     $shares[0].ShareName -Intent ContainerMigration
-    ````
+    ```
 
     Esaminare quindi $destinationshares:
 
-    ````PowerShell 
+    ```PowerShell 
     $destinationshares
-    ````
+    ```
 
     ![Esempio: $destination condivisioni](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
 4. Avviare la migrazione di un contenitore. La migrazione è asincrona. Se si avvia la migrazione dei contenitori aggiuntivi prima che venga completata la prima migrazione, usare l'id del processo per tenere traccia dello stato di ognuno.
 
-  ````PowerShell
+  ```PowerShell
   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ````
+  ```
 
   Esaminare quindi $jobId. Nell'esempio seguente, sostituire *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* con l'id del processo che si desidera esaminare:
 
-  ````PowerShell
+  ```PowerShell
   $jobId
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ````
+  ```
 
 5. Usare l'id del processo per controllare lo stato del processo di migrazione. Al termine, la migrazione di contenitori **MigrationStatus** è impostata su **completa**.
 
-  ````PowerShell 
+  ```PowerShell 
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![Esempio: Stato di migrazione](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  È possibile annullare un processo di migrazione in corso. Annullamento della migrazione dei processi vengono elaborati in modo asincrono. È possibile rilevare l'annullamento tramite $jobid:
 
-  ````PowerShell
+  ```PowerShell
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![Esempio: Stato rollback](media/azure-stack-manage-storage-shares/rollback.png)
 

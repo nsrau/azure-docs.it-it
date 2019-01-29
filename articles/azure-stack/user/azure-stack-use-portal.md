@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086506"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097880"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usa il portale di Azure Stack
 
@@ -60,7 +60,7 @@ Se è necessario indicazioni su come usare i servizi disponibili, potrebbero ess
 
     In particolare, è consigliabile rivedere gli articoli seguenti per iniziare:
 
-    - [Considerazioni sulla chiave: uso dei servizi o creazione di App per Azure Stack](azure-stack-considerations.md)
+    - [Considerazioni principali: Uso dei servizi o creazione di App per Azure Stack](azure-stack-considerations.md)
     - Nel **usare i servizi** sezione della documentazione, è presente un articolo di considerazioni per ogni servizio. La pagina considerazioni descrive le differenze tra il servizio disponibile in Azure e lo stesso servizio disponibile in Azure Stack. Per un esempio, vedere [considerazioni sulle VM](azure-stack-vm-considerations.md). Potrebbero esserci altre informazioni nel **usare i servizi** sezione univoco in Azure Stack.
 
       È possibile usare la documentazione di Azure come riferimento generale per un servizio, ma occorre tenere presenti queste differenze. Comprendere che collega la documentazione sul **esercitazioni introduttive** riquadro punto alla documentazione di Azure.
@@ -73,4 +73,4 @@ Se si usa Azure Stack Development Kit, il [forum di Azure Stack](https://social.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Considerazioni sulla chiave: uso dei servizi o creazione di App per Azure Stack](azure-stack-considerations.md)
+[Considerazioni principali: Uso dei servizi o creazione di App per Azure Stack](azure-stack-considerations.md)

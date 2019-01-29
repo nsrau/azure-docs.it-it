@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087730"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096620"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrazione di Data Center di Azure Stack - l'inoltro di syslog
 
-Questo articolo illustra come usare syslog per l'integrazione dell'infrastruttura di Azure Stack con soluzioni di protezione esterne già distribuite nel Data Center. Ad esempio, un sistema di gestione di eventi informazioni di sicurezza (SIEM). Il canale di syslog espone a controlli, avvisi e registri di protezione da tutti i componenti dell'infrastruttura di Azure Stack. Usare l'inoltro syslog per l'integrazione con soluzioni di monitoraggio di sicurezza e/o per recuperare tutti i controlli, avvisi e la sicurezza i log per l'archiviazione per il mantenimento dati. 
+Questo articolo illustra come usare syslog per l'integrazione dell'infrastruttura di Azure Stack con soluzioni di protezione esterne già distribuite nel Data Center. Ad esempio, un sistema di gestione di eventi informazioni di sicurezza (SIEM). Il canale di syslog espone a controlli, avvisi e registri di protezione da tutti i componenti dell'infrastruttura di Azure Stack. Usare l'inoltro syslog per l'integrazione con soluzioni di monitoraggio di sicurezza e/o per recuperare tutti i controlli, avvisi e la sicurezza i log per l'archiviazione per il mantenimento dati.
 
 Inizia con l'aggiornamento 1809, Azure Stack è un client integrato syslog che, una volta configurata, vengono generati messaggi di syslog con il payload in formato CEF (Common Event Format).
 
 Il diagramma seguente illustra l'integrazione di Azure Stack con un sistema SIEM esterni. Sono disponibili due modelli di integrazione che devono essere presi in considerazione: la prima di tutto uno (quello in blu) è l'infrastruttura di Azure Stack che comprende le macchine virtuali dell'infrastruttura e i nodi Hyper-V. Tutti i controlli, i log di sicurezza e gli avvisi provenienti da tali componenti in modo centralizzato raccolti e vengono esposte tramite syslog con payload CEF. Il modello di integrazione è descritto in questa pagina del documento.
-Il secondo modello di integrazione è quello in arancione e illustra i baseboard management controller (BMC), l'host del ciclo di vita dell'hardware (HLH), le macchine virtuali e/o Appliance virtuali che eseguono il partner hardware di monitoraggio e gestione software e le proprietà di commutatori rack (TOR). Poiché questi componenti sono partner di hardware specifici, contattare il proprio partner hardware per la documentazione su come integrarli con un sistema SIEM esterni.
+Il secondo modello di integrazione è quello in arancione e illustra i baseboard management controller (BMC), l'host del ciclo di vita dell'hardware (HLH), le macchine virtuali e/o Appliance virtuali che eseguono il partner hardware di monitoraggio e gestione software e le proprietà di commutatori rack (TOR). Poiché questi componenti sono contatto specifico, hardware-partner hardware partner per la documentazione su come integrarli con un sistema SIEM esterni.
 
 ![Diagramma di inoltro di Syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +32,13 @@ Il secondo modello di integrazione è quello in arancione e illustra i baseboard
 
 Il client di syslog in Azure Stack supporta le configurazioni seguenti:
 
-1. **Syslog tramite TCP, con l'autenticazione reciproca (client e server) e la crittografia TLS 1.2:** In questa configurazione sia al server syslog nel client di syslog può verificare l'identità reciproca tramite certificati. I messaggi vengono inviati tramite un canale crittografato TLS 1.2.
+1. **Syslog tramite TCP, con l'autenticazione reciproca (client e server) e la crittografia TLS 1.2:** In questa configurazione, è possibile verificare l'identità reciproca tramite certificati sia al server syslog nel client di syslog. I messaggi vengono inviati tramite un canale crittografato TLS 1.2.
 
 2. **Syslog su TCP con l'autenticazione server e la crittografia TLS 1.2:** In questa configurazione, il client di syslog possa verificare l'identità del server syslog tramite un certificato. I messaggi vengono inviati tramite un canale crittografato TLS 1.2.
 
-3. **Syslog tramite TCP, senza crittografia:** In questa configurazione syslog client né il server syslog verifica l'identità di loro. I messaggi vengono inviati in testo non crittografato tramite TCP.
+3. **Syslog tramite TCP, senza crittografia:** In questa configurazione, il client di syslog e l'identità del server syslog non vengono verificate. I messaggi vengono inviati in testo non crittografato tramite TCP.
 
-4. **Syslog su UDP, senza crittografia:** In questa configurazione syslog client né il server syslog verifica l'identità di loro. I messaggi vengono inviati in testo non crittografato tramite UDP.
+4. **Syslog su UDP, senza crittografia:** In questa configurazione, il client di syslog e l'identità del server syslog non vengono verificate. I messaggi vengono inviati in testo non crittografato tramite UDP.
 
 > [!IMPORTANT]
 > Microsoft consiglia di usare TCP usando l'autenticazione e crittografia (configurazione #1 o al requisito minimo, #2) per gli ambienti di produzione per la protezione da attacchi man-in-the-middle e intercettazione dei messaggi.
@@ -64,7 +64,7 @@ I parametri per *Set-SyslogServer* cmdlet:
 |---------|---------|---------|---------|
 |*ServerName* | FQDN o indirizzo IP del server syslog | string | Sì|
 |*ServerPort* | Numero di porta al server syslog è in ascolto sulla | string | Sì|
-|*Crittografia*| Forza il client invia i messaggi syslog in testo non crittografato | Flag | no|
+|*NoEncryption*| Forza il client invia i messaggi syslog in testo non crittografato | Flag | no|
 |*SkipCertificateCheck*| Ignorare la convalida del certificato fornito dal server syslog durante l'handshake TLS iniziale | Flag | no|
 |*SkipCNCheck*| Ignorare la convalida del valore nome comune del certificato fornito dal server syslog durante l'handshake TLS iniziale | Flag | no|
 |*UseUDP*| Usare syslog con UDP come protocollo di trasporto |Flag | no|
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Configurare l'inoltro di syslog con TCP, l'autenticazione Server e la crittografia TLS 1.2
 
-In questa configurazione, il client di syslog in Azure Stack inoltra i messaggi al server syslog tramite TCP, con la crittografia TLS 1.2. Durante l'handshake iniziale, il client verifica inoltre che il server fornisce un certificato valido e attendibile. In questo modo il client per inviare messaggi a destinazioni non attendibili.
+In questa configurazione, il client di syslog in Azure Stack inoltra i messaggi al server syslog tramite TCP, con la crittografia TLS 1.2. Durante l'handshake iniziale, il client verifica inoltre che il server fornisce un certificato valido e attendibile. Questa configurazione impedisce al client per inviare messaggi a destinazioni non attendibili.
 TCP usando l'autenticazione e crittografia è la configurazione predefinita e rappresenta il livello minimo di sicurezza consigliati da Microsoft per un ambiente di produzione. 
 
 ```powershell
@@ -248,7 +248,7 @@ Tabella degli eventi per l'endpoint con privilegi:
 |SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
 |SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
 |PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |da 1006|NewCloudAdminUserEvent|10|
+|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
 |RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
 |GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
@@ -321,7 +321,7 @@ Tabella di estensione personalizzata per gli eventi di Windows in Azure Stack:
 |MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
-|MasEventData| Svchost!! 4132, G, 0. EseDiskFlushConsistency!! ESENT, FACEVANO SÌ!! 0x800000|
+|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
 |MasEventDescription| Le impostazioni di criteri di gruppo per l'utente sono state elaborate correttamente. Non sono presenti modifiche rilevate dopo l'ultimo corretta elaborazione dei criteri di gruppo.|
 |MasEventID|1501|
 |MasEventRecordID|26637|
@@ -335,7 +335,7 @@ Tabella di estensione personalizzata per gli eventi di Windows in Azure Stack:
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<SID di Windows\> |
+|MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Creazione del processo|
 |MasUserData|KB4093112!! 5112!! Installato!! 0x0!! WindowsUpdateAgent Xpath: Organizzazione di eventi / / UserData / *|
@@ -360,7 +360,7 @@ Tabella livelli di gravità degli avvisi:
 Tabella di estensione personalizzata per gli avvisi creati in Azure Stack:
 | Nome dell'estensione personalizzata | Esempio | 
 |-----------------------|---------|
-|MasEventDescription|Descrizione: Un account \<TestUser\> è stato creato per \<DominioVerifica\>. È un potenziale rischio di sicurezza. : Correzione: contattare il supporto tecnico. È necessaria un'assistenza clienti per risolvere il problema. Non tentare di risolvere il problema senza l'assistenza fornita. Prima di aprire una richiesta di supporto, avviare il processo di raccolta di file di log usando le indicazioni fornite dalla https://aka.ms/azurestacklogfiles |
+|MasEventDescription|DESCRIZIONE: Un account utente \<TestUser\> è stato creato per \<DominioVerifica\>. È un potenziale rischio di sicurezza. -MONITORAGGIO E AGGIORNAMENTO: Contattare il supporto tecnico. È necessaria un'assistenza clienti per risolvere il problema. Non tentare di risolvere il problema senza l'assistenza fornita. Prima di aprire una richiesta di supporto, avviare il processo di raccolta di file di log usando le indicazioni fornite dalla https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mapping di CEF per gli avvisi chiusi
 

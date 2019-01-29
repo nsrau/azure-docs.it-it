@@ -72,7 +72,7 @@ Per seguire questo articolo, ecco gli elementi necessari:
 
 4. Fornire queste informazioni per la variabile:
 
-   | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
+   | Proprietà | Obbligatoria | Value |  DESCRIZIONE |
    |----------|----------|-------|--------------|
    | Name | Yes | <*variable-name*> | Nome della variabile da incrementare | 
    | Type | Yes | <*variable-type*> | Tipo di dati per la variabile | 
@@ -208,7 +208,7 @@ Per aumentare o *incrementare* una variabile di un valore costante aggiungere l'
 
 3. Fornire queste informazioni per incrementare la variabile:
 
-   | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
+   | Proprietà | Obbligatoria | Value |  DESCRIZIONE |
    |----------|----------|-------|--------------|
    | Name | Yes | <*variable-name*> | Nome della variabile da incrementare | 
    | Value | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per incrementare la variabile. | 
@@ -328,7 +328,7 @@ Per ridurre o *decrementare* una variabile di un valore costante, seguire gli st
 
 Ecco le proprietà per l'azione **Decrementare una variabile**:
 
-| Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
+| Proprietà | Obbligatoria | Value |  DESCRIZIONE |
 |----------|----------|-------|--------------|
 | Name | Yes | <*variable-name*> | Nome della variabile da decrementare | 
 | Value | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per decrementare la variabile. | 
@@ -363,7 +363,7 @@ Il valore è obbligatorio perché questa azione non ha un valore predefinito.
 
 Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 
-| Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
+| Proprietà | Obbligatoria | Value |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
 | Name | Yes | <*variable-name*> | Nome della variabile da modificare | 
 | Value | Yes | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. | 
@@ -421,7 +421,7 @@ Per le variabili che memorizzano stringhe o matrici è possibile inserire o *acc
 
 Ecco le proprietà per le azioni **Append to...** (Accodare a...):
 
-| Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
+| Proprietà | Obbligatoria | Value |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
 | Name | Yes | <*variable-name*> | Nome della variabile da modificare | 
 | Value | Yes | <*append-value*> | Valore da accodare, di qualsiasi tipo | 

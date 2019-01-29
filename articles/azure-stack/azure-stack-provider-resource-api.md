@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945587"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177902"
 ---
 # <a name="provider-resource-usage-api"></a>API di utilizzo delle risorse dei provider
 Il termine *provider* si applica all'amministratore del servizio e a qualsiasi provider delegati. Operatori di Azure Stack e i provider delegati è possono usare l'API di utilizzo del provider per visualizzare l'utilizzo dei propri tenant diretto. Ad esempio, come illustrato nel diagramma, P0 può chiamare l'API per ottenere informazioni sull'utilizzo in P1 provider e l'utilizzo diretto di P2 e P1 può chiamare per informazioni sull'utilizzo in P3 e P4.
@@ -37,7 +37,7 @@ Questa API di utilizzo è un provider di API, in modo che il chiamante deve esse
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argomenti
-| **argomento** | **Descrizione** |
+| **Argomento** | **Descrizione** |
 | --- | --- |
 | *armendpoint* |Endpoint Azure Resource Manager dell'ambiente Azure Stack. La convenzione di Azure Stack è che il nome dell'endpoint Azure Resource Manager è nel formato `https://adminmanagement.{domain-name}`. Ad esempio, per il kit di sviluppo, se il nome di dominio *local.azurestack.external*, quindi l'endpoint di Resource Manager è `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID sottoscrizione dell'utente che effettua la chiamata. |
@@ -78,7 +78,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Dettagli della risposta
-| **argomento** | **Descrizione** |
+| **Argomento** | **Descrizione** |
 | --- | --- |
 | *id* |ID univoco dell'aggregazione dell'utilizzo. |
 | *nome* |Nome della funzione di aggregazione di utilizzo. |
@@ -86,7 +86,7 @@ meterID1",
 | *subscriptionId* |Identificatore della sottoscrizione dell'utente di Azure Stack. |
 | *usageStartTime* |UTC ora di inizio il bucket di utilizzo a cui appartiene questa aggregazione di utilizzo.|
 | *usageEndTime* |UTC ora di fine del bucket dell'utilizzo a cui appartiene questa aggregazione di utilizzo. |
-| *instanceData* |Coppie chiave-valore di dettagli dell'istanza (in un nuovo formato):<br> *resourceUri*: ID di risorsa, che include i gruppi di risorse e il nome dell'istanza in modo completo. <br> *percorso*: area in cui è stato eseguito il servizio. <br> *i tag*: i tag delle risorse specificati dall'utente. <br> *additionalInfo*: maggiori dettagli sulla risorsa che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo. |
+| *instanceData* |Coppie chiave-valore di dettagli dell'istanza (in un nuovo formato):<br> *resourceUri*: ID risorsa completo, che include i gruppi di risorse e il nome dell'istanza. <br> *percorso*: Area in cui è stato eseguito il servizio. <br> *i tag*: Tag delle risorse specificati dall'utente. <br> *additionalInfo*: Altri dettagli sulla risorsa che è stata utilizzata, ad esempio, la versione del sistema operativo o immagine del tipo. |
 | *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo intervallo di tempo. |
 | *meterId* |ID univoco per la risorsa che è stata utilizzata (chiamato anche *ResourceID*). |
 

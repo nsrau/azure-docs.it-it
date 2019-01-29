@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b1fb1166e05eba209eddf72d97d20011c9ee4b78
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476887"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103004"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Sostituire un disco fisico in Azure Stack
 
@@ -54,27 +54,27 @@ Dopo aver sostituito il disco, Azure Stack automaticamente consente di individua
  Dopo aver sostituito il disco, è possibile monitorare lo stato di integrità del disco virtuale e ripristinare lo stato del processo utilizzando l'endpoint con privilegi. Seguire questi passaggi da qualsiasi computer dotato di connettività di rete all'endpoint con privilegi.
 
 1. Aprire una sessione di Windows PowerShell e connettersi all'endpoint con privilegi.
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. Eseguire il comando seguente per visualizzare lo stato del disco virtuale:
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![Output di PowerShell del comando Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Eseguire il comando seguente per visualizzare lo stato del processo corrente archiviazione:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![Output di PowerShell del comando Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>Risolvere i problemi di riparazione del disco virtuale
 
 Se il disco virtuale Ripristina processo sembra bloccato, eseguire il comando seguente per riavviare il processo:
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 
