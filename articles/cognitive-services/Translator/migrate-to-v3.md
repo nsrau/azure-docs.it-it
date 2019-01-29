@@ -47,7 +47,7 @@ L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi del
 | GetLanguagesForTranslate     | [Linguaggi](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | Speak     | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Rilevamento     | [Detect](reference/v3-0-detect.md)         |
+| Detect     | [Detect](reference/v3-0-detect.md)         |
 | DetectArray     | [Detect](reference/v3-0-detect.md)         |
 | AddTranslation     | [API di Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [API di Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 ha lo stesso prezzo della V2; per ogni carattere, inclus
 
 | Metodo V3   | Caratteri conteggiati per la fatturazione |
 |:----------- |:-------------|
-| Lingue     | Nessun carattere inviato, nessuno conteggiato, nessun addebito.          |
+| Languages     | Nessun carattere inviato, nessuno conteggiato, nessun addebito.          |
 | Translate     | Il conteggio si basa sul numero di caratteri inviato per la traduzione e sul numero delle lingue in cui vengono tradotti i caratteri. 50 caratteri inviati e 5 lingue richieste faranno 50 x 5.           |
 | Transliterate     | Viene conteggiato il numero di caratteri inviati per la traslitterazione.         |
 | Dictionary lookup & example     | Viene conteggiato il numero di caratteri inviato per la ricerca nel dizionario e gli esempi.         |
 | BreakSentence     | Nessun addebito.       |
-| Rilevamento     | Nessun addebito.      |
+| Detect     | Nessun addebito.      |
 
 ## <a name="v3-end-points"></a>Obiettivi della V3
 
