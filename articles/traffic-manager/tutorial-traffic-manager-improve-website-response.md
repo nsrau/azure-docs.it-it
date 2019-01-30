@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 1b12e17bb8dd666bd48e937b7fed40e40f22ecf0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200769"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463916"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico 
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
 Questa esercitazione descrive come usare Gestione traffico per creare un sito Web altamente reattivo indirizzando il traffico degli utenti al sito Web con una latenza minima. In genere, il data center con la latenza più bassa è quello più vicino in termini di distanza geografica.
 
@@ -39,7 +39,7 @@ Per visualizzare Gestione traffico in azione, è necessario implementare quanto 
 - Due istanze di siti Web di base in esecuzione in aree diverse di Azure: **Stati Uniti orientali** e **Europa occidentale**.
 - Due macchine virtuali (VM) per il test di Gestione traffico: una in **Stati Uniti orientali** e la seconda in **Europa occidentale**. Le VM di test vengono usate per illustrare come Gestione traffico instrada il traffico degli utenti verso il sito Web in esecuzione nella stessa area poiché offre la latenza più bassa.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure 
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -89,24 +89,24 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Installare IIS e personalizzare la pagina Web predefinita
 
-In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*   &  *myIISVMWEurope*, e quindi si aggiorna la pagina predefinita del sito Web. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
+In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*  &  *myIISVMWEurope*, e quindi si aggiorna la pagina predefinita del sito Web. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
 
 1. Selezionare **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
-2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**. 
-3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM. 
+2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**.
+3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM.
 4. Selezionare **OK**.
 5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
 6. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Server Manager**.
 7. Avviare Windows PowerShell su VM1 e usare i comandi seguenti per installare il server IIS e aggiornare il file con estensione htm predefinito.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
      ![Installare IIS e personalizzare la pagina Web](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
@@ -115,7 +115,7 @@ In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*   &  *
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurare i nomi DNS per le VM che eseguono IIS
 
-Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione si configurano i nomi DNS per i server IIS, *myIISVMEastUS* e *myIISVMWEurope*.
+Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione vengono configurati i nomi DNS per i server IIS, *myIISVMEastUS* e *myIISVMWEurope*.
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse selezionare *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
 2. Nella pagina **Panoramica**, in **Nome DNS**, selezionare **Configura**.
@@ -170,14 +170,14 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
     | Metodo di routing          | Selezionare il metodo di routing **Performance** (prestazioni).                                       |
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare **Crea nuovo** e immettere *myResourceGroupTM1*. |
-    | Località                | Selezionare **Stati Uniti orientali**.  Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
+    | Località                | Selezionare **Stati Uniti orientali**. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
     |
-  
+
     ![Creare un profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
-Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*   &  *myIISVMWEurope*, per instradare il traffico degli utenti verso l'endpoint più vicino.
+Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*  &  *myIISVMWEurope*, per instradare il traffico degli utenti verso l'endpoint più vicino.
 
 1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente e selezionarlo nei risultati visualizzati.
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
@@ -192,10 +192,9 @@ Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*   &  *myIISVMWEu
     |        |           |
 
 4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myWestEuropeEndpoint* per l'indirizzo IP pubblico *myIISVMWEurope-ip* associato alla VM del server IIS denominata *myIISVMWEurope*.
-5.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
+5. Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
     ![Aggiungere un endpoint di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
-  
 
 ## <a name="test-traffic-manager-profile"></a>Testare il profilo di Gestione traffico
 In questa sezione si verifica come Gestione traffico instrada il traffico degli utenti verso le VM più vicine che eseguono il sito Web per offrire una latenza minima. Per visualizzare Gestione traffico in azione, completare i passaggi seguenti:
@@ -205,32 +204,32 @@ In questa sezione si verifica come Gestione traffico instrada il traffico degli 
     - Dalla VM di test (*myVMEastUS*) che si trova nell'area **Europa occidentale**, in un Web browser, passare al nome DNS del profilo di Gestione traffico.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinare il nome DNS del profilo di Gestione traffico
-In questa esercitazione, per semplicità, si usa il nome DNS del profilo di Gestione traffico per visitare i siti Web. 
+In questa esercitazione, per semplicità, si usa il nome DNS del profilo di Gestione traffico per visitare i siti Web.
 
 È possibile determinare il nome DNS del profilo di Gestione traffico nel modo seguente:
 
-1.  Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
+1. Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
 1. Fare clic su **Panoramica**.
 2. Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Nelle distribuzioni di produzione si configura un nome di dominio personalizzato in modo che punti al nome di dominio di Gestione traffico usando un record CNAME DNS.
 
    ![Nome DNS di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Visualizzare Gestione traffico in azione
-In questa sezione è possibile visualizzare Gestione traffico in azione. 
+In questa sezione è possibile visualizzare Gestione traffico in azione.
 
 1. Selezionare **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su *myVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
-2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**. 
-3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM. 
+2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**.
+3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM.
 4. Selezionare **OK**.
-5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione. 
+5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
 1. In un Web browser, nella VM *myVMEastUS*, digitare il nome DNS del profilo di Gestione traffico per visualizzare il sito Web. Dalla VM in **Stati Uniti orientali** si viene indirizzati al sito Web più vicino ospitato nel server IIS più vicino *myIISVMEastUS* che si trova nell'area **Stati Uniti orientali**.
 
    ![Testare il profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
-2. A questo punto, connettersi alla VM *myVMWestEurope* che si trova in **Europa occidentale** eseguendo i passaggi da 1 a 5 e passare al nome di dominio del profilo di Gestione traffico da questa VM.  Dalla VM in **Europa occidentale** si viene ora indirizzati al sito Web ospitato nel server IIS più vicino *myIISVMWEurope* che si trova in **Europa occidentale**. 
+2. A questo punto, connettersi alla VM *myVMWestEurope* che si trova in **Europa occidentale** eseguendo i passaggi da 1 a 5 e passare al nome di dominio del profilo di Gestione traffico da questa VM. Dalla VM in **Europa occidentale** si viene ora indirizzati al sito Web ospitato nel server IIS più vicino *myIISVMWEurope* che si trova in **Europa occidentale**.
 
    ![Testare il profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
-   
+
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminare il profilo di Gestione traffico
 Quando non sono più necessari, eliminare i gruppi di risorse (**ResourceGroupTM1** e **ResourceGroupTM2**). A tale scopo, selezionare il gruppo di risorse (**ResourceGroupTM1** o **ResourceGroupTM2**) e quindi selezionare **Elimina**.
 
@@ -238,5 +237,3 @@ Quando non sono più necessari, eliminare i gruppi di risorse (**ResourceGroupTM
 
 > [!div class="nextstepaction"]
 > [Distribuire il traffico in un set di endpoint](traffic-manager-configure-weighted-routing-method.md)
-
-

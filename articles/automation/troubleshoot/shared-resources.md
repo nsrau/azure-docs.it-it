@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848460"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475442"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Risolvere i problemi relativi alle risorse condivise
 
@@ -39,6 +39,65 @@ Per risolvere questo problema è necessario rimuovere il modulo bloccato nello s
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Scenario: l'importazione del modulo non riesce o non è possibile eseguire i cmdlet dopo l'importazione
+
+#### <a name="issue"></a>Problema
+
+L'importazione di un modulo ha esito negativo oppure riesce ma non viene estratto alcun cmdlet.
+
+#### <a name="cause"></a>Causa
+
+Di seguito sono elencati alcuni motivi comuni che possono causare un'importazione errata di un modulo in Automazione di Azure:
+
+* La struttura non corrisponde a quella in cui Automazione dovrebbe trovarsi.
+* Il modulo dipende da un altro modulo che non è stato distribuito nel proprio account di automazione.
+* Le dipendenze del modulo non si trovano nella cartella.
+* Il `New-AzureRmAutomationModule` cmdlet viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
+
+#### <a name="resolution"></a>Risoluzione
+
+una qualsiasi delle soluzioni seguenti consente di correggere il problema:
+
+* Assicurarsi che il modulo rispetti il formato seguente: ModuleName.Zip **->** Nome modulo o numero versione **->** (ModuleName.psm1, ModuleName.psd1)
+* Aprire il file con estensione psd1 e vedere se il modulo include dipendenze. In caso affermativo, caricare i moduli nell'account di automazione.
+* Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
+
+### <a name="all-modules-suspended"></a>Scenario: L'esecuzione di Update-AzureModule.ps1 viene sospesa durante l'aggiornamento dei moduli
+
+#### <a name="issue"></a>Problema
+
+Quando si usa il runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) per aggiornare i moduli di Azure, il processo di aggiornamento dei moduli viene sospeso.
+
+#### <a name="cause"></a>Causa
+
+L'impostazione predefinita che determina il numero di moduli aggiornati contemporaneamente è 10 quando si usa lo script `Update-AzureModule.ps1`. Quando si aggiornano troppi moduli nello stesso momento, il processo di aggiornamento è soggetto a errori.
+
+#### <a name="resolution"></a>Risoluzione
+
+Non è usuale che nello stesso account di automazione siano necessari tutti i moduli AzureRM. È quindi consigliabile importare solo i moduli AzureRM effettivamente necessari.
+
+> [!NOTE]
+> Evitare di importare il modulo **AzureRM**. L'importazione dei moduli **AzureRM** causa l'importazione di tutti i moduli **AzureRM.\*** e questa situazione non è consigliata.
+
+Se il processo di aggiornamento viene sospeso, è necessario aggiungere il parametro `SimultaneousModuleImportJobCount` allo script `Update-AzureModules.ps1` e fornire un valore inferiore a quello predefinito, ossia 10. Se si implementa questa logica, iniziare con il valore 3 o 5. `SimultaneousModuleImportJobCount` è un parametro del runbook di sistema `Update-AutomationAzureModulesForAccount` usato per aggiornare i moduli di Azure. Questa modifica prolunga l'esecuzione del processo, ma migliora le probabilità di completamento. L'esempio seguente mostra il parametro e la posizione in cui inserirlo nel runbook:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>Account RunAs
 
 ### <a name="unable-create-update"></a>Scenario: non è possibile creare o aggiornare un account RunAs
@@ -59,7 +118,7 @@ Non si dispone delle autorizzazioni necessarie per creare o aggiornare l'account
 
 Per creare o aggiornare un account RunAs è necessario disporre delle autorizzazioni appropriate per le varie risorse usate dall'account RunAs. Per informazioni sulle autorizzazioni necessarie per creare o aggiornare un account RunAs, vedere [Run As account permissions](../manage-runas-account.md#permissions) (Autorizzazioni per l'account RunAs).
 
-Se il problema è dovuto a un blocco, verificare che sia possibile eliminarlo, quindi passare alla risorsa bloccata, fare clic con il pulsante destro del mouse sul blocco e scegliere **Elimina** per rimuovere il blocco.
+Se il problema è causato da un blocco, verificare che sia possibile rimuoverlo. Passare quindi alla risorsa bloccata, fare clic con il pulsante destro del mouse sul blocco e scegliere **Elimina** per rimuovere il blocco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,18 +2,18 @@
 title: Monitorare il recapito dei messaggio di Griglia di eventi di Azure
 description: Descrive come monitorare il recapito dei messaggi di Griglia di eventi di Azure.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
-ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/22/2019
+ms.author: spelluru
+ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626990"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464810"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 
@@ -29,16 +29,16 @@ Il portale visualizza le metriche per lo stato di recapito dei messaggi di event
 
 Per gli argomenti le metriche sono:
 
-* **Publish Succeeded** (Pubblicazione riuscita): l'evento è stato inviato all'argomento ed elaborato con una risposta 2xx.
-* **Publish Failed** (Pubblicazione non riuscita): l'evento è stato inviato all'argomento, ma è stato rifiutato con un codice errore.
-* **Unmatched** (Non abbinato): l'evento è stato pubblicato nell'argomento, ma non abbinato a una sottoscrizione di eventi. L'evento è stato eliminato.
+* **Pubblicazione riuscita**: l'evento è stato inviato all'argomento ed elaborato con una risposta 2xx.
+* **Pubblicazione non riuscita**: l'evento è stato inviato all'argomento, ma è stato rifiutato con un codice errore.
+* **Senza corrispondenza**: l'evento è stato pubblicato nell'argomento, ma non abbinato a una sottoscrizione di eventi. L'evento è stato eliminato.
 
 Per le sottoscrizioni le metriche sono:
 
-* **Delivery Succeeded** (Recapito riuscito): l'evento è stato recapitato all'endpoint della sottoscrizione ed è stato ricevuta una risposta 2xx.
-* **Delivery Failed** (Recapito non riuscito): l'evento è stato inviato all'endpoint della sottoscrizione, ma è stata ricevuta una risposta 4xx o 5xx.
-* **Expired Events** (Eventi scaduti): l'evento non è stato recapitato e sono inviati tutti i tentativi di ripetizione del recapito. L'evento è stato eliminato.
-* **Matched Events** (Eventi abbinati): l'evento nell'argomento è stato abbinato dalla sottoscrizione di eventi.
+* **Recapito riuscito**: l'evento è stato recapitato all'endpoint della sottoscrizione ed è stata ricevuta una risposta 2xx.
+* **Recapito non riuscito**: l'evento è stato inviato all'endpoint della sottoscrizione, ma è stata ricevuta una risposta 4xx o 5xx.
+* **Eventi scaduti**: l'evento non è stato recapitato e sono stati inviati tutti i tentativi di ripetizione del recapito. L'evento è stato eliminato.
+* **Eventi abbinati**: l'evento nell'argomento è stato abbinato dalla sottoscrizione di eventi.
 
 ## <a name="event-subscription-status"></a>Stato della sottoscrizione di eventi
 

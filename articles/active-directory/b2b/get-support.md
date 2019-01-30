@@ -4,25 +4,25 @@ description: Qual è l'esperienza di supporto per Collaborazione B2B di Azure Ac
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/26/2017
-ms.author: twooley
-author: twooley
-manager: mtillman
+ms.author: mimart
+author: msmimart
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 0ae85989f144b790407e4c1dce587f70839417cf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259589"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438559"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Ottenere assistenza per Collaborazione B2B
 
 La documentazione è stata letta attentamente, sono state eseguite le operazioni giuste, ma qualcosa non funziona? Aprire un ticket di supporto (richiede un piano di supporto):
 
 1. Nel [ portale di Azure](https://portal.azure.com) passare al pannello Guida e supporto e selezionare Nuova richiesta di supporto:
-  - Tipo di problema: tecnico
+  - Tipo di problema: Tecnici
   - Sottoscrizione: scegliere la sottoscrizione interessata
     - Servizio: Active Directory
     - Piano di supporto: scegliere il piano di supporto pertinente

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478638"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -23,7 +23,7 @@ Questo articolo illustra le note sulla versione per le versioni supportate dell'
 ## <a name="supported-versions"></a>Versioni supportate
 L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
-| Attività cardine | Numero di versione dell'agente | Data di rilascio | Status |
+| Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
 | Gennaio 2019 aggiornamento cumulativo - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 gennaio 2019 | Supportato (versione consigliata) |
 | Aggiornamento cumulativo di dicembre 2018 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 dicembre 2018 | Supportato |
@@ -72,7 +72,7 @@ Per altre informazioni su come installare e configurare l'agente Sincronizzazion
 
 - Il pacchetto di installazione dell'agente deve essere installato con autorizzazioni elevate (amministratore).
 - L'agente non è supportato nelle opzioni di distribuzione Windows Server Core o Nano Server.
-- L'agente è supportato solo in Windows Server 2016 e Windows Server 2012 R2.
+- L'agente è supportato solo in Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2.
 - L'agente richiede almeno 2 GiB di memoria. Se il server è in esecuzione in una macchina virtuale con memoria dinamica abilitata, la macchina virtuale deve essere configurata con un minimo di 2048 MiB di memoria.
 - Il servizio agente di sincronizzazione archiviazione (FileSyncSvc) non supporta gli endpoint server che si trovano in un volume la cui directory di informazioni sul volume di sistema (SVI) è compressa. Questa configurazione porta a risultati imprevisti.
 - Quando si crea uno snapshot VSS, può verificarsi un errore irreversibile 0x3B o 0x1E.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ba5c3704d89f75617683ae886da1857d51251631
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23a9efa5388e0089fd4e6297061ea7bf19b54b06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306290"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468472"
 ---
-# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory - Aggiornare gli agenti di autenticazione di anteprima
+# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory: aggiornare gli agenti di autenticazione di anteprima
 
 ## <a name="overview"></a>Panoramica
 
@@ -45,7 +45,7 @@ Eseguire la procedura seguente per verificare se gli agenti di autenticazione so
 
 ![Interfaccia di amministrazione di Azure Active Directory - Pannello Autenticazione pass-through](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
-### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Passaggio 2: Controllare le versioni degli agenti autenticazione
+### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Passaggio 2: Controllare le versioni degli agenti di autenticazione
 
 Per controllare le versioni degli agenti di autenticazione, in ogni server identificato nel passaggio precedente seguire queste istruzioni:
 

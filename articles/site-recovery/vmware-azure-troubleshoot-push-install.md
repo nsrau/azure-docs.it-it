@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789908"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411748"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -141,6 +141,14 @@ Per visualizzare l'elenco delle versioni del kernel e dei sistemi operativi supp
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Le partizioni e i volumi di avvio e di sistema non sono lo stesso disco (ID errore: 95309)
 
 Nelle versioni precedenti alla 9.20, le partizioni e i volumi di avvio e di sistema su dischi diversi sono una configurazione non supportata. A partire dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) questa configurazione è supportata. Per usufruire di questo supporto, usare la versione più recente.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Disco di avvio non trovato (ID errore: 95310)
+
+Non è possibile proteggere una macchina virtuale senza un disco di avvio. Lo scopo è garantire un ripristino senza problemi della macchina virtuale durante l'operazione di failover. In assenza del disco di avvio, la macchina virtuale non può essere avviata dopo il failover. Assicurarsi che la macchina virtuale contenga un disco di avvio e ripetere l'operazione. Si noti anche che non sono supportati più dischi di avvio nella stessa macchina.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Trovati più dischi di avvio (ID errore: 95311)
+
+Una macchina virtuale con più dischi di avvio non è una [configurazione supportata](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partizione di sistema su più dischi (ID errore: 95313)
 

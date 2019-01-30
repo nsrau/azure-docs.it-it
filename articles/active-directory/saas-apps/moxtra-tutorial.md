@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Moxtra | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Moxtra | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Moxtra.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: efb9d72de3b408ce741ed96aa2aecd2ed45e293c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee8931f1f9121f3e645b2f94eece919ae6b19075
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428940"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808851"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: integrazione di Azure Active Directory con Moxtra
+# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: Integrazione di Azure Active Directory con Moxtra
 
 Questa esercitazione descrive come integrare Moxtra con Azure Active Directory (Azure AD).
 
@@ -163,7 +163,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. Nella casella di testo **Nome** , digitare un nome per la configurazione (ad esempio *SAML*). 
+    a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione, ad esempio *SAML*. 
   
     b. Nella casella di testo **IdP Entity ID** (ID entità IdP) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure. 
  
@@ -183,7 +183,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     h. Fare clic su **Update**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

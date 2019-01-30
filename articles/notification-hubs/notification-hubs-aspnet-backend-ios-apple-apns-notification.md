@@ -2,8 +2,8 @@
 title: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure | Microsoft Docs
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/13/2018
-ms.author: dimazaid
-ms.openlocfilehash: 270311af94d0c0551626fc2906cade84e0c60664
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918965"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448109"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -52,13 +52,13 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
    > [!NOTE]
    > In questa sezione si presuppone che il progetto sia configurato con un nome di organizzazione vuoto. In caso contrario sarà necessario anteporre il nome dell'organizzazione a tutti i nomi di classi.
 
-2. In **Main.storyboard** aggiungere i componenti illustrati nella schermata dalla libreria di oggetti.
+2. Nel file `Main.storyboard` aggiungere i componenti illustrati nello screenshot dalla libreria di oggetti.
 
     ![Modificare lo storybard nello strumento di creazione delle interfacce di Xcode][1]
 
    * **Nome utente**: oggetto UITextField con testo segnaposto, *Enter Username*, immediatamente sotto l'etichetta per l'invio dei risultati e limitato dai margini sinistro e destro.
    * **Password**: oggetto UITextField con testo segnaposto, *Enter Password*, immediatamente sotto il campo di testo del nome utente e limitato dai margini sinistro e destro. Selezionare l'opzione **Secure Text Entry** in Attribute Inspector sotto *Return Key*.
-   * **Accesso**: oggetto UIButton con etichetta immediatamente sotto il campo di testo della password; deselezionare l'opzione **Abilitato** in Attributes Inspector sotto *Control-Content*.
+   * **Accesso**: oggetto UIButton con etichetta immediatamente sotto il campo di testo della password. Deselezionare l'opzione **Abilitato** in Attributes Inspector sotto *Control-Content*
    * **WNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica Windows se è stato configurato nell'hub. Vedere l'esercitazione [Introduzione a Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
    * **GCM**: etichetta e opzione per consentire l'invio della notifica a Google Cloud Messaging se è stato configurato nell'hub. Vedere l'esercitazione [Introduzione ad Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
    * **APNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica della piattaforma di Apple.
@@ -66,7 +66,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
     Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) esercitazione.
 
-3. Premere **CTRL** e trascinarlo dai componenti alla visualizzazione a **ViewController.h** e aggiungere questi nuovi outlet.
+3. Premere **CTRL** e trascinarlo dai componenti alla visualizzazione a `ViewController.h` e aggiungere questi nuovi outlet.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In **ViewController.h** aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto *<Enter Your Backend Endpoint>\>* con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio, *http://you_backend.azurewebsites.net*.
+4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio, *http://your_backend.azurewebsites.net*.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. Nel progetto creare una nuova **classe Cocoa Touch** denominata **RegisterClient** da usare come interfaccia con il back-end ASP.NET creato. Creare la classe che eredita da `NSObject`. Aggiungere quindi il codice seguente in RegisterClient.h.
+5. Nel progetto creare una nuova classe Cocoa Touch denominata `RegisterClient` da usare come interfaccia con il back-end ASP.NET creato. Creare la classe che eredita da `NSObject`. Aggiungere quindi il codice seguente in `RegisterClient.h`.
 
     ```objc
     @interface RegisterClient : NSObject
@@ -288,9 +288,9 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
     Questo codice implementa la logica illustrata nell'articolo di istruzioni [Registrazione dal back-end dell'app](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) usando NSURLSession per eseguire chiamate REST al back-end dell'app e NSUserDefaults per archiviare in locale l'ID registrazione restituito dall'hub di notifica.
 
-    Per il corretto funzionamento di questa classe è necessario che sia impostata la relativa proprietà **authorizationHeader**. Questa proprietà viene impostata tramite la classe **ViewController** dopo l'accesso.
+    Per il corretto funzionamento di questa classe è necessario che sia impostata la relativa proprietà `authorizationHeader`. Questa proprietà viene impostata dalla classe `ViewController` dopo l'accesso.
 
-8. In ViewController.h aggiungere un'istruzione `#import` per RegisterClient.h. Aggiungere quindi una dichiarazione per il token del dispositivo e fare riferimento a un'istanza di `RegisterClient` nella sezione `@interface`:
+8. In `ViewController.h` aggiungere un'istruzione `#import` per `RegisterClient.h`. Aggiungere quindi una dichiarazione per il token del dispositivo e fare riferimento a un'istanza di `RegisterClient` nella sezione `@interface`:
 
     ```objc
     #import "RegisterClient.h"
@@ -312,7 +312,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     ```
 
     > [!NOTE]
-    > Il frammento seguente non è uno schema di autenticazione sicuro. È consigliabile sostituire l'implementazione di **createAndSetAuthenticationHeaderWithUsername:AndPassword:** con il meccanismo di autenticazione specifico che genera un token di autenticazione che deve essere usato dalla classe client di registrazione, ad esempio OAuth o Active Directory.
+    > Il frammento seguente non è uno schema di autenticazione sicuro. È consigliabile sostituire l'implementazione di `createAndSetAuthenticationHeaderWithUsername:AndPassword:` con il meccanismo di autenticazione specifico che genera un token di autenticazione che deve essere usato dalla classe client di registrazione, ad esempio OAuth o Active Directory.
 
 10. Aggiungere quindi nella sezione `@implementation` di `ViewController.m` il codice seguente, che aggiunge l'implementazione per l'impostazione del token del dispositivo e dell'intestazione di autenticazione.
 
@@ -444,7 +444,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     }
     ```
 
-13. Nella funzione **ViewDidLoad**aggiungere quanto segue per creare l'istanza di RegisterClient e impostare il delegato per i campi di testo.
+13. Nella funzione `ViewDidLoad` aggiungere quanto segue per creare l'istanza di `RegisterClient` e impostare il delegato per i campi di testo.
 
     ```objc
     self.UsernameField.delegate = self;
@@ -453,7 +453,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. In **AppDelegate.m** rimuovere tutto il contenuto del metodo `application:didRegisterForPushNotificationWithDeviceToken:` e sostituirlo con il seguente per assicurarsi che il controller di visualizzazione contenga il token del dispositivo più recente recuperato da Apple Push Notification Service:
+14. In `AppDelegate.m` rimuovere tutto il contenuto del metodo `application:didRegisterForPushNotificationWithDeviceToken:` e sostituirlo con il seguente (per assicurarsi che il controller di visualizzazione contenga il token del dispositivo più recente recuperato da Apple Push Notification Service):
 
     ```objc
     // Add import to the top of the file
@@ -467,7 +467,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     }
     ```
 
-15. Infine in **AppDelegate.m**verificare che sia presente il metodo seguente:
+15. Infine in `AppDelegate.m` verificare che sia presente il metodo seguente:
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -497,8 +497,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 In questa esercitazione è stato descritto come inviare notifiche push a utenti specifici che hanno tag associati alle loro registrazioni. Per informazioni sulle procedure per effettuare il push di notifiche in base alla posizione, passare all'esercitazione seguente: 
 
 > [!div class="nextstepaction"]
->[Eseguire il push di notifiche basate sulla posizione](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+>[Eseguire il push di notifiche basate sulla posizione](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

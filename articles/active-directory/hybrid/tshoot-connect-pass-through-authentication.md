@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: Risolvere i problemi di autenticazione pass-through | Microsoft Docs'
+title: 'Azure AD Connect: risolvere i problemi di autenticazione pass-through | Microsoft Docs'
 description: Questo articolo descrive come risolvere i problemi di autenticazione pass-through di Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Risolvere i problemi di autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686195"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472773"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -66,7 +66,7 @@ Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di ammini
 | 80002 | Timeout della richiesta di convalida della password dell'agente di autenticazione. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80003 | Risposta non valida ricevuta dall'agente di autenticazione. | Se il problema è riproducibile in modo coerente tra più utenti, controllare la configurazione di Active Directory.
 | 80004 | È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso. | Chiedere all'utente di accedere con il nome utente corretto.
-| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare.
+| 80005 | Agente di autenticazione: Si è verificato un errore. | Errore temporaneo. Riprovare.
 | 80007 | L'agente di autenticazione non è in grado di connettersi ad Active Directory. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
@@ -95,7 +95,7 @@ Assicurarsi di usare un account amministratore globale solo cloud per tutte le o
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Messaggio di avviso quando si disinstalla Azure AD Connect
 
-Se l'autenticazione pass-through è abilitata nel tenant e si tenta di disinstallare Azure AD Connect, un messaggio di avviso indica che gli utenti non potranno accedere ad Azure AD se non sono installati altri agenti di autenticazione pass-through in altri server.
+Se l'autenticazione pass-through è abilitata nel tenant e si prova a disinstallare Azure AD Connect, viene visualizzato un messaggio di avviso indicante che gli utenti non potranno accedere ad Azure AD se non sono installati altri agenti di autenticazione pass-through in altri server.
 
 Verificare che l'installazione in uso sia a [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) prima di disinstallare Azure AD Connect per evitare interruzioni degli accessi utente.
 
@@ -137,7 +137,7 @@ Per risolvere gli errori di accesso utente, esaminare i log di traccia in **%Pro
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-È possibile ottenere una descrizione dettagliata dell'errore, "1328" nell'esempio precedente, aprendo il prompt dei comandi ed eseguendo il comando seguente (sostituire "1328" con il numero di errore effettivo visualizzato nei registri):
+È possibile ottenere una descrizione dettagliata dell'errore ("1328" nell'esempio precedente) aprendo il prompt dei comandi ed eseguendo il comando seguente. Nota: sostituire "1328" con il numero di errore effettivo riportato nei log:
 
 `Net helpmsg 1328`
 

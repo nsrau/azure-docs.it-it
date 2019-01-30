@@ -4,7 +4,7 @@ description: Informazioni su utenti, gruppi e contatti nel Servizio di sincroniz
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310580"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473929"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti
 I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.
@@ -73,6 +73,6 @@ Si presuppone che se viene trovato un account utente disabilitato, non verrà tr
 Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor** viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola **In uscita ad Azure AD - Unisci utente** genera un errore indicante che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 

@@ -6,17 +6,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584310"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807389"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
-Gli avvisi delle metriche in Monitoraggio di Azure consentono di ricevere una notifica quando una delle metriche supera una soglia. Gli avvisi delle metriche funzionano su una gamma di metriche di piattaforme multidimensionali, personalizzate, standard e personalizzate di Application Insights. In questo articolo verrà illustrato come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure e l'interfaccia della riga di comando di Azure. È anche possibile creare regole di avviso per le metriche usando modelli di Azure Resource Manager, come descritto in [un articolo distinto](../../azure-monitor/platform/alerts-enable-template.md).
+Gli avvisi delle metriche in Monitoraggio di Azure consentono di ricevere una notifica quando una delle metriche supera una soglia. Gli avvisi delle metriche funzionano su una gamma di metriche di piattaforme multidimensionali, personalizzate, standard e personalizzate di Application Insights. In questo articolo verrà illustrato come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure e l'interfaccia della riga di comando di Azure. È anche possibile creare regole di avviso per le metriche usando modelli di Azure Resource Manager, come descritto in [un articolo distinto](alerts-metric-create-templates.md).
 
 Altre informazioni sul funzionamento degli avvisi delle metriche sono disponibili nella [panoramica degli avvisi delle metriche](alerts-metric-overview.md).
 
@@ -31,23 +31,23 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
     > [!TIP]
     > Anche la maggior parte dei pannelli di risorse include la voce **Avvisi** nel menu delle risorse, in **Monitoraggio**: è possibile creare avvisi anche qui.
 
-3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione che si intende modificare. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
+3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione su cui si vuole impostare una regola di avviso. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
 
-4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. È possibile visualizzare l'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche in questo [articolo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. L'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche è disponibile in questo [articolo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi criteri**
+5. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
 6. Verrà visualizzato un elenco dei segnali supportati per la risorsa. Selezionare la metrica su cui creare un avviso.
 
-7. Verrà visualizzato un grafico per la metrica per le ultime 6 ore. Definire **Periodo**, **Frequenza**, **Operatore** e **Soglia** per determinare la logica che verrà valutata dalla regola di avviso per la metrica.
+7. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Se la metrica include dimensioni, verrà visualizzata la tabella **Dimensioni**. Selezionare uno o più valori per ogni dimensione. L'avviso della metrica valuterà la condizione per tutte le combinazioni di valori selezionate. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](alerts-metric-overview.md). È anche possibile scegliere **Seleziona\*** per qualsiasi dimensione. **Seleziona \*** ridimensiona dinamicamente la selezione a tutti i valori correnti e futuri per una dimensione.
 
-8. Usando il grafico della metrica, è possibile determinare una soglia ragionevole.
+8. Verrà visualizzato un grafico per la metrica per le ultime 6 ore. Definire i parametri dell'avviso, ossia **Tipo di condizione**, **Frequenza**, **Operatore** e **Soglia** o **Sensibilità**, per determinare la logica che verrà valutata dalla regola di avviso delle metriche. [Altre informazioni sulle opzioni di sensibilità e i tipi di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
 
-9. Facoltativamente, se la metrica include dimensioni, verrà visualizzata la tabella Dimensioni. Selezionare uno o più valori per ogni dimensione. L'avviso della metrica valuterà la condizione per tutte le combinazioni di valori selezionate. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](alerts-metric-overview.md). È anche possibile scegliere **Seleziona\*** per qualsiasi dimensione. **Seleziona \*** ridimensiona dinamicamente la selezione a tutti i valori correnti e futuri per una dimensione.
+9. Se si usa una soglia statica, il grafico delle metriche può essere utile per determinare quale potrebbe essere una soglia ragionevole. Se si usa una soglia dinamica, il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
 10. Fare clic su **Fine**
 
-11. Facoltativamente, aggiungere altri criteri per monitorare una regola di avviso complessa
+11. Facoltativamente, aggiungere altri criteri per monitorare una regola di avviso complessa. Attualmente gli utenti possono ricevere regole di avviso con criteri di soglia dinamica come singolo criterio.
 
 12. Compilare **Dettagli avviso** come **Nome regola di avviso**, **Descrizione** e **Gravità**
 
@@ -73,7 +73,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 4. Fare clic sul nome della regola di avviso per le metriche da modificare
 
-5. In Modifica regola fare clic sui **criteri di avviso** da modificare. È possibile modificare la metrica, la soglia e altri campi in base alle esigenze
+5. In Modifica regola fare clic sui **criteri di avviso** da modificare. È possibile modificare la metrica, la condizione di soglia e altri campi in base alle esigenze
 
     > [!NOTE]
     > Non è possibile modificare **Risorsa di destinazione** e **Nome regola di avviso** dopo aver creato l'avviso per le metriche.
@@ -92,10 +92,10 @@ Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole d
     az monitor metrics alert --help
     ```
 
-3. È possibile creare una regola di avviso delle metriche semplice che monitora se il valore medio di CPU percentuale in una VM è maggiore di 70
+3. È possibile creare una regola di avviso delle metriche semplice che monitora se il valore medio di Percentuale CPU in una macchina virtuale è maggiore di 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. È possibile visualizzare tutti gli avvisi delle metriche in un gruppo di risorse usando il comando seguente
@@ -117,17 +117,19 @@ Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole d
 6. È possibile disabilitare una regola di avviso per le metriche con il comando seguente.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. È possibile eliminare una regola di avviso per le metriche con il comando seguente.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare avvisi delle metriche mediante modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Comprendere il funzionamento degli avvisi delle metriche](alerts-metric-overview.md).
+- [Comprendere il funzionamento degli avvisi delle metriche con il tipo di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
 - [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
+

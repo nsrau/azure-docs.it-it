@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67bfde828287d9892ad404f3d950dbe373503a56
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827540"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450661"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Aggiungere un dispositivo IoT Edge all'acceleratore della soluzione di monitoraggio remoto
 
@@ -42,7 +42,7 @@ Quando si registra un dispositivo direttamente nell'hub IoT nell'acceleratore de
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Prima di poter distribuire i moduli nel dispositivo Edge, è necessario installare il runtime IoT Edge nel dispositivo fisico. Le seguenti guide procedurali illustrano come installare il runtime su piattaforme per dispositivi comuni:
+Prima di poter distribuire i moduli nel dispositivo Edge, è necessario installare il runtime IoT Edge nel dispositivo reale. Le seguenti guide procedurali illustrano come installare il runtime su piattaforme per dispositivi comuni:
 
 - [Installare il runtime di Azure IoT Edge in Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)

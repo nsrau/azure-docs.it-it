@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354553"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471821"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
 In Ricerca di Azure una [risorsa viene creata](search-create-service-portal.md) con un piano tariffario o SKU che rimane fisso per l'intera durata del servizio. I piani disponibili sono **Gratuito**, **Basic** e **Standard**. Il piano **Standard** è disponibile in più configurazioni e livelli di capacità. Quasi tutti i clienti iniziano con il piano **Gratuito** per la fase di valutazione, passando successivamente al piano **Standard** per le distribuzioni destinate ad attività di sviluppo e produzione. Con il piano **Gratuito** è possibile eseguire tutte le guide introduttive e le esercitazioni, incluse quelle per la ricerca cognitiva a elevato utilizzo di risorse. 
 
-I piani definiscono la capacità, non le funzionalità, e si differenziano per:
+I livelli rispecchiano le caratteristiche dell'hardware che ospita il servizio (anziché le funzionalità) e si differenziano per:
 
 + Numero di indici che è possibile creare
 + Dimensione e velocità delle partizioni (archiviazione fisica)
@@ -63,7 +63,7 @@ La maggior parte dei clienti porta online solo una parte della capacità totale,
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Fatturazione per l'estrazione di immagini nella ricerca cognitiva
 
-Se si estraggono immagini da file in una pipeline di indicizzazione di ricerca cognitiva, l'operazione viene addebitata nella fattura di Ricerca di Azure. Il parametro che attiva l'estrazione di immagini è **imageAction** nella [configurazione di un indicizzatore](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Se **imageAction** è impostato su none (valore predefinito), non sono previsti addebiti per l'estrazione di immagini.
+Se si estraggono immagini da file in una pipeline di indicizzazione di ricerca cognitiva, l'operazione viene addebitata nella fattura di Ricerca di Azure. Il parametro che attiva l'estrazione di immagini è **imageAction** nella [configurazione di un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Se **imageAction** è impostato su none (valore predefinito), non sono previsti addebiti per l'estrazione di immagini.
 
 I prezzi sono soggetti a modifiche, ma sono sempre documentati nella pagina [Prezzi](https://azure.microsoft.com/pricing/details/search/) di Ricerca di Azure. 
 

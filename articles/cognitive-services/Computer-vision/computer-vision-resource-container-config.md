@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579788"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477635"
 ---
 # <a name="configure-recognize-text-containers"></a>Configurare i contenitori di riconoscimento del testo
 
@@ -32,6 +32,7 @@ Le impostazioni di configurazione nel contenitore Visione artificiale sono gerar
 * [Fatturazione](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Impostazioni delle credenziali del proxy HTTP](#http-proxy-credentials-settings)
 * [registrazione](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -114,7 +115,12 @@ La tabella seguente illustra le impostazioni di configurazione supportate nella 
 | `HeartbeatMs` | Integer | Intervallo di heartbeat, espresso in millisecondi. Se prima della scadenza di questo intervallo è non stato inviato alcun traffico dell'evento, viene inviato un heartbeat al server Fluentd. Il valore predefinito è 60000 millisecondi (1 minuto). |
 | `SendBufferSize` | Integer | Spazio di buffer di rete, espresso in byte, allocato per le operazioni di invio. Il valore predefinito è 32768 byte (32 kilobyte). |
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | Timeout, espresso in millisecondi, per stabilire una connessione SSL/TLS con il server Fluentd. Il valore predefinito è 10000 millisecondi (10 secondi).<br/> Se `UseTLS` è impostato su false, questo valore viene ignorato. |
-| `UseTLS` | boolean | Indica se il contenitore deve usare SSL/TLS per comunicare con il server Fluentd. Il valore predefinito è False. |
+| `UseTLS` | Boolean | Indica se il contenitore deve usare SSL/TLS per comunicare con il server Fluentd. Il valore predefinito è False. |
+
+
+## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-configuration-settings"></a>Impostazioni di configurazione di Logging
 
@@ -164,3 +170,7 @@ Il comando seguente, ad esempio, definisce un montaggio di associazione Docker n
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

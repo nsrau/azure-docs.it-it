@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634864"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412309"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure
 
@@ -105,7 +105,7 @@ Per concedere l'accesso in RBAC, assegnare un ruolo a un utente, gruppo, entità
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![RIquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
+   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
@@ -131,7 +131,7 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![RIquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
+   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Nell’elenco a discesa **Ruolo**, selezionare il ruolo **Proprietario.**
 
@@ -165,7 +165,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
+* [Esercitazione: Concedere l'accesso a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
 * [Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Ruoli predefiniti](built-in-roles.md)
+* [Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure](troubleshooting.md)
 * [Organizzare le risorse con i gruppi di gestione di Azure ](../azure-resource-manager/management-groups-overview.md)

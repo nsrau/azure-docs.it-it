@@ -1,6 +1,6 @@
 ---
-title: Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure | Documentazione Microsoft
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. L'interfaccia della riga di comando di Azure 2.0 è uno strumento multipiattaforma compilato in Python.
+title: Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure | Microsoft Docs
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527491"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413635"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure
+# <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
-L'interfaccia della riga di comando di Azure 2.0, open-source e multipiattaforma, offre un insieme di comandi per usare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) incluso l'accesso ai dati complessi.
+L'interfaccia della riga di comando di Azure, open-source e multipiattaforma, offre un insieme di comandi per usare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) incluso l'accesso ai dati complessi.
 
-Questa guida illustra come usare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando 2.0.
+Questa guida illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando.
 
 Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
 
@@ -30,12 +30,12 @@ Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per il servizio Archiviazione.
 
 ### <a name="accounts"></a>Account
-* **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/).
-* **Account di archiviazione**: vedere [Creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
+* **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* **Account di archiviazione**: vedere [Creare un account di archiviazione](storage-quickstart-create-account.md) in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20"></a>Installare l'interfaccia della riga di comando di Azure 2.0.
+### <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
 
-Scaricare e installare l'interfaccia della riga di comando di Azure 2.0 seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2).
+Scaricare e installare l'interfaccia della riga di comando di Azure seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Se si riscontrano problemi con l'installazione, consultare la sezione [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) (Risoluzione dei problemi di installazione) dell'articolo e la guida [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Risoluzione dei problemi di installazione) su GitHub.
@@ -96,16 +96,16 @@ Per lavorare con le risorse nella sottoscrizione di Azure è necessario innanzit
   * Questo non funziona con gli account Microsoft o gli account che usano Multi-Factor Authentication.
 * **Accesso con un'entità servizio**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Script di esempio dell'interfaccia della riga di comando di Azure 2.0
+## <a name="azure-cli-sample-script"></a>Script di esempio dell'interfaccia della riga di comando di Azure
 
-Successivamente useremo un piccolo script della shell che attiva alcuni semplici comandi dell'interfaccia della riga di comando di Azure 2.0 per interagire con risorse di Archiviazione di Azure. Innanzitutto lo script crea un nuovo contenitore nell'account di archiviazione e poi carica un file esistente (come un BLOB) in tale contenitore. Quindi genera un elenco di tutti i BLOB nel contenitore e infine scarica il file in una destinazione specificata nel computer locale.
+Successivamente verrà usato un piccolo script della shell che attiva alcuni semplici comandi dell'interfaccia della riga di comando di Azure per interagire con risorse di Archiviazione di Azure. Innanzitutto lo script crea un nuovo contenitore nell'account di archiviazione e poi carica un file esistente (come un BLOB) in tale contenitore. Quindi genera un elenco di tutti i BLOB nel contenitore e infine scarica il file in una destinazione specificata nel computer locale.
 
 ```bash
 #!/bin/bash
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -183,10 +183,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Richiesto]: posizione. Ad esempio "Stati Uniti occidentali".
-* `--name` [Richiesto]: il nome dell'account di archiviazione. Il nome può contenere da 3 a 24 caratteri e usare solo numeri e lettere minuscole.
-* `--resource-group`[Richiesto]: il nome del gruppo di risorse.
-* `--sku` [Richiesto]: lo SKU dell'account di archiviazione. Valori consentiti:
+* `--location` [Obbligatorio]: Posizione. Ad esempio "Stati Uniti occidentali".
+* `--name` [Obbligatorio]: nome dell'account di archiviazione. Il nome può contenere da 3 a 24 caratteri e usare solo numeri e lettere minuscole.
+* `--resource-group` [Obbligatorio]: Nome del gruppo di risorse.
+* `--sku` [Obbligatorio]: codice di riferimento del prodotto dell'account di archiviazione. Valori consentiti:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 È possibile avere più account di archiviazione nella sottoscrizione di Azure. Per selezionarne uno da usare per tutti i comandi di archiviazione successivi, è possibile impostare queste variabili di ambiente:
 
-Usare prima il comando [az storage account keys list](/cli/azure/storage/account/keys#list) per visualizzare le chiavi dell'account di archiviazione:
+Usare prima il comando [az storage account keys list](/cli/azure/storage/account/keys) per visualizzare le chiavi dell'account di archiviazione:
 
 ```azurecli-interactive
 az storage account keys list \
@@ -210,7 +210,7 @@ Dopo aver creato la chiave, è possibile definire la chiave stessa e il nome del
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Un altro modo per impostare un account di archiviazione predefinito è mediante una stringa di connessione. In primo luogo ottenere la stringa di connessione con il comando `show-connection-string`:
@@ -228,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Tutti gli esempi nelle sezioni seguenti di questo articolo presuppongono che siano state impostate le variabili di ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY`.
+> Tutti gli esempi nelle sezioni seguenti di questo articolo presuppongono che siano state impostate le variabili di ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_KEY`.
 
 ## <a name="create-and-manage-blobs"></a>Creare e gestire gli account di accesso
 Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio BLOB](/rest/api/storageservices/blob-service-concepts).
@@ -242,9 +242,9 @@ az storage container create --name <container_name>
 
 È possibile impostare uno fra tre livelli di accesso in lettura per un nuovo contenitore specificando l'argomento opzionale `--public-access`:
 
-* `off`(impostazione predefinita): i dati del contenitore sono privati per il proprietario dell'account.
-* `blob`: Accesso in lettura pubblico per i BLOB.
-* `container`: Accesso in lettura e per elenchi pubblico all'intero contenitore.
+* `off` (impostazione predefinita): i dati del contenitore sono privati per il proprietario dell'account.
+* `blob`: accesso in lettura pubblico per i BLOB.
+* `container`: accesso in lettura e per elenchi pubblico all'intero contenitore.
 
 Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
 
@@ -257,6 +257,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+Se si vuole caricare direttamente in una cartella all'interno del contenitore nell'account di archiviazione, sostituire `--name <blob_name>` con `--name <folder/blob_name>`.
 
  Per impostazione predefinita il comando `blob upload` carica i file *.vhd in BLOB di pagine o altrimenti in BLOB in blocchi. Per specificare un altro tipo quando si carica un BLOB, è possibile usare l'argomento `--type`: i valori consentiti sono `append`, `block` e `page`.
 
@@ -517,8 +519,8 @@ Output di esempio
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Di seguito sono segnalate altre risorse relative all'utilizzo dell'interfaccia della riga di comando di Azure 2.0.
+Di seguito sono segnalate altre risorse relative all'utilizzo dell'interfaccia della riga di comando di Azure. 
 
-* [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Riferimento ai comandi dell'interfaccia della riga di comando di Azure 2.0](/cli/azure)
-* [Interfaccia della riga di comando di Azure 2.0 su GitHub](https://github.com/Azure/azure-cli)
+* [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Riferimento all'interfaccia della riga di comando di Azure](/cli/azure)
+* [Interfaccia della riga di comando di Azure su GitHub](https://github.com/Azure/azure-cli)

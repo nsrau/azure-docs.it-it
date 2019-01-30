@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 60bf74135e760e837de7e5548bcb60f6c7b8dd0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475238"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -35,8 +35,8 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 
 |Nome servizio|Descrizione del servizio|
 |:-----------|:------------------|
-|[Servizio Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Servizio Voce") (anteprima)|Il servizio Voce aggiunge funzionalità abilitate al riconoscimento vocale alle applicazioni.|
-|[Servizio di riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Servizio di riconoscimento vocale personalizzato") (anteprima)|Il servizio di riconoscimento vocale personalizzato consente di creare modelli linguistici e modelli acustici personalizzati su misura per l'applicazione e gli utenti.|
+|[Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Servizio di riconoscimento vocale") (anteprima)|Il Servizio di riconoscimento vocale aggiunge funzionalità abilitate al riconoscimento vocale alle applicazioni.|
+|[Servizio di riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Servizio di riconoscimento vocale personalizzato") (anteprima)|Il Servizio di riconoscimento vocale personalizzato consente di creare modelli linguistici e modelli acustici personalizzati su misura per l'applicazione e gli utenti.|
 |[API riconoscimento vocale Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "API riconoscimento vocale Bing")|L'API Riconoscimento vocale Bing offre un modo semplice per creare funzionalità abilitate al riconoscimento vocale nelle applicazioni.|
 |[API Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "API Traduzione vocale")|Traduzione vocale è un servizio di traduzione automatica.|
 |[API Riconoscimento del parlante](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API Riconoscimento del parlante") (anteprima)|L'API Riconoscimento del parlante fornisce algoritmi per l'identificazione voce e la verifica.|
@@ -89,6 +89,14 @@ Tutte le API prevedono una versione di prova gratuita.  Non appena le offerte a 
 Le API nei Servizi cognitivi sono ospitate in una rete in espansione di centri dati gestiti da Microsoft. È possibile trovare la disponibilità a livello di area per ogni API nell'[elenco delle aree di Azure](https://azure.microsoft.com/regions).
 
 Se si sta cercando un'area non ancora supportata, inviare una richiesta di funzionalità nel [forum di UserVoice](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Lingue supportate
+
+ Servizi cognitivi supporta un'ampia gamma di lingue a livello di servizio. È possibile trovare la disponibilità a livello di lingua per ogni API nell'[elenco delle lingue supportate](language-support.md).
+
+ ## <a name="container-support"></a>Supporto dei contenitori
+
+ Servizi cognitivi offre contenitori per la distribuzione nel cloud di Azure o in locale. Informazioni sui [contenitori di Servizi cognitivi](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Supporto
 

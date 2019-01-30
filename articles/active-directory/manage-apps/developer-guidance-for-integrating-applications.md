@@ -4,7 +4,7 @@ description: Scritto per i professionisti IT, questo articolo include linee guid
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 844f569b7c425f6a67acabe491508aa8d5fb00f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669718"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463644"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Sviluppare app line-of-business per Azure Active Directory
 Questa guida offre una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD) ed è rivolta agli amministratori globali di Active Directory/Office 365.
@@ -41,8 +41,8 @@ La registrazione di un'applicazione consente a qualsiasi utente di eseguire le o
   * Azure Active Directory come server di autorizzazione oAuth (proteggere un'API esposta dall'applicazione)
 * Dichiarare le autorizzazioni necessarie per il funzionamento dell'applicazione nel modo previsto, tra cui:
 
-     - Autorizzazioni per l'app (solo amministratori globali). Ad esempio: appartenenza ai ruoli in un'altra appartenenza di ruolo o applicazione Azure AD relativa a una risorsa, un gruppo di risorse o una sottoscrizione di Azure
-     - Autorizzazioni delegate (qualsiasi utente). Ad esempio: Azure AD, Profilo di accesso e lettura
+     - Autorizzazioni per l'app (solo amministratori globali). Ad esempio:  appartenenza ai ruoli in un'altra appartenenza di ruolo o applicazione Azure AD relativa a una risorsa, un gruppo di risorse o una sottoscrizione di Azure
+     - Autorizzazioni delegate (qualsiasi utente). Ad esempio:  Azure AD, Profilo di accesso e lettura
 
 > [!NOTE]
 > Per impostazione predefinita, qualsiasi membro può registrare un'applicazione. Per informazioni su come limitare le autorizzazioni per la registrazione delle applicazioni per membri specifici, vedere [Procedura per l'aggiunta delle applicazioni ad Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
