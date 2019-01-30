@@ -274,9 +274,9 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Tipo di dati di OData | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Datetime |
+| Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
@@ -285,8 +285,8 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | string |
-| Edm.Time | Intervallo di tempo |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
