@@ -396,6 +396,10 @@ items:
         href: howto-add-branding-in-azure-ad-apps.md
       - name: Condizioni per l'utilizzo del servizio e informativa sulla privacy
         href: howto-add-terms-of-service-privacy-statement.md
+      - name: Java
+        items:
+        - name: Proteggere un'app Web Java
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Utilizzo di Visual Studio
       items:
       - name: Usare il servizio connesso Active Directory
@@ -438,9 +442,9 @@ items:
     href: developer-support-help-options.md
   - name: Identità gestite per le risorse di Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 25d3d8591837606bd470d1881012080c2567bd0a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 667076d5bafc1b7cc3577a49446af58aee806b87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833041"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251708"

@@ -106,18 +106,18 @@ items:
   - name: Esplora dati di Azure
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
-  - name: Monitoraggio di Azure
-    tocHref: /azure/application-insights/
-    topicHref: /azure/azure-monitor/
-  - name: Monitoraggio di Azure
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/azure-monitor/
-  - name: Monitoraggio di Azure
-    tocHref: /azure/monitoring/
-    topicHref: /azure/azure-monitor/
-  - name: Monitoraggio di Azure
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/azure-monitor/
+  - name: Application Insights
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/application-insights/
+  - name: Log Analytics
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/log-analytics/
+  - name: Monitoraggio
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring/
+  - name: Monitoraggio e diagnostica
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring-and-diagnostics/
   - name: Registro Container
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -378,13 +378,13 @@ items:
     - name: Gruppi di gestione
       tocHref: /azure/governance/management-groups/
       topicHref: /azure/governance/management-groups/
-    - name: Criterio
+    - name: Policy
       tocHref: /azure/governance/policy/
       topicHref: /azure/governance/policy/
     - name: Resource Graph
       tocHref: /azure/governance/resource-graph/
       topicHref: /azure/governance/resource-graph/
-  - name: Indicazioni
+  - name: Materiale sussidiario
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
   - name: HDInsight
@@ -551,7 +551,7 @@ items:
   - name: Ricerca
     tocHref: /azure/search/
     topicHref: /azure/search/
-  - name: Sicurezza
+  - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
   - name: Centro sicurezza
@@ -569,6 +569,9 @@ items:
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
+  - name: Service Fabric Mesh
+    tocHref: /azure/service-fabric-mesh/
+    topicHref: /azure/service-fabric-mesh/
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
@@ -646,9 +649,9 @@ items:
   - name: Gateway VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: f2cf4d2bbe2160784cae2b0ec4435201060bfa85
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6114b5830c0e1779db1fef9cde3554ae1c6f0992
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074224"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209161"

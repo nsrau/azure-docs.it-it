@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: 230415b84f06beac549693d49055d7cb998163d8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159078"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251453"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creare un'offerta in Azure Stack
 
@@ -39,7 +40,7 @@ ms.locfileid: "54159078"
   
 4. Dopo aver creato l'offerta, è possibile modificare il relativo stato. Le offerte devono essere apportate **pubblica** agli utenti di ottenere una visione completa quando hanno eseguito la sottoscrizione. Possono essere offerte:
 
-   - **Pubblica**: Visibile agli utenti.
+   - **Public**: Visibile agli utenti.
    - **Privato**: Visibili solo agli amministratori di cloud. Questa impostazione è utile durante la progettazione del piano o offerta, o se l'amministratore cloud desidera [creare tutte le sottoscrizioni per gli utenti](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
    - **Rimuovere le autorizzazioni**: Chiusi ai nuovi sottoscrittori. L'amministratore del cloud è possibile rimuovere le autorizzazioni offerte per evitare future sottoscrizioni, ma lasciare inalterate sottoscrittori correnti.
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986412"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251623"
 ---
 # <a name="add-public-ip-addresses"></a>Aggiungere gli indirizzi IP pubblici
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*  
@@ -49,7 +50,7 @@ Innanzitutto, occorre eseguire consiste nell'ottenere il blocco di indirizzi da 
 5.  Riquadro utilizzo del pool di fare clic sull'indirizzo IP pubblico.
 6.  Fare clic sul pulsante Aggiungi indirizzo IP del pool.
 7.  Specificare un nome per il Pool IP.  Il nome che scelto è solo per consentire di identificare facilmente il pool IP in modo che è possibile assegnare qualsiasi.  È buona norma verificare il nome di quello utilizzato per l'intervallo di indirizzi, ma che non è obbligatorio.
-8.   Immettere il blocco di indirizzi da aggiungere nella notazione CIDR.  Ad esempio: 192.168.203.0/24
+8.   Immettere il blocco di indirizzi da aggiungere nella notazione CIDR.  Ad esempio:  192.168.203.0/24
 9.  Quando si specifica un intervallo CIDR valido nel campo indirizzo di intervallo (blocco CIDR) l'indirizzo IP iniziale, indirizzo IP finale e i campi di indirizzi IP disponibili verranno popolati automaticamente.  Sono di sola lettura e generati automaticamente in modo che non è possibile modificare queste senza modificare il valore nel campo intervallo dell'indirizzo.
 10. Dopo aver esaminato le informazioni sul pannello e confermare tutti i dati sono correggere, fare clic su Ok per eseguire il commit della modifica e aggiungere l'intervallo di indirizzi per Azure Stack.
 

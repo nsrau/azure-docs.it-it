@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177902"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252235"
 ---
 # <a name="provider-resource-usage-api"></a>API di utilizzo delle risorse dei provider
 Il termine *provider* si applica all'amministratore del servizio e a qualsiasi provider delegati. Operatori di Azure Stack e i provider delegati è possono usare l'API di utilizzo del provider per visualizzare l'utilizzo dei propri tenant diretto. Ad esempio, come illustrato nel diagramma, P0 può chiamare l'API per ottenere informazioni sull'utilizzo in P1 provider e l'utilizzo diretto di P2 e P1 può chiamare per informazioni sull'utilizzo in P3 e P4.

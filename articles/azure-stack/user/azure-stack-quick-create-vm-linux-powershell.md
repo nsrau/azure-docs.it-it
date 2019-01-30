@@ -11,21 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377505"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251929"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: Creare una macchina virtuale di server usando PowerShell in Azure Stack
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Avvio rapido: Creare una macchina virtuale di server Linux con PowerShell in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile creare una macchina virtuale Ubuntu Server 16.04 LTS con PowerShell per Azure Stack. Seguire i passaggi descritti in questo articolo per creare e usare una macchina virtuale.  Questo articolo fornisce anche i passaggi per:
+È possibile creare una macchina virtuale di Ubuntu Server 16.04 LTS con PowerShell per Azure Stack. Seguire i passaggi descritti in questo articolo per creare e usare una macchina virtuale.  Questo articolo fornisce anche i passaggi per:
 
 * Connettersi alla macchina virtuale con un client remoto.
 * Installare il server web NGINX e visualizzare la home page predefinita.
@@ -47,7 +48,7 @@ ms.locfileid: "44377505"
 
 Un gruppo di risorse è un contenitore logico in cui è possibile distribuire e gestire le risorse di Azure Stack. Il kit di sviluppo o il sistema integrato Azure Stack, eseguire il blocco di codice seguente per creare un gruppo di risorse. Vengono assegnati i valori per tutte le variabili in questo documento, è possibile usare questi valori oppure assegnare nuovi valori.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +62,7 @@ New-AzureRmResourceGroup `
 
 Creare un account di archiviazione e quindi creare un contenitore di archiviazione per l'immagine di Ubuntu Server 16.04 LTS.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +396,7 @@ Da un sistema di client con SSH installato, usare il comando seguente per connet
 ssh <Public IP Address>
 ```
 
-Quando richiesto, immettere azureuser come l'utente di accesso. Se è stata usata una passphrase durante la creazione di chiavi SSH, è possibile specificare la passphrase.
+Quando richiesto, accedere come **azureuser**. Se è stata usata una passphrase durante la creazione di chiavi SSH, è possibile specificare la passphrase.
 
 ## <a name="install-the-nginx-web-server"></a>Installare il server web NGINX
 

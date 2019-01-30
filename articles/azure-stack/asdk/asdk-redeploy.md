@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 2139b4c9a26aba829a0bfbe5cb5a56f2a8918aa7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263512"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239860"
 ---
 # <a name="redeploy-the-asdk"></a>Ridistribuire il ASDK
 In questo articolo descrive come ridistribuire Azure Stack Development Kit (ASDK) in un ambiente non di produzione. Poiché non è supportato l'aggiornamento di ASDK, è necessario ridistribuirla completamente per spostare in una versione più recente. È anche possibile ridistribuire il ASDK ogni volta che si desidera solo ricominciare da zero.

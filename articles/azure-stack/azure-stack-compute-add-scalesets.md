@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971828"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252269"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili in Azure Stack
 
@@ -33,8 +34,8 @@ In Azure Stack, il set di scalabilità di macchine virtuali non supportano la sc
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Il Marketplace:** Register Azure Stack con Azure globale, per abilitare la disponibilità dei prodotti in Marketplace. Seguire le istruzioni in [registrare Azure Stack con Azure](azure-stack-registration.md).
-- **Immagine del sistema operativo:** prima di poter creare un set di scalabilità di macchine virtuali (VMSS), è necessario scaricare le immagini di macchina virtuale per l'utilizzo in set di scalabilità dal [Marketplace Azure Stack](azure-stack-download-azure-marketplace-item.md). Le immagini devono essere già presente prima che un utente può creare un nuovo set di scalabilità. 
+- **Il Marketplace:** Registrare Azure Stack con Azure globale, per abilitare la disponibilità dei prodotti in Marketplace. Seguire le istruzioni in [registrare Azure Stack con Azure](azure-stack-registration.md).
+- **Immagine del sistema operativo:** Prima di poter creare un set di scalabilità di macchine virtuali (VMSS), è necessario scaricare le immagini di macchina virtuale per l'utilizzo in set di scalabilità dal [Marketplace Azure Stack](azure-stack-download-azure-marketplace-item.md). Le immagini devono essere già presente prima che un utente può creare un nuovo set di scalabilità. 
 
 ## <a name="use-the-azure-stack-portal"></a>Usa il portale di Azure Stack 
 

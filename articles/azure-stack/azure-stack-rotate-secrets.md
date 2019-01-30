@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157276"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251351"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -62,13 +63,13 @@ Azure Stack supporta la rotazione segreta con certificati esterni da un autorit�
 
 |Installazione certificato CA|Autorità di certificazione per ruotare per|Supportato|Versioni di Azure Stack è supportate|
 |-----|-----|-----|-----|
-|Da autofirmato|Per Enterprise|Non supportato||
+|Da autofirmato|To Enterprise|Non supportato||
 |Da autofirmato|Per autofirmato|Non supportato||
 |Da autofirmato|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
-|Da Enterprise|Per Enterprise|Supportato purché i clienti usano la stessa CA usato in fase di distribuzione dell'organizzazione|1803 e versioni successive|
+|Da Enterprise|To Enterprise|Supportato purché i clienti usano la stessa CA usato in fase di distribuzione dell'organizzazione|1803 e versioni successive|
 |Da Enterprise|Per autofirmato|Non supportato||
 |Da Enterprise|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
-|Pubblico<sup>*</sup>|Per Enterprise|Non supportato|1803 e versioni successive|
+|Pubblico<sup>*</sup>|To Enterprise|Non supportato|1803 e versioni successive|
 |Pubblico<sup>*</sup>|Per autofirmato|Non supportato||
 |Pubblico<sup>*</sup>|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
 
@@ -297,13 +298,13 @@ Il **Start-SecretRotation** cmdlet ruota i segreti dell'infrastruttura di un sis
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | type | Obbligatorio | Posizione | Predefinito | DESCRIZIONE |
+| Parametro | Type | Obbligatorio | Posizione | Predefinito | DESCRIZIONE |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | string  | False  | denominata  | Nessuna  | Il percorso di condivisione file per il **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni. Directory di fine deve essere **\Certificates**. |
 | CertificatePassword | SecureString | False  | denominata  | Nessuna  | La password per tutti i certificati forniti in PfXFilesPath. Valore obbligatorio se viene fornito PfxFilesPath quando i segreti esterni vengono ruotati. |
 | Interno | string | False | denominata | Nessuna | Flag interno deve essere utilizzata ogni volta che un operatore di Azure Stack desidera ruotare i segreti di infrastruttura interna. |
 | PathAccessCredential | PSCredential | False  | denominata  | Nessuna  | La credenziale di PowerShell per la condivisione file del **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni.  |
-| Eseguire di nuovo | SwitchParameter | False  | denominata  | Nessuna  | Riesegui devono essere utilizzata ogni volta che la rotazione segreta viene ritentata dopo un tentativo non riuscito. |
+| ReRun | SwitchParameter | False  | denominata  | Nessuna  | Riesegui devono essere utilizzata ogni volta che la rotazione segreta viene ritentata dopo un tentativo non riuscito. |
 
 ### <a name="examples"></a>Esempi
 

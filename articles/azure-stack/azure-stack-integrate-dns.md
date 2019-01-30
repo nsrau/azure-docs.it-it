@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339679"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252312"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrazione di Data Center Azure Stack - DNS
 Per poter accedere agli endpoint di Azure Stack (**portal**, **adminportal**, **gestione**, **adminmanagement**e così via.)  dall'esterno di Azure Stack, è necessario integrare i servizi DNS di Azure Stack con il server DNS che ospitano le zone DNS da usare in Azure Stack.
@@ -121,7 +122,7 @@ Se la macchina virtuale di distribuzione non è più disponibile o è inaccessib
 
 Il modo più semplice e sicuro per l'integrazione di Azure Stack con l'infrastruttura DNS consiste nell'eseguire l'inoltro condizionale della zona dal server che ospita la zona padre. Questo approccio è consigliato se si ha controllo diretto su server DNS che ospitano la zona padre per i nomi DNS esterno Azure Stack.
 
-Se non si ha familiarità con le procedure per eseguire l'inoltro condizionale DNS, vedere l'articolo di TechNet seguente: [assegnare un server d'inoltro condizionale per un nome di dominio](https://technet.microsoft.com/library/cc794735), o la documentazione specifica per la soluzione DNS.
+Se non si ha familiarità con le procedure per eseguire operazioni con il servizio DNS di inoltro condizionale, vedere l'articolo di TechNet seguente: [Assegnare un server d'inoltro condizionale per un nome di dominio](https://technet.microsoft.com/library/cc794735), o la documentazione specifica per la soluzione DNS.
 
 Negli scenari in cui è specificata la zona di DNS di Stack di Azure esterno per l'aspetto di un dominio figlio del nome di dominio aziendale, l'inoltro condizionale non è utilizzabile. È necessario configurare la delega DNS.
 

@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283453"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251861"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -137,16 +138,16 @@ Usare questi passaggi per l'esecuzione di Get-AzureStackLog in un computer host 
  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |CRITERI DI RESTRIZIONE SOFTWARE   |
+ |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
  |ACSWac                |ExternalDNS                    |MetricsRP                      |Archiviazione|
  |AD FS                  |FabricRing                     |MetricsServer                  |StorageController   |
  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |IN MATERIA PLASTICA RINFORZATA                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |Gateway                        |NC                             |È STATO|
+ |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+ |AzureMonitor          |Gateway                        |NC                             |WAS|
  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
  |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |EFFETTUATO                            |OboService                     |   |
+ |CA                    |HRP                            |OboService                     |   |
  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>Ulteriori considerazioni

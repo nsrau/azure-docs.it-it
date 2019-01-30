@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 21c54e2e996bb987f7a27ac3e6333df6f74d6f4b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338625"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238341"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architettura di Microsoft Azure Stack Development Kit
 Azure Stack Development Kit (ASDK) è una distribuzione a nodo singolo di Azure Stack. Tutti i componenti vengono installati nelle macchine virtuali in esecuzione in un singolo computer host. 
