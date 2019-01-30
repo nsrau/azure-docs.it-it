@@ -11,12 +11,13 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 1d0e04e4fbc964400e8b5c1544344864f7e757a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.lastreviewed: 11/02/2018
+ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019513"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239231"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Distribuire una rete di blockchain Ethereum in Azure Stack
 
@@ -72,7 +73,7 @@ Il modello di leader consortium Configura footprint del primo membro della rete.
     NAMEPREFIX | Stringa utilizzata come base per la denominazione le risorse distribuite. | Alfanumerico con lunghezza da 1 a 6 | Eth
     AUTHTYPE | Metodo per l'autenticazione per la macchina virtuale. | Password o chiave pubblica SSH | Password
     ADMINUSERNAME | Nome utente dell'amministratore di ogni macchina virtuale distribuita | 1-64 caratteri | gethadmin
-    ADMINPASSWORD (tipo di autenticazione = Password)| Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve contenere 3 dei requisiti seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. <br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|
+    ADMINPASSWORD (tipo di autenticazione = Password)| Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve soddisfare tre dei requisiti seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. <br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|
     ADMINSSHKEY (tipo di autenticazione sshPublicKey =) | Chiave Secure Shell usata per l'accesso remoto. | |
     GENESISBLOCK | Stringa JSON che rappresenta il blocco originale personalizzato.  Se si specifica un valore per questo parametro è facoltativo. | |
     ETHEREUMACCOUNTPSSWD | La password amministratore usata per proteggere account Ethereum. | |
@@ -122,7 +123,7 @@ Per verificare la distribuzione del leader, selezionare il sito di amministrazio
     NAMEPREFIX | Stringa utilizzata come base per la denominazione le risorse distribuite. | Alfanumerico con lunghezza da 1 a 6 | Eth
     AUTHTYPE | Metodo per l'autenticazione per la macchina virtuale. | Password o chiave pubblica SSH | Password
     ADMINUSERNAME | Nome utente dell'amministratore di ogni macchina virtuale distribuita | 1-64 caratteri | gethadmin
-    ADMINPASSWORD (tipo di autenticazione = Password)| Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve contenere 3 dei requisiti seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. <br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|
+    ADMINPASSWORD (tipo di autenticazione = Password)| Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve soddisfare tre dei requisiti seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. <br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|
     ADMINSSHKEY (tipo di autenticazione sshPublicKey =) | Chiave Secure Shell usata per l'accesso remoto. | |
     CONSORTIUMMEMBERID | L'ID associato a ogni membro della rete consortium.   | Questo ID deve essere univoco nella rete. | 0
     NUMMININGNODES | Numero di nodi di data mining. | Compreso tra 2 e 15. | 2

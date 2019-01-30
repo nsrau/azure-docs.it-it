@@ -9,12 +9,13 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 071d58f53389367833df6379c68c27ecc4771fa1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727854"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238823"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introduzione agli strumenti di sviluppo per archiviazione di Azure Stack
 
@@ -35,12 +36,12 @@ Per le librerie client di archiviazione, tenere presente la versione compatibile
 
 | Libreria client | Versione supportata di Azure Stack | Collegamento | Specifica dell'endpoint |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 8.7.0 | Pacchetto NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | file app. config |
+| .NET | 8.7.0 | Pacchetto NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | file app.config |
 | Java | 6.1.0 | Pacchetto Maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Configurazione della stringa di connessione |
-| Node.js | 2.7.0 | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Eseguire: `npm install azure-storage@2.7.0`)<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Dichiarazione dell'istanza del servizio |
+| Node.js | 2.7.0 | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Eseguire: `npm install azure-storage@2.7.0`)<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Dichiarazione istanza del servizio |
 | C++ | 3.1.0 | Pacchetto NuGet:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Configurazione della stringa di connessione |
 | PHP | 1.0.0 | Versione di GitHub:<br>Comuni: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Coda:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>tavolo: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installazione tramite Composer (per altre informazioni, [vedere i dettagli seguenti](#install-php-client-via-composer---current).) | Configurazione della stringa di connessione |
-| Python | 1.0.0 | Versione di GitHub:<br>Comuni:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Coda:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Dichiarazione dell'istanza del servizio |
+| Python | 1.0.0 | Versione di GitHub:<br>Comuni:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Coda:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Dichiarazione istanza del servizio |
 | Ruby | 1.0.1 | Pacchetto RubyGems:<br>Comuni:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Coda: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>tavolo: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Versione di GitHub:<br>Comuni: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Coda: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>tavolo: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Configurazione della stringa di connessione |
 
 #### <a name="install-php-client-via-composer---current"></a>Installare il client PHP tramite Composer - corrente
@@ -64,17 +65,17 @@ Per l'installazione tramite Composer: (richiedere il blob come esempio).
 
 |Libreria client|Versione supportata di Azure Stack|Collegamento|Specifica dell'endpoint|
 |---------|---------|---------|---------|
-|.NET     |6.2.0|Pacchetto NuGet:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|file app. config|
+|.NET     |6.2.0|Pacchetto NuGet:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|file app.config|
 |Java|4.1.0|Pacchetto Maven:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>Versione di GitHub:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Configurazione della stringa di connessione|
-|Node.js     |1.1.0|Collegamento NPM:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(eseguire: `npm install azure-storage@1.1.0)`<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Dichiarazione dell'istanza del servizio||C++|2.4.0|Pacchetto NuGet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Configurazione della stringa di connessione|
+|Node.js     |1.1.0|Collegamento NPM:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(eseguire: `npm install azure-storage@1.1.0)`<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Dichiarazione istanza del servizio||C++|2.4.0|Pacchetto NuGet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Configurazione della stringa di connessione|
 |C++|2.4.0|Pacchetto NuGet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Versione di GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Configurazione della stringa di connessione|
 |PHP|0.15.0|Versione di GitHub:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Installazione tramite Composer (vedere i dettagli sotto)|Configurazione della stringa di connessione|
-|Python     |0.30.0|Pacchetto PIP:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Eseguire: `pip install -v azure-storage==0.30.0)`<br><br>Versione di GitHub:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Dichiarazione dell'istanza del servizio|
-|Ruby|0.12.1<br>Preview|Pacchetto RubyGems:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>Versione di GitHub:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Configurazione della stringa di connessione|
+|Python     |0.30.0|Pacchetto PIP:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Eseguire: `pip install -v azure-storage==0.30.0)`<br><br>Versione di GitHub:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Dichiarazione istanza del servizio|
+|Ruby|0.12.1<br>Anteprima|Pacchetto RubyGems:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>Versione di GitHub:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Configurazione della stringa di connessione|
 
 #### <a name="install-php-client-via-composer---previous"></a>Installare il client PHP tramite Composer - precedente
 
-Per l'installazione tramite Composer: (take blob esempio).
+Per l'installazione tramite Composer: (prendere BLOB come esempio).
 
 1. Creare un file denominato **Composer. JSON** nella radice del progetto con il codice seguente:
 

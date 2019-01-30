@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243639"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242961"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteggere le macchine virtuali distribuite in Azure Stack
 
@@ -64,7 +65,7 @@ Pianificare la strategia di ripristino di backup e ripristino di emergenza per o
 
 È necessario determinare la quantità di tempo di inattività e perdita di dati che per ogni applicazione può tollerare la propria organizzazione. Identificando i tempi di inattività e perdita di dati è possibile creare un piano di ripristino che riduce al minimo l'impatto di una situazione di emergenza per l'organizzazione. Per ogni applicazione, prendere in considerazione:
 
- - **Obiettivo tempo di ripristino (RTO)**  
+ - **Obiettivo del tempo di ripristino (RTO)**  
 RTO è il tempo massimo accettabile che un'applicazione può essere non disponibile dopo un evento imprevisto. Ad esempio, un obiettivo del tempo di 90 minuti significa che è necessario essere in grado di ripristinare l'applicazione a uno stato di esecuzione entro 90 minuti dall'inizio di una situazione di emergenza. Se si dispone di un RTO basso, si potrebbe tenere una seconda distribuzione continuamente eseguita in standby per la protezione da un'interruzione di area.
  - **Obiettivo del punto di ripristino (RPO)**  
 RPO è la durata massima di perdita di dati che è accettabile durante un'emergenza. Per esempio, se si archiviano i dati in un singolo database, senza replica in altri database, e si eseguono backup orari, si potrebbero perdere fino a un'ora di dati.
@@ -148,7 +149,7 @@ Alcune applicazioni nell'ambiente in uso potrebbero non essere necessario protez
 
 Considerazioni importanti per la distribuzione di Azure Stack:
 
-|     | Raccomandazione | Commenti |
+|     | Recommendation | Commenti |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Backup e ripristino di macchine virtuali a una destinazione di backup esterno già distribuita nel Data Center | Consigliato | Sfruttare i vantaggi dell'infrastruttura di backup esistente e competenze operative. Assicurarsi di ridimensionare l'infrastruttura di backup in modo è possibile proteggere le istanze di macchine Virtuali aggiuntive. Assicurarsi che l'infrastruttura di backup non è presente in stretta vicinanza all'origine. È possibile ripristinare le macchine virtuali in Azure Stack, l'origine per un'istanza secondaria di Azure Stack o Azure. |
 | Backup e ripristino di macchine virtuali a una destinazione di backup esterna dedicato ad Azure Stack | Consigliato | È possibile acquistare una nuova infrastruttura di backup o effettuare il provisioning infrastrutture backup dedicata per Azure Stack. Assicurarsi che l'infrastruttura di backup non è presente in stretta vicinanza all'origine. È possibile ripristinare le macchine virtuali in Azure Stack, l'origine per un'istanza secondaria di Azure Stack o Azure. |

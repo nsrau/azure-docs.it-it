@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 91966bf2958b1670559aa57076eae7a62214fec5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809803"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238908"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerazioni principali: Uso dei servizi o creazione di App per Azure Stack
 
@@ -62,7 +63,7 @@ Nella tabella seguente vengono descritte le differenze generali tra Azure e Azur
  
  Microsoft offre gli strumenti e linee guida che consentono di sviluppare per Azure Stack.
 
-| Raccomandazione | Riferimenti |
+| Recommendation | Riferimenti |
 | -------- | ------------- |
 | Installare gli strumenti corretti in della workstation dello sviluppatore. | - [Installare PowerShell](azure-stack-powershell-install.md)<br>- [Scarica gli strumenti](azure-stack-powershell-download.md)<br>- [Configurare PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installare Visual Studio](azure-stack-install-visual-studio.md) 
 | Esaminare le informazioni sugli elementi seguenti:<br>-Considerazioni sui modelli di Resource Manager azure<br>-Procedura trovare modelli di avvio rapido<br>-Usare un modulo criteri che consentono di usare Azure per lo sviluppo per Azure Stack | [Sviluppare per Azure Stack](azure-stack-developer.md) | 

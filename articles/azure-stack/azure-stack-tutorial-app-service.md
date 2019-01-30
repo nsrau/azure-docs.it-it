@@ -16,12 +16,13 @@ ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.custom: mvc
-ms.openlocfilehash: f8a54436a61889e6d39c7e491e45c25e3b38236f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: e3ac94c91742f4a90f9ddd8c975d946bb918ac64
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036787"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244743"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Esercitazione: rendere web e App per le API disponibili per gli utenti di Azure Stack
 
@@ -72,8 +73,8 @@ In questo esempio si creerà un sistema di gestione dei contenuti di piattaforma
 
     - **Nome del database**: DNNdb
     - **Dimensioni massime in MB**: 100
-    - **Sottoscrizione**: TestAppServiceOffer
-    - **Gruppo di risorse**: rete neurale profonda-RG
+    - **Sottoscrizione** TestAppServiceOffer
+    - **Gruppo di risorse**: DNN-RG
 
 3. Selezionare **Login Settings**, immettere le credenziali per il database e quindi selezionare **OK**. Si userà queste credenziali più avanti in questa esercitazione.
 4. Sotto **SKU** > selezionare lo SKU di SQL creato per il Server di Hosting SQL > e quindi selezionare **OK**.

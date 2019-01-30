@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037216"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239265"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorare gli aggiornamenti in Azure Stack tramite l'endpoint con privilegi
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 È possibile usare la [privileged endpoint](azure-stack-privileged-endpoint.md) per monitorare lo stato di Azure Stack eseguire l'aggiornamento e per riprendere un aggiornamento non riuscito eseguito dall'ultimo passaggio ha esito positivo il portale di Azure Stack diventerà disponibile.  Tramite il portale di Azure Stack è il metodo consigliato per gestire gli aggiornamenti in Azure Stack.
 
@@ -35,7 +36,7 @@ I seguenti nuovi cmdlet di PowerShell per gestire gli aggiornamenti sono incluse
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Verificare che siano disponibili i cmdlet
-Poiché i cmdlet sono di nuovi nel pacchetto di aggiornamento 1710 per Azure Stack, il processo di aggiornamento 1710 deve ottenere un certo punto prima che sia disponibile la funzionalità di monitoraggio. In genere, i cmdlet sono disponibili se lo stato nel portale di amministrazione indica che l'aggiornamento 1710 è il **riavviare gli host di archiviazione** passaggio. In particolare, l'aggiornamento di cmdlet rientra **passaggio: esecuzione del passaggio 2.6 - PrivilegedEndpoint aggiornare elenco elementi consentiti**.
+Poiché i cmdlet sono di nuovi nel pacchetto di aggiornamento 1710 per Azure Stack, il processo di aggiornamento 1710 deve ottenere un certo punto prima che sia disponibile la funzionalità di monitoraggio. In genere, i cmdlet sono disponibili se lo stato nel portale di amministrazione indica che l'aggiornamento 1710 è il **riavviare gli host di archiviazione** passaggio. In particolare, l'aggiornamento di cmdlet rientra **passaggio: Esecuzione del passaggio 2.6 - aggiornamenti PrivilegedEndpoint whitelist**.
 
 È anche possibile determinare se i cmdlet sono disponibili a livello di codice eseguendo una query di elenco dei comandi dall'endpoint con privilegi. A tale scopo, eseguire i comandi seguenti dall'host del ciclo di vita dell'hardware o da una Workstation con privilegi di accesso. Inoltre, assicurarsi che l'endpoint con privilegi è un host attendibile. Per altre informazioni, vedere il passaggio 1 [accedere all'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 
@@ -108,9 +109,9 @@ $statusString.Value
 I valori possibili sono:
 
 - In esecuzione
-- Completed
+- Completi
 - Operazione non riuscita 
-- Canceled
+- Cancellati
 
 È possibile eseguire questi comandi più volte per visualizzare lo stato più aggiornato. Si è autorizzati a ristabilire una connessione al nuovo controllo.
 

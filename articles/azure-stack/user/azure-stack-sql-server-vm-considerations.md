@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304360"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246763"
 ---
 # <a name="optimize-sql-server-performance"></a>Ottimizzare le prestazioni di SQL Server
 
@@ -120,7 +121,7 @@ Unità di archiviazione temporanea, etichettata come le **1!d** unità, non è p
 
 - Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le dimensioni di macchina virtuale diversa consentono diversi numeri di dischi dati collegati. Per altre informazioni, vedere [le dimensioni di macchina virtuale supportate in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Per ottenere il numero massimo di IOPS possibili per i dischi dati, si consiglia di aggiungere il numero massimo di dischi dati supportati per i [dimensioni della macchina virtuale](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) e usare lo striping del disco.
-- **Dimensioni unità di allocazione NTFS:** Quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché di TempDB.
+- **Dimensioni unità di allocazione NTFS:** quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 kB per file di log e dati, nonché per TempDB.
 - **Procedure di gestione del disco:** Quando si rimuove un disco dati, arrestare il servizio SQL Server durante la modifica. Inoltre, non modificare le impostazioni della cache sui dischi perché non fornisce miglioramenti delle prestazioni.
 
 > [!WARNING]  

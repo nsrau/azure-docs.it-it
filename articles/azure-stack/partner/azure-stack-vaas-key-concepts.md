@@ -10,16 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/07/2019
+ms.date: 01/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5b0c15fe5e4740a06af5de8a47b79c6d7528a2c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243815"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242808"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Convalida di un concetti chiave di servizio
 
@@ -53,7 +54,7 @@ Per altre informazioni sui tipi di flusso di lavoro, vedere [What ' s convalida 
 
 1. Nel dashboard soluzioni, creare una nuova soluzione o selezionarne uno esistente. In questo viene aggiornato e i riquadri del flusso di lavoro.
 2. Per creare un nuovo flusso di lavoro, selezionare nella **avviare** su qualsiasi riquadro. Per informazioni specifiche per ogni flusso di lavoro, vedere gli articoli seguenti:
-    - Superamento test: [Avvio rapido: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
+    - Superamento test: [Guida introduttiva: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
     - Convalida di soluzioni: [Convalidare una nuova soluzione di Azure Stack](azure-stack-vaas-validate-solution-new.md)
     - Convalida di soluzioni: [Convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
     - Convalida di soluzioni: [Convalidare i pacchetti dell'OEM](azure-stack-vaas-validate-oem-package.md)

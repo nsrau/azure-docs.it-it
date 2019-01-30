@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362059"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239469"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 
@@ -62,8 +63,8 @@ Sono disponibili altre opzioni per la distribuzione di macchine virtuali SQL, in
 È possibile creare un utente amministratore con privilegi inferiori rispetto a un amministratore di sistema SQL. L'utente deve solo le autorizzazioni per le operazioni seguenti:
 
 * Database: Creare, modificare con indipendenza (per Always On unico), eliminare, eseguire il Backup
-* Gruppo di disponibilità: Alter, creare un Join, aggiungere o rimuovere Database
-* Account di accesso: Creazione, selezionare, Alter, Drop, revocare
+* Gruppo di disponibilità: Modificare, creare un Join, aggiungere o rimuovere Database
+* Nome account di accesso: Creare, selezionare, Alter, Drop, revocare
 * Operazioni SELECT: \[master\].\[ Sys\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[master\].\[ Sys\].\[ dm_os_sys_memory\], SERVERPROPERTY \[master\].\[ Sys\].\[ availability_groups\] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Ulteriori informazioni sulla protezione
@@ -86,7 +87,7 @@ Per aggiungere un server di hosting autonomo che è già stato configurato, segu
 
 2. Selezionare **tutti i servizi** &gt; **risorse amministrative** &gt; **istanze di SQL Server che ospita**.
 
-   ![Server di Hosting SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Sotto **istanze di SQL Server che ospita**, è possibile connettersi al provider di risorse SQL alle istanze di SQL Server che servirà come back-end del provider di risorse.
 

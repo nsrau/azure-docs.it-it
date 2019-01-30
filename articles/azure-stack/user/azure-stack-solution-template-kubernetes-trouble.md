@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904217"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237852"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
@@ -112,7 +113,7 @@ Quando si distribuisce il cluster Kubernetes, è possibile esaminare lo stato de
     | Proprietà | DESCRIZIONE |
     | ----     | ----        |
     | Risorsa | Nome della risorsa. |
-    | type | Il provider di risorse e il tipo di risorsa. |
+    | Type | Il provider di risorse e il tipo di risorsa. |
     | Stato | Lo stato dell'elemento. |
     | TimeStamp | Il timestamp UTC del tempo. |
     | Dettagli dell'operazione | I dettagli dell'operazione, ad esempio il provider di risorse che è stato coinvolto nell'operazione, l'endpoint di risorse e il nome della risorsa. |
