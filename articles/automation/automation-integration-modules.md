@@ -3,21 +3,21 @@ title: Creare un modulo di integrazione di Automazione di Azure
 description: Esercitazione che illustra la creazione, i test e un uso di esempio dei moduli di integrazione in Automazione di Azure.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 609a841ed410832739041bbbbf7d33d3a01a4bfc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000229"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436485"
 ---
 # <a name="azure-automation-integration-modules"></a>Moduli di integrazione di Automazione di Azure
-PowerShell è la tecnologia alla base di Automazione di Azure. Poiché Automazione di Azure è basato su PowerShell, i moduli di PowerShell sono essenziali per l'estendibilità di Automazione di Azure. Questo articolo illustra le specifiche dell'uso dei moduli di PowerShell, indicati come "moduli di integrazione", in Automazione di Azure e le procedure consigliate per creare moduli di PowerShell personalizzati destinati a fungere da moduli di integrazione in Automazione di Azure. 
+PowerShell è la tecnologia alla base di Automazione di Azure. Poiché Automazione di Azure è basato su PowerShell, i moduli di PowerShell sono essenziali per l'estendibilità di Automazione di Azure. Questo articolo illustra le specifiche dell'uso dei moduli di PowerShell, indicati come "moduli di integrazione", in Automazione di Azure e le procedure consigliate per creare moduli di PowerShell personalizzati destinati a svolgere la funzione di moduli di integrazione in Automazione di Azure. 
 
 ## <a name="what-is-a-powershell-module"></a>Che cos'è un modulo di PowerShell
 Un modulo di PowerShell è un gruppo di cmdlet di PowerShell, come **Get-Date** o **Copy-Item**, che può essere usato dalla console di PowerShell, da script, da flussi di lavoro, da runbook e da risorse di PowerShell DSC come WindowsFeature o File, che possono essere usate da configurazioni di PowerShell DSC. Tutte le funzionalità di PowerShell vengono esposte tramite cmdlet e risorse DSC e ogni risorsa DSC o cmdlet è supportato da un modulo di PowerShell, molti dei quali sono inclusi in PowerShell. Ad esempio, il cmdlet **Get-Date** e il cmdlet **Copy-Item** e la risorsa Package DSC fanno parte rispettivamente dei moduli Microsoft.PowerShell.Utility, Microsoft.PowerShell.Management e PSDesiredStateConfiguration di PowerShell. Tutti questi moduli sono inclusi in PowerShell. Molti moduli di PowerShell, tuttavia, non sono inclusi in PowerShell e vengono invece distribuiti con prodotti proprietari o di terze parti come System Center 2012 Configuration Manager oppure dall'estesa community di PowerShell in posizioni come PowerShell Gallery. I moduli sono utili perché semplificano attività complesse tramite funzionalità incapsulate.  Altre informazioni sui moduli di PowerShell sono disponibili in [MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
@@ -182,7 +182,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ```
    <br>
-   Gli asset di connessione dei runbook sono tabelle hash, ovvero un tipo complesso. Sembra però che queste tabelle hash possano essere passate perfettamente ai cmdlet per il parametro –Connection senza eccezione del cast. Tecnicamente, il cast dal formato serializzato al formato deserializzato può essere eseguito correttamente per alcuni tipi di PowerShell, che possono quindi essere passati ai cmdlet per i parametri che accettano il tipo non deserializzato. La tabella hash è uno di questi tipi. Anche i tipi definiti dall'autore del modulo possono essere implementati per poter essere deserializzati correttamente, ma sono necessari alcuni compromessi. Per il tipo devono essere disponibili un costruttore predefinito e un PSTypeConverter e tutte le proprietà del tipo devono essere pubbliche. I tipi già definiti che non sono di proprietà dell'autore del modulo, tuttavia, non possono essere in alcun modo "corretti" ed è per questo motivo che è consigliabile evitare completamente i tipi complessi per i parametri. Suggerimento per la creazione di runbook: se per qualche motivo i cmdlet devono accettare un parametro di tipo complesso o si usa un modulo altrui che richiede un parametro di tipo complesso, la soluzione alternativa nei runbook Flusso di lavoro PowerShell e nei flussi di lavoro di PowerShell in PowerShell locale è eseguire il wrapping del cmdlet che genera il tipo complesso e del cmdlet che lo usa nella stessa attività InlineScript. Poiché InlineScript esegue il contenuto come PowerShell anziché come Flusso di lavoro PowerShell, il cmdlet che genera il tipo complesso produrrà il tipo corretto e non il tipo complesso deserializzato.
+   Gli asset di connessione dei runbook sono tabelle hash, ovvero un tipo complesso. Sembra però che queste tabelle hash possano essere passate perfettamente ai cmdlet per il parametro -Connection senza eccezione del cast. Tecnicamente, il cast dal formato serializzato al formato deserializzato può essere eseguito correttamente per alcuni tipi di PowerShell, che possono quindi essere passati ai cmdlet per i parametri che accettano il tipo non deserializzato. La tabella hash è uno di questi tipi. Anche i tipi definiti dall'autore del modulo possono essere implementati per poter essere deserializzati correttamente, ma sono necessari alcuni compromessi. Per il tipo devono essere disponibili un costruttore predefinito e un PSTypeConverter e tutte le proprietà del tipo devono essere pubbliche. I tipi già definiti che non sono di proprietà dell'autore del modulo, tuttavia, non possono essere in alcun modo "corretti" ed è per questo motivo che è consigliabile evitare completamente i tipi complessi per i parametri. Suggerimento per la creazione di runbook: se per qualche motivo i cmdlet devono accettare un parametro di tipo complesso o si usa un modulo altrui che richiede un parametro di tipo complesso, la soluzione alternativa nei runbook Flusso di lavoro PowerShell e nei flussi di lavoro di PowerShell in PowerShell locale è eseguire il wrapping del cmdlet che genera il tipo complesso e del cmdlet che lo usa nella stessa attività InlineScript. Poiché InlineScript esegue il contenuto come PowerShell anziché come Flusso di lavoro PowerShell, il cmdlet che genera il tipo complesso produrrà il tipo corretto e non il tipo complesso deserializzato.
 1. Assicurarsi che tutti i cmdlet del modulo siano senza stato. Flusso di lavoro PowerShell esegue tutti i cmdlet chiamati nel flusso di lavoro in una diversa sessione. Di conseguenza, i cmdlet che dipendono dallo stato della sessione creato/modificato da altri cmdlet dello stesso modulo non funzioneranno nei runbook Flusso di lavoro PowerShell.  Di seguito è riportato un esempio della soluzione da non adottare.
    
     ```powershell
@@ -207,4 +207,5 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
 
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sulla creazione di moduli di PowerShell, vedere [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+
 
