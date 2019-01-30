@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 82343daa9fafe27ac814b6246a303e661a0a22d1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 10/07/2018
+ms.openlocfilehash: 2b36c5d31e9377335a9cc8a37d4e4e0e890bfc3b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231037"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245084"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -85,7 +86,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
   Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](azure-stack-integrate-security.md).
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager include il nome dell'area.** Con questa versione, gli oggetti recuperati da Azure Resource Manager include ora l'attributo del nome di area. Se uno script di PowerShell esistente, l'oggetto viene passato direttamente a un altro cmdlet, lo script potrebbe produrre un errore e non riuscire. Questo è il comportamento conforme di Azure Resource Manager e richiede che il client chiama da cui sottrarre l'attributo di area. Per altre informazioni su Azure Resource Manager vedere [documentazione di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). Verificare 8-10 mdb-->
+- **Azure Resource Manager include il nome dell'area.** Con questa versione, gli oggetti recuperati da Azure Resource Manager include ora l'attributo del nome di area. Se uno script di PowerShell esistente, l'oggetto viene passato direttamente a un altro cmdlet, lo script potrebbe produrre un errore e non riuscire. Questo è il comportamento conforme di Azure Resource Manager e richiede che il client chiama da cui sottrarre l'attributo di area. Per altre informazioni su Azure Resource Manager vedere [documentazione di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). verify 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **Modifiche apportate alle funzionalità di delega provider.** Partire 1807 i provider delegata modello è semplificato al fine di una migliore allineamento con il modello rivenditore di Azure e i provider di delegato non sarà in grado di creare altri provider delegata, essenzialmente rendere flat il modello e rendendo il Provider delegata funzionalità disponibili in un unico livello. Per abilitare la transizione al nuovo modello e la gestione delle sottoscrizioni, le sottoscrizioni utente ora possono essere spostate tra le sottoscrizioni del Provider delegata di nuovo o esistente che appartengono allo stesso tenant di Directory. È inoltre possibile spostare sottoscrizioni utente appartenenti alla sottoscrizione Provider predefinito per le sottoscrizioni del Provider delegata nello stesso tenant di Directory.  Per altre informazioni, vedere [delegare offerte in Azure Stack](azure-stack-delegated-provider.md).

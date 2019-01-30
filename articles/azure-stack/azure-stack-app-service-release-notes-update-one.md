@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971896"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240030"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Servizio App in Azure Stack update note sulla versione 1
 
@@ -202,13 +203,13 @@ Lo scambio di slot del sito viene suddiviso in questa versione. Per ripristinare
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
 
-- Origine: tutti
+- Origine: Qualsiasi
 - Intervallo di porte di origine: *
-- Destinazione: Gli indirizzi IP
-- Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+- Destinazione: Indirizzi IP
+- Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
 - Intervallo di porte di destinazione: 445
 - Protocollo: TCP
-- Azione: Consenti
+- Azione: CONSENTI
 - Priorità: 700
 - Nome: Outbound_Allow_SMB445
 

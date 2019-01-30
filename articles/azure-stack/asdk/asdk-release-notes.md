@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240345"
 ---
 # <a name="asdk-release-notes"></a>Note sulla versione ASDK 
  
@@ -27,7 +28,7 @@ Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi
 
 > Rimanere aggiornati sulle novità di ASDK sottoscrivendo il [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-118110101"></a>Compilazione 1.1811.0.101
+## <a name="build-118110101"></a>Build 1.1811.0.101
 
 ### <a name="new-features"></a>Nuove funzionalità
 
@@ -154,7 +155,7 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack:
 
 <!-- #### Identity -->
 
-## <a name="build-11809090"></a>Compilazione 1.1809.0.90
+## <a name="build-11809090"></a>Build 1.1809.0.90
 
 ### <a name="new-features"></a>Nuove funzionalità
 Questa build include i seguenti miglioramenti e correzioni per Azure Stack.  
@@ -304,7 +305,7 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 
 <!-- #### Identity -->
 
-## <a name="build-11808097"></a>Compilazione 1.1808.0.97
+## <a name="build-11808097"></a>Build 1.1808.0.97
 
 ### <a name="new-features"></a>Nuove funzionalità
 Questa build include i seguenti miglioramenti e correzioni per Azure Stack.  

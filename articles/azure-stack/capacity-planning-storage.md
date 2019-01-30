@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369114"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245151"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Pianificazione della capacità archiviazione di Azure Stack
 Le sezioni seguenti riportano Azure Stack capacità di archiviazione informazioni sulla pianificazione per facilitare la pianificazione per esigenze di archiviazione di soluzioni.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Viene utilizzato e l'organizzazione delle capacità di archiviazione
-La configurazione di Azure Stack iperconvergente consente la condivisione dei dispositivi di archiviazione fisica. Le tre divisioni principali dello spazio di archiviazione disponibile sono compresi tra l'infrastruttura di archiviazione temporanea delle macchine virtuali tenant e lo spazio di archiviazione BLOB, tabelle e code dei servizi di archiviazione coerenti con Azure (ACS) di backup.
+La configurazione iperconvergente di Azure Stack consente la condivisione dei dispositivi di archiviazione fisica. Le tre divisioni principali dello spazio di archiviazione disponibile sono compresi tra l'infrastruttura di archiviazione temporanea delle macchine virtuali tenant e lo spazio di archiviazione BLOB, tabelle e code dei servizi di archiviazione coerenti con Azure (ACS) di backup.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Gli spazi diretti della Cache e livelli di capacità
-È presente capacità di archiviazione usato per il sistema operativo, la registrazione locale, i dump e altre risorse di archiviazione temporaneo dell'infrastruttura alle esigenze. Questa capacità di archiviazione locale è separare (dispositivi e capacità) dai dispositivi di archiviazione assegnati alla gestione della configurazione di spazi di archiviazione diretta. Il resto dei dispositivi di archiviazione viene inserito in un singolo pool di capacità di archiviazione indipendentemente dal numero di server nell'unità di scala. Questi dispositivi sono disponibili due tipi: Cache e la capacità.  I dispositivi di Cache sono semplicemente tale-Cache. Spazi diretti utilizzeranno questi dispositivi per write-back e la memorizzazione nella cache di lettura. Le capacità di questi dispositivi di Cache, anche se utilizzato, non si impegna a formattato, "visibile" capacità dei dischi virtuali formattati. I dispositivi di capacità vengono usati per questo scopo e forniscono il percorso"home" dei dati gestiti da spazi di archiviazione.
+È presente capacità di archiviazione usato per il sistema operativo, la registrazione locale, i dump e altre risorse di archiviazione temporaneo dell'infrastruttura alle esigenze. Questa capacità di archiviazione locale è separare (dispositivi e capacità) dai dispositivi di archiviazione assegnati alla gestione della configurazione di spazi di archiviazione diretta. Il resto dei dispositivi di archiviazione viene inserito in un singolo pool di capacità di archiviazione indipendentemente dal numero di server nell'unità di scala. Questi dispositivi sono disponibili due tipi: Capacità e della cache.  I dispositivi di Cache sono semplicemente tale-Cache. Spazi diretti utilizzeranno questi dispositivi per write-back e la memorizzazione nella cache di lettura. Le capacità di questi dispositivi di Cache, anche se utilizzato, non si impegna a formattato, "visibile" capacità dei dischi virtuali formattati. I dispositivi di capacità vengono usati per questo scopo e forniscono il percorso"home" dei dati gestiti da spazi di archiviazione.
 
 Tutte le capacità di archiviazione viene allocata e gestite direttamente dall'infrastruttura di Azure Stack. L'operatore necessario prendere decisioni relative alla configurazione, assegnazione, o gestire le scelte in fatto di espansione della capacità. Queste decisioni di progettazione sono state apportate in modo da allinearsi con i requisiti della soluzione e vengono automatizzate durante l'installazione/distribuzione iniziale o durante l'espansione della capacità. Informazioni dettagliate su resilienza, la capacità riservata per le ricompilazioni e altri dettagli sono state considerate come parte della progettazione. 
 

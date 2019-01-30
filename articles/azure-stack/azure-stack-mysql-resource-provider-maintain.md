@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: e0de6b26499b4a5166db411eccee543be43c8352
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: fdc75f169ebd4b85e5e413277c265922fb27dfdb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245991"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239724"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse MySQL
 
@@ -150,7 +151,7 @@ Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con
 
 ```
 
-### <a name="secretrotationmysqlproviderps1-parameters"></a>Parametri SecretRotationMySQLProvider.ps1
+### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 parameters
 
 |Parametro|DESCRIZIONE|
 |-----|-----|

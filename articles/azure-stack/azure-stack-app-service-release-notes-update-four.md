@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 11/13/2018
+ms.openlocfilehash: 2555ce4b9485ba6464bde3422df114343b579641
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247317"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243420"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Servizio App in note sulla versione update 4 di Azure Stack
 
@@ -69,7 +70,7 @@ Servizio App di Azure in Azure Stack aggiornamento 4 include le correzioni e i m
 - **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
   - NodeJS aggiunto 10.6.0
   - Aggiunto Monitoraggio prestazioni rete 6.1.0
-  - Aggiunta di Zulu OpenJDK 8.31.0.2
+  - Added Zulu OpenJDK 8.31.0.2
   - Aggiunta di Tomcat 8.5.34 e 9.0.12
   - Versioni PHP aggiunto:
     - 5.6.37

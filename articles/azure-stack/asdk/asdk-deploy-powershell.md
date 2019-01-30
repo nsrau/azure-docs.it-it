@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716027"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247732"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuire il ASDK dalla riga di comando
 Il ASDK è un ambiente di test e sviluppo che è possibile distribuire per valutare e illustrano i servizi e funzionalità di Azure Stack. Per renderlo attivo e in esecuzione, è necessario preparare l'ambiente hardware ed eseguire alcuni script (questa operazione richiederà diverse ore). Successivamente, è possibile accedere ai portali di amministratore e utente per iniziare a usare Azure Stack.
@@ -105,7 +106,7 @@ Per distribuire il kit di sviluppo **tramite AD FS come provider di identità**,
 
 Nelle distribuzioni di AD FS, l'indicatore predefinita del servizio di Directory viene usato come provider di identità. L'account predefinito per l'accesso è azurestackadmin@azurestack.local, e la password verrà impostata su ciò che è fornito come parte dei comandi di installazione di PowerShell.
 
-Il processo di distribuzione può richiedere alcune ore, durante i quali il sistema si riavvia automaticamente una volta. Quando la distribuzione ha esito positivo, nella console di PowerShell vengono visualizzati: **completa: azione 'Deployment'**. Se la distribuzione non riesce, è possibile provare a eseguire di nuovo lo script usando eseguire nuovamente il parametro-. In alternativa, è possibile [ridistribuire ASDK](asdk-redeploy.md) da zero.
+Il processo di distribuzione può richiedere alcune ore, durante i quali il sistema si riavvia automaticamente una volta. Quando la distribuzione ha esito positivo, verrà visualizza la console di PowerShell: **COMPLETAMENTO: Azione 'Deployment'**. Se la distribuzione non riesce, è possibile provare a eseguire di nuovo lo script usando eseguire nuovamente il parametro-. In alternativa, è possibile [ridistribuire ASDK](asdk-redeploy.md) da zero.
 
 > [!IMPORTANT]
 > Se si desidera monitorare l'avanzamento della distribuzione dopo il riavvio dell'host ASDK, è necessario accedere come AzureStack\AzureStackAdmin. Se si accede come amministratore locale dopo che il computer host viene riavviato (e aggiunti al dominio con azurestack. Local), non verrà visualizzata l'avanzamento della distribuzione. Non rieseguire la distribuzione, invece accedere come azurestack per convalidare che venga eseguito.
@@ -148,7 +149,7 @@ Nel caso dell'ambiente non DHCP abilitato, è necessario includere i seguenti pa
 |NatIPv4Address|Necessari per il supporto di DHCP NAT|Imposta un indirizzo IP statico per MAS-BGPNAT01. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
 |NatIPv4Subnet|Necessari per il supporto di DHCP NAT|Prefisso di Subnet IP usato per DHCP sul supporto NAT. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
 |PublicVlanId|Facoltativo|Imposta l'ID VLAN. Usare questo parametro solo se l'host e MAS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e Internet). Ad esempio,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Esegui di nuovo|Facoltativo|Usare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dover immettere di nuovo i dati forniti in precedenza non sono supportati perché alcuni valori univoci vengono generati e utilizzati per la distribuzione.|
+|Riesegui|Facoltativo|Usare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dover immettere di nuovo i dati forniti in precedenza non sono supportati perché alcuni valori univoci vengono generati e utilizzati per la distribuzione.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Eseguire le configurazioni di post-distribuzione

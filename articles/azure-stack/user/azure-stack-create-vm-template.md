@@ -16,12 +16,13 @@ ms.custom: mvc
 ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2f769706b5f6a9fa4326a0efeb9e8afb2edd8296
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 11/13/2018
+ms.openlocfilehash: 9ccdea6ca0bf46bbc19e5a7e19ac2d3527138345
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246161"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241781"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Esercitazione: creare una macchina virtuale usando un modello della community
 
@@ -57,7 +58,7 @@ Minikube è uno strumento che rende più semplice eseguire Kubernetes in locale.
 Questo modello installa i componenti seguenti:
 
 - Ubuntu 16.04 LTS VM
-- [Docker CE](https://download.docker.com/linux/ubuntu) 
+- [Docker-CE](https://download.docker.com/linux/ubuntu) 
 - [Kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl)
 - [Minikube](https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64)
 - xFCE4

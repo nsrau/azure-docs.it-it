@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024944"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244250"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -78,8 +79,8 @@ Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere al
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione code | queue.&lt;region>.&lt;fqdn> |
 | Insieme di credenziali delle chiavi | *.vault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
-| Host dell'estensione di amministrazione | *.adminhosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione di amministrazione | adminhosting. \<area >. \<fqdn > |
-| Host dell'estensione pubblica | * .hosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione pubblica | Hosting. \<area >. \<fqdn > |
+| Host dell'estensione di amministrazione | *.adminhosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione di amministrazione | adminhosting.\<region>.\<fqdn> |
+| Host dell'estensione pubblica | * .hosting. \<area >. \<fqdn > (certificati SSL con caratteri jolly) | Host dell'estensione pubblica | hosting.\<region>.\<fqdn> |
 
 Se si distribuisce Azure Stack tramite la modalità di distribuzione di Azure AD, è sufficiente richiedere i certificati elencati nella tabella precedente. Tuttavia, se si distribuisce Azure Stack tramite la modalità di distribuzione di AD FS, è necessario richiedere certificati descritti nella tabella seguente:
 

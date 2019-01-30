@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037907"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243182"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure connessa di distribuzione di prendere decisioni per Azure Stack
 Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -68,7 +69,7 @@ La fatturazione della capacità è necessario un Enterprise Agreement (EA) sotto
 
 ## <a name="learn-more"></a>Altre informazioni
 - Per informazioni sui casi d'uso, acquisto, partner e fornitori di hardware OEM, vedere la [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) pagina del prodotto.
-- Per informazioni sulla Guida di orientamento e la disponibilità geografica per Azure Stack i sistemi integrati, vedere il white paper: [Azure Stack: un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Per informazioni sulla Guida di orientamento e la disponibilità geografica per Azure Stack i sistemi integrati, vedere il white paper: [Azure Stack: Un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Per altre informazioni sulla creazione di pacchetti e prezzi di Microsoft Azure Stack [Scarica il PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615399"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249749"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Preparare il computer host ASDK
 Prima di installare il ASDK nel computer host, è necessario preparare l'ambiente ASDK per l'installazione. Quando il computer host kit di sviluppo è stato preparato, eseguirà l'avvio dal disco rigido CloudBuilder.vhdx macchina virtuale per iniziare la distribuzione ASDK.
@@ -52,8 +53,8 @@ Prima di installare il ASDK nel computer host, è necessario preparare l'ambient
     ![](media/asdk-prepare-host/2.PNG)
 
 6. Nel **impostazioni facoltative** pagina, fornire all'amministratore locale informazioni account per il computer host kit di sviluppo e quindi fare clic su **successivo**. È anche possibile fornire valori per le impostazioni facoltative seguenti:
-  - **Computername**: questa opzione imposta il nome per l'host del kit di sviluppo. Il nome deve essere conforme ai requisiti di FQDN e deve essere una lunghezza o 15 caratteri. Il valore predefinito è un nome casuale generato da Windows.
-  - **Configurazione con IP statico**: imposta la distribuzione da usare un indirizzo IP statico. In caso contrario, quando il programma di installazione riavvia nel cloudbuilder.vhdx, le interfacce di rete vengono configurate con DHCP.
+  - **Computername**: Questa opzione imposta il nome per l'host del kit di sviluppo. Il nome deve essere conforme ai requisiti di FQDN e deve essere una lunghezza o 15 caratteri. Il valore predefinito è un nome casuale generato da Windows.
+  - **Configurazione con IP statico**: Imposta la distribuzione da usare un indirizzo IP statico. In caso contrario, quando il programma di installazione riavvia nel cloudbuilder.vhdx, le interfacce di rete vengono configurate con DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)
 

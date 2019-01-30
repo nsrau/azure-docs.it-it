@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104098"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243641"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
 
@@ -128,15 +129,15 @@ ms.locfileid: "54104098"
 
 ### <a name="identity-information"></a>Informazioni sull'identità
 
-| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | Type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | NOME |X |string |[A-Za-z0-9] + | |
 | Editore |X |string |[A-Za-z0-9] + | |
-| Version |X |string |[SemVer v2](https://semver.org/) | |
+| Versione |X |string |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | Type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Consiglio di 80 caratteri |Il portale potrebbe non visualizzare correttamente il nome dell'elemento se è più lungo di 80 caratteri. |
 | PublisherDisplayName |X |string |Consiglio di 30 caratteri |Il portale potrebbe non visualizzare correttamente il nome del server di pubblicazione se è più lungo di 30 caratteri. |
@@ -151,11 +152,11 @@ Marketplace utilizza le icone seguenti:
 
 | NOME | Larghezza | Altezza: | Note |
 | --- | --- | --- | --- |
-| Largo |255 px |115 pixel |È necessario sempre |
-| Grande |115 pixel |115 pixel |È necessario sempre |
+| Largo |255 px |115 px |È necessario sempre |
+| Grande |115 px |115 px |È necessario sempre |
 | Media |90 px |90 px |È necessario sempre |
 | Piccolo |40 px |40 px |È necessario sempre |
-| Schermata |533 px |32 pixel |Facoltativo |
+| Schermata |533 px |32 px |Facoltativo |
 
 ### <a name="categories"></a>Categorie
 
@@ -165,7 +166,7 @@ Ogni elemento del Marketplace deve essere contrassegnato con una categoria che i
 
 Ogni elemento del Marketplace può includere diversi collegamenti a contenuti aggiuntivi. I collegamenti vengono specificati come un elenco di nomi e gli URI:
 
-| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | Type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Numero massimo di 64 caratteri | |
 | Uri |X |URI | | |
@@ -174,7 +175,7 @@ Ogni elemento del Marketplace può includere diversi collegamenti a contenuti ag
 
 Oltre ai metadati precedenti, gli autori del Marketplace possono fornire dati di coppia chiave/valore personalizzato nel formato seguente:
 
-| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | Type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Numero massimo di 25 caratteri | |
 | Valore |X |string |Numero massimo di 30 caratteri | |

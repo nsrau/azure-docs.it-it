@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078903"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247222"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creare una connessione VPN site-to-site tra due reti virtuali in diversi ambienti di Azure Stack Development Kit
 ## <a name="overview"></a>Panoramica
@@ -35,7 +36,7 @@ Il diagramma seguente illustra la configurazione della connessione aspetto che a
 ### <a name="before-you-begin"></a>Prima di iniziare
 Per completare la configurazione della connessione, verificare di disporre gli elementi seguenti prima di iniziare:
 
-* Due server e altri prerequisiti che soddisfano i requisiti hardware di Azure Stack Development Kit, come descritto in [Guida introduttiva: valutare Azure Stack Development Kit](azure-stack-deploy-overview.md). 
+* Due server e altri prerequisiti che soddisfano i requisiti hardware di Azure Stack Development Kit, come descritto in [Guida introduttiva: Valuta Azure Stack Development Kit](azure-stack-deploy-overview.md). 
 * Il [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) pacchetto di distribuzione.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Distribuire gli ambienti Azure Stack Development Kit
@@ -53,7 +54,7 @@ Nella tabella seguente viene riepilogata la configurazione di rete per entrambi 
 **Tabella di configurazione di rete**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Nome rete virtuale     |VNET-01|VNET-02 |
+|Nome della rete virtuale     |VNET-01|VNET-02 |
 |Spazio indirizzi della rete virtuale |10.0.10.0/23|10.0.20.0/23|
 |Nome della subnet     |Subnet-01|Subnet-02|
 |Intervallo di indirizzi subnet|10.0.10.0/24 |10.0.20.0/24 |
@@ -164,7 +165,7 @@ Per convalidare i dati che passano attraverso la connessione VPN, è necessario 
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
 3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** pannello nella **Name**, immettere **VM01**.
-5. Immettere un nome utente valido e una password. Si usa questo account per accedere alla macchina virtuale dopo averla creata.
+5. Immettere un nome utente e una password validi. Si usa questo account per accedere alla macchina virtuale dopo averla creata.
 6. Fornire una **sottoscrizione**, **gruppo di risorse**, e **posizione**, quindi selezionare **OK**.
 7. Nel **dimensioni** Pannello di tale istanza, selezionare una dimensione di macchina virtuale e quindi selezionare **selezionare**.
 8. Nel **impostazioni** pannello, accettare le impostazioni predefinite. Verificare che il **VNET-01** sia selezionata la rete virtuale. Verificare che la subnet sia impostata su **10.0.10.0/24**. Selezionare **OK**.
@@ -207,7 +208,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 3. Nell'elenco delle risorse di rete, selezionare **gateway di rete virtuale**.
 4. Nelle **Name**, immettere **GW2**.
 5. Per scegliere una rete virtuale, selezionare **rete virtuale**. Quindi selezionare **VNET-02** dall'elenco.
-6. Selezionare **indirizzo IP pubblico**. Quando la **Scegli indirizzo IP pubblico** verrà aperto il pannello selezionare **Crea nuovo**.
+6. Selezionare **Indirizzo IP pubblico**. Quando la **Scegli indirizzo IP pubblico** verrà aperto il pannello selezionare **Crea nuovo**.
 7. Nelle **Name**, immettere **GW2-PiP**, quindi selezionare **OK**.
 8. Per impostazione predefinita, per **tipo di VPN**, **basato su Route** sia selezionata.
     Mantenere il **basato su Route** tipo VPN.
@@ -242,7 +243,7 @@ Creare una macchina virtuale in POC2, ora e inserirlo nella subnet VM nella rete
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
 3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** pannello per **Name**, immettere **VM02**.
-5. Immettere un nome utente valido e una password. Utilizzare questo account per accedere alla macchina virtuale dopo averla creata.
+5. Immettere un nome utente e una password validi. Utilizzare questo account per accedere alla macchina virtuale dopo averla creata.
 6. Fornire una **sottoscrizione**, **gruppo di risorse**, e **posizione**, quindi selezionare **OK**.
 7. Nel **dimensioni** blade, selezionare una macchina virtuale di dimensioni per questa istanza e quindi selezionare **seleziona**.
 8. Nel **impostazioni** pannello, è possibile accettare i valori predefiniti. Verificare che il **VNET-02** sia selezionata la rete virtuale e verificare che la subnet sia impostata su **10.0.20.0/24**. Selezionare **OK**.

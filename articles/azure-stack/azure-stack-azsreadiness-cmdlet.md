@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247577"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250641"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Riferimento ai cmdlet Start-AzsReadinessChecker
 
@@ -306,7 +307,7 @@ Specifica il nome di area di distribuzione Azure Stack.
 |Input pipeline accettato:      |False         |
 |Accettare caratteri jolly: |False         |
 
-> NOME DI DOMINIO-COMPLETO
+> -FQDN
 
 Specifica il FQDN esterno della distribuzione di Azure Stack, anche un alias come ExternalFQDN ed ExternalDomainName.
 |  |  |
@@ -395,7 +396,7 @@ Specifica un dizionario ordinato del soggetto per la generazione di richiesta di
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
-> RequestType-
+> -RequestType
 
 Specifica il tipo di SAN della richiesta di certificato. Valori validi MultipleCSR, SingleCSR.
 
@@ -407,7 +408,7 @@ Specifica il tipo di SAN della richiesta di certificato. Valori validi MultipleC
 |Digitare:                        |string   |
 |Posizione:                   |denominata    |
 |Valore predefinito:              |Nessuna     |
-|Valori validi:                |'MultipleCSR', 'SingleCSR' |
+|Valori validi:                |'MultipleCSR','SingleCSR' |
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
@@ -452,7 +453,7 @@ Specifica l'istanza di servizi di Azure che contiene l'account, le directory e l
 |Digitare:                        |string   |
 |Posizione:                   |denominata    |
 |Valore predefinito:              |Nessuna     |
-|Valori validi:                |'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|Valori validi:                |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
@@ -531,7 +532,7 @@ Specifica se per mostrare solo informazioni di riepilogo del report vengono omes
 |Digitare:                        |string   |
 |Posizione:                   |denominata    |
 |Valore predefinito:              |Tutti      |
-|Valori validi:                |'Certificati', 'AzureRegistration', 'AzureIdentity', 'Jobs', 'Tutti' |
+|Valori validi:                |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
@@ -552,7 +553,7 @@ Rimuove la cronologia precedente di esecuzione e convalida e scrive le convalide
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
-|Alias:                    |cloud Foundry                |
+|Alias:                    |cf                |
 |Posizione:                   |denominata             |
 |Valore predefinito:              |False             |
 |Input pipeline accettato:      |False             |
@@ -576,7 +577,7 @@ Richiede la conferma dell'utente prima di eseguire il cmdlet.
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
-|Alias:                    |cloud Foundry                |
+|Alias:                    |cf                |
 |Posizione:                   |denominata             |
 |Valore predefinito:              |False             |
 |Input pipeline accettato:      |False             |
@@ -588,7 +589,7 @@ Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
-|Alias:                    |Wi                |
+|Alias:                    |wi                |
 |Posizione:                   |denominata             |
 |Valore predefinito:              |False             |
 |Input pipeline accettato:      |False             |

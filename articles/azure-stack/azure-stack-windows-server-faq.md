@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613096"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249681"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server nelle domande frequenti sul Marketplace di Azure Stack
 
@@ -37,10 +38,10 @@ Successivamente, se qualsiasi set di scalabilità di macchine virtuali fanno rif
 
 Microsoft offre due versioni di immagini di Windows Server tramite il Marketplace di Azure Stack:
 
-- **Pagare quando si utilizza**: queste immagini di esecuzione dei contatori Windows prezzo pieno. 
-   Chi dovrebbe utilizzare: i clienti Enterprise Agreement (EA) che usano il *modello di fatturazione del consumo*; CSP che non si desidera utilizzare Servizio licenze SPLA.
-- **Bring Your Own License (BYOL)**: queste immagini eseguire i contatori di base.
-   Chi dovrebbe utilizzare: i clienti con contratto Enterprise con una licenza di Windows Server; CSP che usano la licenza SPLA.
+- **Pagare quando si utilizza**: Queste immagini di esecuzione dei contatori Windows prezzo pieno. 
+   Chi dovrebbe utilizzare: I clienti Enterprise Agreement (EA) che usano il *modello di fatturazione del consumo*; CSP che non si desidera utilizzare Servizio licenze SPLA.
+- **Bring Your Own License (BYOL)**: Queste immagini eseguire i contatori di base.
+   Chi dovrebbe utilizzare: Clienti con contratto Enterprise con una licenza di Windows Server; CSP che usano la licenza SPLA.
 
 Azure Hybrid Usa vantaggio (AHUB) non è supportato in Azure Stack. I clienti che acquistano una licenza tramite il modello di "Capacità" è necessario utilizzare le immagini BYOL. Se si sta testando con Azure Stack Development Kit (ASDK), è possibile usare una di queste opzioni.
 

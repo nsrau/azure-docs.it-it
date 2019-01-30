@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359545"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247392"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -444,7 +445,7 @@ Per eseguire il cmdlet, è necessario:
     <String>] [<CommonParameters>]
    ```
 
-| Parametro | type | DESCRIZIONE |
+| Parametro | Type | DESCRIZIONE |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Le credenziali utilizzate per [accedere all'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Il nome utente è nel formato **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | string | Una preconfigurati in modo remota console di PowerShell che fornisce le funzionalità di raccolta dei log e di post-attività di distribuzione. Per altre informazioni, vedere la [usando l'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) articolo. |
@@ -466,7 +467,7 @@ Get-AzsRegistrationToken genera un token di registrazione dai parametri di input
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parametro | type | DESCRIZIONE |
+| Parametro | Type | DESCRIZIONE |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Le credenziali utilizzate per [accedere all'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Il nome utente è nel formato **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | string |  Una preconfigurati in modo remota console di PowerShell che fornisce le funzionalità di raccolta dei log e di post-attività di distribuzione. Per altre informazioni, vedere la [usando l'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) articolo. |

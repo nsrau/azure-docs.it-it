@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718226"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249906"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installare Azure Stack Development Kit (ASDK)
 Dopo aver [Prepara il computer host ASDK](asdk-prepare-host.md), può essere distribuito il ASDK nell'immagine CloudBuilder.vhdx usando la procedura seguente in questo articolo.
@@ -38,8 +39,8 @@ I passaggi descritti in questo articolo mostrano come distribuire il ASDK usando
     ![](media/asdk-install/1.PNG) 
 
 3. Nel Provider di identità **tipo** casella di riepilogo a discesa, selezionare **Cloud di Azure** oppure **ADFS**. Sotto **Password amministratore locale** digitare la password dell'amministratore locale (che deve corrispondere alla password di amministratore locale configurato corrente) le **Password** casella e quindi fare clic su  **Avanti**.
-    - **Cloud di Azure**: consente di configurare Azure Active Directory (Azure AD) come provider di identità. Per usare questa opzione, è necessaria una connessione internet, il nome completo di Azure AD tenant di directory nel formato *NomeDominio*. onmicrosoft.com oppure ad Azure AD verifica nome di dominio personalizzato e le credenziali di amministratore globale per l'oggetto specificato Directory. Dopo la distribuzione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente riattivare le autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
-    - **AD FS**: il servizio di directory stamp predefinito viene usato come provider di identità. L'account predefinito per l'accesso è azurestackadmin@azurestack.local, e la password da utilizzare è specificata come parte del programma di installazione.
+    - **Cloud di Azure**: Configura Azure Active Directory (Azure AD) come provider di identità. Per usare questa opzione, è necessaria una connessione internet, il nome completo di Azure AD tenant di directory nel formato *NomeDominio*. onmicrosoft.com oppure ad Azure AD verifica nome di dominio personalizzato e le credenziali di amministratore globale per l'oggetto specificato Directory. Dopo la distribuzione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente riattivare le autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
+    - **AD FS**: Il servizio di directory stamp predefinito viene usato come provider di identità. L'account predefinito per l'accesso è azurestackadmin@azurestack.local, e la password da utilizzare è specificata come parte del programma di installazione.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -53,16 +54,16 @@ I passaggi descritti in questo articolo mostrano come distribuire il ASDK usando
     > [!TIP]
     > La macchina virtuale BGPNAT01 è il router perimetrale che offre funzionalità NAT e VPN per Azure Stack.
 
-    - **DHCP** (impostazione predefinita): la macchina virtuale Ottiene la configurazione di rete IP dal server DHCP.
-    - **Statico**: usare questa opzione solo se DHCP non è possibile assegnare un indirizzo IP valido per Azure Stack accedere a Internet. **Un indirizzo IP statico deve essere specificato con la lunghezza di subnet mask in formato CIDR (ad esempio, 10.0.0.5/24)**.
+    - **DHCP** (default): La macchina virtuale Ottiene la configurazione di rete IP dal server DHCP.
+    - **Statico**: Usare questa opzione solo se DHCP non è possibile assegnare un indirizzo IP valido per Azure Stack accedere a Internet. **Un indirizzo IP statico deve essere specificato con la lunghezza di subnet mask in formato CIDR (ad esempio, 10.0.0.5/24)**.
     - Tipo in un valore valido **indirizzo IP del server di tempo** indirizzo. Questa operazione necessaria campo imposta l'ora del server da utilizzare con il kit di sviluppo. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.
 
       > [!TIP]
       > Per trovare un server come indirizzo IP, visitare [pool.ntp.org](http://pool.ntp.org) o effettuare il ping time.windows.com. 
 
     - **Facoltativamente**, si impostano i valori seguenti:
-        - **ID VLAN**: imposta l'ID VLAN. Usare questa opzione solo se l'host e AzS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e internet). 
-        - **Server d'inoltro DNS**: un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per risolvere i nomi all'esterno di timbro, forniscono server di infrastruttura DNS esistente. Il server DNS nel timbro inoltra le richieste di risoluzione nome sconosciuto a questo server.
+        - **VLAN ID**: Imposta l'ID VLAN. Usare questa opzione solo se l'host e AzS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e internet). 
+        - **Server d'inoltro DNS**: Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per risolvere i nomi all'esterno di timbro, forniscono server di infrastruttura DNS esistente. Il server DNS nel timbro inoltra le richieste di risoluzione nome sconosciuto a questo server.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ I passaggi descritti in questo articolo mostrano come distribuire il ASDK usando
 
     ![](media/asdk-install/7.PNG)
 
-11. Il processo di distribuzione richiederà alcune ore, durante i quali il computer host verrà riavviato automaticamente in una sola volta. Se si desidera monitorare l'avanzamento della distribuzione, accedere come azurestack\AzureStackAdmin dopo il riavvio dell'host di kit di sviluppo. Quando la distribuzione ha esito positivo, nella console di PowerShell vengono visualizzati: **completa: azione 'Deployment'**. 
+11. Il processo di distribuzione richiederà alcune ore, durante i quali il computer host verrà riavviato automaticamente in una sola volta. Se si desidera monitorare l'avanzamento della distribuzione, accedere come azurestack\AzureStackAdmin dopo il riavvio dell'host di kit di sviluppo. Quando la distribuzione ha esito positivo, verrà visualizza la console di PowerShell: **COMPLETAMENTO: Azione 'Deployment'**. 
     > [!IMPORTANT]
     > Se si accede come amministratore locale dopo che il computer viene aggiunto al dominio, non verrà visualizzata l'avanzamento della distribuzione. Non rieseguire la distribuzione, invece accedere come azurestack\AzureStackAdmin per convalidare che venga eseguito.
 

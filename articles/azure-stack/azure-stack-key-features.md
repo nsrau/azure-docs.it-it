@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: b07d8b115b966b9decdfa7379a908da4f9f2ee74
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303585"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243910"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Funzionalità e concetti principali in Azure Stack
 Le descrizioni delle funzionalità e i termini riportati di seguito possono risultare utili a chi non si ha familiarità con Microsoft Azure Stack.
@@ -65,7 +66,7 @@ Gerarchia di esempio delle offerte sottoscritte da un tenant, ognuna con piani e
 ### <a name="regions"></a>Regioni
 Aree di Azure Stack sono un elemento di base di scalabilità e gestione. Un'organizzazione può avere più aree con le risorse disponibili in ogni area. Le aree potrebbero anche essere disponibili le offerte di servizio diverso. In Azure Stack Development Kit, è supportata solo una singola area e viene automaticamente denominata *locale*.
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servizi
 Microsoft Azure Stack consente ai provider di offrire una vasta gamma di servizi e applicazioni, ad esempio le macchine virtuali, SQL Server database, SharePoint, Exchange e altro ancora.
 
 ### <a name="plans"></a>Piani

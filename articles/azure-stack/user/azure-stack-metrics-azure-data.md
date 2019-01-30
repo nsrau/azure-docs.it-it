@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: cfeb1ce7791db463dc0ac39376baa8228dd96daf
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/01/2018
+ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106291"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239104"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Monitoraggio di Azure in Azure Stack
 
@@ -109,7 +110,7 @@ Alcuni dati di monitoraggio sono già archiviati e disponibili in Monitoraggio d
 
 È possibile usare l'API REST di monitoraggio di Azure, i comandi dell'interfaccia della riga di comando multipiattaforma, i cmdlet di PowerShell o .NET SDK per accedere ai dati nel sistema o in archiviazione di Azure. 
 
-**Visualizzazione**
+**Visualization**
 
 La visualizzazione in grafici dei dati di monitoraggio permette di identificare le tendenze più rapidamente della ricerca sui dati. 
 

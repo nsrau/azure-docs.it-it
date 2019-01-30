@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232873"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247647"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Aggiungere nodi di unità di scalabilità aggiuntiva in Azure Stack
 
@@ -106,7 +107,7 @@ Lo stato per unità di scala e i nodi di unità di scala può essere recuperato 
 ### <a name="status-for-the-add-node-operation"></a>Stato per l'operazione di aggiunta nodo 
 **Per un'unità di scala:**
 
-|Status               |DESCRIZIONE  |
+|Stato               |DESCRIZIONE  |
 |---------------------|---------|
 |In esecuzione              |Tutti i nodi partecipano attivamente l'unità di scala.|
 |Arrestato              |Il nodo di unità di scala è attivo o raggiungibile.|
@@ -117,7 +118,7 @@ Lo stato per unità di scala e i nodi di unità di scala può essere recuperato 
 
 **Per un nodo di unità di scala:**
 
-|Status                |DESCRIZIONE  |
+|Stato                |DESCRIZIONE  |
 |----------------------|---------|
 |In esecuzione               |Il nodo partecipa attivamente nell'unità di scala.|
 |Arrestato               |Il nodo è disponibile.|

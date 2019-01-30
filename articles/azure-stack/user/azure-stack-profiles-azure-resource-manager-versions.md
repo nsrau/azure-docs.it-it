@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264615"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248471"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate da profili in Azure Stack
 
@@ -49,7 +50,7 @@ Per una spiegazione dei profili di API e ritmo di rilascio versione per Azure St
 | Authorization (operazioni di criteri) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
-| Criterio | 2016-10-01 |
+| Policy | 2016-10-01 |
 | Risorse | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
 | Resources_Locks | 2016-10-01 |
@@ -71,7 +72,7 @@ Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel pr
 | Microsoft.Authorization<Br>(operazioni di criteri) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
-| Criterio | 2015-10-01-preview |
+| Policy | 2015-10-01-preview |
 | Risorse | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
 | Resources_Locks | 2016-09-01 |
