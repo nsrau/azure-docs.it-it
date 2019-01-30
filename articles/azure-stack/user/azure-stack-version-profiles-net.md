@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: e335f4cb112c0f029768ccf050f888e00a6efdc1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555014"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250615"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Usare i profili delle versioni API con .NET in Azure Stack
 
@@ -77,7 +78,7 @@ Per usare Azure .NET SDK con Azure Stack, è necessario fornire i valori seguent
 | ID sottoscrizione           | AZURE_SUBSCRIPTION_ID | Il [ *ID sottoscrizione* ][] è la modalità di accesso offerte in Azure Stack.                                                      |
 | Client Secret             | AZURE_CLIENT_SECRET   | Segreto dell'applicazione dell'entità servizio salvato quando è stata creata l'entità servizio.                                      |
 | Endpoint di Resource Manager | ARM_ENDPOINT           | Visualizzare [ *l'endpoint di gestione risorse di Azure Stack*][].                                                                    |
-| Località                  | POSIZIONE_RISORSA     | Percorso per Azure Stack.
+| Località                  | RESOURCE_LOCATION     | Percorso per Azure Stack.
 
 Per trovare l'ID Tenant per Azure Stack, seguire le istruzioni disponibili [qui](../azure-stack-csp-ref-operations.md). Per impostare le variabili di ambiente, procedere come segue:
 
@@ -126,9 +127,9 @@ File JSON di esempio:
 
 ## <a name="existing-api-profiles"></a>Profili dell'API esistenti
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Se si usa un timestamp minore rispetto alla build 1808, usare questo profilo.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Se si usa un timestamp minore rispetto alla build 1808, usare questo profilo.
 
 3.  **Più recente**: Profilo costituito le versioni più recenti di tutti i servizi. Usare le versioni più recenti di tutti i servizi. Questo profilo è parte di **partire** pacchetto NuGet.
 

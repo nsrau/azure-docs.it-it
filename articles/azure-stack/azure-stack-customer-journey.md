@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: 554fd9c32c9831d45a40c62a871e3a8d5f8d7cb9
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191752"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249492"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrazione di Data Center di Azure Stack
 
@@ -140,7 +141,7 @@ Sono disponibili diversi passaggi che sono obbligatori o facoltativi in base al 
 
     -   [Integrazione di System Center Operations Manager](azure-stack-integrate-monitor.md) supporta anche funzionalità di gestione della flotta.
 
-    -   [Integrazione di Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
+    -   [Nagios Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Sequenza temporale complessiva
 

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fb1afb1a07b31f7e261c958b8a03bec3b299433
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a6fea6962c5e8864398cd80635d997407cf1d22e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245294"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250300"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Risolvere i problemi di convalida come servizio
 
@@ -80,7 +81,7 @@ Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina ri
 | WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
 | Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604 20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
 ### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Si verifica un errore durante il caricamento di immagini di macchina virtuale nel `VaaSPreReq` script
 
@@ -104,7 +105,7 @@ Se l'ambiente sia integro, è necessario caricare manualmente le immagini di mac
     | Offerta | WindowsServer |
     | OS Type (Tipo di sistema operativo) |  Windows |
     | SKU | 2012-R2-Datacenter |
-    | Version | 1.0.0 |
+    | Versione | 1.0.0 |
     | URI del Blob del disco del sistema operativo | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. Selezionare il pulsante **Crea**.
@@ -112,7 +113,7 @@ Se l'ambiente sia integro, è necessario caricare manualmente le immagini di mac
 
 Le proprietà di tutte le immagini di macchina virtuale 5 sono come segue:
 
-| Editore  | Offerta  | OS Type (Tipo di sistema operativo) | SKU | Version | URI del Blob del disco del sistema operativo |
+| Editore  | Offerta  | OS Type (Tipo di sistema operativo) | SKU | Versione | URI del Blob del disco del sistema operativo |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer |  Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer |  Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086353"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247766"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usare database SQL in Microsoft Azure Stack
 
-Utilizzare l'adapter di provider di risorse di SQL Server per offrire database SQL come un servizio del [Azure Stack](azure-stack-poc.md). Dopo aver installato il provider di risorse e connetterla a una o più istanze di SQL Server, gli utenti possono creare:
+Utilizzare l'adapter di provider di risorse di SQL Server per offrire database SQL come un servizio del [Azure Stack](azure-stack-poc.md). Dopo aver installato il provider di risorse e averlo collegato a una o più istanze di SQL Server, gli utenti possono creare:
 
 - Database per le app native del cloud.
 - Siti Web che usano SQL.
@@ -46,4 +47,4 @@ Il provider di risorse include i componenti seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire il provider di risorse di SQL Server](azure-stack-sql-resource-provider-deploy.md)
+[Distribuire il provider di risorse SQL Server](azure-stack-sql-resource-provider-deploy.md)

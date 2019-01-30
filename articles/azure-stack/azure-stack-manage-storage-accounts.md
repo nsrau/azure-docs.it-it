@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: dda27c79a975ae0b22b51d0eb9b1dad3d9382acd
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/18/2019
+ms.openlocfilehash: 98ae15307b6d2859b583042ca788b825890a40be
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103891"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238772"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 

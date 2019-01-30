@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886825"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246365"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usare i profili delle versioni API con Java in Azure Stack
 
@@ -77,9 +78,9 @@ Usare la procedura seguente per installare il SDK per Java:
 
 4.  I pacchetti che devono essere installati dipende dalla versione del profilo da utilizzare. I nomi dei pacchetti per le versioni di profili sono:
     
-   - **com.microsoft.Azure.Profile\_2018\_03\_01\_ibrida**
-   - **COM**
-      - **più recente**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure**
+      - **latest**
 
 5.  Se non è disponibile, creare una sottoscrizione e salvare l'ID sottoscrizione per un uso successivo. Per istruzioni su come creare una sottoscrizione, vedere [creare le sottoscrizioni di offerte in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
@@ -98,7 +99,7 @@ Per usare il SDK Java di Azure con Azure Stack, è necessario fornire i valori s
 | ID sottoscrizione           | AZURE_SUBSCRIPTION_ID      | Il [ <span class="underline">ID sottoscrizione</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) è la modalità di accesso offerte in Azure Stack.                |
 | Client Secret             | AZURE_CLIENT_SECRET        | L'applicazione di un'entità servizio segreto salvato se è stata creata l'entità servizio.                                                                                                                                   |
 | Endpoint di Resource Manager | ARM_ENDPOINT              | Visualizzare [ <span class="underline">l'endpoint di gestione risorse di Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Località                  | POSIZIONE_RISORSA    | Locale per Azure Stack                                                                                                                                                                                                |
+| Località                  | RESOURCE_LOCATION    | Locale per Azure Stack                                                                                                                                                                                                |
 
 Per trovare l'ID tenant per Azure Stack, seguire le istruzioni riportate [qui](../azure-stack-csp-ref-operations.md). Per impostare le variabili di ambiente, eseguire le operazioni seguenti:
 
@@ -149,9 +150,9 @@ File JSON di esempio:
 
 ## <a name="existing-api-profiles"></a>Profili dell'API esistenti
 
-1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_ibrida**: profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
 
-2.  **COM**: profilo costituito le versioni più recenti di tutti i servizi. Usare le versioni più recenti di tutti i servizi.
+2.  **com.microsoft.azure**: Profilo costituito le versioni più recenti di tutti i servizi. Usare le versioni più recenti di tutti i servizi.
 
 Per altre informazioni sui profili di Azure Stack e l'API, vedere la [profili di riepilogo dell'API](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -238,7 +239,7 @@ HttpResponse response = httpClient.execute(getRequest);
     -  AZURE_CLIENT_SECRET
     -  AZURE_SUBSCRIPTION_ID
     -  ARM_ENDPOINT
-    -  POSIZIONE_RISORSA
+    -  RESOURCE_LOCATION
 
 4.  Impostare le variabili di ambiente seguenti usando le informazioni di cui che è stato recuperato dall'entità servizio è stato creato mediante il prompt dei comandi:
     

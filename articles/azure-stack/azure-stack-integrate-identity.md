@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852763"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246248"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -118,7 +119,7 @@ Servizio Graph nello Stack di Azure Usa i seguenti protocolli e porte per comuni
 
 Servizio Graph nello Stack di Azure Usa i seguenti protocolli e porte per comunicare con Active Directory di destinazione:
 
-|type|Porta|Protocollo|
+|Type|Porta|Protocollo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|

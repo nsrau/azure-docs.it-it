@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960652"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246435"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione di Azure Stack firewall
 È consigliabile utilizzare un dispositivo firewall per consentire sicuro Azure Stack. Anche se i firewall può essere utile con elementi quali gli attacchi di distributed denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per i servizi di archiviazione di Azure, ad esempio BLOB, tabelle e code.
@@ -34,7 +35,7 @@ Per le organizzazioni aziendali, la rete esterna può essere la rete azienda esi
 ### <a name="network-address-translation"></a>Network Address Translation
 Network Address Translation (NAT) è il metodo consigliato per consentire la macchina virtuale di distribuzione (DVM) per accedere a internet durante la distribuzione e le risorse esterne, nonché le macchine virtuali alla Console di ripristino di emergenza (ERCS) o con privilegi punto finale (PEP) durante registrazione e risoluzione dei problemi.
 
-NAT può essere anche un'alternativa per gli indirizzi IP pubblici nella rete esterna o degli indirizzi VIP pubblici. Tuttavia, è consigliabile non eseguire questa operazione, perché consente di limitare l'esperienza utente di tenant e aumenta la complessità. Le due opzioni sarebbe una conversione NAT 1:1 necessita di un indirizzo IP pubblico per ogni indirizzo IP utente nel pool o a numerose colonne: 1 NAT che richiede la regola NAT per ogni utente VIP che contiene le associazioni a tutte le porte di un utente potrebbe usare.
+NAT può essere anche un'alternativa per gli indirizzi IP pubblici nella rete esterna o degli indirizzi VIP pubblici. Tuttavia, è consigliabile non eseguire questa operazione, perché consente di limitare l'esperienza utente di tenant e aumenta la complessità. Le due opzioni sarebbe una conversione NAT 1:1 necessita di un indirizzo IP pubblico per ogni indirizzo IP utente nel pool o a numerose colonne: 1 NAT che richiede una regola NAT per ogni utente VIP che contiene le associazioni a tutte le porte utilizzabili dall'utente.
 
 Alcuni degli svantaggi dell'uso di NAT per indirizzo VIP pubblico sono:
 - NAT aggiunge un overhead quando si gestiscono le regole del firewall perché gli utenti di controllare i propri endpoint e le proprie regole di pubblicazione definita dal software (SDN) dello stack di rete. Gli utenti devono contattare l'operatore di Azure Stack per ottenere i VIP nei servizi pubblicate e per aggiornare l'elenco di porte.
@@ -54,7 +55,7 @@ In genere, gli indirizzi IP instradabili pubblici vengono specificati per il poo
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Enterprise intranet o perimetrale scenario firewall di rete
 In una distribuzione di intranet o perimetrale aziendale, Azure Stack viene distribuito su un firewall multi-suddividere in zone o tra il firewall perimetrali e il firewall di rete aziendale interna. Il traffico viene quindi distribuito tra la rete perimetrale, protetta (o rete Perimetrale) e le zone non protette come descritto di seguito:
 
-- **Area protetta**: si tratta della rete interna che usa indirizzi IP instradabili aziendali o interni. La rete protetta può essere suddiviso, hanno accesso in uscita a internet tramite NAT sul Firewall e viene in genere accessibile da un punto qualsiasi all'interno del Data Center attraverso la rete interna. Tutte le reti di Azure Stack devono trovarsi in un'area protetta, ad eccezione di pool di indirizzi VIP pubblici della rete esterna.
+- **Area protetta**: Si tratta della rete interna che usa indirizzi IP instradabili aziendali o interni. La rete protetta può essere suddiviso, hanno accesso in uscita a internet tramite NAT sul Firewall e viene in genere accessibile da un punto qualsiasi all'interno del Data Center attraverso la rete interna. Tutte le reti di Azure Stack devono trovarsi in un'area protetta, ad eccezione di pool di indirizzi VIP pubblici della rete esterna.
 - **Area perimetrale**. Rete perimetrale è dove esterni o per le applicazioni, ad esempio server Web sono in genere distribuiti internet. In genere viene monitorato da un firewall per evitare gli attacchi DDoS e intrusioni (pirateria) consentendo comunque specificato il traffico in ingresso da internet. Solo il rete esterna pubblico pool VIP di Azure Stack deve trovarsi nell'area di rete Perimetrale.
 - **Zona non sicuro**. Si tratta della rete esterna, internet. Si **non è** consigliabile distribuire Azure Stack nella zona senza protezione.
 

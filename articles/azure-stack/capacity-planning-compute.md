@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076792"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242434"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Pianificazione della capacità di calcolo di Azure Stack
 Il [le dimensioni di macchina virtuale supportate in Azure Stack](./user/azure-stack-vm-sizes.md) sono un subset di quelli supportati in Azure. Azure impone limiti delle risorse lungo molti vettori per evitare l'uso eccessivo delle risorse (server locali e a livello di servizio). Senza imporre alcune limitazioni all'uso di tenant, l'esperienza utente tenant ne risentiranno quando altri tenant overconsume le risorse. Rete in uscita dalla macchina virtuale, esistono limiti di larghezza di banda posto in Azure Stack che corrispondono a limitazioni di Azure. Per le risorse di archiviazione, i limiti di IOPs di archiviazione sono stati implementati in Azure Stack per evitare di base uso eccessivo delle risorse dai tenant per l'accesso di archiviazione.  

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 3e88e0a3337eafdd25c9c0cc655912a4cdbd3b68
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 08/20/2018
+ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079532"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248504"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Servizio App in note sulla versione update 3 di Azure Stack
 
@@ -58,16 +59,16 @@ Servizio App di Azure in Azure Stack Update 3 include le correzioni e i migliora
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 
 - **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
-  - Aggiunta di ASP.Net Core 2.1.2
+  - Added ASP.Net Core 2.1.2
   - NodeJS aggiunto 10.0.0
-  - Aggiunta di Zulu OpenJDK 8.30.0.1
+  - Added Zulu OpenJDK 8.30.0.1
   - Aggiunta di Tomcat 8.5.31 e 9.0.8
   - Versioni PHP aggiunto:
     - 5.6.36
     - 7.0.30
     - 7.1.17
     - 7.2.5
-  - Aggiunta di Wincache 2.0.0.8
+  - Added Wincache 2.0.0.8
   - Git aggiornato per Windows a v 2.17.1.2
   - Kudu aggiornata a 74.10611.3437
   
@@ -184,13 +185,13 @@ Convalida
 - I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.  Questo è l'acronimo di nel servizio App di Azure nella documentazione relativa alla distribuzione di Azure Stack.
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: tutti
+ * Origine: Qualsiasi
  * Intervallo di porte di origine: *
- * Destinazione: Gli indirizzi IP
- * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+ * Destinazione: Indirizzi IP
+ * Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
  * Intervallo di porte di destinazione: 445
  * Protocollo: TCP
- * Azione: Consenti
+ * Azione: CONSENTI
  * Priorità: 700
  * Nome: Outbound_Allow_SMB445
 

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0461e33f8154d3d9004860737a844af0f9df258c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245360"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246042"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Che cos'è la convalida come servizio per Azure Stack?
 
@@ -62,7 +63,7 @@ Per altre informazioni, vedere [Avvio rapido: Usare la convalida come portale de
 
 | Flusso di lavoro di convalida | Test necessari |
 |----|------------|
-| [Convalida di nuove soluzioni](azure-stack-vaas-validate-solution-new.md) | Motore di simulazione di cloud<br>Suite Operational SDK di calcolo<br>Test di identificazione del disco<br>Suite Operational SDK di estensione key Vault<br>Suite di SDK KeyVault operativa<br>Rete SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
+| [Convalida di nuove soluzioni](azure-stack-vaas-validate-solution-new.md) | Motore di simulazione di cloud<br>Suite Operational SDK di calcolo<br>Test di identificazione del disco<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
 | [Convalida del pacchetto OEM](azure-stack-vaas-validate-oem-package.md) | Verifica del pacchetto estensione di OEM<br>Motore di simulazione di cloud |
 | [Convalida dell'aggiornamento mensile](azure-stack-vaas-validate-microsoft-updates.md) | Verifica aggiornamento AzureStack mensile<br>Motore di simulazione di cloud<br> |
 

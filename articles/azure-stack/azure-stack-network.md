@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617022"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243233"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
@@ -29,7 +30,7 @@ Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack
 > Per risolvere i nomi DNS esterni dallo Stack di Azure (ad esempio, www.bing.com), è necessario fornire i server DNS per inoltrare le richieste DNS. Per altre informazioni sui requisiti di DNS di Azure Stack, vedere [integrazione di Data Center di Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Progettazione di rete fisica
-La soluzione di Azure Stack richiede un'infrastruttura fisica resiliente e a disponibilità elevata per supportare il funzionamento e i servizi. Uplink da ToR alle opzioni del bordo sono limitati a SFP + o supporti SFP28 e 1 GB, 10 GB o velocità del 25 GB. Rivolgersi al fornitore dell'hardware (OEM) original equipment manufacturer per la disponibilità. Il diagramma seguente illustra la progettazione consigliata:
+La soluzione Azure Stack richiede un'infrastruttura fisica resiliente e dalla disponibilità elevata per supportare il funzionamento e i servizi. Uplink da ToR alle opzioni del bordo sono limitati a SFP + o supporti SFP28 e 1 GB, 10 GB o velocità del 25 GB. Rivolgersi al fornitore dell'hardware (OEM) original equipment manufacturer per la disponibilità. Il diagramma seguente illustra la progettazione consigliata:
 
 ![Progettazione di rete di Azure Stack consigliato](media/azure-stack-network/recommended-design.png)
 
@@ -45,7 +46,7 @@ Nella tabella seguente mostra le reti logiche e intervalli di subnet IPv4 associ
 | Infrastruttura di switch | Gli indirizzi IP da punto a punto per il routing, dedicato switch interfacce di gestione e indirizzo di loopback assegnata al commutatore. | /26 | 
 | Infrastruttura | Utilizzato per i componenti interni di Azure Stack per comunicare. | /24 |
 | Privato | Utilizzato per la rete di archiviazione e gli indirizzi VIP privati. | /24 | 
-| BMC | Utilizzato per comunicare con il BMC negli host fisici. | /27 | 
+| BMC | Utilizzato per comunicare con il BMC negli host fisici. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Infrastruttura di rete

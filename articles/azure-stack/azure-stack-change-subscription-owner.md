@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959197"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245685"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Modificare il proprietario per una sottoscrizione utente di Azure Stack
 
@@ -28,7 +29,7 @@ Operatori di Azure Stack è possono usare PowerShell per modificare il proprieta
 
 Esistono due tipi di *proprietari* che vengono assegnati a una sottoscrizione:
 
-- **La fatturazione proprietario**: per impostazione predefinita, il proprietario di fatturazione è l'account utente che viene ottenuta la sottoscrizione da un'offerta e quindi proprietari della relazione di fatturazione per la sottoscrizione. Questo account è anche un amministratore della sottoscrizione. Solo un account utente può avere questa designazione di una sottoscrizione. Un proprietario di fatturazione è spesso un lead del team o organizzazione. 
+- **La fatturazione proprietario**: Per impostazione predefinita, il proprietario di fatturazione è l'account utente che viene ottenuta la sottoscrizione da un'offerta e quindi proprietari della relazione di fatturazione per la sottoscrizione. Questo account è anche un amministratore della sottoscrizione. Solo un account utente può avere questa designazione di una sottoscrizione. Un proprietario di fatturazione è spesso un lead del team o organizzazione. 
 
   Si usa il cmdlet di PowerShell la [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) per modificare il proprietario di fatturazione.  
 
@@ -45,10 +46,10 @@ Eseguire lo script seguente per modificare il proprietario di fatturazione di un
 
 Sostituire i valori seguenti nello script prima dell'esecuzione: 
  
-- **$ArmEndpoint**: specificare l'endpoint di Resource Manager per l'ambiente.  
-- **$TenantId**: specificare l'ID Tenant. 
-- **$SubscriptionId**: specificare l'ID sottoscrizione.
-- **$OwnerUpn**: specificare un account **user@example.com** da aggiungere come nuovo proprietario di fatturazione.  
+- **$ArmEndpoint**: Specificare l'endpoint di Resource Manager per l'ambiente.  
+- **$TenantId**: Specificare l'ID Tenant. 
+- **$SubscriptionId**: Specificare l'ID sottoscrizione.
+- **$OwnerUpn**: Specificare un account come **user@example.com** da aggiungere come nuovo proprietario di fatturazione.  
 
 ```PowerShell   
 # Set up Azure Stack admin environment
