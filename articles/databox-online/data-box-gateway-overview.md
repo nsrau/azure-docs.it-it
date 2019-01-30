@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165318"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435465"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Che cos'è Azure Data Box Gateway (anteprima)? 
 
@@ -39,7 +39,10 @@ Data Box Gateway offre i vantaggi seguenti:
 
 - **Trasferimento semplice dei dati**: rende lo spostamento dei dati da e verso l'archiviazione di Azure semplice quanto l'uso di una condivisione di rete locale.  
 - **Prestazioni elevate**: semplifica il trasporto di dati in rete con trasferimenti a prestazioni elevate da e verso Azure. 
-- **Accesso rapido**: memorizza nella cache i file più recenti per un accesso rapido dei file locali.  
+- **Accesso veloce e velocità di inserimento dati elevate durante le ore lavorative**: Azure Data Box Gateway ha una cache locale che si definisce come dimensioni della capacità locale quando viene eseguito il provisioning del dispositivo virtuale. Le dimensioni del disco dati devono essere specificate in base ai [requisiti minimi del dispositivo virtuale](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). La cache locale offre i vantaggi seguenti:
+    - La cache locale consente l'inserimento di dati con una frequenza elevata. Quando una quantità elevata di dati viene inserita durante le ore di punta, la cache può contenere i dati e caricarli nel cloud.
+    - La cache locale consente un rapido accesso in lettura fino a una determinata soglia. Fino a quando il dispositivo non pieno al 50-60%, tutte le operazioni di lettura dal dispositivo sono accessibili dalla cache, rendendole più veloci. Una volta che lo spazio usato sul dispositivo supera questa soglia, il dispositivo viene avviato per rimuovere i file locali. 
+ 
 - **Uso della larghezza di banda limitata**: i dati possono essere scritti in Azure anche quando la rete è limitata per ridurre l'utilizzo durante le ore lavorative più intense.  
 
 ## <a name="key-capabilities"></a>Funzionalità principali
@@ -67,10 +70,10 @@ Il dispositivo virtuale Data Box Gateway presenta le specifiche seguenti:
 | Processori virtuali (core)   | Minimo 4 |            
 | Memoria  | Minimo 8 GB|
 | Disponibilità|Nodo singolo|
-| Dischi| Disco del sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
+| Dischi| Disco sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
 | Interfacce di rete|1 o più interfacce di rete virtuali|
 | Protocolli di condivisione file nativi|SMB e NFS  |
-| Sicurezza| Autenticazione per sbloccare l'accesso al dispositivo e ai dati <br> Dati in movimento crittografati mediante crittografia AES a 256 bit|
+| Security| Autenticazione per sbloccare l'accesso al dispositivo e ai dati <br> Dati in movimento crittografati mediante crittografia AES a 256 bit|
 | Gestione| Interfaccia utente Web locale: configurazione iniziale, diagnostica e risparmio energia del dispositivo <br> Portale di Azure: gestione quotidiana dei dispositivi Data Box Gateway       |
 
 

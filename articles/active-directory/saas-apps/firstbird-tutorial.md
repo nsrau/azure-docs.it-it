@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883772"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Esercitazione: Integrazione di Azure Active Directory con Firstbird
 
@@ -27,7 +27,7 @@ Questa esercitazione descrive come integrare Firstbird con Azure Active Director
 L'integrazione di Firstbird con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Firstbird.
-* È possibile abilitare gli utenti per l'accesso automatico a Firstbird (Single Sign-On) con gli account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Firstbird con gli account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,18 +38,18 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per configurare l'integrazione di Azure AD con Firstbird, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Una sottoscrizione abilitata per l'accesso Single Sign-On di Firstbird
+* Sottoscrizione di Firstbird abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Firstbird supporta il Single Sign-On avviato da **SP e IDP**
+* Firstbird supporta l'accesso SSO avviato da **SP e IDP**
 * Firstbird supporta il provisioning utenti **JIT**
 
 ## <a name="adding-firstbird-from-the-gallery"></a>Aggiunta di Firstbird dalla raccolta
 
-Per configurare l'integrazione di Firstbird in Azure AD, è necessario aggiungere Firstbird dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Firstbird in Azure AD, è necessario aggiungere Firstbird dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Firstbird dalla raccolta, seguire questa procedura:**
 
@@ -67,21 +67,21 @@ Per configurare l'integrazione di Firstbird in Azure AD, è necessario aggiunger
 
 4. Nella casella di ricerca digitare **Firstbird**, selezionare **Firstbird** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Firstbird nell'elenco dei risultati](common/search_new_app.png)
+     ![Firstbird nell'elenco risultati](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con [Nome applicazione] usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in [Nome applicazione].
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applicazione], è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applicazione], è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Firstbird](#configure-firstbird-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Firstbird](#configure-firstbird-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di Firstbird](#create-firstbird-test-user)**: per avere una controparte di Britta Simon in Firstbird collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Firstbird](#create-firstbird-test-user)**: per avere una controparte di Britta Simon in Firstbird collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -105,26 +105,26 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Firstbird](common/idp_intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<company-domain>.auth.1brd.com/saml/sp`.
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Firstbird](common/metadata_upload_additional_signon.png)
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<company-domain>.1brd.com/login`.
-    
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Firstbird](mailto:support@firstbird.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione Firstbird si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+6. L'applicazione Firstbird prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit_attribute.png)
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------- |
     | first_name | `user.givenname` |
     | last_name | `user.surname` |
@@ -144,26 +144,26 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **Ok**
+    f. Fare clic su **OK**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML metadati federazione** e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-### <a name="configure-firstbird-single-sign-on"></a>Configurare l'accesso Single Sign-On di Firstbird
+### <a name="configure-firstbird-single-sign-on"></a>Configurare l'accesso Single Sign-On per Firstbird
 
-Dopo aver completato questi passaggi, inviare a Firstbird il file XML dei metadati di federazione in una richiesta di supporto tramite posta elettronica a [support@firstbird.com](mailto:support@firstbird.com) con oggetto: "Configurazione SSO".
+Dopo aver completato questi passaggi, inviare a Firstbird il file XML dei metadati di federazione in una richiesta di supporto tramite posta elettronica a [support@firstbird.com](mailto:support@firstbird.com) con oggetto: "SSO configuration".
 
 Firstbird archivierà la configurazione nel sistema di conseguenza e attiverà l'accesso SSO per l'account. Successivamente, si verrà contattati da un membro del personale di supporto per verificare la configurazione.
 
 > [!NOTE]
 > È necessario che l'opzione SSO sia inclusa nel contratto.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -186,9 +186,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Firstbird.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Firstbird.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Firstbird**.
 
@@ -196,7 +196,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni digitare e selezionare **Firstbird**.
 
-    ![Collegamento Firstbird nell'elenco Applicazioni](common/all_applications.png)
+    ![Collegamento di Firstbird nell'elenco delle applicazioni](common/all_applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -214,13 +214,13 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-firstbird-test-user"></a>Creare l'utente di test di Firstbird
 
-In questa sezione si crea un utente di nome Britta Simon in Firstbird. Firstbird supporta il provisioning JIT, abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se un utente non esiste in Firstbird, ne viene creato uno nuovo quando si tenta di accedere a Firstbird.
+In questa sezione viene creato un utente di nome Britta Simon in Firstbird. Firstbird supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Firstbird, ne viene creato uno nuovo quando si prova ad accedere a Firstbird.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Firstbird nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Firstbird per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Firstbird nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Firstbird per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

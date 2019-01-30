@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039946"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382887"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
@@ -119,7 +119,7 @@ Selezionare e verificare le risorse di destinazione.
 1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Se il valore RPO della replica supera questo limite, viene generato un avviso.
-4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.
+4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I server replicati possono essere recuperati in qualsiasi punto di questo intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.
 5. In **Frequenza snapshot coerenti con l'app** specificare **Disattivata**. Fare clic su **OK** per creare i criteri.
 
 I criteri vengono automaticamente associati al server di configurazione.
@@ -154,13 +154,13 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino.
 3. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery tenta di arrestare il server prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 4. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
-5. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
+5. In **Elementi replicati** fare clic con il pulsante destro del mouse sul server > **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
 
-    - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+    - Il processo di migrazione viene completato, la replica del server viene arrestata e la fatturazione di Site Recovery per il server viene interrotta.
     - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
 
    ![Completare la migrazione](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
+> **Non annullare un failover in corso**: La replica del server viene arrestata prima dell'avvio del failover. Se si annulla un failover in corso, il failover viene arrestato ma la replica del server non continuerà.

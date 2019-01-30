@@ -1,20 +1,20 @@
 ---
 title: Creare un servizio di Ricerca di Azure nel portale - Ricerca di Azure
-description: Eseguire il provisioning di un servizio Ricerca di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
+description: Eseguire il provisioning di una risorsa di Ricerca di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230527"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423443"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -22,7 +22,7 @@ Ricerca di Azure è una risorsa autonoma usata per aggiungere un'esperienza di r
 
 In questo articolo verrà illustrato come creare una risorsa Ricerca di Azure nel [portale di Azure](https://portal.azure.com/). 
 
-![Risorsa Ricerca di Azure nel portale](media/search-create-service-portal/azure-search-resource-label.png)
+[ ![GIF animata](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Se si preferisce PowerShell, usare il [modello di servizio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) di Azure Resource Manager. Per informazioni su come iniziare, vedere [Gestire il servizio Ricerca di Azure con PowerShell](search-manage-powershell.md).
 
@@ -37,7 +37,7 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 2. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
 3. Usare la barra di ricerca per trovare "Ricerca di Azure" o passare alla risorsa tramite **Web** > **Ricerca di Azure**.
 
-![](./media/search-create-service-portal/find-search3.png)
+![Passare a una risorsa di Ricerca di Azure](./media/search-create-service-portal/find-search3.png "Percorso di navigazione a Ricerca di Azure")
 
 ## <a name="name-the-service-and-url-endpoint"></a>Assegnare un nome all'endpoint URL e al servizio
 
@@ -64,7 +64,9 @@ Se si combinano le risorse in un singolo gruppo o se i gruppi di risorse esisten
 > L'eliminazione di un gruppo di risorse elimina anche i servizi in esso contenuti. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto. 
 
 ## <a name="select-a-hosting-location"></a>Selezionare un percorso di hosting 
-Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. Tenere presente che i [prezzi possono variare](https://azure.microsoft.com/pricing/details/search/) in funzione dell'area geografica.
+Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. I [prezzi possono variare](https://azure.microsoft.com/pricing/details/search/) in base all'area geografica.
+
+Se si prevede di usare la ricerca cognitiva, scegliere un'[area geografica in cui la funzionalità è disponibile](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## <a name="select-a-pricing-tier-sku"></a>Selezionare un piano tariffario (SKU)
 [Ricerca di Azure attualmente è disponibile con vari piani tariffari](https://azure.microsoft.com/pricing/details/search/): Gratuito, Basic o Standard. Ogni piano tariffario prevede una specifica [capacità e limiti](search-limits-quotas-capacity.md). Per indicazioni, vedere [Scegliere uno SKU o un piano tariffario per Ricerca di Azure](search-sku-tier.md) .
@@ -77,7 +79,21 @@ Non è possibile modificare il piano tariffario dopo aver creato il servizio. Se
 
 Ricordarsi di aggiungere il servizio al dashboard per semplificare l'accesso.
 
-![](./media/search-create-service-portal/new-service3.png)
+![Aggiungere al dashboard](./media/search-create-service-portal/new-service3.png "Aggiungere la risorsa al dashboard per semplificarne l'accesso")
+
+## <a name="get-a-key-and-url-endpoint"></a>Ottenere una chiave e un endpoint dell'URL
+
+Con poche eccezioni, per usare il nuovo servizio è necessario specificare l'endpoint dell'URL e una chiave API di autorizzazione. Per eseguire guide introduttive, esercitazioni come [Esplorare le API REST di Ricerca di Azure (Postman)](search-fiddler.md) e [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md), esempi e codice personalizzato con una specifica risorsa, è necessario fornire un endpoint e una chiave.
+
+1. Nella pagina di panoramica del servizio individuare e copiare l'endpoint dell'URL visualizzato a sinistra. 
+
+   ![Pagina di panoramica del servizio con endpoint dell'URL](./media/search-create-service-portal/url-endpoint.png "Endpoint dell'URL e altri dettagli del servizio")
+
+2. Nel riquadro di spostamento sinistro selezionare **Chiavi** e quindi copiare una delle due chiavi di amministrazione (sono equivalenti). Le chiavi API di amministrazione sono necessarie per creare, aggiornare ed eliminare oggetti nel servizio.
+
+   ![Pagina delle chiavi che visualizza la chiave primaria e quella secondaria](./media/search-create-service-portal/admin-api-keys.png "Chiavi API di amministrazione per l'autorizzazione")
+
+Per le attività basate sul portale, l'endpoint e la chiave non sono necessari. Il portale è già collegato alla risorsa di Ricerca di Azure con diritti amministrativi. Per un'esercitazione sul portale, iniziare da [Esercitazione: Importare, indicizzare ed eseguire query in Ricerca di Azure](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Ridimensionare il servizio
 La creazione di un servizio può richiedere 15 minuti o più, a seconda del livello. Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Poiché è stato scelto il piano tariffario Standard per il servizio Ricerca di Azure, è possibile ridimensionare il servizio in due dimensioni, ovvero partizioni e repliche. Se fosse stato scelto il piano Basic, sarebbe stato possibile aggiungere solo le repliche. Se è stato effettuato il provisioning del servizio Gratuito, la scalabilità non è disponibile.
@@ -95,14 +111,14 @@ L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](h
 2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità**.
 3. Usare la barra di scorrimento per aggiungere risorse di entrambi i tipi.
 
-![](./media/search-create-service-portal/settings-scale.png)
+![Aggiungere capacità](./media/search-create-service-portal/settings-scale.png "Aggiungere capacità tramite repliche e partizioni")
 
 > [!Note] 
 > Ogni livello presenta [limiti](search-limits-quotas-capacity.md) diversi per il numero totale di unità di ricerca consentite in un singolo servizio (repliche * partizioni = unità di ricerca totali).
 
 ## <a name="when-to-add-a-second-service"></a>Aggiunta di un secondo servizio
 
-La maggior parte dei clienti usa un solo servizio su cui esegue il provisioning a un livello che offre il [giusto bilanciamento delle risorse](search-sku-tier.md). Un servizio può ospitare più indici, soggetto ai [limiti massimi del livello selezionato](search-capacity-planning.md), con ciascun indice isolato dall'altro. In Ricerca di Azure, le richieste possono essere indirizzate solo a un indice, riducendo al minimo la possibilità di recupero di dati accidentali o intenzionali da altri indici nello stesso servizio.
+La maggior parte dei clienti usa un solo servizio su cui esegue il provisioning a un livello che offre il [giusto equilibrio di risorse](search-sku-tier.md). Un servizio può ospitare più indici, soggetto ai [limiti massimi del livello selezionato](search-capacity-planning.md), con ciascun indice isolato dall'altro. In Ricerca di Azure, le richieste possono essere indirizzate solo a un indice, riducendo al minimo la possibilità di recupero di dati accidentali o intenzionali da altri indici nello stesso servizio.
 
 Sebbene la maggior parte dei clienti usi un solo servizio, la ridondanza del servizio potrebbe essere necessaria se i requisiti operativi includono i seguenti elementi:
 

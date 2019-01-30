@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302970"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852321"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gestire e distribuire modelli con il servizio Azure Machine Learning
 
@@ -39,7 +39,7 @@ Ogni passaggio può essere eseguito in modo indipendente o come parte di un coma
 
 Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nel cloud di Azure, all'interno della propria area di lavoro. Il registro dei modelli consente di organizzare i modelli sottoposti a training e tenerne traccia con facilità.
  
-I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. Durante la registrazione è possibile specificare tag di metadati aggiuntivi che possono essere usati per ricerca dei modelli. Il servizio Azure Machine Learning supporta i modelli archiviati usando qualsiasi modello che può essere caricato con Python 3. 
+I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. È possibile fornire tag di metadati aggiuntivi durante la registrazione che può essere usata quando si cercano i modelli. Il servizio Azure Machine Learning supporta qualsiasi modello che possa essere caricato con Python 3. 
 
 Non è possibile eliminare i modelli attualmente in uso da un'immagine.
 
@@ -63,7 +63,7 @@ L'immagine può anche includere componenti SDK per la registrazione e il monitor
 Azure Machine Learning supporta i framework più diffusi, ma in genere può funzionare qualsiasi framework in cui si può installare il pip.
 
 Quando l'area di lavoro è stata creata, diverse altre risorse di Azure sono state usate da quell'area di lavoro.
-Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di archiviazione di Azure nell'area di lavoro. L'immagine viene creata e archiviata nel Registro contenitori di Azure. È possibile fornire tag di metadati aggiuntivi quando si crea l'immagine, che vengono archiviati anche nel registro di immagini e di cui è possibile eseguire query per trovare l'immagine.
+Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di archiviazione di Azure nell'area di lavoro. È possibile specificare altri tag di metadati durante la creazione dell'immagine. I tag dei metadati vengono inoltre archiviati nel registro delle immagini e consentono l'esecuzione di query per trovare l'immagine.
 
 Per altre informazioni, vedere la sezione relativa alla configurazione e alla registrazione di un'immagine nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#configureimage).
 
@@ -78,7 +78,7 @@ Per altre informazioni, vedere la sezione relativa alla configurazione e alla re
 È possibile distribuire le immagini nelle destinazioni di distribuzione seguenti nel cloud:
 
 * Istanza di contenitore di Azure
-* Azure Kubernetes Service
+* Servizio Azure Kubernetes
 * Computer Azure FPGA
 * Dispositivi Azure IoT Edge
 

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632892"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435380"
 ---
-# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster di Service Fabric che esegue Windows in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) usando PowerShell e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni.  Per creare un cluster Linux usando l'interfaccia della riga di comando di Azure, vedere come [creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installare [Service Fabric SDK e il modulo PowerShell](service-fabric-get-started.md)
-* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 
 Le procedure seguenti creano un cluster di Service Fabric a cinque nodi. Per calcolare i costi sostenuti per l'esecuzione di un cluster di Service Fabric in Azure, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -92,7 +92,7 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene configurato un cluster 
 
 * Unico tipo di nodo
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello)
-* Servizio operativo Windows Server 2016 Datacenter con contenitori (configurabile nei parametri del modello)
+* Sistema operativo: Windows Server 2016 Datacenter con contenitori (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
 * [Proxy inverso](service-fabric-reverseproxy.md) abilitato
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato
@@ -117,8 +117,8 @@ Se sono necessarie altre porte dell'applicazione, si dovranno modificare le riso
 
 I nomi della rete virtuale, della subnet e del gruppo di sicurezza di rete vengono dichiarati nei parametri del modello,  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
 
-* Spazio indirizzi della rete virtuale: 172.16.0.0/20
-* Spazio indirizzi della subnet di Service Fabric: 172.16.2.0/23
+* Spazio degli indirizzi della rete virtuale: 172.16.0.0/20
+* Spazio degli indirizzi della subnet di Service Fabric: 172.16.2.0/23
 
 Le regole per il traffico in ingresso seguenti vengono abilitate nella risorsa **Microsoft.Network/networkSecurityGroups**. È possibile modificare i valori di porta modificando le variabili del modello.
 

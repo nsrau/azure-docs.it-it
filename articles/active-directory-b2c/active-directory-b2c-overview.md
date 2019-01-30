@@ -3,19 +3,19 @@ title: Informazioni su Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come creare e gestire l'esperienza di accesso alle applicazioni con Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724027"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844994"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
@@ -102,13 +102,13 @@ In Azure AD B2C un tenant rappresenta l'organizzazione ed è una directory di ut
 
 Collegare il tenant di Azure AD B2C alla sottoscrizione di Azure per abilitare tutte le funzionalità e pagare gli addebiti per l'utilizzo. Per consentire ai clienti di accedere all'applicazione, registrarla in un tenant di Azure AD B2C.
 
-Prima di configurare l'applicazione per l'uso di Azure AD B2C, è innanzitutto necessario creare un tenant di Azure AD B2C e registrare l'applicazione. Per registrare l'applicazione, seguire la procedura descritta in [Tutorial: Register an application to enable sign-up and sign-in using Azure AD B2C](tutorial-register-applications.md) (Esercitazione: registrare un'applicazione per consentire l'iscrizione e l'accesso tramite Azure AD B2C).
+Prima di configurare l'applicazione per l'uso di Azure AD B2C, è innanzitutto necessario creare un tenant di Azure AD B2C e registrare l'applicazione. Per registrare l'applicazione, completare i passaggi in [Esercitazione: Registrare un'applicazione per consentire l'iscrizione e l'accesso tramite Azure AD B2C](tutorial-register-applications.md).
   
-Gli sviluppatori di applicazioni Web ASP.NET possono impostare l'applicazione per l'autenticazione degli account tramite la procedura descritta in [Tutorial: Enable a web application to authenticate with accounts using Azure AD B2C](active-directory-b2c-tutorials-web-app.md) (Esercitazione: abilitare un'applicazione Web per l'autenticazione con gli account tramite Azure AD B2C).
+Gli sviluppatori di applicazioni Web ASP.NET possono impostare l'applicazione per l'autenticazione degli account tramite la procedura descritta in [Esercitazione: Abilitare un'applicazione Web per l'autenticazione con gli account usando Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
 
-Gli sviluppatori di applicazioni desktop possono impostare l'applicazione per l'autenticazione degli account tramite la procedura descritta in [Tutorial: Enable a desktop application to authenticate with accounts using Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md) (Esercitazione: abilitare un'applicazione desktop per l'autenticazione con gli account tramite Azure AD B2C).
+Gli sviluppatori di applicazioni desktop possono impostare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Abilitare un'applicazione desktop per l'autenticazione con gli account tramite Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
 
-Gli sviluppatori di applicazioni a pagina singola che usano Node.js possono impostare l'applicazione per l'autenticazione degli account tramite la procedura descritta in [Tutorial: Enable a single-page application to authenticate with accounts using Azure AD B2C](active-directory-b2c-tutorials-spa.md) (Esercitazione: abilitare un'applicazione a pagina singola per l'autenticazione con gli account tramite Azure AD B2C).
+Gli sviluppatori di applicazioni a pagina singola che usano Node.js possono impostare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Abilitare un'applicazione a pagina singola per l'autenticazione con gli account tramite Azure AD B2C](active-directory-b2c-tutorials-spa.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

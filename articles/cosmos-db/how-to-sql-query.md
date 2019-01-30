@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042139"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452956"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Esempi di query SQL per eseguire query sui dati di Azure Cosmos DB
 
@@ -506,7 +506,7 @@ Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni 
 
 Come con altri operatori di query, se le proprietà cui viene fatto riferimento nell'espressione condizionale non sono presenti in alcun elemento o se i tipi confrontati sono diversi, tali elementi vengono esclusi dai risultati della query.
 
-L'operatore Coalesce (??) può essere usato per verificare se una proprietà è presente (definita) in un elemento. Questo operatore risulta utile per le query su dati semistrutturati o di tipo misto. Ad esempio, questa query restituisce il valore "lastName" se è presente oppure il valore "surname" se non è presente.
+L'operatore Coalesce (??) può essere usato per verificare se una proprietà è presente in un elemento. Questo operatore risulta utile per le query su dati semistrutturati o di tipo misto. Ad esempio, questa query restituisce il valore "lastName" se è presente oppure il valore "surname" se non è presente.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

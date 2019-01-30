@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163333"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427611"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per Azure Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ In questa esercitazione vengono descritte le procedure per la configurazione di 
 
 * Un tenant di Azure AD funzionante, con almeno una licenza di valutazione abilitata.
 * Un account con privilegi di amministratore globale.
-* Un utente di prova non amministratore con una password nota per i test. Se è necessario creare un utente, vedere l'articolo [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
+* Un utente di prova non amministratore con una password nota per il test. Se è necessario creare un utente, vedere l'articolo [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
 * Un gruppo pilota per il test di cui fare parte l'utente non amministratore. Se è necessario creare un gruppo, vedere l'articolo [Creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Abilitare Azure Multi-Factor Authentication
@@ -47,7 +47,7 @@ In questa esercitazione vengono descritte le procedure per la configurazione di 
     * Fare clic su **Fine**
 1. Ignorare la sezione **Condizioni**
 1. In **Concedi** assicurarsi che il pulsante di opzione **Concedi accesso** sia selezionato
-    * Selezionare la casella **Richiedi autenticazione a più fattori** 
+    * Selezionare la casella **Richiedi autenticazione a più fattori**
     * Fare clic su **Seleziona**
 1. Ignorare la sezione **Sessione**
 1. Impostare l'interruttore **Abilita criterio** su **Sì**

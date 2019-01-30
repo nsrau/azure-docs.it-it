@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163339"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437182"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Esercitazione: Abilitazione del writeback delle password
 
@@ -29,7 +29,7 @@ In questa esercitazione si abiliterà il writeback delle password per l'ambiente
 
 * Accesso a un tenant di Azure AD funzionante, con almeno una licenza di valutazione assegnata.
 * Un account con privilegi di amministratore globale nel tenant di Azure AD.
-* Un server esistente configurato che esegue una versione aggiornata di [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* Un server esistente configurato che esegue una versione aggiornata di [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Completamento delle esercitazioni precedenti sulla reimpostazione della password self-service.
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>Abilitare l'opzione di writeback delle password in Azure AD Connect

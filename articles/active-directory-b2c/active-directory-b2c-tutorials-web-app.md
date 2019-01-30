@@ -3,19 +3,19 @@ title: "Esercitazione: abilitare un'applicazione Web per l'autenticazione con ac
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione Web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30a94cb5de2d618938f17c4e5733821ac7247785
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834724"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851522"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare un'applicazione Web per l'autenticazione con account che usano Azure Active Directory B2C
 
@@ -173,7 +173,7 @@ La soluzione di esempio contiene due progetti:
 
 **App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
 
-**App di esempio dell'API Web (TaskService):** API Web che supporta la funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco di attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
+**App di esempio dell'API Web (TaskService):** API Web che supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
 
 È necessario modificare l'app per l'uso della registrazione dell'app nel tenant, che include l'ID applicazione e la chiave registrati in precedenza. È anche necessario configurare i flussi utente creati. L'app Web di esempio definisce i valori di configurazione come impostazioni dell'app nel file Web.config. Per modificare le impostazioni dell'app:
 

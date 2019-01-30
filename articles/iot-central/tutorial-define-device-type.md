@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199970"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412904"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -75,7 +75,7 @@ Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Cen
 
 ## <a name="create-a-new-custom-device-template"></a>Creare un nuovo modello di dispositivo personalizzato
 
-In quanto creatore, l'utente può creare e modificare modelli di dispositivo nell'applicazione. Quando si crea un modello di dispositivo, Azure IoT Central genera un dispositivo simulato dal modello. Il dispositivo simulato genera dati di telemetria che consentono di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico.
+In quanto creatore, l'utente può creare e modificare modelli di dispositivo nell'applicazione. Quando si crea un modello di dispositivo, Azure IoT Central genera un dispositivo simulato dal modello. Il dispositivo simulato genera dati di telemetria che consentono di testare il comportamento dell'applicazione prima di collegare un dispositivo reale.
 
 Per aggiungere un nuovo modello di dispositivo all'applicazione, è necessario passare alla pagina **Application Builder** (Generatore applicazioni). Per farlo, scegliere **Application builder** (Generatore applicazioni) nel menu di spostamento a sinistra.
 
@@ -155,7 +155,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
 ## <a name="define-event-measurement"></a>Definire la misura Evento
 
-È possibile usare Evento per definire dati temporizzati inviati al dispositivo, in modo che indichino eventi significativi come un errore o il guasto di un componente. Come per le misure di telemetria, Azure IoT Central consente di simulare eventi di dispositivo che permettono di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di evento per il tipo di dispositivo nella vista **Misure**.
+È possibile usare Evento per definire dati temporizzati inviati al dispositivo, in modo che indichino eventi significativi come un errore o il guasto di un componente. Come per le misure di telemetria, Azure IoT Central consente di simulare eventi di dispositivo che permettono di testare il comportamento dell'applicazione prima di collegare un dispositivo reale. Si definiscono le misurazioni di evento per il tipo di dispositivo nella vista **Misure**.
 
 1. Per aggiungere la misura dell'evento **Errore motore ventola**, scegliere **Nuova misura**. Quindi scegliere **Evento** come tipo di misura:
 
@@ -191,7 +191,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
 ## <a name="define-state-measurement"></a>Definire una misura Stato
 
-È possibile usare Stato per definire e visualizzare lo stato del dispositivo o del suo componente in un periodo di tempo. Come per le misure di telemetria, Azure IoT Central consente di simulare uno stato del dispositivo che permette di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di stato per il tipo di dispositivo nella vista **Misure**.
+È possibile usare Stato per definire e visualizzare lo stato del dispositivo o del suo componente in un periodo di tempo. Come per le misure di telemetria, Azure IoT Central consente di simulare lo stato del dispositivo che permette di testare il comportamento dell'applicazione prima di collegare un dispositivo reale. Si definiscono le misurazioni di stato per il tipo di dispositivo nella vista **Misure**.
 
 1. Per aggiungere la misura **Modalità ventola**, scegliere **Nuova misura**. Quindi scegliere **Stato** come tipo di misura:
 

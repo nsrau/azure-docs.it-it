@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599502"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448075"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Configurare i dispositivi connessi alla soluzione di monitoraggio
 
 In questa esercitazione si usa l'acceleratore della soluzione di monitoraggio remoto per configurare e gestire i dispositivi IoT connessi. Aggiungere un nuovo dispositivo all'acceleratore di soluzione e configurare il dispositivo.
 
-Contoso ha ordinato nuovi macchinari per espandere una delle sue strutture. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Per eseguire la simulazione, si aggiunge un nuovo dispositivo motore simulato all'acceleratore di soluzione Monitoraggio remoto e si verifica che questo dispositivo simulato risponda correttamente agli aggiornamenti della configurazione. Mentre questa esercitazione usa dispositivi simulati, uno sviluppatore di dispositivi può implementare metodi diretti su un [dispositivo fisico collegato all'acceleratore della soluzione di monitoraggio remoto](iot-accelerators-connecting-devices.md).
+Contoso ha ordinato nuovi macchinari per espandere una delle sue strutture. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Per eseguire la simulazione, si aggiunge un nuovo dispositivo motore simulato all'acceleratore di soluzione Monitoraggio remoto e si verifica che questo dispositivo simulato risponda correttamente agli aggiornamenti della configurazione. Mentre questa esercitazione usa dispositivi simulati, uno sviluppatore di dispositivi può implementare metodi diretti su un [dispositivo reale collegato all'acceleratore della soluzione di monitoraggio remoto](iot-accelerators-connecting-devices.md).
 
 In questa esercitazione:
 

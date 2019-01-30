@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300610"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427288"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Esercitazione: creare un ruolo personalizzato con Azure PowerShell
+# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Esercitazione: Creare un ruolo personalizzato con Azure PowerShell
 
 Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con Azure PowerShell. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nella sottoscrizione e anche di aprire i ticket di supporto.
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questa esercitazione, è necessario:
 
 - Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
-- Avere [Azure PowerShell](/powershell/azure/install-azurerm-ps) installato in locale
+- Avere [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installato in locale
 
 ## <a name="sign-in-to-azure-powershell"></a>Accedere ad Azure PowerShell
 

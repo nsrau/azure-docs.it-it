@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437147"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430672"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -32,6 +32,7 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
    * [Computer aggiunto ad Azure AD](../device-management-azure-portal.md) o
    * [Computer aggiunto ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
+* Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurare il collegamento di reimpostazione della password con Intune
 
@@ -126,8 +127,6 @@ Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche dell
    * Explorer.exe è sostituito con una shell personalizzata
 
 Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
-
-Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso passwordreset.microsoftonline.com e ajax.aspnetcdn.com.
 
 Per gli scenari di identità ibrida aggiunta a un dominio, esiste uno scenario in cui si completerà il flusso di lavoro SSPR senza la necessità di un controller di dominio Active Directory. Per usare la nuova password per la prima volta è necessaria una connessione con un controller di dominio.
 

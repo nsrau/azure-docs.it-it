@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340594"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433697"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Creare e gestire un gateway VPN con il modulo Azure PowerShell
 
@@ -40,7 +40,7 @@ Il diagramma seguente mostra la rete virtuale e il gateway VPN creati nell'ambit
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 
 ## <a name="common-network-parameter-values"></a>Valori dei parametri di rete comuni
 
@@ -117,7 +117,7 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Valori dei parametri principali:
 * GatewayType: usare **Vpn** per le connessioni da sito a sito e da rete virtuale a rete virtuale
 * VpnType: usare **RouteBased** per interagire con una più ampia gamma di dispositivi VPN e disporre di più funzionalità di routing
-* GatewaySku: il valore predefinito è **VpnGw1**. Modificare questo valore in VpnGw2 o VpnGw3 se sono necessarie più connessioni o una velocità effettiva maggiore. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewaySku: il valore predefinito è **VpnGw1**. Sostituirlo con VpnGw2 o VpnGw3 se sono necessarie più connessioni o una velocità effettiva maggiore. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure tra la propria rete virtuale e una posizione locale. È anche possibile configurare una connessione da punto a sito alla rete virtuale da un computer client.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470864"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422899"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Accedere a un lab in Azure DevTest Labs
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Esercitazione: Accedere a un lab in Azure DevTest Labs
 Questa esercitazione descrive come usare il lab creato in [Esercitazione: Creare un lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 In questa esercitazione vengono completate le azioni seguenti:
@@ -68,10 +68,12 @@ Dopo aver terminato di usare la VM, annullarne la richiesta seguendo questa proc
 1. Nella pagina della macchina virtuale selezionare **Annulla richiesta** sulla barra degli strumenti. 
 
     ![Annullare la richiesta della VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. La VM viene arrestata prima che venga annullata la richiesta. 
+1. La VM viene arrestata prima che venga annullata la richiesta. È possibile controllare lo stato dell'operazione nelle notifiche.  
+3. Per tornare alla pagina del DevTest Lab, fare clic sul nome del lab nel menu di navigazione nella parte superiore. 
+    
+    ![Tornare al lab](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Verificare che sia visibile la VM nell'elenco delle **Macchine virtuali richiedibili** in basso.
 
-    ![Stato di annullamento della richiesta](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Al termine dell'operazione di annullamento della richiesta, la VM viene visualizzata nell'elenco delle **Macchine virtuali richiedibili** nella parte inferiore. 
     
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come accedere a un lab creato tramite Azure DevTest Labs e come usarlo. Per altre informazioni sull'accesso e sull'uso delle macchine virtuali in un lab, vedere 

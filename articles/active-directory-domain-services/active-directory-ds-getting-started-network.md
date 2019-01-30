@@ -4,7 +4,7 @@ description: Abilitare Azure Active Directory Domain Services tramite il portale
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156188"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857033"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -44,14 +44,14 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
   > **Non è possibile spostare il dominio gestito in una rete virtuale diversa dopo l'abilitazione di Azure AD Domain Services.** Selezionare la rete virtuale corretta per abilitare il dominio gestito. Dopo aver creato un dominio gestito, è possibile spostarlo in un'altra rete virtuale, senza eliminare il dominio gestito. Prima di procedere, è consigliabile leggere [Considerazioni sulla rete per Azure Active Directory Domain Services](active-directory-ds-networking.md).  
   >
 
-4. **Creare la rete virtuale:** fare clic su **Crea nuovo** per creare una nuova rete virtuale. Usare una subnet dedicata per Azure AD Domain Services. Ad esempio, se si crea una subnet con il nome 'DomainServices', è più semplice per gli altri amministratori comprendere cosa viene implementato all'interno della subnet. Al termine, fare clic su **OK**.
+4. **Creare una rete virtuale:** Fare clic su **Crea nuovo** per creare una nuova rete virtuale. Usare una subnet dedicata per Azure AD Domain Services. Ad esempio, se si crea una subnet con il nome 'DomainServices', è più semplice per gli altri amministratori comprendere cosa viene implementato all'interno della subnet. Al termine, fare clic su **OK**.
 
     ![Selezionare una rete virtuale](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > Assicurarsi di selezionare uno spazio di indirizzi che si trova all'interno di spazio di indirizzi IP privato. Gli indirizzi IP di cui non si è proprietari e che si trovano nello spazio di indirizzi pubblici generano errori all'interno di Azure AD Domain Services.
 
-5. **Rete virtuale esistente:** se si seleziona una rete virtuale esistente, [creare una subnet dedicata usando l'estensione di reti virtuali](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), quindi selezionare la subnet. Fare clic su **Rete virtuale** per selezionare la rete virtuale esistente. Fare clic su **Subnet** per selezionare una subnet dedicata nella rete virtuale esistente, nella quale è possibile attivare il nuovo dominio gestito. Al termine, fare clic su **OK**.
+5. **Rete virtuale esistente:** Se si intende selezionare una rete virtuale esistente, [creare una subnet dedicata usando l'estensione di reti virtuali](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), quindi selezionare la subnet. Fare clic su **Rete virtuale** per selezionare la rete virtuale esistente. Fare clic su **Subnet** per selezionare una subnet dedicata nella rete virtuale esistente, nella quale è possibile attivare il nuovo dominio gestito. Al termine, fare clic su **OK**.
 
     ![Selezionare una subnet all’interno della rete virtuale](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

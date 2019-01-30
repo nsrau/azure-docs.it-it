@@ -43,7 +43,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
    
     ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Creazione di un nuovo cluster nel portale di Azure")
 
-1. Nella pagina **HDInsight** selezionare **	Personalizzate (dimensioni, impostazioni, app)**.
+1. Nella pagina **HDInsight** selezionare **Personalizzate (dimensioni, impostazioni, app)**.
 
 1. Selezionare **1 Informazioni di base** e quindi immettere le informazioni seguenti:
 

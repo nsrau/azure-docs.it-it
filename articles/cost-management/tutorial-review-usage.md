@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093608"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849975"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -93,15 +93,23 @@ Gestione costi di Azure fornisce anche gli elementi consigliati di ottimizzazion
 
 ## <a name="create-alerts-for-unusual-spending"></a>Creare avvisi per spese inusuali
 
-È possibile inviare automaticamente avvisi agli stakeholder relativi ad anomalie nelle spese e rischi di spese eccessive. È possibile creare avvisi in modo semplice e rapido usando report che supportano gli avvisi basati su soglie di budget e costo.
+Gli avvisi permettono anche di inviare una notifica automatica alle parti interessate per le anomalie di spesa e i rischi di spesa eccessiva. È possibile creare avvisi usando report che supportano avvisi basati su soglie di budget e costo.
 
-È possibile creare un avviso per qualsiasi spesa utilizzando un report Cost (Costo). In questo esempio usare il report Actual Cost Over Time (Costo effettivo nel tempo) per ricevere un avviso quando la spesa della macchina virtuale di Azure si avvicina al budget totale. Tutti i passaggi seguenti sono necessari per la creazione dell'avviso. Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). Nella parte superiore destra del report fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
+Questo esempio usa il report **Actual Cost Over Time** (Costo effettivo nel tempo) per inviare una notifica quando la spesa di una macchina virtuale di Azure si avvicina al budget totale. In questo scenario si dispone di un budget totale di 20.000 $ e si vuole ricevere una notifica quando i costi si avvicinano alla prima metà del budget, 9.000 $, e un ulteriore avviso quando i costi raggiungono i 10.000 $.
 
-Nella casella Save or Schedule this report (Salva o pianifica report), usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 20.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 10.000 e un **Yellow alert** (Avviso giallo) a $ 9.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
+1. Dal menu nella parte superiore del portale di Cloudyn selezionare **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). 
+2. Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). 
+3. Nella parte superiore destra del report selezionare **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
+4. Per inviare a se stessi un messaggio di posta elettronica del report a intervalli pianificati, selezionare la scheda **Scheduling** (Pianificazione) nella finestra di report **Save or Schedule this report** (Salva o pianifica report). Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. 
+5. Selezionare la scheda **Threshold** (Soglia) e quindi selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). 
+   1. Nella casella di soglia **Red alert** (Avviso rosso) immettere 10000. 
+   2. Nella casella di soglia **Yellow alert** (Avviso giallo) immettere 9000. 
+   3. Nella casella **Number of consecutive alerts** (Numero di avvisi consecutivi) immettere il numero di avvisi consecutivi da ricevere. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. 
+6. Selezionare **Salva**.
 
 ![Esempio che mostra gli avvisi di colore giallo e rosso in base alle soglie di spesa](./media/tutorial-review-usage/schedule-alert01.png)
 
-È anche possibile scegliere Cost Percentage vs. Budget (Percentuale costo/budget) per la creazione degli avvisi. Con questa metrica è possibile usare le percentuali del budget anziché i valori di valuta.
+È anche possibile scegliere la metrica di soglia **Cost Percentage vs. Budget** (Percentuale costo/budget) per la creazione degli avvisi. In questo modo è possibile specificare le soglie come percentuali del budget anziché come valori di valuta.
 
 ## <a name="export-data"></a>Esportazione dei dati
 

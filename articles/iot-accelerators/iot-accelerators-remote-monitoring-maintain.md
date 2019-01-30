@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819221"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451718"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Esercitazione: Risolvere e correggere i problemi dei dispositivi
 
@@ -84,6 +84,6 @@ Per tenere traccia dello stato del processo, fare clic su **View job status** (V
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come usare gli avvisi per identificare i problemi con i dispositivi e su come agire sui dispositivi per risolvere i problemi. Per informazioni su come connettere un dispositivo fisico all'acceleratore della soluzione, passare alle procedure dettagliate.
+Questa esercitazione ha illustrato come usare gli avvisi per identificare i problemi con i dispositivi e su come agire sui dispositivi per risolvere i problemi. Per informazioni su come connettere un dispositivo reale all'acceleratore della soluzione, passare alle procedure dettagliate.
 
 Ora che si è appreso come gestire i problemi dei dispositivi, il passaggio successivo consigliato consente di apprendere come [connettere un dispositivo fisico all'acceleratore della soluzione di monitoraggio remoto](iot-accelerators-connecting-devices.md).

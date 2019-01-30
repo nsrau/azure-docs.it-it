@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955338"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411408"
 ---
 # <a name="what-is-azure-data-box"></a>Che cos'è Azure Data Box?
 
@@ -56,16 +56,17 @@ Data Box è progettato per spostare in Azure grandi quantità di dati senza alcu
 
 In questa versione il dispositivo Data Box include le funzionalità seguenti.
 
-| Specifiche                                          | Descrizione              |
+| Specifiche                                          | DESCRIZIONE              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 22 kg (50 libbre)                |
-| Dimensioni                                              | Dispositivo: Larghezza: 309,0 mm Altezza: 430,4 mm Profondità: 502,0 mm |            
+| Dimensioni                                              | Dispositivo - Larghezza: 309,0 mm Altezza: 430,4 mm Profondità: 502,0 mm |            
 | Spazio nel rack                                              | 7 U quando inserito nel rack sul proprio lato (non può essere montato su rack)|
 | Cavi necessari                                         | 1 cavo di alimentazione (incluso) <br> 2 cavi RJ-45 <br> 2 cavi X SFP + in rame Twinax|
 | Capacità di archiviazione                                        | La capacità utilizzabile del dispositivo da 100 TB è pari a 80 TB dopo la protezione RAID 5|
+| Potenza nominale                                            | La potenza dell'unità di alimentazione è di 700 W. <br> In genere, l'unità consuma 375 W.|
 | Interfacce di rete                                      | 2 interfacce 1 GbE: MGMT, DATA 3. <br> MGMT: per la gestione, non configurabile dall'utente, usata per la configurazione iniziale <br> DATA3: per i dati, configurabile dall'utente e dinamica per impostazione predefinita <br> Le interfacce MGMT e DATA 3 possono lavorare anche come 10 GbE <br> 2 interfacce 10 GbE: DATA 1, DATA 2 <br> Entrambe sono per i dati, possono essere configurate come statiche o dinamiche (impostazione predefinita) |
 | Supporti per il trasferimento dati                                     | RJ-45, SFP+ 10 GbE Ethernet in rame  |
-| Sicurezza                                                | Scatola rigida con viti personalizzate antimanomissione <br> Adesivi antimanomissione posizionati nella parte inferiore del dispositivo|
+| Security                                                | Scatola rigida con viti personalizzate antimanomissione <br> Adesivi antimanomissione posizionati nella parte inferiore del dispositivo|
 | Velocità di trasferimento dei dati                                      | Fino a 80 TB in un giorno su interfaccia di rete 10 GbE        |
 | Gestione                                              | Interfaccia utente Web locale: installazione e configurazione iniziali da eseguire una sola volta <br> Portale di Azure: gestione del dispositivo quotidiana        |
 

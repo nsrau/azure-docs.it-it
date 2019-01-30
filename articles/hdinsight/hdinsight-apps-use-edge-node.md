@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717467"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844824"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -65,8 +65,8 @@ Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tr
 >
 > Se si usa una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [https://apache.org](https://apache.org), ad esempio il sito [Apache Hadoop](https://hadoop.apache.org/).
 
-> [!NOTE]  
-> In modo analogo ai nodi del cluster, anche i nodi perimetrali sono gestiti tramite patch.  Per altre informazioni, vedere [Applicazione di patch del sistema operativo per HDInsight](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> Le immagini di Ubuntu diventano disponibili per la nuova creazione del cluster HDInsight entro 3 mesi dalla pubblicazione. A partire da gennaio 2019, le patch **non** sono applicate automaticamente ai cluster in esecuzione (inclusi i nodi perimetrali). I clienti devono usare azioni script o altri meccanismi per applicare patch a un cluster in esecuzione.  Per altre informazioni, vedere [Applicazione di patch del sistema operativo per HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Aggiungere un nodo perimetrale a un cluster esistente
 In questa sezione si userà un modello di Resource Manager per aggiungere un nodo perimetrale a un cluster HDInsight esistente.  Il modello di Resource Manager è disponibile in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.
@@ -78,7 +78,7 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configurare le proprietà seguenti:
    
-   * **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare il cluster.
+   * **Sottoscrizione** selezionare la sottoscrizione di Azure usata per creare il cluster.
    * **Gruppo di risorse**: selezionare il gruppo di risorse usato per il cluster HDInsight esistente.
    * **Località**: selezionare la località del cluster HDInsight esistente.
    * **Nome del cluster**: immettere il nome di un cluster HDInsight esistente.
@@ -101,9 +101,9 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configurare le proprietà seguenti:
    
-   * **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare il cluster.
+   * **Sottoscrizione** selezionare la sottoscrizione di Azure usata per creare il cluster.
    * **Gruppo di risorse**: creare un nuovo gruppo di risorse usato per il cluster.
-   * **Località**: selezionare una località per il gruppo di risorse.
+   * **Località**: Selezionare una posizione per il gruppo di risorse.
    * **Nome del cluster**: immettere un nome per il nuovo cluster da creare.
    * **Nome utente dell'account di accesso del cluster**: immettere il nome utente HTTP di Hadoop.  Il nome predefinito è **admin**.
    * **Password dell'account di accesso del cluster**: immettere la password utente HTTP di Hadoop.

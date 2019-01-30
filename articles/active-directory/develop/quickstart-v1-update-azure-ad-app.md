@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977245"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447463"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Guida introduttiva: Aggiornare un'applicazione in Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Avvio rapido: Aggiornare un'applicazione in Azure Active Directory
 
 Gli sviluppatori aziendali e i provider di software-as-a-service (SaaS) che hanno effettuato la registrazione delle applicazioni con Azure Active Directory (Azure AD) potrebbero dover configurare le applicazioni per accedere ad altre risorse, ad esempio le API Web, renderle disponibili in altre organizzazioni e altro ancora.
 
@@ -44,7 +44,7 @@ Per consentire a un'applicazione Web/client riservata di partecipare a un flusso
 
 Prima che un client possa accedere a un'API Web esposta da un'applicazione della risorsa (ad esempio l'API Microsoft Graph), il framework di consenso assicura che il client ottenga la concessione delle autorizzazioni necessaria, in base alle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono scegliere le autorizzazioni da **Azure Active Directory** (API Graph) e dal modello di distribuzione classica di Azure. L'[autorizzazione "Accedi e leggi il profilo di un altro utente" dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) è selezionata anch'essa per impostazione predefinita. Se il client viene registrato in un tenant che dispone di account con sottoscrizione per Office 365, saranno disponibili per la selezione le API Web e le autorizzazioni per SharePoint ed Exchange Online. È possibile selezionare fra due tipi di autorizzazioni per ogni API Web desiderata:
 
-- Autorizzazioni applicazione: l'applicazione client deve accedere direttamente all'API Web come se stessa (nessun contesto utente). Questo tipo di autorizzazione richiede il consenso dell'amministratore e non è disponibile per le applicazioni client native.
+- Autorizzazioni dell'applicazione: l'applicazione client deve accedere all'API Web direttamente come se stessa (senza contesto utente). Questo tipo di autorizzazione richiede il consenso dell'amministratore e non è disponibile per le applicazioni client native.
 - Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore.
 
   > [!NOTE]
@@ -111,7 +111,7 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
   ```
 
   > [!NOTE]
-  > Il valore `id` deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID, ad esempio [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` rappresenta un identificatore univoco per l'ambito esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni di accesso all'API Web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
+  > Il valore di `id` deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` rappresenta un identificatore univoco per l'ambito esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni di accesso all'API Web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
   >
   > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando l'attestazione (o le attestazioni) di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
 
@@ -190,7 +190,7 @@ Per altre informazioni sulle modifiche dell'applicazione necessarie per supporta
 
 - [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - L'elenco di [esempi di codice multi-tenant](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
-- [Avvio rapido: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD](../fundamentals/customize-branding.md)
+- [Guida introduttiva: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD](../fundamentals/customize-branding.md)
 
 ## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a pagina singola
 

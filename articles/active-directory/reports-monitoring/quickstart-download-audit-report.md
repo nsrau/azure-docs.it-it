@@ -4,7 +4,7 @@ description: Informazioni su come scaricare il report di controllo con il portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: afa92c40bd3cebea1024cf783a746450d3430a8d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620735"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821827"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: scaricare il report di controllo con il portale di Azure
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare il report di controllo con il portale di Azure
 
-In questa guida introduttiva si apprenderà come scaricare i log di controllo per il tenant per le ultime 24 ore.
+In questa guida introduttiva si apprenderà come scaricare i log di controllo per il tenant per le ultime 24 ore. dal portale di Azure è possibile scaricare fino a 5000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5000 record, ordinati partendo dai record {0}più recenti{0}. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ In questa guida introduttiva si apprenderà come scaricare i log di controllo pe
 * Un tenant di Azure Active Directory. 
 * Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Amministratore globale** per il tenant. Inoltre, tutti gli utenti nel tenant possono accedere ai propri log di controllo.
 
-## <a name="quickstart-download-an-audit-report"></a>Guida introduttiva: Scaricare un report di controllo
+## <a name="quickstart-download-an-audit-report"></a>Avvio rapido: Scaricare un report di controllo
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.

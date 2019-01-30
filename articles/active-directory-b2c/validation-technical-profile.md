@@ -3,24 +3,24 @@ title: Definire un profilo tecnico di convalida in un criterio personalizzato di
 description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568677"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850383"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
- 
+
 Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce attestazioni di output oppure un messaggio di errore HTTP 409 (codice di stato della risposta al conflitto) con i dati seguenti:
 
 ```JSON
@@ -33,12 +33,11 @@ Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi p
 
 Le attestazioni restituite da un profilo tecnico di convalida vengono aggiunte di nuovo all'elenco delle attestazioni. È possibile usare tali attestazioni nei profili tecnici di convalida successivi.
 
-I profili tecnici di convalida vengono eseguiti nella sequenza in cui compaiono nell'elemento **ValidationTechnicalProfiles**. In un profilo tecnico di convalida è possibile configurare se l'esecuzione di qualsiasi profilo tecnico di convalida successivo dovrà continuare nel caso in cui il profilo generi un errore o abbia esito positivo.  
+I profili tecnici di convalida vengono eseguiti nella sequenza in cui compaiono nell'elemento **ValidationTechnicalProfiles**. In un profilo tecnico di convalida è possibile configurare se l'esecuzione di qualsiasi profilo tecnico di convalida successivo dovrà continuare nel caso in cui il profilo generi un errore o abbia esito positivo.
 
 Un profilo tecnico di convalida può essere eseguito in modo condizionale in base alle precondizioni definite nell'elemento **ValidationTechnicalProfile**. È ad esempio possibile verificare se una specifica attestazione esiste oppure se un'attestazione corrisponde o meno al valore specificato.
 
 Un profilo tecnico autocertificato può stabilire che un profilo tecnico venga usato per la convalida di alcune o di tutte le attestazioni di output. Tutte le attestazioni di input del profilo tecnico a cui si fa riferimento devono essere visualizzate nelle attestazioni di output del profilo tecnico di convalida di riferimento.
-
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -53,7 +52,7 @@ L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
-|ContinueOnError|No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente generi un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). 
+|ContinueOnError|No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente generi un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
 |ContinueOnSuccess | No  | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente abbia esito positivo. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
 
 L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
@@ -67,67 +66,51 @@ L'elemento **Precondition** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | type | Yes | Tipo di controllo o query da eseguire per la precondizione. Il valore specificato può essere `ClaimsExist`, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure `ClaimEquals`, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore corrisponde al valore specificato. |
-| ExecuteActionsIf | Yes | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. | 
+| ExecuteActionsIf | Yes | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
 
 L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
-| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. | 
+| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
 
 ### <a name="example"></a>Esempio
 
-Questo esempio usa i profili tecnici di convalida seguenti: 
+Questo esempio usa i profili tecnici di convalida seguenti:
 
-1. Il primo profilo tecnico di convalida controlla le credenziali utente e non continua se si verifica un errore, ad esempio viene rilevato un nome utente non valido o una password errata. 
+1. Il primo profilo tecnico di convalida controlla le credenziali utente e non continua se si verifica un errore, ad esempio viene rilevato un nome utente non valido o una password errata.
 2. Il profilo tecnico di convalida successivo non viene eseguito se l'attestazione userType non esiste o se il valore di userType è `Partner`. Il profilo tecnico di convalida prova a leggere il profilo utente dal database clienti interno e continua se si verifica un errore, ad esempio se il servizio API REST non è disponibile o in caso di errore interno.
 3. L'ultimo profilo tecnico di convalida non viene eseguito se l'attestazione userType non esiste o se il valore di userType è `Customer`. Il profilo tecnico di convalida prova a leggere il profilo utente dal database dei clienti interno e continua se si verifica un errore, ad esempio se il servizio API REST non è disponibile o in caso di errore interno.
 
 ```XML
 <ValidationTechnicalProfiles>
-  <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false"  />
-    
+  <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
     <Preconditions>
-       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>userType</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-       <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-         <Value>userType</Value>
-         <Value>Partner</Value>
-         <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-    </Preconditions>          
+      <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+        <Value>userType</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+      <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+        <Value>userType</Value>
+        <Value>Partner</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+    </Preconditions>
   </ValidationTechnicalProfile>
-
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromPartnersDatabase" ContinueOnError="true" >
     <Preconditions>
-       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>userType</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-       <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-         <Value>userType</Value>
-         <Value>Customer</Value>
-         <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-    </Preconditions>          
+      <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+        <Value>userType</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+      <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+        <Value>userType</Value>
+        <Value>Customer</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+    </Preconditions>
   </ValidationTechnicalProfile>
 </ValidationTechnicalProfiles>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 076ddbd722966709cbe386123acafb57f5def0be
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 194999ca7036e174e702d1f997f072da3e9a2dc5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318458"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382281"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
@@ -86,7 +86,7 @@ Nella scheda **Cluster** immettere il **Nome cluster** (ad esempio, "mytestclust
 
 ![Creare un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-Nella scheda **Certificato** immettere la password e il percorso di output del certificato del cluster. Viene creato un certificato autofirmato come file PFX, che viene salvato nel percorso di output specificato.  Il certificato autofirmato viene usato per la sicurezza da nodo a nodo e da client a nodo.  Non usare un certificato autofirmato per i cluster di produzione.  Questo certificato viene usato da Visual Studio per eseguire l'autenticazione con il cluster e distribuire applicazioni. Selezionare **Importa certificato** per installare il certificato PFX nell'archivio certificati dell'utente corrente.  Fare clic su **Avanti**.
+Nella scheda **Certificato** immettere la password e il percorso di output del certificato del cluster. Viene creato un certificato autofirmato come file PFX, che viene salvato nel percorso di output specificato.  Il certificato viene usato per la sicurezza da nodo a nodo e da client a nodo.  Non usare un certificato autofirmato per i cluster di produzione.  Questo certificato viene usato da Visual Studio per eseguire l'autenticazione con il cluster e distribuire applicazioni. Selezionare **Importa certificato** per installare il certificato PFX nell'archivio certificati dell'utente corrente.  Fare clic su **Avanti**.
 
 ![Creare un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

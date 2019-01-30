@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465832"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848734"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
@@ -70,7 +70,7 @@ I set di disponibilità consentono di isolare le risorse in domini di errore e i
 
 Per garantire la corretta distribuzione delle macchine virtuali in tutto l'hardware, le VM devono essere create all'interno del set di disponibilità. Non è possibile aggiungere una macchina virtuale esistente a un set di disponibilità dopo la sua creazione.
 
-Quando si crea una macchina virtuale con [az vm create](/cli/azure/vm#az_vm_create), usare il parametro `--availability-set` per specificare il nome del set di disponibilità.
+Quando si crea una macchina virtuale con [az vm create](/cli/azure/vm), usare il parametro `--availability-set` per specificare il nome del set di disponibilità.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

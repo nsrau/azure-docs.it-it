@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale in JavaScript in Node.js con Speech Service SDK'
+title: 'Avvio rapido: Riconoscimento vocale, Node.js: servizi Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in JavaScript in Node.js con Speech Service SDK
+description: Usare questa guida per creare un'applicazione console di riconoscimento vocale con Speech SDK per Node.js. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724434"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382174"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Avvio rapido: Riconoscimento vocale in JavaScript in Node.js con Speech Service SDK
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ L'applicazione si basa su [Speech SDK di Servizi cognitivi](https://aka.ms/csspe
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 * Una versione corrente di [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Creare una nuova cartella di progetto
+## <a name="create-a-new-project"></a>Creare un nuovo progetto
 
-Creare una nuova cartella vuota e inizializzarla come nuovo progetto JavaScript e Node.js.
+Creare una nuova cartella e inizializzare il progetto.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 In questo modo i file package.json verranno inizializzati con i valori predefiniti. Probabilmente si vorrà modificare questo file in un secondo momento.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Installare Speech SDK per JavaScript nella cartella
+## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Aggiungere Speech SDK al progetto Node.js con `npm install microsoft-cognitiveservices-speech-sdk`.
+Aggiungere Speech SDK al progetto Node.js.
+
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
 L'ultima versione di Speech SDK con i prerequisiti necessari verrà scaricata e installata da npmjs. L'SDK verrà installato nella directory `node_modules` all'interno della cartella di progetto.
 
-## <a name="using-the-speech-sdk"></a>Uso di Speech SDK
+## <a name="use-the-speech-sdk"></a>Usare Speech SDK
 
 Creare un nuovo file nella cartella denominato `index.js` e aprirlo con un editor di testo.
 
@@ -58,7 +62,7 @@ Aggiungere il codice JavaScript seguente:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Esecuzione dell'esempio dalla riga di comando
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
 Per avviare l'app, adattare `YourSubscriptionKey`, `YourServiceRegion` e `YourAudioFile.wav` alla propria configurazione. È quindi possibile eseguirlo chiamando il comando seguente:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Esecuzione dell'esempio da Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installare e usare Speech SDK con Visual Studio Code
 
 È possibile eseguire l'esempio anche da Visual Studio Code. Seguire questi passaggi per installare, aprire ed eseguire il progetto di avvio rapido:
 

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580519"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823013"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -44,11 +44,11 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 ## <a name="prerequisites"></a>Prerequisiti
 
 > * [Eseguire l'esercitazione per la preparazione dei dati](tutorial-data-prep.md).
-> * Un ambiente configurato per la modalità automatizzata di apprendimento automatico. Ad esempio Azure Notebooks, un ambiente Python locale o Data Science Virtual Machine. [Configurare la modalità automatizzata di apprendimento automatico](samples-notebooks.md).
+> * Un ambiente configurato per la modalità automatizzata di apprendimento automatico. Ad esempio [Azure Notebooks](https://notebooks.azure.com/), un ambiente Python locale o Data Science Virtual Machine. [Configurare la modalità automatizzata di apprendimento automatico](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Eseguire il notebook `regression-part2-automated-ml.ipynb` in Azure Notebooks o nel server Jupyter Notebook personale.
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Eseguire il notebook `regression-part2-automated-ml.ipynb` in [Azure Notebooks](https://notebooks.azure.com/) o nel server Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -66,9 +66,15 @@ import logging
 import os
 ```
 
+Se si sta seguendo l'esercitazione nell'ambiente Python, usare quanto segue per installare i pacchetti necessari.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## <a name="configure-workspace"></a>Configurare l'area di lavoro
 
-Creare un oggetto area di lavoro dall'area di lavoro esistente. Un oggetto `Workspace` è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia. 
+Creare un oggetto area di lavoro dall'area di lavoro esistente. Un oggetto `Workspace` è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia.
 
 `Workspace.from_config()` legge il file **aml_config/config.json** e carica i dettagli in un oggetto denominato `ws`.  `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
 
@@ -95,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Esplorazione dei dati
 
-Usare l'oggetto flusso di dati creato nell'esercitazione precedente. Aprire ed eseguire il flusso di dati ed esaminare i risultati:
+Usare l'oggetto flusso di dati creato nell'esercitazione precedente. Per riepilogare, nella parte 1 di questa esercitazione sono stati puliti i dati di NYC Taxi, per poterli usare in un modello di machine learning. A questo punto, si usano varie funzionalità dal set di dati e si consente a un modello automatizzato di compilare le relazioni tra le funzionalità e il prezzo di una corsa in taxi. Aprire ed eseguire il flusso di dati ed esaminare i risultati:
 
 
 ```python
@@ -605,27 +611,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-A questo punto si dispone dei pacchetti e dei dati necessari per il training automatico del modello.
+Lo scopo di questo passaggio consiste nell'usare punti dati per testare il modello finito che non sono stati usati per il training del modello, per misurare l'accuratezza. In altre parole, un modello con training ottimale deve poter eseguire in modo accurato le stime dai dati che non ha già visualizzato. A questo punto si dispone dei pacchetti e dei dati necessari per il training automatico del modello.
 
 ## <a name="automatically-train-a-model"></a>Eseguire il training automatico di un modello
 
 Per eseguire il training automatico di un modello, eseguire queste operazioni:
-1. Definire le impostazioni per l'esecuzione dell'esperimento.
-1. Inviare l'esperimento per l'ottimizzazione del modello.
+1. Definire le impostazioni per l'esecuzione dell'esperimento. Allegare i dati di training alla configurazione e modificare le impostazioni che controllano il processo di training.
+1. Inviare l'esperimento per l'ottimizzazione del modello. Dopo aver inviato l'esperimento, il processo esegue l'iterazione attraverso diversi algoritmi di machine learning e impostazioni degli iperparametri, rispettando i vincoli definiti dall'utente. Sceglie il modello più appropriato ottimizzando una metrica di accuratezza.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Definire le impostazioni per la generazione automatica e l'ottimizzazione
 
-Definire le impostazioni del modello e dei parametri dell'esperimento per la generazione automatica e l'ottimizzazione. Visualizzare l'elenco completo delle [impostazioni](how-to-configure-auto-train.md).
+Definire le impostazioni del modello e dei parametri dell'esperimento per la generazione automatica e l'ottimizzazione. Visualizzare l'elenco completo delle [impostazioni](how-to-configure-auto-train.md). L'invio dell'esperimento con queste impostazioni predefinite richiederà circa 10-15 minuti; per abbreviare il tempo di invio, ridurre `iterations` o `iteration_timeout_minutes`.
 
 
-|Proprietà| Valore in questa esercitazione |Descrizione|
+|Proprietà| Valore in questa esercitazione |DESCRIZIONE|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Limite di tempo in minuti per ogni iterazione.|
-|**iterations**|30|Numero di iterazioni. In ogni iterazione il training del modello viene eseguito con i dati con una pipeline specifica.|
-|**primary_metric**| spearman_correlation | Metrica che si vuole ottimizzare.|
-|**preprocess**| True  | L'impostazione **True** consente all'esperimento di pre-elaborare l'input.|
+|**iteration_timeout_minutes**|10|Limite di tempo in minuti per ogni iterazione. Ridurre questo valore per diminuire il runtime totale.|
+|**iterations**|30|Numero di iterazioni. In ogni iterazione, viene eseguito il training di un nuovo modello di machine learning con i dati. Questo è il valore principale che influisce sul runtime totale.|
+|**primary_metric**| spearman_correlation | Metrica che si vuole ottimizzare. Verrà scelto il modello più appropriato in base a questa metrica.|
+|**preprocess**| True  | Usando **True**, l'esperimento può pre-elaborare i dati di input (gestendo i dati mancanti, convertendo il testo in valori numerici, e così via)|
 |**verbosity**| logging.INFO | Controlla il livello di dettaglio della registrazione.|
-|**n_cross_validationss**|5|Numero di suddivisioni di convalida incrociata.|
+|**n_cross_validations**|5|Numero di divisioni di convalida incrociata da eseguire quando i dati di convalida non sono specificati.|
 
 
 
@@ -640,6 +646,7 @@ automl_settings = {
 }
 ```
 
+Usare le impostazioni di training definite come parametro a un oggetto `AutoMLConfig`. In aggiunta, specificare i dati di training e il tipo di modello, ovvero `regression` in questo caso.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -664,6 +671,8 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
+L'output visualizzato si aggiorna in tempo reale mentre è in esecuzione l'esperimento. Per ogni iterazione, vengono visualizzati il tipo di modello, la durata dell'esecuzione e l'accuratezza del training. Il campo `BEST` traccia il miglior punteggio di training in esecuzione in base del tipo di metrica.
+
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
@@ -672,7 +681,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -724,7 +733,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opzione 2: Ottenere ed esaminare tutte le iterazioni di esecuzione in Python
 
-È anche possibile recuperare la cronologia di ogni esperimento ed esplorare le singole metriche per ogni esecuzione dell'iterazione:
+È anche possibile recuperare la cronologia di ogni esperimento ed esplorare le singole metriche per ogni esecuzione dell'iterazione. Esaminando RMSE (root_mean_squared_error) per ogni singola esecuzione del modello, si noterà che la maggior parte delle iterazioni stima il costo della corsa in taxi entro un margine ragionevole ($3-4).
 
 ```python
 children = list(local_run.get_children())
@@ -1081,28 +1090,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="register-the-model"></a>Registrare il modello
-
-Registrare il modello nell'area di lavoro del servizio Azure Machine Learning:
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## <a name="test-the-best-model-accuracy"></a>Testare l'accuratezza del modello migliore
 
-Usare il modello migliore per eseguire stime sul set di dati di test. La funzione`predict` usa il modello migliore ed esegue una stima dei valori di y, ovvero il **costo della corsa**, dal set di dati `x_test`. Stampare i primi 10 valori dei costi stimati da `y_predict`:
+Usare il modello migliore per eseguire stime sul set di dati di test per stimare i prezzi delle corse dei taxi. La funzione`predict` usa il modello migliore ed esegue una stima dei valori di y, ovvero il **costo della corsa**, dal set di dati `x_test`. Stampare i primi 10 valori dei costi stimati da `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Creare un grafico a dispersione per visualizzare i valori stimati dei costi rispetto ai valori effettivi. Il codice seguente usa la funzione `distance` come asse x e il valore `cost` della corsa come asse y. Per confrontare la varianza del costo stimato per ogni valore di distanza della corsa, i primi 100 valori di costi stimati ed effettivi vengono creati come serie separate. Esaminando il tracciato si nota che la relazione tra distanza e costo è quasi lineare. I valori dei costi stimati sono, nella maggior parte dei casi, molto vicini ai valori dei costi effettivi per la stessa distanza della corsa.
+Creare un grafico a dispersione per visualizzare i valori stimati dei costi rispetto ai valori effettivi. Il codice seguente usa la funzione `distance` come asse x e il valore `cost` della corsa come asse y. Per confrontare la varianza del costo stimato per ogni valore di distanza della corsa, i primi 100 valori di costi stimati ed effettivi vengono creati come serie separate. Se esaminiamo il grafico, la relazione distanza/costi è quasi lineare e i costi stimati sono in genere molto vicini a quelli effettivi dei costi per la stessa distanza della corsa.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1127,7 +1124,7 @@ plt.show()
 
 ![Grafico a dispersione per stima](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calcolare il `root mean squared error` dei risultati. Usare il frame di dati `y_test`. Convertirlo in un elenco da confrontare con i valori stimati. La funzione `mean_squared_error` accetta due matrici di valori e calcola l'errore quadratico medio tra di essi. La radice quadrata del risultato restituisce un errore nelle stesse unità di misura della variabile y, **cost**. Indica approssimativamente quanto si discostano le stime dal valore effettivo:
+Calcolare il `root mean squared error` dei risultati. Usare il frame di dati `y_test`. Convertirlo in un elenco da confrontare con i valori stimati. La funzione `mean_squared_error` accetta due matrici di valori e calcola l'errore quadratico medio tra di essi. La radice quadrata del risultato restituisce un errore nelle stesse unità di misura della variabile y, **cost**. Indica approssimativamente quanto le stime dei prezzi delle corse in taxi si discostano dai prezzi effettivi:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1165,6 +1162,8 @@ print(1 - mean_abs_percent_error)
 
     Model Accuracy:
     0.8945484613043041
+
+Dalle metriche di accuratezza della stima finali, si nota che il modello esegue una stima discreta dei prezzi delle corse in taxi in base alle funzionalità del set di dati, in genere con un margine di $3.00 in eccesso o in difetto. Il processo di sviluppo del modello di Machine Learning tradizionale richiede risorse ingenti, notevoli conoscenze settoriali e tempi estremamente lunghi per poter eseguire un elevato numero di modelli e confrontarne i risultati. L'uso dell'apprendimento automatico automatizzato è un ottimo modo per testare rapidamente molti modelli diversi per il proprio scenario.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077251"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382586"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-Aggiungere anche il metodo seguente per consentire a Kestrel di trovare il certificato nell'archivio `Cert:\LocalMachine\My` usando il soggetto.  Sostituire "&lt;your_CN_value&gt;" con "mytestcert" se si è creato un certificato autofirmato con il comando di PowerShell precedente oppure usare il nome comune del certificato.
+Aggiungere anche il metodo seguente per consentire a Kestrel di trovare il certificato nell'archivio `Cert:\LocalMachine\My` usando il soggetto.  
+
+Sostituire "&lt;your_CN_value&gt;" con "mytestcert" se si è creato un certificato autofirmato con il comando di PowerShell precedente oppure usare il nome comune del certificato.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ Salvare tutti i file e premere F5 per eseguire l'applicazione in locale.  Al ter
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Installare il certificato nei nodi del cluster
 
-Prima di distribuire l'applicazione in Azure, installare il certificato nell'archivio `Cert:\LocalMachine\My` dei nodi del cluster remoto.  All'avvio del servizio Web front-end in un nodo del cluster, lo script di avvio cercherà il certificato e configurerà le autorizzazioni di accesso.
+Prima di distribuire l'applicazione in Azure, installare il certificato nell'archivio `Cert:\LocalMachine\My` di tutti i nodi del cluster remoto.  I servizi possono essere spostati in nodi diversi del cluster.  All'avvio del servizio Web front-end in un nodo del cluster, lo script di avvio cercherà il certificato e configurerà le autorizzazioni di accesso.
 
 Per prima cosa, esportare il certificato in un file PFX. Aprire l'applicazione certlm.msc e passare a **Personale**>**Certificati**.  Fare clic con il pulsante destro del mouse sul certificato di *mytestcert* e scegliere **Tutte le attività**>**Esporta**.
 

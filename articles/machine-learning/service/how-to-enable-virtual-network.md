@@ -1,7 +1,7 @@
 ---
 title: Eseguire esperimenti e inferenze in una rete virtuale
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire in modo sicuro esperimenti e inferenze di Machine Learning in una rete virtuale di Azure. Questo articolo illustra come creare le destinazioni di calcolo usate per eseguire il training dei modelli e come elaborare un'inferenza in una rete virtuale di Azure. Descrive anche i requisiti per le reti virtuali protette, ad esempio le porte in ingresso e in uscita obbligatorie.
+description: Eseguire in modo sicuro esperimenti e inferenze in una rete virtuale di Azure. Informazioni su come creare destinazioni di calcolo per il training del modello e su come eseguire interferenze in una rete virtuale di Azure. Descrive anche i requisiti per le reti virtuali protette, ad esempio le porte in ingresso e in uscita obbligatorie.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248603"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856282"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Eseguire esperimenti e inferenze in modo sicuro in una rete virtuale di Azure
 

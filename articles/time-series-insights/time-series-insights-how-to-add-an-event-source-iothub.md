@@ -54,7 +54,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. Nel menu a sinistra selezionare **Tutte le risorse**. Selezionare l'ambiente Time Series Insights.
 
-1. In  **	Topologia dell'ambiente** selezionare **Origini eventi** e fare clic su **Aggiungi**.
+1. In **Topologia dell'ambiente** selezionare **Origini eventi** e fare clic su **Aggiungi**.
 
    ![Selezionare le origini eventi e quindi selezionare il pulsante Aggiungi.][2]
 

@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272736"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389294"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
-L'ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure in una rete virtuale di Azure di un cliente. Molti clienti configurano le proprie reti virtuali di Azure come estensioni delle proprie reti locali con VPN o connessioni Azure ExpressRoute. Per tunneling forzato si intende il reindirizzamento del traffico associato a Internet alla propria VPN o a un'appliance virtuale. Lo scopo è il controllo di tutto il traffico in uscita, spesso richiesto per motivi di sicurezza. 
+L'ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure in una rete virtuale di Azure di un cliente. Molti clienti configurano le proprie reti virtuali di Azure come estensioni delle proprie reti locali con VPN o connessioni Azure ExpressRoute. Per tunneling forzato si intende il reindirizzamento del traffico associato a Internet alla propria VPN o a un'appliance virtuale. Le appliance virtuali vengono spesso usate per esaminare e controllare il traffico di rete in uscita. 
 
 L'ambiente del servizio app ha diverse dipendenze esterne, descritte nel documento sull'[architettura di rete dell'ambiente del servizio app][network]. In genere tutto il traffico in uscita dell'ambiente del servizio app relativo alle dipendenze deve transitare attraverso l'indirizzo VIP di cui è stato eseguito il provisioning con l'ambiente del servizio app. Se si modifica il routing per il traffico da o verso l'ambiente del servizio app senza attenersi alle indicazioni seguenti, l'ambiente del servizio app smetterà di funzionare.
 
@@ -62,24 +62,21 @@ Se la rete indirizza già il traffico in locale, è necessario creare la subnet 
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurare la subnet dell'ambiente del servizio app per ignorare le route BGP ## 
 
-Puoi configurare la subnet dell'ambiente del servizio app per ignorare tutte le route BGP.  Quando configurate, l'ambiente del servizio app riesce ad accedere alle relative dipendenze senza problemi.  Dovrai creare route definite dall'utente, tuttavia per abilitare le app accedi alle risorse locali.
+Puoi configurare la subnet dell'ambiente del servizio app per ignorare tutte le route BGP.  Quando configurate in modo da ignorare le route BGP, l'ambiente del servizio app riesce ad accedere alle relative dipendenze senza problemi.  Dovrai creare route definite dall'utente, tuttavia per abilitare le app accedi alle risorse locali.
 
 Per configurare la subnet dell'ambiente del servizio app al fine di ignorare le route BGP:
 
 * crea una route definita dall'utente e assegnala alla subnet dell'ambiente del servizio app se non ne disponi già.
 * Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Save. La documentazione sulla disabilitazione è consultabile in [Creare una tabella di route][routetable].
 
-Al termine dell'operazione, le app non saranno in grado di raggiungere l'ambiente locale. Per risolvere questo problema, modifica la route definita dall'utente assegnata alla subnet dell'ambiente del servizio app e aggiungi le route per gli intervalli degli indirizzi locali. Il tipo di hop successivo deve essere impostato su Gateway di rete virtuale. 
+Dopo aver configurato la subnet dell'ambiente del servizio app di Azure in modo da ignorare tutte le route BGP, le app non riusciranno più a raggiungere l'ambiente locale. Per abilitare le app ad accedere alle risorse in locale, modificare la route definita dall'utente assegnata alla subnet dell'ambiente del servizio app e aggiungere le route per gli intervalli degli indirizzi locali. Il tipo di hop successivo deve essere impostato su Gateway di rete virtuale. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurare l'ambiente del servizio app con endpoint servizio ##
 
- > [!NOTE]
-   > Gli endpoint servizio con SQL non funzionano con l'ambiente del servizio app nelle aree US Government.  Le informazioni seguenti sono valide solo nelle aree pubbliche di Azure.  
-
 Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto a SQL di Azure e Archiviazione di Azure, procedere come segue:
 
-1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Questo passaggio è necessario perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato.   
+1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Queste route sono necessarie perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato.   
 
 2. Abilitare gli endpoint servizio con SQL di Azure e Archiviazione di Azure con la subnet dell'ambiente del servizio app.  Dopo il completamento di questo passaggio, è possibile configurare la rete virtuale con il tunneling forzato.
 
@@ -91,7 +88,7 @@ Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono 
 
 Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra.  Il comportamento di Archiviazione di Azure è diverso da quello di SQL di Azure.  Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-Se si configura il tunneling forzato con un'appliance di filtro rete, tenere presente che l'ambiente del servizio app ha alcune dipendenze oltre a SQL di Azure e Archiviazione di Azure e che è necessario consentire il traffico verso tali dipendenze. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
+Se si configura il tunneling forzato con un'appliance di filtro rete, tenere presente che l'ambiente del servizio app ha alcune dipendenze oltre a SQL di Azure e Archiviazione di Azure Se il traffico verso tali dipendenze è bloccato, l'ambiente del servizio app non funzionerà correttamente.
 
 ![Tunneling forzato con gli endpoint servizio][2]
 
@@ -99,7 +96,7 @@ Se si configura il tunneling forzato con un'appliance di filtro rete, tenere pre
 
 Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto ad Archiviazione di Azure, procedere come segue:
 
-1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Questo passaggio è necessario perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato. 
+1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Queste route sono necessarie perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato. 
 
 2. Abilitare gli endpoint servizio con Archiviazione di Azure con la subnet dell'ambiente del servizio app
 

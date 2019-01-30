@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811214"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando le API
 
@@ -89,7 +89,7 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un LiveEvent di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un LiveEvent abilitato per la codifica live, impostare LiveEventEncodingType su Standard. 
+Questa sezione mostra come creare un LiveEvent di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un LiveEvent abilitato per la codifica live, impostare LiveEventEncodingType su **Standard**. 
 
 Altre caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
@@ -100,8 +100,12 @@ Altre caratteristiche che è possibile specificare durante la creazione dell'eve
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo LiveEvent. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').
     
     Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
+    
+    Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
 
-Quando si crea l'evento, è possibile impostarne l'avvio automatico. 
+* Quando si crea l'evento, è possibile impostarne l'avvio automatico. 
+
+    Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena l'evento live è in esecuzione. È necessario chiamare esplicitamente Stop sulla risorsa LiveEvent per interrompere la fatturazione. Per altre informazioni, vedere la sezione [Stati e fatturazione di LiveEvent](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

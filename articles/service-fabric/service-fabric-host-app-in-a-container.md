@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299640"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436978"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -164,7 +164,7 @@ Durante la creazione del cluster:
 
     a. Specificare il nome del cluster nel campo **Nome del cluster**, nonché la sottoscrizione e la località da usare. Prendere nota del nome del gruppo di risorse cluster.
 
-    b. Facoltativamente, è possibile modificare il numero di nodi. Per impostazione predefinita vengono usati tre nodi, il numero minimo necessario per testare gli scenari di Service Fabric.
+    b. Facoltativo: è possibile modificare il numero di nodi. Per impostazione predefinita vengono usati tre nodi, il numero minimo necessario per testare gli scenari di Service Fabric.
 
     c. Selezionare la scheda **Certificato**. In questa scheda digitare una password che verrà usata per proteggere il certificato del cluster. Questo certificato consente di rendere sicuro il cluster. È anche possibile modificare il percorso in cui si vuole salvare il certificato. Visual Studio può anche importare automaticamente il certificato, perché questo passaggio è obbligatorio per la pubblicazione dell'applicazione nel cluster.
 
@@ -237,7 +237,7 @@ Seguire lo stato della distribuzione nella finestra di output.  Al termine della
 ![Esempio Web Fabrikam][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurare l'integrazione e la distribuzione continue con un cluster di Service Fabric
-Per informazioni su come usare Azure DevOps per configurare la distribuzione di un'applicazione con CI/CD in un cluster di Service Fabric, vedere [Esercitazione: distribuire un'applicazione con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). La procedura descritta nell'esercitazione è la stessa per il progetto FabrikamFiber. Ignorare il download dell'esempio Voting e sostituire Voting con FabrikamFiber come nome del repository.
+Per informazioni su come usare Azure DevOps per configurare la distribuzione di un'applicazione con CI/CD in un cluster di Service Fabric, vedere [Esercitazione: Distribuire un'applicazione con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). La procedura descritta nell'esercitazione è la stessa per il progetto FabrikamFiber. Ignorare il download dell'esempio Voting e sostituire Voting con FabrikamFiber come nome del repository.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se l'operazione è terminata, assicurarsi di rimuovere tutte le risorse create.  Il modo più semplice consiste nel rimuovere i gruppi di risorse che contengono il cluster di Service Fabric, il database SQL di Azure e Registro Azure Container.
@@ -258,7 +258,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio
@@ -269,7 +269,7 @@ Questa esercitazione ha illustrato come:
 Nella parte successiva dell'esercitazione, apprendere come [distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

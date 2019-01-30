@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706008"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389954"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -32,7 +32,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Inviare un collegamento di registrazione agli studenti
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per configurare un lab per le classi in un account del lab, è necessario essere un membro del ruolo **Autore di laboratori** nell'account del lab. L'account usato per creare un account del lab viene aggiunto automaticamente a questo ruolo. Un proprietario del lab può aggiungere altri utenti al ruolo Autore di laboratori seguendo i passaggi nell'articolo seguente: [Aggiungere un utente al ruolo di Autore di laboratori](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Per configurare un lab per le classi in un account del lab, è necessario essere un membro del ruolo **Autore di laboratori** nell'account del lab. L'account usato per creare un account del lab viene aggiunto automaticamente a questo ruolo. Un proprietario del lab può aggiungere altri utenti al ruolo Autore di laboratori seguendo i passaggi descritti nell'articolo seguente: [Aggiungere un utente al ruolo di creatore di lab](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Creare un lab per le classi
@@ -93,7 +93,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 1. Verrà visualizzato il **dashboard** del lab. 
     
     ![Dashboard del lab per le classi](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+4. Per passare alla pagina **Macchine virtuali** selezionare Macchine virtuali nel menu a sinistra oppure il riquadro Macchine virtuali. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 ## <a name="send-registration-link-to-students"></a>Inviare un collegamento di registrazione agli studenti
 
 1. Passare alla vista **Utenti** se non si è già nella pagina. 
-2. Selezionare il riquadro **Get registration link** (Ottieni collegamento registrazione).
+2. Selezionare **Get registration link** (Ottieni collegamento registrazione) sulla barra degli strumenti.
+1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Copia**. Il collegamento viene copiato negli Appunti.
 
-    ![Collegamento di registrazione dello studente](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Copia**. Il collegamento viene copiato negli Appunti. 
-
-    ![Collegamento di registrazione dello studente](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Chiudi**. 
-4. Condividere il collegamento di registrazione con uno studente in modo che possa eseguire la registrazione alla classe. Se l'opzione **Limita l'accesso** è abilitata e si ha un elenco di utenti, eseguire le operazioni seguenti:
-    1. Selezionare l'**indirizzo e-mail** dell'utente nell'elenco. 
-    2. Sarà visualizzata una finestra del programma di posta elettronica predefinito con l'indirizzo **A** inserito. 
-    3. Incollare l'**URL di registrazione** copiato in precedenza. 
-    4. Inviare il **messaggio**.
-
+    ![Collegamento di registrazione](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Chiudi**. 
+2. Condividere il collegamento di registrazione con uno studente in modo che possa eseguire la registrazione alla classe.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come creare un lab per le classi e come configurare il lab. Per informazioni su come uno studente può accedere a una VM nel lab usando il collegamento di registrazione, passare alla prossima esercitazione:

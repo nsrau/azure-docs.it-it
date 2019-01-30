@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di C# per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di C# per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Analisi del testo.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 7c26117c9c36b3004df0d85b1a739fcebd9a1e4e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8cfc826e76e937df416e88528e1ae2339d4d079d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119408"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390694"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di C# per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
@@ -181,6 +181,40 @@ namespace ConsoleApp1
         }
     }
 }
+```
+
+## <a name="application-output"></a>Output dell'applicazione
+
+L'applicazione visualizza le informazioni seguenti:
+
+```console
+===== LANGUAGE EXTRACTION ======
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
+
+
+===== KEY-PHRASE EXTRACTION ======
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+Document ID: 3
+         Key phrases:
+                cat
+                rock
+Document ID: 4
+         Key phrases:
+                fútbol
+
+===== SENTIMENT ANALYSIS ======
+Document ID: 0 , Sentiment Score: 0.87
+Document ID: 1 , Sentiment Score: 0.11
+Document ID: 2 , Sentiment Score: 0.44
+Document ID: 3 , Sentiment Score: 1.00
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
