@@ -11,28 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 30c033b487fe58d017080b02c257502f82338164
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710041"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388311"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
-Questo articolo descrive come configurare il numero di utenti per il lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
+Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
 
 
-## <a name="specify-the-number-of-users-allowed-into-the-lab"></a>Specificare il numero di utenti consentito nel lab
+## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
+Se è stata abilitata l'opzione **Limitare l'accesso**, aggiungere gli utenti (indirizzi di posta elettronica) all'elenco.
 
-1. Selezionare **Usage policy** (Criteri di utilizzo). 
-2. Nelle impostazioni di **Usage policy** (Criteri di utilizzo) immettere il **numero di utenti** a cui è consentito usare il lab.
-3. Selezionare **Salva**. 
+1. Selezionare **Utenti** nel menu a sinistra.
+2. Selezionare **Aggiungi utenti** sulla barra degli strumenti. 
+3. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
 
-    ![Criteri di utilizzo](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
+    ![Aggiungere gli indirizzi di posta elettronica degli utenti](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selezionare **Salva**. Gli indirizzi di posta elettronica degli utenti e i relativi stati (registrati o no) saranno visualizzati nell'elenco. 
+
+    ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="send-registration-link-to-students"></a>Inviare un collegamento di registrazione agli studenti
+La procedura seguente include i passaggi per inviare un collegamento di registrazione agli utenti. Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclusi nell'elenco di utenti possono usare il collegamento di registrazione per eseguire la registrazione al lab. 
 
 1. Passare alla visualizzazione **Utenti** selezionando **Utenti** nel menu a sinistra. 
 2. Selezionare il riquadro **Get registration link** (Ottieni collegamento registrazione).
@@ -52,9 +57,10 @@ Questo articolo descrive come configurare il numero di utenti per il lab, regist
 
 Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti registrati al lab. 
 
-![Elenco di utenti registrati al lab](../media/how-to-configure-student-usage/users-list.png)
+![Elenco di utenti registrati al lab](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="set-quotas-per-user"></a>Impostare le quote per utente
+È possibile impostare quote per utente usando la procedura seguente: 
 
 1. Selezionare **Utenti** nel menu a sinistra.
 2. Selezionare **Quota per user: unlimited** (Quota per utente: illimitata) sulla barra degli strumenti. 
@@ -62,21 +68,9 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 4. Per **How many hours do you want to give to each user?** (Quante ore si desidera assegnare a ogni utente?), immettere il numero di ore e selezionare **Salva**. 
 
     ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Sulla barra degli strumenti viene visualizzato ora il numero di ore **Quota per user: (Quota per utente:) &lt;numero di ore&gt;**. 
+5. È ora visibile il numero di ore sulla barra degli strumenti: **Quota per user (Quota per utente): &lt;numero di ore&gt;**. 
 
     ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
-
-## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
-Se è stata abilitata l'opzione **Limitare l'accesso**, aggiungere gli utenti (indirizzi di posta elettronica) all'elenco.
-
-1. Selezionare **Utenti** nel menu a sinistra.
-2. Selezionare **Aggiungi utenti** sulla barra degli strumenti. 
-3. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
-
-    ![Aggiungere gli indirizzi di posta elettronica degli utenti](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selezionare **Salva**. Gli indirizzi di posta elettronica degli utenti e i relativi stati (registrati o no) saranno visualizzati nell'elenco. 
-
-    ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV
 È anche possibile aggiungere gli utenti caricando un file CSV con gli indirizzi di posta elettronica degli utenti.
@@ -96,6 +90,16 @@ Dopo che gli studenti si sono registrati al servizio Azure Lab Services usando i
 - Connettersi alla macchina virtuale. 
 - Eliminare la macchina virtuale. 
 - Visualizzare il numero di ore in cui gli utenti hanno usato la macchina virtuale. 
+
+## <a name="update-number-of-virtual-machines-in-lab"></a>Aggiornare il numero di macchine virtuali nel lab
+Per aggiornare il numero di macchine virtuali nel lab, eseguire questa procedura nella pagina **Macchine virtuali**:
+
+1. Scegliere **Macchine virtuali** dal menu a sinistra. 
+2. Selezionare **Lab capacity: &lt;numero&gt; machines** (Capacità lab: numero macchine virtuali) sulla barra degli strumenti. 
+3. Immettere il **numero** di macchine virtuali.
+4. Selezionare **Salva**.
+
+    ![Macchine virtuali nel lab](../media/how-to-configure-student-usage/number-virtual-machines.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,23 +1,18 @@
 ---
-title: Integrare il servizio DNS di Azure con le risorse di Azure | Microsoft Docs
+title: Integrare DNS di Azure con le risorse di Azure
 description: Informazioni su come usare il servizio DNS di Azure per specificare il DNS per le risorse di Azure.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727149"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401419"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
 
@@ -33,7 +28,7 @@ Per poter usare il servizio DNS di Azure per il dominio personalizzato, è prima
 
 Per configurare un dominio personalizzato per le app per le funzioni di Azure, viene creato un record CNAME e una configurazione nella stessa app per le funzioni.
  
-Passare ad **Altro** > **App per le funzioni** e selezionare l'app per le funzioni. Fare clic su **Funzionalità della piattaforma** e in **RETE** fare clic su **Domini personalizzati**.
+Passare ad **App per le funzioni** e selezionare l'app per le funzioni. Fare clic su **Funzionalità della piattaforma** e in **Rete** fare clic su **Domini personalizzati**.
 
 ![pannello App per le funzioni](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS adatumfunction.azurewebsites.net specificato per impostazione predefinita per l'app per le funzioni.        |
 
-Tornare all'app per le funzioni, fare clic su **Funzionalità della piattaforma** e in **RETE** fare clic su **Domini personalizzati**, quindi in **Nomi host** fare clic su **+ Aggiungi il nome host**.
+Tornare all'app per le funzioni, fare clic su **Funzionalità della piattaforma** e in **Rete** fare clic su **Domini personalizzati**, quindi in **Nomi host personalizzati** fare clic su **+ Aggiungi il nome host**.
 
-Nel pannello **Aggiungi il nome host** immettere il record CNAME nel campo di testo **nome host** e fare clic su **Convalida**. Se il record è stato trovato, viene visualizzato il pulsante **Aggiungi il nome host**. Fare clic su **Aggiungi il nome host** per aggiungere l'alias.
+Nel pannello **Aggiungi il nome host** immettere il record CNAME nel campo di testo **nome host** e fare clic su **Convalida**. Se il record viene trovato, verrà visualizzato il pulsante **Aggiungi il nome host**. Fare clic su **Aggiungi il nome host** per aggiungere l'alias.
 
 ![pannello Aggiungi il nome host dell'app per le funzioni](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -86,7 +81,7 @@ Dopo aver creato il record A, eseguire `nslookup` per convalidare la risoluzione
 
 La procedura seguente consente di configurare un dominio personalizzato per un'app Web del servizio app.
 
-Passare a **Web e dispositivi mobili** > **Servizio app** e selezionare la risorsa per cui si sta configurando un nome di dominio personalizzato, quindi fare clic su **Domini personalizzati**.
+Passare a **Servizio app** e selezionare la risorsa per cui si sta configurando un nome di dominio personalizzato, quindi fare clic su **Domini personalizzati**.
 
 Si noti l'URL corrente nel pannello **Domini personalizzati**, questo indirizzo viene usato come alias per il record DNS creato.
 
@@ -149,7 +144,7 @@ Per altre informazioni sul mapping di un dominio personalizzato a un endpoint di
 
 La procedura seguente consente di configurare un record CNAME per un endpoint di rete CDN con il metodo cdnverify. Questo metodo permette di azzerate il tempo di inattività.
 
-Passare a **Rete** > **Profili rete CDN**, selezionare il profilo di rete CDN e fare clic su **Endpoint** in **Generale**.
+Passare a **Rete** > **Profili CDN** e selezionare il profilo CDN.
 
 Selezionare l'endpoint che si sta usando e fare clic su **+ Dominio personalizzato**. Prendere nota del **nome host dell'endpoint**, perché questo valore è il record a cui punta il record CNAME.
 

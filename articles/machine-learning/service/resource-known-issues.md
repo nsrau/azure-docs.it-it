@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351799"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381834"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
  
@@ -32,11 +32,16 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemi durante la creazione dell'ambiente di calcolo di Azure Machine Learning
+
 Esiste una rara possibilità per cui alcuni utenti che hanno creato l'area di lavoro di Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare l'ambiente di calcolo di Azure Machine Learning nell'area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o il SDK per annullare il blocco immediatamente. 
 
 ## <a name="image-building-failure"></a>Errore di compilazione di immagini
 
 Errore di compilazione di immagini durante la distribuzione del servizio Web. Una soluzione alternativa consiste nell'aggiungere "pynacl==1.2.1" come dipendenza pip al file Conda per la configurazione dell'immagine.  
+
+## <a name="deployment-failure"></a>Errore di distribuzione
+
+Se si riceve un messaggio simile a 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' interrotto con <Signals.SIGKILL: 9 >, modificare lo SKU delle macchine virtuali usate nella distribuzione usandone altre con maggiore quantità di memoria.
 
 ## <a name="fpgas"></a>FPGA
 Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richiesta e approvata la quota FPGA. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai

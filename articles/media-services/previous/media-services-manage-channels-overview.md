@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246598"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382131"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Panoramica dello streaming live con Servizi multimediali di Azure
 
@@ -27,6 +27,7 @@ ms.locfileid: "40246598"
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
 
 ## <a name="overview"></a>Panoramica
+
 Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure, sono generalmente necessari i componenti seguenti:
 
 * Una fotocamera da usare per trasmettere un evento.
@@ -43,7 +44,7 @@ Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure
 
 **Servizi multimediali di Microsoft Azure** (AMS) offre la possibilità di inserire, visualizzare in anteprima, archiviare e fornire il contenuto in streaming live.
 
-Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, usare codificatori live per codificare il flusso in un flusso video a bitrate multiplo (bitrate adattivo).  Per garantire la trasmissione a diversi tipi di dispositivi, usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, usare codificatori live per codificare il flusso in un flusso video a bitrate multiplo (bitrate adattivo).  Per garantire la trasmissione a diversi tipi di dispositivi, usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. Servizi multimediali supporta la distribuzione delle tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
@@ -63,6 +64,7 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 * **Standard** - scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit. Questo metodo è il più vantaggioso per aumentare rapidamente le unità in caso di eventi non frequenti. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
 ## <a name="comparison-of-channel-types"></a>Confronto tra tipi di canale
+
 Nella tabella seguente vengono confrontati i due tipi di canale supportati in Servizi Multimediali
 
 | Funzionalità | Canale pass-through | Canale standard |
@@ -80,6 +82,7 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 | Arresto automatico dei canali in caso di perdita del feed di input |No  |Dopo 12 ore, nessun programma è in esecuzione |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilizzo di canali che ricevono il flusso live a bitrate multiplo da codificatori locali con il metodo pass-through
+
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through** .
 
 ![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,6 +90,7 @@ Il diagramma seguente illustra le parti principali della piattaforma AMS coinvol
 Per altre informazioni, vedere l'articolo relativo all' [uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
+
 Il seguente diagramma mostra i componenti principali della piattaforma AMS interessati dal flusso di lavoro di streaming live dove un canale è abilitato a eseguire la codifica live con Servizi multimediali.
 
 ![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -94,12 +98,16 @@ Il seguente diagramma mostra i componenti principali della piattaforma AMS inter
 Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrizione di un canale e dei relativi componenti
+
 ### <a name="channel"></a>Canale
+
 In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
 È possibile ottenere l'URL di inserimento e l'URL di anteprima quando si crea il canale. Per ottenere questi URL, non è necessario che il canale sia nello stato avviato. Quando si è pronti per avviare l'inserimento di dati da un transcodificatore live nel canale, il canale deve essere avviato. Una volta che il transcodificatore live inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
 Ogni account di Servizi multimediali può contenere più entità Channel, Program e StreamingEndpoint. In base alle esigenze di sicurezza e alla larghezza di banda, i servizi di StreamingEndpoint possono essere dedicati a uno o più canali. Qualsiasi StreamingEndpoint può effettuare il pull da qualsiasi canale.
+
+Quando si crea un canale, è possibile specificare gli indirizzi IP consentiti in uno dei formati seguenti: indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
 
 ### <a name="program"></a>Programma
 Un [programma](https://docs.microsoft.com/rest/api/media/operations/program) consente di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 49c043853cede0a20e3d61011ded40e57d7a0303
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895874"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389433"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Elenco di controllo per la sicurezza di Azure Service Fabric
 Questo articolo include un elenco di controllo di facile utilizzo che aiuta a proteggere l'ambiente Azure Service Fabric.
@@ -43,11 +43,13 @@ Usare l'elenco seguente per assicurarsi di non trascurare eventuali problemi imp
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>Questo certificato viene presentato al client quando tenta di connettersi al cluster. È possibile usare due diversi certificati del server, uno primario e uno secondario per l'aggiornamento.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>Si tratta di un set di certificati che da installare nei client autenticati. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Impostare il nome comune del primo certificato client per CertificateCommonName. CertificateIssuerThumbprint è l'identificazione personale dell'autorità emittente del certificato. </li></ul>|
-|ReverseProxyCertificate| <ul><li>Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Serve a gestire i certificati dei cluster di Service Fabric in Azure.  </li></ul>|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+- [Procedure consigliate per la sicurezza di Service Fabric](azure-service-fabric-security-best-practices.md)
 - [Processo di aggiornamento del cluster di infrastruttura di servizi e operazioni eseguibile dall'utente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Introduzione al monitoraggio dell'integrità di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

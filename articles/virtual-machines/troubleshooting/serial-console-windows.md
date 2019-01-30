@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185333"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432763"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console seriale per macchine virtuali per Windows
 
@@ -53,6 +53,9 @@ La console seriale per le macchine virtuali è accessibile solo tramite il porta
   1. Scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi** e selezionare **Console seriale**. Viene visualizzato un nuovo riquadro con la console seriale e viene avviata la connessione.
 
 ## <a name="enable-serial-console-functionality"></a>Abilitare la funzionalità della console seriale
+
+> [!NOTE]
+> Se non viene visualizzato nulla nella console seriale, verificare che la diagnostica di avvio sia abilitata nella macchina virtuale.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Abilitare la console seriale nelle immagini personalizzate o precedenti
 Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7).
@@ -237,6 +240,7 @@ Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel. | 
 Incollare nei risultati SAC di PowerShell usando un terzo carattere se il contenuto originale aveva un carattere ripetuto. | Una soluzione alternativa consiste nell’eseguire `Remove-Module PSReadLine` per scaricare il modulo PSReadLine dalla sessione corrente. Questa azione non eliminerà o disinstallerà il modulo.
 Alcuni input della tastiera producono output di configurazione SAC particolari (ad esempio, **[A**, **[3~**). | Le sequenze di escape [VT100](https://aka.ms/vtsequences) non sono supportate per il prompt SAC.
 L'operazione di incollare le stringhe lunghe non funziona. | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri per impedire il sovraccarico della larghezza di banda della porta seriale.
+La console seriale non funziona con un firewall dell'account di archiviazione. | Per impostazione predefinita, la console seriale non funziona con i firewall dell'account di archiviazione abilitati nell'account di archiviazione della diagnostica di avvio.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

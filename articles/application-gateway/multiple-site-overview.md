@@ -1,29 +1,21 @@
 ---
-title: Hosting di più siti in un gateway applicazione di Azure | Microsoft Docs
-description: Questa pagina offre una panoramica del supporto di più siti in un gateway applicazione.
-documentationcenter: na
+title: Hosting di più siti in un gateway applicazione di Azure
+description: Questo articolo offre una panoramica del supporto di più siti in un gateway applicazione di Azure.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160512"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381990"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
-L'hosting di più siti consente di configurare più applicazioni Web nella stessa istanza del gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 20 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più applicazioni Web nella stessa istanza del gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

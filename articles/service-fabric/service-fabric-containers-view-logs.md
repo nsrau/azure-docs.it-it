@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993788"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391241"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
 Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [contenitori Linux e Windows](service-fabric-containers-overview.md).  Questo articolo descrive come visualizzare i log dei contenitori di un servizio contenitore in esecuzione o di un contenitore non utilizzato, in modo da diagnosticare e risolvere i problemi.
@@ -43,6 +43,8 @@ Per semplificare la diagnosi degli errori di avvio dei contenitori, Service Fabr
  ```
 
 L'impostazione **ContainersRetentionCount** specifica il numero di contenitori da conservare in caso di errore. Se viene specificato un valore negativo, verranno conservati tutti i contenitori con errori. Quando l'attributo **ContainersRetentionCount** non viene specificato, non verrà conservato alcun contenitore. L'attributo **ContainersRetentionCount** supporta anche i parametri dell'applicazione, quindi gli utenti possono specificare valori diversi per cluster di test e di produzione. Usare vincoli di posizionamento per specificare come destinazione un nodo specifico per il servizio contenitore quando si usa questa funzionalità, per evitare che il servizio contenitore passi ad altri nodi. Eventuali contenitori conservati tramite questa funzionalità devono essere rimossi manualmente.
+
+L'impostazione **RunInteractive** corrisponde ai [flag](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` e `tty` di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
 
 ### <a name="rest"></a>REST
 Usare l'operazione per [ottenere i log dei contenitori distribuiti nel nodo](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) per ottenere i log per un contenitore arrestato in modo anomalo. Specificare il nome del nodo in cui era in esecuzione il contenitore, il nome dell'applicazione, il nome del manifesto del servizio e il nome del pacchetto di codice.  Specificare `&Previous=true`. La risposta conterrà i log dei contenitori per il contenitore non utilizzato dell'istanza del pacchetto di codice.

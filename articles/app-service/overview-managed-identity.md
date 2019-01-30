@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730296"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382530"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -260,7 +260,7 @@ Per le funzioni e le applicazioni .NET, il modo più semplice per usare un'ident
 
 1. Aggiungere un riferimento a [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e a qualsiasi altro pacchetto NuGet necessario all'applicazione. L'esempio seguente usa anche [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Aggiungere il codice seguente all'applicazione, modificandolo in base alla risorsa corretta. Questo esempio illustra due modalità d'uso di Azure Key Vault:
+2. Aggiungere il codice seguente all'applicazione, modificandolo in base alla risorsa corretta. Questo esempio illustra due modalità d'uso di Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle rel
 ### <a name="using-the-rest-protocol"></a>Uso del protocollo API
 
 Un'app con un'identità gestita ha due variabili di ambiente definite:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> [!div class="mx-tdBreakAll"]
 > |Nome parametro|In ingresso|DESCRIZIONE|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
@@ -290,10 +290,8 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 > |secret|Intestazione|Valore della variabile di ambiente MSI_SECRET.|
 > |clientid|Query|(Facoltativo) L'ID dell'identità assegnata dall'utente da usare. Se omesso, viene usata l'identità assegnata dal sistema.|
 
-
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> [!div class="mx-tdBreakAll"]
 > |Nome proprietà|DESCRIZIONE|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
@@ -301,24 +299,27 @@ Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà s
 > |resource|URI ID app del servizio Web ricevente.|
 > |token_type|Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750).|
 
-
 Questa risposta è la stessa [risposta per la richiesta del token di accesso da servizio a servizio AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Le variabili di ambiente vengono configurate al primo avvio del processo, quindi dopo avere abilitato un'identità gestita per l'applicazione potrebbe essere necessario riavviare l'applicazione o ridistribuire il relativo codice per rendere disponibili `MSI_ENDPOINT` e `MSI_SECRET` per il codice.
 
 ### <a name="rest-protocol-examples"></a>Esempi di protocollo REST
+
 Un esempio di richiesta potrebbe apparire come segue:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 E un esempio di risposta potrebbe apparire come segue:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Esempi di codice
+
 <a name="token-csharp"></a>Per eseguire questa richiesta in C#:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > Per i linguaggi .NET è anche possibile usare [Microsoft.Azure.Services.AppAuthentication](#asal) invece di creare la richiesta manualmente.
 
 <a name="token-js"></a>In Node.JS:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>In PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,12 +376,12 @@ Un'identità assegnata dal sistema può essere rimossa disabilitando la funziona
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 La rimozione di un'identità assegnata dal sistema in questo modo ne comporterà l'eliminazione anche da AAD. Le identità assegnate dal sistema vengono rimosse automaticamente anche da AAD quando viene eliminata la risorsa app.
 
-> [!NOTE] 
+> [!NOTE]
 > È inoltre disponibile l'impostazione applicazione WEBSITE_DISABLE_MSI che, se attivata, disabilita il servizio token locale, L'identità non viene tuttavia disabilitata e negli strumenti continuerà a essere indicata come attivata o abilitata. Di conseguenza, l'uso di questa impostazione non è consigliato.
 
 ## <a name="next-steps"></a>Passaggi successivi

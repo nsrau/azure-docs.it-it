@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622321"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431657"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 

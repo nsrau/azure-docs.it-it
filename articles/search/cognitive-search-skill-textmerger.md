@@ -8,24 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b29d32d39b4efb7e242a3ae3213512798622d1e9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a3c64a26ed5ee7454fcfd22f47c1a161f65c6de7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314517"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445357"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
 La competenza **unione testi** consolida il testo da una raccolta di campi in un unico campo. 
 
 > [!NOTE]
-> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
->
-> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+> Questa competenza non è associata a un'API Servizi cognitivi e non vengono addebitati costi in caso di utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di miglioramenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -111,7 +109,7 @@ Il set di competenze di esempio seguente usa la competenza OCR per estrarre il t
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
-      "insertPostTag": " "
+      "insertPostTag": " ",
       "inputs": [
         {
           "name":"text", "source": "/document/content"

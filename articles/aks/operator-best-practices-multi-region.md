@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855001"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382445"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -38,7 +38,7 @@ Un cluster del servizio Azure Kubernetes viene distribuito in una singola area. 
 * [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Per la propria area geografica, scegliere due aree abbinate tra loro. In queste aree vengono coordinati gli aggiornamenti della piattaforma e gli interventi di ripristino vengono classificati in ordine di priorità, se necessario.
 * Livello di disponibilità dei servizi (accesso molto frequente/molto frequente, accesso molto frequente/frequente, accesso molto frequente/sporadico)
-  * Determinare se si vogliono eseguire entrambe le aree contemporaneamente, con un'area *pronta* a iniziare a gestire il traffico o un'area che necessita di più tempo per prepararsi alla gestione del traffico.
+  * Determinare se si vogliono eseguire entrambe le aree contemporaneamente, con un'area *pronta* a iniziare a gestire il traffico o un'area che necessita di tempo per prepararsi alla gestione del traffico.
 
 La disponibilità a livello di area del servizio Azure Kubernetes e le aree abbinate devono essere considerate insieme. Distribuire i cluster del servizio Azure Kubernetes nelle aree abbinate progettate per gestire congiuntamente il ripristino di emergenza nell'area. Ad esempio, il servizio Azure Kubernetes è disponibile negli *Stati Uniti orientali* e negli *Stati Uniti occidentali*. Queste aree sono anche abbinate. È consigliabile usare queste due aree nella creazione di una strategia di continuità aziendale e ripristino di emergenza del servizio Azure Kubernetes.
 

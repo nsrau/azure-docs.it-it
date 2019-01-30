@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426205"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435720"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
 
 Come funziona la reimpostazione della password self-service? Cosa comporta questa opzione per l'interfaccia? Continuare la lettura per ottenere altre informazioni sulla reimpostazione della password self-service di Azure Active Directory (Azure AD).
 
@@ -185,8 +185,8 @@ Questo controllo stabilisce se gli utenti che visitano il portale per la reimpos
 
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
-   * **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati in tale tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Utenti che hanno usato l'iscrizione self-service**: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
+   * **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati nel tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+   * **Utenti che hanno usato** l'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
    * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.

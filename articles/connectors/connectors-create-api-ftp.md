@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: a14f045193c01b8c26019314ddde4c2116d8bad6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232818"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391102"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 
@@ -26,7 +26,7 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare i trigger per ottenere risposte dal server FTP e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività con i file sul server FTP. Si può anche fare in modo che altre azioni usino l'output delle azioni FTP. Ad esempio, se si recuperano regolarmente file dal server FTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+È possibile usare i trigger per ottenere risposte dal server FTP e rendere l'output disponibile per altre azioni. È possibile usare azioni di esecuzione nelle app per la logica per gestire i file sul server FTP. Si può anche fare in modo che altre azioni usino l'output delle azioni FTP. Ad esempio, se si ottengono regolarmente file dal server FTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > Il connettore FTP supporta solo file con dimensioni massime di 50 MB, a meno che non si usi la [divisione in blocchi per gestire i messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). 
@@ -39,7 +39,7 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 * Credenziali dell'account e indirizzo del server host FTP
 
-  Il connettore FTP richiede che il server FTP sia accessibile da Internet e sia configurato per operare in modalità *passiva*. Le credenziali autorizzano l'app per la logica a creare una connessione e ad accedere all'account FTP.
+  Il connettore FTP richiede che il server FTP sia accessibile da Internet e sia configurato per operare in modalità *passiva*. Le credenziali consentono all'app per la logica di creare una connessione e di accedere all'account FTP.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -68,23 +68,26 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 ## <a name="examples"></a>Esempi
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Trigger FTP: Quando viene aggiunto o modificato un file
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Trigger FTP: When a file is added or modified (Quando un file viene aggiunto o modificato)
 
 Questo trigger avvia un flusso di lavoro dell'app per la logica quando rileva che un file è stato aggiunto o modificato in un server FTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e decide se leggerlo, a seconda che il contenuto soddisfi una condizione specificata. Infine, è possibile aggiungere un'azione che legga il contenuto del file e inserisca tale contenuto in una cartella nel server SFTP. 
 
-**Esempio per le organizzazioni**: si può usare questo trigger per monitorare una cartella FTP per nuovi file che rappresentano ordini dei clienti. È quindi possibile usare un'azione FTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviare l'ordine nel database degli ordini.
+**Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella FTP per nuovi file che descrivono gli ordini dei clienti. È quindi possibile usare un'azione FTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviare l'ordine nel database degli ordini.
 
 Un'app per la logica valida e funzionale richiede un trigger e almeno un'azione. Assicurarsi quindi di aggiungere un'azione dopo aver aggiunto un trigger.
 
-Ecco un esempio del trigger **Quando viene aggiunto o modificato un file**
+Ecco un esempio che illustra questo trigger: **Quando viene aggiunto o modificato un file**
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di ricerca immettere "ftp" come filtro. Nell'elenco dei trigger selezionare il trigger **Quando viene aggiunto o modificato un file - FTP**
+1. Per le app per la logica vuote, nella casella di ricerca immettere "ftp" come filtro. Nell'elenco dei trigger selezionare questo trigger: **Quando viene aggiunto o modificato un file - FTP**
 
    ![Trovare e selezionare il trigger FTP](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
+
+   Per impostazione predefinita, questo connettore trasferisce i file in formato testo. 
+   Per trasferire i file in formato binario, ad esempio dove e quando viene usata la codifica, selezionare **Binary Transport** (Trasporto binario).
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -98,13 +101,13 @@ Ecco un esempio del trigger **Quando viene aggiunto o modificato un file**
 
 Ora che l'app per la logica ha un trigger, aggiungere le azioni che devono essere eseguite quando l'app trova un file nuovo o modificato. Per questo esempio è possibile aggiungere un'azione FTP che ottiene il contenuto nuovo o aggiornato.
 
-### <a name="ftp-action-get-content"></a>Azione FTP: Ottieni contenuto file
+### <a name="ftp-action-get-content"></a>Azione FTP: Ottieni il contenuto
 
 Questa azione recupera il contenuto di un file su un server FTP quando il file viene aggiunto o aggiornato. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e un'azione che recupera il contenuto del file dopo che il file viene aggiunto o modificato. 
 
 1. Nel trigger o in qualsiasi altra azione scegliere **Nuovo passaggio**. 
 
-1. Nella casella di ricerca immettere "ftp" come filtro. Nell'elenco di azioni selezionare l'azione **Ottieni contenuto file - FTP**
+1. Nella casella di ricerca immettere "ftp" come filtro. Nell'elenco delle azioni selezionare questa azione: **Ottieni contenuto file - FTP**
 
    ![Selezionare un'azione FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
 

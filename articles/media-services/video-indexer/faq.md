@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306972"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402048"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -28,18 +28,17 @@ Video Indexer è un servizio di intelligenza artificiale che fa parte di Servizi
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Quali operazioni si possono eseguire con Video Indexer?
 
-Video Indexer può eseguire i seguenti tipi di operazioni sui file multimediali:
+Di seguito sono elencate alcune delle operazioni che Video Indexer può eseguire sui file multimediali:
 
-* Identificare ed estrarre la voce e identificare chi sta parlando.
-* Identificare ed estrarre il testo visualizzato sullo schermo in un video.
-* Identificare ed etichettare gli oggetti in un file video.
-* Identificare marchi come Microsoft in tracce audio e testo visualizzato in un video.
-* Rilevare e riconoscere i volti da un database di celebrità e un database di volti definito dall'utente.
-* Estrarre parole chiave dai contenuti video e audio in base al testo parlato e visivo.
-* Estrarre gli argomenti discussi, ma non necessariamente menzionati in modo esplicito, nei contenuti audio e video in base al testo parlato e visualizzato.
-* Creare sottotitoli dalla traccia audio.
+* Identificazione ed estrazione della voce e identificazione di chi sta parlando
+* Identificazione ed estrazione del testo visualizzato sullo schermo in un video
+* Rilevamento degli oggetti in un file video
+* Identificazione dei marchi, ad esempio Microsoft, in tracce audio e testo visualizzato in un video
+* Rilevamento e riconoscimento dei volti da un database di celebrità e un database di volti definito dall'utente
+* Estrazione degli argomenti discussi, ma non necessariamente menzionati, nel contenuto audio e video
+* Creazione dei sottotitoli dalla traccia audio
 
-Per altre informazioni, vedere la [panoramica](video-indexer-overview.md).
+Per altre informazioni e altre funzionalità di Video Indexer, vedere [Panoramica](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Come si può iniziare a usare Video Indexer?
 

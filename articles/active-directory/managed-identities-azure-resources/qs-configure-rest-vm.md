@@ -4,7 +4,7 @@ description: Istruzioni dettagliate per configurare identità gestite di sistema
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422934"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433306"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 

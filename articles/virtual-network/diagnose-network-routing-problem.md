@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994718"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429635"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
 
@@ -50,11 +50,11 @@ I passaggi che seguono presuppongono la disponibilità di una macchina virtuale 
 
 Anche se nei passaggi precedenti le route valide sono state visualizzate tramite la macchina virtuale, è possibile visualizzarle anche tramite:
 - **Una singola interfaccia di rete**: informazioni su come [visualizzare un'interfaccia di rete](virtual-network-network-interface.md#view-network-interface-settings).
-- **Una singola tabella di route**: informazioni su come [ visualizzare una tabella di route](manage-route-table.md#view-details-of-a-route-table).
+- **Una singola tabella di route**: informazioni su come [visualizzare una tabella di route](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosi tramite PowerShell
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure eseguendo PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.0.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Login-AzureRmAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure eseguendo PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.0.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Login-AzureRmAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
 Ottenere le route valide per un'interfaccia di rete con [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). L'esempio seguente ottiene le route valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 

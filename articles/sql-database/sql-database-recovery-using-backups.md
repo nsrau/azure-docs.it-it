@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599111"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432286"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -92,10 +92,8 @@ Per eseguire il ripristino di un database singolo, in pool o di istanza gestita 
 
 ## <a name="deleted-database-restore"></a>Ripristino di un database eliminato
 
-Il ripristino di un database eliminato consente di ripristinare un database all'ora di eliminazione per un database eliminato sullo stesso server logico, usando il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o l'[API REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). È possibile ripristinare un database eliminato a un punto precedente durante la conservazione tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Il ripristino di un database eliminato consente di ripristinare un database all'ora di eliminazione per un database eliminato sullo stesso server logico, usando il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o l'[API REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). È possibile [ripristinare un database eliminato in istanza gestita tramite PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). È possibile ripristinare un database eliminato a un punto precedente durante la conservazione tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
-> [!Note]
-> La funzione di ripristino di un database eliminato non è disponibile in Istanza gestita.
 > [!TIP]
 > Per uno script di PowerShell di esempio che illustra come ripristinare un database eliminato, vedere [Ripristinare un database SQL tramite PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]

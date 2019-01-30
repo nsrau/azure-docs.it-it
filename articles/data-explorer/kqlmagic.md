@@ -8,26 +8,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078168"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382454"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>Analizzare i dati con Jupyter Notebook e Kqlmagic
+# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Analizzare i dati con Jupyter Notebook e KQL magic
 
 Jupyter Notebook è un'applicazione Web open source che consente di creare e condividere documenti contenenti codice attivo, equazioni, visualizzazioni e testo narrativo. L'uso include la pulizia e la trasformazione dei dati, simulazioni numeriche, modellazioni statistiche, visualizzazioni di dati e apprendimento automatico.
-[Jupyter Notebook](https://jupyter.org/) supporta funzioni magic che estendono le funzionalità del kernel attraverso il supporto di comandi aggiuntivi. Kqlmagic è una funzione che estende le funzionalità del kernel Python in Jupyter Notebook consentendo all'utente di eseguire le query in linguaggio di query Kusto in modo nativo. È possibile combinare facilmente il linguaggio di query Kusto e Python per eseguire query e visualizzare i dati tramite la libreria avanzata Plot.ly integrata con i comandi `render`. Le origini dati per l'esecuzione di query sono supportate. Queste origini dati includono Esplora dati di Azure, un servizio veloce e a scalabilità elevata per l'esplorazione di dati di log e di telemetria, nonché Log Analytics e Application Insights. Kqlmagic funziona anche con l'estensione di Visual Studio Code, Jupyter notebook di Azure e Jupyter Lab.
+[Jupyter Notebook](https://jupyter.org/) supporta funzioni magic che estendono le funzionalità del kernel attraverso il supporto di comandi aggiuntivi. KQL magic è un comando che estende le funzionalità del kernel Python in Jupyter Notebook consentendo all'utente di eseguire le query in linguaggio Kusto in modo nativo. È possibile combinare facilmente il linguaggio di query Kusto e Python per eseguire query e visualizzare i dati tramite la libreria avanzata Plot.ly integrata con i comandi `render`. Le origini dati per l'esecuzione di query sono supportate. Queste origini dati includono Esplora dati di Azure, un servizio veloce e a scalabilità elevata per l'esplorazione di dati di log e di telemetria, nonché Log Analytics e Application Insights. KQL magic funziona anche con Azure Notebooks, Jupyter Lab e l'estensione Jupyter di Visual Studio Code.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account di posta elettronica dell'organizzazione che sia membro di Azure Active Directory (AAD).
 - Jupyter Notebook installato nel computer locale oppure usare Azure Notebooks e clonare il [Notebook di Azure](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb) di esempio
 
-## <a name="install-kqlmagic-library"></a>Installare la libreria Kqlmagic
+## <a name="install-kql-magic-library"></a>Installare la libreria KQL magic
 
-1. Installare Kqlmagic:
+1. Installare KQL magic:
 
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
@@ -35,7 +35,7 @@ Jupyter Notebook è un'applicazione Web open source che consente di creare e con
     > [!NOTE]
     > Quando si usa Azure Notebooks, questo passaggio non è obbligatorio.
 
-1. Caricare Kqlmagic:
+1. Caricare KQL magic:
 
     ```python
     reload_ext Kqlmagic
@@ -78,7 +78,7 @@ StormEvents
 
 ### <a name="customize-the-chart-colors"></a>Personalizzare i colori del grafico
 
-Se la tavolozza predefinita dei colori non è di proprio gradimento, personalizzare i grafici usando le opzioni di tavolozza. Le tavolozze disponibili sono reperibili qui: [Scegliere la tavolozza dei colori per il risultato del grafico della query di Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+Se la tavolozza predefinita dei colori non è di proprio gradimento, personalizzare i grafici usando le opzioni di tavolozza. Le tavolozze disponibili sono reperibili qui: [Choose colors palette for your KQL magic query chart result](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb) (Scegliere la tavolozza dei colori per il risultato del grafico della query di KQL magic)
 
 1. Per un elenco delle tavolozze:
 
@@ -99,7 +99,7 @@ Se la tavolozza predefinita dei colori non è di proprio gradimento, personalizz
 
 ## <a name="parameterize-a-query-with-python"></a>Stabilire i parametri di una query con Python
 
-Kqlmagic consente un interscambio semplice tra il linguaggio di query Kusto e Python. Per altre informazioni: [Parametrize your Kqlmagic query with Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) (Stabilire i parametri della query di Kqlmagic con Python)
+KQL magic consente un interscambio semplice tra il linguaggio di query Kusto e Python. Per altre informazioni: [Parametrize your KQL magic query with Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) (Stabilire i parametri della query di KQL magic con Python)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>Usare una variabile di Python nella query KQL
 
@@ -169,8 +169,8 @@ In molti scenari di analitica è possibile creare notebook riutilizzabili conten
 ## <a name="next-steps"></a>Passaggi successivi
 
 Eseguire il comando Guida per esplorare i notebook di esempio seguenti contenenti tutte le funzionalità supportate:
-- [Get started with Kqlmagic for Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) (Introduzione a Kqlmagic per Esplora dati di Azure) 
-- [Get started with Kqlmagic for Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) (Introduzione a Kqlmagic per Application Insights) 
-- [Get started with Kqlmagic for Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) (Introduzione a Kqlmagic per Log Analytics) 
-- [Parametrize your Kqlmagic query with Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) (Stabilire i parametri della query di Kqlmagic con Python) 
-- [Choose colors palette for your Kqlmagic query chart result](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb) (Scegliere la tavolozza dei colori per il risultato del grafico della query di Kqlmagic)
+- [Get started with KQL magic for Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) (Introduzione a KQL magic per Esplora dati di Azure) 
+- [Get started with KQL magic for Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) (Introduzione a KQL magic per Application Insights) 
+- [Get started with KQL magic for Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) (Introduzione a KQL magic per Log Analytics) 
+- [Parametrize your KQL magic query with Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) (Stabilire i parametri della query di KQL magic con Python) 
+- [Choose colors palette for your KQL magic query chart result](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb) (Scegliere la tavolozza dei colori per il risultato del grafico della query di KQL magic)

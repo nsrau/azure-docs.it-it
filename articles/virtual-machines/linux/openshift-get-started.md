@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d68215359d50ac153d6df3bbcce5a9b6171698bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085440"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382354"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -28,14 +28,14 @@ OpenShift è una piattaforma applicativa di contenitori aperta ed estendibile ch
 
 OpenShift include Kubernetes per la gestione e l'orchestrazione di contenitori. Aggiunge strumenti incentrati sugli sviluppatori e sulle operazioni che consentono di:
 
-- Sviluppare applicazioni rapidamente.
-- Eseguire facilmente operazioni di distribuzione e scalabilità.
-- Gestire il ciclo di vita a lungo termine per i team e le applicazioni.
+- Sviluppo rapido di applicazioni.
+- Semplicità di distribuzione e scalabilità.
+- Gestione del ciclo di vita a lungo termine per i team e le applicazioni.
 
 Sono disponibili più versioni di OpenShift:
 
 - OpenShift Container Platform
-- OpenShift in Azure (OpenShift completamente gestito disponibile dall'inizio del 2019)
+- OpenShift in Azure (OpenShift completamente gestito disponibile verso la fine del primo trimestre del 2019)
 - OKD (noto in precedenza come OpenShift Origin)
 - OpenShift Dedicated
 - OpenShift Online
@@ -50,11 +50,11 @@ Poiché il cliente è "proprietario" dell'intera piattaforma, può eseguire l'in
 
 ## <a name="openshift-on-azure"></a>OpenShift in Azure
 
-OpenShift in Azure è un'offerta completamente gestita di OpenShift in esecuzione in Azure. Questo servizio è congiuntamente gestito e supportato da Microsoft e Red Hat. Il cluster verrà distribuito nella sottoscrizione di Azure del cliente. Il servizio è attualmente disponibile in anteprima privata e sarà disponibile a livello generale all'inizio del 2019. Altre informazioni saranno disponibili con l'approssimarsi della fase di disponibilità generale.
+OpenShift in Azure è un'offerta completamente gestita di OpenShift in esecuzione in Azure. Questo servizio è congiuntamente gestito e supportato da Microsoft e Red Hat. Il cluster verrà distribuito nella sottoscrizione di Azure del cliente. Il servizio è attualmente disponibile in anteprima privata e sarà disponibile a livello generale verso la fine del primo trimestre del 2019. I clienti interessati a partecipare all'anteprima privata possono compilare il [modulo di candidatura](http://aka.ms/openshiftazureinterest).  Altre informazioni saranno disponibili con l'approssimarsi della fase di disponibilità generale.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (noto in precedenza come OpenShift Origin)
 
-OKD è un progetto upstream [open source](https://www.okd.io/) di OpenShift supportato dalla community. È possibile installare OKD in CentOS o Red Hat Enterprise Linux (RHEL).
+ODK è un progetto upstream [open source](https://www.okd.io/) di OpenShift supportato dalla community. È possibile installare ODK in CentOS o Red Hat Enterprise Linux (RHEL).
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 

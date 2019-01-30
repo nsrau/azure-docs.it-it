@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413488"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382910"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -29,9 +29,9 @@ I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azur
 
 Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi richiede la dimostrazione della proprietà dell'endpoint del webhook prima dell'inizio del recapito di eventi a tale endpoint. Questo requisito impedisce a un utente malintenzionato di sovraccaricare l'endpoint con eventi. Quando si usa uno dei tre servizi di Azure elencati di seguito, l'infrastruttura di Azure gestisce automaticamente questa convalida:
 
-* App per la logica di Azure
-* Automazione di Azure
-* Funzioni di Azure per il trigger Griglia di eventi
+* App per la logica di Azure con il [connettore Griglia di eventi](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Automazione di Azure tramite [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Funzioni di Azure con il [trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md)
 
 Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due modalità di convalida della sottoscrizione.
 

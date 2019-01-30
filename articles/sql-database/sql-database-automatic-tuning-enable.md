@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607082"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382780"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
@@ -87,6 +87,10 @@ Per configurare le singole opzioni di ottimizzazione automatica con Transact-SQL
    ```
    
 Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di qualsiasi impostazione ereditata dal database e abilitare l'opzione di ottimizzazione specifica. Se viene impostata su OFF, verrà eseguito l'override di qualsiasi impostazione ereditata dal database, ma l'opzione di ottimizzazione specifica verrà disabilitata. L'opzione di ottimizzazione automatica impostata su DEFAULT fa sì che la configurazione verrà ereditata dall'impostazione dell'ottimizzazione automatica a livello di database.  
+
+> [!IMPORTANT]
+> In caso di [replica geografica attiva](sql-database-auto-failover-group.md), l'ottimizzazione automatica deve essere configurata solo nel database primario. Le azioni di ottimizzazione applicate automaticamente, ad esempio la creazione o l'eliminazione dell'indice, verranno replicate automaticamente nel database secondario di sola lettura. Se si tenta di abilitare l'ottimizzazione automatica tramite T-SQL nel database secondario di sola lettura, si verificherà un errore perché una configurazione di ottimizzazione diversa per il database secondario di sola lettura non è supportata.
+>
 
 Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione automatica, vedere [Opzioni ALTER DATABASE SET (Transact-SQL) per server logico database SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

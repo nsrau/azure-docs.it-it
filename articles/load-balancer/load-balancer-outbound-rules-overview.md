@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185019"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439103"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -208,6 +208,7 @@ Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibil
 - L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 66 minuti (da 240 a 4000 secondi).
 - Load Balancer non supporta ICMP per NAT in uscita.
 - Non è possibile usare il portale per configurare o visualizzare le regole in uscita.  Usare in alternativa i modelli, l'API REST, l'interfaccia della riga di comando di Azure 2.0 o PowerShell.
+- Le regole in uscita possono essere applicate solo alla configurazione dell'IP primario e della scheda di interfaccia di rete primaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

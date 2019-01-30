@@ -17,12 +17,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424953"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401878"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -81,7 +81,7 @@ Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID).
 
 ## <a name="adding-claims"></a>Aggiunta di attestazioni
 
-Quando si aggiunge un'attestazione, è possibile specificare il nome dell'attributo (che non deve necessariamente seguire un modello di URI secondo la specifica SAML). Impostare il valore su qualsiasi attributo utente archiviato nella directory.
+Quando si aggiunge un'attestazione, è possibile specificare il nome dell'attributo (che non deve necessariamente seguire un modello di URI secondo la specifica SAML). Impostare il valore su qualsiasi attributo utente archiviato nella directory o usare un valore costante come voce statica per tutti gli utenti nell'organizzazione.
 
 ![Aggiungi attributo utente][7]
 

@@ -3,19 +3,19 @@ title: Gestire i dati utente in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come eliminare o esportare dati utente in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146871"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854021"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gestire i dati utente in Azure Active Directory B2C
 
@@ -46,8 +46,8 @@ Il processo di esportazione dei dati dei clienti da Azure Active Directory B2C �
 
 I dati utente in Azure Active Directory B2C sono limitati ai seguenti:
 
-- **Dati archiviati in Azure Active Directory**: è possibile recuperare i dati attraverso un percorso di autenticazione di Azure Active Directory B2C usando l'ID oggetto o qualsiasi nome di accesso, ad esempio un indirizzo di posta elettronica o un nome utente. 
-- **Report degli eventi di controllo specifici dell'utente**: i dati possono essere indicizzati usando l'ID oggetto.
+- **Dati archiviati in Azure Active Directory**: è possibile recuperare i dati attraverso un percorso di autenticazione di Azure AD B2C usando l'ID oggetto o qualsiasi nome di accesso, ad esempio un indirizzo e-mail o un nome utente. 
+- **Rapporto eventi di controllo specifici dell'utente**: è possibile indicizzare i dati usando l'ID oggetto.
 
 Nell'esempio di flusso di esportazione di dati seguente i passaggi descritti come eseguiti dall'applicazione possono essere eseguiti anche da un processo back-end o da un utente con ruolo di amministratore nella directory:
 

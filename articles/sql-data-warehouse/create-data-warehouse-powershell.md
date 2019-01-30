@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
 description: Creare rapidamente un server logico di database SQL, una regola del firewall a livello di server e un data warehouse con Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852640"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433612"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
 
 Creare rapidamente un'istanza di Azure SQL Data Warehouse con Azure PowerShell.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]

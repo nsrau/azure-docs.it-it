@@ -3,18 +3,18 @@ title: Parametri di input dei runbook
 description: I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell'avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d22a2de29e170979d9ab5d61c7f21a47d6aee99c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276687"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433442"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -235,15 +235,15 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
 
 Nell'URI della richiesta sostituire i parametri seguenti:
 
-* **subscription-id:** ID della sottoscrizione di Azure.  
+* **subscription-id:** ID sottoscrizione di Azure.  
 * **cloud-service-name:** nome del servizio cloud a cui deve essere inviata la richiesta.  
 * **automation-account-name:** nome dell'account di Automazione ospitato nel servizio cloud specificato.  
 * **job-id:** GUID del processo. Per creare GUID in PowerShell è possibile usare il comando **[GUID]::NewGuid().ToString()** .
 
 Per passare parametri al processo del runbook, usare il corpo della richiesta. Vengono usate le due proprietà seguenti, specificate in formato JSON:
 
-* **Nome del runbook:** obbligatorio. Nome del runbook per il processo da avviare.  
-* **Parametri del runbook:** facoltativi. Dizionario dell'elenco dei parametri in formato (nome, valore) in cui il nome deve essere di tipo String e il valore può essere qualsiasi valore JSON valido.
+* **Nome del runbook:** richiesto. Nome del runbook per il processo da avviare.  
+* **Parametri del runbook:** facoltativo. Dizionario dell'elenco dei parametri in formato (nome, valore) in cui il nome deve essere di tipo String e il valore può essere qualsiasi valore JSON valido.
 
 Per avviare il runbook **Get-AzureVMTextual** creato in precedenza con **VMName** e **resourceGroupName** come parametri, usare il formato JSON seguente per il corpo della richiesta.
 
@@ -285,4 +285,5 @@ Quando si esegue un runbook con un webhook, insieme ai parametri di input defini
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per modificare un runbook testuale, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
 * Per modificare un runbook grafico, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
+
 

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 60587ba3-1396-4b8a-9ac1-e22a98e5e0ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: c6fc86d5179a5f7113e955ebc8f6b8994f30cb26
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9bd913c7894b47acd22814f7ad2e7fc70816ee9e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Esercitazione: Integrazione di Azure Active Directory con itslearning
 
@@ -131,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **itslearning** è necessario inviare il file **XML metadati** scaricato al [team di supporto di itslearning](mailto:support@itslearning.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -167,7 +167,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-an-itslearning-test-user"></a>Creazione di un utente test di itslearning
 
-In questa sezione si crea un utente con nome Britta Simon in itslearning. Collaborare con il [team di supporto clienti di itslearning](mailto:support@itslearning.com) per aggiungere gli utenti nella piattaforma itslearning. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente con nome Britta Simon in itslearning. Collaborare con il  [team di supporto clienti di itslearning](mailto:support@itslearning.com)  per aggiungere gli utenti nella piattaforma itslearning. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

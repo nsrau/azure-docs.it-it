@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 51849f8ed09d98ab4636d6fc752599b993f58e6f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514316"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446562"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end .NET e i dispositivi .NET
 
@@ -52,11 +52,11 @@ L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa
 
 In questa sezione, nel dispositivo simulato viene creata un'app console .NET che aggiorna le proprietà segnalate del modulo gemello.
 
-1. **Creare un progetto di Visual Studio:** In Visual Studio, aggiungere un progetto desktop di Windows classico Visual C# alla soluzione esistente usando il modello di progetto **App console (.NET Framework)**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva. Assegnare al progetto il nome **UpdateModuleTwinReportedProperties**.
+1. **Creare un progetto di Visual Studio:** In Visual Studio aggiungere un progetto desktop di Windows classico Visual C# alla soluzione esistente usando il modello di progetto **App console (.NET Framework)**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva. Assegnare al progetto il nome **UpdateModuleTwinReportedProperties**.
 
     ![Creare un progetto di Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
-2. **Installare la versione più recente di Azure IoT SDK per dispositivi .NET:** L'identità del modulo e il modulo gemello sono in anteprima pubblica. Sono disponibili solo nella versione preliminare di Azure IoT SDK per dispositivi. In Visual Studio aprire Strumenti > Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione. Cercare Microsoft.Azure.Devices.Client. Verificare di aver selezionato la casella di controllo Includi versione preliminare. Selezionare la versione più recente e installarla. Ora si ha accesso a tutte le funzionalità dei moduli. 
+2. **Installare la versione più recente di Azure IoT Hub SDK per dispositivi .NET:** Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. Sono disponibili solo nella versione preliminare di Azure IoT SDK per dispositivi. In Visual Studio aprire Strumenti > Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione. Cercare Microsoft.Azure.Devices.Client. Verificare di aver selezionato la casella di controllo Includi versione preliminare. Selezionare la versione più recente e installarla. Ora si ha accesso a tutte le funzionalità dei moduli. 
 
     ![Installare Azure IoT SDK per dispositivi .NET V1.16.0-preview-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 

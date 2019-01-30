@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161554"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431538"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -88,7 +88,7 @@ Se l'organizzazione fa uso dell'app Microsoft Authenticator come uno dei metodi 
 
 Per installare il portale utenti su un server diverso dal server Azure Multi-Factor Authentication, è necessario eseguire questi passaggi:
 
-1. **Aprire il server Multi-Factor Authentication**, passare al percorso di installazione, ad esempio C:\Program Files\Multi-Factor Authentication Server, e copiare il file **MultiFactorAuthenticationUserPortalSetup64** in una posizione accessibile per il server con connessione Internet in cui verrà installato.
+1. **Aprire il server Multi-Factor Authentication**, passare al percorso di installazione, ad esempio C:\Programmi\Multi-Factor Authentication Server, e copiare il file **MultiFactorAuthenticationUserPortalSetup64** in una posizione accessibile per il server con connessione Internet in cui verrà installato.
 2. **Nel server Web con connessione Internet** eseguire il file di installazione MultiFactorAuthenticationUserPortalSetup64 come amministratore, modificare il sito se necessario ed eventualmente sostituire il nome della directory virtuale con un nome breve.
 3. Associare un certificato SSL al sito in IIS.
 

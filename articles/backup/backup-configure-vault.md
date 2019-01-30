@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788396"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382752"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
@@ -48,9 +48,9 @@ Un insieme di credenziali dei servizi di ripristino è un'entità che archivia t
 
 6. Nella sezione **Gruppo di risorse**:
 
+    * Fare clic sul menu a discesa **Seleziona esistente**  per visualizzare l'elenco di gruppi di risorse disponibili.
+    Oppure
     * Selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-    Or
-    * Selezionare **Usa esistente** e fare clic sul menu a discesa per visualizzare l'elenco di gruppi di risorse disponibili.
 
   Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Quando si crea per la prima volta un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali.
 
-    ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Quando si seleziona l'insieme di credenziali, il pannello **Insieme di credenziali dei servizi di ripristino** si restringe e vengono aperti il pannello Impostazioni,*con il nome dell'insieme di credenziali nella parte superiore*, e il pannello dei dettagli dell'insieme di credenziali.
+    Quando si seleziona l'insieme di credenziali, il pannello Insiemi di credenziali di Servizi di ripristino si restringe e vengono aperti il pannello **Panoramica** (*con il nome dell'insieme di credenziali nella parte superiore*) e il pannello dei dettagli dell'insieme di credenziali.
 
-    ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. Nel pannello Impostazioni del nuovo insieme di credenziali usare il dispositivo di scorrimento verticale per passare alla sezione Gestisci e fare clic su **Infrastruttura di backup**.
+2. Nel nuovo insieme di credenziali nella sezione **Impostazioni** passare a **Proprietà**.
 
-  Verrà visualizzato il pannello Infrastruttura di backup.
+  Verrà aperto il pannello **Proprietà**.
 
-3. Nel pannello Infrastruttura di backup fare clic su **Configurazione backup** per aprire il pannello **Configurazione backup**.
+3. Nel pannello **Proprietà** fare clic su **Aggiornamento** nel pannello **Configurazione di backup**. Verrà aperto il pannello **Configurazione di backup**.
 
-  ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali.
+4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali e fare clic su **Salva**.
 
   ![opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ I criteri di backup costituiscono la pianificazione per l'acquisizione degli sna
 
 ### <a name="to-create-a-backup-schedule"></a>Per creare una pianificazione di backup
 
-Impostare la pianificazione di backup nel computer di cui si vuole eseguire il backup. Si noti che l'orario impostato per il backup potrebbe differire dall'orario del computer locale perché Backup di Azure non tiene conto dell'ora legale. 
+Impostare la pianificazione di backup nel computer di cui si vuole eseguire il backup. Si noti che l'orario impostato per il backup potrebbe differire dall'orario del computer locale perché Backup di Azure non tiene conto dell'ora legale.
 1. Aprire l'agente Backup di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
 
     ![Avviare Azure Backup Agent](./media/backup-configure-vault/snap-in-search.png)

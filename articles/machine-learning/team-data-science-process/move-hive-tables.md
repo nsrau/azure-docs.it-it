@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134948"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390931"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 
@@ -137,11 +137,11 @@ Di seguito è presentata la query Hive che crea una tabella Hive.
 
 Di seguito sono presentate le descrizioni dei campi da collegare e altre configurazioni:
 
-* **<database name>**: il nome del database che si vuole creare. Se si desidera usare solo il database predefinito, la query di *creazione del database* può essere omessa.
-* **<table name>**: il nome della tabella che si vuole creare nel database specificato. Se si vuole usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *<table name>* senza <database name>.
-* **<field separator>**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
-* **<line separator>**: il separatore che delimita le righe nel file di dati.
-* **<storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION <storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///<directory 1>/'* o *'wasb:///<directory 1>/<directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
+* **\<database name\>**: il nome del database che si vuole creare. Se si desidera usare solo il database predefinito, la query di *creazione del database* può essere omessa.
+* **\<table name\>**: il nome della tabella che si vuole creare nel database specificato. Se si vuole usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *\<table name\>* senza \<database name\>.
+* **\<field separator\>**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
+* **\<line separator\>**: il separatore che delimita le righe nel file di dati.
+* **\<storage location\>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION \<storage location\>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///<directory 1>/'* o *'wasb:///<directory 1>/<directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: Se il file di dati presenta una riga di intestazione, aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
 ## <a name="load-data"></a>Caricare dati nelle tabelle Hive
@@ -149,7 +149,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *<path to blob data>* deve essere nel formato *"wasb:///<directory in this container>/<blob file name>"*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso *<path to blob data>* deve essere nel formato *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<path to blob data\>**: Se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *\<path to blob data\>* deve essere nel formato *'wasb:///<directory in this container>/<blob file name>'*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso *\<path to blob data\>* deve essere nel formato *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > I dati BLOB da caricare nella tabella Hive devono trovarsi nel contenitore predefinito o aggiuntivo dell'account di archiviazione del cluster Hadoop. In caso contrario, la query di *LOAD DATA* avrà esito negativo perché non può accedere ai dati.
@@ -216,7 +216,7 @@ Selezionare i dati della tabella esterna nel passaggio 1 e inserirli nella tabel
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Se la tabella TEXTFILE *<database name>.<external textfile table name>* include partizioni, nel PASSAGGIO 3 il comando `SELECT * FROM <database name>.<external textfile table name>` seleziona la variabile della partizione come un campo nel set di dati restituito. L'inserimento della tabella in *<database name>.<ORC table name>* ha esito negativo in quanto *<database name>.<ORC table name>* non include la variabile della partizione come campo nello schema della tabella. In questo caso gli utenti devono specificatamente selezionare i campi da inserire in *<database name>.<ORC table name>* come indicato di seguito:
+> Se la tabella TEXTFILE *\<database name\>.\<external textfile table name\>* presenta partizioni, al PASSAGGIO 3, il comando `SELECT * FROM <database name>.<external textfile table name>` selezionerà la variabile della partizione come campo nel set di dati restituito. Tale inserimento in *\<database name\>.\<ORC table name\>* avrà esito negativo perché *\<database name\>.\<ORC table name\>* non dispone della variabile della partizione come campo nello schema della tabella. In questo caso, si devono selezionare specificamente i campi da inserire in *\<database name\>.\<ORC table name\>* come indicato di seguito:
 >
 >
 
@@ -225,7 +225,7 @@ Selezionare i dati della tabella esterna nel passaggio 1 e inserirli nella tabel
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-È opportuno eliminare *<external textfile table name>* quando si usa la query seguente dopo che tutti i dati sono stati inseriti in *<database name>.<ORC table name>*:
+È opportuno eliminare *\<external textfile table name\>* quando si usa la query seguente dopo che tutti i dati sono stati inseriti in *\<database name\>.\<ORC table name\>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

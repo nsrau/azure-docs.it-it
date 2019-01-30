@@ -2,18 +2,19 @@
 title: Isolamento delle applicazioni del bus di servizio di Azure da interruzioni ed emergenze del servizio | Documentazione Microsoft
 description: Tecniche per proteggere le applicazioni da potenziali interruzioni del bus di servizio.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393708"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846711"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 

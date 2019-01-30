@@ -4,18 +4,18 @@ description: La Collaborazione B2B di Azure Active Directory supporta l'autentic
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: twooley
-author: twooley
-manager: mtillman
+ms.author: mimart
+author: msmimart
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 196fa9e4b6e3ac805f9ae7ce7d53a3d12b250142
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267074"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432048"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di Collaborazione B2B
 
@@ -84,7 +84,7 @@ In aggiunta, anche se Contoso ha una funzionalità di autenticazione a più fatt
 
 Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche per account del servizio gestito, ID per social network e organizzazioni partner che non hanno configurato l'autenticazione a più fattori.
 
-Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. Questo requisito potrebbe causare la duplicazione dell'autenticazione a più fattori in alcuni casi, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
+Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. In alcuni casi, questo requisito può causare la duplicazione dell'autenticazione a più fattori, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato sul dispositivo, sulla posizione e sui rischi per gli utenti B2B
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b7a43135ef0aa0ecfe80000d2d0d73c57e138102
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8be8fa68b48257a8d94d3ba6364d47c522bbf3de
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976674"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401997"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Spark in HDInsight e Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il nu
 * **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Assicurarsi di abilitare il Desktop remoto per il cluster. 
 * **Esecuzione di cluster Spark in Data Lake Storage Gen2**.  Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md) 
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) (Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2). 
 
 ## <a name="parameters"></a>Parametri
 
@@ -45,7 +45,7 @@ Di seguito sono riportate le impostazioni più importanti che possono essere ott
 
 Per impostazione predefinita, durante l'esecuzione di Spark in HDInsight, vengono definiti due core YARN virtuali per ogni core fisico.  Questo numero fornisce un buon bilanciamento tra concorrenza e quantità di contesto nel passaggio tra più thread.  
 
-## <a name="guidance"></a>Indicazioni
+## <a name="guidance"></a>Materiale sussidiario
 
 Durante l'esecuzione di carichi di lavoro analitici di Spark per l'elaborazione dei dati in Data Lake Storage Gen2, è consigliabile usare la versione più recente di HDInsight per ottenere prestazioni ottimali con Data Lake Storage Gen2. Quando il processo prevede un I/O più intensivo, è possibile configurare alcuni parametri per migliorare le prestazioni.  Data Lake Storage Gen2 è una piattaforma di archiviazione altamente scalabile in grado di gestire un'elevata velocità effettiva.  Se il processo è costituito principalmente da lettura o scrittura, l'aumento della concorrenza di I/O da e verso Data Lake Storage Gen2 potrebbe migliorare le prestazioni.
 

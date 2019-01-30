@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628835"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431725"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
@@ -58,9 +58,9 @@ Questi dati sono disponibili tramite il [portale di Azure](https://portal.azure.
 
 I report delle attività di accesso per l'autenticazione a più fattori permettono di accedere alle informazioni seguenti:
 
-**Autenticazione MFA obbligatoria:** specifica se l'autenticazione a più fattori è o meno obbligatoria per l'accesso. L'autenticazione a più fattori può essere obbligatoria per motivi di autenticazione a più fattori per singoli utenti, accesso condizionale o altri motivi. I valori possibili sono **Sì** o **No**.
+**Autenticazione MFA obbligatoria:** specifica se l'autenticazione a più fattori è obbligatoria o meno per l'accesso. L'autenticazione a più fattori può essere obbligatoria per motivi di autenticazione a più fattori per singoli utenti, accesso condizionale o altri motivi. I valori possibili sono **Sì** o **No**.
 
-**Risultato autenticazione MFA:** altre informazioni che specificano se l'autenticazione a più fattori è riuscita o è stata negata:
+**Risultato autenticazione MFA:** altre informazioni che specificano se l'autenticazione a più fattori è riuscita o è stata negata.
 
 - Se l'autenticazione a più fattori è riuscita, questa colonna fornisce più informazioni riguardo al modo in cui è stata completata.
    - Azure Multi-Factor Authentication

@@ -4,7 +4,7 @@ description: Risoluzione dei problemi relativi a dispositivi Windows 10 e Window
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 584a36e766e9e054af2ad1ce4f2105108fe80525
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415664"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446103"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -69,7 +69,7 @@ Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure A
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: YES
+    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: SÌ
 
 
 
@@ -77,7 +77,7 @@ Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure A
 
 Esaminare i campi seguenti e assicurarsi che siano presenti i valori previsti:
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined: YES  
+### <a name="azureadjoined--yes"></a>AzureAdJoined: SÌ  
 
 Questo campo mostra se il dispositivo è aggiunto ad Azure AD. Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata. 
 
@@ -103,7 +103,7 @@ Questo campo mostra se il dispositivo è aggiunto ad Azure AD. Se il valore è *
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined: YES  
+### <a name="domainjoined--yes"></a>DomainJoined: SÌ  
 
 Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO**, il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.  
 
@@ -115,7 +115,7 @@ Questo campo mostra se il dispositivo è registrato con Azure AD come dispositiv
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: YES e AzureADPrt: YES
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: YES e AzureADPrt: SÌ
   
 Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo. Se i valori sono **NO**, il motivo potrebbe essere:
 

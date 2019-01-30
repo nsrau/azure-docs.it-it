@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229575"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402150"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Immagini Red Hat Enterprise Linux in Azure
 Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione.
 
-Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo di vita di Red Hat Enterprise Linux).
+Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle (Ciclo di vita di Red Hat Enterprise Linux)](https://access.redhat.com/support/policy/updates/errata).
+
+>[!Important]
+> Le immagini RHEL attualmente disponibili in Azure Marketplace supportano i modelli di licenza BYOS (Bring-Your-Own-Subscription) o PAYG (Pay-As-You-Go, ovvero pagamento in base al consumo). Il [Vantaggio Azure Hybrid Use](../windows/hybrid-use-benefit-licensing.md) e il passaggio dinamico da BYOS a PAYG e viceversa non sono supportati. Il passaggio da una modalità di licenza all'altra richiede la ridistribuzione della macchina virtuale dall'immagine corrispondente.
+
+>[!Note]
+> Per qualsiasi problema correlato alle immagini RHEL nella raccolta di Azure Marketplace, inviare un ticket di supporto a Microsoft.
 
 ## <a name="images-available-in-the-ui"></a>Immagini disponibili nell'interfaccia utente
 Quando si cerca "Red Hat" nel Marketplace o quando si crea una risorsa nell'interfaccia utente del portale di Azure, verranno visualizzati un subset di immagini RHEL disponibili e dei prodotti Red Hat correlati. È sempre possibile ottenere il set completo di immagini di VM disponibili usando l'interfaccia della riga di comando/PowerShell/API di Azure.

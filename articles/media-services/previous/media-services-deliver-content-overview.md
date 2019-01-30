@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240138"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388146"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
 Quando si distribuiscono contenuti in streaming o video on demand ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete.
@@ -61,7 +61,7 @@ Per poter fornire all'utente un URL da usare per scaricare o trasmettere in stre
 * Localizzatori OnDemandOrigin. Questi consentono di trasmettere file multimediali in streaming (ad esempio MPEG DASH, HLS o Smooth Streaming) o eseguire il download progressivo dei file.
 * localizzatori URL di firma di accesso condiviso. Consentono di scaricare file multimediali nel computer locale.
 
-Per definire le autorizzazioni (ad esempio di lettura, scrittura ed elenco) e il periodo di tempo durante il quale un client può accedere a un determinato asset, viene usato un *criterio di accesso* . Si noti che l'autorizzazione di elenco (AccessPermissions.List) non deve essere usata per la creazione di un localizzatore OnDemandOrigin.
+Per definire le autorizzazioni (ad esempio di lettura, scrittura ed elenco) e il periodo di tempo durante il quale un client può accedere a un determinato asset, viene usato un *criterio di accesso* . Si noti che l'autorizzazione elenco (AccessPermissions.List) non deve essere usata per la creazione di un localizzatore OnDemandOrigin.
 
 Per i localizzatori vengono definite date di scadenza. Il portale di Azure imposta una scadenza di 100 anni per i localizzatori.
 
@@ -77,7 +77,7 @@ I localizzatori non sono progettati per gestire il controllo dell'accesso per ut
 Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
 
 ## <a name="adaptive-streaming"></a>Streaming adattivo
-Le tecnologie a bitrate adattivo consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore in modo che la riproduzione del video possa continuare con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le tecnologie a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH.
+Le tecnologie a bitrate adattivo consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore in modo che la riproduzione del video possa continuare con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le tecnologie di bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH.
 
 Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism). Quindi aggiungere **/Manifest** e un formato appropriato (se necessario) al percorso di origine del localizzatore.
 

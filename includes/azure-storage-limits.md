@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249621"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392688"
 ---
 La tabella seguente descrive i limiti predefiniti per Archiviazione di Azure. Il limite *in ingresso* indica tutti i dati (richieste) inviati a un account di archiviazione. Il limite *in uscita* indica tutti i dati (risposte) ricevuti da un account di archiviazione.
 
@@ -29,7 +29,7 @@ La tabella seguente descrive i limiti predefiniti per Archiviazione di Azure. Il
 | Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v1 (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS abilitata, 30 Gbps per LRS/ZRS <sup>2</sup> |
 | Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v1 (aree non degli Stati Uniti) | 10 Gbps con archiviazione RA-GRS/GRS abilitata, 15 Gbps per LRS/ZRS <sup>2</sup> |
 
-<sup>1</sup> Gli account di archiviazione di Azure supportano limiti più elevati per il traffico in ingresso e per le operazioni di I/O al secondo in base alle richieste. Per richiedere un incremento dei limiti di archiviazione, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Gli account di archiviazione standard di Azure supportano limiti più elevati per il traffico in ingresso in base alle richieste. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup>Le opzioni di [replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:
 * **RA-GRS**: Archiviazione con ridondanza geografica e accesso in lettura. Se RA-GRS è abilitata, le destinazioni di uscita per la posizione secondaria sono identiche a quelle per la posizione primaria.
