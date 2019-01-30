@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 665b95aa-f7f5-4406-9e2a-6fc299a1599c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e4112b431aba706ec1bc9b54f429e1fb43159d6c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9fb09a6abf6e4f7deafb92ec905bf39c69951003
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448748"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Esercitazione: Integrazione di Azure Active Directory con Wikispaces
 
@@ -130,7 +130,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Wikispaces**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Wikispaces](https://www.wikispaces.com/site/help). Al termine della configurazione, viene ricevuta una notifica.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

@@ -3,18 +3,18 @@ title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore 
 description: Questa soluzione di gestione di VM avvia e arresta le macchine virtuali di Azure Resource Manager in base a una pianificazione e le monitora in modo attivo da Log Analytics.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194267"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846184"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -59,7 +59,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    ![Pagina Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina **Area di lavoro di Log Analytics** seguire questa procedura:
-   - Specificare un nome per la nuova **area di lavoro di Log Analytics**.
+   - Specificare un nome per la nuova **area di lavoro di Log Analytics**, ad esempio "ContosoLAWorkspace".
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare un **percorso**. Attualmente le uniche località disponibili sono: **Australia sud-orientale**, **Canada centrale**, **India centrale**, **Stati Uniti orientali**, **Giappone orientale**, **Asia sud-orientale**, **Regno Unito meridionale** ed **Europa occidentale**.
@@ -242,7 +242,7 @@ Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di
 |CorrelationId | GUID che rappresenta l'ID di correlazione del processo del runbook.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
-|ResourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+|resourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
 |ResourceProvider | Specifica il servizio di Azure che fornisce le risorse da distribuire e gestire. Per Automazione, il valore è Automazione di Azure.|
 |ResourceType | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
@@ -263,7 +263,7 @@ Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
-|ResourceId | Specifica l'ID risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+|resourceId | Specifica l'ID risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |ResourceProvider | Specifica il servizio di Azure che fornisce le risorse da distribuire e gestire. Per Automazione, il valore è Automazione di Azure.|
 |ResourceType | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |resultType | Risultato del processo del runbook al momento in cui è stato generato l'evento. Un valore possibile è:<br>- InProgress|

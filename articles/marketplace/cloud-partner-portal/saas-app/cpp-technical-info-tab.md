@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788551"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451222"
 ---
 # <a name="saas-application-technical-info-tab"></a>Scheda Informazioni tecniche per le applicazioni SaaS
 
@@ -54,7 +54,7 @@ La tabella seguente descrive i campi obbligatori per l'opzione Sell through Micr
 |     Getting Started Instructions (Istruzioni per le attività iniziali)              |   Indicazioni da condividere con i clienti per aiutarli a connettersi all'app SaaS. Sono consentiti i tag HTML di base, ad esempio &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; e così via.                |
 |    Landing Page URL (URL della pagina di destinazione)  |   L'URL del sito al quale verranno indirizzati i clienti dopo l'acquisto nel portale di Azure. Questo URL sarà anche l'endpoint che riceverà le API di connessione che agevolano l'attività commerciale con Microsoft.                |
 |  Connection Webhook (Webhook di connessione)    |  Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, se la sottoscrizione di Azure non è più valida), viene richiesto di fornire un webhook di connessione. Se non si ha un sistema di webhook, la configurazione più semplice è costituita da un'app per la logica con endpoint HTTP che rimane in ascolto degli eventi inseriti e li gestisce in modo appropriato. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica</a>.                |
-|  Azure AD Tenant ID (ID tenant di Azure AD) e Azure AD App ID (ID app di Azure AD)      |   All'interno del portale di Azure è necessario creare un'app Active Directory in modo che la connessione tra i due servizi sia protetta da una comunicazione autenticata. Per questi campi, creare un'app Active Directory e inserire l'ID tenant e l'ID app corrispondenti. L’ID dell’app è associato all’ID dell’editore. Di conseguenza, verificare che l’ID sia lo stesso in tutte le offerte.             |
+|  Azure AD Tenant ID (ID tenant di Azure AD) e Azure AD App ID (ID app di Azure AD)      |   All'interno del portale di Azure è necessario creare un'app Active Directory in modo che la connessione tra i due servizi sia protetta da una comunicazione autenticata. Per questi campi, creare un'app Active Directory e inserire l'ID tenant e l'ID app corrispondenti. L'ID dell'app è associato all'ID dell'editore. Di conseguenza, verificare che l’ID sia lo stesso in tutte le offerte.             |
 
 
 Infine, se si seleziona **Sell through Microsoft** (Vendi tramite Microsoft), è disponibile un'altra scheda per la nuova offerta denominata **Piani**. 

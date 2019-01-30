@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Evernote | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Evernote | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory ed Evernote.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a9282f5418737b583e29d99893df3fc81f52955
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8ba80e113de8ea6754d8d2d6446fb26498904e12
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442633"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Esercitazione: Integrazione di Azure Active Directory con Evernote
 
@@ -144,7 +144,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Certificate-Setting](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **Enable SSO** (Abilita SSO): SSO è abilitato per impostazione predefinita. Fare clic su **Disable Single Sign-on** (Disabilita Single Sign-on) per rimuovere il requisito SSO.
+    a.  **Enable SSO** (Abilita SSO): l'accesso SSO è abilitato per impostazione predefinita. Fare clic su **Disable Single Sign-on** (Disabilita Single Sign-on) per rimuovere il requisito SSO.
 
     b. Incollare il valore di **SAML Single sign-on Service URL** (URL servizio Single Sign-On SAML), copiato dal portale di Azure, nella casella di testo **SAML HTTP Request URL** (URL di richiesta HTTP SAML).
 
@@ -153,7 +153,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Fare clic su **Save Changes** (Salva modifiche).
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267420"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817232"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -81,9 +81,9 @@ Dopo aver definito i propri obiettivi e requisiti, Contoso progetta ed esamina u
     - Con Software Assurance, Contoso può scambiare le licenze esistenti con tariffe scontate per un database SQL tramite l'offerta Vantaggio Azure Hybrid per SQL Server. È possibile risparmiare fino al 30%.
     - Database SQL offre numerose funzionalità di sicurezza tra cui funzionalità Always Encrypted, maschera dati dinamica e sicurezza a livello di riga/rilevamento di minacce.
 - Per quel che riguarda il livello Web dell'app, Contoso ha deciso di convertirlo nel contenitore di Windows usando Azure DevOps Services.
-    - Contoso distribuirà l'app tramite Microsoft Azure Service Fabric ed eseguirà il pull dell'immagine del contenitore di Windows dal Registro contenitori di Azure.
+    - Contoso distribuirà l'app tramite Microsoft Azure Service Fabric ed eseguirà il pull dell'immagine del contenitore di Windows da Registro Azure Container.
     - Un prototipo per l'estensione dell'app al fine di includere l'analisi della valutazione verrà implementato come un altro servizio in Service Fabric, connesso a Cosmos DB.  Leggerà le informazioni estratte dai tweet e le visualizzerà nell'app.
-- Per implementare una pipeline di DevOps, Contoso userà Azure DevOps per la gestione del codice sorgente con i repository GIT.  Verranno usati rilasci e compilazioni automatizzati per compilare il codice e distribuirlo nel Registro contenitori di Azure e in Azure Service Fabric.
+- Per implementare una pipeline di DevOps, Contoso userà Azure DevOps per la gestione del codice sorgente con i repository GIT.  Verranno usati rilasci e compilazioni automatizzati per compilare il codice e distribuirlo in Registro Azure Container e in Azure Service Fabric.
 
     ![Architettura dello scenario](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -103,7 +103,7 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 1. Contoso effettua il provisioning del cluster di Azure Service Fabric per Windows.
 2. Effettua il provisioning di un'istanza di Azure SQL e la migrazione del database di SmartHotel360 nell'istanza stessa.
 3. Contoso converte la VM di livello Web in un contenitore Docker usando gli strumenti di Service Fabric SDK.
-4. Connette il cluster di Service Fabric e il Registro contenitori di Azure e distribuisce l'app usando Azure Service Fabric.
+4. Connette il cluster di Service Fabric e il Registro Azure Container e distribuisce l'app usando Azure Service Fabric.
 
     ![Processo di migrazione](./media/contoso-migration-rearchitect-container-sql/migration-process.png) 
 
@@ -113,7 +113,7 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Valuta e rileva i problemi di compatibilità che possono influire sulle funzionalità del database in Azure. DMA valuta l'analogia nelle funzionalità tra le origini e le destinazioni SQL e consiglia miglioramenti nelle prestazioni e nell'affidabilità. | Questo strumento è scaricabile gratuitamente.
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) | Fornisce un servizio di database cloud relazionale intelligente completamente gestito. | Costo in base a funzionalità, velocità effettiva e dimensioni. [Altre informazioni](https://azure.microsoft.com/pricing/details/sql-database/managed/)
-[Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/) | Archivia le immagini per tutti i tipi di distribuzioni di contenitori. | Costo in base a funzionalità, archiviazione e durata dell'uso. [Altre informazioni](https://azure.microsoft.com/pricing/details/container-registry/)
+[Registro Azure Container](https://azure.microsoft.com/services/container-registry/) | Archivia le immagini per tutti i tipi di distribuzioni di contenitori. | Costo in base a funzionalità, archiviazione e durata dell'uso. [Altre informazioni](https://azure.microsoft.com/pricing/details/container-registry/)
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Crea e gestisce app distribuite, scalabili e sempre disponibili | Costo in base a dimensioni, posizione e durata dei nodi di calcolo. [Altre informazioni](https://azure.microsoft.com/pricing/details/service-fabric/)
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fornisce una pipeline di integrazione e distribuzione continua (CI/CD) per lo sviluppo delle app. La pipeline inizia con un repository GIT per la gestione del codice app, un sistema di compilazione per la produzione di pacchetti e altri artefatti di compilazione, nonché un sistema di Release Management per implementare le modifiche negli ambienti di sviluppo, test e produzione.
 
@@ -185,21 +185,21 @@ Gli amministratori Contoso effettuano il provisioning di un database SQL di Azur
 
 ## <a name="step-2-create-an-acr-and-provision-an-azure-container"></a>Passaggio 2: Creare un ACR and effettuare il provisioning di un contenitore Azure
 
-Il contenitore di Azure viene creato usando i file esportati dalla VM Web. Il contenitore si trova nel Registro contenitori di Azure (ACR).
+Il contenitore di Azure viene creato usando i file esportati dalla VM Web. Il contenitore si trova in Registro Azure Container (ACR).
 
 
 1. Gli amministratori Contoso creano un registro contenitori con il portale di Azure.
 
-     ![Registro di sistema del contenitore](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
+     ![Registro Container](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
 
 2. Fornisce un nome per il registro (**contosoacreus2**) e lo posiziona nell'area primaria, nel gruppo di risorse usate per le risorse di infrastruttura. Abilita l'accesso per gli utenti amministratori e lo imposta come un SKU premium in modo che possano sfruttare la replica geografica.
 
-    ![Registro di sistema del contenitore](./media/contoso-migration-rearchitect-container-sql/container-registry2.png)  
+    ![Registro Container](./media/contoso-migration-rearchitect-container-sql/container-registry2.png)  
 
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Passaggio 3: Effettuare il provisioning di Azure Service Fabric
 
-Il contenitore SmartHotel360 verrà eseguito nel cluster di Microsoft Azure Service Fabric. Gli amministratori Contoso creano il cluster di Service Fabric come indicato di seguito:
+Il contenitore SmartHotel360 verrà eseguito nel cluster di Azure Service Fabric. Gli amministratori Contoso creano il cluster di Service Fabric come indicato di seguito:
 
 1. Creazione di una risorsa di Service Fabric da Azure Marketplace
 
@@ -282,7 +282,7 @@ Contoso necessita dei certificati cluster per consentire l'accesso di Azure DevO
 
 8. Per la distribuzione di Azure DevOps Services devono determinare il valore Base64 del certificato. Il valore è disponibile nella workstation per sviluppatori locale usando PowerShell. Incollano l'output in un file di testo per l'uso futuro.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -443,11 +443,11 @@ Gli amministratori di Contoso configurano ora Azure DevOps Services per eseguire
 
      ![Fabric e Docker](./media/contoso-migration-rearchitect-container-sql/pipeline3.png)
     
-4. Modificano le immagini dei tag di azione per **Build an image** (Compila un'immagine) e configurano l'attività per usare il Registro contenitori di Azure con provisioning.
+4. Modificano le immagini dei tag di azione per **Build an image** (Compila un'immagine) e configurano l'attività per usare il Registro Azure Container con provisioning.
 
-     ![ Registro](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
+     ![Registro](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
 
-5. Nell'attività **Push images** (Eseguire il push delle immagini) configurano l'immagine da sottoporre a push nel Registro contenitori di Azure e selezionano questa opzione per includere il tag più recente.
+5. Nell'attività **Push images** (Eseguire il push delle immagini) configurano l'immagine da sottoporre a push in Registro Azure Container e selezionano questa opzione per includere il tag più recente.
 6. In **Trigger** abilitano l'integrazione continua e aggiungono il ramo master.
 
     ![Trigger](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
@@ -530,7 +530,7 @@ Come primo passaggio, gli amministratori Contoso effettuano il provisioning di u
 5. Nel portale, viene aperto il nuovo database > **Collezione** > **Documenti** e viene selezionato **Nuovo documento**.
 6. Il seguente codice JSON viene incollato nella finestra del documento. Si tratta di dati di esempio sotto forma di un tweet singolo.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Una volta effettuato il provisioning di Cosmos DB, gli amministratori Contoso po
 
 2. Vengono compilati i due parametri seguenti:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 
@@ -603,7 +603,7 @@ Dopo la migrazione, Contoso deve eseguire le operazioni di pulizia seguenti:
 
 Al termine della migrazione delle risorse in Azure, Contoso deve rendere pienamente operativa la nuova infrastruttura e proteggerla.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 - Gli amministratori Contoso devono assicurarsi che il nuovo database **SmartHotel-Registration** sia protetto. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)
 - In particolare, è necessario aggiornare il contenitore per usare SSL con i certificati.
@@ -613,7 +613,7 @@ Al termine della migrazione delle risorse in Azure, Contoso deve rendere piename
 
 - Contoso deve esaminare i requisiti di backup per il database SQL di Azure. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)
 - Gli amministratori Contoso devono considerare l'implementazione di gruppi di failover per fornire un failover al database a livello di area. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)
-- È possibile sfruttare la replica geografica per lo SKU premium di ACR. [Altre informazioni](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
+- È possibile sfruttare la replica geografica per lo SKU premium di Registro Azure Container. [Altre informazioni](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
 - Contoso considera la distribuzione dell'app Web nelle aree Stati Uniti orientali 2 e Stati Uniti centrali quando l'app Web per contenitori diventa disponibile. Gli amministratori Contoso possono configurare Gestione traffico per garantire il failover in caso di interruzioni a livello regionale.
 - Cosmos DB esegue automaticamente il backup. Sono disponibili [altre informazioni](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) su questo processo.
 

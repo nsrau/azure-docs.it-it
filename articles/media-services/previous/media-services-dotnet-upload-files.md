@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444630"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819884"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Caricare file in un account di Servizi multimediali mediante .NET
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Quando si creano asset, è possibile specificare le opzioni di crittografia segu
   
     Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a **ContentKey**. Per alte informazioni, vedere [Creare entità ContentKey mediante .NET](media-services-dotnet-create-contentkey.md). 
+Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEncrypted** o **EnvelopeEncrypted**, sarà necessario associare l'asset a **ContentKey**. Per alte informazioni, vedere [Creare entità ContentKey mediante .NET](media-services-dotnet-create-contentkey.md). 
 
-Se si specifica che l'asset deve essere crittografato con un'opzione **StorageEncrypted**, Media Services SDK per .NET creerà un'entità **StorateEncrypted** **ContentKey** per l'asset.
+Se si specifica che l'asset deve essere crittografato con un'opzione **StorageEncrypted**, Media Services SDK per .NET creerà un'entità **StorageEncrypted** **ContentKey** per l'asset.
 
 Questo articolo illustra come usare l'SDK di Servizi multimediali per .NET e le relative estensioni per caricare file in un asset di Servizi multimediali.
 

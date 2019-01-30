@@ -4,23 +4,23 @@ description: Come usare Criteri di gruppo per distribuire il componente aggiunti
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b13b5a7d5366a0bce97d8e735dbf3822186d21cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355800"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471889"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Risoluzione dei problemi di Access Panel Extension per Internet Explorer
 Questo articolo semplifica la risoluzione dei problemi seguenti:
@@ -28,7 +28,7 @@ Questo articolo semplifica la risoluzione dei problemi seguenti:
 * Non è possibile accedere alle app tramite il portale App personali durante l'uso di Internet Explorer.
 * Viene visualizzato il messaggio "Installa software" anche se è già stato installato il software.
 
-Se l'utente è un amministratore, vedere anche [Come distribuire Access Panel Extension per Internet Explorer con Criteri di gruppo](deploy-access-panel-browser-extension.md)
+Se l'utente è un amministratore, vedere anche: [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Eseguire lo strumento di diagnostica
 È possibile eseguire la diagnostica dei problemi di installazione di Access Panel Extension scaricando ed eseguendo il relativo strumento di diagnostica:
@@ -91,7 +91,6 @@ Per disinstallare Access Panel Extension dal computer:
 Se si verificano problemi durante la disinstallazione dell'estensione, è possibile rimuoverla anche usando lo strumento [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) .
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](what-is-single-sign-on.md)
 * [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](deploy-access-panel-browser-extension.md)
 

@@ -4,22 +4,21 @@ description: Questo argomento descrive come implementare uno scenario di streami
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811741"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementare lo streaming del failover con Servizi multimediali di Azure
 
@@ -51,14 +50,9 @@ Si applicano le considerazioni seguenti:
 * Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia è diversa nei due account di Servizi multimediali. 
 * Se si vuole sfruttare i vantaggi della creazione dinamica dei pacchetti, verificare che l'endpoint di streaming da cui trasmettere i contenuti si trovi nello stato **In esecuzione**.
 
-> [!NOTE]
-> Considerare la possibilità di usare il [replicatore](http://replicator.codeplex.com/) di Servizi multimediali come alternativa all'implementazione manuale di uno scenario di streaming con failover. Tale strumento consente di replicare gli asset tra due account di Servizi multimediali.
-> 
-> 
-
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'articolo relativo alla [creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
-* Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
+* Sistema operativo: Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5 o .NET Framework 4.
 * Visual Studio 2010 SP1 o versioni successive (Professional, Premium, Ultimate o Express).
 
@@ -68,7 +62,7 @@ In questa sezione si crea e si configura un progetto di applicazione console in 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
 2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. (In questo esempio, viene usato il file **BigBuckBunny.mp4**.) 
 3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio** scegliere **STRUMENTI** > **Library Package Manager (Gestione pacchetti libreria)** >  **Console di Gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
-4. Aggiungere gli altri riferimenti necessari per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
+4. Aggiungere gli altri riferimenti richiesti per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
    
         using System;
@@ -184,7 +178,7 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

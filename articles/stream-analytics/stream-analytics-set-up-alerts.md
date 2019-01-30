@@ -7,44 +7,69 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 727747d84d0db32c73fc1a200bcea7e5c149d24b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554912"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412391"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
-È possibile configurare avvisi per attivare un avviso quando una metrica raggiunge una condizione specificata dall'utente. Ad esempio, si potrebbe configurare un avviso per una condizione simile alla seguente:
 
-`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
+È importante monitorare il processo di Analisi di flusso di Azure per garantire che l'esecuzione del processo sia continua e senza problemi. Questo articolo descrive come configurare gli avvisi per gli scenari comuni che devono essere monitorati. 
 
-Possono essere configurate regole per le metriche tramite il portale o [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
+Possono essere configurate regole per le metriche tramite il portale e [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurare gli avvisi nel portale di Azure
-1. Nel portale di Azure aprire il processo di Analisi di flusso per cui si intende creare un avviso. 
 
-2. Nel pannello **Processo** fare clic sulla sezione **Monitoraggio**.  
+L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno stato di errore per il processo. Questo avviso è consigliato per tutti i processi.
 
-3. Nel pannello **Metrica** fare clic sul comando **Aggiungi avviso**.
+1. Nel portale di Azure aprire il processo di Analisi di flusso per cui si intende creare un avviso.
 
-      ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. Nella pagina **Processo** passare alla sezione **Monitoraggio**.  
 
-4. Immettere un nome e una descrizione.
+3. Selezionare **Metriche** e quindi fare clic su **Nuova regola di avviso**.
 
-5. Usare i selettori per definire la condizione in cui verrà inviato l'avviso.
+   ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-6. Fornire informazioni su dove dovrebbe andare l'avviso.
+4. Il nome del processo di Analisi di flusso dovrebbe essere visualizzato automaticamente in **RISORSA**. Fare clic su **Aggiungi condizione** e selezionare **All Administrative operations** (Tutte le operazioni amministrative) in **Configura logica dei segnali**.
 
-      ![Configurazione di un avviso per un processo di Analisi di flusso di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
+   ![Selezionare il nome del segnale per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
+
+5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare vuota l'opzione **Evento avviato da** e fare clic su **Fine**.
+
+   ![Configurare la logica dei segnali per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
+
+6. Selezionare un gruppo di azioni esistente o crearne uno nuovo. In questo esempio è stato creato un nuovo gruppo di azioni chiamato **TIDashboardGroupActions** con l'azione **Messaggi di posta elettronica** che invia un messaggio di posta elettronica agli utenti con il ruolo **Proprietario** di Azure Resource Manager.
+
+   ![Configurazione di un avviso per un processo di Analisi di flusso di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
+
+7. Dovrebbe essere presente una voce per **RISORSA**, **CONDIZIONE** e **GRUPPI DI AZIONI**.
+
+   ![Creare una regola di avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+
+   Aggiungere **Nome regola di avviso**, **Descrizione** e **Gruppo di risorse** per **DETTAGLI AVVISO** e fare clic su **Crea regola di avviso** per creare la regola per il processo di Analisi di flusso.
+
+   ![Creare una regola di avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+
+## <a name="scenarios-to-monitor"></a>Scenari da monitorare
+
+Gli avvisi seguenti sono consigliati per il monitoraggio delle prestazioni del processo di Analisi di flusso. Queste metriche devono essere valutate ogni minuto nell'ultimo periodo di 5 minuti. Se il processo presenta problemi di prestazioni, è possibile usare la parallelizzazione delle query per l'ottimizzazione e provare ad aumentare il numero di unità di streaming.
+
+|Metrica|Condizione|Aggregazione temporale|Soglia|Azioni correttive|
+|-|-|-|-|-|
+|% utilizzo unità di streaming|Maggiore di|Massima|80|Esistono più fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming. È possibile ridimensionare con la parallelizzazione delle query o aumentare il numero di unità di streaming. Per altre informazioni, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
+|Errori di runtime|Maggiore di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per input, query o output.|
+|Ritardo limite|Maggiore di|Massima|Quando il valore medio della metrica negli ultimi 15 minuti è maggiore della tolleranza per arrivo in ritardo (in secondi). Se non è stata modificata la tolleranza per arrivo in ritardo, il valore predefinito è impostato su 5 secondi.|Provare ad aumentare il numero di unità di streaming o la parallelizzazione delle query. Per altre informazioni sulle unità di streaming, vedere [Informazioni sulle unità di streaming e su come modificarle](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Per altre informazioni sulla parallelizzazione delle query, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
+|Errori di deserializzazione dell'input|Maggiore di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per l'input. Per altre informazioni sui log di diagnostica, vedere [Risoluzione dei problemi di Analisi di flusso di Azure tramite i log di diagnostica](stream-analytics-job-diagnostic-logs.md)|
+
+## <a name="get-help"></a>Ottenere aiuto
 
 Per altre informazioni dettagliate sulla configurazione degli avvisi nel portale di Azure, vedere [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) (Ricevere notifiche di avviso).  
 
-
-## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

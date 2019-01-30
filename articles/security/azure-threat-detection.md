@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408830"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413669"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -56,7 +56,7 @@ Di seguito sono riportati esempi di alcuni dei modi in cui Azure Identity Protec
 -   Flussi di lavoro di base per tenere traccia delle analisi.
 -   Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 
-[Criteri di accesso condizionale basati sul rischio](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Criteri di accesso condizionale basati sul rischio](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   Mitigazione degli accessi rischiosi con il blocco degli accessi o le richieste di autenticazione a più fattori.
 -   Blocco o protezione degli account utente rischiosi.
 -   Richiedere la registrazione degli utenti per l'autenticazione a più fattori.
@@ -91,13 +91,13 @@ I dashboard di Log Analytics permettono di comprendere rapidamente e facilmente 
 
 Il dashboard Sicurezza e controllo di Log Analytics è organizzato in quattro categorie principali:
 
--   **Domini di sicurezza**: qui si possono esplorare ulteriormente i record di sicurezza nel tempo, accedere alla valutazione della presenza di malware, aggiornare la valutazione, verificare la sicurezza della rete, controllare identità e accesso alle informazioni, visualizzare i computer con eventi di sicurezza e accedere rapidamente al dashboard del Centro sicurezza di Azure.
+-   **Domini di sicurezza**: consente di esplorare ulteriormente i record di sicurezza nel tempo, accedere alla valutazione della presenza di malware, aggiornare la valutazione, verificare la sicurezza della rete, controllare identità e accesso alle informazioni, visualizzare i computer con eventi di sicurezza e accedere rapidamente al dashboard del Centro sicurezza di Azure.
 
 -   **Errori rilevanti**: consente di identificare rapidamente il numero di problemi attivi e la relativa gravità.
 
 -   **Rilevamenti (anteprima)**: consente di identificare i modelli di attacco mostrando gli avvisi di sicurezza relativi alle risorse non appena vengono generati.
 
--   **Intelligence per le minacce**: consente di identificare i modelli di attacco mostrando il numero totale di server con traffico IP dannoso in uscita, il tipo di minaccia e una mappa delle posizioni degli IP.
+-   **Intelligence per le minacce**: consente di identificare i modelli di attacco mostrando il numero totale di server con traffico IP dannoso in uscita, il tipo di minaccia e una mappa delle posizioni degli indirizzi IP.
 
 -   **Query comuni sulla sicurezza**: elenca le query più comuni sulla sicurezza che è possibile usare per monitorare l'ambiente. Quando si seleziona una qualsiasi query, il riquadro di ricerca apre e mostra i risultati della query.
 
@@ -164,11 +164,11 @@ I ricercatori ricevono anche informazioni di intelligence per le minacce condivi
 
 -   **Rilevamento di attacchi di forza bruta**: Machine Learning viene usato per creare un modello cronologico dei tentativi di accesso remoto, che consente di rilevare gli attacchi di forza bruta contro porte SQL, Remote Desktop Protocol (RDP) e Secure Shell (SSH).
 
--   **Rilevamento di attacchi DDoS in uscita e Botnet**: un obiettivo comune agli attacchi alle risorse cloud è sfruttare la potenza di calcolo di queste risorse per eseguire altri attacchi.
+-   **Rilevamento di attacchi DDoS in uscita e botnet**: un obiettivo comune degli attacchi alle risorse cloud è sfruttare la potenza di calcolo di queste risorse per eseguire altri attacchi.
 
 -   **Nuovi server e macchine virtuali per l'analisi del comportamento**: se una macchina virtuale o un server viene compromesso, gli utenti malintenzionati usano un'ampia gamma di tecniche per eseguire codice dannoso in tale sistema evitando il rilevamento, garantendo la persistenza e contrastando i controlli di sicurezza.
 
--   **Rilevamento delle minacce per il database SQL Azure**: il rilevamento delle minacce per il database di SQL Azure identifica le attività di database anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere ai database o sfruttarli.
+-   **Rilevamento delle minacce per il database SQL di Azure**: il rilevamento delle minacce per il database SQL di Azure identifica le attività di database anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere ai database o sfruttarli.
 
 ### <a name="behavioral-analytics"></a>Analisi del comportamento
 
@@ -183,37 +183,37 @@ Esiste inoltre una correlazione dei criteri con altri segnali per verificare la 
 Di seguito sono riportati alcuni esempi:
 -   **Esecuzione di processi sospetti**: gli utenti malintenzionati usano diverse tecniche per eseguire software dannoso senza che venga rilevato. Ad esempio, un utente malintenzionato potrebbe assegnare al malware gli stessi nomi di file di sistema legittimi, inserendo però questi file in percorsi alternativi, usare un nome simile a quello di un file innocuo o mascherare la vera estensione del file. I modelli del Centro sicurezza elaborano i comportamenti e monitorano l'esecuzione dei processi per rilevare outlier come questi.
 
--   **Malware nascosto e tentativi di exploit**: il malware sofisticato può eludere i prodotti antimalware tradizionali, non scrivendo mai su disco o crittografando i componenti software archiviati su disco. Tuttavia, il malware può essere rilevato tramite l'analisi della memoria, perché per funzionare il malware deve lasciare tracce in memoria. Quando il software si arresta in modo anomalo, un dump di arresto anomalo acquisisce una porzione della memoria al momento dell'arresto. Analizzando la memoria nel dump di arresto anomalo, il Centro sicurezza di Azure può rilevare le tecniche usate per sfruttare le vulnerabilità del software, accedere ai dati riservati e rimanere permanentemente all'interno di un computer infetto in modo furtivo senza influire sulle relative prestazioni.
+-   **Malware nascosto e tentativi di exploit**: il malware sofisticato è in grado di eludere i prodotti antimalware tradizionali, evitando di scrivere su disco o crittografando i componenti software archiviati su disco. Tuttavia, il malware può essere rilevato tramite l'analisi della memoria, perché per funzionare il malware deve lasciare tracce in memoria. Quando il software si arresta in modo anomalo, un dump di arresto anomalo acquisisce una porzione della memoria al momento dell'arresto. Analizzando la memoria nel dump di arresto anomalo, il Centro sicurezza di Azure può rilevare le tecniche usate per sfruttare le vulnerabilità del software, accedere ai dati riservati e rimanere permanentemente all'interno di un computer infetto in modo furtivo senza influire sulle relative prestazioni.
 
--   **Spostamento laterale e ricognizione interna**: per rimanere permanentemente all'interno di una rete compromessa e individuare e raccogliere dati importanti, gli utenti malintenzionati provano spesso a muoversi lateralmente dal computer compromesso spostandosi in altri computer all'interno della stessa rete. Il Centro sicurezza consente di monitorare le attività di elaborazione e accesso per individuare i tentativi di espansione del punto di appoggio di un utente malintenzionato all'interno della rete, ad esempio il probing della rete per individuare l'esecuzione di comandi remoti e l'enumerazione di account.
+-   **Spostamento laterale e ricognizione interna**: per rimanere in modo permanente all'interno di una rete compromessa e individuare e raccogliere dati importanti, gli utenti malintenzionati provano spesso a spostarsi lateralmente dal computer compromesso verso altri computer all'interno della stessa rete. Il Centro sicurezza consente di monitorare le attività di elaborazione e accesso per individuare i tentativi di espansione del punto di appoggio di un utente malintenzionato all'interno della rete, ad esempio il probing della rete per individuare l'esecuzione di comandi remoti e l'enumerazione di account.
 
--   **Script PowerShell dannosi**: PowerShell può essere usato da utenti malintenzionati per eseguire codice dannoso in macchine virtuali di destinazione per molteplici scopi. Il Centro sicurezza ispeziona l'attività di PowerShell alla ricerca di prove di attività sospette.
+-   **Script di PowerShell dannosi**: PowerShell può essere usato da utenti malintenzionati per eseguire codice dannoso in macchine virtuali di destinazione per molteplici scopi. Il Centro sicurezza ispeziona l'attività di PowerShell alla ricerca di prove di attività sospette.
 
--   **Attacchi in uscita**: gli utenti malintenzionati attaccano spesso le risorse cloud con l'obiettivo di usarle per organizzare altri attacchi. Le macchine virtuali compromesse, ad esempio, possono essere usate per sferrare attacchi di forza bruta contro altre macchine virtuali, inviare posta indesiderata o analizzare le porte aperte e altri dispositivi su Internet. Applicando le tecniche di apprendimento automatico al traffico di rete, il Centro sicurezza può rilevare quando le comunicazioni di rete in uscita superano la norma. Nel caso in cui venga rilevata posta indesiderata, il Centro sicurezza correla anche il traffico di posta elettronica insolito con le informazioni di Office 365 per determinare se la posta elettronica è probabilmente dannosa o il risultato di una campagna di posta elettronica legittima.
+-   **Attacchi in uscita**: gli utenti malintenzionati prendono spesso di mira le risorse cloud con l'obiettivo di usarle per organizzare altri attacchi. Le macchine virtuali compromesse, ad esempio, possono essere usate per sferrare attacchi di forza bruta contro altre macchine virtuali, inviare posta indesiderata o analizzare le porte aperte e altri dispositivi su Internet. Applicando le tecniche di apprendimento automatico al traffico di rete, il Centro sicurezza può rilevare quando le comunicazioni di rete in uscita superano la norma. Nel caso in cui venga rilevata posta indesiderata, il Centro sicurezza correla anche il traffico di posta elettronica insolito con le informazioni di Office 365 per determinare se la posta elettronica è probabilmente dannosa o il risultato di una campagna di posta elettronica legittima.
 
 ### <a name="anomaly-detection"></a>Rilevamento anomalie
 
 Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificare le minacce. A differenza dell'analisi del comportamento, che dipende da modelli noti derivati da set di dati di grandi dimensioni, il rilevamento anomalie è più "personalizzato" e incentrato sulle baseline specifiche delle distribuzioni. Le tecniche di apprendimento automatico vengono applicate per determinare la normale attività per le distribuzioni dei clienti e quindi vengono generate regole per definire le condizioni degli outlier che possono rappresentare un evento di sicurezza. Ecco un esempio:
 
--   **Attacchi di forza bruta RDP/SSH in ingresso**: nelle distribuzioni dei clienti possono essere presenti macchine virtuali occupate da molti accessi ogni giorno e altre con pochi accessi, se esistenti. Il Centro sicurezza di Azure può determinare l'attività di accesso di base per queste macchine virtuali e usare le tecniche di apprendimento automatico per definire gli eventi attorno alle normali attività di accesso. In caso di discrepanza con la baseline definita per le caratteristiche relative all'accesso, potrebbe essere generato un avviso. Anche in questo caso, le tecniche di apprendimento automatico determinano gli eventi significativi.
+-   **Attacchi di forza bruta RDP/SSH in ingresso**: nelle distribuzioni possono essere presenti macchine virtuali occupate da molti accessi ogni giorno e altre con pochi accessi, se esistenti. Il Centro sicurezza di Azure può determinare l'attività di accesso di base per queste macchine virtuali e usare le tecniche di apprendimento automatico per definire gli eventi attorno alle normali attività di accesso. In caso di discrepanza con la baseline definita per le caratteristiche relative all'accesso, potrebbe essere generato un avviso. Anche in questo caso, le tecniche di apprendimento automatico determinano gli eventi significativi.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>Monitoraggio continuo dell'intelligence per le minacce
 
 Il Centro sicurezza di Azure opera insieme a team dedicati alle ricerche sulla sicurezza e all'analisi scientifica dei dati a livello mondiale che monitorano costantemente le modifiche che avvengono nel panorama delle minacce. Sono incluse le iniziative seguenti:
 
--   **Monitoraggio dell'intelligence per le minacce**: questo tipo di intelligence include meccanismi, indicatori, implicazioni e consigli utili sulle minacce esistenti o emergenti. Queste informazioni sono condivise nella community sulla sicurezza e Microsoft monitora costantemente i feed di intelligence per le minacce da origini interne ed esterne.
+-   **Monitoraggio dell'intelligence per le minacce**: l'intelligence per le minacce include meccanismi, indicatori, implicazioni e consigli utili sulle minacce attuali o emergenti. Queste informazioni sono condivise nella community sulla sicurezza e Microsoft monitora costantemente i feed di intelligence per le minacce da origini interne ed esterne.
 
 -   **Condivisione dei segnali**: le informazioni dettagliate dai team della sicurezza nell'ampio portfolio di servizi, server e dispositivi endpoint client locali e cloud di Microsoft vengono condivise e analizzate.
 
--   **Specialisti della sicurezza Microsoft**: in contatto costante con i team Microsoft che operano in ambiti di sicurezza specializzati, ad esempio analisi scientifiche e rilevamento di attacchi Web.
+-   **Specialisti della sicurezza Microsoft**: collaborazione continua con i team Microsoft che operano in ambiti di sicurezza specializzati, ad esempio analisi forense e rilevamento di attacchi Web.
 
--   **Ottimizzazione del rilevamento**: gli algoritmi vengono eseguiti su set di dati reali del cliente e ricercatori dedicati alla sicurezza collaborano con i clienti per convalidare i risultati. Per perfezionare gli algoritmi di Machine Learning vengono usati veri e falsi positivi.
+-   **Ottimizzazione del rilevamento**: gli algoritmi vengono eseguiti su set di dati reali dei clienti e i ricercatori che si occupano di sicurezza collaborano con i clienti per convalidare i risultati. Per perfezionare gli algoritmi di Machine Learning vengono usati veri e falsi positivi.
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Funzionalità di rilevamento delle minacce avanzato: altri servizi di Azure
+## <a name="advanced-threat-detection-features-other-azure-services"></a>Funzionalità avanzate di rilevamento delle minacce: altri servizi di Azure
 
-### <a name="virtual-machines-microsoft-antimalware"></a>Macchine virtuali: Microsoft antimalware
+### <a name="virtual-machines-microsoft-antimalware"></a>Macchine virtuali: Microsoft Antimalware
 
 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware. Antimalware Azure è un'opzione di sicurezza per macchine virtuali di Azure e viene installato automaticamente in tutte le macchine virtuali PaaS di Azure.
 
@@ -221,23 +221,23 @@ Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è 
 
 Di seguito sono riportate alcune funzionalità di Azure per distribuire e abilitare Microsoft Antimalware per le applicazioni:
 
--   **Protezione in tempo reale**: monitora l'attività in Servizi cloud e Macchine virtuali per rilevare e bloccare l'esecuzione di malware.
+-   **Protezione in tempo reale**: monitora l'attività nei servizi cloud e nelle macchine virtuali per rilevare e bloccare l'esecuzione di malware.
 
 -   **Analisi pianificata**: esegue periodicamente un'analisi mirata per rilevare il malware, inclusi i programmi in esecuzione attiva.
 
--   **Correzione del malware**: agisce automaticamente sul malware rilevato, ad esempio eliminando o mettendo in quarantena i file dannosi e pulendo le voci dannose del Registro di sistema.
+-   **Correzione del malware**: interviene automaticamente sul malware rilevato, ad esempio eliminando o mettendo in quarantena i file dannosi e rimuovendo le voci dannose del Registro di sistema.
 
 -   **Aggiornamenti delle firme**: installa automaticamente le firme di protezione più recenti (definizioni di virus) per garantire che la protezione sia aggiornata in base a una frequenza predeterminata.
 
--   **Aggiornamenti del motore antimalware**: aggiorna automaticamente il motore antimalware di Microsoft.
+-   **Aggiornamenti del motore antimalware**: aggiorna automaticamente il motore antimalware Microsoft.
 
--   **Aggiornamenti della piattaforma antimalware**: aggiorna automaticamente la piattaforma Microsoft Antimalware.
+-   **Aggiornamenti della piattaforma antimalware**: aggiorna automaticamente la piattaforma antimalware Microsoft.
 
 -   **Protezione attiva**: segnala a Microsoft Azure i metadati di telemetria sulle minacce rilevate e sulle risorse sospette per garantire una risposta rapida al mutevole panorama delle minacce, oltre ad abilitare la distribuzione di firme sincrone in tempo reale tramite Microsoft Active Protection System.
 
--   **Creazione di report di esempi**: raccoglie e segnala al servizio Microsoft Antimalware esempi che consentono di perfezionare il servizio e di abilitare la risoluzione dei problemi.
+-   **Creazione di report di esempi**: raccoglie e segnala al servizio antimalware Microsoft esempi che consentono di perfezionare il servizio e di abilitare la risoluzione dei problemi.
 
--   **Esclusioni**: consente agli amministratori di applicazioni e del servizio di configurare alcuni file, processi e unità per escluderli dalla protezione e dall'analisi per motivi di prestazioni e/o di altro tipo.
+-   **Esclusioni**: consente agli amministratori di applicazioni e del servizio di configurare alcuni file, processi e unità per escluderli dalla protezione e dall'analisi per motivi di prestazioni o di altro tipo.
 
 -   **Raccolta di eventi antimalware**: registra l'integrità del servizio antimalware, le attività sospette e le azioni di correzione eseguite nel registro eventi del sistema operativo e le raccoglie nell'account di archiviazione di Azure del cliente.
 
@@ -261,9 +261,9 @@ Dopo aver ricevuto una notifica di posta elettronica di rilevamento delle minacc
 
 I rilevatori di minacce per il database SQL fanno uso di una delle metodologie di rilevamento riportate di seguito:
 
--   **Rilevamento deterministico:** rileva modelli sospetti (in base a regole) nelle query del client SQL corrispondenti ad attacchi noti. Questa metodologia offre prestazioni elevate di rilevamento e falsi positivi ridotti, ma ha una copertura limitata perché rientra nella categoria dei "rilevamenti atomici".
+-   **Rilevamento deterministico**: rileva modelli sospetti (in base a regole) nelle query del client SQL corrispondenti ad attacchi noti. Questa metodologia offre prestazioni elevate di rilevamento e falsi positivi ridotti, ma ha una copertura limitata perché rientra nella categoria dei "rilevamenti atomici".
 
--   **Rilevamento del comportamento:** rileva le attività anomale, vale a dire comportamenti anomali per il database non rilevati negli ultimi 30 giorni. Esempio di attività anomala per il client SQL può essere un picco di accessi non riusciti o query, l'estrazione di un volume elevato di dati, query canoniche insolite e l'uso di indirizzi IP sconosciuti per accedere al database.
+-   **Rilevamento del comportamento**: rileva le attività anomale, vale a dire comportamenti anomali per il database non rilevati negli ultimi 30 giorni. Esempio di attività anomala per il client SQL può essere un picco di accessi non riusciti o query, l'estrazione di un volume elevato di dati, query canoniche insolite e l'uso di indirizzi IP sconosciuti per accedere al database.
 
 ### <a name="application-gateway-web-application-firewall"></a>Web application firewall del gateway applicazione
 
@@ -307,15 +307,15 @@ L'[API di rilevamento delle anomalie](https://docs.microsoft.com/azure/machine-l
 
 -   **Tendenze positive e negative**: quando si esegue il monitoraggio dell'utilizzo di memoria nei sistemi informatici, la riduzione della dimensione della memoria libera indica una potenziale perdita di memoria. Per il monitoraggio della lunghezza della coda di servizio, una tendenza persistente all'aumento potrebbe indicare un problema software sottostante.
 
--   **Cambi di livello e le modifiche all'intervallo dinamico dei valori:** i cambi di livello nelle latenze di un servizio dopo un aggiornamento o livelli ridotti di eccezioni dopo un aggiornamento possono essere interessanti da monitorare.
+-   **Cambi di livello e modifiche apportate all'intervallo dinamico dei valori**: i cambi di livello nelle latenze di un servizio dopo un aggiornamento o livelli ridotti di eccezioni dopo un aggiornamento possono essere interessanti da monitorare.
 
 L'API basata sull'apprendimento automatico offre:
 
--   **Rilevamento flessibile e affidabile:** i modelli di rilevamento delle anomalie consentono agli utenti di configurare le impostazioni di sensibilità e rilevare anomalie tra set di dati stagionali e non stagionali. Gli utenti possono modificare il modello di rilevamento delle anomalie per rendere l'API più o meno sensibile in base alle esigenze. Ciò significa poter rilevare le anomalie più o meno visibili nei dati con e senza modelli stagionali.
+-   **Rilevamento flessibile e affidabile**: i modelli di rilevamento delle anomalie consentono agli utenti di configurare le impostazioni di sensibilità e rilevare anomalie tra set di dati stagionali e non stagionali. Gli utenti possono modificare il modello di rilevamento delle anomalie per rendere l'API più o meno sensibile in base alle esigenze. Ciò significa poter rilevare le anomalie più o meno visibili nei dati con e senza modelli stagionali.
 
--   **Rilevamento ridimensionabile e tempestivo:** il monitoraggio tradizionale con soglie impostate in base alle competenze degli esperti è costosi e non offre scalabilità per milioni di set di dati che cambiano continuamente. I modelli di rilevamento delle anomalie in questa API vengono acquisiti e i modelli vengono ottimizzati automaticamente in base a dati in tempo reale e cronologici.
+-   **Rilevamento ridimensionabile e tempestivo**: il monitoraggio tradizionale con soglie impostate in base alle competenze degli esperti è costoso e non offre scalabilità per milioni di set di dati che cambiano continuamente. I modelli di rilevamento delle anomalie in questa API vengono acquisiti e i modelli vengono ottimizzati automaticamente in base a dati in tempo reale e cronologici.
 
--   **Rilevamento proattivo ed eseguibile:** è possibile applicare il rilevamento di tendenze lente e cambi di livello per rilevare in anticipo le anomalie. Il rilevamento dei primi segni di anomalia permette di indirizzare gli utenti verso l'analisi e la risoluzione delle aree problematiche. Inoltre, è possibile sviluppare modelli di analisi della causa radice e gli strumenti di avviso sull'API di rilevamento delle anomalie.
+-   **Rilevamento proattivo ed eseguibile**: è possibile applicare il rilevamento di tendenze lente e cambi di livello per rilevare in anticipo le anomalie. Il rilevamento dei primi segni di anomalia permette di indirizzare gli utenti verso l'analisi e la risoluzione delle aree problematiche. Inoltre, è possibile sviluppare modelli di analisi della causa radice e gli strumenti di avviso sull'API di rilevamento delle anomalie.
 
 L'API rappresenta una soluzione efficace ed efficiente per un'ampia gamma di scenari, come il monitoraggio dell'integrità del servizio e dei KPI, l'IoT, il monitoraggio delle prestazioni e del traffico di rete. Di seguito sono riportati alcuni scenari comuni in cui questa API può risultare utile:
 
@@ -385,4 +385,4 @@ Per esempi di firewall di applicazioni Web disponibili su Azure Marketplace, ved
 
 - [Funzionalità di rilevamento del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): consentono di identificare le minacce attive rivolte alle risorse di Azure e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
 
-- [Rilevamento delle minacce per il database SQL](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): di Azure consente di risolvere i problemi relativi a potenziali minacce per i database.
+- [Rilevamento delle minacce per il database SQL di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): consente di risolvere i problemi relativi a potenziali minacce per i database.

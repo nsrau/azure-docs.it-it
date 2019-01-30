@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739822"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421437"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -30,7 +30,7 @@ Leader del settore suggeriscono di non usare la stessa password in più posizion
 
 Microsoft cerca sempre di anticipare le mosse dei criminali informatici. Il team di Azure AD Identity Protection è pertanto continuamente alla ricerca di password usate comunemente e compromesse. Queste password ritenute troppo comuni vengono quindi bloccate attraverso un elenco globale di password escluse. I criminali informatici usano strategie simili negli attacchi, quindi Microsoft non rende disponibile il contenuto di questo elenco pubblicamente. Queste password vulnerabili vengono bloccate prima di diventare una minaccia reale per i clienti Microsoft. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Anteprima: Elenco personalizzato di password escluse
+## <a name="preview-custom-banned-password-list"></a>Anteprima: Elenco password personalizzate escluse
 
 Alcune organizzazioni potrebbero voler aumentare ulteriormente la sicurezza personalizzando l'elenco globale di password escluse tramite l'aggiunta di voci all'elenco personalizzato di password escluse Microsoft. Clienti aziendali come Contoso possono quindi scegliere di bloccare le varianti del nome dell'organizzazione, termini aziendali specifici o altre voci.
 
@@ -46,7 +46,7 @@ La protezione degli account solo cloud è utile, ma molte organizzazioni gestisc
 
 L'elenco di password escluse consente di trovare la corrispondenza con le password presenti nell'elenco convertendo la stringa in lettere minuscole ed eseguendo un confronto con le password escluse note in una distanza di edit pari a 1 con corrispondenza fuzzy.
 
-Esempio: la parola password è stata bloccata per un'organizzazione
+Esempio: Il termine password è stato bloccato per un'organizzazione
    - Un utente cerca di impostare la password "P@ssword" che viene convertita in "p@ssword" e bloccata in quanto variante di password.
    - Un amministratore cerca di impostare una password utente su "Password123!" che viene convertita in "password123!" e bloccata in quanto variante di password.
 

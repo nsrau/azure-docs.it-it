@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Datahug | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Datahug | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Datahug.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c67d794bd5947dc377cbdb7578e23ff3e05390
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7a7a9cffa2dab3cc50a393f15d7419728502f8e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441511"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Esercitazione: Integrazione di Azure Active Directory con Datahug
 
@@ -148,7 +148,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Datahug**, è necessario inviare il **file XML dei metadati**, l'**ID entità SAML** e l'**URL del servizio Single Sign-On SAML** al [supporto Datahug](http://datahug.com/about/contact-us/). L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -240,7 +240,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
-Quando si fa clic sul riquadro Datahug nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Datahug. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro Datahug nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Datahug. Per altre informazioni sul Pannello di accesso, vedere  [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6fbfdbe7-d66c-4305-9fea-76d6a6a92830
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4396a16ec78d604b3d6c3bea5571d21ca48d5921
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d56a3a3c0d7e7e57ba01f6a82f086950f1b33ed5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346288"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811405"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Esercitazione: Configurare Jive per il provisioning utenti automatico
 

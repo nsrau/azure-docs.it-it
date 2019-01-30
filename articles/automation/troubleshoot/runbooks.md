@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi relativi ai runbook di Au
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1500fc5826b50e97e7fd51d18e672933275a9533
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199120"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468200"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -32,13 +32,13 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica se il nome dell'asset delle credenziali non è valido o se il nome utente e la password utilizzati per impostare l'asset delle credenziali di automazione non sono validi.
+Questo errore si verifica se il nome dell'asset delle credenziali non è valido o se il nome utente e la password usati per impostare l'asset delle credenziali di automazione non sono validi.
 
 #### <a name="resolution"></a>Risoluzione
 
 Per determinare la causa del problema, seguire questa procedura:  
 
-1. Assicurarsi che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione utilizzato per connettersi ad Azure.  
+1. Verificare che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.  
 2. Verificare che sia possibile usare il nome utente e la password archiviati nelle credenziali di Automazione di Azure nell'editor di PowerShell ISE locale. È possibile verificare se il nome utente e la password sono corretti eseguendo i cmdlet seguenti in PowerShell ISE:  
 
    ```powershell
@@ -87,15 +87,19 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="error"></a>Tipi di errore
 
-Questo errore si verifica se il nome della sottoscrizione non è valido o se l'utente di Azure Active Directory che sta tentando di ottenere i dettagli della sottoscrizione non è configurato come amministratore della sottoscrizione.
+Questo errore può verificarsi se:
+
+* Il nome della sottoscrizione non è valido.
+
+* L'utente di Azure Active Directory che sta tentando di ottenere i dettagli della sottoscrizione non è configurato come amministratore della sottoscrizione.
 
 #### <a name="resolution"></a>Risoluzione
 
-Per determinare se l'autenticazione in Azure è stata eseguita correttamente e se si ha accesso alla sottoscrizione che si sta tentando di selezionare, seguire questa procedura:  
+Per determinare se l'autenticazione in Azure è stata eseguita e se si ha accesso alla sottoscrizione che si sta tentando di selezionare, seguire questa procedura:  
 
 1. Testare lo script all'esterno di Automazione di Azure per assicurarsi che funzioni autonomamente.
 2. Assicurarsi di eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet `Select-AzureSubscription`. 
-3. Aggiungere `Disable-AzureRmContextAutosave –Scope Process` all'inizio del runbook. Ciò garantisce che eventuali credenziali vengano applicate solo all'esecuzione del runbook corrente.
+3. Aggiungere `Disable-AzureRmContextAutosave –Scope Process` all'inizio del runbook. Questo cmdlet garantisce che eventuali credenziali vengano applicate solo all'esecuzione del runbook corrente.
 4. Se viene ancora visualizzato questo messaggio di errore, modificare il codice aggiungendo il parametro **-AzureRmContext** dopo il cmdlet `Add-AzureAccount`, quindi eseguire il codice.
 
    ```powershell
@@ -129,6 +133,46 @@ Per usare un certificato con i cmdlet del modello di distribuzione classica di A
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
 
+###<a name="child-runbook-object"></a>Il runbook figlio restituisce un errore quando il flusso di output contiene oggetti diversi da semplici tipi di dati
+
+#### <a name="issue"></a>Problema
+
+Si riceve l'errore seguente quando si richiama un runbook figlio con il parametro `-Wait` e il flusso di output contiene un oggetto:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### <a name="cause"></a>Causa
+
+Si tratta di un problema noto in cui [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) non gestisce correttamente il flusso di output se contiene oggetti.
+
+#### <a name="resolution"></a>Risoluzione
+
+Per risolvere il problema, è consigliabile implementare una logica di polling e usare il cmdlet [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) per recuperare l'output. Un esempio di questa logica è definito di seguito.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
+
 ### <a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo e restituisce l'errore seguente: Un'attività è stata annullata
 
 #### <a name="issue"></a>Problema
@@ -147,7 +191,7 @@ Questo errore può essere causato dall'utilizzo di moduli di Azure non aggiornat
 
 Questo errore può essere risolto aggiornando i moduli di Azure alla versione più recente.
 
-Nell'account di Automazione fare clic su **Moduli** e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti; al termine, eseguire di nuovo il runbook con esito negativo. Per ulteriori informazioni sull'aggiornamento dei moduli, vedere [Aggiornare i moduli di Azure in Automazione di Azure](../automation-update-azure-modules.md).
+Nell'account di Automazione fare clic su **Moduli** e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti. Al termine, eseguire di nuovo il runbook non riuscito. Per ulteriori informazioni sull'aggiornamento dei moduli, vedere [Aggiornare i moduli di Azure in Automazione di Azure](../automation-update-azure-modules.md).
 
 ### <a name="runbook-auth-failure"></a>Scenario: i runbook hanno esito negativo quando si gestiscono più sottoscrizioni
 
@@ -200,7 +244,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 #### <a name="cause"></a>Causa
 
-Questo errore può dipendere dalle cause seguenti:
+Questo errore può verificarsi per uno dei motivi seguenti:
 
 1. Il modulo che contiene il cmdlet non viene importato nell'account di automazione
 2. Il modulo che contiene il cmdlet viene importato, ma non è aggiornato
@@ -225,7 +269,7 @@ The job was tried three times but it failed
 
 #### <a name="cause"></a>Causa
 
-Questo errore può dipendere dalle cause seguenti:
+Questo errore è causato da uno dei problemi seguenti:
 
 1. Limite di memoria. I limiti documentati per la quantità di memoria allocata a una sandbox sono disponibili in [Limiti del servizio Automazione](../../azure-subscription-service-limits.md#automation-limits). Un processo potrebbe non riuscire se usa più di 400 MB di memoria.
 
@@ -233,15 +277,19 @@ Questo errore può dipendere dalle cause seguenti:
 
 3. Modulo incompatibile. Questo errore può verificarsi se le dipendenze del modulo non sono corrette; se non lo sono il runbook restituisce in genere il messaggio "Comando non trovato" o "Non è possibile associare il parametro".
 
+4. Il runbook ha tentato di chiamare un eseguibile o un sottoprocesso in un runbook in esecuzione in una sandbox di Azure. Questo scenario non è supportato nelle sandbox di Azure.
+
 #### <a name="resolution"></a>Risoluzione
 
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
-* Metodi consigliati per operare entro il limite di memoria sono, ad esempio, dividere il carico di lavoro tra diversi runbook, non elaborare tutti i dati in memoria, non scrivere output non necessari dai runbook oppure tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell. È possibile usare il metodo Clear, ad esempio `$myVar.clear()` per cancellare la variabile e usare `[GC]::Collect()` per eseguire immediatamente Garbage Collection, in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
+* Metodi consigliati per operare entro il limite di memoria sono, ad esempio, dividere il carico di lavoro tra diversi runbook, non elaborare tutti i dati in memoria, non scrivere output non necessari dai runbook oppure tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell. È possibile usare il metodo Clear, ad esempio `$myVar.clear()`, per cancellare la variabile e usare `[GC]::Collect()` per eseguire immediatamente Garbage Collection, in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
 
 * Aggiornare i moduli di Azure eseguendo i passaggi [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).  
 
 * Un’altra soluzione consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non hanno i limiti di memoria e rete che sono invece applicati ai sandbox di Azure.
+
+* Se occorre chiamare un processo (ad esempio .exe o subprocess.call) in un runbook, è necessario eseguire il runbook in un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md).
 
 ### <a name="fails-deserialized-object"></a>Scenario: il runbook ha esito negativo a causa di un oggetto deserializzato
 
@@ -267,6 +315,34 @@ Una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.
 3. Usare un runbook di PowerShell invece di un runbook del flusso di lavoro PowerShell.
 
+### <a name="runbook-fails"></a>Scenario: L'esecuzione del runbook non riesce, ma funziona quando eseguito in locale
+
+#### <a name="issue"></a>Problema
+
+Lo script non riesce quando eseguito come runbook, ma funziona quando eseguito in locale.
+
+#### <a name="cause"></a>Causa
+
+L'esecuzione dello script come runbook potrebbe non riuscire per uno dei motivi seguenti:
+
+1. Problemi di autenticazione
+2. I moduli necessari non sono stati importati o non sono aggiornati.
+3. Lo script potrebbe richiedere l'interazione dell'utente.
+4. Alcuni moduli fanno ipotesi sulle librerie presenti nei computer Windows. Queste librerie potrebbero non essere presenti in una sandbox.
+5. Alcuni moduli si basano su una versione di .NET diversa da quella disponibile nella sandbox.
+
+#### <a name="resolution"></a>Risoluzione
+
+Una qualsiasi delle soluzioni seguenti potrebbe correggere questo problema:
+
+1. Verificare che l'[autenticazione in Azure](../manage-runas-account.md) venga eseguita correttamente.
+2. Verificare che i [moduli di Azure siano stati importati e siano aggiornati](../automation-update-azure-modules.md).
+3. Verificare che nessun cmdlet richieda l'inserimento di informazioni. Questo comportamento non è supportato nei runbook.
+4. Controllare se uno o più elementi del modulo hanno una dipendenza da un elemento non incluso nel modulo.
+5. Le sandbox di Azure usano .NET Framework 4.7.2. Se un modulo usa una versione successiva, la sua esecuzione non riesce. In questo caso occorre usare un [ruolo di lavoro ibrido per runbook](../automation-hybrid-runbook-worker.md).
+
+Se nessuna di queste soluzioni risolve il problema, esaminare i [log dei processi](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per dettagli specifici sulla possibile causa dell'errore di esecuzione del runbook.
+
 ### <a name="quota-exceeded"></a>Scenario: processo del Runbook non riuscito per il superamento della quota allocata
 
 #### <a name="issue"></a>Problema
@@ -279,7 +355,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando l'esecuzione del processo supera la quota disponibile di 500 minuti per l'account. Questa quota si applica a tutti i tipi di attività di esecuzione del processo, ad esempio il test di un processo, l'avvio di un processo dal portale, l'esecuzione di un processo con webhook e la pianificazione di un processo da eseguire tramite il portale di Azure o nel proprio data center. Per altre informazioni sui prezzi relativi all'automazione, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
+Questo errore si verifica quando l'esecuzione del processo supera la quota disponibile di 500 minuti per l'account. Questa quota si applica a tutti i tipi di attività di esecuzione di processi, ad esempio il test di un processo, l'avvio di un processo dal portale, l'esecuzione di un processo con webhook e la pianificazione di un processo da eseguire tramite il portale di Azure o nel proprio data center. Per altre informazioni sui prezzi relativi all'automazione, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -310,7 +386,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
 * Verificare di aver immesso correttamente il nome del cmdlet.  
 * Assicurarsi che il cmdlet esista nell'account di automazione e che non siano presenti conflitti. Per verificare se il cmdlet è presente, aprire un runbook in modalità di modifica e cercare il cmdlet nella libreria o eseguire `Get-Command <CommandName>`. Dopo aver verificato che il cmdlet è disponibile per l'account e che non ci sono conflitti di nomi con altri cmdlet o runbook, aggiungerlo all'area di disegno e assicurarsi di usare un set di parametri valido nel runbook.  
-* Nel caso di un conflitto di nomi e se il cmdlet è disponibile in due moduli diversi, è possibile risolvere questo problema usando il nome completo per il cmdlet. Ad esempio, usare **ModuleName\CmdletName**.  
+* Nel caso di un conflitto di nomi e se il cmdlet è disponibile in due moduli diversi, è possibile risolvere questo problema usando il nome completo del cmdlet. Ad esempio, usare **ModuleName\CmdletName**.  
 * Se si eseguono i runbook in locale in un gruppo di lavoro ibrido, verificare che il modulo e il cmdlet siano installati nel computer che ospita il ruolo di lavoro ibrido.
 
 ### <a name="long-running-runbook"></a>Scenario: un runbook a esecuzione prolungata non viene completato
@@ -323,7 +399,7 @@ Il runbook mostra lo stato **Stopped** (Arrestato) dopo 3 ore di esecuzione. Pot
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Si tratta di un comportamento previsto nei sandbox di Azure, causato dalla "condivisione equa" del monitoraggio dei processi in Automazione di Azure, che prevede l'arresto automatico di un runbook se viene eseguito per più di tre ore. Lo stato di un runbook che supera il limite di tempo di condivisione equa è diverso in base al tipo di runbook. I runbook PowerShell e Python sono impostati sullo stato **Stopped** (Arrestato). I runbook PowerShell del flusso di lavoro sono impostati su **Failed** (Non riuscito).
+Si tratta di un comportamento previsto nelle sandbox di Azure, causato dalla "condivisione equa" del monitoraggio dei processi in Automazione di Azure, che prevede l'arresto automatico di un runbook se viene eseguito per più di tre ore. Lo stato di un runbook che supera il limite di tempo di condivisione equa è diverso in base al tipo di runbook. I runbook PowerShell e Python sono impostati sullo stato **Stopped** (Arrestato). I runbook PowerShell del flusso di lavoro sono impostati su **Failed** (Non riuscito).
 
 #### <a name="cause"></a>Causa
 
@@ -333,7 +409,7 @@ Il runbook ha superato il limite di esecuzione di 3 ore consentito dalla condivi
 
 Una soluzione consigliata consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md).
 
-I ruoli di lavoro ibridi non sono limitati dal massimo di 3 ore del runbook per la [condivisione equa](../automation-runbook-execution.md#fair-share) rispetto a come vengono eseguiti nelle sandbox di Azure. Anche se i ruoli di lavoro ibridi per runbook non sono soggetti al limite di 3 ore della condivisione equa, i runbook eseguiti in ruoli di lavoro ibridi per runbook dovranno tuttavia essere sviluppati per poter supportare i comportamenti di riavvio in caso di problemi imprevisti dell'infrastruttura locale.
+I ruoli di lavoro ibridi non sono limitati dal massimo di 3 ore del runbook per la [condivisione equa](../automation-runbook-execution.md#fair-share) rispetto a come vengono eseguiti nelle sandbox di Azure. I runbook eseguiti in ruoli di lavoro ibridi per runbook devono essere sviluppati per poter supportare i comportamenti di riavvio in caso di problemi imprevisti dell'infrastruttura locale.
 
 Un'altra opzione consiste nell'ottimizzare il runbook creando [runbook figlio](../automation-child-runbooks.md). Se il runbook esegue in ciclo la stessa funzione in più risorse, ad esempio un'operazione di database su più database, è possibile spostare tale funzione in un runbook figlio. Ognuno di questi runbook figlio viene eseguito in parallelo in processi separati. Questo comportamento riduce la quantità totale di tempo per il completamento del runbook padre.
 
@@ -343,11 +419,11 @@ I cmdlet di PowerShell che consentono lo scenario del runbook figlio sono:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) che consente di controllare lo stato del processo per ogni figlio, se ci sono operazioni che devono essere eseguite al termine del runbook figlio.
 
-### <a name="expired webhook"></a>Scenario: stato: 400 - Richiesta non valida quando si richiama un webhook
+### <a name="expired webhook"></a>Scenario: stato: 400 - Richiesta non valida quando si chiama un webhook
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di richiamare un webhook per un runbook di Automazione di Azure, viene visualizzato l'errore seguente.
+Quando si tenta di richiamare un webhook per un runbook di Automazione di Azure, viene visualizzato l'errore seguente:
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -355,7 +431,7 @@ Quando si tenta di richiamare un webhook per un runbook di Automazione di Azure,
 
 #### <a name="cause"></a>Causa
 
-Il webhook che si sta tentando di chiamare è disattivato o scaduto.
+Il webhook che si sta tentando di chiamare è disabilitato o scaduto.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -381,31 +457,6 @@ Questo errore può verificarsi durante il recupero di output del processo da un 
 
 * Modificare il runbook riducendo il numero di flussi del processo generati dal runbook stesso.
 * Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. Per seguire questo comportamento, è possibile specificare il parametro `-Stream Output` in modo che il cmdlet `Get-AzureRmAutomationJobOutput` recuperi solo i flussi di output. 
-
-## <a name="common-errors-when-importing-modules"></a>Errori comuni durante l'importazione di moduli
-
-### <a name="module-fails-to-import"></a>Scenario: l'importazione del modulo non riesce o non è possibile eseguire i cmdlet dopo l'importazione
-
-#### <a name="issue"></a>Problema
-
-L'importazione di un modulo ha esito negativo oppure riesce ma non viene estratto alcun cmdlet.
-
-#### <a name="cause"></a>Causa
-
-Di seguito sono elencati alcuni motivi comuni che possono causare un'importazione errata di un modulo in Automazione di Azure:
-
-* La struttura non corrisponde a quella in cui Automazione dovrebbe trovarsi.
-* Il modulo è dipendente da un altro modulo che non è stato distribuito nel proprio account di automazione.
-* Le dipendenze del modulo non si trovano nella cartella.
-* Il `New-AzureRmAutomationModule` cmdlet viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
-
-#### <a name="resolution"></a>Risoluzione
-
-una qualsiasi delle soluzioni seguenti consente di correggere il problema:
-
-* Assicurarsi che il modulo rispetti il formato seguente: ModuleName.Zip **->** Nome modulo o numero versione **->** (ModuleName.psm1, ModuleName.psd1)
-* Aprire il file con estensione psd1 e vedere se il modulo include dipendenze. In caso affermativo, caricare i moduli nell'account di automazione.
-* Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

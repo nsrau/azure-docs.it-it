@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114007"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Esercitazione: Integrazione di Azure Active Directory con Velpic SAML
 

@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Insperity ExpensAble | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Insperity ExpensAble | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Insperity ExpensAble.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c579c453-580e-417d-8a5e-9b6b352795c0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: ba2d71a52b8b2367c6d292a9531cf5403f59242e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b078f459faf4da468a0b0e4ec7c6e880627e4a4d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427867"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Esercitazione: Integrazione di Azure Active Directory con Insperity ExpensAble
 
@@ -132,7 +132,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Insperity ExpensAble** è necessario inviare il file **XML metadati** scaricato e i valori **SAML Entity ID** (ID entità SAML) e **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) al [team di supporto Insperity ExpensAble](http://expensable.com/support/support-overview). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

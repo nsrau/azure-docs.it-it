@@ -1,5 +1,5 @@
 ---
-title: Servizio Frontdoor di Azure - Bilanciamento del carico con la suite per il recapito di applicazioni di Azure | Microsoft Docs
+title: Servizio Frontdoor di Azure - Bilanciamento del carico con la famiglia di prodotti per la distribuzione di applicazioni di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni sui consigli di Azure per il bilanciamento del carico con la relativa suite per il recapito di applicazioni
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026008"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820823"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
 
 ## <a name="introduction"></a>Introduzione
-Microsoft Azure offre più servizi globali e a livello di area per la gestione della distribuzione e del bilanciamento del carico del traffico di rete: Gestione traffico, servizio Frontdoor, gateway applicazione e Load Balancer.  In combinazione con l'architettura di zona e le numerose aree di Azure, l'uso di questi servizi permette di creare applicazioni affidabili, scalabili e con prestazioni elevate.
+Microsoft Azure offre numerosi servizi internazionali e locali che consentono di gestire la distribuzione del traffico e il bilanciamento del carico della rete: Gestione traffico, servizio Frontdoor, gateway applicazione e Load Balancer.  In combinazione con l'architettura di zona e le numerose aree di Azure, l'uso di questi servizi permette di creare applicazioni affidabili, scalabili e con prestazioni elevate.
 
 ![Suite per il recapito di applicazioni ][1]
  
@@ -51,16 +51,16 @@ Load Balancer è parte integrante dello stack di Azure SDN e offre servizi di bi
 
 ## <a name="choosing-a-global-load-balancer"></a>Scelta di un servizio di bilanciamento del carico a livello globale
 Quando si sceglie un servizio di bilanciamento del carico a livello globale tra Gestione traffico e Frontdoor di Azure per il routing globale, è necessario considerare le analogie e le differenze tra i due servizi.   Entrambi i servizi offrono
-- **Ridondanza multi-geografica**: se un'area risulta non disponibile, il traffico viene instradato senza problemi all'area più vicina, senza alcun intervento da parte del proprietario dell'applicazione.
-- **Routing all'area più vicina**: il traffico viene automaticamente instradato all'area più vicina.
+- **Ridondanza multi-geografica:** se un'area risulta non disponibile, il traffico viene instradato senza problemi all'area più vicina, senza alcun intervento da parte del proprietario dell'applicazione.
+- **Routing all'area più vicina:** il traffico viene automaticamente instradato all'area più vicina.
 
 </br>La tabella seguente descrive le differenze tra Gestione traffico e il servizio Frontdoor di Azure:</br>
 
 | Gestione traffico | Servizio Frontdoor di Azure |
 | --------------- | ------------------------ |
-|**Qualsiasi protocollo**: poiché Gestione traffico funziona a livello DNS, è possibile instradare qualsiasi tipo di traffico di rete: HTTP, TCP, UDP e così via. | **Accelerazione HTTP**: con Frontdoor il traffico viene trasmesso nella parte perimetrale della rete Microsoft.  Per questo motivo, per le richieste HTTP(S) migliorano la latenza e la velocità effettiva, riducendo la latenza per la negoziazione SSL e usando connessioni ad accesso frequente da AFD all'applicazione.|
-|**Routing locale**: con il routing a livello DNS, il traffico passa sempre da punto a punto.  Il routing dalla filiale al data center locale può seguire un percorso diretto, anche nella rete locale con Gestione traffico. | **Scalabilità indipendente**: poiché Frontdoor funziona con la richiesta HTTP, le richieste a percorsi URL diversi possono essere instradate a back-end/pool di servizi di area (microservizi) diversi, in base alle regole e all'integrità di ogni microservizio dell'applicazione.|
-|**Formato di fatturazione**: la fatturazione basata su DNS consente la scalabilità in base agli utenti e per i servizi con più utenti, con la possibilità di ridurre i costi per i casi di maggiore utilizzo. |**Sicurezza inline**: Frontdoor consente l'uso di regole, ad esempio per la limitazione della frequenza, e di elenchi di controllo di accesso in base agli IP per proteggere i back-end prima che il traffico raggiunga l'applicazione. 
+|**Qualsiasi protocollo:** poiché Gestione traffico funziona a livello DNS, è possibile instradare qualsiasi tipo di traffico di rete: HTTP, TCP, UDP e così via. | **Accelerazione HTTP:** con Frontdoor il traffico viene trasmesso nella parte perimetrale della rete Microsoft.  Per questo motivo, per le richieste HTTP(S) migliorano la latenza e la velocità effettiva, riducendo la latenza per la negoziazione SSL e usando connessioni ad accesso frequente da AFD all'applicazione.|
+|**Routing locale:** con il routing a livello DNS, il traffico passa sempre da punto a punto.  Il routing dalla filiale al data center locale può seguire un percorso diretto, anche nella rete locale con Gestione traffico. | **Scalabilità indipendente:** poiché Frontdoor funziona con la richiesta HTTP, le richieste a percorsi URL diversi possono essere instradate a pool di servizi back-end/locali (microservizi) diversi, in base alle regole e all'integrità di ogni microservizio dell'applicazione.|
+|**Formato di fatturazione:** la fatturazione basata su DNS consente la scalabilità in base agli utenti e per i servizi con più utenti, con la possibilità di ridurre i costi per i casi di maggiore utilizzo. |**Sicurezza inline:** Frontdoor consente l'uso di regole, ad esempio per la limitazione della frequenza, e di elenchi di controllo di accesso in base agli IP per proteggere i back-end prima che il traffico raggiunga l'applicazione. 
 
 </br>Considerando i vantaggi in termini di prestazioni, funzionalità e sicurezza per i carichi di lavoro HTTP offerti da Frontdoor, è consigliabile usare questo servizio per i carichi di lavoro HTTP.    È possibile usare Gestione traffico e Frontdoor in parallelo per soddisfare le esigenze di tutto il traffico per l'applicazione. 
 

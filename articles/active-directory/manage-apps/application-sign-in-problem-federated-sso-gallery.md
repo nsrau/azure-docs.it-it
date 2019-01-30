@@ -4,7 +4,7 @@ description: Linee guida per errori durante l'accesso a un'applicazione configur
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356193"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477301"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
@@ -34,7 +34,7 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
-*Errore ADSTS70001: applicazione con identificatore "https://contoso.com" non trovata nella directory*.
+*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory* (Errore AADSTS70001: applicazione con identificatore "https://contoso.com" non trovata nella directory).
 
 **Causa possibile**
 
@@ -66,7 +66,7 @@ Dopo aver aggiornato il valore dell'identificatore in Azure AD in modo che corri
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione.
 
-*Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione*
+*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application* (Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione)
 
 **Causa possibile**
 
@@ -133,7 +133,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
@@ -145,7 +145,7 @@ Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste a
 
 ## <a name="not-a-valid-saml-request"></a>La richiesta non è un messaggio SAML valido
 
-*Error AADSTS75005: The request is not a valid Saml2 protocol message.*(Errore AADSTS75005: la richiesta non è un messaggio del protocollo Saml2 valido).
+*Error AADSTS75005: The request is not a valid Saml2 protocol message.* (Errore AADSTS75005: la richiesta non è un messaggio del protocollo Saml2 valido.)
 
 **Causa possibile**
 
@@ -228,7 +228,7 @@ Se l'opzione 1 precedente non risolve il problema, provare a rimuovere l'applica
 
 ## <a name="certificate-or-key-not-configured"></a>Chiave o certificato non configurato
 
-*Error AADSTS50003: No signing key configured.* (Errore AADSTS50003: nessuna chiave di firma configurata).
+*Error AADSTS50003: No signing key configured.* (Errore AADSTS50003: nessuna chiave di firma configurata.)
 
 **Causa possibile**
 
@@ -261,6 +261,19 @@ Per eliminare e creare un nuovo certificato, seguire questa procedura:
 10. Selezionare l'opzione per **attivare il nuovo certificato** in modo da sostituire il certificato attivo. Fare quindi clic su **Salva** nella parte superiore del riquadro e accettare di attivare il certificato di rollover.
 
 11. Nella sezione **Certificato di firma SAML** selezionare **Rimuovi** per rimuovere il certificato **Inutilizzato**.
+
+## <a name="saml-request-not-present-in-the-request"></a>Richiesta SAML non presente nella richiesta
+
+*Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.* (Errore AADSTS750054: SAMLRequest o SAMLResponse devono essere presenti come parametri di stringa di query nella richiesta HTTP per il binding Reindirizzamento SAML.)
+
+**Causa possibile**
+
+Azure AD non è riuscito a identificare la richiesta SAML entro i parametri dell'URL nella richiesta HTTP. È possibile che questo problema si verifichi se l'applicazione non usa il binding Reindirizzamento HTTP per l'invio della richiesta SAML ad Azure AD.
+
+**Risoluzione**
+
+L'applicazione deve inviare la richiesta SAML codificata nell'intestazione della posizione mediante il binding Reindirizzamento HTTP. Per altre informazioni sull'implementazione di questo approccio, leggere la sezione sul binding Reindirizzamento HTTP nel [documento di specifiche del protocollo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 

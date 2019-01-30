@@ -4,7 +4,7 @@ description: Domande frequenti su Azure AD Identity Protection
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f3123ed9a6d4898889b36e29c34c6c6a7496ea0d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 70bab69fecbe3f8aab1858aaddfa9004278c0f03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470682"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Domande frequenti su Azure Active Directory Identity Protection
 
@@ -34,7 +34,7 @@ Questo articolo include le risposte alle domande frequenti su Azure Active Direc
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>È necessario essere un amministratore globale per usare Identity Protection nel portale di Azure?
-**R:** No. È possibile avere il ruolo con autorizzazioni di lettura per la sicurezza, di amministratore protezione o amministratore globale per usare Identity Protection.
+**R:**  No. È possibile avere il ruolo con autorizzazioni di lettura per la sicurezza, di amministratore protezione o amministratore globale per usare Identity Protection.
 
 ---
 
@@ -46,6 +46,6 @@ Questo articolo include le risposte alle domande frequenti su Azure Active Direc
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Come è possibile classificare gli utenti come "Utenti contrassegnati per il rischio"?
 
-**R:** Scaricare gli utenti contrassegnati per il report di rischio facendo clic su **Download** in alto nella pagina **Utenti contrassegnati per il rischio**. È quindi possibile ordinare i dati scaricati in base ai campi disponibili, incluso Ultimo aggiornamento (UTC).
+**R:** Scaricare gli utenti contrassegnati per il report di rischio facendo clic su **Download**  in alto nella pagina **Utenti contrassegnati per il rischio**. È quindi possibile ordinare i dati scaricati in base ai campi disponibili, incluso Ultimo aggiornamento (UTC).
 
 ---

@@ -3,18 +3,18 @@ title: Compilazione di configurazioni in Configurazione stato di Automazione di 
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423409"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni di nodo al server di pull di Configurazione stato di Automazione di Azure, **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
+È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni del nodo al server di pull di Configurazione stato di Automazione di Azure, **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{

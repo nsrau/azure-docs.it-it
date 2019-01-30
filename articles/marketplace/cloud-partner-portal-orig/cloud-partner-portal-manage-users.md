@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807797"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447276"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestione degli utenti nel portale per Cloud Partner
 ======================================
@@ -43,7 +43,7 @@ Per **aggiungere utenti e assegnare ruoli** per la pubblicazione di offerte, seg
 
 Il nuovo utente può essere aggiunto come 'proprietario' o 'collaboratore'.
 
-**Indirizzo di posta elettronica**: aggiungere gli indirizzi di posta elettronica dei colleghi che lavoreranno sulla pubblicazione dell'offerta. Sono supportati gli account Microsoft (Outlook, Hotmail e Live) e gli ID organizzazione.
+**Messaggio di posta elettronica**: aggiungere gli indirizzi di posta elettronica dei colleghi che lavoreranno sulla pubblicazione dell'offerta. Sono supportati gli account Microsoft (Outlook, Hotmail e Live) e gli ID organizzazione.
 
 o Aggiungere un 'team/alias di posta elettronica di gruppo/gruppo di sicurezza' nel caso in cui il singolo che lavora sull'offerta abbandoni l'organizzazione.
 
@@ -59,7 +59,8 @@ Attualmente, solo i proprietari possono accedere alle schede Proventi di Azure e
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Passaggio 4. Selezionare il nome dell'editore per cui si desidera aggiungere il nuovo utente, quindi fare clic su Aggiungi per completare l'aggiunta dell'utente.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> I 'nomi dell'editore' per i quali viene aggiunto l'indirizzo di posta elettronica come proprietario o collaboratore verranno visualizzati tra le opzioni nell'elenco a discesa Editore.
 
 ![Assegnazione ruolo - selezionare l'editore](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: metrics
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330076"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827449"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
@@ -139,6 +139,17 @@ Dopo avere configurato il grafico, fare clic sul menu delle **azioni del grafico
 
 ![Immagine di metrica](./media/metrics-charts/00013.png)
 
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+*All'interno del grafico non vengono visualizzati dati.*
+
+* I filtri si applicano a tutti i grafici del riquadro. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico.
+
+* Se si desidera impostare filtri diversi nei vari grafici, creare grafici in diversi pannelli e salvarli come Preferiti separati. Se si desidera, è possibile impostarli sul dashboard in modo da visualizzarli uno accanto all'altro.
+
+* Se si segmenta un grafico per una proprietà non definita nella metrica, il grafico sarà vuoto. Provare a cancellare la segmentazione (suddivisione) oppure scegliere un'altra proprietà.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
   Per informazioni sulle procedure consigliate per la creazione di dashboard operativi con metriche, leggere [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) (Creazione di dashboard KPI personalizzati).
+

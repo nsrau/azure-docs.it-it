@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2bd89432a15f6960b07102ede317acca5864b773
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310896"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465463"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure
 Per impostazione predefinita, l' [indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di testo delimitato come blocco singolo di testo. Nel caso dei BLOB che contengono dati, tuttavia, è spesso consigliabile gestire ogni riga del BLOB come documento separato. Ad esempio, in base al testo delimitato seguente, si potrebbe decidere di analizzarlo in due documenti, ciascuno contenente campi "id", "datePublished" e "tag": 
@@ -27,7 +27,7 @@ Per impostazione predefinita, l' [indicizzatore di BLOB di Ricerca di Azure](sea
 In questo articolo verrà illustrato come analizzare i BLOB CSV con un indicizzatore di BLOB di Ricerca di Azure. 
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima pubblica e non deve essere usata negli ambienti di produzione. Per altre informazioni, vedere [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+> L'indicizzazione di BLOB CSV è attualmente in anteprima pubblica e non deve essere usata negli ambienti di produzione. Per altre informazioni, vedere [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>Configurazione dell'indicizzazione di CSV

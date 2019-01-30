@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Condeco | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Condeco | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Condeco.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4601c17d-ad93-4865-8885-b378c4bbe82b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 21ad32e19f627ec6502fee2d612b4ca1d3dbd9f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c94a79fda8c62dc27d2e5cfeb4d3134c67a08cc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437040"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Esercitazione: Integrazione di Azure Active Directory con Condeco
 
@@ -128,7 +128,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Condeco** è necessario inviare il file **XML metadati** scaricato al [team di supporto di Condeco](mailTo:supportna@condecosoftware.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

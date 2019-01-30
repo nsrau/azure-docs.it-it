@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468030"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -47,11 +47,11 @@ Da quando Microsoft ha rilasciato i primi acceleratori di soluzioni, l'architett
 
 La soluzione include i componenti seguenti nella parte dell'architettura logica relativa alla connettività dei dispositivi:
 
-### <a name="physical-devices"></a>Dispositivi fisici
+### <a name="real-devices"></a>Dispositivi reali
 
-È possibile connettere dispositivi fisici alla soluzione. È possibile implementare il comportamento dei dispositivi simulati usando Azure IoT SDK per dispositivi.
+È possibile connettere dispositivi reali alla soluzione. È possibile implementare il comportamento dei dispositivi simulati usando Azure IoT SDK per dispositivi.
 
-È possibile effettuare il provisioning di dispositivi fisici dal dashboard nel portale della soluzione.
+È possibile effettuare il provisioning di dispositivi reali dal dashboard nel portale della soluzione.
 
 ### <a name="device-simulation-microservice"></a>Microservizio di simulazione dispositivi
 
@@ -66,7 +66,7 @@ Il microservizio fornisce un endpoint RESTful per consentire di creare, avviare 
 
 ### <a name="iot-hub"></a>Hub IoT
 
-L'[hub IoT](../iot-hub/index.yml) inserisce i dati di telemetria inviati dai dispositivi fisici e simulati nel cloud. L'hub IoT rende i dati di telemetria disponibili per l'elaborazione da parte dei servizi nel back-end della soluzione IoT.
+L'[hub IoT](../iot-hub/index.yml) inserisce i dati di telemetria inviati dai dispositivi reali e simulati nel cloud. L'hub IoT rende i dati di telemetria disponibili per l'elaborazione da parte dei servizi nel back-end della soluzione IoT.
 
 L'hub IoT nella soluzione esegue anche le operazioni seguenti:
 

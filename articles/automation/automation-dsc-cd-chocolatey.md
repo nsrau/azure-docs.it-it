@@ -3,20 +3,20 @@ title: Distribuzione continua di Automation DSC per Azure con Chocolatey
 description: Distribuzione continua in DevOps con Gestione pacchetti di Azure Automation State Configuration, DSC per Azure e Chocolatey.  Esempio con modello di Resource Manager JSON completo e codice sorgente di PowerShell.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284796"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424456"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali di Microsoft Azure tramite Automation DSC e Chocolatey
+# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali tramite Configurazione stato di Automazione e Chocolatey
 
 In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti della pipeline di integrazione continua. Automation DSC (State Configuration) per Azure è una nuova aggiunta alle opzioni disponibili per i team DevOps. Questo articolo illustra come configurare la distribuzione continua per un computer Windows. La tecnica può essere facilmente estesa per includere nel ruolo, ad esempio un sito Web, tutti i computer Windows necessari, estendendola quindi anche ad altri ruoli.
 
@@ -58,7 +58,7 @@ In realtà viene archiviata due volte, cioè una volta come testo normale e una 
 
 È probabile che ci si stia già occupando della sezione iniziale o la maggior parte di essa. La creazione del Nuspec, la relativa compilazione e archiviazione in un server NuGet non è un'operazione impegnativa e si stanno già gestendo le VM. L'esecuzione del passaggio successivo della distribuzione continua richiede la configurazione del server di pull (una volta), la registrazione dei nodi con il server (una volta) e la creazione e archiviazione della configurazione nel server (inizialmente). In seguito, man mano che i pacchetti vengono aggiornati e distribuiti nel repository, aggiornare la configurazione e la configurazione di nodi nel server di pull, ripetendola se necessario.
 
-Il procedimento funziona anche se non si inizia con un modello di Resource Manager. Sono disponibili cmdlet di PowerShell progettati per facilitare la registrazione delle VM con il server di pull e tutto il resto. Per altre informazioni dettagliate, vedere l'articolo [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
+Il procedimento funziona anche se non si inizia con un modello di Resource Manager. Sono disponibili cmdlet di PowerShell progettati per facilitare la registrazione delle VM con il server di pull e tutto il resto. Per altri dettagli, vedere questo articolo: [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Passaggio 1: Configurazione del server di pull e dell'account di automazione
 
@@ -71,7 +71,7 @@ New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location M
 
 È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale, Canada centrale ed Europa settentrionale.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Passaggio 2: Modifiche dell'estensione VM nel modello di Resource Manager
+## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Passaggio 2: Modifiche dell'estensione della macchina virtuale nel modello di Resource Manager
 
 I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell DSC, sono disponibili in questo [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Questo passaggio registra la nuova VM con il server di pull nell'elenco di nodi DSC. Parte di tale registrazione consiste nella specifica della configurazione da applicare ai nodi. Questa configurazione di nodi non deve essere già presente nel server di pull e questa operazione può quindi essere eseguita per la prima volta nel passaggio 4. In questo passaggio 2 è tuttavia necessario definire il nome del nodo e della configurazione. In questo esempio di utilizzo, il nodo è 'isvbox' e la configurazione è 'ISVBoxConfig'. Pertanto il nome della configurazione di nodi da specificare in DeploymentTemplate.json è 'ISVBoxConfig.isvbox'.
@@ -86,7 +86,7 @@ Passare alla risorsa desiderata e fare clic sul pulsante "Deploy to Azure Automa
 Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nuovi moduli o aggiornare quelli esistenti. Fare clic sulla risorsa Account di automazione, sul riquadro Asset e infine sul riquadro Moduli. L'icona Esplora raccolta consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down dei dettagli e infine di eseguire l'importazione in Account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure,
-perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere questo articolo: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/) (Creazione di moduli di integrazione per Automazione di Azure)
 
 - Installare il modulo necessario nella workstation, come indicato di seguito:
   - Installare [Windows Management Framework versione 5](https://aka.ms/wmf5latest) (non necessario per Windows 10).

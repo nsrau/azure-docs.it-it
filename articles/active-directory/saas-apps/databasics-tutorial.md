@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b177b4e4e6ef66c03ef6c868dcfde9a5277c36d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a74deb18263e25b95665c709cd62343293d49c0e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420914"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Esercitazione: Integrazione di Azure Active Directory con DATABASICS
 
@@ -131,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
@@ -168,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-databasics-test-user"></a>Creare un utente di test di DATABASICS
 
-In questa sezione viene creato un utente di nome Britta Simon in DATABASICS. Collaborare con il [team di supporto di DATABASICS](https://www.data-basics.com/support/) per aggiungere gli utenti alla piattaforma DATABASICS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in DATABASICS. Per aggiungere utenti alla piattaforma DATABASICS, collaborare con il  [team di supporto di DATABASICS](https://www.data-basics.com/support/) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -205,7 +205,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro DATABASICS nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione DATABASICS.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -3,18 +3,18 @@ title: Integrazione del controllo del codice sorgente in Automazione di Azure - 
 description: Questo articolo descrive l'integrazione del controllo del codice sorgente con GitHub in Automazione di Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784811"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434870"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integrazione del controllo del codice sorgente in Automazione di Azure - Legacy
 
@@ -139,7 +139,8 @@ Per disconnettersi dall'account GitHub, aprire la pagina Sincronizzazione reposi
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'integrazione del controllo del codice sorgente, vedere le risorse seguenti:  
 
-* [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Automazione di Azure: Source Control Integration in Azure Automation (Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure)](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Scelta del sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-* [Azure Automation: Integrating Runbook Source Control using Azure DevOps (Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook tramite Azure DevOps)](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* [Automazione di Azure: Integrating Runbook Source Control using Azure DevOps (Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook tramite Azure DevOps)](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

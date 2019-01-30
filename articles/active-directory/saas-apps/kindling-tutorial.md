@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Kindling | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Kindling | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kindling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 71229751-74eb-4c2c-abb4-07caa95754c7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: af92553b0b88febf86eb9aebaad99c7c3ddff792
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0ee91afecb9c98249c4545bee244e8f4d2e2fc21
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822366"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Esercitazione: integrazione di Azure Active Directory con Kindling
+# <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Esercitazione: Integrazione di Azure Active Directory con Kindling
 
 Questa esercitazione descrive come integrare Kindling con Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Kindling** è necessario inviare il file **Certificato (Base64)** scaricato e i valori, **Sign-Out URL (URL di disconnessione), SAML Entity ID (ID entità SAML) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** al [team di supporto Kindling](mailto:support@kindlingapp.com).
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

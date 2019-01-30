@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261231"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827942"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -142,7 +142,7 @@ Verificare di aver copiato e incollato le informazioni corrette. Per risolvere i
 
 ### <a name="vmware-powercli-installation-failed"></a>L'installazione di VMware PowerCLI non è riuscita.
 
-L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione nell'appliance. L'errore di installazione di PowerCLI potrebbe essere a causa di un endpoint non raggiungibile per il repository PowerCLI. Per risolvere il problema, provare a installare PowerCLI manualmente nella macchina virtuale dell'agente di raccolta usando il passaggio seguente:
+L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione nel dispositivo. L'errore di installazione di PowerCLI potrebbe essere a causa di un endpoint non raggiungibile per il repository PowerCLI. Per risolvere il problema, provare a installare PowerCLI manualmente nella macchina virtuale dell'agente di raccolta usando il passaggio seguente:
 
 1. Aprire Windows PowerShell in modalità amministratore.
 2. Andare alla directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
@@ -286,7 +286,7 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 | 751       | UnableToConnectToServer        | Non è possibile connettersi al server vCenter "%Name;" a causa dell'errore: %ErrorMessage;     | Per altre informazioni, controllare il messaggio di errore.                                                             | Risolvere il problema e riprovare.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Il server "%Name;" non è un server vCenter.                                  | Specificare i dettagli del server vCenter.                                                                       | Ritentare l'operazione con i dettagli del server vCenter corretti.                                                                                   |
 | 753       | InvalidLoginCredentials        | Non è possibile connettersi al server vCenter "%Name;" a causa dell'errore: %ErrorMessage; | La connessione al server vCenter non è riuscita a causa delle credenziali di accesso non valide.                             | Verificare che le credenziali di accesso specificate siano corrette.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Non sono disponibili dati sulle prestazioni.                                               | Controllare il livello di statistiche nel server vCenter. Perché i dati sulle prestazioni siano disponibili, questo deve essere impostato su 3. | Modificare il livello di statistiche a 3 (per una durata di 5 minuti, 30 minuti e 2 ore) e riprovare dopo avere atteso almeno un giorno.                   |
+| 754       | NoPerfDataAvailable           | Non sono disponibili dati sulle prestazioni.                                               | Controllare il livello di statistiche nel server vCenter. Perché i dati sulle prestazioni siano disponibili, questo deve essere impostato su 3. | Modificare il livello di statistiche a 3 (per una durata di 5 minuti, 30 minuti e 2 ore) e riprovare dopo avere atteso almeno un giorno.                   |
 | 756       | NullInstanceUUID               | È stato rilevato un computer con valore InstanceUUID null                                  | Il server vCenter può presentare un oggetto non idoneo.                                                      | Risolvere il problema e riprovare.                                                                                                           |
 | 757       | VMNotFound                     | Impossibile trovare la macchina virtuale                                                  | La macchina virtuale potrebbe essere stata eliminata: %VMID;                                                                | Verificare che le macchine virtuali selezionate nella definizione dell'ambito dell'inventario vCenter esistano durante l'individuazione                                      |
 | 758       | GetPerfDataTimeout             | Timeout della richiesta vCenter. Messaggio %Message;                                  | Le credenziali del server vCenter non sono corrette                                                              | Controllare le credenziali del server vCenter e assicurarsi che questo sia raggiungibile. Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico. |

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: d1161480bfd7a4cfeeb81f02234586a515fdffed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fde32bd3929099a3a5b8baa8b03b898a6afbca26
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -207,7 +207,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     f. Fare clic su **UPDATE** (AGGIORNA).
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -287,7 +287,7 @@ Quando si fa clic sul riquadro iQualify LMS nel pannello di accesso, dovrebbe ve
 
 Fare clic sul pulsante **Sign in with Azure AD** (Accedi con Azure AD) e si dovrebbe accedere automaticamente all'applicazione iQualify LMS.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

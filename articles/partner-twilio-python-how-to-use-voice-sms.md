@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994166"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447361"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Come usare Twilio per le funzionalità voce ed SMS in Python
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -89,7 +89,7 @@ In primo luogo, [configurare una nuova macchina virtuale Linux in Azure][azure_v
 
 ### <a name="set-the-dns-name-label"></a>Impostare l'etichetta del nome DNS
   1. Passare alla pagina [Indirizzi IP pubblici][azure_ips].
-  2. Selezionare l'indirizzo IP corrispondente alla macchina virtuale.
+  2. Selezionare l'indirizzo IP pubblico corrispondente alla macchina virtuale.
   3. Impostare **Etichetta del nome DNS** nella sezione **Configurazione**. Nel caso di questo esempio, verrà visualizzata una dicitura simile a *etichetta-dominio*.centralus.cloudapp.azure.com.
 
 Quando si è in grado di connettersi alla macchina virtuale tramite SSH, è possibile installare il framework Web scelto. In Python i due framework più noti sono [Flask](http://flask.pocoo.org/) e [Django](https://www.djangoproject.com). Per installarne uno è sufficiente eseguire il comando `pip install`.

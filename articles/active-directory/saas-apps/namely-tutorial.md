@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Namely | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Namely | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Namely.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 344de0d5f09d33146fd5065a7dc723038b492273
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b76dfa7d16da487798281f5f31b9915ca9716ebc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445104"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
 
@@ -137,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_06.png) 
 
-1. Fare clic sulla scheda **Impostazioni** .
+1. Fare clic sulla scheda **Impostazioni**.
    
     ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_07.png) 
 
@@ -158,7 +158,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     d. Fare clic su **Save**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

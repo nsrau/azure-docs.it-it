@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114497"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 
 Questa esercitazione descrive come integrare Salesforce Sandbox con Azure Active Directory (Azure AD).
 
 Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce.
-Per altre informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Per altre informazioni, vedere una  [panoramica di Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 L'integrazione di Salesforce Sandbox con Azure AD offre i vantaggi seguenti:
 
@@ -111,7 +111,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
       ![Collegamento Configura accesso Single Sign-On](./media/salesforce-sandbox-tutorial/tutorial_general_300.png)
 
-3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![Collegamento Configura accesso Single Sign-On](./media/salesforce-sandbox-tutorial/tutorial_general_301.png)
 
@@ -244,7 +244,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Creare un utente di Azure AD][100]
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330674"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413686"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
@@ -33,7 +33,7 @@ Ogni richiesta all'API REST del riconoscimento vocale o della sintesi vocale ric
 
 | Intestazione dell'autorizzazione supportata | Riconoscimento vocale | Sintesi vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Yes | No  |
+| Ocp-Apim-Subscription-Key | Yes | No |
 | Authorization: Bearer | Yes | Yes |
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio: 
@@ -258,7 +258,7 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
@@ -268,7 +268,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| DESCRIZIONE | Obbligatoria / Facoltativa |
+|Intestazione| Descrizione | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
@@ -307,7 +307,7 @@ Expect: 100-continue
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
@@ -362,7 +362,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
-| Parametro | DESCRIZIONE  |
+| Parametro | Descrizione  |
 |-----------|--------------|
 |`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
 |`DisplayText`|Il testo riconosciuto dopo maiuscole/minuscole, punteggiatura, normalizzazione del testo inversa (conversione del testo parlato in forme più brevi, ad esempio 200 per "duecento" o "Dr. Rossi" per "Dottor Rossi") e la maschera per le espressioni volgari. Presente solo con esito positivo.|
@@ -371,7 +371,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Status | DESCRIZIONE |
+| Stato | Descrizione |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -386,7 +386,7 @@ Il formato `detailed` include gli stessi dati del formato `simple`, insieme a `N
 
 Ogni oggetto nell'elenco `NBest` include:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |-----------|-------------|
 | `Confidence` | Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa) |
 | `Lexical` | Il formato lessicale del testo riconosciuto: le parole effettive riconosciute. |
@@ -444,7 +444,7 @@ L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali s
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-| Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per ulteriori informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
 | `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
@@ -453,16 +453,17 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 ### <a name="audio-outputs"></a>Output audio
 
-Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. Il servizio Voce supporta output audio a 24 e 16 KHz.
+Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. Il servizio Voce supporta output audio a 24, 16 e 8 kHz.
 
 |||
 |-|-|
 | `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
-| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
-| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
-| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
-| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
+| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
+| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
+| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
+| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
+| `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
 > Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci a 24 kHz non supportano i formati di output `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
@@ -497,7 +498,7 @@ Authorization: Bearer [Base64 access_token]
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |

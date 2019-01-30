@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, gestione di AD FS, AAD Connect, Connect, accesso, persona
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244458"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463899"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -76,7 +76,7 @@ Il nome dell’entità utente locale e il nome dell'entità utente cloud devono 
 ![Selezione dell’attributo ID alternativo](./media/how-to-connect-fed-management/attributeselection.png)
 
 La configurazione dell’ID di accesso alternativo per AD FS consiste in due passaggi principali:
-1. **Configurare il set corretto di attestazioni di rilascio**: le regole di attestazione di rilascio nel trust della relying party di Azure AD vengono modificate per usare l’attributo UserPrincipalName selezionato come ID alternativo dell'utente.
+1. **Configurare il set corretto di attestazioni di rilascio**: le regole di attestazione di rilascio nel trust della relying party di Azure AD vengono modificate per usare l'attributo UserPrincipalName selezionato come ID alternativo dell'utente.
 2. **Abilitare l'ID di accesso alternativo nella configurazione di AD FS**: la configurazione di AD FS viene aggiornata in modo che AD FS possa cercare gli utenti delle foreste appropriate con un ID alternativo. Questa configurazione è supportata per AD FS in Windows Server 2012 R2 (con KB2919355) o versioni successive. Se i server AD FS sono 2012 R2, Azure AD Connect controlla la presenza della KB richiesta. Se la Knowledge Base non viene rilevata, un avviso verrà visualizzato al termine della configurazione, come illustrato di seguito:
 
     ![Avviso per KB mancante su 2012 R2](./media/how-to-connect-fed-management/kbwarning.png)

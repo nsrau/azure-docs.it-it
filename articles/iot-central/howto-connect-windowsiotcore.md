@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309451"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412569"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
 
@@ -57,7 +57,7 @@ Nell'applicazione Azure IoT Central aggiungere un dispositivo reale dal modello 
 
 ### <a name="what-youll-need"></a>Elementi necessari
 
-Per configurare un dispositivo fisico Windows 10 IoT Core, è necessario innanzitutto avere un dispositivo che esegue Windows 10 IoT Core. Informazioni su come configurare un dispositivo Windows 10 IoT Core sono disponibili [qui](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+Per configurare un dispositivo reale Windows 10 IoT Core, è necessario innanzitutto avere un dispositivo che esegue Windows 10 IoT Core. Informazioni su come configurare un dispositivo Windows 10 IoT Core sono disponibili [qui](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 È necessaria anche un'applicazione client in grado di comunicare con Azure IoT Central. È possibile compilare un'applicazione personalizzata con Azure SDK e distribuirla in un dispositivo con Visual Studio oppure è possibile scaricare un [esempio precompilato](https://developer.microsoft.com/windows/iot/samples) e semplicemente distribuirlo ed eseguirlo sul dispositivo. 
 

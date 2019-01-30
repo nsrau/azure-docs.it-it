@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7a02a7fb8043c63ce47f7f0c7dccf025ab5ab402
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118439"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421454"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Note sulla versione di Azure SQL Data Warehouse
 
@@ -23,6 +23,7 @@ Azure SQL Data Warehouse è un data warehouse aziendale basato sul cloud che sfr
 
 Fare clic sui collegamenti seguenti per altre informazioni sulle funzionalità nuove e migliorate previste nella versione più recente di Azure SQL Data Warehouse. Si dovrebbero ricevere questi aggiornamenti del servizio durante la pianificazione della manutenzione identificata.
 
+- [SQL Data Warehouse versione 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [Dicembre 2018](./release-notes-december-2018.md)
 - [Ottobre 2018](./release-notes-october-2018.md)
 - [Settembre 2018](./release-notes-september-2018.md)
@@ -39,9 +40,9 @@ Per verificare la versione applicata al data warehouse. Connettersi al data ware
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Output di esempio: ![Versione di SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Output di esempio: ![Versione di SQL Data Warehouse](./media/release-notes/dw-version.png)
 
-Usare la data identificata per verificare quale versione è stata applicata ad Azure SQL Data Warehouse. 
+Usare la versione identificata per verificare quale versione è stata applicata ad Azure SQL Data Warehouse. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

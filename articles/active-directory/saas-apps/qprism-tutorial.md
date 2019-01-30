@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420275"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Esercitazione: Integrazione di Azure Active Directory con QPrism
 
@@ -112,7 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com). 
 
-1. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+1. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
 
      ![Collegamento di download del certificato](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -156,7 +156,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-qprism-test-user"></a>Creare un utente test QPrism
 
-In questa sezione viene creato un utente di nome Britta Simon in QPrism. Collaborare con il [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com) per aggiungere gli utenti alla piattaforma QPrism. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in QPrism. Per aggiungere utenti alla piattaforma QPrism, collaborare con il [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -193,7 +193,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si seleziona il riquadro QPrism nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione QPrism.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

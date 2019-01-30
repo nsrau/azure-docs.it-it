@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b50e317fc8a94a5cd8ddd19dbe24d4f9125fedc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2fdad7df43310132684eae983eae2278629a9b63
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432994"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810194"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Esercitazione: Integrazione di Azure Active Directory con Fuze
 
@@ -48,7 +48,7 @@ Per configurare l'integrazione di Azure AD con Fuze, sono necessari gli elementi
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario

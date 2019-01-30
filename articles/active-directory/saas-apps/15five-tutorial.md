@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cc0d9122fd7335bc29c7f35c1163cb39d3481b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 13d3bc8c83ad921c781f067f53e9562965a6417a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054302"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Esercitazione: Integrazione di Azure Active Directory con 15Five
 
@@ -130,7 +130,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 6. Per configurare l'accesso Single Sign-On sul lato **15Five**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di 15Five](https://www.15five.com/contact/).
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -161,7 +161,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-15five-test-user"></a>Creazione di un utente di test di 15Five
 

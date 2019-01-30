@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 64cb7ea0-df6c-4963-84d8-6f435980e2de
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: b86a797fe092eccb097c6fbb34f1de7ee341c418
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 39d46b3fc4dfcc85d228019def0c26050d43b179
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055780"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Esercitazione: Integrazione di Azure Active Directory con ZIVVER
 
@@ -123,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 6. Per configurare l'accesso Single Sign-On sul lato **ZIVVER**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di ZIVVER](https://support.zivver.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -155,7 +155,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
   
 ### <a name="create-a-zivver-test-user"></a>Creare un utente di test di ZIVVER
 
@@ -196,7 +196,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ZIVVER nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ZIVVER.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

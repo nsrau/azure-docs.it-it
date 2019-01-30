@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 655c9ad3-2076-4e2c-8e47-9ed3bf04be56
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c99be60301085dddfd5c658ee1eed81b88238e54
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cbc25218079f8e8529777dd8e169a2e689eabc6b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421592"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Esercitazione: Integrazione di Azure Active Directory con QuickHelp
 

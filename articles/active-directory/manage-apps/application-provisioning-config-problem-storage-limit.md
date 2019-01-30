@@ -4,7 +4,7 @@ description: Come risolvere i problemi comuni riscontrati durante la configurazi
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: fe96ecc0ba6904819f0262a2f470e37203a7952e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355790"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813373"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory 
 
@@ -30,7 +30,7 @@ Quando si usa il portale di Azure per configurare il [provisioning utenti automa
 
 Se per la stessa applicazione viene configurato anche l'accesso Single Sign-On basato su SAML, la causa più probabile di questo errore è il superamento del limite di archiviazione interno per applicazione di Azure AD per i certificati e le credenziali.
 
-Azure AD dispone attualmente di una capacità di archiviazione massima pari a un kilobyte per tutti i certificati, token segreti, credenziali e dati di configurazione correlati associati a una singola istanza di un'applicazione (definita anche record entità servizio in Azure AD).
+Azure AD dispone attualmente di una capacità di archiviazione massima pari a 1024 byte per tutti i certificati, token segreti, credenziali e dati di configurazione correlati associati a una singola istanza di un'applicazione (definita anche record entità servizio in Azure AD).
 
 Quando si configura l'accesso Single Sign-On basato su SAML, il certificato usato per firmare i token SAML viene archiviato qui e spesso usa oltre il 50% dello spazio.
 

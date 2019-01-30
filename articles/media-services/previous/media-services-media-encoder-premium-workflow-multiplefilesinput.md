@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812064"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
 ## <a name="overview"></a>Panoramica

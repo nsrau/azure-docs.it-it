@@ -4,7 +4,7 @@ description: Informazioni su come assegnare i ruoli di Azure al gruppo di ammini
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 97e20d4c6695001148aa2d97d74288e27c537e46
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105407"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450474"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 

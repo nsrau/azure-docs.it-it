@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869364"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447208"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Panoramica di Azure Cloud Shell
 Azure Cloud Shell è una shell interattiva accessibile dal browser per la gestione delle risorse di Azure.
@@ -57,11 +57,16 @@ Cloud Shell offre un editor di testo con interfaccia grafica integrata basato su
 
 [Altre informazioni sull'editor Cloud Shell](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>Integrato con docs.microsoft.com
+
+È possibile usare Cloud Shell direttamente dalla documentazione ospitata in [docs.microsoft.com](https://docs.microsoft.com). È integrato nella documentazione di [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e [dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure) - Fare clic sul pulsante "Prova" in un frammento di codice per aprire l'esperienza immersiva di shell. 
+
 ### <a name="multiple-access-points"></a>Più punti di accesso
 Cloud Shell è uno strumento flessibile che può essere usato da:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentazione "Prova" dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+* [Documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [App per dispositivi mobili di Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Estensione Azure Account per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

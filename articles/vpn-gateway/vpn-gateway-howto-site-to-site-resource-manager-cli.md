@@ -1,5 +1,5 @@
 ---
-title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: interfaccia della riga di comando | Microsoft Docs'
+title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: Interfaccia della riga di comando | Microsoft Docs'
 description: Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando l'interfaccia della riga di comando.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 73bf57721f670c06042b9b7a00f53126a6d1b145
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957072"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412122"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando
 
@@ -49,21 +49,21 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 ```
 #Example values
 
-VnetName                = TestVNet1 
-ResourceGroup           = TestRG1 
-Location                = eastus 
-AddressSpace            = 10.11.0.0/16 
-SubnetName              = Subnet1 
-Subnet                  = 10.11.0.0/24 
-GatewaySubnet           = 10.11.255.0/27 
-LocalNetworkGatewayName = Site2 
+VnetName                = TestVNet1 
+ResourceGroup           = TestRG1 
+Location                = eastus 
+AddressSpace            = 10.11.0.0/16 
+SubnetName              = Subnet1 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
+LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
-LocalAddrPrefix2        = 20.0.0.0/24   
-GatewayName             = VNet1GW 
-PublicIP                = VNet1GWIP 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+LocalAddrPrefix2        = 20.0.0.0/24   
+GatewayName             = VNet1GW 
+PublicIP                = VNet1GWIP 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
@@ -83,7 +83,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Crea rete virtuale
 
-Se non si ha già una rete virtuale, crearne una usando il comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
+Se non si ha già una rete virtuale, crearne una usando il comando [az network vnet create](/cli/azure/network/vnet). Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
 
 >[!NOTE]
 >Per consentire a questa rete virtuale di connettersi a una posizione locale, è necessario coordinarsi con l'amministratore di rete locale per definire un intervallo di indirizzi IP da usare in modo specifico per questa rete virtuale. Se su entrambi i lati della connessione VPN è presente un intervallo di indirizzi duplicato, il traffico non viene indirizzato nel modo previsto. Se inoltre si vuole connettere questa rete virtuale a un'altra rete virtuale, lo spazio degli indirizzi non può sovrapporsi a un'altra rete virtuale. Pianificare quindi con attenzione la configurazione della rete.
@@ -118,7 +118,7 @@ Usare i valori seguenti:
 * *--gateway-ip-address* è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
 * *--local-address-prefixes* sono gli spazi di indirizzi locali.
 
-Usare il comando [az network local-gateway create](/cli/azure/network/local-gateway#az_network_local_gateway_create) per aggiungere un gateway di rete locale con più prefissi degli indirizzi:
+Usare il comando [az network local-gateway create](/cli/azure/network/local-gateway) per aggiungere un gateway di rete locale con più prefissi degli indirizzi:
 
 ```azurecli-interactive
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -147,7 +147,7 @@ Usare i valori seguenti:
 Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create). Se si esegue questo comando usando il parametro '--no-wait', non viene visualizzato alcun output o commento. Questo parametro consente la creazione in background del gateway. La creazione di un gateway richiede circa 45 minuti.
 
 ```azurecli-interactive
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Configurare il dispositivo VPN

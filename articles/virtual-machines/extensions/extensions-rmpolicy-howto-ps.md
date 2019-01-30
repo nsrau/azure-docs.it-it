@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451834"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434990"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 
 Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Windows, è possibile creare criteri di Azure tramite PowerShell per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
 
-Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
-Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il comando seguente avrà esito negativo e presenterà il messaggio "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy." (Set-AzureRmVMAccessExtension : la risorsa "myVMAccess" non è stata autorizzata dai criteri.)
+Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il comando seguente avrà esito negativo e presenterà il messaggio "Set-AzureRmVMAccessExtension: Resource 'myVMAccess' was disallowed by policy." (Set-AzureRmVMAccessExtension: la risorsa "myVMAccess" non è stata autorizzata dai criteri.)
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

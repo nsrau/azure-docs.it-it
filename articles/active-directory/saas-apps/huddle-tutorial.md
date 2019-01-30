@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d9d145aa5da636574426f1ff4ad978eb857ab252
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885904"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Esercitazione: Integrazione di Azure Active Directory con Huddle
 
@@ -105,11 +105,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_300.png)
 
-3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_301.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_302.png)
 
@@ -169,7 +169,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Creare un utente di Azure AD][100]
 

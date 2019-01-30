@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867581"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413703"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
-La personalizzazione della voce di Sintesi vocale consente di creare una voce distintiva e unica per il proprio marchio, ovvero un *carattere voce*. 
+La personalizzazione della voce di Sintesi vocale consente di creare una voce distintiva e unica per il proprio marchio, ovvero un *carattere voce*.
 
-Per creare un carattere voce, effettuare una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile usare questo carattere voce per la sintesi vocale. 
+Per creare un carattere voce, effettuare una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile usare questo carattere voce per la sintesi vocale.
 
 È possibile iniziare con una piccola quantità di dati per un modello di verifica. Tuttavia, più dati si forniscono, più naturale e professionale risulterà la voce.
 
@@ -49,7 +49,7 @@ Un set di dati di training vocale è costituito da file audio, insieme a un file
 
 È possibile preparare questi file in due modi. Scrivere uno script e farlo leggere a uno speaker oppure usare audio disponibili pubblicamente e trascriverli in testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
 
-Per produrre un carattere voce ottimale, eseguire le registrazioni in un ambiente silenzioso con un microfono di alta qualità. Volume uniforme, velocità, tono e manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. 
+Per produrre un carattere voce ottimale, eseguire le registrazioni in un ambiente silenzioso con un microfono di alta qualità. Volume uniforme, velocità, tono e manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità.
 
 Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altre informazioni, vedere [Come registrare esempi vocali per una voce personalizzata](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ Dopo aver preparato l'archivio dei file audio e le trascrizioni, caricarli trami
 
     Verrà visualizzata la tabella **Voce personale**. Se la tabella è vuota, non è stato ancora caricato alcun set di dati vocali.
 
-3. Selezionare **Importa dati** per aprire la pagina per il caricamento di un nuovo set di dati. 
+3. Selezionare **Importa dati** per aprire la pagina per il caricamento di un nuovo set di dati.
 
     ![Importare i dati vocali](media/custom-voice/import-voice-data.png)
 
-4. Immettere il nome e la descrizione negli appositi campi. 
+4. Immettere il nome e la descrizione negli appositi campi.
 
-5. Selezionare le impostazioni locali per i caratteri voce. Verificare che le informazioni sulle impostazioni locali corrispondano alla lingua dei dati delle registrazioni e degli script. 
+5. Selezionare le impostazioni locali per i caratteri voce. Verificare che le informazioni sulle impostazioni locali corrispondano alla lingua dei dati delle registrazioni e degli script.
 
 6. Selezionare il sesso dello speaker di cui è stata usata la voce.
 
-7. Selezionare lo script e i file audio da caricare. 
+7. Selezionare lo script e i file audio da caricare.
 
 8. Selezionare **Importa** per caricare i dati. Per i set di dati di grandi dimensioni, l'importazione potrebbe richiedere alcuni minuti.
 
 > [!NOTE]
 > Gli utenti con una sottoscrizione gratuita possono caricare due set di dati alla volta. Gli utenti con una sottoscrizione standard possono caricare cinque set di dati contemporaneamente. Se si raggiunge il limite, attendere che l'importazione di almeno un set di dati venga completata. Quindi riprovare.
 
-Una volta completato il caricamento, verrà visualizzata nuovamente la tabella **Dati vocali personali**. Verrà visualizzata una voce che corrisponde al set di dati appena caricato. 
+Una volta completato il caricamento, verrà visualizzata nuovamente la tabella **Dati vocali personali**. Verrà visualizzata una voce che corrisponde al set di dati appena caricato.
 
 I set di dati vengono convalidati automaticamente dopo il caricamento. La convalida dei dati include una serie di controlli sui file audio per verificare il formato dei file, le dimensioni e la frequenza di campionamento. I controlli sui file di trascrizione verificano il formato dei file ed eseguono alcune operazioni di normalizzazione del testo. Le espressioni sono trascritte usando il riconoscimento vocale. Il testo risultante viene quindi confrontato con la trascrizione specificata.
 
 ![Dati vocali personali](media/custom-voice/my-voice-data.png)
 
-Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati: 
+Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati:
 
 | Stato | Significato
 | ----- | -------
@@ -143,19 +143,19 @@ Valutare se ripetere la registrazione di qualsiasi espressione con punteggi di p
 
 ## <a name="build-your-voice-font"></a>Creare il carattere voce
 
-Al termine della convalida del set di dati, è possibile usarlo per creare il carattere voce personalizzato. 
+Al termine della convalida del set di dati, è possibile usarlo per creare il carattere voce personalizzato.
 
 1.  Scegliere **Modelli** dal menu a discesa **Voce personalizzata**.
- 
+
     Verrà visualizzata la tabella **Caratteri voce personali** con l'elenco di tutti i caratteri voce personalizzati che sono già stati creati.
 
-1. Selezionare **Crea voci** sotto il titolo della tabella. 
+1. Selezionare **Crea voci** sotto il titolo della tabella.
 
     Verrà visualizzata la pagina per la creazione di un carattere voce. Le impostazioni locali correnti sono visualizzate nella prima riga della tabella. Modificare le impostazioni locali per creare una voce in un'altra lingua. Le impostazioni locali devono corrispondere a quelle dei set di dati usati per creare la voce.
 
-1. Come durante il caricamento del set di dati, immettere un nome e una descrizione per identificare il modello. 
+1. Come durante il caricamento del set di dati, immettere un nome e una descrizione per identificare il modello.
 
-    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, come '-', '_', e '(', ')'.
+    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, come `-`, `_` e `(', ')`.
 
     Il campo **Descrizione** generalmente viene usato per registrare i nomi dei set di dati usati per creare il modello.
 
@@ -167,7 +167,7 @@ Al termine della convalida del set di dati, è possibile usarlo per creare il ca
 
     ![Creare il modello](media/custom-voice/create-model.png)
 
-Il nuovo modello verrà visualizzato nella tabella **Caratteri voce personali**. 
+Il nuovo modello verrà visualizzato nella tabella **Caratteri voce personali**.
 
 ![Caratteri voce personali](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ Quando lo stato della distribuzione è **Succeeded**(Completato), l'endpoint del
 
 Il test online dell'endpoint è anche disponibile tramite il portale per la voce personalizzata. Per testare l'endpoint, scegliere **Test endpoint** dal menu a discesa **Voce personalizzata**. Viene visualizzata la pagina di test degli endpoint. Scegliere una voce personalizzata distribuita, quindi immettere il testo da leggere (come testo normale o in formato SSML) nella casella di testo.
 
-> [!NOTE] 
+> [!NOTE]
 > Quando si usa il formato SSML, il tag `<voice>` deve specificare il nome assegnato alla voce personalizzata al momento della creazione. Se si invia testo normale, viene usata sempre la voce personalizzata.
 
 Selezionare **Riproduci** per ascoltare il testo pronunciato con il carattere voce personalizzato.
@@ -223,10 +223,18 @@ Dal punto di vista funzionale, l'endpoint personalizzato è identico all'endpoin
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US), il cinese (zh-CN) e l'italiano (it-IT).
+La personalizzazione della voce è disponibile nelle lingue seguenti:
+
+| Linguaggio | Impostazioni locali |
+|----------|--------|
+| Cinese (Terraferma) | zh-CN |
+| Inglese (Stati Uniti) | en-US |
+| Francese | fr-FR |
+| Tedesco | de-DE |
+| Italiano | it-IT |
 
 > [!NOTE]
-> Il training per la voce in italiano inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati di oltre 2000 espressioni.
+> Il training per la voce in francese, tedesco e italiano inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati di oltre 2000 espressioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

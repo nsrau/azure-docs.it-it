@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 706a2f8c7389daa6dcfaa95fe5118f509ee0d1f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600591"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812251"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -37,7 +37,7 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 
 Dopo avere inizialmente selezionato il numero di vCore, è possibile aumentare o diminuire dinamicamente le dimensioni di un database singolo in base all'effettiva esperienza tramite il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-La modifica del livello di servizio e/o della dimensione di calcolo crea una replica del database originale alla nuova dimensione di calcolo, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Il tempo impiegato per il passaggio è variabile, ma è in genere inferiore a 4 secondi e nel 99% dei casi è inferiore a 30 secondi. Se quando le connessioni vengono disabilitate è in elaborazione un elevato numero di transazioni, il tempo impiegato potrebbe essere superiore.
+La modifica del livello di servizio e/o della dimensione di calcolo crea una replica del database originale alla nuova dimensione di calcolo, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Il tempo impiegato per il passaggio è variabile, ma è in genere inferiore a 30 secondi nel 99% dei casi. Se quando le connessioni vengono disabilitate è in elaborazione un elevato numero di transazioni, il tempo impiegato potrebbe essere superiore.
 
 La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, la modifica di un database di 250 GB al, dal o all'interno del livello di servizio per utilizzo generico deve essere completata in sei ore. Per un database delle stesse dimensioni che cambia dimensioni di calcolo all'interno del livello di servizio business critical, l'aumento delle dimensioni dovrebbe essere completato in tre ore.
 

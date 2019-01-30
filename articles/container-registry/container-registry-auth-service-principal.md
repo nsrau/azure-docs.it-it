@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754204"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390915"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
@@ -47,12 +47,10 @@ Gli script di esempio precedenti per l'interfaccia della riga di comando di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver garantito a un'entità servizio l'accesso al registro contenitori, è possibile usare le credenziali nelle applicazioni e nei servizi per l'interazione con il registro.
+Dopo aver garantito a un'entità servizio l'accesso al registro contenitori, è possibile usare le credenziali nelle applicazioni e nei servizi per l'interazione headless con il registro. È possibile usare le credenziali dell'entità servizio di qualsiasi servizio di Azure che può eseguire l'autenticazione con un Registro Azure Container. Tra gli esempi sono inclusi:
 
-La configurazione delle singole applicazioni per l'utilizzo delle credenziali dell'entità servizio non rientra nell'ambito di questo articolo, tuttavia qui è possibile trovare istruzioni per determinati servizi e piattaforme:
-
-* [Eseguire l'autenticazione con Registro contenitori di Azure da Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
-* [Eseguire l'autenticazione con Registro contenitori di Azure dalle istanze di contenitore di Azure](container-registry-auth-aci.md)
+* [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](container-registry-auth-aks.md)
+* [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry

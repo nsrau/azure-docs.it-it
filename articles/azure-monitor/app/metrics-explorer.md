@@ -10,17 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/08/2017
+ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817118"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Esaminare le metriche in Application Insights
 Le metriche in [Application Insights][start] sono valori e conteggi di eventi misurati, inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
+
+> [!NOTE]
+> Questo articolo descrive l'esperienza di Esplora metriche classica, che è attualmente deprecata e verrà infine ritirata. È consigliabile provare la nuova esperienza, descritta in [questo articolo](../platform/metrics-charts.md).
 
 Il conteggio delle metriche e degli eventi viene visualizzato nei grafici dei valori aggregati, ad esempio somme, medie o conteggi.
 

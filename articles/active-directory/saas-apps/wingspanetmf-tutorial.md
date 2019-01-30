@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ace320d3-521c-449c-992f-feabe7538de7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d27d2c6a6c6bae2ebd13f78da308f32275993ec5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1573b7259134037a8e573c6a01588ad782505ea3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Esercitazione: Integrazione di Azure Active Directory con Wingspan eTMF
 
@@ -132,7 +132,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 1. Per configurare l'accesso Single Sign-On sul lato **Wingspan eTMF**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Wingspan eTMF](http://www.wingspan.com/contact-us/). L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -168,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-wingspan-etmf-test-user"></a>Creazione di un utente test di Wingspan eTMF
 
-In questa sezione si crea un utente di nome Britta Simon in Wingspan eTMF. Collaborare con il [supporto di Wingspan eTMF](http://www.wingspan.com/contact-us/) per aggiungere gli utenti nell'applicazione Wingspan eTMF. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome Britta Simon in Wingspan eTMF. Per aggiungere utenti all'applicazione Wingspan eTMF, collaborare con il  [supporto di Wingspan eTMF](http://www.wingspan.com/contact-us/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -204,7 +204,7 @@ In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. 
 
-Fare clic sul riquadro Wingspan eTMF nel pannello di accesso e si verrà reindirizzati alla pagina di accesso dell'organizzazione. Dopo aver eseguito l'accesso, si verrà registrati nell'applicazione Wingspan eTMF. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Fare clic sul riquadro Wingspan eTMF nel pannello di accesso e si verrà reindirizzati alla pagina di accesso dell'organizzazione. Dopo aver eseguito l'accesso, si verrà registrati nell'applicazione Wingspan eTMF. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

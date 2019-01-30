@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 228bcc2e43337876b211158f70fe1136de494c85
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e8125fb60256e403b31fd896f9eabda37bfd5507
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041229"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Esercitazione: Integrazione di Azure Active Directory con Reflektive
 
@@ -136,7 +136,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 7. Per configurare l'accesso Single Sign-On sul lato **Reflektive**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Reflektive](https://support@reflektive.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -168,11 +168,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-reflektive-test-user"></a>Creare un utente di test di Reflektive
 
-In questa sezione viene creato un utente chiamato Britta Simon in Reflektive. Collaborare con il [team di supporto di Reflektive](mailto:support@reflektive.com) per aggiungere gli utenti alla piattaforma Reflektive. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in Reflektive. Per aggiungere utenti alla piattaforma Reflektive, collaborare con il  [team di supporto di Reflektive](mailto:support@reflektive.com) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -209,7 +209,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Reflektive nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Reflektive.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

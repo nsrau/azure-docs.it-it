@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 45c77aa63159a8e62f65c0e250c0ace95b0d344e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741828"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429906"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la protezione password di Azure AD per Windows Server Active Directory
+# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
 |     |
 | --- |
-| La protezione password e l'elenco personalizzato di password escluse di Azure AD sono funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La password di protezione e l'elenco personalizzato di password escluse di Azure AD sono le funzioni in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 La protezione password di Azure AD è una nuova funzionalità in anteprima pubblica basata su Azure Active Directory (Azure AD) volta a migliorare i criteri password in un'organizzazione. La distribuzione locale della protezione password di Azure AD usa l'elenco globale e l'elenco personalizzato di password escluse archiviati in Azure AD ed esegue in locale gli stessi controlli svolti per le modifiche basate sul cloud di Azure AD.

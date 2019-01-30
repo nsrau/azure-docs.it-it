@@ -1,17 +1,17 @@
 ---
-title: TitleSuffix delle reti neurali Net#: Descrizione di Azure Machine Learning Studio: Sintassi del linguaggio per la specifica Net# delle reti neurali ed esempi per la creazione di un modello di rete neurale personalizzato usando Net# con Azure Machine Learning Studio.
+title: Creare reti neurali personalizzate con Net#titleSuffix: Descrizione di Azure Machine Learning Studio: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
 
-Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali. L'uso di Net# per definire la struttura di una rete neurale rende possibile la definizione di strutture complesse quali reti neurali profonde o convoluzioni di dimensioni arbitrarie, che notoriamente migliorano l'apprendimento relativo a dati quali immagini, audio e video.
+NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 
 È possibile usare una specifica di architettura Net# nei contesti seguenti:
 
 + Tutti i moduli di reti neurali in Microsoft Azure Machine Learning Studio: [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network) (Rete neurale multiclasse), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) (Rete neurale a due classi) e [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression) (Regressione rete neurale)
-+ Funzioni per reti neurali in MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) per il linguaggio R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
++ Funzioni per reti neurali in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) per il linguaggio R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
 
 
 Questo articolo descrive i concetti di base e la sintassi per lo sviluppo di una rete neurale personalizzata con Net#: 
@@ -28,15 +28,15 @@ Una struttura di rete neurale è composta da nodi organizzati in livelli e conne
 
 Ogni livello di cui è possibile eseguire il training (livello nascosto o di output) ha una o più **aggregazioni di connessioni**. Un'aggregazione di connessioni è costituita da un livello di origine e da una specifica delle connessioni provenienti da quel livello di origine. Tutte le connessioni in una determinata aggregazione condividono lo stesso livello di origine e lo stesso livello di destinazione. In Net# un'aggregazione di connessioni è considerata come appartenente al livello di destinazione dell'aggregazione.
 
-Net# supporta diversi tipi di aggregazioni di connessioni, permettendo quindi di personalizzare il modo in cui gli input sono mappati per i livelli nascosti e agli output.
+Net# supporta diversi tipi di aggregazioni di connessioni, permettendo quindi di personalizzare il modo in cui gli input sono mappati ai livelli nascosti e agli output.
 
 L'aggregazione predefinita o standard è un'**aggregazione completa**, in cui ogni nodo del livello di origine è connesso a tutti i nodi del livello di destinazione.
 
 Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanzate:
 
-+ **Aggregazioni filtrate**. L'utente può definire un predicato usando le posizioni del nodo di livelli di origine e del nodo di livelli di destinazione. I nodi vengono connessi se il predicato è True.
++ **Aggregazioni filtrate**. È possibile definire un predicato usando le posizioni del nodo del livello di origine e del nodo del livello di destinazione. I nodi vengono connessi se il predicato è True.
 
-+ **Aggregazioni convoluzionali**. L'utente può definire piccoli intorni di nodi nel livello di origine. Ogni nodo nel livello di destinazione è connesso a un intorno di nodi nel livello di origine.
++ **Aggregazioni convoluzionali**. È possibile definire piccoli gruppi di nodi vicini nel livello di origine. Ogni nodo nel livello di destinazione è connesso a un intorno di nodi nel livello di origine.
 
 + **Aggregazioni di pooling** e **aggregazioni di normalizzazione delle risposte**. Sono simili alle aggregazioni convoluzionali, in quanto l'utente definisce piccoli intorni di nodi nel livello di origine. La differenza è che i pesi dei bordi in questi pacchetti non sono addestrabili. Infatti, una funzione predefinita viene applicata ai valori del nodo di origine per determinare il valore del nodo di destinazione.
 
@@ -245,7 +245,7 @@ Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 
 ## <a name="response-normalization-bundles"></a>Aggregazioni di normalizzazione delle risposte
 
-La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton, et al, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde). 
+La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde). 
 
 La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Ciò avviene tramite tre parametri (`α`, `β` e `k`) e una struttura convoluzionale (o forma di vicinato). Ogni neurone nel livello di destinazione **y** corrisponde a un neurone **x** nel livello di origine. Il livello di attivazione di **y** è dato dalla formula seguente, dove `f` corrisponde al livello di attivazione di un neurone e `Nx` è il kernel o l'insieme contenente i neuroni nel vicinato di **x**, come definito dalla struttura convoluzionale seguente:  
 

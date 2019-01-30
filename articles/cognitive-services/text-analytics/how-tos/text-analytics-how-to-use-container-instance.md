@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248214"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464545"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 
@@ -38,7 +38,7 @@ Questa procedura richiede diversi strumenti che devono essere installati ed eseg
 
 Questa procedura carica ed esegue l'esempio di contenitore di Servizi cognitivi per il rilevamento della lingua. L'esempio include due contenitori, uno per l'applicazione client e uno per il contenitore di Servizi cognitivi. È necessario eseguire il push di entrambe le immagini nel proprio Registro Azure Container. Una volta che si trovano nel proprio registro, creare un servizio Azure Kubernetes per accedere a queste immagini ed eseguire i contenitori. Quando i contenitori sono in esecuzione, usare l'interfaccia della riga di comando di **kubectl** per osservare le prestazioni dei contenitori. Accedere all'applicazione client con una richiesta HTTP e visualizzare i risultati. 
 
-
+![Informazioni generali sull'esecuzione di contenitori di esempio](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>I contenitori di esempio
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-> [!div class="nextstepaction"]
-> [Usare il servizio connesso di Analisi del testo](../vs-text-connected-service.md)
+* Usare altri [contenitori di Servizi cognitivi](../../cognitive-services-container-support.md)
+* Usare il servizio connesso di Analisi del testo](../vs-text-connected-service.md)
 
 
 <!--

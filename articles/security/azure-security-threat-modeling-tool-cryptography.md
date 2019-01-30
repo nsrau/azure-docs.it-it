@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824627"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia | Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -29,7 +29,7 @@ ms.locfileid: "52844652"
 | **Dispositivo IoT** | <ul><li>[Archiviare le chiavi di crittografia in modo sicuro nel dispositivo IoT](#keys-iot)</li></ul> | 
 | **Gateway IoT cloud** | <ul><li>[Generare una chiave simmetrica casuale sufficientemente lunga per l'autenticazione nell'hub IoT](#random-hub)</li></ul> | 
 | **Client Dynamics CRM Mobile** | <ul><li>[Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede di usare il PIN e consente la cancellazione remota](#pin-remote)</li></ul> | 
-| **Client Dynamics CRM per Outlook** | <ul><li>[Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, Bitlocker)](#bitlocker)</li></ul> | 
+| **Client Dynamics CRM per Outlook** | <ul><li>[Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Assicurarsi che venga eseguito il rollover delle chiavi di firma quando si usa Identity Server](#rolled-server)</li><li>[Assicurarsi che vengano usati un ID client e un segreto client con crittografia complessa in Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Usare solo crittografie a blocchi simmetriche e lunghezze di chiave approvate
@@ -209,7 +209,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede di usare il PIN e consente la cancellazione remota. |
 
-## <a id="bitlocker"></a>Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, Bitlocker)
+## <a id="bitlocker"></a>Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, BitLocker)
 
 | Title                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, Bitlocker). |
+| **Passaggi** | Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, BitLocker) |
 
 ## <a id="rolled-server"></a>Assicurarsi che venga eseguito il rollover delle chiavi di firma quando si usa Identity Server
 

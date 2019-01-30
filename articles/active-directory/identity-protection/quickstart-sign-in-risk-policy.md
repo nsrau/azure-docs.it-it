@@ -5,7 +5,7 @@ services: active-directory
 keywords: identity protection, accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468489"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Avvio rapido: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection  
 

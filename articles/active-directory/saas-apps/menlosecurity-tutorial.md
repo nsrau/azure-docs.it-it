@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Menlo Security | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Menlo Security | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Menlo Security.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a1f7458d52ffdee4cb48e4be0f553e3d57413249
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 70b6693afe1a57e8acd62500d74f860dffc7c692
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428846"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Esercitazione: Integrazione di Azure Active Directory con Menlo Security
 
@@ -143,16 +143,16 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. In **SAML Provider** (Provider SAML), selezionare **Azure Active Directory**.
 
-    d. **SAML 2.0 Endpoint** (Endpoint SAML 2.): copiare l'**URL servizio Single Sign-On SAML** copiato dal portale di Azure.
+    d. **SAML 2.0 Endpoint** (Endpoint SAML 2.0): copiare l'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
 
-    e. **Service Identifier (Issuer)** (Identificatore servizio (Autorità emittente)): incollare l'**ID entità SAML** copiato dal portale di Azure.
+    e. **Service Identifier (Issuer)** (Identificatore servizio (autorità di certificazione)): Incollare l'**ID entità SAML** copiato dal portale di Azure.
 
-    f. **X.509 Certificate** (Certificato X.509): aprire il certificato **Certificate (Base64)** scaricato dal portale di Azure nel blocco note e copiarlo in questa casella.
+    f. **X.509 Certificate** (Certificato X.509): aprire il **Certificato (Base64)** scaricato dal portale di Azure in Blocco note e copiarlo in questa casella.
 
     g. Fare clic su **Salva** per salvare le impostazioni.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -188,7 +188,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-menlo-security-test-user"></a>Creazione di un utente test di Menlo Security
  
-In questa sezione viene creato un utente chiamato Britta Simon in Menlo Security. Collaborare con il [team di supporto clienti di Menlo Security](https://www.menlosecurity.com/menlo-contact) per aggiungere gli utenti alla piattaforma Menlo Security. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in Menlo Security. Per aggiungere utenti alla piattaforma Menlo Security, collaborare con il  [team di supporto clienti di Menlo Security](https://www.menlosecurity.com/menlo-contact). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

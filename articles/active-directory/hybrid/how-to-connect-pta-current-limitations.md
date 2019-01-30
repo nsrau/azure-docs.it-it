@@ -5,7 +5,7 @@ services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fabefcffdd7ee9a23d8989f897f30cbf027f42af
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d0816aebc033a0ac1c5b8a8f52106a586d20a9af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426411"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478281"
 ---
-# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
+# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory: Limitazioni correnti
 
 >[!IMPORTANT]
 >L'autenticazione pass-through di Azure Active Directory (Azure AD) è una funzionalità gratuita che può essere usata senza acquistare edizioni a pagamento. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello globale, non nel [cloud Microsoft Azure Germania](https://www.microsoft.de/cloud-deutschland) o nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
@@ -53,12 +53,12 @@ _Non_ sono supportati gli scenari seguenti:
 Abilitando questa funzionalità è possibile effettuare il failover dell'autenticazione se il funzionamento dell'infrastruttura locale è interrotto. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non avviene automaticamente. È necessario cambiare il metodo di accesso manualmente con Azure AD Connect. Se il server che esegue Azure AD Connect smette di funzionare, è necessario chiedere assistenza al supporto tecnico Microsoft per disattivare l'autenticazione pass-through.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Avvio rapido](how-to-connect-pta-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Avvio rapido](how-to-connect-pta-quick-start.md): come iniziare a usare l'autenticazione pass-through di Azure AD.
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://aka.ms/ADFSTOPTADPDownload): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
-- [Blocco smart](../authentication/howto-password-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
-- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
+- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): informazioni su come configurare la funzionalità di blocco intelligente nel tenant per proteggere gli account utente.
+- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): informazioni sul funzionamento dell'autenticazione pass-through.
 - [Domande frequenti](how-to-connect-pta-faq.md): trovare risposte alle domande frequenti sulla funzionalità di autenticazione pass-through.
-- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
-- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche approfondite sulla funzionalità di autenticazione pass-through.
-- [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+- [Risolvere i problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità Autenticazione pass-through.
+- [Seamless SSO di Azure AD](how-to-connect-sso.md): altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): come usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

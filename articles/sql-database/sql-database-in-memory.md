@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: d2602b79db0950043cc84bbd1626f7c8ec6f402a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813356"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 

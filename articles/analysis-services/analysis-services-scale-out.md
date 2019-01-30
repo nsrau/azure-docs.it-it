@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190834"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411680"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -107,7 +107,7 @@ Per SSMS ed SSDT, nonché per le stringhe di connessione in PowerShell, per le a
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 
-**Soluzione:** quando si seleziona l'opzione **Separare il server di elaborazione dal pool di query**, le connessioni client che usano la stringa di connessione predefinita (senza :rw) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Per evitare questo problema, scegliere di non separare il server di elaborazione dal pool di query fino al completamento di un'operazione di ridimensionamento orizzontale e sincronizzazione. È possibile usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
+**Soluzione:** quando si seleziona l'opzione **Separare il server di elaborazione dal pool di query**, le connessioni client che usano la stringa di connessione predefinita (senza :rw) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
 
 ## <a name="related-information"></a>Informazioni correlate
 

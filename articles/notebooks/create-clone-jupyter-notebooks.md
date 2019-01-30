@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164416"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844059"
 ---
 # <a name="create-and-clone-projects"></a>Creare e clonare progetti
 
@@ -30,7 +30,7 @@ Un progetto gestisce anche i metadati e altre impostazioni di configurazione rel
 
 Nel dashboard **My Projects** (Progetti personali) all'indirizzo `https://notebooks.azure.com/<userID>/projects` è possibile visualizzare, gestire e creare progetti:
 
-[![](media/my-projects-dashboard.png "Dashboard My Projects (Progetti personali) in Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![Dashboard My Projects (Progetti personali) in Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Le operazioni che è possibile eseguire in un dashboard variano a seconda che si sia eseguito o meno l'accesso con l'account proprietario dell'ID utente:
 
@@ -39,7 +39,7 @@ Le operazioni che è possibile eseguire in un dashboard variano a seconda che si
 | **Run** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
 | **Scaricare** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
 | **Share** (Condividi) | Chiunque | Visualizza la finestra popup di condivisione mediante la quale è possibile ottenere l'URL di un progetto, condividerlo sui social media, inviare un messaggio di posta elettronica con l'URL e ottenere il codice HTML o Markdown con un badge "notebook di avvio" (vedere [Ottenere un badge di avvio](#obtain-a-launch-badge)) con l'URL. |
-| **Eliminazione** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
+| **Elimina** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
 | **Terminale** | Proprietario | Avvia il server del progetto e quindi apre una nuova finestra del browser con il terminale Bash per il server. |
 | **+ New Project** (Nuovo progetto) | Proprietario | Crea un nuovo progetto. Vedere [Creare un nuovo progetto](#create-a-new-project). |
 | **Upload GitHub Repo** (Carica repository GitHub) | Proprietario | Importa un progetto da GitHub. [Importare un progetto da GitHub](#import-a-project-from-github). |

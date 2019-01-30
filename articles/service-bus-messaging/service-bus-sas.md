@@ -3,9 +3,9 @@ title: Controllo degli accessi del bus di servizio di Azure con firme di accesso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284915"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846337"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -96,13 +96,13 @@ Un token di firma di accesso condiviso è valido per tutte le risorse precedute 
 
 È consigliabile rigenerare periodicamente le chiavi usate nella regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . La presenza degli slot di chiave primaria e secondaria cha lo scopo di consentire di ruotare le chiavi gradualmente. Se l'applicazione usa in genere la chiave primaria, è possibile copiare la chiave primaria nello slot della chiave secondaria e solo allora rigenerare la chiave primaria. Il nuovo valore di chiave primaria può essere quindi configurato nelle applicazioni client, che possono accedere in modo continuativo usando la chiave primaria precedente nello slot secondario. Dopo che tutti i client sono stati aggiornati, è possibile rigenerare la chiave secondaria per ritirare infine la chiave primaria precedente.
 
-Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) per una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
+Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) per una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticazione della firma di accesso condiviso con il bus di servizio
 
 Gli scenari illustrati di seguito includono la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione dei client.
 
-Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all' [uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all'[uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 

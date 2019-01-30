@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313837"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410116"
 ---
 #   <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
 La competenza **Shaper** crea un tipo complesso per supportare i campi compositi (noti anche come campi a più parti). Un campo di tipo complesso è costituito da più parti ma viene considerato come un singolo elemento in un indice di Ricerca di Azure. Esempi di campi consolidati utili negli scenari di ricerca comprendono la possibilità di combinare, all'interno di un singolo campo, nome e cognome, città e stato o nome e data di nascita, per stabilire un'identità univoca.
 
-La competenza Shaper consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro.
+La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro.
 
-Per impostazione predefinita, questa tecnica supporta gli oggetti che sono a un livello di profondità. Per oggetti più complessi, è possibile concatenare diversi passaggi Shaper.
+Per impostazione predefinita, questa tecnica supporta gli oggetti che sono a un livello di profondità. Per oggetti più complessi, è possibile concatenare diversi passaggi **Shaper**.
 
-Nella risposta, il nome di output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText" negli esempi seguenti di "output", ma la stessa competenza Shaper restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
+Nella risposta, il nome di output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText" negli esempi seguenti di "output", ma la stessa competenza **Shaper** restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
+
+> [!NOTE]
+> Questa competenza non è associata a un'API Servizi cognitivi e non vengono addebitati costi in caso di utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Esempio 1: tipi complessi
 
-Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In Ricerca di Azure, i campo ricercabili a più parti vengono chiamati *tipi complessi* e non sono ancora supportati. In questa anteprima si può usare una competenza Shaper per generare campi di tipo complesso nell'indice. 
+Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In Ricerca di Azure, i campo ricercabili a più parti vengono chiamati *tipi complessi* e non sono ancora supportati. In questa anteprima si può usare una competenza **Shaper** per generare campi di tipo complesso nell'indice. 
 
 Nell'esempio seguente vengono forniti i nomi del membro come input. La struttura di output (il campo complesso in Ricerca di Azure) viene specificata tramite *targetName*. 
 
@@ -62,7 +65,7 @@ Nell'esempio seguente vengono forniti i nomi del membro come input. La struttura
 ```
 
 ### <a name="sample-input"></a>Input di esempio
-Un documento JSON che fornisce input utilizzabile per questa competenza Shaper può essere:
+Un documento JSON che fornisce input utilizzabile per la competenza **Shaper** può essere:
 
 ```json
 {
@@ -80,7 +83,7 @@ Un documento JSON che fornisce input utilizzabile per questa competenza Shaper p
 
 
 ### <a name="sample-output"></a>Output di esempio
-La competenza Shaper genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. 
+La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. 
 
 ```json
 {

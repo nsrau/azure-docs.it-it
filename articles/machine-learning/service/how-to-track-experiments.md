@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846286"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Tenere traccia di esperimenti e metriche di training in Azure Machine Learning
 
@@ -27,7 +27,7 @@ Nel servizio Azure Machine Learning è possibile tenere traccia degli esperiment
 
 Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training di un esperimento. Per visualizzare un elenco più dettagliato di cosa è possibile monitorare in un'esecuzione, vedere la [documentazione di riferimento della classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Funzione Python | Note|
+|type| Funzione Python | Note|
 |----|:----|:----|
 |Valori scalari |Funzione:<br>`run.log(name, value, description='')`<br><br>Esempio:<br>run.log("accuracy", 0.95) |Registrare un valore numerico o stringa per l'esecuzione con il nome specificato. La registrazione di una metrica per un'esecuzione fa sì che tale metrica venga archiviata nel record esecuzione nell'esperimento.  È possibile registrare la stessa metrica più volte all'interno di un'esecuzione. Il risultato verrà considerato un vettore di tale metrica.|
 |Elenchi|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
@@ -128,10 +128,10 @@ Lo script termina con ```run.complete()```, che contrassegna l'esecuzione come c
 
 Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esempio precedente. Esegue un semplice sweep di parametri su valori alfa del modello per acquisire le metriche e i modelli sottoposti a training nelle esecuzioni nell'ambito dell'esperimento. L'esempio viene eseguito localmente in un ambiente gestito dall'utente. 
 
-1. Creare uno script di training. Questo codice usa ```%%writefile%%``` per scrivere il codice di training nella cartella dello script come ```train.py```.
+1. Creare uno script di training `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -182,10 +182,11 @@ Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esemp
   
   ```
 
-2. Lo script ```train.py``` fa riferimento a ```mylib.py```. Questo file consente di ottenere l'elenco dei valori alfa da usare nel modello ridge.
+2. Lo script `train.py` fa riferimento a `mylib.py` che consente di ottenere l'elenco dei valori alfa da usare nel modello ridge.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -216,7 +217,31 @@ Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esemp
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## <a name="cancel-a-run"></a>Annullare un'esecuzione
+Dopo che viene inviata un'esecuzione, è possibile annullarla anche se è stato perso il riferimento all'oggetto, purché si conosca il nome dell'esperimento e l'ID esecuzione. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can only cancel a run if the status is Running
+if r.get_status() == 'Running':
+    r.cancel()
+```
+Si noti che attualmente solo i tipi ScriptRun e PipelineRun supportano l'operazione di annullamento.
+
 ## <a name="view-run-details"></a>Visualizzare i dettagli dell'esecuzione
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitorare l'esecuzione con i widget di Jupyter Notebook
@@ -294,7 +319,7 @@ Altre informazioni su:
 
 ### <a name="view-the-run-charts"></a>Visualizzare i grafici delle esecuzioni
 
-1. Passare all'area di lavoro. 
+1. Passa all'area di lavoro. 
 
 1. Selezionare **Esperimenti** nel pannello a sinistra dell'area di lavoro.
 
@@ -314,7 +339,7 @@ Altre informazioni su:
 
 
 
-### <a name="classification"></a>Classificazione
+### <a name="classification"></a>classificazione
 
 Per ogni modello di classificazione creato tramite le funzionalità di Machine Learning automatizzato in Azure Machine Learning, è possibile visualizzare i grafici seguenti: 
 + [Matrice di confusione](#confusion-matrix)
@@ -332,7 +357,7 @@ Per i problemi di classificazione, Azure Machine Learning offre automaticamente 
 
 Esempio 1: modello di classificazione con scarsa accuratezza ![modello di classificazione con scarsa accuratezza](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-Esempio 2: modello di classificazione con elevata accuratezza (ideale) ![modello di classificazione con elevata accuratezza](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Esempio 2 modello di classificazione con elevata accuratezza (ideale) ![modello di classificazione con elevata accuratezza](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>Grafico di precisione-recupero
@@ -343,7 +368,7 @@ Il termine "precisione" indica la capacità di un algoritmo di classificazione d
 
 Esempio 1: modello di classificazione con valori ridotti di precisione e recupero ![modello di classificazione con valori ridotti di precisione e recupero](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-Esempio 2: modello di classificazione con ~100% di precisione e ~100% di recupero (ideale) ![modello di classificazione con valori elevati di precisione e recupero](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Esempio 2 modello di classificazione con ~100% di precisione e ~100% di recupero (ideale) ![modello di classificazione con valori elevati di precisione e recupero](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
@@ -351,7 +376,7 @@ ROC (Receiver Operating Characteristics) è un tracciato che mette a confronto l
 
 Esempio 1: modello di classificazione con un numero ridotto di etichette vere e un numero elevato di etichette false ![modello di classificazione con un numero ridotto di etichette vere e un numero elevato di etichette false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-Esempio 2: modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false ![modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+Esempio 2 modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false ![modello di classificazione con un numero elevato di etichette vere e un numero ridotto di etichette false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>Curva di accuratezza
 
@@ -361,7 +386,7 @@ I grafici di accuratezza vengono usati per valutare le prestazioni di un modello
 
 Esempio 1: risultati del modello peggiori rispetto un modello di selezione casuale ![risultati del modello di classificazione peggiori rispetto un modello di selezione casuale](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
-Esempio 2: risultati del modello migliori rispetto un modello di selezione casuale ![risultati del modello di classificazione migliori](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+Esempio 2 risultati del modello migliori rispetto un modello di selezione casuale ![risultati del modello di classificazione migliori](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### <a name="gains-curve"></a>Curva del guadagno
 
@@ -371,7 +396,7 @@ L'uso del grafico del guadagno cumulativo consente di scegliere il limite di cla
 
 Esempio 1: modello di classificazione con guadagno minimo ![modello di classificazione con guadagno minimo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-Esempio 2: modello di classificazione con guadagno significativo ![modello di classificazione con guadagno significativo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Esempio 2 modello di classificazione con guadagno significativo ![modello di classificazione con guadagno significativo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>Tracciato di calibrazione
 
@@ -381,7 +406,7 @@ Un tracciato di calibrazione viene usato per visualizzare il grado di fiducia di
 
 Esempio 1: modello ben calibrato ![ modello ben calibrato](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Esempio 2: modello con eccessiva fiducia ![modello con eccessiva fiducia](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Esempio 2 modello con eccessiva fiducia ![modello con eccessiva fiducia](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>Regressione
 Per ogni modello di regressione creato tramite le funzionalità di Machine Learning automatizzato in Azure Machine Learning, è possibile visualizzare i grafici seguenti: 
@@ -390,7 +415,7 @@ Per ogni modello di regressione creato tramite le funzionalità di Machine Learn
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Valore stimato rispetto a valore vero
+#### <a name="predicted-vs-true"></a>Valore stimato rispetto a valore True 
 
 Questo grafico mostra la relazione tra un valore stimato e il valore vero correlato per un problema di regressione. Può essere usato per misurare le prestazioni di un modello poiché la vicinanza dei valori stimati alla linea y=x è direttamente proporzionale all'accuratezza di un modello predittivo.
 
@@ -398,7 +423,7 @@ Dopo ogni esecuzione, è possibile visualizzare un grafico del valore stimato ri
 
 Esempio 1: modello di regressione con accuratezza delle stime ridotta ![modello di regressione con accuratezza delle stime ridotta](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
-Esempio 2: modello di regressione con accuratezza delle stime elevata ![modello di regressione con accuratezza delle stime elevata](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+Esempio 2 modello di regressione con accuratezza delle stime elevata ![modello di regressione con accuratezza delle stime elevata](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
 
 <a name="histo"></a>
 
@@ -408,7 +433,7 @@ Un valore residuo rappresenta la differenza tra un valore y osservato e il valor
 
 Esempio 1: modello di regressione con distorsione negli errori ![modello di regressione con distorsione negli errori](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
-Esempio 2: modello di regressione con una distribuzione degli errori più uniforme![modello di regressione con una distribuzione degli errori più uniforme](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+Esempio 2 modello di regressione con una distribuzione degli errori più uniforme![modello di regressione con una distribuzione degli errori più uniforme](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>Spiegabilità del modello e importanza delle caratteristiche
 

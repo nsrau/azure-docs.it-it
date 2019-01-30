@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970402"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470648"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
 Questa esercitazione illustrerà in modo dettagliato come collegare i dati della soluzione di monitoraggio remoto da Cosmos DB a Power BI. Grazie a questo collegamento è possibile creare dashboard personalizzati e aggiungerli al dashboard della soluzione di monitoraggio remoto. Questo flusso di lavoro consente di creare grafi più specifici, in aggiunta a quelli predefiniti. È quindi possibile usare questa esercitazione per integrare altri flussi di dati o per creare dashboard personalizzati che è possibile usare all'esterno della soluzione di monitoraggio remoto. La creazione di dashboard in Power BI consente anche l'interazione reciproca dei pannelli quando si selezionano elementi specifici. Ad esempio, con un filtro che visualizza solo le informazioni sui veicoli simulati, ogni elemento del dashboard interagisce per mostrare solo le informazioni sui veicoli simulati. Se si vuole usare uno strumento diverso da Power BI, è possibile estendere questi passaggi per usare uno strumento di visualizzazione a scelta e creare un hook a Cosmos DB o a un database personalizzato, se ne è stato configurato uno. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario che una soluzione di monitoraggio remoto sia attualmente in esecuzione
 - È necessario avere l'accesso al [portale di Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione la soluzione e l'hub IoT
@@ -84,7 +84,7 @@ Questa esercitazione illustrerà in modo dettagliato come collegare i dati della
 
 ## <a name="creating-a-dashboard"></a>Creazione di un dashboard
 
-Dopo avere connesso il flusso si è pronti a creare dashboard personalizzati. Di seguito è riportato un dashboard di esempio in cui i dati di telemetria inviati da dispositivi simulati vengono usati e valutati con diversi pivot, ad esempio: 
+Dopo avere connesso il flusso si è pronti a creare dashboard personalizzati. Di seguito è riportato un dashboard di esempio in cui i dati di telemetria generati da dispositivi simulati vengono usati e valutati con diversi pivot, ad esempio: 
 
 * Percorso dei dispositivi su una mappa (destra)
 * Dispositivi con relativo stato e gravità (in alto a sinistra)

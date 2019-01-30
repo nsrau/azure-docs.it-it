@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632619"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413375"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
 
@@ -28,41 +28,44 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
 
   Codice | Linguaggio | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabo (Egitto), standard moderno | No  | Yes | No 
- ca-ES | Catalano (Spagna) | No  | No  | No 
- da-DK | Danese (Danimarca) | No  | No  | No 
- de-DE | Tedesco (Germania) | Yes | Sì | No 
- en-AU | Inglese (Australia) | No  | Yes | Yes
- en-CA | Inglese (Canada) | No  | Yes | Yes
- en-GB | Inglese (Regno Unito) | No  | Yes | Yes
+ ar-EG | Arabo (Egitto), standard moderno | No | Yes | No
+ ca-ES | Catalano (Spagna) | No | No | No
+ da-DK | Danese (Danimarca) | No | No | No
+ de-DE | Tedesco (Germania) | Yes | Sì | No
+ en-AU | Inglese (Australia) | No | Yes | Yes
+ en-CA | Inglese (Canada) | No | Yes | Yes
+ en-GB | Inglese (Regno Unito) | No | Yes | Yes
  en-IN | Inglese (India) | Yes | Sì | Yes
- en-NZ | Inglese (Nuova Zelanda) | No  | Yes | Yes  
+ en-NZ | Inglese (Nuova Zelanda) | No | Yes | Yes  
  en-US | Inglese (Stati Uniti) | Yes | Sì | Yes
- es-ES | Spagnolo (Spagna) | Yes | Sì | No 
- es-MX | Spagnolo (Messico) | No  | Yes | No 
- fi-FI | Finlandese (Finlandia) | No  | No  | No 
- fr-CA | Francese (Canada) | No  | Yes | No 
- fr-FR | Francese (Francia) | Yes | Sì | No 
- hi-IN | Hindi (India) | No  | Yes | No 
- it-IT | Italiano (Italia) | Yes | Sì | No 
- ja-JP | Giapponese (Giappone) | No  | Yes | No 
- ko-KR | Coreano (Corea) | No  | Yes | No 
- nb-NO | Norvegese (Bokmål) (Norvegia) | No  | No  | No 
- nl-NL | Olandese (Paesi Bassi) | No  | Yes | No 
- pl-PL | Polacco (Polonia) | No  | No  | No 
- pt-BR | Portoghese (Brasile) | Yes | Sì | No 
- pt-PT | Portoghese (Portogallo) | No  | Yes | No 
- ru-RU | Russo (Russia) | Yes | Sì | No 
- sv-SE | Svedese (Svezia) | No  | No  | No 
- zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No 
- zh-HK | Cinese (mandarino, tradizionale) | No  | Yes | No 
- zh-TW | Cinese (mandarino taiwanese) | No  | Yes | No 
- th-TH | Thailandese (Thailandia) | No  | No  | No 
+ es-ES | Spagnolo (Spagna) | Yes | Sì | No
+ es-MX | Spagnolo (Messico) | No | Yes | No
+ fi-FI | Finlandese (Finlandia) | No | No | No
+ fr-CA | Francese (Canada) | No | Yes | No
+ fr-FR | Francese (Francia) | Yes | Sì | No
+ hi-IN | Hindi (India) | No | Yes | No
+ it-IT | Italiano (Italia) | Yes | Sì | No
+ ja-JP | Giapponese (Giappone) | No | Yes | No
+ ko-KR | Coreano (Corea) | No | Yes | No
+ nb-NO | Norvegese (Bokmål) (Norvegia) | No | No | No
+ nl-NL | Olandese (Paesi Bassi) | No | Yes | No
+ pl-PL | Polacco (Polonia) | No | No | No
+ pt-BR | Portoghese (Brasile) | Yes | Sì | No
+ pt-PT | Portoghese (Portogallo) | No | Yes | No
+ ru-RU | Russo (Russia) | Yes | Sì | No
+ sv-SE | Svedese (Svezia) | No | No | No
+ zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No
+ zh-HK | Cinese (mandarino, tradizionale) | No | Yes | No
+ zh-TW | Cinese (mandarino taiwanese) | No | Yes | No
+ th-TH | Thailandese (Thailandia) | No | No | No
 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
 L'API REST di sintesi vocale supporta le voci seguenti, ognuna delle quali supporta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
+
+> [!IMPORTANT]
+> I prezzi variano per voci standard, personalizzate e neurali. Per informazioni aggiuntive, visitare la pagina [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices-preview"></a>Voci neurali (anteprima)
 

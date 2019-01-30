@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960652"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421607"
 ---
 # <a name="check-resource-usage-against-limits"></a>Controllare l'utilizzo delle risorse rispetto ai limiti
 
@@ -34,7 +34,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 4. Selezionare il nome della sottoscrizione per cui visualizzare le informazioni sull'utilizzo.
 5. In **Impostazioni** selezionare **Utilizzo + quote**.
 6. È possibile selezionare le opzioni seguenti:
-    - **Tipi di risorsa**: è possibile selezionare tutti i tipi di risorsa o tipi specifici di risorse da visualizzare.
+    - **Tipi di risorsa**: è possibile selezionare tutti i tipi di risorse o tipi specifici di risorse da visualizzare.
     - **Provider**: è possibile selezionare tutti i provider di risorse oppure **Calcolo**, **Rete** o **Archiviazione**.
     - **Località**: è possibile selezionare tutte le località di Azure oppure località specifiche.
     - È possibile scegliere di visualizzare tutte le risorse o solo i tipi di cui è distribuita almeno una risorsa.
@@ -47,9 +47,9 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
 ## <a name="powershell"></a>PowerShell
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.0.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per accedere ad Azure.
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.0.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per accedere ad Azure.
 
-Per visualizzare l'utilizzo rispetto ai limiti, eseguire [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L'esempio seguente ottiene le informazioni sull'utilizzo delle risorse dove almeno una risorsa è distribuita nell'area Stati Uniti orientali:
+Per visualizzare l'utilizzo rispetto ai limiti, eseguire [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L'esempio seguente ottiene le informazioni sull'utilizzo delle risorse dove almeno una risorsa è distribuita nell'area Stati Uniti orientali:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6099c07a0f27966eb4c253b85d24afb0561a708b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d677e49266c4787fb1ae34203097b7004a515be9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812914"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Esercitazione: Configurare DocuSign per il provisioning utenti automatico
 

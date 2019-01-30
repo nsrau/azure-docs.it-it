@@ -1,10 +1,10 @@
 ---
-title: Concetti relativi alla progettazione per Azure AD Connect | Documentazione Microsoft
+title: 'Azure AD Connect: Concetti relativi alla progettazione | Microsoft Docs'
 description: Questo argomento illustra alcune aree di progettazione dell'implementazione.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945995"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471779"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.

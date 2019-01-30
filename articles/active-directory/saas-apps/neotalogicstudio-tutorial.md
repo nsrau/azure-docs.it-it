@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 667d2a5217f5c2aa29432a99cd0e07fc8d7b3ca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6f2c91a9b94aeff1c0fa7ad7df137a30055230b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447037"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Esercitazione: Integrazione di Azure Active Directory con Neota Logic Studio
 
@@ -130,10 +130,10 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
     ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_general_400.png)
 
-1. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il [team di supporto di Neota Logic Studio](https://www.neotalogic.com/contact-us/) e fornire il file **XML metadati** scaricato.
+1. Per far configurare l'accesso Single Sign-On per l'applicazione, contattare il [team di supporto di Neota Logic Studio](https://www.neotalogic.com/contact-us/) e fornire il file **XML metadati** scaricato.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -168,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>Creazione di un utente test di Neota Logic Studio
 
-In questa sezione si crea un utente di nome Britta Simon in Neota Logic Studio. Collaborare con il [team di supporto clienti di Neota Logic Studio](https://www.neotalogic.com/contact-us/) per aggiungere gli utenti nella piattaforma Neota Logic Studio. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione si crea un utente di nome Britta Simon in Neota Logic Studio. Per aggiungere utenti alla piattaforma Neota Logic Studio, collaborare con il  [team di supporto client di Neota Logic Studio](https://www.neotalogic.com/contact-us/) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -204,7 +204,7 @@ In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Fare clic sul riquadro Neota Logic Studio nel pannello di accesso e si verrà reindirizzati alla pagina di accesso dell'organizzazione. Dopo aver eseguito l'accesso, si verrà registrati nell'applicazione Neota Logic Studio. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Fare clic sul riquadro Neota Logic Studio nel pannello di accesso e si verrà reindirizzati alla pagina di accesso dell'organizzazione. Dopo aver eseguito l'accesso, si verrà registrati nell'applicazione Neota Logic Studio. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

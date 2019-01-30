@@ -4,7 +4,7 @@ description: Linee guida per i problemi specifici che possono verificarsi durant
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469713"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione non nella raccolta configurata per il Single Sign-On federato
 
@@ -34,7 +34,7 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
-*Errore ADSTS70001: applicazione con identificatore "https://contoso.com" non trovata nella directory*.
+*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory* (Errore AADSTS70001: applicazione con identificatore "https://contoso.com" non trovata nella directory).
 
 **Causa possibile**
 
@@ -66,7 +66,7 @@ Dopo aver aggiornato il valore dell'identificatore in Azure AD in modo che corri
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione. 
 
-*Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione* 
+*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application* (Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione) 
 
 **Causa possibile** 
 
@@ -100,7 +100,7 @@ Dopo aver aggiornato il valore dell'URL di risposta in Azure AD in modo che corr
 
 ## <a name="user-not-assigned-a-role"></a>All'utente non è stato assegnato un ruolo
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application (Errore AADSTS50105: nessun ruolo assegnato all'utente che ha eseguito l'accesso "brian@contoso.com" per l'applicazione)*
+*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application* (Errore AADSTS50105: nessun ruolo assegnato all'utente che ha eseguito l'accesso "brian@contoso.com" per l'applicazione)
 
 **Causa possibile**
 
@@ -134,7 +134,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
@@ -146,7 +146,7 @@ Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste a
 
 ## <a name="not-a-valid-saml-request"></a>La richiesta non è un messaggio SAML valido
 
-*Error AADSTS75005: The request is not a valid Saml2 protocol message.*(Errore AADSTS75005: la richiesta non è un messaggio del protocollo Saml2 valido).
+*Error AADSTS75005: The request is not a valid Saml2 protocol message.* (Errore AADSTS75005: la richiesta non è un messaggio del protocollo Saml2 valido.)
 
 **Causa possibile**
 

@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584571"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856370"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
 
 Questo articolo non si applica ai clienti di Azure con Contratto Enterprise (clienti EA). I clienti EA possono vedere [Informazioni sulla fattura per i clienti di Azure con Contratto Enterprise](billing-understand-your-bill-ea.md).  
+
+Per una spiegazione sul funzionamento della fatturazione nel programma Azure Cloud Solution Provider (Azure CSP), inclusi ciclo di fatturazione, prezzi e utilizzo, vedere [Panoramica della fatturazione di Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Esaminare gli addebiti
 
@@ -140,6 +142,6 @@ Per verificare lo stato del pagamento [creare un ticket di supporto](https://por
 - [Gestione dei costi del portale di Azure](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Evitare costi imprevisti con la gestione dei costi e alla fatturazione di Azure](billing-getting-started.md#costs)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza e contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351459"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413244"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
-Gli algoritmi di intelligenza artificiale che guidano le [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) per l'elaborazione dei dati non strutturati sono basati su [**Risorse di Servizi cognitivi**](https://azure.microsoft.com/services/cognitive-services/). Le risorse come [**Visione artificiale**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) forniscono analisi delle immagini e riconoscimento ottico dei caratteri (OCR) per estrarre testo e struttura dai file di immagine, mentre [**Analisi del testo**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornisce l'elaborazione del linguaggio naturale, ad esempio riconoscimento dell'entità ed estrazione di frasi chiave.
+Gli algoritmi di intelligenza artificiale guidano le [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) usate per l'elaborazione di dati non strutturati in un'operazione di indicizzazione di Ricerca di Azure. Questi algoritmi sono basati sulle [risorse di Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/), tra cui [Visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [Analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento di entità, l'estrazione di frasi chiave e altri arricchimenti.
 
 È possibile arricchire gratuitamente un numero limitato di documenti oppure è possibile collegare una risorsa di Servizi cognitivi fatturabile per carichi di lavoro più grandi e più frequenti. L'articolo illustra come associare una risorsa di Servizi cognitivi al set di competenze cognitive per arricchire i dati durante l'[indicizzazione di Ricerca di Azure](search-what-is-an-index.md).
 
-Se la pipeline è costituita esclusivamente da [competenze personalizzate](cognitive-search-create-custom-skill-example.md), non è necessario collegare una risorsa Servizi cognitivi.
+Se la pipeline è costituita da competenze non correlate alle API Servizi cognitivi, è comunque necessario collegare una risorsa Servizi cognitivi. In questo modo, si esegue l'override della risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno. Non sono previsti addebiti per le competenze non associate alle API Servizi cognitivi, tra cui: [competenze personalizzate](cognitive-search-create-custom-skill-example.md), [di unione testo](cognitive-search-skill-textmerger.md), [di divisione testo](cognitive-search-skill-textsplit.md) e [di shaping](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > Dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. Ciò ci consente di addebitare i costi per l'esecuzione di set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
-> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. Estrazione di immagini è un evento fatturabile di Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
+> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento a consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. L'estrazione di immagini è un addebito previsto in Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Usare risorse gratuite
@@ -52,7 +52,9 @@ Continuare con il passaggio successivo, **Aggiungi arricchimenti**. Per una desc
 
 ## <a name="use-billable-resources"></a>Usare risorse fatturabili
 
-Per carichi di lavoro si oltre 20 documenti al giorno, è necessario una risorsa Servizi cognitivi fatturabile.
+Per carichi di lavoro di oltre 20 arricchimenti al giorno, è necessario collegare una risorsa Servizi cognitivi fatturabile. 
+
+Vengono addebitate solo le competenze che chiamano le API Servizi cognitivi. Le competenze non basate sull'API, ad esempio [competenze personalizzate](cognitive-search-create-custom-skill-example.md), [di unione testo](cognitive-search-skill-textmerger.md), [di divisione testo](cognitive-search-skill-textsplit.md) e [di shaping](cognitive-search-skill-shaper.md) non vengono addebitate.
 
 1. Nella procedura guidata **Importa dati**, in **Collega Servizi cognitivi** selezionare una risorsa esistente oppure fare clic su **Crea nuova risorsa Servizi cognitivi**.
 
@@ -144,22 +146,22 @@ Content-Type: application/json
 
 Per stimare i costi associati all'indicizzazione di ricerca cognitiva, iniziare basandosi su un documento medio, in modo da poter inserire qualche cifra. Ad esempio, a scopo di stima, si potrebbero inserire i valori approssimativi:
 
-+ 1.000 file PDF
++ 1000 file PDF
 + Sei pagine ognuno
-+ Un'immagine per pagina (6.000 immagini)
-+ 3.000 caratteri per pagina
++ Un'immagine per pagina (6000 immagini)
++ 3000 caratteri per pagina
 
 Si supponga di avere una pipeline costituita dall'individuazione del documento di ogni file PDF con estrazione di testo e immagini, riconoscimento ottico dei caratteri (OCR) delle immagini e riconoscimento di entità denominate delle organizzazioni. 
 
 In questo esercizio viene usato il prezzo più alto per ogni transazione. I costi effettivi possono essere inferiori vista l'applicazione di prezzi progressivi. Vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services).
 
-1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. Per 6.000 immagini, si supponga un costo di 1 dollaro per ogni 1.000 immagini estratte, con un costo di 6 dollari per questo passaggio.
+1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. Per 6000 immagini, si supponga un costo di 1 dollaro per ogni 1000 immagini estratte, con un costo di 6 dollari per questo passaggio.
 
-2. Per il riconoscimento ottico dei caratteri di 6.000 immagini in inglese, la competenza cognitiva OCR usa l'algoritmo migliore (DescribeText). Supponendo un costo di 2,50 dollari per l’analisi di 1.000 immagini, il costo raggiunto in questo passaggio sarebbe di 15 dollari.
+2. Per il riconoscimento ottico dei caratteri di 6000 immagini in inglese, la competenza cognitiva OCR usa l'algoritmo migliore (DescribeText). Supponendo un costo di 2,50 dollari per l’analisi di 1000 immagini, il costo raggiunto in questo passaggio sarebbe di 15 dollari.
 
-3. Per l'estrazione delle entità, abbiamo un totale di 3 record di testo per ogni pagina (ogni record è composto da 1.000 caratteri). Tre record di testo per pagina * 6.000 pagine = 18.000 record di testo. Supponendo un prezzo di 2 dollari ogni 1.000 record di testo, in questo passaggio si raggiungerebbe un costo di 36 dollari.
+3. Per l'estrazione delle entità, abbiamo un totale di 3 record di testo per ogni pagina (ogni record è composto da 1000 caratteri). Tre record di testo per pagina * 6000 pagine = 18.000 record di testo. Supponendo un prezzo di 2 dollari ogni 1000 record di testo, in questo passaggio si raggiungerebbe un costo di 36 dollari.
 
-Unendo i due passaggi, si arriverebbe a pagare circa 57 dollari per inserire 1.000 documenti PDF di questo tipo con il set di competenze descritto. 
+Unendo i due passaggi, si arriverebbe a pagare circa 57 dollari per inserire 1000 documenti PDF di questo tipo con il set di competenze descritto. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina Prezzi di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/)

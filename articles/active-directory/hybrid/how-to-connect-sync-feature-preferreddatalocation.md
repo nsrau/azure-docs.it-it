@@ -4,7 +4,7 @@ description: Descrive come posizionare le risorse utente di Office 365 in prossi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623028"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470699"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -136,7 +136,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 5. Lasciare vuoto il campo **Scoping filter** (Filtro di ambito) per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 6. Passare alla **scheda Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Sorgente | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     |Diretto | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiornamento |
 
@@ -173,7 +173,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Sorgente | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiornamento |
 
@@ -181,7 +181,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 ![Screenshot della pagina di creazione regola di sincronizzazione in uscita](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
-## <a name="step-6-run-full-synchronization-cycle"></a>Passaggio 6: Eseguire un ciclo di sincronizzazione completo
+## <a name="step-6-run-full-synchronization-cycle"></a>Passaggio 6: Eseguire il ciclo di sincronizzazione completa
 In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è che sono stati aggiunti nuovi attributi per gli schemi di Active Directory e Azure AD Connector e sono state introdotte regole di sincronizzazione personalizzate. Verificare le modifiche prima di esportarle in Azure AD. È possibile usare la procedura seguente per controllare le modifiche, eseguendo al contempo manualmente i passaggi che compongono il ciclo di sincronizzazione completo.
 
 1. Eseguire un'**importazione completa** nell'istanza di Active Directory Connector locale:
@@ -261,5 +261,5 @@ Altre informazioni sul modello di configurazione nel motore di sincronizzazione:
 
 Argomenti generali:
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

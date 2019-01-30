@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: sospendere e riprendere il calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Avvio rapido: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: PowerShell consente di sospendere il calcolo in un'istanza di Azure SQL Data Warehouse per ridurre i costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,19 +10,19 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ae1373901ca22b39cf99173ae2a9280128491522
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9d2836f49fb92ab13f8e4170f2aab044c810cf3c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313823"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437157"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Guida introduttiva: sospendere e riprendere il calcolo in un'istanza di Azure SQL Data Warehouse con PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Avvio rapido: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse con PowerShell
 PowerShell consente di sospendere il calcolo in un'istanza di Azure SQL Data Warehouse per ridurre i costi. [Riprendere il calcolo](sql-data-warehouse-manage-compute-overview.md) quando si è pronti a usare il data warehouse.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

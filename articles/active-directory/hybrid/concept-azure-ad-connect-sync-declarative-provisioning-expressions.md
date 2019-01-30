@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Espressioni di provisioning dichiarativo | Documentazione Microsoft'
+title: 'Azure AD Connect: Espressioni di provisioning dichiarativo | Microsoft Docs'
 description: Informazioni sulle espressioni di provisioning dichiarativo.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306050"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460494"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.
@@ -32,7 +32,7 @@ Per altre informazioni dettagliate, vedere i [riferimenti per il linguaggio Visu
 Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi del tipo corretto. Fa anche distinzione tra maiuscole e minuscole. Se per i nomi delle funzioni e degli attributi non viene rispettata correttamente la distinzione maiuscole/minuscole, viene generato un errore.
 
 ## <a name="language-definitions-and-identifiers"></a>Definizioni e identificatori del linguaggio
-* I nomi delle funzioni sono seguiti dagli argomenti racchiusi tra parentesi: NomeFunzione(argomento 1,argomento N).
+* I nomi delle funzioni sono seguiti dagli argomenti racchiusi tra parentesi: NomeFunzione(argomento 1, argomento N).
 * Gli attributi sono identificati da parentesi quadre: [attributeName].
 * I parametri sono identificati dal segno di percentuale: %ParameterName%
 * Le costanti di stringa sono racchiuse tra virgolette: ad esempio, "Contoso" (Nota: è necessario usare le virgolette semplici "", non quelle non inglesi “”)
@@ -73,7 +73,8 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 * **Confronto**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matematici**: +, -, \*, -
 * **Stringa**: & (concatenazione)
-* **Logici**: &amp;&amp; (AND), || (OR)
+* 
+  **Logici**: &&amp;amp; (AND), || (OR)
 * **Ordine di valutazione**: ( )
 
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, \* (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2\*(5+3) è diversa da 2\*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
@@ -93,7 +94,7 @@ Ad esempio
 
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 
 **Argomenti di riferimento**

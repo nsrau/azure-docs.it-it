@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753150"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467163"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di Azure per estrarre contenuto strutturato dai BLOB JSON in Archiviazione BLOB di Azure.
@@ -23,6 +23,9 @@ Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di
 Per indicizzare il contenuto JSON è possibile usare il [portale](#json-indexer-portal), le [API REST](#json-indexer-rest) o [.NET SDK](#json-indexer-dotnet). I documenti JSON inclusi in un contenitore BLOB in un account di archiviazione di Azure sono validi per tutti gli approcci. Per istruzioni su come eseguire il push di documenti JSON da altre piattaforme non Azure, vedere [Indicizzazione dei dati esterni per le query in Ricerca di Azure](search-what-is-data-import.md).
 
 I BLOB JSON in Archiviazione BLOB di Azure consistono in genere in un singolo documento JSON o in una matrice JSON. L'indicizzatore di BLOB di Ricerca di Azure è in grado di analizzare entrambi i tipi di costruzione, a seconda dell'impostazione del parametro **parsingMode** nella richiesta.
+
+> [!IMPORTANT]
+> L'indicizzazione di BLOB JSON è disponibile a livello generale, ma l'analisi JsonArray è in anteprima pubblica e non deve essere usata in ambienti di produzione. Per altre informazioni, vedere [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 

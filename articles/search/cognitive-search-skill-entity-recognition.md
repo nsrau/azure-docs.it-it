@@ -8,24 +8,24 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311865"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452208"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
-La competenza **Riconoscimento delle entità** estrae le entità di tipi diversi dal testo. 
+La competenza **Riconoscimento delle entità** estrae le entità di tipi diversi dal testo. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
 
 > [!NOTE]
-> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente di iniziare l'addebito per l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
-> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se l'attività venisse eseguita direttamente. L'estrazione di immagini è un addebito di Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,7 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 | Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
 |minimumPrecision | Non utilizzato. Riservato per utilizzi futuri. |
-|includeTypelessEntites | Quando è impostato su true, se il testo contiene un'entità conosciuta, ma che non può essere classificata in una delle categorie supportate, verrà restituito come parte del campo di output complesso `"entities"`. Il valore predefinito è `false` |
+|includeTypelessEntities | Quando è impostato su true, se il testo contiene un'entità conosciuta, ma che non può essere classificata in una delle categorie supportate, verrà restituito come parte del campo di output complesso `"entities"`. Il valore predefinito è `false` |
 
 
 ## <a name="skill-inputs"></a>Input competenze
@@ -67,7 +67,7 @@ Solo _en_, _es_ supportano l'estrazione dei tipi `"Quantity"`, `"Datetime"`, `"U
 | dateTimes  | Una matrice di stringhe in cui ogni stringa rappresenta un valore DateTime (come viene visualizzato nel testo). |
 | urls | Una matrice di stringhe in cui ogni stringa rappresenta un URL |
 | emails | Una matrice di stringhe in cui ogni stringa rappresenta un indirizzo di posta elettronica |
-| namedEntities | Una matrice di tipi complessi, che contengono i campi seguenti: <ul><li>category</li> <li>value (nome entità effettivo)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
+| namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>value (nome entità effettivo)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
 | entities | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definizione di esempio

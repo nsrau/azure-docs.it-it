@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229957"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817623"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -33,6 +33,14 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="january-2019"></a>Gennaio 2019
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e file MPI 
+
+Durante la codifica con Media Encoder Standard per produrre file MP4, un nuovo file con estensione mpi viene generato e aggiunto all'asset di output. Questo file MPI è progettato per migliorare le prestazioni per scenari di creazione dinamica dei pacchetti e streaming.
+
+Non è consigliabile modificare o rimuovere il file MPI né creare dipendenze nel proprio servizio sull'esistenza o meno di tale file.
 
 ## <a name="december-2018"></a>Dicembre 2018
 

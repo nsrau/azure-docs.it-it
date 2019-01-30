@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d12e0f53796713df83b1cbb9e55695598c29077
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0aff1040a9c7532ff5efe724382a074120801eb3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607388"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856486"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -243,6 +243,9 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 
 Al pod viene assegnato un indirizzo IP interno della subnet di rete virtuale di Azure delegata per l'uso con nodi virtuali.
 
+> [!NOTE]
+> Se si usano immagini archiviate nel Registro Azure Container, [configurare e usare un segreto Kubernetes][acr-aks-secrets]. Una limitazione corrente dell'anteprima dei nodi virtuali è costituita dall'impossibilità di usare l'autenticazione dell'entità servizio di Azure AD. Se non si usa un segreto, i pod pianificati nei nodi virtuali non si avviano e segnalano l'errore `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## <a name="test-the-virtual-node-pod"></a>Testare il pod del nodo virtuale
 
 Per testare il pod in esecuzione nel nodo virtuale, passare all'applicazione demo con un client Web. Poiché al pod è assegnato un indirizzo IP interno, è possibile eseguire rapidamente il test di questa connettività da un altro pod nel cluster del servizio Azure Kubernetes. Creare un pod test e collegarvi una sessione terminal:
@@ -341,3 +344,4 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret

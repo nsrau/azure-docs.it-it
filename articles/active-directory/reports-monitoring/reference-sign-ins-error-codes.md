@@ -4,7 +4,7 @@ description: Informazioni di riferimento sui codici di errore del report delle a
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622432"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820156"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 

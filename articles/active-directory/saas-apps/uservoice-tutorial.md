@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8a30ba7eee7653e4a098df706450c6a4328cce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429149"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Esercitazione: Integrazione di Azure Active Directory con UserVoice
 
@@ -149,12 +149,12 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure nella casella di testo **SSO Remote Sign-Out** (Disconnessione remota SSO).
  
-    d. Nella casella di testo **Current certificate SHA1 fingerprint** (Impronta digitale SHA1 certificato corrente) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
+    d. Incollare il valore di **Identificazione personale** , copiato dal portale di Azure, nella casella di testo **Current certificate SHA1 fingerprint**  (Impronta digitale SHA1 del certificato corrente).
     
     e. Fare clic su **Salva le impostazioni di autenticazione**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD

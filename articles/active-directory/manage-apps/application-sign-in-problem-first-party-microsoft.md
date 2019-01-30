@@ -4,7 +4,7 @@ description: Risoluzione di problemi comuni relativi all'accesso ad applicazioni
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379265"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468759"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -38,7 +38,7 @@ Per risolvere il problema, iniziare dalla sezione [Aree generali da considerare 
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Aree generali da considerare per i problemi di accesso alle applicazioni
 
-Di seguito è riportato un elenco delle aree problematiche generali che è possibile esaminare se si ha un'idea del punto da cui iniziare. Per procedere rapidamente è tuttavia consigliabile vedere la procedura dettagliata [Passaggi per risolvere i problemi di accesso alle applicazioni Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Di seguito è riportato un elenco delle aree problematiche generali che è possibile esaminare se si ha un'idea del punto da cui iniziare. Per procedere rapidamente è tuttavia consigliabile leggere [Walkthrough: passaggi per risolvere i problemi di accesso alle applicazioni Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problemi relativi all'account dell'utente](#problems-with-the-users-account)
 

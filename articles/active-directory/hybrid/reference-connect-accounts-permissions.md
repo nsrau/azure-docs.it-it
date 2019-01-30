@@ -1,10 +1,10 @@
 ---
-title: Account e autorizzazioni di Azure AD Connect | Documentazione Microsoft
+title: 'Azure AD Connect: account e autorizzazioni | Microsoft Docs'
 description: Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308784"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478604"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Account usati per Azure AD Connect
 
@@ -41,7 +41,7 @@ Oltre a questi tre account usati per eseguire Azure AD Connect, per installare A
 
 - **Account amministratore locale**: l'amministratore che sta installando Azure AD Connect e possiede autorizzazioni di amministratore locale per il computer.
 
-- **Account amministratore dell'organizzazione Active Directory Domain Services**: utilizzato facoltativamente per creare l'"account del connettore di AD DS" sopra.
+- **Account amministratore dell'organizzazione Active Directory Domain Services**: usato facoltativamente per creare l'"account del connettore di AD DS" sopra.
 
 - **Account Administrator globale di AD Azure**:  usato per creare l'account del connettore di Azure AD e configurare Azure AD.
 
@@ -120,7 +120,7 @@ Di seguito è riportato un riepilogo delle pagine della procedura guidata di ins
 >[!IMPORTANT]
 >Con la build **1.1.880.0** (rilasciata nel mese di agosto 2018) è stato introdotto un nuovo modulo di PowerShell denominato ADSyncConfig.psm1, che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per l'account del connettore di Azure AD DS.
 >
->Per altre informazioni vedere [Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+>Per altre informazioni, vedere [Azure AD Connect: configurare l'autorizzazione dell'account del connettore di Active Directory Domain Services](how-to-connect-configure-ad-ds-connector-account.md)
 
 L'account specificato nella pagina **Connessione delle directory** deve essere presente in Active Directory prima dell'installazione.  Azure AD Connect versione 1.1.524.0 e successive con l'opzione per consentire alla procedura guidata di Azure AD Connect di creare l'**account del connettore di AD DS** usato per connettersi ad Active Directory.  
 
@@ -149,7 +149,7 @@ Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è 
 | --- | --- | --- |
 | Utente che esegue l'installazione guidata |Amministratore del server locale |Aggiornare i file binari. |
 | Utente che esegue l'installazione guidata |Membro di ADSyncAdmins |Apportare modifiche alle regole di sincronizzazione e ad altre configurazioni. |
-| Utente che esegue l'installazione guidata |Se si utilizza un server SQL completo: DBO (o simile) del database del motore di sincronizzazione |Apportare modifiche a livello di database, ad esempio l'aggiornamento di tabelle con nuove colonne. |
+| Utente che esegue l'installazione guidata |Se si usa un server SQL completo: DBO (o simile) del database del motore di sincronizzazione |Apportare modifiche a livello di database, ad esempio l'aggiornamento di tabelle con nuove colonne. |
 
 ## <a name="more-about-the-created-accounts"></a>Altre informazioni sugli account creati
 ### <a name="ad-ds-connector-account"></a>Account del connettore di AD DS

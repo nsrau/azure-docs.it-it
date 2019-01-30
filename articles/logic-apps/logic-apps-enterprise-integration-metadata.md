@@ -1,6 +1,6 @@
 ---
 title: Gestire i metadati degli elementi degli account di integrazione - App per la logica di Azure | Microsoft Docs
-description: Aggiungere o recuperare i metadati degli elementi dagli account di integrazione nelle App per la logica di Azure con Enterprise Integration Pack
+description: Aggiungere o ottenere i metadati degli elementi dagli account di integrazione in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,57 +9,101 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 02/23/2018
-ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/17/2019
+ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128804"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446783"
 ---
-# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione nelle App per la logica di Azure con Enterprise Integration Pack
+# <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione con App per la logica di Azure ed Enterprise Integration Pack
 
-È possibile definire i metadati personalizzati per gli elementi negli account di integrazione e recuperarli durante il runtime per l'app per la logica. Ad esempio, è possibile specificare i metadati per elementi quali partner, contratti, schemi e mappe. Si tratta in ogni caso di metadati archiviati tramite coppie chiave-valore. 
+È possibile definire i metadati personalizzati per gli elementi negli account di integrazione e recuperarli durante il runtime per l'uso da parte dell'app per la logica. Ad esempio, è possibile fornire i metadati per elementi quali partner, contratti, schemi e mappe. Si tratta in ogni caso di metadati archiviati tramite coppie chiave-valore. 
 
-## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Aggiungere metadati a elementi negli account di integrazione
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Nel portale di Azure creare un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-2. Aggiungere un elemento all'account di integrazione, ad esempio, un [partner](logic-apps-enterprise-integration-partners.md), un [contratto](logic-apps-enterprise-integration-agreements.md) o uno [schema](logic-apps-enterprise-integration-schemas.md).
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) di base con gli elementi in cui si vogliono aggiungere metadati, ad esempio: 
 
-3. Selezionare l'elemento, scegliere **Modifica** e immettere i dettagli dei metadati.
+  * [Partner](logic-apps-enterprise-integration-partners.md)
+  * [Contratto](logic-apps-enterprise-integration-agreements.md)
+  * [Schema](logic-apps-enterprise-integration-schemas.md)
+  * [Mappa](logic-apps-enterprise-integration-maps.md)
 
-   ![Immettere i metadati](media/logic-apps-enterprise-integration-metadata/image1.png)
+* Un'app per la logica collegata all'account di integrazione e ai metadati dell'elemento che si vogliono usare. Se l'app per la logica non è già collegata, vedere l'articolo su [come collegare app per la logica agli account di integrazione](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
-## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Recuperare metadati da elementi delle app per la logica
+  Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Aggiungere il trigger e le azioni da usare per la gestione dei metadati dell'elemento. In alternativa, per fare semplicemente una prova, aggiungere all'app per la logica un trigger, ad esempio **di richiesta** oppure **HTTP**.
 
-1. Nel portale di Azure creare un'[app per la logica](quickstart-create-first-logic-app-workflow.md).
+## <a name="add-metadata-to-artifacts"></a>Aggiungere metadati agli elementi
 
-2. Creare un [collegamento dall'app per la logica all'account di integrazione](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure. Trovare e aprire l'account di integrazione.
 
-3. Nella finestra di progettazione di app per la logica aggiungere un trigger come **richiesta** o **HTTP** all'app per la logica.
+1. Selezionare l'elemento in cui si vogliono aggiungere i metadati e scegliere **Modifica**. Immettere i dettagli dei metadati per l'elemento, ad esempio:
 
-4. Nel trigger scegliere **Nuovo passaggio** > **Aggiungi un'azione**. Cercare "account di integrazione" in modo da trovare e quindi selezionare l'azione **Account di integrazione - Ricerca elemento dell'account di integrazione**.
+   ![Immettere i metadati](media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png)
 
-   ![Selezionare Ricerca elemento dell'account di integrazione](media/logic-apps-enterprise-integration-metadata/image2.png)
+1. Al termine dell'operazione, scegliere **OK**.
 
-5. Selezionare un'opzione in **Tipo elemento** e specificare un nome in **Nome elemento**. Ad esempio: 
+1. Per visualizzare i metadati nella definizione JSON (JavaScript Object Notation) per l'account di integrazione, scegliere **Modifica come JSON** in modo che si apra l'editor JSON: 
 
-   ![Selezionare il tipo di elemento e specificare un nome elemento](media/logic-apps-enterprise-integration-metadata/image3.png)
+   ![JSON per i metadati del partner](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 
-## <a name="example-retrieve-partner-metadata"></a>Esempio: recuperare i metadati del partner
+## <a name="get-artifact-metadata"></a>Ottenere i metadati degli elementi
 
-Si supponga che al partner siano associati i metadati seguenti con i dettagli `routingUrl`:
+1. Nel portale di Azure aprire l'app per la logica collegata all'account di integrazione desiderato. 
 
-![Cercare i metadati "routingURL" del partner](media/logic-apps-enterprise-integration-metadata/image6.png)
+1. Se si aggiunge il passaggio per il recupero dei metadati sotto il trigger o l'ultima azione nel flusso di lavoro, in Progettazione App per la logica scegliere **Nuovo passaggio** > **Aggiungi un'azione**. 
 
-1. Nell'app per la logica aggiungere il trigger, un'azione **Account di integrazione - Ricerca elemento dell'account di integrazione** per il partner e un'azione **HTTP**, ad esempio:
+1. Nella casella di ricerca, digitare "account di integrazione". Nella casella di ricerca scegliere **Tutti**. Nell'elenco di azioni selezionare questa azione: **Ricerca elemento dell'account di integrazione - Account di integrazione**
 
-   ![Aggiungere trigger, ricerca dell'elemento e azione HTTP nell'app per la logica](media/logic-apps-enterprise-integration-metadata/image4.png)
+   ![Selezionare "Ricerca elemento dell'account di integrazione"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
-2. Per recuperare l'URI, sulla barra degli strumenti Progettazione app per la logica scegliere **Visualizzazione codice** per l'app per la logica. La definizione dell'app per la logica dovrebbe essere simile alla seguente:
+1. Specificare queste informazioni per l'elemento da trovare:
 
-   ![Ricerca](media/logic-apps-enterprise-integration-metadata/image5.png)
+   | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+   |----------|---------|-------|-------------| 
+   | **Tipo di elemento** | Yes | **Schema**, **Mappa**, **Partner**, **Contratto** o un tipo personalizzato | Tipo dell'elemento desiderato | 
+   | **Nome elemento** | Yes | <*artifact-name*> | Nome dell'elemento desiderato | 
+   ||| 
+
+   Ad esempio, si supponga di voler ottenere i metadati per un elemento partner commerciale:
+
+   ![Selezionare il tipo di elemento e specificare un nome elemento](media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png)
+
+1. Aggiungere l'azione desiderata per la gestione dei metadati, ad esempio:
+
+   1. Sotto l'azione **Ricerca elemento dell'account di integrazione** scegliere **Passaggio successivo**e selezionare **Aggiungi un'azione**. 
+
+   1. Nella casella di ricerca immettere "http". Sotto la casella di ricerca scegliere **Predefiniti**e selezionare questa azione: **HTTP - HTTP**
+
+      ![Aggiungere azione HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
+
+   1. Fornire informazioni per i metadati dell'elemento da gestire. 
+
+      Ad esempio, si supponga di voler ottenere i metadati `routingUrl` aggiunti in precedenza in questo argomento. Ecco i valori delle proprietà che è possibile specificare: 
+
+      | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+      |----------|----------|-------|-------------| 
+      | **Metodo** | Yes | <*operation-to-run*> | Operazione HTTP da eseguire sull'elemento. Ad esempio, questa azione HTTP usa il metodo **GET**. | 
+      | **URI** | Yes | <*metadata-location*> | Per accedere al valore dei metadati `routingUrl` dall'elemento recuperato si può usare un'espressione, ad esempio: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Intestazioni** | No  | <*header-values*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
+      | **Corpo** | No  | <*body-content*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. Fare clic all'interno della proprietà **Corpo** in modo che venga visualizzato l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. Nell'elenco del contenuto dinamico, sotto **Ricerca elemento dell'account di integrazione** selezionare **Proprietà**. | 
+      |||| 
+
+      Ad esempio: 
+
+      ![Specificare i valori e le espressioni per un'azione HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
+
+   1. Per controllare le informazioni fornite per l'azione HTTP, visualizzare la definizione JSON dell'app per la logica. Sulla barra degli strumenti di Progettazione App per la logica scegliere **Visualizzazione Codice** in modo che compaia la definizione JSON dell'app, ad esempio:
+
+      ![Definizione JSON dell'app per la logica](media/logic-apps-enterprise-integration-metadata/finished-logic-app-definition.png)
+
+      Tornando a Progettazione app per la logica, le espressioni usate vengono ora visualizzate come risolte, ad esempio:
+
+      ![Espressioni risolte in Progettazione app per la logica](media/logic-apps-enterprise-integration-metadata/resolved-expressions.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

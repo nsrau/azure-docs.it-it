@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806998"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
@@ -24,15 +24,48 @@ Le sezioni seguenti illustrano il mapping tra la coerenza dei dati richiesta da 
 
 ## <a id="cassandra-mapping"></a>Eseguire il mapping tra i livelli di coerenza di Azure Cosmos DB e Apache Cassandra
 
-La tabella illustra il mapping per la "coerenza in lettura" tra il client di Apache Cassandra 4.x e il livello di coerenza predefinito in Azure Cosmos DB. La tabella mostra le distribuzioni multiarea e in una singola area.
+La tabella seguente illustra il mapping per la coerenza tra Apache Cassandra e i livelli di coerenza in Azure Cosmos DB. Per ognuno dei livelli di coerenza in lettura e scrittura di Cassandra, il livello di coerenza di Cosmos DB corrispondente offre garanzie più solide, ossia più rigorose.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (multiarea)** | **Azure Cosmos DB (area singola)** |
+La tabella seguente illustra il **mapping per la coerenza in scrittura** tra Azure Cosmos DB e Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garanzia |
 | - | - | - |
-| ONE TWO THREE | Prefisso coerente | Prefisso coerente |
-| LOCAL_ONE | Prefisso coerente | Prefisso coerente |
-| QUORUM, ALL, SERIAL | L'impostazione predefinita è il decadimento ristretto. Assoluta è in anteprima privata. | Assoluta |
-| LOCAL_QUORUM | Obsolescenza associata | Assoluta |
-| LOCAL_SERIAL | Obsolescenza associata | Assoluta |
+|ALL|Assoluta  | Linearità |
+| EACH_QUORUM   | Assoluta    | Linearità | 
+| QUORUM, SERIAL |  Assoluta |    Linearità |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefisso coerente |Prefisso coerente globale |
+| EACH_QUORUM   | Assoluta    | Linearità |
+| QUORUM, SERIAL |  Assoluta |    Linearità |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefisso coerente | Prefisso coerente globale |
+| QUORUM, SERIAL | Assoluta   | Linearità |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefisso coerente | Prefisso coerente globale |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Decadimento ristretto | <ul><li>Decadimento ristretto.</li><li>Al massimo 1000 versioni o tempo inferiore al tempo t.</li><li>Lettura dell'ultimo valore di cui è stato eseguito il commit nell'area.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | Prefisso coerente | Prefisso coerente per area |
+
+La tabella seguente illustra il **mapping per la coerenza in lettura** tra Azure Cosmos DB e Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garanzia |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Assoluta  | Linearità|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Assoluta |   Linearità |
+|LOCAL_ONE, ONE | Prefisso coerente | Prefisso coerente globale |
+| ALL, QUORUM, SERIAL   | Assoluta    | Linearità |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Prefisso coerente   | Prefisso coerente globale |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Prefisso coerente   | Prefisso coerente globale |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Assoluta |   Linearità |
+| LOCAL_ONE, ONE    | Prefisso coerente | Prefisso coerente globale|
+| ALL, QUORUM, SERIAL   Assoluta  Linearità
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefisso coerente  | Prefisso coerente globale |
+|ALL    |Assoluta |Linearità |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Prefisso coerente  |Prefisso coerente globale|
+|ALL, QUORUM, SERIAL    Assoluta  Linearità
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefisso coerente  |Prefisso coerente globale |
+|ALL    |Assoluta | Linearità |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefisso coerente | Prefisso coerente globale |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Decadimento ristretto   | <ul><li>Decadimento ristretto.</li><li>Al massimo 1000 versioni o tempo inferiore al tempo t. </li><li>Lettura dell'ultimo valore di cui è stato eseguito il commit nell'area.</li></ul>
+| LOCAL_ONE, ONE |Prefisso coerente | Prefisso coerente per area |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefisso coerente | Prefisso coerente per area |
+
 
 ## <a id="mongo-mapping"></a>Eseguire il mapping tra i livelli di coerenza MongoDB 3.4 e Azure Cosmos DB
 

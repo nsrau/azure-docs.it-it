@@ -1,24 +1,17 @@
 ---
-title: Panoramica della delega di DNS di Azure | Microsoft Docs
+title: Panoramica della delega di DNS di Azure
 description: Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461027"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delega di zone DNS con DNS di Azure
 
@@ -58,13 +51,16 @@ La figura seguente mostra una query DNS di esempio: I valori contoso.net e partn
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. Il client richiede `www.partners.contoso.net` dal proprio server DNS locale.
-1. Il server DNS locale non ha il record, quindi invia una richiesta al rispettivo server dei nomi radice.
-1. Il server dei nomi radice non ha il record, ma conosce l'indirizzo del server dei nomi `.net` e fornisce tale indirizzo al server DNS.
-1. Il server DNS invia la richiesta al server dei nomi `.net`. Non ha il record ma conosce l'indirizzo del server dei nomi contoso.net. In questo caso si tratta di una zona DNS ospitata in DNS di Azure.
-1. La zona `contoso.net` non ha il record ma conosce il server dei nomi per `partners.contoso.net` e invia tale risposta. In questo caso si tratta di una zona DNS ospitata in DNS di Azure.
-1. Il server DNS richiede l'indirizzo IP di `partners.contoso.net` dalla zona `partners.contoso.net`. Contiene il record A e risponde con l'indirizzo IP.
-1. Il server DNS fornisce l'indirizzo IP al client.
-1. Il client si connette al sito Web `www.partners.contoso.net`.
+2. Il server DNS locale non ha il record, quindi invia una richiesta al rispettivo server dei nomi radice.
+3. Il server dei nomi radice non ha il record, ma conosce l'indirizzo del server dei nomi `.net` e fornisce tale indirizzo al server DNS.
+4. Il server DNS locale invia la richiesta al server dei nomi `.net`.
+5. Il server dei nomi `.net` non ha il record ma conosce l'indirizzo del server dei nomi `contoso.net`. In questo caso risponde con l'indirizzo del server dei nomi della zona DNS ospitata in DNS di Azure.
+6. Il server DNS locale invia la richiesta al server dei nomi della zona `contoso.net` ospitata in DNS di Azure.
+7. La zona `contoso.net` non ha il record, ma conosce il server dei nomi per `partners.contoso.net` e risponde con l'indirizzo. In questo caso si tratta di una zona DNS ospitata in DNS di Azure.
+8. Il server DNS locale invia la richiesta al server dei nomi della zona `partners.contoso.net`.
+9. La zona `partners.contoso.net` contiene il record A e risponde con l'indirizzo IP.
+10. Il server DNS locale fornisce l'indirizzo IP al client.
+11. Il client si connette al sito Web `www.partners.contoso.net`.
 
 Ogni delega include effettivamente due copie dei record NS, una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio. La zona "contoso.net" contiene i record NS per "contoso.net" (oltre ai record NS contenuti in "net"). Questi record sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
 

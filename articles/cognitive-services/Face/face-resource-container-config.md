@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359443"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476921"
 ---
 # <a name="configure-containers"></a>Configurare i contenitori
 
@@ -33,6 +33,7 @@ Le impostazioni di configurazione nel contenitore Viso sono gerarchiche e tutti 
 * [CloudAI](#cloudai-configuration-settings)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Impostazioni delle credenziali del proxy HTTP](#http-proxy-credentials-settings)
 * [registrazione](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -160,7 +161,12 @@ La tabella seguente illustra le impostazioni di configurazione supportate nella 
 | `HeartbeatMs` | Integer | Intervallo di heartbeat, espresso in millisecondi. Se prima della scadenza di questo intervallo è non stato inviato alcun traffico dell'evento, viene inviato un heartbeat al server Fluentd. Il valore predefinito è 60000 millisecondi (1 minuto). |
 | `SendBufferSize` | Integer | Spazio di buffer di rete, espresso in byte, allocato per le operazioni di invio. Il valore predefinito è 32768 byte (32 kilobyte). |
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | Timeout, espresso in millisecondi, per stabilire una connessione SSL/TLS con il server Fluentd. Il valore predefinito è 10000 millisecondi (10 secondi).<br/> Se `UseTLS` è impostato su false, questo valore viene ignorato. |
-| `UseTLS` | boolean | Indica se il contenitore deve usare SSL/TLS per comunicare con il server Fluentd. Il valore predefinito è False. |
+| `UseTLS` | Boolean | Indica se il contenitore deve usare SSL/TLS per comunicare con il server Fluentd. Il valore predefinito è False. |
+
+
+## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-configuration-settings"></a>Impostazioni di configurazione di Logging
 
@@ -212,3 +218,7 @@ Ad esempio, il comando seguente definisce un montaggio di associazione Docker ne
   ```
 
 Il contenitore Viso non utilizza montaggi di input o output per archiviare i dati di training o di database. Al contrario, il contenitore Viso fornisce scenari di archiviazione per la gestione dei dati di training e di database. Per altre informazioni sull'uso di scenari di archiviazione, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

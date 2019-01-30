@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608018"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808460"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -347,7 +347,7 @@ Gli amministratori di Contoso configurano ora Azure DevOps per eseguire il proce
 
     ![Distribuire il servizio app](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **Seleziona un file o una cartella** individuano il file **SmartHotel.Registration.Wcf.zip** creato durante la compilazione e fanno clic su **Salva**.-sql
+18. In **Seleziona un file o una cartella** individuano il file **SmartHotel.Registration.Wcf.zip** creato durante la compilazione e fanno clic su **Salva**.
 
     ![Salvare WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
@@ -397,7 +397,7 @@ Dopo la migrazione, Contoso deve eseguire le operazioni di pulizia seguenti:
 
 Al termine della migrazione delle risorse in Azure, Contoso deve rendere pienamente operativa la nuova infrastruttura e proteggerla.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 - Contoso intende verificare che il nuovo database **SmartHotel-Registration** sia protetto. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)
 - In particolare, Contoso deve aggiornare le app Web per usare SSL con le autorizzazioni.

@@ -4,7 +4,7 @@ description: Come risolvere i problemi comuni riscontrati quando in un'applicazi
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465398"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD
 Dopo aver configurato il provisioning automatico per un'applicazione (e dopo aver verificato la validità delle credenziali fornite ad Azure AD per connettersi all'app), viene effettuato il provisioning degli utenti e/o dei gruppi all'app. Il provisioning viene determinato dagli elementi seguenti:
@@ -56,8 +56,8 @@ Quando un utente viene visualizzato come "ignorato" nei log di controllo, è ess
 - **È stato configurato un filtro di definizione dell'ambito** **che esclude l'utente in base a un valore di attributo**. Per altre informazioni sui filtri di definizione dell'ambito, vedere [Filtri per la definizione dell'ambito](define-conditional-rules-for-provisioning-user-accounts.md).
 - **L'utente "non è autorizzato in modo efficiente".** Se viene visualizzato questo messaggio di errore specifico, si è verificato un problema con il record di assegnazione degli utenti archiviato in Azure AD. Per risolvere il problema, annullare l'assegnazione dell'utente (o del gruppo) dall'app e riassegnarla. Per altre informazioni sull'assegnazione, vedere [Assegnare l'accesso utente o gruppo](assign-user-or-group-access-portal.md).
 - **Attributo obbligatorio mancante o non popolato per un utente.** Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Questa configurazione include l'impostazione della "proprietà corrispondente" che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi. Per altre informazioni su questo importante processo, vedere [Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory](customize-application-attributes.md).
-- **Mapping degli attributi per gruppi:** provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità abilitando o disabilitando il **mapping** per gli oggetti di gruppo visualizzati nella scheda **Provisioning**. Se il provisioning di gruppi è abilitato, verificare di controllare i mapping degli attributi per garantire che venga usato un campo appropriato per l'ID di abbinamento. L'ID di abbinamento può essere il nome visualizzato o l'alias di posta elettronica. Il provisioning di questo gruppo e dei relativi membri non viene effettuato se la proprietà corrispondente è vuota o non popolata per un gruppo in Azure AD.
+- **Mapping degli attributi per i gruppi:** Eseguire il provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità attivando o disattivando il **mapping** per gli oggetti di gruppo visualizzati nella scheda **Provisioning**. Se il provisioning di gruppi è abilitato, verificare di controllare i mapping degli attributi per garantire che venga usato un campo appropriato per l'ID di abbinamento. L'ID di abbinamento può essere il nome visualizzato o l'alias di posta elettronica. Il provisioning di questo gruppo e dei relativi membri non viene effettuato se la proprietà corrispondente è vuota o non popolata per un gruppo in Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Servizio di sincronizzazione Azure AD Connect: informazioni sul provisioning dichiarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

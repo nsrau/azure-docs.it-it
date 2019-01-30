@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426809"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468098"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
 

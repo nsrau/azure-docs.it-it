@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945570"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807321"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 
@@ -80,7 +80,7 @@ Per connettersi all'API Servizi multimediali di Azure con l'opzione di autentica
 
 I valori per questi parametri sono reperibili in **AzureEnvironments.AzureCloudEnvironment**. La costante **AzureEnvironments.AzureCloudEnvironment** è un helper nell'SDK .NET che consente di ottenere le impostazioni delle variabili di ambiente ideali per un data center Azure pubblico. 
 
-Contiene le impostazioni di ambiente predefinite per l'accesso a Servizi multimediali esclusivamente nei data center pubblici. Per le regioni cloud sovrane o governative è possibile usare rispettivamente **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** o **AzureGermanCloudEnvironment**.
+Contiene le impostazioni di ambiente predefinite per l'accesso a Servizi multimediali esclusivamente nei data center pubblici. Per le aree cloud sovrane o per enti pubblici è possibile usare rispettivamente **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** o **AzureGermanCloudEnvironment**.
 
 L'esempio di codice seguente mostra come creare un token:
     

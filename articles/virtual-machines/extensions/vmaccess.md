@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452055"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413839"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
 ## <a name="overview"></a>Panoramica
@@ -36,7 +36,7 @@ Questo articolo illustra come usare l'estensione VMAccess di Azure per controlla
 
 L'estensione di accesso alle VM può essere eseguita in queste distribuzioni di Linux:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |
@@ -53,7 +53,7 @@ Esistono due modi per usare l'estensione VMAccess nelle VM Linux:
 * Usare l'interfaccia della riga di comando di Azure e i parametri richiesti.
 * [Usare file JSON non elaborati che l'estensione VMAccess elaborerà](#use-json-files-and-the-vmaccess-extension) e su cui baserà le sue operazioni.
 
-L'esempio seguente usa i comandi [az vm user](/cli/azure/vm/user). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index#az_login).
+L'esempio seguente usa i comandi [az vm user](/cli/azure/vm/user). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>Aggiornare la chiave SSH
 Nell'esempio seguente viene aggiornata la chiave SSH per l'utente `azureuser` nella macchina virtuale denominata `myVM`:

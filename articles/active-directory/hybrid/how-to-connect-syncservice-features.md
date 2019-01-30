@@ -4,7 +4,7 @@ description: Descrive le funzionalità sul lato del servizio per il Servizio di 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242994"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461213"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 La funzionalità di sincronizzazione di Azure AD Connect include due componenti:
@@ -55,8 +55,8 @@ Le impostazioni seguenti vengono configurate da Azure AD Connect e non possono e
 
 | DirSyncFeature | Comment |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect: Abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: Estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Consente di mettere in quarantena un attributo quando è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione. |
 | Sincronizzazione dell'hash delle password |[Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticazione pass-through|[Accesso utente con l'autenticazione pass-through di Azure Active Directory](how-to-connect-pta.md)|

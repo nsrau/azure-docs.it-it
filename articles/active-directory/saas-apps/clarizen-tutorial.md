@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158672"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
 
@@ -98,7 +98,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Caselle per identificatore e URL di risposta](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. Nella casella **Identificatore** digitare il valore **Clarizen**
+    a. Nella casella **Identificatore** digitare il valore come **Clarizen**
 
     b. Nella casella **URL di risposta** digitare un URL usando il modello seguente: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 

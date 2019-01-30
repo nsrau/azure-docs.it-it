@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784460"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817555"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -42,7 +42,7 @@ Attualmente il processore multimediale **Rilevamento multimediale volti di Azure
 Questo articolo contiene informazioni dettagliate su **Azure Media Face Detector** e illustra come usare questa funzionalità con Media Services .NET SDK.
 
 ## <a name="face-detector-input-files"></a>File di input di Rilevamento volti
-File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
+File video. Attualmente sono supportati i seguenti formati: MP4, MOV e WMV.
 
 ## <a name="face-detector-output-files"></a>File di output di Rilevamento volti
 L'API per il rilevamento e monitoraggio volti offre il rilevamento e il monitoraggio volti ad alta precisione ed è in grado di rilevare fino a 64 volti umani in un video. Le riprese anteriori producono i risultati migliori, mentre i profili e i volti piccoli (inferiori o uguali a 24x24 pixel) non garantiscono altrettanta precisione.
@@ -152,7 +152,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | DESCRIZIONE |
 | --- | --- |
-| Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma. |
+| Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituisce dei valori medi delle emozioni per tutti i visi nel fotogramma. |
 | AggregateEmotionWindowMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi. |
 | AggregateEmotionIntervalMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica con quale frequenza produrre risultati aggregati. |
 
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

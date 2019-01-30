@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Recognize | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Recognize | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Recognize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448785"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Esercitazione: Integrazione di Azure Active Directory con Recognize
 
@@ -46,7 +46,7 @@ Per configurare l'integrazione di Azure AD con Recognize, sono necessari gli ele
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si ha un ambiente di valutazione di Azure AD, è possibile ottenere una versione di valutazione di un mese qui: [Offerta per la versione di valutazione](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Contattare il [team di supporto client di Recognize ](mailto:support@recognizeapp.com) per ottenere l'URL Sign-On; è possibile ottenere il valore di identificazione aprendo l'URL metadati del provider di servizi dalla sezione delle impostazioni SSO illustrata più avanti nell'esercitazione. . 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Contattare il [team di supporto client di Recognize ](mailto:support@recognizeapp.com)  per ottenere l'URL Sign-On. È possibile ottenere il valore di identificazione aprendo l'URL metadati del provider di servizi dalla sezione delle impostazioni SSO illustrata più avanti nell'esercitazione. . 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -161,12 +161,12 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. In una pagina del browser fare clic sul collegamento **Metadata URL** (URL metadati) per scaricare il documento di metadati. Quindi copiare il valore EntityDescriptor (entityID) dal file e incollarlo nella casella di testo **Identificatore** nella sezione **URL e dominio Recognize** del portale di Azure.
+1. In una pagina del browser fare clic sul collegamento **Metadata URL** (URL metadati) per scaricare il documento di metadati. Copiare quindi il valore EntityDescriptor (entityID) dal file e incollarlo nella casella di testo  **Identificatore**  nella sezione **URL e dominio Recognize** del portale di Azure.
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

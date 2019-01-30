@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 011fa2dcce390597337ec583c1d5704177fda251
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d914f14d2b7a50e700e53b55cd43e699cf560a76
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347187"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810364"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Esercitazione: Configurare LucidChart per il provisioning utenti automatico
 

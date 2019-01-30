@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714301"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820785"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -50,7 +50,7 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 | Impostazione | DESCRIZIONE |
 |-|-|
 | NOME | Nome descrittivo per il certificato del servizio app. |
-| Nome host di dominio di tipo naked | Questo passaggio è una delle parti più importanti del processo di acquisto. Usare il nome di dominio radice di cui è stato eseguito il mapping all'app. _Non_ aggiungere `www` all'inizio del nome di dominio. |
+| Nome host di dominio di tipo naked | Se qui si specifica il dominio radice, si ottiene un certificato che protegge *entrambi* il dominio radice e il sottodominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`. |
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
 | Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -125,7 +125,7 @@ Visitare l'app usando `HTTPS://<domain_name>` invece di `HTTP://<domain_name>` p
 
 Se è necessario reimpostare la chiave del certificato, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), quindi selezionare **Reimposta chiavi e sincronizza** nel riquadro di spostamento a sinistra.
 
-Fare clic sul pulsante **Reimposta** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
+Fare clic sul pulsante **Reimposta chiavi** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
 
 ![inserire immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

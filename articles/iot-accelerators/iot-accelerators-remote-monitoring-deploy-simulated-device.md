@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346450"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450569"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Distribuire un nuovo dispositivo simulato
 
@@ -31,13 +31,13 @@ La guida pratica illustrata come:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Per eseguire la procedura descritta in questa guida è necessaria una sottoscrizione di Azure.
+Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida pratica servono:
+Per completare questa guida pratica, sono necessari gli elementi seguenti:
 
 - Un'istanza distribuita dell'[acceleratore di soluzioni Monitoraggio remoto](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
 - Una shell **bash** locale per eseguire i comandi `ssh` e `scp`. In Windows un modo semplice per installare **bash** consiste nell'installare [git](https://git-scm.com/download/win).
@@ -147,4 +147,4 @@ Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina [
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa guida ha illustrato come distribuire modelli di dispositivo personalizzati nell'acceleratore di soluzioni Monitoraggio remoto. Il passaggio successivo consigliato consiste nell'apprendere come [connettere un dispositivo fisico alla soluzione di monitoraggio remoto](iot-accelerators-connecting-devices-node.md).
+Questa guida ha illustrato come distribuire modelli di dispositivo personalizzati nell'acceleratore di soluzioni Monitoraggio remoto. Il passaggio successivo consigliato consiste nell'apprendere come [connettere un dispositivo reale alla soluzione di monitoraggio remoto](iot-accelerators-connecting-devices-node.md).

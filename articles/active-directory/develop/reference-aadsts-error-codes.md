@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820309"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
 
@@ -79,7 +79,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS50058 | UserInformationNotProvided: un utente non ha effettuato l'accesso. Si tratta di un errore comune che si verifica in genere quando un utente non è autenticato e non ha ancora effettuato l'accesso.</br>Se questo errore viene visualizzato in un contesto SSO in cui l'utente ha precedentemente effettuato l'accesso, significa che la sessione SSO non è stata trovata o non è valida.</br>Questo errore può essere restituito all'applicazione se è specificato prompt=none. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: non sono state trovate informazioni di identificazione del tenant nella richiesta né sono state incluse in modo implicito nelle credenziali fornite. L'utente può contattare l'amministratore del tenant per ottenere informazioni per la risoluzione del problema. |
 | AADSTS50061 | SignoutInvalidRequest: la richiesta di disconnessione non è valida. |
-| AADSTS50064 | CredentialAuthenticationError: la convalida delle credenziali non è riuscita. |
+| AADSTS50064 | CredentialAuthenticationError: la convalida delle credenziali per nome utente e password non è riuscita. |
 | AADSTS50068 | SignoutInitiatorNotParticipant: la disconnessione non è riuscita. L'app che ha avviato la disconnessione non partecipa alla sessione corrente. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier: la disconnessione non è riuscita. La richiesta di disconnessione ha specificato un identificatore del nome che non soddisfa le sessioni esistenti. |
 | AADSTS50071 | SignoutMessageExpired: la richiesta di disconnessione è scaduta. |
@@ -254,6 +254,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource: la risorsa non è configurata per accettare token solo dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized: l'utente non è autorizzato a registrare i dispositivi in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing: non è possibile usare id_token come concessione `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: l'applicazione non è stata trovata nella directory o nel tenant. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che il valore dell'identificatore per l'applicazione sia stato configurato in modo errato o che la richiesta di autenticazione sia stata inviata al tenant sbagliato. |
 | AADSTS700020 | InteractionRequired: la concessione dell'accesso richiede l'interazione. |
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |

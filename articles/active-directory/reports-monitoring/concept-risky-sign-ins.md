@@ -3,7 +3,7 @@ title: Report degli accessi a rischio nel portale di Azure Active Directory | Mi
 description: Informazioni sul report degli accessi a rischio nel portale di Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244716"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807763"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -63,7 +63,7 @@ Le edizioni Azure AD Free e Basic forniscono un elenco di accessi a rischio che 
 
 - **Utente**: nome dell'utente usato durante l'operazione di accesso.
 - **IP**: indirizzo IP del dispositivo usato per connettersi ad Azure Active Directory.
-- **Località**: località usata per connettersi ad Azure Active Directory.
+- **Località**: località usata per connettersi ad Azure Active Directory. È un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni.
 - **Ora di accesso**: ora in cui è stato eseguito l'accesso.
 - **Stato**: stato dell'accesso.
 
@@ -106,6 +106,9 @@ Quando si seleziona un evento di rischio, si ottiene la visualizzazione di un re
 - chiudere manualmente gli eventi di rischio. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> A volte è possibile trovare un evento di rischio senza una voce di accesso corrispondente nel [report sugli accessi](concept-sign-ins.md). Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
 
 Quando si seleziona un utente, si ottiene la visualizzazione di un report dettagliato per questo utente che consente di:
 

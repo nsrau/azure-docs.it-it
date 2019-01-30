@@ -5,7 +5,7 @@ services: active-directory
 keywords: impostazioni di enterprise state roaming, cloud windows, domande frequenti su enterprise state roaming
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248422"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452939"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -80,9 +80,9 @@ Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD
 
 In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a sincronizzare i dati se è configurata la funzione Azure Multi-Factor Authentication. Per altre informazioni su questi problemi, vedere il documento di supporto [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN Microsoft Passport for Work o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
+**Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN Microsoft Passport for Work o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
 
-**Potenziale problema**: la sincronizzazione può non riuscire se l'amministratore configura in Active Directory Federation Services il criterio di accesso condizionale Multi-Factor Authentication e il token di accesso al dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
+**Potenziale problema**: La sincronizzazione può non riuscire se l'amministratore configura in Active Directory Federation Services il criterio di accesso condizionale Multi-Factor Authentication e il token di accesso al dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
 
 ### <a name="event-viewer"></a>Aprire il Visualizzatore eventi
 

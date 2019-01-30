@@ -2,17 +2,17 @@
 title: Gestori eventi di Griglia di eventi di Azure
 description: Descrive i gestori eventi supportati per Griglia di eventi di Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
-ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478468"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestori eventi di Griglia di eventi di Azure
 
@@ -39,7 +39,7 @@ Quando si usa Funzioni di Azure come gestore, l'uso del trigger della Griglia di
 | [Trigger Griglia di eventi per Funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) | Panoramica dell'uso del trigger Griglia di eventi in Funzioni. |
 | [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](resize-images-on-storage-blob-upload-event.md) | Gli utenti caricano le immagini tramite l'app Web nell'account di archiviazione. Quando viene creato un BLOB di archiviazione, Griglia di eventi invia un evento all'app per le funzioni, che ridimensiona l'immagine caricata. |
 | [Esercitazione: trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
-| [Esercitazione: esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
+| [Esercitazione: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
 
 ## <a name="event-hubs"></a>Hub eventi
 
@@ -70,7 +70,7 @@ Usare le app per la logica per automatizzare i processi di business per risponde
 |---------|---------|
 | [Esercitazione: monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
 | [Esercitazione: inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
-| [Esercitazione: esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
+| [Esercitazione: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
 
 ## <a name="queue-storage"></a>Archiviazione code
 
@@ -88,7 +88,7 @@ Usare i webhook per gli endpoint personalizzabili che rispondono agli eventi.
 |---------|---------|
 | Guida introduttiva: Creare e instradare eventi personalizzati con [interfaccia della riga di comando di Azure](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md) e il [portale](custom-event-quickstart-portal.md). | Illustra come inviare gli eventi personalizzati a un webhook. |
 | Guida introduttiva: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con [interfaccia della riga di comando di Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) e il [portale](blob-event-quickstart-portal.md). | Illustra come inviare gli eventi della risorsa di archiviazione BLOB a un webhook. |
-| [Guida introduttiva: Inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
+| [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
 | [Panoramica: Ricevere eventi in un endpoint HTTP](receive-events.md) | Descrive come convalidare un endpoint HTTP per ricevere eventi dalla sottoscrizione di un evento e ricevere e deserializzare gli eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi

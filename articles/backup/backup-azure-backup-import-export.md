@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188301"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810721"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
@@ -106,11 +106,11 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un altro computer in cui sono collegate le unità SATA. Nel computer con le unità SATA collegate assicurarsi che:
 
-    * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline sia accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline**.
-    * Nel computer di copia sia abilitato BitLocker.
-    * Azure PowerShell 3.7.0 sia installato.
+    * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
+    * Nel computer di copia è abilitato BitLocker.
+    * Azure PowerShell 3.7.0 è installato.
     * Siano installate le versioni più recenti dei browser compatibili, ovvero Microsoft Edge o Internet Explorer 11, e JavaScript sia abilitato. 
-    * Il computer di copia possa accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
+    * Il computer di copia può accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
     
     > [!IMPORTANT] 
     > Se il computer di origine è una macchina virtuale, usare un server fisico diverso o un computer client come computer di copia del computer di origine.

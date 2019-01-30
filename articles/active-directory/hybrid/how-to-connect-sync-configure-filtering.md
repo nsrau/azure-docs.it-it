@@ -1,10 +1,10 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: configurare il filtro | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: configurare il filtro | Microsoft Docs'
 description: Illustra come configurare i filtri nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 886ac908d2e294f4627f95b35d93ea49a9e1607a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472331"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -106,7 +106,7 @@ Per impostare il filtro basato su dominio, seguire questa procedura:
    ![Proprietà del connettore](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Fare clic su **Configure Directory Partitions**.
 5. Nell'elenco **Select directory partitions** (Selezionare le partizioni di directory) selezionare e deselezionare i domini in base alle esigenze. Verificare che siano selezionate solo le partizioni da sincronizzare.  
-   ![Partizioni](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Partitions](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Se è stata modificata l'infrastruttura Active Directory locale e se sono stati aggiunti o rimossi domini dalla foresta, fare clic sul pulsante **Refresh** (Aggiorna) per ottenere un elenco aggiornato. Quando si esegue l'aggiornamento, vengono richieste le credenziali. Specificare le credenziali con accesso in lettura a Windows Server Active Directory. Tali credenziali non devono necessariamente appartenere all'utente già inserito nella finestra di dialogo.  
    ![Aggiornamento necessario](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Al termine, fare clic su **OK** per chiudere la finestra di dialogo **Properties** (Proprietà). Se sono stati rimossi domini dalla foresta, viene visualizzato un messaggio in cui è indicato che è stato rimosso un dominio e che verrà eseguita la pulizia della configurazione.
@@ -185,6 +185,9 @@ In questa configurazione una nuova unità organizzativa creata in ManagedObjects
 
 ## <a name="attribute-based-filtering"></a>Filtro basato su attributo
 Per il funzionamento corretto di questi passaggi, verificare di usare la build di novembre 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) o versione successiva.
+
+> [!IMPORTANT]
+>Microsoft consiglia di non modificare le regole predefinite create da **Azure AD Connect**. Se si vuole modificare la regola, clonarla e disabilitare la regola originale. Apportare le modifiche necessarie alla regola clonata. Si noti che in questo modo (disabilitando la regola originale) si perderanno alcune correzioni di bug o funzionalità abilitate tramite quella regola.
 
 Il filtro basato su attributi è il modo più flessibile per filtrare gli oggetti. È possibile usare la funzionalità di [provisioning dichiarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) per controllare quasi tutti gli aspetti dei casi in cui un oggetto viene sincronizzato con Azure AD.
 

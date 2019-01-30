@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975510"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468336"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori docker di Language Understanding 
 
@@ -32,10 +32,11 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |--|--|--|
 |Yes|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Yes|[Billing](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Yes|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No |[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
+|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |Yes|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
@@ -77,6 +78,10 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Impostazioni di registrazione
  
@@ -188,4 +193,5 @@ ApiKey={APPLICATION_ID} \
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Come installare ed eseguire i contenitori](luis-container-howto.md)
-* Per risolvere i problemi correlati alla funzionalità LUIS, fare riferimento alle [domande frequenti](luis-resources-faq.md).
+* Per risolvere i problemi correlati alla funzionalità LUIS, vedere le [domande frequenti](luis-resources-faq.md).
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

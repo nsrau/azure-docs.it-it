@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con vxMaintain | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con vxMaintain | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433995"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Esercitazione: Integrazione di Azure Active Directory con vxMaintain
 
@@ -161,7 +161,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
  
 ### <a name="create-a-vxmaintain-test-user"></a>Creare un utente di test di vxMaintain
 
-In questa sezione viene creato un utente di test di nome Britta Simon in vxMaintain. Collaborare con il [team di supporto di vxMaintain](https://www.hubspot.com/company/contact) per aggiungere gli utenti alla piattaforma vxMaintain. Prima di usare l'accesso SSO, creare e attivare gli utenti.
+In questa sezione viene creato un utente di test di nome Britta Simon in vxMaintain. Per aggiungere utenti alla piattaforma vxMaintain, collaborare con il  [team di supporto di vxMaintain](https://www.hubspot.com/company/contact). Prima di usare l'accesso SSO, creare e attivare gli utenti.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

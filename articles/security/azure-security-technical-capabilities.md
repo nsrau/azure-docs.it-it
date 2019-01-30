@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249031"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820241"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -179,9 +179,9 @@ Usando il Controllo degli accessi in base al ruolo, è possibile separare i comp
 
 Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. In relazione alle procedure consigliate per la sicurezza e la crittografia dei dati in Azure, le raccomandazioni riguardano gli stati dei dati seguenti.
 
-- Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica nei supporti fisici, siano essi dischi magnetici o dischi ottici.
+- Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica su supporti fisici, siano essi dischi magnetici o dischi ottici.
 
-- In transito: quando i dati vengono trasferiti dati tra componenti, posizioni o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride come ExpressRoute) oppure durante un processo di input/output, sono considerati in movimento.
+- In transito: quando i dati vengono trasferiti tra componenti, posizioni o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride come ExpressRoute) oppure durante un processo di input/output, sono considerati in movimento.
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
@@ -216,7 +216,7 @@ Valutare quali risorse di archiviazione vengono usate per archiviare i dati, Ad 
 
 Per ogni risorsa di archiviazione usata, sfruttare il supporto della crittografia dei dati inattivi esistente.
 
-- Archiviazione di Azure: vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption)
+- Archiviazione di Azure. Vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption)
 
 - SQL Azure: vedere [Transparent Data Encryption (TDE) e SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
@@ -248,7 +248,7 @@ Se si supportano chiave gestite dal cliente, è necessario fornire un'esperienza
 
 Dato che la crittografia dei dati inattivi prevede la crittografia dei dati dell'host, dell'infrastruttura e dei tenant, la perdita delle chiavi a causa di un errore di sistema o di attività dannose potrebbe determinare la perdita di tutti i dati crittografati. È quindi essenziale che la soluzione di crittografia dei dati inattivi includa una strategia di ripristino di emergenza completa resiliente agli errori di sistema e alle attività dannose.
 
-I servizi che implementano la crittografia dei dati inattivi, in genere, sono comunque vulnerabili se le chiavi di crittografia o i dati vengono mantenuti non crittografati nell'unità host, ad esempio nel file di paging del sistema operativo host. Di conseguenza, è necessario garantire la crittografia del volume host dei servizi. Per facilitare il compito, il team di calcolo ha abilitato la distribuzione della crittografia host, che usa la protezione di rete con chiave [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) ed estensioni dell'agente e del servizio DCM per crittografare il volume host.
+I servizi che implementano la crittografia dei dati inattivi, in genere, sono comunque vulnerabili se le chiavi di crittografia o i dati vengono mantenuti non crittografati nell'unità host, ad esempio nel file di paging del sistema operativo host. Di conseguenza, è necessario garantire la crittografia del volume host dei servizi. Per facilitare il compito, il team di calcolo ha abilitato la distribuzione della crittografia host, che usa la protezione di rete con chiave [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) ed estensioni dell'agente e del servizio DCM per crittografare il volume host.
 
 La maggior parte dei servizi viene implementata in VM di Azure standard. Tali servizi dovrebbero ottenere automaticamente la [crittografia host](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) quando viene abilitata dal team di calcolo. Per i servizi eseguiti in cluster gestiti dal team di calcolo, la crittografia host viene abilitata automaticamente con l'implementazione di Windows Server 2016.
 

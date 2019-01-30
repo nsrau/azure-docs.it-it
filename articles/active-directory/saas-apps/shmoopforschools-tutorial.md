@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045958"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Esercitazione: Integrazione di Azure Active Directory con Shmoop For Schools
 
@@ -146,7 +146,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+7. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
 
     ![Collegamento di download del certificato](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -182,7 +182,7 @@ L'obiettivo di questa sezione consiste nel creare l'utente di test "Britta Simon
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-a-shmoop-for-schools-test-user"></a>Creare un utente test di Shmoop For Schools
 
@@ -227,7 +227,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando si seleziona **Shmoop For Schools** nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Shmoop For Schools.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

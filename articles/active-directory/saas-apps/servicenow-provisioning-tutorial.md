@@ -4,7 +4,7 @@ description: Informazioni su come eseguire automaticamente il provisioning e il 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7ee10bcd06877b33669b79e104f0d32f87301c28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813271"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico con Azure Active Directory
 
@@ -50,7 +50,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app ServiceNow. Dopo aver stabilito questo, è possibile assegnare questi utenti all'app ServiceNow seguendo le istruzioni riportate di seguito: [Assegnare un utente o un gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app ServiceNow. Dopo averlo stabilito, è possibile assegnare gli utenti all'app ServiceNow seguendo le istruzioni riportate in: [Assegnare un utente o gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]

@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783180"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821448"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Inviare processi di ritaglio da Azure Media Clipper
 Per gestire l'invio di processi di ritaglio, Azure Media Clipper richiede l'implementazione di un metodo **submitSubclipCallback**. Questa funzione è necessaria per implementare un'operazione POST HTTP per l'output di Clipper in un servizio Web. Nel servizio Web sarà possibile inviare il processo di codifica. L'output di Clipper è un set di impostazioni di codifica di Media Encoder Standard per i processi con rendering o il payload dell'API REST per chiamate di filtri manifesto dinamico. Questo modello pass-through è necessario perché le credenziali dell'account Servizi multimediali non sono sicure nel browser del client.
@@ -31,7 +31,7 @@ L'esempio di codice seguente illustra un metodo **submitSubclipCallback** di ese
 // Parameter:
 // - subclip: object that represents the subclip (output contract).
 //
-// Returns: a Promise object that, when resolved, retuns true if the operation was accept in the back-end; otherwise, returns false.
+// Returns: a Promise object that, when resolved, returns true if the operation was accept in the back-end; otherwise, returns false.
 var onSubmitSubclip = function (subclip) {
     var promise = new Promise(function (resolve, reject) {
         // TODO: perform the back-end AJAX request to submit the subclip job.
@@ -99,7 +99,7 @@ Il contratto di output del processo per il ritaglio con rendering è un oggetto 
     "type": "job",
 
     /* Required if "type" === "job" */
-    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to sumit the subclip job.
+    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to submit the subclip job.
     The encoding profile ("Codecs" property) depends on the "singleBitrateMp4Profile" and "multiBitrateMp4Profile" option parameters
     specified when creating the widget instance. */
     /* REFERENCE: https://docs.microsoft.com/azure/media-services/media-services-advanced-encoding-with-mes */

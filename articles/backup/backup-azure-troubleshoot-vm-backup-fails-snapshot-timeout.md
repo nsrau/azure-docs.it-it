@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353963"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816756"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -113,6 +113,26 @@ L'operazione di backup potrebbe non riuscire quando si esegue il backup di macch
 **Messaggio di errore**: Backup di Azure al momento non supporta i dischi SSD standard. <br>
 
 Attualmente Backup di Azure supporta i dischi SSD Standard solo per gli insiemi di credenziali che vengono aggiornati a [Ripristino istantaneo](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup.
+
+**Codice errore**: UserErrorBackupOperationInProgress <br>
+**Messaggio di errore**: Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup<br>
+
+La recente operazione di backup ha avuto esito negativo poiché è presente e in corso un altro processo di backup. Non è possibile avviare un nuovo processo di backup fino al termine del processo corrente. Verificare che l'operazione di backup attualmente in corso sia stata completata prima di attivare o pianificare altre operazioni di backup. Per controllare lo stato dei processi di backup, seguire questa procedura:
+
+1. Accedere al portale di Azure e fare clic su **Tutti i servizi**. Digitare Servizi di ripristino e fare clic su **Insiemi di credenziali di Servizi di ripristino**. Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
+2. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
+3. Scegliere **Processi di backup** dal menu del dashboard dell'insieme di credenziali per visualizzare tutti i processi di backup.
+
+    * Se è in corso un processo di backup, attenderne il completamento o annullarlo.
+        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Se è stato riconfigurato il backup in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se è presente un processo di backup, annullarlo.
+        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Ripetere l'operazione di backup.
+
+Se l'operazione di backup pianificata sta impiegando più tempo del previsto, causando conflitti con la configurazione del backup successivo, rivedere [Procedure consigliate](backup-azure-vms-introduction.md#best-practices), [Prestazioni del backup](backup-azure-vms-introduction.md#backup-performance) e [Considerazioni sul ripristino](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni

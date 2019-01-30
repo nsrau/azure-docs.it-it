@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f992b4539711d66c51e423eae94c40a325842241
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2676cec6646a1e0b991272f2c1e9971a8d175efd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267165"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824134"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prerequisiti di Crittografia dischi di Azure (versione precedente)
 
@@ -73,7 +73,7 @@ Un esempio dei comandi che è possibile usare per montare i dischi dati e creare
 **Criteri di gruppo:**
  - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 
--  I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere la seguente impostazione: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). (Configura l'archiviazione utente delle informazioni di ripristino di bitlocker -> Consenti chiave di ripristino a 256 bit). Crittografia dischi di Azure avrà esito negativo quando le impostazioni dei criteri di gruppo personalizzati per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.  
+-  I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). (Configura l'archiviazione utente delle informazioni di ripristino di bitlocker -> Consenti chiave di ripristino a 256 bit). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell

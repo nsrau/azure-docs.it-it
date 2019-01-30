@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581443"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849788"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Aggiungere, aggiornare o rimuovere una carta di credito o di debito per Azure
 
@@ -32,7 +32,7 @@ Nel Centro account è possibile aggiungere una nuova carta di credito, aggiornar
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Aggiungere una nuova carta di credito o di debito
 
-1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions) come amministratore account.
+1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions) come [Amministratore account](billing-subscription-transfer.md#whoisaa).
 1. Selezionare una sottoscrizione.
 1. Sul lato destro della pagina selezionare **Manage payment methods**(Gestisci metodi di pagamento).
 
@@ -49,7 +49,7 @@ Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La cart
 
 Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare i dati della carta di credito esistente, ad esempio la data di scadenza. Se il numero di carta di credito viene modificato in seguito alla perdita, al furto o alla scadenza della carta, seguire la procedura nella sezione [Aggiungere una carta di credito come metodo di pagamento](#addcard). Non è necessario aggiornare il codice CVV.
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come Amministratore account.
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come [Amministratore account](billing-subscription-transfer.md#whoisaa).
 1. Selezionare la sottoscrizione collegata alla carta.
 1. Selezionare **Gestisci i metodi di pagamento**.
 1. Selezionare **Modifica** accanto alla carta che si vuole aggiornare.
@@ -58,14 +58,14 @@ Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare 
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Usare una carta di credito diversa per la sottoscrizione di Azure
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come Amministratore account.
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come [Amministratore account](billing-subscription-transfer.md#whoisaa).
 1. Selezionare la sottoscrizione collegata alla carta.
 1. Sul lato destro della pagina selezionare **Manage payment methods**(Gestisci metodi di pagamento).
 1. Fare clic su **Usa questa carta** accanto alla carta che si vuole usare. Verranno aggiornate anche tutte le altre sottoscrizioni attualmente associate alla carta. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Rimuovere una carta di credito o di debito dall'account
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come [Amministratore account](billing-subscription-transfer.md#whoisaa).
 1. Selezionare la sottoscrizione collegata alla carta.
 3. Sul lato destro della pagina selezionare **Manage payment methods**(Gestisci metodi di pagamento).
 4. Fare clic su **Elimina** per la carta di credito che si desidera eliminare.
@@ -102,6 +102,6 @@ Sfortunatamente, al momento Azure non supporta pagamenti unici per carte di cred
 
 Per aggiungere o aggiornare l'ID imposta, passare a [ **Profilo** nel Centro account di Azure](https://account.azure.com/Profile) e quindi selezionare **Registrazione fiscale**. L'ID imposta viene usato per calcolare l'esenzione fiscale ed riportato sulla fattura.
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, [creare una richiesta di supporto per assistenza](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

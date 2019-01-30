@@ -4,7 +4,7 @@ description: Questo articolo contiene informazioni sulla risoluzione dei problem
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310020"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470444"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 Questo argomento descrive la procedura per risolvere i problemi di sincronizzazione dell'hash delle password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti.
@@ -233,7 +233,7 @@ Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire qu
 3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e deselezionare l'opzione di sincronizzazione delle password. Questa modifica disabilita temporaneamente la funzionalità. Eseguire quindi di nuovo la procedura guidata e riabilitare la sincronizzazione password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
 
 4. Esaminare il log eventi per cercare eventuali errori. Cercare gli eventi seguenti che potrebbero indicare un problema:
-    * Origine: ID "Sincronizzazione della directory": 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, c'è un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
+    * Origine: "Directory synchronization" ID: 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, è presente un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
 
 5. Se non viene visualizzato alcun heartbeat o non si sono trovate altre soluzioni al problema, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords). Eseguire lo script una sola volta.
 
@@ -326,7 +326,7 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 ### <a name="password-sync-log"></a>Log di sincronizzazione delle password
 I valori possibili per la colonna dello stato sono i seguenti:
 
-| Status | DESCRIZIONE |
+| Stato | DESCRIZIONE |
 | --- | --- |
 | Success |La password è stata sincronizzata. |
 | FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md)
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

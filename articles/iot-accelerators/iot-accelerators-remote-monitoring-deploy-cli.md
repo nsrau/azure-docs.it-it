@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248011"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463219"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -70,7 +70,7 @@ Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione, delle regole, degli allarmi e di altre risorse di archiviazione offline sicura |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione, delle regole, degli avvisi e di altre risorse di archiviazione offline sicura |  
 | 1     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
@@ -87,7 +87,7 @@ Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure
 
 | Conteggio | Risorsa                                     | SKU / Dimensioni      | Utilizzo |
 |-------|----------------------------------------------|-----------------|----------|
-| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Usa un servizio di orchestrazione di contenitori Kubernetes completamente gestito, con un'impostazione predefinita di tre agenti|
+| 1     | [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service)| Usa un servizio di orchestrazione di contenitori Kubernetes completamente gestito, con un'impostazione predefinita di tre agenti|
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |
 | 5     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |

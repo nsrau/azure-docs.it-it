@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Documentazione Microsoft'
+title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Microsoft Docs'
 description: Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361070"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412819"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Abilitazione del writeback dei dispositivi
 > [!NOTE]
 > Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei dispositivi.
 > 
@@ -57,10 +57,10 @@ Installare Azure AD Connect usando le impostazioni personalizzate o rapide È co
 
 4. La pagina **Contenitore di dispositivi** consente di preparare la active directory tramite una delle due opzioni disponibili:
 
-    a. **Fornire le credenziali di amministratore di enterprise**: se le credenziali di amministratore di enterprise vengono fornite per la foresta in cui i dispositivi devono essere riscritti, Azure AD Connect preparerà foresta automaticamente durante la configurazione di writeback dispositivi.
+    a. **Fornire le credenziali di amministratore aziendali**: se le credenziali di amministratore aziendali vengono fornite per la foresta in cui i dispositivi devono essere riscritti, Azure AD Connect preparerà la foresta automaticamente durante la configurazione del writeback dei dispositivi.
 
-    b. **Scarica lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare la active directory per il writeback dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Fornire lo script di PowerShell scaricato **CreateDeviceContainer.psq** all'amministratore dell'enterprise della foresta in cui verrà eseguito il writeback dei dispositivi.
-    ![Preparare la foresta active directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **Scaricare lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare Active Directory per il writeback dei dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Fornire lo script di PowerShell scaricato **CreateDeviceContainer.psq** all'amministratore dell'enterprise della foresta in cui verrà eseguito il writeback dei dispositivi.
+    ![Preparare la foresta di Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Per preparare la foresta active directory vengono eseguite le operazioni seguenti:
     * Se non esistono già, crea e configura nuovi contenitori e oggetti in CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].

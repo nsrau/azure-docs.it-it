@@ -1,10 +1,10 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Microsoft Docs'
 description: Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464154"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: prevenzione delle eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
 
 Quando si installa Azure AD Connect, la funzionalità per impedire le eliminazioni accidentali viene abilitata per impostazione predefinita e configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. Questa funzionalità è progettata per la protezione da modifiche accidentali della configurazione e della directory locale che possono interessare un numero elevato di utenti e altri oggetti.
@@ -68,5 +68,5 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

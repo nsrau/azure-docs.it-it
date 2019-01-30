@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f11d705cceb05c9e9cd0b340a680684eecf4f5d9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f851bd260c18509a3233bb3401383e0e04ba6259
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054200"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Esercitazione: Integrazione di Azure Active Directory con Agiloft
 
@@ -161,19 +161,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Configurazione di Agiloft](./media/agiloft-tutorial/setup4.png) 
 
-    a. Nella casella di testo **IdP Entity Id/Issuer** (ID entità IdP/Autorità di certificazione) incollare il valore dell'**ID entità SAML** copiato dal portale di Azure.
+    a. Nella casella di testo  **IdP Entity Id/Issuer**  (ID entità IdP/Autorità di certificazione) incollare il valore dell' **ID entità SAML** copiato dal portale di Azure.
 
-    b. Nella casella di testo **IdP Login URL** (URL di accesso IdP) incollare il valore dell'**URL del servizio Single Sign-On** copiato dal portale di Azure.
+    b. Nella casella di testo  **IdP Login URL**  (URL accesso IdP) incollare il valore di  **URL servizio Single Sign-On** copiato dal portale di Azure.
 
-    c. Nella casella di testo **IDP Logout URL** (URL di disconnessione IDP) incollare l'**URL di disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo  **IdP Logout URL**  (URL disconnessione IdP) incollare il valore di  **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **IdP Provided X.509 certificate contents** (Contenuto certificato X.509 fornito da IdP).
+    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo  **IdP Provided X.509 certificate contents**  (Contenuto certificato X.509 fornito da IdP).
 
     e. Fare clic su **Fine**.
 
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -205,7 +205,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-an-agiloft-test-user"></a>Creare un utente di test Agiloft
 
@@ -246,7 +246,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Agiloft nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Agiloft.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

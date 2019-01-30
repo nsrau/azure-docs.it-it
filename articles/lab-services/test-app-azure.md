@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030885"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437793"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
 Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. È quindi possibile utilizzare Visual Studio 2017 per distribuire l'app per la condivisione file in modo che sia possibile eseguirla sulla macchina virtuale nel lab.  
@@ -56,7 +56,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 
     ![Selezionare il lab della macchina virtuale](media/test-app-in-azure/select-lab-vm.png)
 2. Selezionare **Connetti** sulla barra degli strumenti per connettersi alla macchina virtuale. 
-3. [Installare Azure PowerShell](https://azure.microsoft.com/downloads/) usando il link **Windows install** nella sezione **Strumento da riga di comando**. Per altre modalità di installazione di Azure PowerShell, vedere [questo articolo](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installare Azure PowerShell](https://azure.microsoft.com/downloads/) usando il link **Windows install** nella sezione **Strumento da riga di comando**. Per altre modalità di installazione di Azure PowerShell, vedere [questo articolo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 4. Seguire le istruzioni nella sezione [Montare la condivisione file](#mount-the-file-share). 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Pubblicare l'app Web da Visual Studio

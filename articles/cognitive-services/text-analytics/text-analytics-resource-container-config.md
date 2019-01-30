@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 628cc8759610a794d5fb5dbcb76b679304ed6def
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 8f3c6b62f71247aabe88fd06956c6f2a26db82c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243934"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460924"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurare i contenitori docker di Analisi del testo
 
@@ -59,8 +59,11 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="fluentd-settings"></a>Impostazioni Fluentd
 
-
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Impostazioni di registrazione
  
@@ -173,3 +176,4 @@ Gli esempi docker seguenti sono per il contenitore di analisi del sentiment.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Come installare ed eseguire i contenitori](how-tos/text-analytics-how-to-install-containers.md)
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

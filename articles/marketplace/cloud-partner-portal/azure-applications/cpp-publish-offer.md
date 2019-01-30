@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329991"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828095"
 ---
 # <a name="publish-azure-application-offer"></a>Pubblicare un'offerta di applicazione Azure
 
@@ -36,7 +36,7 @@ La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indic
 |  **Passaggio per la pubblicazione**           | **Ora**    | **Descrizione**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Convalida dei prerequisiti         | < 15 min    | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
-| Convalida delle impostazioni dei ricavi influenzate | < 15 min  |      |
+| Convalida delle impostazioni dei ricavi influenzate | < 15 min  | Viene verificata l'attribuzione dell'utilizzo delle risorse di Azure per l'offerta.             |
 | Certificazione                  | < 1 giorno     | L'offerta viene analizzata dal team delle certificazioni di Azure. Viene eseguita l'analisi dell'offerta per individuare eventuali virus, malware, conformità alle normative sulla sicurezza e problemi di sicurezza. L'offerta viene controllata per verificare che soddisfi tutti i criteri di idoneità. Per altre informazioni, vedere la sezione [Prerequisiti](./cpp-prerequisites.md). Se viene rilevato un problema, viene fornito un feedback. |
 | Convalida del test drive          | < 2 ore   | (Facoltativo) Se è presente un test drive, Microsoft verifica che possa essere distribuito e replicato.  |
 | Creazione di pacchetti e registrazione per la generazione di clienti potenziali | < 1 ora  | Le risorse tecniche dell'offerta vengono incluse in un pacchetto per uso dei clienti e i sistemi di registrazione di clienti potenziali vengono configurati e distribuiti. |

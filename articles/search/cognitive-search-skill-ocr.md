@@ -9,17 +9,22 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dbbff7644d0c9375a4d2a145769d09a786b01c25
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075822"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412326"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
+
+La competenza Riconoscimento ottico dei caratteri (OCR) riconosce testo stampato e scritto a mano nei file di immagine. Questa competenza usa i modelli di Machine Learning forniti da [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Servizi cognitivi. La competenza **OCR** corrisponde alle funzionalità seguenti:
+
++ Quando il parametro textExtractionAlgorithm è impostato su "handwritten", viene utilizzata la funzionalità ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
++ Quando il parametro textExtractionAlgorithm è impostato su "printed", per le lingue diverse dall'inglese viene usata la funzionalità ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md). Per l'inglese viene usata la nuova funzionalità di ["riconoscimento del testo"](../cognitive-services/computer-vision/concept-recognizing-text.md) per il testo stampato.
 
 La competenza **OCR** estrae il testo dai file di immagine. I formati di file supportati comprendono:
 
@@ -30,12 +35,9 @@ La competenza **OCR** estrae il testo dai file di immagine. I formati di file su
 + .GIF
 
 > [!NOTE]
-> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente di iniziare l'addebito per l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
-> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
->
->  Viene eseguito il mapping della competenza OCR alle funzionalità di servizi cognitivi seguenti: Quando il parametro textExtractionAlgorithm è impostato su "handwritten", viene utilizzata la funzionalità ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
->  Quando il parametro textExtractionAlgorithm è impostato su "printed", per le lingue diverse dall'inglese viene usata la funzionalità ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md). Per l'inglese viene usata la nuova funzionalità di ["riconoscimento del testo"](../cognitive-services/computer-vision/concept-recognizing-text.md) per il testo stampato.
+> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se l'attività venisse eseguita direttamente. L'estrazione di immagini è un addebito di Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
@@ -58,7 +60,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome output     | DESCRIZIONE                   |
 |---------------|-------------------------------|
 | text          | Testo normale estratto dall'immagine.   |
-| layoutText    | Tipo complesso che descrive il testo estratto, nonché la posizione in cui è stato trovato il testo.|
+| layoutText    | Tipo complesso che descrive il testo estratto e la posizione in cui è stato trovato il testo.|
 
 
 ## <a name="sample-definition"></a>Definizione di esempio
@@ -136,7 +138,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 Un caso d'uso comune per unione testi è la capacità di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento. 
 
-L'insieme di competenze di esempio seguente crea un campo *merged_text* per contenere il contenuto testuale del documento, nonché il testo OCR di ciascuna delle immagini incorporate in quel documento. 
+Il set di competenze di esempio seguente crea un campo *merged_text*. Questo campo contiene il contenuto testuale del documento e il testo sottoposto a riconoscimento dei caratteri da ognuna delle immagini incorporate in tale documento. 
 
 #### <a name="request-body-syntax"></a>Sintassi del corpo della richiesta
 ```json

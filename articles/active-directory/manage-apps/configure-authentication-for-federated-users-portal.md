@@ -4,7 +4,7 @@ description: Illustra il significato di tenant di Azure AD e come gestire Azure 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957939"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461196"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -63,7 +63,7 @@ La sintassi dell'hint di dominio varia in base al protocollo usato ed è general
 
 **WS-Federation**: whr=contoso.com nella stringa della query.
 
-**SAML**: una richiesta di autenticazione SAML che contiene un hint di dominio oppure una stringa di query whr=contoso.com.
+**SAML**:  una richiesta di autenticazione SAML che contiene un hint di dominio oppure una stringa di query whr=contoso.com.
 
 **OpenID Connect**: una stringa di query domain_hint=contoso.com. 
 
@@ -226,7 +226,7 @@ Per verificare quali applicazioni hanno criteri HRD configurati, usare il cmdlet
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Passaggio 5: operazione completata
+#### <a name="step-5-youre-done"></a>Passaggio 5: L'operazione è completata.
 Provare l'applicazione per verificare che il nuovo criterio funzioni.
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Esempio: elencare le applicazioni per cui sono configurati criteri HRD

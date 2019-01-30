@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HR2day by Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441616"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces
 
@@ -88,11 +88,11 @@ Per stabilire la relazione, in HR2day by Merces assegnare il valore del **nome u
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con HR2day by Merces, è necessario completare i blocchi predefiniti seguenti:
 
-1. [Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on): per consentire agli utenti di usare questa funzionalità.
-1. [Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user): per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. [Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on): abilitare gli utenti all'uso di questa funzionalità.
+1. [Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user): testare l'accesso Single Sign-On di Azure AD con Britta Simon.
 1. [Creare un utente di test di HR2day by Merces](#creating-an-hr2day-by-merces-test-user): creare una controparte di Britta Simon in HR2day by Merces collegata alla rappresentazione dell'utente in Azure AD.
-1. [Assegnare l'utente di test di Azure AD](#assigning-the-azure-ad-test-user): per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. [Testare l'accesso Single Sign-On](#testing-single-sign-on): per verificare se la configurazione funziona.
+1. [Assegnare l'utente di test di Azure AD](#assigning-the-azure-ad-test-user): abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. [Testare l'accesso Single Sign-On](#testing-single-sign-on): verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 

@@ -4,7 +4,7 @@ description: Informazioni sui mapping degli attributi per app SaaS in Azure Acti
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356223"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473725"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se il provisioning degli utenti è abilitato per un'applicazione SaaS di terze parti, il portale di Azure ne controlla i valori degli attributi tramite il mapping degli attributi.

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 320b0daf-14be-4813-b59b-25a6a5070690
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 894304081fb8206b2137c9ed6124b306111eb6cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d11c59f053e96dcad5047105cef887a17e25a53
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Esercitazione: Integrazione di Azure Active Directory con Workpath
 
@@ -166,7 +166,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Workpath**, è necessario inviare il file di **XML metadati** scaricato, **l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Workpath](https://help.workpath.com). 
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -202,7 +202,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-workpath-test-user"></a>Creazione di un utente di test di Workpath
 
-Workpath supporta il provisioning utenti JIT. Dopo l'autenticazione, gli utenti vengono creati automaticamente nell'applicazione. 
+Workpath supporta il provisioning utenti JIT. Dopo l'autenticazione, gli utenti vengono creati automaticamente nell'applicazione. 
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
@@ -240,7 +240,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Workpath nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workpath.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

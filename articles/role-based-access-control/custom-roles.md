@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405615"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412049"
 ---
 # <a name="custom-roles-in-azure"></a>Ruoli personalizzati in Azure
 
@@ -84,7 +84,7 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
     Una volta creato il ruolo personalizzato, è necessario testarlo per verificare che funzioni nel modo previsto. Se occorre apportare delle modifiche, è possibile aggiornare il ruolo personalizzato.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md) o [Esercitazione: creare un ruolo personalizzato con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md).
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: Creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md) oppure [Esercitazione: Creare un ruolo personalizzato con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Proprietà del ruolo personalizzato
 
@@ -116,3 +116,4 @@ Come per i ruoli predefiniti, la proprietà `AssignableScopes` specifica gli amb
 - [Creare ruoli personalizzati con Azure PowerShell](custom-roles-powershell.md)
 - [Creare ruoli personalizzati con l'interfaccia della riga di comando di Azure](custom-roles-cli.md)
 - [Informazioni sulle definizioni del ruolo](role-definitions.md)
+- [Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure](troubleshooting.md)

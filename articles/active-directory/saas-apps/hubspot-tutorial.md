@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432880"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Esercitazione: Integrazione di Azure Active Directory con HubSpot
 
@@ -164,7 +164,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Nella casella di testo **URL di accesso Single Sign-On del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    e. Aprire il file del **certificato (Base64)** scaricato nel blocco note. Copiare il contenuto negli Appunti e quindi incollarlo nella casella **Certificato X.509**.
+    e. Aprire il file  **Certificato (Base64)**  scaricato in Blocco note. Copiare il contenuto negli Appunti e quindi incollarlo nella casella  **Certificato X.509**.
 
     f. Fare clic su **Verifica**.
 

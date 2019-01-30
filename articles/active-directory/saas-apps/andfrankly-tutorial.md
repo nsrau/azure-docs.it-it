@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con &frankly | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con &frankly | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e &frankly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 388203903f33d969a7796cf466078159e9b73ad0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 73acaeff6cbffc16aac1b30b9d63974c930c1537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218105"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Esercitazione: Integrazione di Azure Active Directory con &frankly
 
@@ -33,7 +33,7 @@ L'integrazione di &frankly con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con &frankly, sono necessari gli elementi seguenti:
 
@@ -135,7 +135,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 7. Per configurare l’accesso Single Sign-On sul lato **&frankly**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di andfrankly](mailto:help@andfrankly.com). 
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-frankly-test-user"></a>Creazione di un utente test di &frankly
 

@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con ASC Contracts | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con ASC Contracts | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ASC Contracts.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f5eaa61af2c44265f36662e8a3b1f8ff8a747afe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5737bd76e7809035f21103f45a20fa8306061f30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449554"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823301"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Esercitazione: integrazione di Azure Active Directory con ASC Contracts
+# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Esercitazione: Integrazione di Azure Active Directory con ASC Contracts
 
 Questa esercitazione descrive come integrare ASC Contracts con Azure Active Directory, ovvero Azure AD.
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il team di ASC Networks Inc. (ASC) al numero **613.599.6178** per ottenere questi valori.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il team ASC Networks Inc. (ASC) al numero **613.599.6178** per ottenere questi valori.
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -127,10 +127,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **ASC Contracts**, chiamare il supporto di ASC Networks Inc. (ASC) al numero **613.599.6178** e dare il file **XML metadati** scaricato. L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso single sign-on sul lato **ASC Contracts**, chiamare il supporto ASC Networks Inc. (ASC) al numero **613.599.6178** e fornire l'**XML metadati** scaricato. L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -165,7 +165,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-an-asc-contracts-test-user"></a>Creazione di un utente test di ASC Contracts
 
-Rivolgersi al team di supporto di ASC Networks Inc. (ASC) al numero **613.599.6178** per ottenere gli utenti aggiunti alla piattaforma di ASC Contracts.
+Rivolgersi al team di supporto di ASC Networks Inc. (ASC) al numero **613.599.6178** per far aggiungere utenti alla piattaforma di ASC Contracts.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -201,7 +201,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di ASC Contracts nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione ASC Contracts. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro di ASC Contracts nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione ASC Contracts. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

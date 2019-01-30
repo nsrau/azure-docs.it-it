@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Abintegro | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Abintegro | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Abintegro.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 99287e1f-4189-494a-97c8-e1c03d047fd3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 70b9d41ff9ed47e9ac376f1e13627cc82d87130f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 75e0a0c5084eae98466aee49ae257a79e48b5c07
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Esercitazione: Integrazione di Azure Active Directory con Abintegro
 
@@ -128,7 +128,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 6. Per configurare l'accesso Single Sign-On sul lato **Abintegro**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di Abintegro](mailto:support@abintegro.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -159,7 +159,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-an-abintegro-test-user"></a>Creazione di un utente di test di Abintegro
 

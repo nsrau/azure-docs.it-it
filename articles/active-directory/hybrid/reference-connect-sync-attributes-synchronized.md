@@ -4,7 +4,7 @@ description: Fornisce l'elenco degli attributi sincronizzati con Azure Active Di
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251799"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468610"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -50,7 +50,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | assistant |X |X | | |
@@ -174,7 +174,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | authOrig |X |X |X | |
@@ -256,7 +256,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (successivamente diventato Skype for Business)
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -305,7 +305,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X |Nome comune o alias. In genere il prefisso del valore [mail]. |
@@ -321,7 +321,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -340,7 +340,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -380,7 +380,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 
 Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali.
 
-| Nome attributo | Utente | Contatto | Group | Comment |
+| Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X | |
@@ -424,13 +424,13 @@ Questi attributi per l' **utente** si aggiungono alle altre app selezionate.
 ## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
 Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
-| Nome attributo (interfaccia utente di Azure AD Connect) |Nome attributo (Active Directory locale) | Utente | Contatto | Group | Comment |
+| Nome attributo (interfaccia utente di Azure AD Connect) |Nome attributo (Active Directory locale) | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archivio online: consente ai clienti di archiviare la posta elettronica. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtri: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtri: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtri: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Abilitare la messaggistica unificata - Segreteria telefonica online: usata dall'integrazione di Microsoft Lync Server per indicare a Lync Server locale che tra i servizi online dell'utente è presente la segreteria telefonica. |
 | msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
 | proxyAddresses| proxyAddresses |X |X |X |Viene inserito solo l'indirizzo x500 da Exchange Online. |

@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633794"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808202"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
-La ricerca cognitiva crea informazioni disponibili per la ricerca partendo da contenuti non ricercabili, allegando algoritmi di intelligenza artificiale a una pipeline di indicizzazione. L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i documenti indirizzati verso un indice di ricerca. 
+La ricerca cognitiva è una funzionalità di intelligenza artificiale in Ricerca di Azure, usata per estrarre il testo da immagini, BLOB e altre origini dati non strutturate, con arricchimento del contenuto per migliorarne il supporto della ricerca in un indice di Ricerca di Azure. Estrazione e arricchimento vengono implementati tramite *competenze cognitive* associate a una pipeline di indicizzazione. I miglioramenti di intelligenza artificiale sono supportati nei modi seguenti: 
 
-Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-named-entity-recognition.md), il rilevamento della lingua, l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo e il rilevamento delle valutazioni. Con queste competenze, è possibile strutturare testo non strutturato, eseguendone il mapping su campi ricercabili e filtrabili in un indice.
++ Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md), l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo e il [rilevamento delle valutazioni](cognitive-search-skill-sentiment.md). Con queste competenze, il testo non strutturato può assumere nuove forme, eseguendone il mapping come campi ricercabili e filtrabili in un indice.
 
-L'**elaborazione di immagini** comprende [OCR](cognitive-search-skill-ocr.md) e l'identificazione delle [caratteristiche visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento del viso, l'interpretazione delle immagini o il loro riconoscimento (persone o luoghi famosi) o attributi come colori e orientamento. È possibile creare rappresentazioni testuali di immagini, ricercabili tramite tutte le funzionalità di query di Ricerca di Azure.
++ Le competenze di **elaborazione delle immagini** includono il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione delle [caratteristiche visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento del viso, l'interpretazione delle immagini o il loro riconoscimento (persone o luoghi famosi) o attributi come colori e orientamento. È possibile creare rappresentazioni testuali di immagini, ricercabili tramite tutte le funzionalità di query di Ricerca di Azure.
 
 ![Diagramma della pipeline di ricerca cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "Panoramica della pipeline di ricerca cognitiva")
 
-Le competenze cognitive in Ricerca di Azure si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [API Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [API Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [API OCR](cognitive-search-skill-ocr.md) sono soltanto alcuni esempi. 
+Le competenze cognitive in Ricerca di Azure si basano sui modelli di Machine Learning per le API Servizi cognitivi [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice di ricerca consultabile in Ricerca di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente di iniziare l'addebito per l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
-> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+> L'esecuzione delle competenze predefinite è un addebito di Servizi cognitivi basato sui [prezzi con pagamento in base al consumo](https://azure.microsoft.com/pricing/details/cognitive-services/) esistenti. L'estrazione delle immagini è un addebito di Ricerca di Azure per il quale vengono attualmente applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
 
-La ricerca cognitiva è una funzionalità di anteprima di [Ricerca di Azure](search-what-is-azure-search.md) disponibile a tutti i livelli negli Stati Uniti centro-meridionali e in Europa occidentale. 
+Ricerca cognitiva è una funzionalità in anteprima di [Ricerca di Azure](search-what-is-azure-search.md) supportata in [queste aree](#where-do-i-start). 
 
 La pipeline della ricerca cognitiva si basa su indicizzatori di [Ricerca di Azure *che effettuano*](search-indexer-overview.md) ricerche nelle origini dati e garantiscono l'elaborazione degli indici end-to-end. Le competenze sono ora associate agli indicizzatori, intercettando e arricchendo i documenti in base al set di competenze definito. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca attraverso tutti i [tipi di query supportati da Ricerca di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
-### <a name="source-data-and-document-cracking-phase"></a>Fase di individuazione di documenti e dati di origine
+### <a name="step-1-connection-and-document-cracking-phase"></a>Passaggio 1: Fase di connessione e individuazione dei documenti
 
 All'inizio della pipeline è presente un testo non strutturato o un contenuto non testuale, come ad esempio immagini e file JPEG digitalizzati. I dati devono esistere in un servizio di archiviazione dati di Azure a cui è possibile accedere tramite un indicizzatore. Gli indicizzatori possono "individuare" i documenti di origine per estrarre il testo dai dati di origine.
 
@@ -50,7 +50,7 @@ All'inizio della pipeline è presente un testo non strutturato o un contenuto no
 
  Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>Competenze cognitive e fase di arricchimento
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passaggio 2: Competenze cognitive e fase di arricchimento
 
 L'arricchimento avviene tramite *competenze cognitive* che eseguono operazioni atomiche. Ad esempio, dopo aver creato un contenuto testuale da un file PDF, è possibile applicare il rilevamento del linguaggio di riconoscimento di entità o l'estrazione frasi chiave per produrre nuovi campi nell'indice che non sono disponibili in modo nativo nell'origine. Nel complesso, la raccolta di competenze usata nella pipeline viene chiamata *set di competenze*.  
 
@@ -60,7 +60,7 @@ Un set di competenze si basa su [competenze cognitive predefinite](cognitive-sea
 
 Internamente, la pipeline genera una raccolta di documenti arricchiti. È possibile decidere quali parti dei documenti arricchiti devono essere mappate ai campi indicizzabili contenuti nell'indice di ricerca. Ad esempio, se sono state applicate le competenze di estrazione frasi chiave e riconoscimento di entità, i nuovi campi diventano parte del documento arricchito e possono essere mappati ai campi nell'indice. Vedere [Annotazioni](cognitive-search-concept-annotations-syntax.md) per altre informazioni sulle formazioni in ingresso/uscita.
 
-### <a name="search-index-and-query-based-access"></a>Indice di ricerca e accesso basato su query
+### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: Indice di ricerca e accesso basato su query
 
 Terminata l'elaborazione, si avrà un set di ricerche costituito da documenti arricchiti in cui è possibile eseguire ricerche in Ricerca di Azure. [L'esecuzione di query dell'indice](search-query-overview.md) consente a utenti e sviluppatori di accedere al contenuto arricchito generato dalla pipeline. 
 
@@ -88,21 +88,24 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 | origine dati  | Oggetto usato da un indicizzatore per la connessione a un'origine dati esterna di tipi supportati in Azure. | Vedere [Indicizzatori](search-indexer-overview.md) |
 | Indice | Insieme di ricerche persistente in Ricerca di Azure, compilato in base a uno schema dell'indice che definisce la struttura di campo e di utilizzo. | [Indici in Ricerca di Azure](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Dove iniziare?
 
-**Passaggio 1: Creare un servizio di ricerca in un'area che fornisce le API** 
+**Passaggio 1: [Creare una risorsa di Ricerca di Azure](search-create-service-portal.md) in un'area che fornisce le API** 
 
 + Stati Uniti centro-occidentali
 + Stati Uniti centro-meridionali
 + Stati Uniti orientali
 + Stati Uniti orientali 2
++ Stati Uniti occidentali
 + Stati Uniti occidentali 2
 + Canada centrale
 + Europa occidentale
 + Regno Unito meridionale
 + Europa settentrionale
 + Brasile meridionale
++ Asia orientale
 + Asia sud-orientale
 + India centrale
 + Australia orientale

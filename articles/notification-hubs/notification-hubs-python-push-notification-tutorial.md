@@ -3,8 +3,8 @@ title: Come usare Hub di notifica con Python
 description: Informazioni su come usare Hub di notifica di Azure da un back-end Python.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
 ms.service: notification-hubs
@@ -12,56 +12,57 @@ ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: jowargo
+ms.date: 01/04/2019
+ms.openlocfilehash: 1560b138b18c0037de88b7e82aeeaec977613a43
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247416"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452174"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
+
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Python/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'articolo [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx) (API REST di Hub di notifica) di MSDN.
 
 > [!NOTE]
-> Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
-> 
-> L'esempio è scritto in Python 3.4.
-> 
-> 
+> Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica. L'esempio è stato creato con Python 3.4.
 
 Questo articolo illustra come:
 
-* Compilare un client REST per le funzionalità di Hub di notifica in Python.
-* Inviare notifiche tramite l'interfaccia di Python alle API REST di Hub di notifica. 
-* Eseguire un dump della richiesta/risposta HTTP REST a scopo didattico/di debug. 
+- Compilare un client REST per le funzionalità di Hub di notifica in Python.
+- Inviare notifiche tramite l'interfaccia di Python alle API REST di Hub di notifica.
+- Eseguire un dump della richiesta/risposta HTTP REST a scopo didattico/di debug.
 
 Completare l' [esercitazione introduttiva](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) per la piattaforma mobile preferita, implementando la parte del back-end in Python.
 
 > [!NOTE]
 > L'ambito dell'esempio è limitato all'invio di notifiche. Non viene eseguita alcuna gestione delle registrazioni.
-> 
-> 
 
 ## <a name="client-interface"></a>Interfaccia del client
+
 L'interfaccia principale del client può fornire gli stessi metodi disponibili nell' [SDK di Hub di notifica per .NET](https://msdn.microsoft.com/library/jj933431.aspx). Questa interfaccia consente di convertire direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e a cui hanno contribuito i membri della community su Internet.
 
 Tutto il codice disponibile è incluso nell' [esempio di wrapper REST Python].
 
 Ad esempio, per creare un client:
 
-    isDebug = True
-    hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+```python
+isDebug = True
+hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+```
 
 Per inviare una notifica di tipo avviso popup di Windows:
 
-    wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
-    hub.send_windows_notification(wns_payload)
+```python
+wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
+hub.send_windows_notification(wns_payload)
+```
 
 ## <a name="implementation"></a>Implementazione
+
 Se non è già stato fatto, seguire l'[esercitazione introduttiva] fino all'ultima sezione in cui è necessario implementare il back-end.
 
 Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). In questa sezione viene illustrata l'implementazione Python dei passaggi principali necessari per accedere agli endpoint REST di Hub di notifica e inviare notifiche
@@ -71,312 +72,368 @@ Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [
 3. Inviare una notifica tramite l'API REST HTTP
 
 ### <a name="parse-the-connection-string"></a>Analizzare la stringa di connessione
+
 Questa è la classe principale che implementa il client, il cui costruttore analizza la stringa di connessione:
 
-    class NotificationHub:
-        API_VERSION = "?api-version=2013-10"
-        DEBUG_SEND = "&test"
+```python
+class NotificationHub:
+    API_VERSION = "?api-version=2013-10"
+    DEBUG_SEND = "&test"
 
-        def __init__(self, connection_string=None, hub_name=None, debug=0):
-            self.HubName = hub_name
-            self.Debug = debug
+    def __init__(self, connection_string=None, hub_name=None, debug=0):
+        self.HubName = hub_name
+        self.Debug = debug
 
-            # Parse connection string
-            parts = connection_string.split(';')
-            if len(parts) != 3:
-                raise Exception("Invalid ConnectionString.")
+        # Parse connection string
+        parts = connection_string.split(';')
+        if len(parts) != 3:
+            raise Exception("Invalid ConnectionString.")
 
-            for part in parts:
-                if part.startswith('Endpoint'):
-                    self.Endpoint = 'https' + part[11:]
-                if part.startswith('SharedAccessKeyName'):
-                    self.SasKeyName = part[20:]
-                if part.startswith('SharedAccessKey'):
-                    self.SasKeyValue = part[16:]
-
+        for part in parts:
+            if part.startswith('Endpoint'):
+                self.Endpoint = 'https' + part[11:]
+            if part.startswith('SharedAccessKeyName'):
+                self.SasKeyName = part[20:]
+            if part.startswith('SharedAccessKey'):
+                self.SasKeyValue = part[16:]
+```
 
 ### <a name="create-security-token"></a>Creare il token di sicurezza
+
 I dettagli della creazione del token di sicurezza sono disponibili [qui](https://msdn.microsoft.com/library/dn495627.aspx).
-Aggiungere i metodi seguenti alla classe **NotificationHub** per creare il token in base all'URI della richiesta corrente e delle credenziali estratte dalla stringa di connessione.
+Aggiungere i metodi seguenti alla classe `NotificationHub` per creare il token in base all'URI della richiesta corrente e delle credenziali estratte dalla stringa di connessione.
 
-    @staticmethod
-    def get_expiry():
-        # By default returns an expiration of 5 minutes (=300 seconds) from now
-        return int(round(time.time() + 300))
+```python
+@staticmethod
+def get_expiry():
+    # By default returns an expiration of 5 minutes (=300 seconds) from now
+    return int(round(time.time() + 300))
 
-    @staticmethod
-    def encode_base64(data):
-        return base64.b64encode(data)
+@staticmethod
+def encode_base64(data):
+    return base64.b64encode(data)
 
-    def sign_string(self, to_sign):
-        key = self.SasKeyValue.encode('utf-8')
-        to_sign = to_sign.encode('utf-8')
-        signed_hmac_sha256 = hmac.HMAC(key, to_sign, hashlib.sha256)
-        digest = signed_hmac_sha256.digest()
-        encoded_digest = self.encode_base64(digest)
-        return encoded_digest
+def sign_string(self, to_sign):
+    key = self.SasKeyValue.encode('utf-8')
+    to_sign = to_sign.encode('utf-8')
+    signed_hmac_sha256 = hmac.HMAC(key, to_sign, hashlib.sha256)
+    digest = signed_hmac_sha256.digest()
+    encoded_digest = self.encode_base64(digest)
+    return encoded_digest
 
-    def generate_sas_token(self):
-        target_uri = self.Endpoint + self.HubName
-        my_uri = urllib.parse.quote(target_uri, '').lower()
-        expiry = str(self.get_expiry())
-        to_sign = my_uri + '\n' + expiry
-        signature = urllib.parse.quote(self.sign_string(to_sign))
-        auth_format = 'SharedAccessSignature sig={0}&se={1}&skn={2}&sr={3}'
-        sas_token = auth_format.format(signature, expiry, self.SasKeyName, my_uri)
-        return sas_token
+def generate_sas_token(self):
+    target_uri = self.Endpoint + self.HubName
+    my_uri = urllib.parse.quote(target_uri, '').lower()
+    expiry = str(self.get_expiry())
+    to_sign = my_uri + '\n' + expiry
+    signature = urllib.parse.quote(self.sign_string(to_sign))
+    auth_format = 'SharedAccessSignature sig={0}&se={1}&skn={2}&sr={3}'
+    sas_token = auth_format.format(signature, expiry, self.SasKeyName, my_uri)
+    return sas_token
+```
 
 ### <a name="send-a-notification-using-http-rest-api"></a>Inviare una notifica tramite l'API REST HTTP
+
 Definire innanzitutto una classe che rappresenta la notifica.
 
-    class Notification:
-        def __init__(self, notification_format=None, payload=None, debug=0):
-            valid_formats = ['template', 'apple', 'gcm', 'windows', 'windowsphone', "adm", "baidu"]
-            if not any(x in notification_format for x in valid_formats):
-                raise Exception(
-                    "Invalid Notification format. " +
-                    "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+```python
+class Notification:
+    def __init__(self, notification_format=None, payload=None, debug=0):
+        valid_formats = ['template', 'apple', 'gcm', 'windows', 'windowsphone', "adm", "baidu"]
+        if not any(x in notification_format for x in valid_formats):
+            raise Exception(
+                "Invalid Notification format. " +
+                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
-            self.format = notification_format
-            self.payload = payload
+        self.format = notification_format
+        self.payload = payload
 
-            # array with keynames for headers
-            # Note: Some headers are mandatory: Windows: X-WNS-Type, WindowsPhone: X-NotificationType
-            # Note: For Apple you can set Expiry with header: ServiceBusNotification-ApnsExpiry
-            # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
-            self.headers = None
+        # array with keynames for headers
+        # Note: Some headers are mandatory: Windows: X-WNS-Type, WindowsPhone: X-NotificationType
+        # Note: For Apple you can set Expiry with header: ServiceBusNotification-ApnsExpiry
+        # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
+        self.headers = None
+```
 
 Questa classe è un contenitore per un corpo di notifica nativo oppure un set di proprietà di una notifica modello e un set di intestazioni che contengono il formato (modello o piattaforma nativa) e proprietà specifiche della piattaforma (come la proprietà di scadenza e le intestazioni WNS di Apple).
 
 Per tutte le opzioni disponibili fare riferimento alla [documentazione delle API REST di Hub di notifica](https://msdn.microsoft.com/library/dn495827.aspx) e ai formati delle piattaforme di notifica specifiche.
 
-Una volta definita questa classe, scrivere i metodi di notifica all'interno della classe **NotificationHub**.
+Una volta definita questa classe, scrivere i metodi di notifica all'interno della classe `NotificationHub`.
 
-    def make_http_request(self, url, payload, headers):
-        parsed_url = urllib.parse.urlparse(url)
-        connection = http.client.HTTPSConnection(parsed_url.hostname, parsed_url.port)
+```python
+def make_http_request(self, url, payload, headers):
+    parsed_url = urllib.parse.urlparse(url)
+    connection = http.client.HTTPSConnection(parsed_url.hostname, parsed_url.port)
 
-        if self.Debug > 0:
-            connection.set_debuglevel(self.Debug)
-            # adding this querystring parameter gets detailed information about the PNS send notification outcome
-            url += self.DEBUG_SEND
-            print("--- REQUEST ---")
-            print("URI: " + url)
-            print("Headers: " + json.dumps(headers, sort_keys=True, indent=4, separators=(' ', ': ')))
-            print("--- END REQUEST ---\n")
+    if self.Debug > 0:
+        connection.set_debuglevel(self.Debug)
+        # adding this querystring parameter gets detailed information about the PNS send notification outcome
+        url += self.DEBUG_SEND
+        print("--- REQUEST ---")
+        print("URI: " + url)
+        print("Headers: " + json.dumps(headers, sort_keys=True, indent=4, separators=(' ', ': ')))
+        print("--- END REQUEST ---\n")
 
-        connection.request('POST', url, payload, headers)
-        response = connection.getresponse()
+    connection.request('POST', url, payload, headers)
+    response = connection.getresponse()
 
-        if self.Debug > 0:
-            # print out detailed response information for debugging purpose
-            print("\n\n--- RESPONSE ---")
-            print(str(response.status) + " " + response.reason)
-            print(response.msg)
-            print(response.read())
-            print("--- END RESPONSE ---")
+    if self.Debug > 0:
+        # print out detailed response information for debugging purpose
+        print("\n\n--- RESPONSE ---")
+        print(str(response.status) + " " + response.reason)
+        print(response.msg)
+        print(response.read())
+        print("--- END RESPONSE ---")
 
-        elif response.status != 201:
-            # Successful outcome of send message is HTTP 201 - Created
-            raise Exception(
-                "Error sending notification. Received HTTP code " + str(response.status) + " " + response.reason)
+    elif response.status != 201:
+        # Successful outcome of send message is HTTP 201 - Created
+        raise Exception(
+            "Error sending notification. Received HTTP code " + str(response.status) + " " + response.reason)
 
-        connection.close()
+    connection.close()
 
-    def send_notification(self, notification, tag_or_tag_expression=None):
-        url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
+def send_notification(self, notification, tag_or_tag_expression=None):
+    url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
 
-        json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
+    json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
 
-        if any(x in notification.format for x in json_platforms):
-            content_type = "application/json"
-            payload_to_send = json.dumps(notification.payload)
-        else:
-            content_type = "application/xml"
-            payload_to_send = notification.payload
+    if any(x in notification.format for x in json_platforms):
+        content_type = "application/json"
+        payload_to_send = json.dumps(notification.payload)
+    else:
+        content_type = "application/xml"
+        payload_to_send = notification.payload
 
-        headers = {
-            'Content-type': content_type,
-            'Authorization': self.generate_sas_token(),
-            'ServiceBusNotification-Format': notification.format
-        }
+    headers = {
+        'Content-type': content_type,
+        'Authorization': self.generate_sas_token(),
+        'ServiceBusNotification-Format': notification.format
+    }
 
-        if isinstance(tag_or_tag_expression, set):
-            tag_list = ' || '.join(tag_or_tag_expression)
-        else:
-            tag_list = tag_or_tag_expression
+    if isinstance(tag_or_tag_expression, set):
+        tag_list = ' || '.join(tag_or_tag_expression)
+    else:
+        tag_list = tag_or_tag_expression
 
-        # add the tags/tag expressions to the headers collection
-        if tag_list != "":
-            headers.update({'ServiceBusNotification-Tags': tag_list})
+    # add the tags/tag expressions to the headers collection
+    if tag_list != "":
+        headers.update({'ServiceBusNotification-Tags': tag_list})
 
-        # add any custom headers to the headers collection that the user may have added
-        if notification.headers is not None:
-            headers.update(notification.headers)
+    # add any custom headers to the headers collection that the user may have added
+    if notification.headers is not None:
+        headers.update(notification.headers)
 
-        self.make_http_request(url, payload_to_send, headers)
+    self.make_http_request(url, payload_to_send, headers)
 
-    def send_apple_notification(self, payload, tags=""):
-        nh = Notification("apple", payload)
-        self.send_notification(nh, tags)
+def send_apple_notification(self, payload, tags=""):
+    nh = Notification("apple", payload)
+    self.send_notification(nh, tags)
 
-    def send_gcm_notification(self, payload, tags=""):
-        nh = Notification("gcm", payload)
-        self.send_notification(nh, tags)
+def send_gcm_notification(self, payload, tags=""):
+    nh = Notification("gcm", payload)
+    self.send_notification(nh, tags)
 
-    def send_adm_notification(self, payload, tags=""):
-        nh = Notification("adm", payload)
-        self.send_notification(nh, tags)
+def send_adm_notification(self, payload, tags=""):
+    nh = Notification("adm", payload)
+    self.send_notification(nh, tags)
 
-    def send_baidu_notification(self, payload, tags=""):
-        nh = Notification("baidu", payload)
-        self.send_notification(nh, tags)
+def send_baidu_notification(self, payload, tags=""):
+    nh = Notification("baidu", payload)
+    self.send_notification(nh, tags)
 
-    def send_mpns_notification(self, payload, tags=""):
-        nh = Notification("windowsphone", payload)
+def send_mpns_notification(self, payload, tags=""):
+    nh = Notification("windowsphone", payload)
 
-        if "<wp:Toast>" in payload:
-            nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
-        elif "<wp:Tile>" in payload:
-            nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
+    if "<wp:Toast>" in payload:
+        nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
+    elif "<wp:Tile>" in payload:
+        nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
 
-        self.send_notification(nh, tags)
+    self.send_notification(nh, tags)
 
-    def send_windows_notification(self, payload, tags=""):
-        nh = Notification("windows", payload)
+def send_windows_notification(self, payload, tags=""):
+    nh = Notification("windows", payload)
 
-        if "<toast>" in payload:
-            nh.headers = {'X-WNS-Type': 'wns/toast'}
-        elif "<tile>" in payload:
-            nh.headers = {'X-WNS-Type': 'wns/tile'}
-        elif "<badge>" in payload:
-            nh.headers = {'X-WNS-Type': 'wns/badge'}
+    if "<toast>" in payload:
+        nh.headers = {'X-WNS-Type': 'wns/toast'}
+    elif "<tile>" in payload:
+        nh.headers = {'X-WNS-Type': 'wns/tile'}
+    elif "<badge>" in payload:
+        nh.headers = {'X-WNS-Type': 'wns/badge'}
 
-        self.send_notification(nh, tags)
+    self.send_notification(nh, tags)
 
-    def send_template_notification(self, properties, tags=""):
-        nh = Notification("template", properties)
-        self.send_notification(nh, tags)
+def send_template_notification(self, properties, tags=""):
+    nh = Notification("template", properties)
+    self.send_notification(nh, tags)
+```
 
 Questi metodi inviano una richiesta POST HTTP all'endpoint /messages dell'hub di notifica, contenenti il corpo e le intestazioni corrette per l'invio della notifica.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Uso di proprietà di debug per abilitare la registrazione dettagliata
-L'abilitazione della proprietà di debug durante l'inizializzazione di Hub di notifica consente la scrittura di informazioni di registrazione dettagliate sulla richiesta HTTP e sul dump di risposta, nonché del risultato dettagliato dell'invio del messaggio di notifica. La [proprietà Notification Hubs TestSend](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) restituisce informazioni dettagliate sul risultato dell'invio della notifica. Per usarla, inizializzarla con il codice seguente:
 
-    hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+L'abilitazione della proprietà di debug durante l'inizializzazione di Hub di notifica consente la scrittura di informazioni di registrazione dettagliate sulla richiesta HTTP e sul dump di risposta, nonché del risultato dettagliato dell'invio del messaggio di notifica.
+La [proprietà Notification Hubs TestSend](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) restituisce informazioni dettagliate sul risultato dell'invio della notifica.
+Per usarla, inizializzarla con il codice seguente:
 
-L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una querystring "test" come risultato. 
+```python
+hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
+```
+
+L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una querystring "test" come risultato.
 
 ## <a name="complete-tutorial"></a>Completare l'esercitazione
+
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Python.
 
 Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [esercitazione introduttiva]:
 
-    hub = NotificationHub("myConnectionString", "myNotificationHubName")
+```python
+hub = NotificationHub("myConnectionString", "myNotificationHubName")
+```
 
-Aggiungere quindi il codice di invio a seconda della piattaforma mobile di destinazione. In questo esempio vengono aggiunti anche metodi di livello più elevato per abilitare l'invio di notifiche in base alla piattaforma, ad esempio send_windows_notification per Windows o send_apple_notification per Apple e così via. 
+Aggiungere quindi il codice di invio a seconda della piattaforma mobile di destinazione. In questo esempio vengono aggiunti anche metodi di livello più elevato per abilitare l'invio di notifiche in base alla piattaforma, ad esempio send_windows_notification per Windows o send_apple_notification per Apple e così via.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store e Windows Phone 8.1 (non Silverlight)
-    wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
-    hub.send_windows_notification(wns_payload)
+
+```python
+wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
+hub.send_windows_notification(wns_payload)
+```
 
 ### <a name="windows-phone-80-and-81-silverlight"></a>Windows Phone 8.0 e 8.1 Silverlight
-    hub.send_mpns_notification(toast)
+
+```python
+hub.send_mpns_notification(toast)
+```
 
 ### <a name="ios"></a>iOS
-    alert_payload = {
-        'data':
-            {
-                'msg': 'Hello!'
-            }
-    }
-    hub.send_apple_notification(alert_payload)
+
+```python
+alert_payload = {
+    'data':
+        {
+            'msg': 'Hello!'
+        }
+}
+hub.send_apple_notification(alert_payload)
+```
 
 ### <a name="android"></a>Android
-    gcm_payload = {
-        'data':
-            {
-                'msg': 'Hello!'
-            }
-    }
-    hub.send_gcm_notification(gcm_payload)
+
+```python
+gcm_payload = {
+    'data':
+        {
+            'msg': 'Hello!'
+        }
+}
+hub.send_gcm_notification(gcm_payload)
+```
 
 ### <a name="kindle-fire"></a>Kindle Fire
-    adm_payload = {
-        'data':
-            {
-                'msg': 'Hello!'
-            }
-    }
-    hub.send_adm_notification(adm_payload)
+
+```python
+adm_payload = {
+    'data':
+        {
+            'msg': 'Hello!'
+        }
+}
+hub.send_adm_notification(adm_payload)
+```
 
 ### <a name="baidu"></a>Baidu
-    baidu_payload = {
-        'data':
-            {
-                'msg': 'Hello!'
-            }
-    }
-    hub.send_baidu_notification(baidu_payload)
+
+```python
+baidu_payload = {
+    'data':
+        {
+            'msg': 'Hello!'
+        }
+}
+hub.send_baidu_notification(baidu_payload)
+```
 
 Eseguendo il codice Python dovrebbe essere visualizzata una notifica sul dispositivo di destinazione.
 
-## <a name="examples"></a>Esempi:
-### <a name="enabling-debug-property"></a>Abilitazione della proprietà di debug
-Quando si abilita il flag di debug durante l'inizializzazione di Hub di notifica, vengono visualizzati una richiesta HTTP dettagliata e un dump di risposta, nonché un risultato di notifica simile a quello riportato di seguito, dove è possibile comprendere quali intestazioni HTTP vengono passate e quale risposta HTTP è stata ricevuta da Hub di notifica: ![][1]
+## <a name="examples"></a>Esempi
 
-viene visualizzato il risultato dettagliato di Hub di notifica, ad esempio: 
+### <a name="enabling-the-debug-property"></a>Abilitazione della proprietà `debug`
 
-* quando il messaggio viene inviato correttamente al servizio di notifica push. 
-  
-        <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
-* Se non fosse possibile trovare destinazioni per qualsiasi notifica push, probabilmente nella risposta verrà visualizzato quanto segue, dove viene indicato che non è stata trovata alcuna registrazione per recapitare la notifica perché nelle registrazioni erano presenti alcuni tag non corrispondenti
-  
-        '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+Quando si abilita il flag di debug durante l'inizializzazione di Hub di notifica, vengono visualizzati una richiesta HTTP dettagliata e un dump di risposta, nonché un risultato di notifica simile a quello riportato di seguito, dove è possibile comprendere quali intestazioni HTTP vengono passate e quale risposta HTTP è stata ricevuta da Hub di notifica:
+
+![][1]
+
+viene visualizzato il risultato dettagliato di Hub di notifica, ad esempio:
+
+- quando il messaggio viene inviato correttamente al servizio di notifica push.
+    ```text
+    <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
+    ```
+- Se non fosse possibile trovare destinazioni per qualsiasi notifica push, probabilmente nella risposta verrà visualizzato quanto segue, dove viene indicato che non è stata trovata alcuna registrazione per recapitare la notifica perché nelle registrazioni erano presenti alcuni tag non corrispondenti
+    ```text
+    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+    ```
 
 ### <a name="broadcast-toast-notification-to-windows"></a>Trasmettere notifiche di tipo avviso popup a Windows
-Notare le intestazioni che vengono inviate quando si inoltra una notifica di tipo popup al client Windows. 
 
-    hub.send_windows_notification(wns_payload)
+Notare le intestazioni che vengono inviate quando si inoltra una notifica di tipo popup al client Windows.
+
+```python
+hub.send_windows_notification(wns_payload)
+```
 
 ![][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Inviare la notifica specificando un tag (o un'espressione tag)
+
 Si noti l'intestazione HTTP Tags che viene aggiunta alla richiesta HTTP (nell'esempio seguente viene inviata la notifica solo alle registrazioni con payload 'sports')
 
-    hub.send_windows_notification(wns_payload, "sports")
+```python
+hub.send_windows_notification(wns_payload, "sports")
+```
 
 ![][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Inviare la notifica specificando più tag
-Si noti come l'intestazione HTTP Tags cambia quando vengono inviati più tag. 
 
-    tags = {'sports', 'politics'}
-    hub.send_windows_notification(wns_payload, tags)
+Si noti come l'intestazione HTTP Tags cambia quando vengono inviati più tag.
+
+```python
+tags = {'sports', 'politics'}
+hub.send_windows_notification(wns_payload, tags)
+```
 
 ![][4]
 
 ### <a name="templated-notification"></a>Notifica basata su modelli
+
 Si noti che l'intestazione HTTP Format cambia e che il corpo del payload viene inviato come parte del corpo della richiesta HTTP:
 
-**Lato client - modello registrato**
+**Lato client - modello registrato:**
 
-        var template =
-                        @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
+```python
+var template = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
+```
 
-**Lato server - invio del payload**
+**Lato server - invio del payload:**
 
-        template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
-        hub.send_template_notification(template_payload)
+```python
+template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
+hub.send_template_notification(template_payload)
+```
 
 ![][5]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. A questo punto è possibile:
 
-* Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice indicato in questo articolo.
-* Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell' [esercitazione sull'invio delle ultime notizie]
-* Per altre informazioni sulla funzionalità relativa ai modelli di Hub di notifica, vedere l' [esercitazione sull'invio di notizie localizzate]
+- Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice indicato in questo articolo.
+- Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell' [esercitazione sull'invio delle ultime notizie]
+- Per altre informazioni sulla funzionalità relativa ai modelli di Hub di notifica, vedere l' [esercitazione sull'invio di notizie localizzate]
 
 <!-- URLs -->
 [esempio di wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
@@ -390,4 +447,3 @@ Questo articolo ha illustrato come creare un client REST Python per Hub di notif
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-

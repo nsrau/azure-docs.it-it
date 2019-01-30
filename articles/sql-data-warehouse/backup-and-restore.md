@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308474"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465174"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
@@ -86,7 +86,7 @@ Ogni snapshot crea un punto di ripristino che rappresenta l'ora di inizio dello 
 
 È possibile mantenere il data warehouse ripristinato e quello corrente, oppure eliminare uno di questi. Se si desidera sostituire il data warehouse corrente con il data warehouse ripristinato, è possibile rinominarlo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con l'opzione MODIFY NAME. 
 
-Per ripristinare un data warehouse, vedere [Ripristinare un data warehouse tramite il portale di Azure](sql-data-warehouse-restore-database-portal.md), [Ripristinare un data warehouse tramite PowerShell](sql-data-warehouse-restore-database-powershell.md) o [Ripristinare un data warehouse tramite T-SQL](sql-data-warehouse-restore-database-rest-api.md).
+Per ripristinare un data warehouse, vedere [Ripristinare Azure SQL Data Warehouse (portale)](sql-data-warehouse-restore-database-portal.md), [Ripristinare Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-restore-database-powershell.md) o [Ripristinare un'istanza di Azure SQL Data Warehouse con le API REST](sql-data-warehouse-restore-database-rest-api.md).
 
 Per ripristinare un data warehouse eliminato o sospeso, è possibile [creare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md). 
 

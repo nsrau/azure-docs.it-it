@@ -3,8 +3,8 @@ title: Invio di notifiche push sicure con Hub di notifica di Azure
 description: Informazioni su come inviare notifiche push sicure a un'app per Android da Azure. Gli esempi di codice sono scritti in Java e C#.
 documentationcenter: android
 keywords: notifica push, notifiche push, push dei messaggi, notifiche push di android
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
@@ -13,28 +13,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2018
-ms.author: dimazaid
-ms.openlocfilehash: 58f6967c59a5060baa10ff83752b9c6ed08226cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 27536b0a3d7e0858a5660b4c7b33cb6679b5fbf1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698029"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452106"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Invio di notifiche push sicure con Hub di notifica di Azure
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
-> 
-> 
 
 ## <a name="overview"></a>Panoramica
+
 > [!IMPORTANT]
 > Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
-> 
-> 
 
 Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura di messaggistica push di facile utilizzo, multipiattaforma con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
 
@@ -55,85 +53,94 @@ Questa esercitazione descrive come inviare notifiche push sicure. Poiché i pass
 
 > [!NOTE]
 > In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
-> 
-> 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Modificare il progetto Android
+
 Ora che è stato modificato il back-end dell'app in modo da inviare solo l'*ID* di una notifica push, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
 Per conseguire questo obiettivo, è necessario assicurarsi che l'app per Android sia in grado di eseguire l'autenticazione con il back-end quando riceve le notifiche push.
 
 Ora si modifica il flusso di *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app deve usare senza richiedere le credenziali dell'utente.
 
-1. Nel progetto di app per Android, aggiungere le costanti seguenti all'inizio della classe **MainActivity** :
-   
-        public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
-        public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
-2. Sempre nella classe **MainActivity** aggiornare il metodo `getAuthorizationHeader()` per includere il codice seguente:
-   
-        private String getAuthorizationHeader() throws UnsupportedEncodingException {
-            EditText username = (EditText) findViewById(R.id.usernameText);
-            EditText password = (EditText) findViewById(R.id.passwordText);
-            String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
-            basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-   
-            SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
-            sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
-   
-            return basicAuthHeader;
-        }
-3. Aggiungere le seguenti istruzioni `import` all'inizio del file **MainActivity** :
-   
-        import android.content.SharedPreferences;
+1. Nel progetto di app per Android, aggiungere le costanti seguenti all'inizio della classe `MainActivity`:
+
+    ```java
+    public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
+    public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
+    ```
+2. Sempre nella classe `MainActivity` aggiornare il metodo `getAuthorizationHeader()` per includere il codice seguente:
+
+    ```java
+    private String getAuthorizationHeader() throws UnsupportedEncodingException {
+        EditText username = (EditText) findViewById(R.id.usernameText);
+        EditText password = (EditText) findViewById(R.id.passwordText);
+        String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
+        basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
+
+        SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
+        sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
+
+        return basicAuthHeader;
+    }
+    ```
+3. Aggiungere le istruzioni `import` seguenti all'inizio del file `MainActivity`:
+
+    ```java
+    import android.content.SharedPreferences;
+    ```
 
 A questo punto, modificare il gestore chiamato quando si riceve la notifica.
 
-1. Nella classe **MyHandler** modificare il metodo `OnReceive()` in modo che contenga:
-   
-        public void onReceive(Context context, Bundle bundle) {
-            ctx = context;
-            String secureMessageId = bundle.getString("secureId");
-            retrieveNotification(secureMessageId);
-        }
+1. Nella classe `MyHandler` modificare il metodo `OnReceive()` in modo che contenga:
+
+    ```java
+    public void onReceive(Context context, Bundle bundle) {
+        ctx = context;
+        String secureMessageId = bundle.getString("secureId");
+        retrieveNotification(secureMessageId);
+    }
+    ```
 2. Aggiungere quindi il metodo `retrieveNotification()`, sostituendo il segnaposto `{back-end endpoint}` con l'endpoint del back-end ottenuto durante la distribuzione del back-end:
-   
-        private void retrieveNotification(final String secureMessageId) {
-            SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
-            final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
-   
-            new AsyncTask<Object, Object, Object>() {
-                @Override
-                protected Object doInBackground(Object... params) {
-                    try {
-                        HttpUriRequest request = new HttpGet("{back-end endpoint}/api/notifications/"+secureMessageId);
-                        request.addHeader("Authorization", "Basic "+authorizationHeader);
-                        HttpResponse response = new DefaultHttpClient().execute(request);
-                        if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                            Log.e("MainActivity", "Error retrieving secure notification" + response.getStatusLine().getStatusCode());
-                            throw new RuntimeException("Error retrieving secure notification");
-                        }
-                        String secureNotificationJSON = EntityUtils.toString(response.getEntity());
-                        JSONObject secureNotification = new JSONObject(secureNotificationJSON);
-                        sendNotification(secureNotification.getString("Payload"));
-                    } catch (Exception e) {
-                        Log.e("MainActivity", "Failed to retrieve secure notification - " + e.getMessage());
-                        return e;
+
+    ```java
+    private void retrieveNotification(final String secureMessageId) {
+        SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
+        final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
+
+        new AsyncTask<Object, Object, Object>() {
+            @Override
+            protected Object doInBackground(Object... params) {
+                try {
+                    HttpUriRequest request = new HttpGet("{back-end endpoint}/api/notifications/"+secureMessageId);
+                    request.addHeader("Authorization", "Basic "+authorizationHeader);
+                    HttpResponse response = new DefaultHttpClient().execute(request);
+                    if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+                        Log.e("MainActivity", "Error retrieving secure notification" + response.getStatusLine().getStatusCode());
+                        throw new RuntimeException("Error retrieving secure notification");
                     }
-                    return null;
+                    String secureNotificationJSON = EntityUtils.toString(response.getEntity());
+                    JSONObject secureNotification = new JSONObject(secureNotificationJSON);
+                    sendNotification(secureNotification.getString("Payload"));
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Failed to retrieve secure notification - " + e.getMessage());
+                    return e;
                 }
-            }.execute(null, null, null);
-        }
+                return null;
+            }
+        }.execute(null, null, null);
+    }
+    ```
 
 Questo metodo chiama il back-end dell'app per recuperare il contenuto della notifica usando le credenziali memorizzate nelle preferenze condivise e lo visualizza come una normale notifica. L'utente dell'app vedrà la notifica esattamente come qualsiasi altra notifica push.
 
 È preferibile gestire i casi in cui manca la proprietà dell'intestazione di autenticazione o di rifiuto da parte del back-end. La gestione specifica di questi casi dipende in larga misura dall'esperienza dell'utente di destinazione. Una delle opzioni consiste nel visualizzare una notifica con un prompt generico affinché l'utente possa autenticarsi per recuperare la notifica effettiva.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
-Per eseguire l'applicazione, completare queste azioni:
+
+Per eseguire l'applicazione, eseguire queste azioni:
 
 1. Assicurarsi che il progetto **AppBackend** sia distribuito in Azure. Se si usa Visual Studio, eseguire l'applicazione API Web **AppBackend** . Verrà visualizzata una pagina Web ASP.NET.
 2. In Eclipse eseguire l'app su un dispositivo Android fisico o sull'emulatore.
 3. Nell'interfaccia utente dell'app per Android immettere un nome utente e una password. Può trattarsi di qualsiasi stringa, ma devono avere lo stesso valore.
 4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
-

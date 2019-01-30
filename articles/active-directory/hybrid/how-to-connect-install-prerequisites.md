@@ -4,7 +4,7 @@ description: Questo argomento descrive i prerequisiti e i requisiti hardware per
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: eb5ad49a26631ca363737406f54b4c794e01ebda
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384056"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472841"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -79,7 +79,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
   * Se si usa Microsoft Cloud Germany o il cloud di Microsoft Azure per enti pubblici, vedere [Azure AD Connect sync service instances considerations](reference-connect-instances.md) (Azure AD Connect: Considerazioni speciali per le istanze) per i relativi URL.
 * Per impostazione predefinita Azure AD Connect (versione 1.1.614.0 e successive) usa TLS 1.2 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Se TLS 1.2 non è disponibile nel sistema operativo sottostante, Azure AD Connect esegue il fallback in modo incrementale sui protocolli meno recenti (TLS 1.1 e TLS 1.0).
 * Prima della versione 1.1.614.0, per impostazione predefinita, Azure AD Connect usa TLS 1.0 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Per passare a TLS 1.2 seguire i passaggi descritti in [Abilitare TLS 1.2 per Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Se per la connessione a Internet si usa un proxy per il traffico in uscita, è necessario aggiungere l'impostazione seguente al file **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** per consentire all'installazione guidata e al servizio di sincronizzazione Azure AD Connect di connettersi a Internet e ad Azure AD. Questo testo deve essere immesso alla fine del file. In questo codice &lt;PROXYADRESS&gt; rappresenta l'effettivo indirizzo IP o nome host del proxy.
+* Se per la connessione a Internet si usa un proxy per il traffico in uscita, è necessario aggiungere l'impostazione seguente al file **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** per consentire all'installazione guidata e al servizio di sincronizzazione Azure AD Connect di connettersi a Internet e ad Azure AD. Questo testo deve essere immesso alla fine del file. In questo codice &lt;PROXYADDRESS&gt; rappresenta l'effettivo indirizzo IP o nome host del proxy.
 
 ```
     <system.net>

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 062671313e42e6c936135dafb3d7d2a5c8adef82
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241804"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Esercitazione: Integrazione di Azure Active Directory con Sprinklr
 
@@ -147,7 +147,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Accessi Single Sign-On](./media/sprinklr-tutorial/ic782910.png "Accessi Single Sign-On")
 
-    a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione (ad esempio *WAADSSOTest*).
+    a. Nella casella di testo **Name**, digitare un nome per la configurazione, ad esempio: *WAADSSOTest*).
 
     b. Selezionare **Enabled**.
 
@@ -170,7 +170,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

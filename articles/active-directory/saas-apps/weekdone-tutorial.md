@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230404"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Esercitazione: Integrazione di Azure Active Directory con Weekdone
 
@@ -33,7 +33,7 @@ L'integrazione di Weekdone con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Weekdone, sono necessari gli elementi seguenti:
 
@@ -169,7 +169,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-weekdone-test-user"></a>Creazione di un utente test di Weekdone
 

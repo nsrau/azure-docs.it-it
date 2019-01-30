@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123057"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Esercitazione: Integrazione di Azure Active Directory con Klue
 
@@ -206,7 +206,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Klue. Klue supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Klue viene creato un nuovo utente, se questo non esiste già.
 
 > [!Note]
-> Se è necessario creare un utente manualmente, contattare il [team di supporto di Klue](mailto:support@klue.com).
+> Per creare un utente manualmente, contattare il  [team di supporto di Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -243,7 +243,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Klue nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Klue.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

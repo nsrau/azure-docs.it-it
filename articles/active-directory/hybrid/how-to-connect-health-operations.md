@@ -4,7 +4,7 @@ description: Questo articolo descrive le operazioni aggiuntive che possono esser
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478298"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ Azure AD Connect Health per Active Directory Federation Services (AD FS) e Azure
 
 1. Aprire il pannello **Server** dal pannello **Elenco server** selezionando il nome del server da rimuovere.
 2. Nella barra delle azioni del pannello **Server** fare clic su **Elimina**.
+![Schermata di eliminazione del server di Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confermare il nome del server digitandolo nella casella di conferma.
 4. Fare clic su **Elimina**.
 
@@ -86,8 +87,9 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
 * Dopo avere eseguito questa azione, per avviare il monitoraggio del servizio, disinstallare e reinstallare gli agenti per l'integrità in tutti i server. Dopo avere eseguito questa azione, per avviare di nuovo il monitoraggio dello stesso server, disinstallare, reinstallare e registrare l'agente per l'integrità in quel server.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Per eliminare un'istanza del servizio dal servizio Azure AD Connect Health
-1. Aprire il pannello **Servizio** dal pannello **Elenco servizi** selezionando l'identificatore del servizio (nome farm) che si desidera rimuovere.
-2. Nella barra delle azioni del pannello **Server** fare clic su **Elimina**.
+1. Aprire il pannello **Servizio** dal pannello **Elenco servizi** selezionando l'identificatore del servizio (nome farm) che si desidera rimuovere. 
+2. Nella barra delle azioni del pannello **Servizio** fare clic su **Elimina**. 
+![Schermata di eliminazione del servizio di Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confermare il nome del servizio digitandolo nella casella di conferma (ad esempio: sts.contoso.com).
 4. Fare clic su **Elimina**.
    <br><br>

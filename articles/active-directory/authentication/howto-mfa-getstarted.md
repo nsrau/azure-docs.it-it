@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167529"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430163"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementare Azure Multi-Factor Authentication basato su cloud
 
@@ -74,7 +74,7 @@ Prima di abilitare Azure Multi-Factor Authentication, l'organizzazione deve dete
 1. Immettere un nome significativo per i criteri.
 1. In **Utenti e gruppi**:
    * Nella scheda **Includere** selezionare il pulsante di opzione **Tutti gli utenti**
-   * CONSIGLIATO: nella sceda **Escludere** selezionare la casella per **Utenti e gruppi** e scegliere un gruppo da usare per le esclusioni quando gli utenti non hanno accesso ai loro metodi di autenticazione.
+   * CONSIGLIATO: nella scheda **Escludere** selezionare la casella per **Utenti e gruppi** e scegliere un gruppo da usare per le esclusioni quando gli utenti non hanno accesso ai loro metodi di autenticazione.
    * Fare clic su **Done**.
 1. In **App cloud** selezionare il pulsante di opzione **Tutte le app cloud**.
    * FACOLTATIVAMENTE: nella scheda **Escludere** scegliere le app cloud per le quali l'organizzazione non richiede MFA.

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554657"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810704"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Esaminare l'output di Video Indexer generato dall'API v2
 
@@ -151,7 +151,7 @@ Le informazioni dettagliate sono un set di dimensioni (ad esempio, righe di tras
 
 Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05 - 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 - 00:41:49.) Ogni istanza temporale può avere metadati aggiuntivi, ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
-|Version|Versione del codice|
+|Versione|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |Linguaggio|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
@@ -166,7 +166,7 @@ Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco del
 |audioEffects|Dimensione [audioEffects](#audioEffects).|
 |sentiments|Dimensione [sentiments](#sentiments).|
 |visualContentModeration|Dimensione [visualContentModeration](#visualcontentmoderation).|
-|textualContentModeration|Dimensione [textualContentModeration](#textualconentmoderation).|
+|textualContentModeration|Dimensione [textualContentModeration](#textualcontentmoderation).|
 |emotions| Dimensione [emotions](#emotions).|
 |topics|Dimensione [topics](#topics).|
 
@@ -187,7 +187,7 @@ Esempio:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ Esempio:
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
 |description|Descrizione del personaggio noto. |
-|thumbnalId|ID dell'anteprima del volto.|
+|thumbnailId|ID dell'anteprima del volto.|
 |knownPersonId|Nel caso di una persona nota, il relativo ID interno.|
 |referenceId|Nel caso di un personaggio noto di Bing, il relativo ID Bing.|
 |referenceType|Attualmente solo Bing.|
@@ -662,7 +662,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualContentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |NOME|DESCRIZIONE|
 |---|---|

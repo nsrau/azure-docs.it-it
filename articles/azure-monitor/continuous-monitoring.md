@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214454"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452820"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -70,7 +70,7 @@ Integrazione continua/distribuzione continua consente di integrare automaticamen
 ## <a name="create-actionable-alerts-with-actions"></a>Creare avvisi azionabili con azioni
 Un aspetto critico del monitoraggio è notificare in modo proattivo agli amministratori eventuali problemi attuali e possibili. 
 
-- Creare [gli avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md) in base ai log e alle metriche per identificare gli stati di errore prevedibili. È necessario avere l'obiettivo di rendere tutti gli avvisi azionabili, vale a dire fare in modo che rappresentino le condizioni critiche effettive e cerchino di ridurre i falsi positivi. Usare le [soglie dinamiche](platform/alerts-dynamic-thresholds.md) per calcolare automaticamente le regole di base nei dati di metrica, piuttosto che definire le soglie statiche. 
+- Creare [gli avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md) in base ai log e alle metriche per identificare gli stati di errore prevedibili. È necessario avere l'obiettivo di rendere tutti gli avvisi azionabili, vale a dire fare in modo che rappresentino le condizioni critiche effettive e cerchino di ridurre i falsi positivi. Usare [soglie dinamiche](platform/alerts-dynamic-thresholds.md) per calcolare automaticamente le baseline per i dati di metrica, anziché definire soglie statiche personali. 
 - Definire le azioni per gli avvisi al fine di utilizzare i mezzi più efficaci di notifica agli amministratori. Le [azioni per la notifica](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) disponibili sono SMS, messaggi di posta elettronica, notifiche push oppure chiamate vocali.
 - Usare azioni più avanzate per [connettersi allo strumento Gestione dei servizi IT](platform/itsmc-overview.md) oppure altri sistemi di gestione degli avvisi tramite [webhook](platform/activity-log-alerts-webhook.md).
 - Correggere situazioni identificate negli avvisi con i [runbook di Automazione di Azure](../automation/automation-webhooks.md) oppure con le [App per la logica](/connectors/custom-connectors/create-webhook-trigger) che possono essere avviate da un avviso tramite i webhook. 

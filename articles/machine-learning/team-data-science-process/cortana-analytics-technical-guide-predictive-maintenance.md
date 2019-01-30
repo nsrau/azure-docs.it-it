@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140184"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451725"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guida tecnica del modello di soluzione con Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale
 
@@ -132,7 +132,7 @@ Questa [pipeline](../../data-factory/concepts-pipelines-activities.md) contiene 
 
 Le attività incluse sono:
 
-* L'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) che esegue uno script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per le operazioni necessarie di aggregazione e progettazione delle caratteristiche per l'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+* L'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) che esegue uno script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per le operazioni necessarie di aggregazione e progettazione delle funzioni per l'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
   Lo script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per questa attività di partizionamento è ***PrepareMLInput.hql***.
 * L'attività [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i risultati dall'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) a un unico BLOB di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn894009.aspx) accessibile dall'attività [AzureMLBatchScoring](https://azure.microsoft.com/services/storage/).
 * L'attività [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx), che chiama l'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) con i risultati inseriti in un unico BLOB di [Archiviazione di Azure](https://azure.microsoft.com/services/storage/).
@@ -162,7 +162,7 @@ Configurare il dashboard di Power BI per visualizzare i dati provenienti da Anal
 ### <a name="set-up-the-cold-path-dashboard"></a>Configurare il dashboard per il percorso non critico
 Nella pipeline di dati del percorso non critico l'obiettivo è ottenere la stima della vita utile rimanente di ogni motore di aereo al termine di un volo (ciclo). Il risultato viene aggiornato ogni 3 ore per eseguire la stima su motori di aereo che hanno terminato un volo nelle 3 ore precedenti.
 
-Power BI si connette a un database SQL di Azure come origine dati, in cui sono archiviati i risultati della stima. Nota: 1) Quando si distribuisce la soluzione, viene visualizzata una stima nel database entro 3 ore.
+Power BI si connette a un database SQL di Azure come origine dati, in cui sono archiviati i risultati della stima. Note: 1) Quando si distribuisce la soluzione, viene visualizzata una stima nel database entro 3 ore.
 Il file PBIX fornito con il download del generatore contiene alcuni dati di seeding che permettono di creare il dashboard di Power BI fin da subito. Si noti anche che in questo passaggio il download e l'installazione del software gratuito [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)sono un prerequisito.
 
 La procedura seguente illustra come connettere il file con estensione pbix al database SQL riattivato al momento della distribuzione della soluzione che contiene i dati per la visualizzazione, ad esempio i risultati della stima.

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: de2a164d-2115-43e7-a9ed-e54f483f4aeb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 590d8fe0e974587effc7d8a3c59546b5684b146c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cb5c847ea6c4186001f789de8c7ce04842af38
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446232"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Esercitazione: Integrazione di Azure Active Directory con Communifire
 
@@ -138,7 +138,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Communifire**, è necessario inviare il file **XML dei metadati** scaricato al [team di assistenza di Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -177,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione è creare l'utente Britta Simon in Communifire. Communifire supporta il provisioning JIT, abilitato per impostazione predefinita. Se non esiste ancora, un nuovo utente viene creato dopo il salvataggio dei dettagli di profilo durante un tentativo di accesso a Communifire.
 
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome).
+>Per creare un utente manualmente, contattare il  [team di supporto di Communifire](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -214,7 +214,7 @@ In questa sezione l'utente Britta Simon viene abilitato per l'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Communifire nel riquadro di accesso, si accede automaticamente all'applicazione Communifire.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

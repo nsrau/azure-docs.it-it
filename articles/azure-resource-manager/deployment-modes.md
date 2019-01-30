@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344584"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447939"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -26,7 +26,7 @@ Quando si distribuiscono le risorse, specificare se la distribuzione è un aggio
 
 Durante la distribuzione della risorsa:
 
-* Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
+* Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse ancora specificate ma non distribuite a causa di una condizione valutata come falsa non vengono tuttavia eliminate.
 * Nella modalità incrementale, Resource Manager **lascia invariate** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
 
 Per entrambe le modalità, Resource Manager prova a creare tutte le risorse specificate nel modello. Se la risorsa esiste già nel gruppo di risorse e le relative impostazioni sono identiche, l'operazione non comporta alcuna modifica. Se si modificano i valori della proprietà per una risorsa, questa viene aggiornata con i nuovi valori. Se si prova ad aggiornare il percorso o il tipo di una risorsa esistente, la distribuzione ha esito negativo e restituisce un errore. È invece necessario distribuire una nuova risorsa con il percorso o il tipo necessari.

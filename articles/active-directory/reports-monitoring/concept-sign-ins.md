@@ -4,7 +4,7 @@ description: Introduzione ai report delle attività di accesso nel portale di Az
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245090"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808630"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -161,7 +161,7 @@ Se occorre una maggiore flessibilità, è possibile usare la soluzione tramite s
 
 Se si desidera eseguire lo script in un computer **Windows 10**, è necessario eseguire prima alcuni passaggi aggiuntivi. 
 
-1. Installare il [modulo AzureRM](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Installare il [modulo AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Importare il modulo aprendo un prompt di PowerShell ed eseguendo il comando **Import-Module AzureRM**.
 3. Eseguire **Set-ExecutionPolicy unrestricted** e scegliere **Sì a tutti**. 
 4. Ora è possibile eseguire lo script di PowerShell scaricato in modalità amministratore per generare il file CSV.
@@ -203,7 +203,10 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Data
 - Autenticazione a più fattori obbligatoria
 - Stato accesso
- 
+
+> [!NOTE]
+> gli indirizzi IP vengono rilasciati in modo che non esista una connessione certa tra un IP e la posizione in cui si trova fisicamente il computer con tale indirizzo. Il mapping degli indirizzi IP è complicato dal fatto che provider di telefonia mobile e VPN possono rilasciare indirizzi IP da pool centrali spesso molto distanti dal luogo in cui viene effettivamente usato il dispositivo client. Attualmente nei report di Azure AD la conversione di un indirizzo IP in una posizione fisica è un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni.
+
 Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
 
 ![Attività di accesso](./media/concept-sign-ins/08.png "Attività di accesso")

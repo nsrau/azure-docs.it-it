@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: a410cabf-a47b-43fb-8c88-d45f5911e148
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d0ba2dbc074f40d4d3843ea983e7f45d5c888aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b1b145549f8a73f3e8033f1929988b8c98fb619b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449571"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Esercitazione: Integrazione di Azure Active Directory con MOBI
 
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **MCM**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di MCM](mailto:sso@mobiwm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-mobi-test-user"></a>Creare un utente di test MOBI
 
-In questa sezione viene creato l'utente Britta Simon in MOBI. Per aggiungere gli utenti alla piattaforma MOBI, collaborare con il [team di assistenza MOBI](mailto:sso@mobiwm.com). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato l'utente Britta Simon in MOBI. Per aggiungere utenti alla piattaforma MOBI, collaborare con il  [team di supporto di MOBI](mailto:sso@mobiwm.com) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -207,7 +207,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro MOBI nel riquadro di accesso, si accede automaticamente all'applicazione MOBI.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

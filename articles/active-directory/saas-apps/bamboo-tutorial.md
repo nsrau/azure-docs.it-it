@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con SAML SSO for Bamboo di resolution GmbH | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bamboo di resolution GmbH | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAML SSO for Bamboo di resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: f00160c7-f4cc-43bf-af18-f04168d3767c
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 95aada1303a807034d22689f71cea37696df4154
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6fb5b67c5df54fc5edfb14e0392e14fc1be239a6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432457"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811197"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Bamboo di resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bamboo di resolution GmbH
 
 Questa esercitazione spiega come integrare SAML SSO for Bamboo di resolution GmbH con Azure Active Directory, ovvero Azure AD.
 
@@ -172,7 +172,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Salvataggio](./media/bamboo-tutorial/tutorial_bamboo_save.png)
     
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -245,7 +245,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di SAML SSO for Bamboo di resolution GmbH nel pannello di accesso si effettua automaticamente l'accesso all'applicazione SAML SSO for Bamboo di resolution GmbH.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

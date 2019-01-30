@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818031"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con REST
 
@@ -50,7 +50,7 @@ In questa esercitazione si apprenderà come:
 - Rivedere l'articolo [Panoramica dell'accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in questo articolo. 
 
-    In questa esercitazione si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    In questa esercitazione si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Ottenere le informazioni di autenticazione dal portale di Azure
 
@@ -118,7 +118,7 @@ Per ottenere le informazioni, seguire questa procedura:
 
 ## <a name="get-the-access-token-using-postman"></a>Ottenere il token di accesso usando Postman
 
-Questa sezione mostra come usare **Postman** per eseguire un'API REST che restituisce un token di connessione JWT (token di accesso). Per chiamare le API REST di Servizi multimediali, è necessario aggiungere l'intestazione "Authorization" alle chiamate e aggiungere il valore "Bearer *your_access_token*" a ciascuna chiamata, come mostrato nella prossima sezione dell'esercitazione. 
+Questa sezione mostra come usare **Postman** per eseguire un'API REST che restituisce un token di connessione JWT (token di accesso). Per chiamare le API REST di Servizi multimediali, è necessario aggiungere l'intestazione "Authorization" alle chiamate e aggiungere il valore "Bearer *your_access_token*" a ciascuna chiamata, come mostrato nella prossima sezione dell'esercitazione. 
 
 1. Aprire **Postman**.
 2. Selezionare **POST**.
@@ -188,5 +188,5 @@ La risposta restituita contiene le risorse presenti nell'account.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare questo codice di esempio in [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Autenticazione di Azure AD per l'accesso a Servizi multimediali di Microsoft Azure: entrambi tramite REST)
+* Provare questo codice di esempio in [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Autenticazione di Azure AD per l'accesso a Servizi multimediali di Microsoft Azure: entrambi tramite l'API REST)
 * [Caricare file con .NET](media-services-dotnet-upload-files.md)

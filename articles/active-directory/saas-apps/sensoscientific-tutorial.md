@@ -1,10 +1,10 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SensoScientific Wireless Temperature Monitoring System | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SensoScientific Wireless Temperature Monitoring System | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SensoScientific Wireless Temperature Monitoring System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ee9a924d-ccde-45b0-ab40-877f82f5dfa2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a40f339c2f403999f1c3b7fe65192d45c84fd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 131d430217ca299698be6fb7e45a0c8270184864
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426922"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Esercitazione: Integrazione di Azure Active Directory con SensoScientific Wireless Temperature Monitoring System
 
@@ -145,7 +145,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     f. Fare clic su **Save**.
   
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -180,7 +180,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Creazione di un utente test di SensoScientific Wireless Temperature Monitoring System
 
-Per consentire agli utenti di Azure AD di accedere a SensoScientific Wireless Temperature Monitoring System, è necessario eseguirne il provisioning in SensoScientific Wireless Temperature Monitoring System. Collaborare con il [team di supporto di SensoScientific Wireless Temperature Monitoring System](https://www.sensoscientific.com/contact-us/) per aggiungere gli utenti alla piattaforma di SensoScientific Wireless Temperature Monitoring System. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+Per consentire agli utenti di Azure AD di accedere a SensoScientific Wireless Temperature Monitoring System, è necessario eseguirne il provisioning in SensoScientific Wireless Temperature Monitoring System. Per aggiungere utenti alla piattaforma SensoScientific Wireless Temperature Monitoring System, collaborare con il  [team di supporto di SensoScientific Wireless Temperature Monitoring System](https://www.sensoscientific.com/contact-us/) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -214,7 +214,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Fare clic sul riquadro SensoScientific Wireless Temperature Monitoring System nel pannello di accesso; si accederà automaticamente all'applicazione SensoScientific Wireless Temperature Monitoring System. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Fare clic sul riquadro SensoScientific Wireless Temperature Monitoring System nel pannello di accesso; si accederà automaticamente all'applicazione SensoScientific Wireless Temperature Monitoring System. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

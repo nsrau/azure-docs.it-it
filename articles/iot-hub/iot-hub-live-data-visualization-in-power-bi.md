@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a533bd6ee447479f08add23833bf5acdde5c4d40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155100"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411286"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
 
@@ -47,7 +47,7 @@ Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub Io
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="create-configure-and-run-a-stream-analytics-job"></a>Creare, configurare ed eseguire un processo di analisi di flusso
+## <a name="create-configure-and-run-a-stream-analytics-job"></a>Configurare, configurare ed eseguire un processo di analisi di flusso
 
 Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo, definire gli input, gli output e la query usata per recuperare i dati.
 
@@ -57,11 +57,11 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 2. Immettere le seguenti informazioni per il processo.
 
-   **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale.
+   **Nome processo**: Nome del processo. Il nome deve essere univoco a livello globale.
 
-   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
+   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT.
 
-   **Percorso**: utilizzare lo stesso percorso del gruppo di risorse.
+   **Località**: usare lo stesso percorso del gruppo di risorse.
 
    **Aggiungi al dashboard**: selezionare questa opzione per semplificare l'accesso all'hub IoT dal dashboard.
 
@@ -75,11 +75,13 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 2. In **Topologia processo** fare clic su **Input**.
 
-3. Nel riquadro **Input** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
+3. Nel riquadro **Input** fare clic su **Aggiungi input del flusso**, quindi immettere le informazioni seguenti:
 
-   **Alias di input**: l'alias univoco per l'input.
+   **Alias di input**: l'alias univoco per l'input e selezionare **Specificare le impostazioni dell'hub IoT manualmente** sotto.
 
-   **Origine**: selezionare **Hub IoT**.
+   **Origine**: Selezionare **Hub IoT**.
+   
+   **Endpoint**: fare clic su **Messaggistica**.
 
    **Gruppo di consumer**: selezionare il gruppo di consumer appena creato.
 
@@ -91,23 +93,19 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 1. In **Topologia processo** fare clic su **Output**.
 
-2. Nel riquadro **Output** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
+2. Nel riquadro **Output** fare clic su **Aggiungi** e **Power BI**, quindi immettere le informazioni seguenti:
 
    **Alias di output**: l'alias univoco per l'output.
 
-   **Sink**: selezionare **Power BI**.
+   **Area di lavoro del gruppo**: selezionare l'area di lavoro del gruppo di destinazione.
+
+   **Nome del set di dati**: immettere un nome per il set di dati.
+
+   **Nome della tabella**: Immettere un nome per la tabella.
 
 3. Fare clic su **Autorizza** e quindi accedere all'account di Power BI.
 
-4. Dopo aver concesso l'autorizzazione immettere le seguenti informazioni:
-
-   **Area di lavoro del gruppo**: selezionare l'area di lavoro del gruppo di destinazione.
-
-   **Nome set di dati**: immettere un nome per il set di dati.
-
-   **Nome tabella**: immettere un nome per la tabella.
-
-5. Fare clic su **Create**(Crea).
+4. Fare clic su **Create**(Crea).
 
    ![Aggiungere un output al processo di analisi di flusso in Azure](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -135,13 +133,13 @@ Nel processo di analisi di flusso, **Avvia** > **Ora** > **Avvia**. Dopo aver av
 
 2. Accedere all'account [Power BI](https://powerbi.microsoft.com/en-us/).
 
-3. Passare all'area di lavoro del gruppo impostata quando è stato creato l'output del processo di analisi di flusso.
+3. Fare clic sull'area di lavoro che è stata usata, **Area di lavoro personale**.
 
-4. Fare clic su **Set di dati in streaming**.
+4. Fare clic su **Set di dati**.
 
-   Dovrebbero essere elencati i set di dati specificati durante la creazione di output per il processo di analisi di flusso.
+   Dovrebbero essere visualizzati i set di dati specificati quando è stato creato l'output per il processo di Analisi di flusso.
 
-5. In **AZIONI**, fare clic sulla prima icona per creare un report.
+5. Per il set di dati creato, fare clic su **Aggiungi report** (la prima icona a destra del nome del set di dati).
 
    ![Creare un report di Microsoft Power BI](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -165,9 +163,11 @@ Nel processo di analisi di flusso, **Avvia** > **Ora** > **Avvia**. Dopo aver av
 
 8. Fare clic su **Salva** per salvare il report.
 
-9. Fare clic su **File** > **Pubblica sul Web**.
+9. Fare clic su **Report** nel riquadro sinistro, quindi sul report appena creato.
 
-10. Fare clic su **Crea codice di incorporamento**, quindi fare clic su **Pubblica**.
+10. Fare clic su **File** > **Pubblica sul Web**.
+
+11. Fare clic su **Crea codice di incorporamento**, quindi fare clic su **Pubblica**.
 
 Viene indicato il collegamento al report che è possibile condividere con utenti che debbano accedere al report e un frammento di codice per integrare il report nel blog o nel sito Web.
 

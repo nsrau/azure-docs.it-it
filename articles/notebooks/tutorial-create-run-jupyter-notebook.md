@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244585"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849657"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
@@ -128,7 +128,7 @@ Dopo aver preparato il file di dati e impostato l'ambiente del progetto, è ora 
 1. Poiché è presente un file *requirements.txt* nelle impostazioni dell'ambiente, viene visualizzato il messaggio "Waiting for your container to finish being prepared" (In attesa del completamento della preparazione del contenitore). È possibile selezionare **OK** per chiudere il messaggio e continuare a lavorare nel notebook. Tuttavia, non sarà possibile eseguire le celle di codice finché l'ambiente non è completamente configurato.
 1. Il notebook viene aperto nell'interfaccia di Jupyter con una singola cella di codice vuota come valore predefinito.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Visualizzazione iniziale di un nuovo notebook in Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Visualizzazione iniziale di un nuovo notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Esplorare l'interfaccia del notebook
 
@@ -144,7 +144,7 @@ Nella parte superiore della finestra sono visualizzati gli elementi seguenti:
 (F) Indicatore che segnala se il notebook è attendibile. Il valore predefinito è **Not Trusted** (Non attendibile).
 (G) Il kernel usato per eseguire il notebook, insieme a un indicatore dell'attività.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Aree principali dell'interfaccia utente di Jupyter")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Aree principali dell'interfaccia utente di Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter fornisce una presentazione integrata dei principali elementi dell'interfaccia utente. Avviare la presentazione selezionando il comando **Help** (Guida)  > **User Interface Tour** (Presentazione dell'interfaccia utente) e facendo clic nelle finestre popup.
 

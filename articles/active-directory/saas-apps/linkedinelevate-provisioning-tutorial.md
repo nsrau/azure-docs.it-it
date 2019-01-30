@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 1dcc198c1a1cc798e991f489e6897d4b930c0593
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3c45388878675f5e0ee7df486747c7df41729694
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808002"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti automatico
 
@@ -57,7 +57,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 Questa sezione descrive come connettere Azure AD all'API per il provisioning degli account utente SCIM di LinkedIn Elevate e configurare il servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in LinkedIn Elevate in base all'assegnazione di utenti e gruppi in Azure AD.
 
-**Suggerimento:** si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per LinkedIn Elevate, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
+**Suggerimento:** è anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per LinkedIn Elevate, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in LinkedIn Elevate con Azure AD:

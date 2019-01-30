@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855834"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390672"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 
@@ -24,7 +24,7 @@ Questo articolo illustra come creare e configurare un'entità servizio Azure AD 
 
 Usare un'entità servizio per l'autenticazione da Istanze di Azure Container negli **scenari headless**, ad esempio nelle applicazioni o nei servizi che creano delle istanze del contenitore in modo automatico.
 
-Ad esempio, se uno script automatico viene eseguito nelle ore notturne e crea un'[istanza del contenitore basata sull'attività](../container-instances/container-instances-restart-policy.md) per elaborare alcuni dati, può usare un'entità servizio con le autorizzazioni pull-only (lettore) per l'autenticazione al registro. È possibile ruotare le credenziali dell'entità servizio o revocarne completamente l'accesso senza alcun impatto sugli altri servizi o applicazioni.
+Ad esempio, se uno script automatico viene eseguito nelle ore notturne e crea un'[istanza del contenitore basata sull'attività](../container-instances/container-instances-restart-policy.md) per elaborare alcuni dati, può usare un'entità servizio con le autorizzazioni pull-only per l'autenticazione al registro. È possibile ruotare le credenziali dell'entità servizio o revocarne completamente l'accesso senza alcun impatto sugli altri servizi o applicazioni.
 
 Le entità servizio dovrebbero essere usate anche quando l'[utente amministratore](container-registry-authentication.md#admin-account) del registro è disabilitato.
 
@@ -55,8 +55,8 @@ Gli script di esempio precedenti per l'interfaccia della riga di comando di Azur
 
 Gli articoli seguenti contengono altre informazioni sull'uso delle entità servizio e di Registro Azure Container:
 
-* [Autenticazione al Registro contenitori di Azure con entità servizio](container-registry-auth-service-principal.md)
-* [Eseguire l'autenticazione con Registro contenitori di Azure da Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
+* [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md)
+* [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
 

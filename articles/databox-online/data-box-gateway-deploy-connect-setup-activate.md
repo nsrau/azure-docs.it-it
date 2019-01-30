@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260436"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450405"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Esercitazione: Connettersi ad Azure Data Box Gateway (anteprima), configurarlo e attivarlo 
 
@@ -47,7 +47,7 @@ Prima di configurare Data Box Gateway, assicurarsi di:
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Connettersi all'installazione dell'interfaccia utente Web locale 
 
-1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare: 
+1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
@@ -86,7 +86,7 @@ Viene aperto il **Dashboard** del dispositivo.
     - È possibile configurare l'interfaccia di rete come IPv4.
 
     >[!NOTE] 
-    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il servizio.
+    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il proprio servizio.
 
 4. Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
    

@@ -1,7 +1,7 @@
 ---
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning service
-description: Il processo di Machine Learning automatizzato seleziona un algoritmo per l'utente e genera un modello pronto per la distribuzione. Informazioni sulle opzioni che è possibile usare per configurare esperimenti di Machine Learning automatizzato.
+description: L'apprendimento automatico automatizzato seleziona un algoritmo per l'utente e genera un modello pronto per la distribuzione. Informazioni sulle opzioni che è possibile usare per configurare esperimenti di apprendimento automatico.
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823437"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurare esperimenti di Machine Learning automatizzato
 
@@ -24,24 +24,24 @@ Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparam
 
 Per visualizzare esempi di Machine Learning automatizzato, vedere [Esercitazione: Eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md) oppure [Eseguire il training di modelli con Machine Learning automatizzato nel cloud](how-to-auto-train-remote.md).
 
-Opzioni di configurazione disponibili per il processo di Machine Learning automatizzato:
+Opzioni di configurazione disponibili nell'apprendimento automatico:
 
 * Selezionare il tipo di esperimento: Classificazione, Regressione o Previsione
-* Origine dati, formati, recupero di dati
+* Origine dati, formati, dati di recupero
 * Scegliere la destinazione di calcolo, locale o remota
 * Configurare le impostazioni di un esperimento di Machine Learning automatizzato
 * Eseguire un esperimento di Machine Learning automatizzato
 * Esplorare le metriche del modello
-* Registrare e distribuire il modello
+* Registrare e distribuire modelli
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
-Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di Machine Learning da risolvere. Il processo di Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione. 
+Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Il processo di Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione. 
 
 Mentre le funzionalità di Machine Learning automatizzato sono disponibili a livello generale, quella relativa alla **previsione è ancora in anteprima pubblica**.
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo.
 
-Classificazione | Regressione | Previsione
+classificazione | Regressione | Previsione
 |-- |-- |--
 [Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -57,7 +57,7 @@ Classificazione | Regressione | Previsione
 
 
 ## <a name="data-source-and-format"></a>Origine dati e formato
-Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in base ai formati supportati da scikit-learn. È possibile leggere i dati in:
+Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in scikit-learn su formati di dati supportati. È possibile leggere i dati in:
 * Matrici Numpy X (caratteristiche) e y (variabile di destinazione, nota anche come etichetta)
 * Dataframe Pandas 
 
@@ -111,14 +111,14 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Lo script `get_data` può restituire:
 
-Chiave | Tipo |    Si esclude a vicenda con | Descrizione
+Chiave | type |    Si escludono a vicenda con | DESCRIZIONE
 ---|---|---|---
-X | Dataframe Pandas o matrice Numpy | data_train, label, columns |  Tutte le funzionalità per eseguire il training con
+X | Dataframe Pandas o matrice Numpy | data_train, etichetta, colonne |  Tutte le funzionalità per eseguire il training con
 y | Dataframe Pandas o matrice Numpy |   label   | Dati per il training con etichetta. Per la classificazione, deve essere una matrice di interi.
-X_valid | Dataframe Pandas o matrice Numpy   | data_train, label | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, X è suddiviso tra training e convalida
-y_valid |   Dataframe Pandas o matrice Numpy | data_train, label | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, y è suddiviso tra training e convalida
-sample_weight | Dataframe Pandas o matrice Numpy |   data_train, label, columns| _Facoltativo_ un valore di ponderazione per ogni esempio. Utilizzare questa opzione quando si vuole assegnare pesi diversi per i punti dati 
-sample_weight_valid | Dataframe Pandas o matrice Numpy | data_train, label, columns |    _Facoltativo_ un valore di ponderazione per ogni esempio. Se non specificato, sample_weight è suddiviso tra training e convalida
+X_valid | Dataframe Pandas o matrice Numpy   | data_train, etichetta | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, X è suddiviso tra training e convalida
+y_valid |   Dataframe Pandas o matrice Numpy | data_train, etichetta | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, y è suddiviso tra training e convalida
+sample_weight | Dataframe Pandas o matrice Numpy |   data_train, etichetta, colonne| _Facoltativo_ un valore di ponderazione per ogni esempio. Utilizzare questa opzione quando si vuole assegnare pesi diversi per i punti dati 
+sample_weight_valid | Dataframe Pandas o matrice Numpy | data_train, etichetta, colonne |    _Facoltativo_ un valore di ponderazione per ogni esempio. Se non specificato, sample_weight è suddiviso tra training e convalida
 data_train |    Dataframe Pandas |  X, y, X_valid, y_valid |    Tutti i dati (funzionalità + etichetta) con cui eseguire il training
 label | stringa  | X, y, X_valid, y_valid |  Quale colonna in data_train rappresenta l'etichetta
 columns | Matrice di stringhe  ||  _Facoltativo_ Elenco elementi consentiti di colonne da utilizzare per le funzionalità
@@ -127,14 +127,14 @@ cv_splits_indices   | Matrice di numeri interi ||  _Facoltativo_ Elenco di indic
 ### <a name="load-and-prepare-data-using-dataprep-sdk"></a>Caricare e preparare i dati con Data Prep SDK
 Gli esperimenti di Machine Learning automatizzato supportano il caricamento dei dati e le trasformazioni con Data Prep SDK. Questo SDK offre la possibilità di
 
->* Caricare i dati da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
->* Convertire i tipi mediante inferenza durante il caricamento dei file
->* Usufruire delle connessioni per Microsoft SQL Server e Azure Data Lake Storage
+>* Caricamento da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
+>* Conversione del tipo mediante l'inferenza durante il caricamento dei file
+>* Supporto delle connessioni per Microsoft SQL Server e Azure Data Lake Storage
 >* Aggiungere una colonna tramite un'espressione
 >* Attribuire i valori mancanti
 >* Derivare le colonne in base a un esempio
->* Applicare filtri
->* Eseguire trasformazioni Python personalizzate
+>* Filtri
+>* Trasformazioni di Python personalizzate
 
 Per informazioni su Data Prep SDK,vedere [Come preparare i dati per la modellazione](how-to-load-data.md). Di seguito è riportato un esempio di caricamento dei dati tramite Data Prep SDK. 
 ```python
@@ -175,7 +175,7 @@ Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree
 
 <a name='configure-experiment'/>
 
-## <a name="configure-your-experiment-settings"></a>Configurare le impostazioni dell'esperimento
+## <a name="configure-your-experiment-settings"></a>Configurare le impostazioni di esperimento
 
 Per configurare l'esperimento di Machine Learning automatizzato sono disponibili varie opzioni. Questi parametri vengono impostati creando un oggetto `AutoMLConfig`.
 
@@ -208,33 +208,34 @@ Di seguito sono riportati alcuni esempi:
 
 Questa tabella elenca le impostazioni dei parametri disponibili per l'esperimento e i relativi valori predefiniti.
 
-Proprietà |  Descrizione | Valore predefinito
+Proprietà |  DESCRIZIONE | Default Value
 --|--|--
-`task`  |Specificare il tipo di problema di machine learning. I valori consentiti sono <li>Classificazione</li><li>Regressione</li><li>Previsione</li>    | Nessuno |
-`primary_metric` |Metrica che si desidera ottimizzare nella compilazione del modello. Se ad esempio si specifica accuracy come primary_metric, il processo di Machine Learning automatizzato cerca di trovare un modello con la massima accuratezza. È possibile specificare un solo valore di primary_metric per ogni esperimento. I valori consentiti sono <br/>**Classificazione**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressione**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | Per la classificazione: precisione <br/>Per la regressione: spearman_correlation <br/> |
-`experiment_exit_score` |   È possibile impostare un valore target per primary_metric. Una volta trovato un modello che soddisfa il target di primary_metric, il processo di Machine Learning automatizzato arresta le iterazioni e l'esperimento termina. Se questo valore non è impostato (impostazione predefinita), l'esperimento di Machine Learning automatizzato continuerà a eseguire il numero di iterazioni specificate in iterations. Accetta un valore double. Se il target non viene mai raggiunto, il processo di Machine Learning automatizzato continua finché non raggiunge il numero di iterazioni specificate in iterations.| Nessuno
+`task`  |Specificare il tipo di problema di machine learning. I valori consentiti sono <li>classificazione</li><li>Regressione</li><li>Previsione</li>    | Nessuna |
+`primary_metric` |Metrica che si desidera ottimizzare nella compilazione del modello. Se ad esempio si specifica accuracy come primary_metric, il processo di Machine Learning automatizzato cerca di trovare un modello con la massima accuratezza. È possibile specificare solo un primary_metric per ogni esperimento. I valori consentiti sono <br/>**Classificazione**:<br/><li> precisione  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressione**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | Per la classificazione: precisione <br/>Per la regressione: spearman_correlation <br/> |
+`experiment_exit_score` |   È possibile impostare un valore di destinazione per il primary_metric. Una volta trovato un modello che soddisfa il target di primary_metric, il processo di Machine Learning automatizzato arresta le iterazioni e l'esperimento termina. Se questo valore non è impostato (impostazione predefinita), l'esperimento di Machine Learning automatizzato continuerà a eseguire il numero di iterazioni specificate in iterations. Accetta un valore double. Se il target non viene mai raggiunto, il processo di Machine Learning automatizzato continua finché non raggiunge il numero di iterazioni specificate in iterations.| Nessuna
 `iterations` |Numero massimo di iterazioni. Ogni iterazione è uguale a un processo di training risultante in una pipeline. Una pipeline è una pre-elaborazione dei dati e il modello. Per ottenere un modello di alta qualità usarne almeno 250.    | 100
 `max_concurrent_iterations`|    Numero massimo di iterazioni da eseguire in parallelo. Questa impostazione funziona solo per il calcolo remoto.|   1
 `max_cores_per_iteration`   | Indica il numero di core nella destinazione di calcolo che verrà utilizzato per eseguire il training di una singola pipeline. Se l'algoritmo può sfruttare più core, ciò aumenta le prestazioni in un computer multicore. È possibile impostarlo su -1 per usare tutte le memorie centrali disponibili nel computer.|  1
-`iteration_timeout_minutes` |   Limita la quantità di tempo (minuti) che impiega una determinata iterazione. Se un'iterazione supera la quantità specificata, viene annullata quell'iterazione. Se non impostata, l'iterazione continua a essere eseguita fino al termine. |   Nessuno
-`n_cross_validations`   |Numero di suddivisioni di convalida incrociata| Nessuno
-`validation_size`   |Dimensione della convalida impostata come percentuale dell'esempio di tutti i training.|  Nessuno
-`preprocess` | True/False <br/>True permette all'esperimento di eseguire la pre-elaborazione dell'input. Di seguito è indicato un subset di pre-elaborazione<li>Dati mancanti: attribuisce i dati mancanti: numerici con media, testo con le maggiori occorrenze </li><li>Valori di categoria: se il tipo di dati è numerico e il numero di valori univoci è inferiore al 5%, converte in codifica one-hot </li><li>E così via, per l'elenco completo verificare [il repository di GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se i dati sono di tipo sparse è possibile usare preprocess = true |  False | 
-`blacklist_models`  | L'esperimento di Machine Learning automatizzato ha molti algoritmi diversi che prova ad applicare. Configurare il processo in modo da escludere determinati algoritmi dall'esperimento. È utile se si è a conoscenza del fatto che uno o più algoritmi non funzionano correttamente per il set di dati. L'esclusione di algoritmi può far risparmiare risorse di calcolo e tempi di training.<br/>Valori consentiti per la classificazione<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valori consentiti per la regressione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valori consentiti per la previsione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nessuno
-`whitelist_models`  | L'esperimento di Machine Learning automatizzato ha molti algoritmi diversi che prova ad applicare. Configurare il processo in modo da includere determinati algoritmi per l'esperimento. È utile se si è a conoscenza del fatto che uno o più algoritmi funzionano correttamente per il set di dati. <br/>Valori consentiti per la classificazione<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valori consentiti per la regressione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valori consentiti per la previsione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nessuno
-`verbosity` |Controlla il livello di registrazione con INFO, il più dettagliato, e CRITICAL, il meno dettagliato. Il livello Verbosity accetta gli stessi valori definiti nel pacchetto di registrazione Python. I valori consentiti sono i seguenti:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
-`X` | Tutte le caratteristiche con cui eseguire il training |  Nessuno
-`y` |   Dati delle etichette con cui eseguire il training. Per la classificazione, deve essere una matrice di interi.|  Nessuno
-`X_valid`|_Facoltativo_ Tutte le caratteristiche con cui eseguire la convalida. Se non specificato, X è suddiviso tra training e convalida |   Nessuno
-`y_valid`   |_Facoltativo_ Tutti i dati delle etichette con cui eseguire la convalida. Se non specificato, y è suddiviso tra training e convalida    | Nessuno
-`sample_weight` |   _Facoltativo_ Un valore di ponderazione per ogni esempio. Utilizzare questa opzione quando si vuole assegnare pesi diversi per i punti dati |   Nessuno
-`sample_weight_valid`   |   _Facoltativo_ Un valore di ponderazione per ogni esempio. Se non specificato, sample_weight è suddiviso tra training e convalida   | Nessuno
-`run_configuration` |   Oggetto RunConfiguration.  Utilizzato per le esecuzioni remote. |Nessuno
-`data_script`  |    Percorso di un file che contiene il metodo get_data.  Utilizzato per le esecuzioni remote.   |Nessuno
+`iteration_timeout_minutes` |   Limita la quantità di tempo (minuti) che impiega una determinata iterazione. Se un'iterazione supera la quantità specificata, viene annullata quell'iterazione. Se non impostata, l'iterazione continua a essere eseguita fino al termine. |   Nessuna
+`n_cross_validations`   |Numero di suddivisioni di convalida incrociata| Nessuna
+`validation_size`   |Dimensione della convalida impostata come percentuale dell'esempio di tutti i training.|  Nessuna
+`preprocess` | True/False <br/>True permette all'esperimento di eseguire la pre-elaborazione dell'input. Di seguito è indicato un subset di pre-elaborazione<li>Dati mancanti: attribuisce i dati mancanti: numerici con media, testo con le maggiori occorrenze </li><li>Valori di categoria: se il tipo di dati è numerico e il numero di valori univoci è inferiore al 5%, converte in codifica one-hot </li><li>E così via, per l'elenco completo verificare [il repository di GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se i dati sono di tipo sparso è possibile utilizzare la pre-elaborazione = true |  False |
+`enable_cache`  | True/False <br/>Impostando questa opzione su True, è possibile eseguire la pre-elaborazione una sola volta e riusare gli stessi dati pre-elaborati per tutte le iterazioni. | True  |
+`blacklist_models`  | L'esperimento di Machine Learning automatizzato ha molti algoritmi diversi che prova ad applicare. Configurare il processo in modo da escludere determinati algoritmi dall'esperimento. È utile se si è consapevoli del fatto che gli algoritmi non funzionano correttamente per il set di dati. L'esclusione di algoritmi può far risparmiare risorse di calcolo e tempi di training.<br/>Valori consentiti per la classificazione<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valori consentiti per la regressione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valori consentiti per la previsione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nessuna
+`whitelist_models`  | L'esperimento di Machine Learning automatizzato ha molti algoritmi diversi che prova ad applicare. Configurare il processo in modo da includere determinati algoritmi per l'esperimento. È utile se si è a conoscenza del fatto che uno o più algoritmi funzionano correttamente per il set di dati. <br/>Valori consentiti per la classificazione<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valori consentiti per la regressione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valori consentiti per la previsione<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nessuna
+`verbosity` |Controlla il livello di registrazione con INFO che è il più verboso e CRITICAL che è il minore. Il livello Verbosity accetta gli stessi valori definiti nel pacchetto di registrazione Python. I valori consentiti sono i seguenti:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
+`X` | Tutte le funzionalità per eseguire il training con |  Nessuna
+`y` |   Dati per il training con etichetta. Per la classificazione, deve essere una matrice di interi.|  Nessuna
+`X_valid`|_Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, X è suddiviso tra training e convalida |   Nessuna
+`y_valid`   |_Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, y è suddiviso tra training e convalida    | Nessuna
+`sample_weight` |   _Facoltativo_ un valore di ponderazione per ogni esempio. Utilizzare questa opzione quando si vuole assegnare pesi diversi per i punti dati |   Nessuna
+`sample_weight_valid`   |   _Facoltativo_ un valore di ponderazione per ogni esempio. Se non specificato, sample_weight è suddiviso tra training e convalida   | Nessuna
+`run_configuration` |   Oggetto RunConfiguration.  Utilizzato per le esecuzioni remote. |Nessuna
+`data_script`  |    Percorso di un file che contiene il metodo get_data.  Utilizzato per le esecuzioni remote.   |Nessuna
 `model_explainability` | _Facoltativo_ True/False <br/>  True consente all'esperimento di applicare l'importanza delle caratteristiche per ogni iterazione. È anche possibile usare il metodo explain_model() in un'iterazione specifica per abilitare l'importanza delle caratteristiche su richiesta per tale iterazione al termine dell'esperimento. | False
 `enable_ensembling`|Flag per consentire un'iterazione di insieme al termine di tutte le altre iterazioni.| True  
 `ensemble_iterations`|Numero di iterazioni durante le quali si sceglie una pipeline adattata come parte dell'insieme finale.| 15
-`experiment_timeout_minutes`| Limita la quantità di tempo (minuti) che può impiegare l'esecuzione dell'intero esperimento. | Nessuno
+`experiment_timeout_minutes`| Limita la quantità di tempo (minuti) che può impiegare l'esecuzione dell'intero esperimento | Nessuna
 
 ## <a name="data-pre-processing-and-featurization"></a>Definizione delle caratteristiche e pre-elaborazione dei dati
 
@@ -251,9 +252,9 @@ Se si usa `preprocess=True`, i passaggi seguenti di pre-elaborazione dei dati ve
     * Le caratteristiche numeriche con un numero molto ridotto di valori univoci vengono trasformate in caratteristiche di categoria.
     * A seconda della cardinalità delle caratteristiche di categoria, viene eseguita la codifica delle etichette o la codifica one-hot (hashing).
 
-## <a name="run-experiment"></a>Eseguire l'esperimento
+## <a name="run-experiment"></a>Eseguire esperimento
 
-Avviare l'esperimento per eseguire e generare un modello. Passare l'oggetto `AutoMLConfig` al metodo `submit` per generare il modello.
+Avviare l'esperimento per eseguire e generare un modello. Passare il `AutoMLConfig` al metodo `submit` per generare il modello.
 
 ```python
 run = experiment.submit(automl_config, show_output=True)
@@ -271,12 +272,12 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="classification-metrics"></a>Metriche per la classificazione
 In ogni iterazione per un'attività di classificazione vengono salvate le metriche seguenti.
 
-|Metrica primaria|Descrizione|Calcolo|Parametri aggiuntivi
---|--|--|--|--|
+|Metrica primaria|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+--|--|--|--|
 AUC_Macro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Macro è la media aritmetica dell'area AUC per ogni classe.  | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro è il valore calcolato globalmente combinando i veri positivi e i falsi positivi da ogni classe.| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
+AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro è il valore calcolato globalmente combinando i veri positivi e i falsi positivi da ogni classe| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Weighted è la media aritmetica del punteggio per ogni classe, ponderata in base al numero di istanze vere in ogni classe.| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
-accuracy|accuracy è la percentuale di etichette stimate che corrispondono esattamente alle etichette vere. |[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nessuno|
+precisione|accuracy è la percentuale di etichette stimate che corrispondono esattamente alle etichette vere. |[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nessuna|
 average_precision_score_macro|average_precision riepiloga una curva di precisione-recupero come media ponderata delle precisioni ottenute in corrispondenza di ogni soglia, usando come valore di ponderazione l'incremento nel recupero rispetto alla soglia precedente. macro è la media aritmetica del punteggio di precisione media di ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
 average_precision_score_micro|average_precision riepiloga una curva di precisione-recupero come media ponderata delle precisioni ottenute in corrispondenza di ogni soglia, usando come valore di ponderazione l'incremento nel recupero rispetto alla soglia precedente. micro è il valore calcolato globalmente combinando i veri positivi e i falsi positivi in corrispondenza di ogni limite.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
 average_precision_score_weighted|average_precision riepiloga una curva di precisione-recupero come media ponderata delle precisioni ottenute in corrispondenza di ogni soglia, usando come valore di ponderazione l'incremento nel recupero rispetto alla soglia precedente. weighted è la media aritmetica del punteggio di precisione media per ogni classe, ponderata in base al numero di istanze vere in ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
@@ -284,7 +285,7 @@ balanced_accuracy|balanced_accuracy è la media aritmetica del recupero per ogni
 f1_score_macro|f1_score è la media armonica di precisione e recupero. macro è la media aritmetica di f1_score per ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|f1_score è la media armonica di precisione e recupero. micro è il valore calcolato globalmente sommando i veri positivi, i falsi negativi e i falsi positivi.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|f1_score è la media armonica di precisione e recupero. weighted è la media calcolata in base alla frequenza di F1_score per ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|Questa è la funzione di perdita usata per la regressione logistica (multinomiale) e le relative estensioni, ad esempio le reti neurali, definita come probabilità logaritmica negativa delle etichette vere date le stime del classificatore probabilistico. Per un singolo campione con etichetta vera yt in {0,1} e una probabilità stimata yp tale che yt = 1, la perdita logaritmica è -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp))|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nessuno|
+log_loss|Questa è la funzione di perdita usata per la regressione logistica (multinomiale) e le relative estensioni, ad esempio le reti neurali, definita come probabilità logaritmica negativa delle etichette vere date le stime del classificatore probabilistico. Per un singolo campione con etichetta vera yt in {0,1} e una probabilità stimata yp tale che yt = 1, la perdita logaritmica è -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp))|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nessuna|
 norm_macro_recall|norm_macro_recall è il recupero macro normalizzato in modo che le prestazioni causali abbiano un punteggio 0 e le prestazioni perfette abbiano un punteggio 1. Questo viene ottenuto con norm_macro_recall := (recall_score_macro - R)/(1 - R), dove R è il valore stimato di recall_score_macro per le stime casuali (ad esempio, R=0.5 per la classificazione binaria e R=(1/C) per i problemi di classificazione di classe C).|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average = "macro" e quindi (recall_score_macro - R)/(1 - R), dove R è il valore stimato di recall_score_macro per le stime casuali (ad esempio, R=0.5 per la classificazione binaria e R=(1/C) per i problemi di classificazione di classe C)|
 precision_score_macro|precision è la percentuale degli elementi cui è assegnata un'etichetta come una determinata classe e che si trovano effettivamente in tale classe. macro è la media aritmetica di precision per ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|precision è la percentuale degli elementi cui è assegnata un'etichetta come una determinata classe e che si trovano effettivamente in tale classe. micro è il valore calcolato globalmente sommando i veri positivi e i falsi positivi.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
@@ -297,19 +298,19 @@ weighted_accuracy|weighted_accuracy è l'accuratezza dove il valore di ponderazi
 ### <a name="regression-and-forecasting-metrics"></a>Metriche per la regressione e la previsione
 In ogni iterazione per un'attività di regressione o previsione vengono salvate le metriche seguenti.
 
-|Metrica primaria|Descrizione|Calcolo|Parametri aggiuntivi
---|--|--|--|--|
-explained_variance|explained_variance è la proporzione in base alla quale un modello matematico tiene conto della variazione di un determinato set di dati. Si tratta della riduzione percentuale della varianza dei dati originali rispetto alla varianza degli errori. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nessuno|
-r2_score|R2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nessuno|
-spearman_correlation|La correlazione di Spearman è una misura non parametrica della monotonicità della relazione tra due set di dati. A differenza della correlazione di Pearson, quella di Spearman non presuppone che entrambi i set di dati siano normalmente distribuiti. Come altri coefficienti di correlazione, questo coefficiente varia da -1 a + 1, con 0 che implica l'assenza di correlazione. Le correlazioni con coefficiente -1 o + 1 implicano una relazione monotonica esatta. In caso di correlazione positiva, un incremento di x corrisponde a un incremento di y. In caso di correlazione negativa, un incremento di x corrisponde a un decremento di y.|[Calcolo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nessuno|
-mean_absolute_error|mean_absolute_error è il valore stimato del valore assoluto della differenza tra il target e la stima.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nessuno|
+|Metrica primaria|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+--|--|--|--|
+explained_variance|explained_variance è la proporzione in base alla quale un modello matematico tiene conto della variazione di un determinato set di dati. Si tratta della riduzione percentuale della varianza dei dati originali rispetto alla varianza degli errori. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nessuna|
+r2_score|R2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nessuna|
+spearman_correlation|La correlazione di Spearman è una misura non parametrica della monotonicità della relazione tra due set di dati. A differenza della correlazione di Pearson, quella di Spearman non presuppone che entrambi i set di dati siano normalmente distribuiti. Come altri coefficienti di correlazione, questo coefficiente varia da -1 a + 1, con 0 che implica l'assenza di correlazione. Le correlazioni con coefficiente -1 o + 1 implicano una relazione monotonica esatta. In caso di correlazione positiva, un incremento di x corrisponde a un incremento di y. In caso di correlazione negativa, un incremento di x corrisponde a un decremento di y.|[Calcolo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nessuna|
+mean_absolute_error|mean_absolute_error è il valore stimato del valore assoluto della differenza tra il target e la stima.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nessuna|
 normalized_mean_absolute_error|normalized_median_absolute_error è l'errore assoluto medio diviso per l'intervallo dei dati.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dividere per l'intervallo dei dati|
-median_absolute_error|median_absolute_error è il valore mediano di tutte le differenze assolute tra il target e la stima. Questa perdita è significativa per gli outlier.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nessuno|
+median_absolute_error|median_absolute_error è il valore mediano di tutte le differenze assolute tra il target e la stima. Questa perdita è significativa per gli outlier.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nessuna|
 normalized_median_absolute_error|normalized_median_absolute_error è l'errore assoluto mediano diviso per l'intervallo dei dati.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dividere per l'intervallo dei dati|
-root_mean_squared_error|root_mean_squared_error è la radice quadrata della differenza quadratica stimata tra il target e la stima.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nessuno|
+root_mean_squared_error|root_mean_squared_error è la radice quadrata della differenza quadratica stimata tra il target e la stima.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nessuna|
 normalized_root_mean_squared_error|normalized_root_mean_squared_error è la radice dell'errore quadratico medio divisa per l'intervallo dei dati.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dividere per l'intervallo dei dati|
-root_mean_squared_log_error|root_mean_squared_log_error è la radice quadrata dell'errore logaritmico quadratico stimato.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nessuno|
-normalized_root_mean_squared_log_error|normalized_root_mean_squared_log_error è la radice dell'errore logaritmico quadratico medio divisa per l'intervallo dei dati.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividere per l'intervallo dei dati|
+root_mean_squared_log_error|root_mean_squared_log_error è la radice quadrata dell'errore logaritmico quadratico stimato.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nessuna|
+normalized_root_mean_squared_log_error|normalized_root_mean_squared_log_error è la radice dell'errore logaritmico quadratico medio divisa per l'intervallo dei dati|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividere per l'intervallo dei dati|
 
 ## <a name="explain-the-model"></a>Spiegare il modello
 
@@ -321,7 +322,7 @@ Il processo di Machine Learning automatizzato consente di riconoscere l'importan
 
 *   Al termine di un esperimento, è possibile usare il metodo `explain_model` su qualsiasi iterazione.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ Il processo di Machine Learning automatizzato consente di riconoscere l'importan
 
 *   Per visualizzare l'importanza delle caratteristiche per tutte le iterazioni, impostare il flag `model_explainability` su `True` in AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ Il processo di Machine Learning automatizzato consente di riconoscere l'importan
 
     Dopo aver eseguito questa operazione, è possibile usare il metodo retrieve_model_explanation per recuperare l'importanza delle caratteristiche per un'iterazione specifica.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

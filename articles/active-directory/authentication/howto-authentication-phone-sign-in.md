@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963948"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434190"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Accesso tramite telefono senza password con l'app Microsoft Authenticator (anteprima pubblica)
 
@@ -37,16 +37,21 @@ Per l'anteprima pubblica, un amministratore deve prima aggiungere i criteri tram
 
 ### <a name="steps-to-enable"></a>Procedura di abilitazione
 
-Assicurarsi di disporre della versione più aggiornata dell'anteprima pubblica del modulo di Azure Active Directory V2 per PowerShell. A tale scopo, è possibile disinstallare e reinstallare la versione più aggiornata eseguendo i comandi seguenti:
+1. Assicurarsi di disporre della versione più aggiornata dell'anteprima pubblica del modulo di Azure Active Directory v2 per PowerShell. A tale scopo, è possibile disinstallare e reinstallare la versione più aggiornata eseguendo i comandi seguenti:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Eseguire l'autenticazione al tenant di Azure AD per usare il modulo PowerShell di Azure AD v2. L'account usato deve appartenere a un amministratore della sicurezza o a un amministratore globale.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-È possibile abilitare l'accesso senza password all'anteprima tramite telefono usando i comandi PowerShell seguenti:
-
-1. `Connect-AzureAD`
-   1. Nella finestra di dialogo di autenticazione, accedere con un account nel tenant. L'account deve appartenere a un amministratore della sicurezza o a un amministratore globale.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Creare il criterio di accesso di Authenticator:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Come possono accedere tramite telefono gli utenti finali?
 
