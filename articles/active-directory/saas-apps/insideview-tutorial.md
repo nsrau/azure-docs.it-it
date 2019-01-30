@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: fd004302018bf032675957c12e58759a0d4ed6e5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06bdae468a15bfbc9c3aab3f9f6f4ddd81e0f678
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436275"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
 
@@ -141,7 +141,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
    
     a. Nella casella di testo **Nome STS** digitare un nome per la configurazione.
 
-    b. Nella casella di testo **SamlP/WS-Fed Unsolicited EndPoint** incollare il valore di **URL servizio Single Sign-On SAML** copiato dal portale di Azure.
+    b. Nella casella di testo  **SamlP/WS-Fed Unsolicited EndPoint** incollare il valore di **URL servizio Single Sign-On SAML** copiato dal portale di Azure.
     
     c. Aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **STS Certificate** (Certificato servizio token di sicurezza).
 
@@ -156,7 +156,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
     h. Fare clic su **Save**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
  
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

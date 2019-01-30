@@ -3,7 +3,7 @@ title: Controlli delle applicazioni adattivi nel Centro sicurezza di Azure | Mic
 description: Questo documento aiuta a usare il controllo delle applicazioni adattivo nel Centro sicurezza di Azure per inserire nell'elenco elementi consentiti le applicazioni in esecuzione nelle macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262898"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427135"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Cosa sono i controlli delle applicazioni adattivi nel Centro sicurezza?
-Controlli delle applicazioni adattivi è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata del Centro sicurezza di Azure. Consente di controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure e, tra gli altri vantaggi, garantisce la protezione avanzata delle macchine virtuali contro i malware. Il Centro sicurezza usa la funzione Machine Learning per analizzare le applicazioni in esecuzione nelle macchine virtuali e, grazie a questa funzionalità intelligente, consente di applicare specifiche regole di inserimento nell'elenco elementi consentiti. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione dei criteri di inserimento delle applicazioni negli elenchi elementi consentiti, permettendo di:
+Il controllo delle applicazioni adattivo è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata del Centro sicurezza di Azure. Consente di controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure e, tra gli altri vantaggi, garantisce la protezione avanzata delle macchine virtuali contro i malware. Il Centro sicurezza usa la funzione Machine Learning per analizzare le applicazioni in esecuzione nelle macchine virtuali e, grazie a questa funzionalità intelligente, consente di applicare specifiche regole di inserimento nell'elenco elementi consentiti. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione dei criteri di inserimento delle applicazioni negli elenchi elementi consentiti, permettendo di:
 
 - Bloccare i tentativi di esecuzione di applicazioni dannose, inclusi quelli che potrebbero altrimenti non venire rilevati dalle soluzioni antimalware oppure inviare un avviso per tali tentativi.
 - Rispettare i criteri di sicurezza dell'organizzazione che impongono l'uso solo di software concesso in licenza.
@@ -88,7 +88,6 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**. <br>
 Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate sopra la soluzione predefinita di inserimento delle applicazioni nell'elenco elementi consentiti disponibile nei server Windows (AppLocker).
 
-
 > [!NOTE]
 > - Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
 > - Controlli delle applicazioni adattivi di Centro sicurezza non supporta le macchine virtuali per cui i criteri di AppLocker sono già abilitati da un oggetto Criteri di gruppo o un criterio di sicurezza locale.
@@ -122,7 +121,7 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
    > - Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. 
    >
 
-4. In **Estensione dei criteri** è possibile aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
+4. In **Estensione dei criteri** aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
 
 5. Esaminare le violazioni correnti elencate nella sezione **Avvisi recenti**. Fare clic su ogni riga da reindirizzare alla pagina **Avvisi** all'interno di Centro sicurezza di Azure e visualizzare tutti gli avvisi che sono stati rilevati dal Centro sicurezza di Azure nelle macchine virtuali associate.
   - **Avvisi**: eventuali violazioni registrate.
@@ -144,7 +143,7 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
 
 Il Centro sicurezza propone i criteri di inserimento delle applicazioni nell'elenco elementi consentiti solo per le macchine virtuali che eseguono un set stabile di applicazioni. Non vengono create raccomandazioni se le applicazioni nelle macchine virtuali associate continuano a cambiare.
 
-![Raccomandazione](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
+![Recommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 L'elenco contiene:
 - **NOME**: nome della sottoscrizione e del gruppo

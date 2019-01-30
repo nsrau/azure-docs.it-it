@@ -31,7 +31,7 @@ Quando tutto è pronto, i passaggi principali da eseguire per ripetere il traini
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verificare di avere l'URL PATCH corretto
 L'URL PATCH in uso deve essere quello associato al nuovo endpoint di assegnazione dei punteggi aggiunto al servizio Web di assegnazione dei punteggi. È possibile ottenere l'URL PATCH in due modi:
 
-**Opzione 1: a livello di codice**
+**Opzione 1: A livello di codice**
 
 Per ottenere l'URL PATCH corretto:
 

@@ -3,19 +3,19 @@ title: Proteggere i servizi RESTful tramite l'autenticazione HTTP di base in Azu
 description: Proteggere gli scambi di attestazioni API REST personalizzati in Azure AD B2C tramite l'autenticazione HTTP di base.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339168"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850679"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 
@@ -216,7 +216,7 @@ Aprire Controllers\IdentityController.cs e aggiungere il tag `[Authorize]` alla 
 
 ![Aggiungere il tag Authorize al controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
-## <a name="step-2-publish-to-azure"></a>Passaggio 2: Pubblicare in Azure
+## <a name="step-2-publish-to-azure"></a>Passaggio 2: Pubblicazione in Azure
 Per pubblicare il progetto, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **Contoso.AADB2C.API** e quindi selezionare **Pubblica**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Passaggio 3: Aggiungere ID e segreto dell'app dei servizi RESTful ad Azure AD B2C
@@ -237,7 +237,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 6. Nella casella **Segreto** immettere l'ID dell'app definito in precedenza.
 
-7. In **Uso chiave** selezionare **Secreto**.
+7. Per **Uso chiave** selezionare **Firma**.
 
 8. Selezionare **Create**.
 
@@ -257,7 +257,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 6. Nella casella **Segreto** immettere il segreto dell'app definito in precedenza.
 
-7. In **Uso chiave** selezionare **Secreto**.
+7. Per **Uso chiave** selezionare **Firma**.
 
 8. Selezionare **Create**.
 

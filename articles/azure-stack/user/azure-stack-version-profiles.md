@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9c4b66501cfb51088609de81fe00b5b041e056d3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 28ff7c9f6ca5fc6365b3fe1b9a91d2159c8b3f48
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037529"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247613"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gestire i profili delle versioni API in Azure Stack
 
@@ -40,7 +41,7 @@ Questo argomento consente di:
 - I profili dell'API sono stati creati per poter creare modelli tra più cloud di Azure. I profili offrono un'interfaccia compatibile e stabile.
 - I profili vengono rilasciati un anno a quattro volte.
 - Vengono usate tre le convenzioni di denominazione di profilo:
-    - **più recente**  
+    - **latest**  
         Contiene le versioni API più recenti rilasciate in Azure globale.
     - **yyyy-mm-dd-hybrid**  
     Rilasciato semestralmente, questa versione è incentrata sulla stabilità e la coerenza tra più cloud. Questo profilo è destinato a compatibilità ottimale di Azure Stack.

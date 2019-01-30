@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronizzazione nei domini gestiti | Documentazione Microsoft'
+title: 'Azure Active Directory Domain Services: Sincronizzazione nei domini gestiti | Microsoft Docs'
 description: Informazioni sulla sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155559"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846938"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 Il diagramma seguente illustra il funzionamento della sincronizzazione nei domini gestiti di Azure Active Directory Domain Services.
@@ -52,7 +52,7 @@ Gli oggetti o attributi indicati di seguito non vengono sincronizzati nel tenant
 
 * **Attributi esclusi:** è possibile scegliere di escludere determinati attributi dalla sincronizzazione nel tenant di Azure AD dal dominio locale usando Azure AD Connect. Gli attributi esclusi non sono disponibili nel dominio gestito.
 * **Criteri di gruppo:** i criteri di gruppo configurati nel dominio locale non vengono sincronizzati nel dominio gestito.
-* **Condivisione SYSVOL:** il contenuto della condivisione SYSVOL nel dominio locale non viene sincronizzato nel dominio gestito.
+* **Condivisione Sysvol:** il contenuto della condivisione SYSVOL nel dominio locale non viene sincronizzato nel dominio gestito.
 * **Oggetti computer:** gli oggetti computer per i computer aggiunti al dominio locale non vengono sincronizzati nel dominio gestito. Tali computer non hanno una relazione di trust con il dominio gestito e appartengono solo al dominio locale. Nel dominio gestito sono presenti oggetti computer solo per i computer aggiunti in modo esplicito al dominio gestito.
 * **Attributi SidHistory per utenti e gruppi:** gli ID di sicurezza (SID) dell'utente primario e del gruppo primario dal dominio locale vengono sincronizzati nel dominio gestito. Tuttavia, gli attributi SidHistory esistenti per utenti e gruppi non vengono sincronizzati dal dominio locale nel dominio gestito.
 * **Strutture di unità organizzative (OU):** le unità organizzative definite nel dominio locale non vengono sincronizzate nel dominio gestito. Nel dominio gestito sono presenti due unità organizzative incorporate. Per impostazione predefinita, il dominio gestito presenta una struttura di unità organizzative piatta. È tuttavia possibile scegliere di [creare un'unità organizzativa personalizzata nel dominio gestito](active-directory-ds-admin-guide-create-ou.md).
@@ -60,7 +60,7 @@ Gli oggetti o attributi indicati di seguito non vengono sincronizzati nel tenant
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Sincronizzazione di attributi specifici nel dominio gestito
 La tabella seguente riporta alcuni attributi comuni e il modo in cui vengono sincronizzati nel dominio gestito.
 
-| Attributo nel dominio gestito | Sorgente | Note |
+| Attributo nel dominio gestito | Source (Sorgente) | Note |
 |:--- |:--- |:--- |
 | UPN |Attributo UPN dell'utente nel tenant di Azure AD |L'attributo UPN del tenant di Azure AD viene sincronizzato così com'è nel dominio gestito. Il modo più affidabile per accedere al dominio gestito è quindi l'uso dell'UPN. |
 | SAMAccountName |Attributo mailNickname dell'utente nel tenant di Azure AD o generato automaticamente |L'attributo SAMAccountName è originato dall'attributo mailNickname nel tenant di Azure AD. Se più account utente hanno lo stesso attributo mailNickname, l'attributo SAMAccountName viene generato automaticamente. Se l'attributo mailNickname o il prefisso UPN dell'utente ha una lunghezza superiore a 20 caratteri, l'attributo SAMAccountName viene generato automaticamente per soddisfare il limite di 20 caratteri relativo agli attributi SAMAccountName. |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360480"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812560"
 ---
 # <a name="azure-backup-architecture"></a>Architettura di Backup di Azure
 
@@ -66,7 +66,7 @@ Vedere una [panoramica](backup-overview.md) e [informazioni sulle funzionalità 
 
 Backup di Azure offre diversi agenti, a seconda del tipo di backup.
 
-**Agente** | **Dettagli** 
+**Agent** | **Dettagli** 
 --- | --- 
 **Agente di Servizi di ripristino di Microsoft Azure (MARS)** | Questo agente viene eseguito nel singoli server Windows locali per eseguire il backup di file, cartelle e stato del sistema<br/><br/> Questo agente viene eseguito nei server DPM/MABS per eseguire il backup del disco di archiviazione locale di DPM/MABS. Il backup delle macchine e delle app viene eseguito in locale in questo disco di DPM/MABS.
 **Estensione per le macchine virtuali di Azure** | Per eseguire il backup di macchine virtuali di Azure, viene aggiunta un'estensione di backup all'agente di macchine virtuali di Azure in esecuzione nelle macchine virtuali. 
@@ -163,7 +163,7 @@ Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i 
 - Le macchine virtuali di Azure usano dischi per archiviare il sistema operativo, le app e i dati.
 - Le macchine virtuali di Azure dispongono di almeno due dischi, uno per il sistema operativo e un disco temporaneo. Possono anche avere dischi dati per i dati delle app. I dischi vengono archiviati come dischi rigidi virtuali.
 - I dischi rigidi virtuali vengono archiviati come BLOB di pagine negli account di archiviazione Standard o Premium in Azure.
-    - Archiviazione standard: supporto di dischi affidabili e a basso costo per le macchine virtuali che eseguono carichi di lavoro non sensibili alla latenza. L'archiviazione Standard può usare dischi SSD standard.
+    - Archiviazione standard: supporto di dischi affidabili e a basso costo per le macchine virtuali che eseguono carichi di lavoro non sensibili alla latenza. L'archiviazione Standard può usare dischi SSD o HDD standard.
     - Archiviazione Premium: supporto per dischi ad alte prestazioni. Usa dischi SSD Premium.
 - Sono disponibili tre diversi livelli di prestazioni per i dischi:
     - Disco HDD Standard: supportato da unità HDD e usato per un'archiviazione conveniente.
@@ -210,8 +210,8 @@ Quando si ripristinano le macchine virtuali con dischi gestiti, è possibile ese
 - Configurare il backup per uno degli scenari:
     - [Eseguire un backup delle VM di Azure](backup-azure-arm-vms-prepare.md)
     - [Eseguire il backup di computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza un server di backup.
-    - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in tale server.
-    - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in tale server.
+    - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in MABS.
+    - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in DPM.
 
 
 [green]: ./media/backup-architecture/green.png

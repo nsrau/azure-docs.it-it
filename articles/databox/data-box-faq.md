@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359409"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449572"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -192,7 +192,9 @@ Per altre informazioni, vedere [Data Box security features](data-box-security.md
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>D: Dopo aver terminato la fase di preparazione per la spedizione e aver arrestato il dispositivo, è possibile aggiungere altri dati a Data Box?
 R. Sì. È possibile accendere il dispositivo e aggiungere altri dati. È necessario eseguire nuovamente l'operazione **Prepara per la spedizione** dopo avere completato la copia dei dati.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>D: Il dispositivo non si avvia. Qual è la procedura per restituire il dispositivo?
+R. Se il dispositivo non si avvia, andare all'ordine nel portale di Azure. Scarica un'etichetta di spedizione e applicarla al dispositivo. Per altre informazioni, vedere [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Scaricare l'etichetta di spedizione).
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento
 

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092887"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Esercitazione: Integrazione di Azure Active Directory con direct
 
@@ -118,7 +118,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo
 
     ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     Nella casella di testo **URL accesso** digitare l'URL: `https://direct4b.com/sso` 
+     Nella casella di testo **URL accesso** digitare l'URL: `https://direct4b.com/sso` 
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="creating-a-direct-test-user"></a>Creazione di un utente test di direct
 
-In questa sezione si crea un utente di nome Britta Simon in direct. Collaborare con il [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry) per aggiungere gli utenti nella piattaforma direct. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione si crea un utente di nome Britta Simon in direct. Rivolgersi al [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry) per aggiungere gli utenti alla piattaforma di direct. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
