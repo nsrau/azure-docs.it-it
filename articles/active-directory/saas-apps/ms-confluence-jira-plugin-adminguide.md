@@ -4,7 +4,7 @@ description: Guida dell'amministratore all'uso di Atlassian Jira e Confluence co
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77aba012d4e8d333d6f57f8f6a7a12927e6a35ec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426877"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820547"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
 
@@ -67,7 +67,7 @@ Prima di installare il plug-in, verificare i prerequisiti seguenti:
 
 Il plug-in supporta le versioni seguenti di Jira e Confluence:
 
-* Jira Core e Software: da 6.0 a 7.12
+* JIRA Core e Software: da 6.0 a 7.12
 * Jira Service Desk: da 3.0.0 a 3.5.0
 * JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: da 5.0 a 5.10
@@ -109,39 +109,39 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 ![Schermata di configurazione del plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata URL** (URL dei metadati): URL per ottenere i metadati di federazione da Azure Active Directory.
+*   **Metadata URL** (URL metadata): URL per ottenere i metadati di federazione da Azure AD.
 
-*   **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*< dominio: porta >*/.
+*   **Identifiers** (Identificatori): URL usato da Azure AD per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*< dominio: porta >*/.
 
 *   **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
 
-*   **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
+*   **Sign On URL** (URL di accesso): URL di accesso nel provider di identità (IdP) che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
 
-*   **IdP Entity ID** (ID entità provider di identità): l'ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
+*   **IdP Entity ID** (ID entità IdP): ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 
-*   **Login URL** (URL di accesso): l'URL di accesso fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+*   **Login URL** (URL di accesso): URL di accesso fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
-*   **Log out URL** (URL disconnessione): l'URL di disconnessione fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+*   **Logout URL** (URL di disconnessione): URL di disconnessione fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
-*   **X.509 Certificate** (Certificato X.509): il certificato X.509 del provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+*   **X.509 Certificate** (Certificato X.509): certificato X.509 del provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
 *   **Login Button Name**(Nome pulsante di accesso): testo visualizzato dagli utenti dell'organizzazione sul pulsante di accesso nella schermata di accesso.
 
-*   **SAML User ID Locations**(Percorsi ID utente SAML): la posizione in cui è previsto l'ID utente di Jira o Confluence nella risposta SAML. Può essere in **NameID** o in un nome di attributo personalizzato.
+*   **SAML User ID Locations**(Posizioni ID utente SAML): posizione in cui è previsto l'ID utente di Jira o Confluence nella risposta SAML. Può essere in **NameID** o in un nome di attributo personalizzato.
 
-*   **Attribute name** (Nome attributo): il nome dell'attributo in cui è previsto un ID utente.
+*   **Attribute Name** (Nome attributo): nome dell'attributo in cui è previsto un ID utente.
 
-*   **Enable Home Realm Discovery**(Abilita individuazione dell'area di autenticazione principale): selezionare questa opzione se l'azienda usa l'accesso basato su Active Directory Federation Services (AD FS).
+*   **Enable Home Realm Discovery** (Abilita individuazione dell'area di autenticazione principale): selezionare questa opzione se l'azienda usa l'accesso basato su Active Directory Federation Services (AD FS).
 
 *   **Domain Name** (Nome dominio): nome di dominio in caso di accesso basato su AD FS.
 
-*   **Enable Single Signout**(Abilita Single Sign-Out): selezionare questa opzione se si vuole eseguire la disconnessione da Azure Active Directory quando un utente si disconnette da Jira o Confluence.
+*   **Enable Single Signout** (Abilita Single Sign-Out): selezionare questa opzione se si vuole eseguire la disconnessione da Azure Active Directory quando un utente si disconnette da Jira o Confluence.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * **Si ricevono più errori relativi ai certificati**: accedere ad Azure AD e rimuovere i vari certificati disponibili per l'app. Verificare che sia presente un solo certificato.
 
-* **Un certificato sta per scadere in Azure AD**: il rollover automatico del certificato è gestito da componenti aggiuntivi. Quando un certificato sta per scadere, è necessario che un nuovo certificato venga contrassegnato come attivo e che i certificati inutilizzati vengano eliminati. Quando un utente tenta di eseguire l'accesso a Jira in questo scenario, il plug-in recupera e salva il nuovo certificato.
+* **Un certificato sta per scadere in Azure AD**: l'esecuzione dell'effetto di attivazione automatico del certificato è gestita da componenti aggiuntivi. Quando un certificato sta per scadere, è necessario che un nuovo certificato venga contrassegnato come attivo e che i certificati inutilizzati vengano eliminati. Quando un utente tenta di eseguire l'accesso a Jira in questo scenario, il plug-in recupera e salva il nuovo certificato.
 
 * **Come disabilitare WebSudo (disabilitare la sessione amministratore protetta)**:
 
@@ -159,9 +159,9 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Si verifica un errore di ID utente non trovato mentre l'utente tenta di accedere**: creare l'ID utente in Jira o Confluence.
 
-* **Si verifica un errore di app non trovata in Azure Active Directory**: verificare che all'app in Azure Active Directory sia stato associato l'URL appropriato.
+* **Si verifica un errore di app non trovata in Azure AD**: Verificare che all'app di Azure Active Directory sia stato mappato l'URL appropriato.
 
-* **Occorre supporto**: contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Il team risponde in 24-48 ore.
+* **Serve assistenza**: Contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Il team risponde in 24-48 ore.
 
   È possibile anche aprire un ticket di assistenza con Microsoft tramite il canale del portale di Azure.
 
@@ -185,7 +185,7 @@ Il plug-in funziona solo con le versioni locali di Jira e Confluence.
 
 Il plug-in supporta queste versioni:
 
-* Jira Core e Software: da 6.0 a 7.12
+* JIRA Core e Software: da 6.0 a 7.12
 * Jira Service Desk: da 3.0.0 a 3.5.0
 * JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: da 5.0 a 5.10

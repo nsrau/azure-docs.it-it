@@ -4,7 +4,7 @@ description: Tratta considerazioni relative alla sicurezza quando si usa il prox
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472723"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -48,7 +48,7 @@ Applicare controlli dei criteri più completi prima che vengano stabilite connes
 
 Con l'[accesso condizionale](../conditional-access/overview.md) è possibile definire restrizioni sul tipo di traffico che può accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
 
-È possibile usare l'accesso condizionale anche per configurare criteri di autenticazione a più fattori e aggiungere così un altro livello di sicurezza alle autenticazioni utente. 
+È possibile usare l'accesso condizionale anche per configurare criteri di autenticazione a più fattori e aggiungere così un altro livello di sicurezza alle autenticazioni utente. Le applicazioni possono anche essere indirizzate a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire monitoraggio e controlli in tempo reale, tramite i criteri di [accesso](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) e della [sessione](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Terminazione di traffico
 
@@ -93,7 +93,7 @@ Microsoft osserva i modelli di traffico delle singole applicazioni e della sotto
 Il proxy applicazione di Azure AD è costituito da due parti:
 
 * Servizio basato sul cloud: servizio eseguito in Azure in cui vengono stabilite le connessioni esterne client/utente.
-* [Connettore locale](application-proxy-connectors.md): componente locale in ascolto delle richieste provenienti dal servizio proxy di applicazione di Azure AD e in grado di gestire le connessioni alle applicazioni interne. 
+* [Connettore locale](application-proxy-connectors.md): componente locale in ascolto delle richieste provenienti dal servizio Azure AD Application Proxy e in grado di gestire le connessioni alle applicazioni interne. 
 
 Un flusso tra il connettore e il servizio proxy applicazione viene stabilito quando:
 
@@ -110,8 +110,8 @@ Il connettore usa un certificato client per l'autenticazione al servizio proxy a
 
 Quando il connettore viene configurato per la prima volta, si verificano gli eventi di flusso seguenti:
 
-1. La registrazione del connettore al servizio avviene durante l'installazione del connettore. Agli utenti viene chiesto di immettere le credenziali di amministratore di Azure AD. Il token acquisito dalla procedura di autenticazione viene quindi presentato al servizio proxy di applicazione di Azure AD.
-2. Il servizio proxy di applicazione valuta il token Controlla se l'utente è un amministratore dell'azienda nel tenant. Se l'utente non è un amministratore, il processo viene terminato.
+1. La registrazione del connettore al servizio avviene durante l'installazione del connettore. Agli utenti viene chiesto di immettere le credenziali di amministratore di Azure AD. Il token acquisito dalla procedura di autenticazione viene quindi presentato al servizio proxy di applicazione di Azure AD.
+2. Il servizio proxy di applicazione valuta il token Controlla se l'utente è un amministratore dell'azienda nel tenant. Se l'utente non è un amministratore, il processo viene terminato.
 3. Il connettore genera una richiesta di certificato client e la passa con il token al servizio proxy di applicazione, che a sua volta verifica il token e firma la richiesta del certificato client.
 4. Il connettore usa questo certificato client per la futura comunicazione con il servizio proxy applicazione.
 5. Il connettore esegue un pull iniziale dei dati di configurazione del sistema dal servizio usando il certificato client ed è quindi pronto ad accettare le richieste.
@@ -176,7 +176,7 @@ Dopo aver completato la richiesta e la trasmissione di tutto il contenuto al bac
 
 Dopo aver ricevuto la risposta, il connettore esegue una connessione in uscita al servizio proxy applicazione per restituire i dettagli dell'intestazione e avviare il flusso dei dati restituiti.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Il servizio invia i dati all'utente. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Il servizio invia i dati all'utente. 
 
 In questa fase è possibile che vengano eseguite alcune operazioni di elaborazione dell'applicazione. Se è il proxy di applicazione è stato configurato in modo da convertire le intestazioni o gli URL nell'applicazione, in questa fase vengono eseguite tutte le operazioni di elaborazione necessarie.
 

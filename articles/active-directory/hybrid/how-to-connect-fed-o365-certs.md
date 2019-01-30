@@ -4,7 +4,7 @@ description: In questo articolo viene illustrato agli utenti di Office 365 come 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512efb45ee5c56cd0a10286d4156ae2d81f2f99
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237096"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464953"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 ## <a name="overview"></a>Panoramica
@@ -58,7 +58,7 @@ Azure AD prova a monitorare i metadati della federazione e ad aggiornare i certi
 >
 
 ## Verificare se è necessario aggiornare i certificati <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>Passaggio 1: Verificare lo stato di AutoCertificateRollover
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Passaggio 1: verificare lo stato di AutoCertificateRollover
 Nel server AD FS aprire Powershell. Verificare che il valore AutoCertificateRollover sia impostato su True.
 
     Get-Adfsproperties
@@ -68,7 +68,7 @@ Nel server AD FS aprire Powershell. Verificare che il valore AutoCertificateRoll
 >[!NOTE] 
 >Se si usa AD FS 2.0, eseguire prima Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Passaggio 2: Verificare che AD FS e Azure AD siano sincronizzati
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Passaggio 2: verificare che AD FS e Azure AD siano sincronizzati
 Nel server AD FS aprire il prompt di MSOnline PowerShell e connettersi ad Azure AD.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Verificare i certificati configurati in AD FS e le proprietà del trust di Azure
 
 Se le identificazioni personali in entrambi gli output corrispondono, i certificati sono sincronizzati con Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Passaggio 3: Verificare se il certificato sta per scadere
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Passaggio 3: verificare se il certificato sta per scadere
 Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la data in "Not after". Se mancano meno di 30 giorni alla scadenza, è consigliabile intervenire.
 
 | AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
@@ -113,7 +113,7 @@ Verificare quanto segue per assicurarsi che il certificato possa essere aggiorna
 
 **1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True.** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
 
-**2. I metadati della federazione di AD FS sono accessibili pubblicamente.** Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
+**2. I metadati della federazione di AD FS sono accessibili pubblicamente.**  Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -128,7 +128,7 @@ Si può scegliere di rinnovare manualmente i certificati per la firma di token. 
 
 In questi scenari, ogni volta che si aggiornano i certificati per la firma di token, è necessario aggiornare anche il dominio di Office 365 con il comando di PowerShell Update-MsolFederatedDomain.
 
-### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Passaggio 1: Verificare che in ADFS siamo disponibili nuovi certificati per la firma di token
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Passaggio 1: verificare che in AD FS siano disponibili nuovi certificati per la firma di token
 **Configurazione non predefinita**
 
 Se si usa una configurazione non predefinita di AD FS in cui **AutoCertificateRollover** è impostata su **False**, è probabile che siano in uso certificati personalizzati, ovvero non autofirmati. Per altre informazioni sul rinnovo dei certificati per la firma di token di AD FS, vedere [Linee guida per i clienti che non usano certificati autofirmati di AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
@@ -153,7 +153,7 @@ D'altra parte, se **AutoCertificateRollover** è impostata su **True**, ma i met
 
 A questo punto verranno elencati due certificati, uno dei quali ha una data **NotAfter** successiva di circa un anno e il valore **IsPrimary** è **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Passaggio 2: Aggiornare i nuovi certificati per la firma di token per il trust di Office 365
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Passaggio 2: aggiornare i nuovi certificati per la firma di token per il trust di Office 365
 Aggiornare Office 365 con i nuovi certificati per la firma di token da usare per il trust come indicato di seguito.
 
 1. Aprire il modulo di Microsoft Azure Active Directory per Windows PowerShell.

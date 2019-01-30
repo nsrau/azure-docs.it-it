@@ -4,7 +4,7 @@ description: Introduzione all'uso di Azure AD per eseguire automaticamente il pr
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311454"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478485"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -103,7 +103,7 @@ Il provisioning è configurato nella scheda **Provisioning** della schermata di 
 
 * È necessario specificare le **credenziali amministratore** al servizio di provisioning di Azure AD per permettergli di connettersi all'API di gestione utenti indicata dall'applicazione. Questa sezione consente anche di abilitare l'invio di notifiche di posta elettronica se le credenziali non risultano corrette o il processo di provisioning entra in [quarantena](#quarantine).
 
-* È possibile configurare **mapping degli attributi** che consentono di specificare per quali campi del sistema di origine, ad esempio Azure AD, verrà eseguita la sincronizzazioni del contenuto con i campi corrispondenti del sistema di destinazione, ad esempio ServiceNow. Se l'applicazione di destinazione supporta tale possibilità, questa sezione consente anche di configurare il provisioning dei gruppi, oltre che degli account utente. Le proprietà corrispondenti permettono di selezionare i campi usati per associare gli account tra i sistemi. Le [espressioni](functions-for-customizing-application-data.md) permettono di modificare e trasformare i valori recuperati dal sistema di origine prima che vengano scritti nel sistema di destinazione. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi](customize-application-attributes.md).
+* È possibile configurare **mapping degli attributi** che consentono di specificare per quali campi del sistema di origine, ad esempio Azure AD, verrà eseguita la sincronizzazione del contenuto con i campi corrispondenti del sistema di destinazione, ad esempio ServiceNow. Se l'applicazione di destinazione supporta tale possibilità, questa sezione consente anche di configurare il provisioning dei gruppi, oltre che degli account utente. Le proprietà corrispondenti permettono di selezionare i campi usati per associare gli account tra i sistemi. Le [espressioni](functions-for-customizing-application-data.md) permettono di modificare e trasformare i valori recuperati dal sistema di origine prima che vengano scritti nel sistema di destinazione. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi](customize-application-attributes.md).
 
 ![Impostazioni](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -133,7 +133,7 @@ Quando viene avviato il servizio di provisioning, la prima sincronizzazione cons
 
 1. Il servizio esegue una query su tutti gli utenti e i gruppi presenti nel sistema di origine e recupera tutti gli attributi definiti nei [mapping degli attributi](customize-application-attributes.md).
 2. Il servizio filtra gli utenti e i gruppi restituiti, usando [assegnazioni](assign-user-or-group-access-portal.md) configurate o [filtri di ambito basati su attributi](define-conditional-rules-for-provisioning-user-accounts.md).
-3. Quando viene trovato un utente da assegnare o incluso nell'ambito per il provisioning, il servizio esegue una query sul sistema di destinazione per individuare un utente corrispondente usando gli [attributi di corrispondenza](customize-application-attributes.md#understanding-attribute-mapping-properties) designati. Se ad esempio il nome userPrincipal nel sistema di origine è un attributo di corrispondenza ed è mappato a userName nel sistema di destinazione, il servizio di provisioning esegue una query sul sistema di destinazione per trovare i valori di userName che corrispondono ai valori del nome userPrincipal nel sistema di origine.
+3. Quando viene trovato un utente da assegnare o incluso nell'ambito per il provisioning, il servizio esegue una query sul sistema di destinazione per individuare un utente corrispondente usando gli [attributi di corrispondenza](customize-application-attributes.md#understanding-attribute-mapping-properties) designati. Esempio: Se il nome userPrincipal nel sistema di origine è un attributo di corrispondenza ed è mappato a userName nel sistema di destinazione, il servizio di provisioning esegue una query sul sistema di destinazione per trovare i valori di userName che corrispondono ai valori del nome userPrincipal nel sistema di origine.
 4. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine. Dopo aver creato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
 5. Se invece viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine. Dopo aver abbinato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
 6. Se i mapping degli attributi contengono attributi "di riferimento", il servizio esegue altri aggiornamenti nel sistema di destinazione per creare e collegare gli oggetti a cui viene fatto riferimento. È ad esempio possibile che nel sistema di destinazione un utente abbia un attributo "Manager" collegato a un altro utente creato nel sistema di destinazione.

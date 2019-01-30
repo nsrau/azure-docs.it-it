@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843207"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463746"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -235,7 +235,7 @@ Né MSDTC, né le [transazioni elastiche](https://docs.microsoft.com/azure/sql-d
 Alcune destinazioni specifiche di Windows per XEvents non sono supportate:
 
 - `etw_classic_sync target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione etw_classic_sync_target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione event_file](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione event_file](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Librerie esterne
 
@@ -301,7 +301,7 @@ La replica è disponibile in anteprima pubblica in Istanza gestita. Per informaz
 - Sintassi non supportata
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- Sorgente  
+- Source (Sorgente)  
   - `FROM URL` (archivio BLOB di Azure) è l'unica opzione supportata.
   - `FROM DISK`/`TAPE`/dispositivo di backup non è supportato.
   - I set di backup non sono supportati.
@@ -503,6 +503,12 @@ Sebbene questo codice funzioni con i dati nella stessa istanza, è necessario MS
 I moduli CLR inseriti in Istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Questo errore è un problema temporaneo.
 
 **Soluzione alternativa**: usare connessioni di contesto nel modulo CLR, se possibile.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>I database crittografati con TDE non supportano i backup avviati dall'utente
+
+Non è possibile eseguire `BACKUP DATABASE ... WITH COPY_ONLY` in un database crittografato con TDE (Transparent Data Encryption). TDE impone la crittografia dei backup con chiavi TDE interne e la chiave non può essere esportata, quindi non sarà possibile ripristinare il backup.
+
+**Soluzione alternativa**: usare i backup automatici e il ripristino temporizzato oppure o disabilitare la crittografia nel database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
