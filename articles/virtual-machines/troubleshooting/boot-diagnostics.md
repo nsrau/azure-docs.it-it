@@ -10,20 +10,18 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419555"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425578"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
-In Azure ora è disponibile il supporto per due funzionalità di debug: il supporto per l'output della console e per gli screenshot per il modello di distribuzione Resource Manager di macchine virtuali di Azure. 
+Una macchina virtuale può entrare in uno stato non di avvio per diversi motivi. Per risolvere i problemi relativi alle macchine virtuali create con il modello di distribuzione di Resource Manager, è possibile usare le funzionalità di debug seguenti: l'output della console e il supporto dello screenshot delle macchine virtuali di Azure. 
 
-Quando si usa l'immagine personale in Azure o anche quando si avvia una delle immagini della piattaforma, una macchina virtuale può passare a uno stato non avviabile per diversi motivi. Queste funzionalità consentono di diagnosticare facilmente gli errori di avvio e di ripristinare le macchine virtuali.
-
-Per le macchine virtuali Linux, è possibile visualizzare facilmente l'output del log della console dal portale. Per le macchine virtuali sia Windows che Linux, Azure consente anche di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
+Per le macchine virtuali Linux è possibile visualizzare l'output del log della console dal portale. Per le macchine virtuali Windows e Linux, Azure consente di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per le macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
 
 È possibile selezionare l'opzione **Diagnostica di avvio** per visualizzare il log e lo screenshot.
 
@@ -45,54 +43,58 @@ Per le macchine virtuali Linux, è possibile visualizzare facilmente l'output de
 - [Sistema operativo non trovato](https://support.microsoft.com/help/4010142)
 - [Errore di avvio o INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Abilitare la diagnostica in una nuova macchina virtuale
-1. Quando si crea una nuova macchina virtuale dal portale di Azure, selezionare **Azure Resource Manager** dall'elenco a discesa del modello di distribuzione:
+## <a name="enable-diagnostics-on-a-virtual-machine-created-using-the-azure-portal"></a>Abilitare la diagnostica in una macchina virtuale creata usando il portale di Azure
+
+La procedura seguente si riferisce a una macchina virtuale creata usando il modello di distribuzione di Resource Manager.
+
+Nella scheda **Gestione**, nella sezione **Monitoraggio**, verificare che l'opzione **Diagnostica di avvio** sia attivata. Nell'elenco a discesa **Account di archiviazione di diagnostica** selezionare un account di archiviazione in cui inserire i file di diagnostica.
  
-    ![Gestione risorse](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+![Creare una macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
-2. In **Impostazioni**, abilitare la **diagnostica di avvio**, quindi selezionare un account di archiviazione in cui si desidera posizionare i file di diagnostica.
- 
-    ![Creare una macchina virtuale](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
+> [!NOTE]
+> La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale.
+>
 
-    > [!NOTE]
-    > La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale.
-    >
-    > 
+### <a name="deploying-from-an-azure-resource-manager-template"></a>Distribuzione da un modello di Azure Resource Manager
 
-3. Se si esegue la distribuzione da un modello di Azure Resource Manager, passare alla risorsa macchina virtuale e aggiungere la sezione del profilo di diagnostica. Si ricordi di usare l'intestazione di versione API "2015-06-15".
+Se si esegue la distribuzione da un modello di Azure Resource Manager, passare alla risorsa macchina virtuale e aggiungere la sezione del profilo di diagnostica. Impostare l'intestazione della versione dell'API su "2015-06-15" o versioni successive. La versione più recente è "2018-10-01".
 
-    ```json
-    {
-          "apiVersion": "2015-06-15",
-          "type": "Microsoft.Compute/virtualMachines",
-          … 
-    ```
+```json
+{
+  "apiVersion": "2018-10-01",
+  "type": "Microsoft.Compute/virtualMachines",
+  … 
+```
 
-4. Il profilo di diagnostica consente di selezionare l'account di archiviazione in cui si vogliono inserire questi log.
+Il profilo di diagnostica consente di selezionare l'account di archiviazione in cui si vogliono inserire questi log.
 
-    ```json
-            "diagnosticsProfile": {
-                "bootDiagnostics": {
-                "enabled": true,
-                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
-                }
-            }
-            }
-        }
-    ```
+```json
+    "diagnosticsProfile": {
+    "bootDiagnostics": {
+    "enabled": true,
+    "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+    }
+    }
+    }
+}
+```
 
-Per distribuire una macchina virtuale di esempio con la diagnostica di avvio abilitata, vedere il repository qui.
+Per altre informazioni sulla distribuzione di risorse tramite modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
 
-## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Abilitare la diagnostica di avvio nella macchina virtuale esistente 
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Abilitare la diagnostica di avvio in una macchina virtuale esistente 
 
 Per abilitare la diagnostica di avvio in una macchina virtuale esistente, seguire la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com), quindi selezionare la macchina virtuale.
-2. In **Supporto + risoluzione dei problemi**, selezionare **Diagnostica di avvio** > **Impostazioni**, impostare lo stato su **Acceso** e quindi selezionare un account di archiviazione. 
-4. Assicurarsi che sia selezionata l'opzione di diagnostica di avvio e quindi salvare la modifica.
+2. Nella sezione **Supporto e risoluzione dei problemi** selezionare **Diagnostica di avvio** e quindi scegliere la scheda **Impostazioni**.
+3. In **Diagnostica di avvio** impostare lo stato su **Attivato** e nell'elenco a discesa **Account di archiviazione** selezionare un account di archiviazione. 
+4. Salvare la modifica.
 
     ![Aggiornare una VM esistente](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
 
-3. Riavviare la VM per rendere effettivo l'aggiornamento.
+Per rendere effettiva la modifica, è necessario riavviare la macchina virtuale.
 
+### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Abilitare la diagnostica di avvio tramite l'interfaccia della riga di comando di Azure
 
+Per abilitare la diagnostica di avvio in una macchina virtuale di Azure esistente, è possibile usare l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [az vm boot-diagnostics](
+https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

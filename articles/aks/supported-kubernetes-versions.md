@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465786"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -35,23 +35,24 @@ Quando si distribuisce un cluster del servizio Azure Kubernetes nel portale o co
 
 ## <a name="list-currently-supported-versions"></a>Elencare le versioni attualmente supportate
 
-Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e l'area in uso, usare il comando [az aks get-versions] [ az-aks-get-versions]. L'esempio seguente elenca le versioni di Kubernetes disponibili per l'area *EastUS*:
+Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e l'area in uso, usare il comando [az servizio Azure Kubernetes get-versions][az-aks-get-versions]. L'esempio seguente elenca le versioni di Kubernetes disponibili per l'area *EastUS*:
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
 ```
 
-L'output è simile all'esempio seguente, che illustra che la versione *1.11.5* di Kubernetes è la versione più recente disponibile:
+L'output è simile all'esempio seguente, in cui è mostrato che la versione *1.12.4* di Kubernetes è la versione più recente disponibile:
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.5               None available
-1.11.4               1.11.5
-1.10.9               1.11.4, 1.11.5
-1.10.8               1.10.9, 1.11.4, 1.11.5
-1.9.11               1.10.8, 1.10.9
-1.9.10               1.9.11, 1.10.8, 1.10.9
+-------------------  -----------------------
+1.12.4               None available
+1.11.6               1.12.4
+1.11.5               1.11.6, 1.12.4
+1.10.12              1.11.5, 1.11.6
+1.10.9               1.10.12, 1.11.5, 1.11.6
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
 1.8.15               1.9.10, 1.9.11
 1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
@@ -75,7 +76,7 @@ Per le versioni secondarie non supportate dal servizio Azure Kubernetes, il ridi
 
 Sì. Tuttavia, se il cluster non è in una delle versioni supportate dal servizio Azure Kubernetes, esso è all'esterno dello SLO servizio Azure Kubernetes. Azure non aggiorna o elimina automaticamente il cluster.
 
-**Quale versione effettua il supporto del master se il cluster agente non è presente in una delle versioni supportate del servizio Kubernetes di Azure?**
+**Quale versione effettua il supporto del master se il cluster agente non è presente in una delle versioni supportate del servizio Azure Kubernetes?**
 
 Il master viene aggiornato automaticamente alla versione supportata più recente.
 

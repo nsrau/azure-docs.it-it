@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 8b6c8220bd009505f683ce888558e612aebdc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048105"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448721"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
 
@@ -63,7 +63,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configurare l'attività File system di Azure Data Lake Store
 
 1. Impostare **Operation** (Operazione) su **CopyFromADLS**.
-2. Configurare **AzureDataLakeConnection**. Per altre informazioni, vedere [Gestione connessioni di Azure Data Lake Store](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+2. Configurare **AzureDataLakeConnection**. Per altre informazioni, vedere [Gestione connessioni di Azure Data Lake Store](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
 3. Impostare **AzureDataLakeDirectory**. Definire un puntatore alla cartella in cui sono archiviati gli script U-SQL. Usare il percorso relativo alla cartella radice dell'account Azure Data Lake Store.
 4. Impostare **Destination** (Destinazione) su una cartella che memorizza nella cache gli script U-SQL scaricati. Questo percorso di cartella verrà usato nel contenitore del ciclo ForEach per l'invio di processi U-SQL. 
 
@@ -106,7 +106,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 3. Impostare **AzureDataLakeAnalyticsConnection** sull'account Azure Data Lake Analytics a cui inviare i processi. Altre informazioni sul componente di [gestione delle connessioni di Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Impostare altre configurazioni per i processi. [Altre informazioni](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Impostare altre configurazioni per i processi. [Altre informazioni](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Usare **Espressioni** per impostare in modo dinamico il nome del processo U-SQL:
 
@@ -119,7 +119,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 È possibile usare file U-SQL in Archiviazione BLOB di Azure tramite l'**attività di download di BLOB di Azure** nel Feature Pack di Azure. Questo approccio consente di usare gli script nel cloud.
 
-I passaggi sono simili a quelli della sezione [Scenario 2: Usare file U-SQL in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+I passaggi sono simili a [Scenario 2: Usare file U-SQL in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Il flusso di controllo è simile al seguente.
 
@@ -164,11 +164,11 @@ In alcuni casi può essere necessario impostare il valore della variabile U-SQL 
 - Impostare le variabili del percorso file di input e output in modo dinamico in base alla data e all'ora correnti.
 - Impostare il parametro per le stored procedure.
 
-[Altre informazioni su come impostare i parametri per lo script U-SQL](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[Altre informazioni su come impostare i parametri per lo script U-SQL](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire pacchetti SSIS in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Feature Pack di Azure per Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Pianificare processi U-SQL tramite Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Pianificare processi U-SQL tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

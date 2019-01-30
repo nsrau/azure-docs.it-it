@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260465"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449555"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Domande frequenti: Replica da Azure ad Azure
 
@@ -101,8 +101,8 @@ Lo screenshot seguente illustra l'esempio. Nello screenshot:
 ### <a name="how-far-back-can-i-recover"></a>Fino a quando può risalire il recupero?
 Il punto di recupero meno recente che è possibile usare è di 72 ore.
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>Cosa succede se sono configurati criteri di replica di 24 ore e un problema impedisce a Site Recovery di generare punti di recupero per più di 24 ore? I precedenti punti di recupero verranno eliminati?
-No, in questo caso Site Recovery mantiene tutti i punti di recupero precedenti. 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Cosa succede se sono configurati criteri di replica di 24 ore e un problema impedisce a Site Recovery di generare punti di recupero per più di 24 ore? I precedenti punti di recupero verranno persi?
+No, Site Recovery manterrà tutti i punti di recupero precedenti. A seconda dell'intervallo di conservazione dei punti di recupero, 24 ore in questo caso, Site Recovery sostituisce il punto meno recente solo se vengono generati nuovi punti. In questo caso, poiché non verranno generati nuovi punti di recupero a causa di un problema, dopo la fine l'intervallo di conservazione tutti i punti precedenti rimarranno invariati.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Dopo aver abilitato la replica in una macchina virtuale, come si modifica il criterio di replica? 
 Passare a **Insieme di credenziali di Site Recovery** > **Infrastruttura di Site Recovery** > **Criteri di replica**. Selezionare i criteri da modificare e salvare le modifiche. Qualsiasi modifica verrà applicata anche a tutte le repliche esistenti. 
@@ -198,7 +198,7 @@ Dipende dalla situazione. Se ad esempio la macchina virtuale dell'area di origin
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo richiede l'esecuzione di un failback?
 Dopo la riprotezione, la quantità di tempo per il failback è in genere simile al tempo per il failover dall'area primaria a un'area secondaria. 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali. Al servizio Site Recovery vengono inviati solo i metadati necessari per gestire la replica e il failover.  
 Site Recovery è certificato ISO 27001:2013, 27018, HIPAA e DPA e le valutazioni SOC2 e FedRAMP JAB sono in fase di completamento.

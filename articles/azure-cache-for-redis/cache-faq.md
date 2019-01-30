@@ -3,7 +3,7 @@ title: Domande frequenti su Cache Redis di Azure | Microsoft Docs
 description: Risposte alle domande più comuni, modelli e procedure consigliate per Cache Redis di Azure.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199919"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402395"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Domande frequenti su Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per Cache Redis di Azure.
@@ -139,7 +139,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 | C0 |250 MB |Condiviso |100 / 12,5 |15.000 |7.500 |
 | C1 |1 GB |1 |500 / 62,5 |38.000 |20.720 |
 | C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
-| C3 |6 GB |4 |1000 / 125 |100.000 |90.000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90.000 |
 | C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
 | C5 |26 GB |4 |1,000 / 125 |102.000 |93.000 |
 | C6 |53 GB |8 |2,000 / 250 |126.000 |120.000 |
@@ -184,7 +184,7 @@ Per informazioni sull'uso di Cache Redis di Azure con PowerShell nel cloud di Az
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Qual è la funzione delle opzioni di configurazione StackExchange.Redis?
 StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| Opzioni configurazione | DESCRIZIONE | Raccomandazione |
+| Opzioni configurazione | Descrizione | Recommendation |
 | --- | --- | --- |
 | AbortOnConnectFail |Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete. |Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente. |
 | ConnectRetry |Numero di nuovi tentativi di connessione durante la connessione iniziale. |Per indicazioni, vedere le note seguenti. |
@@ -210,7 +210,7 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
       * Si otterrà probabilmente una latenza semplificata per ogni `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Quali client di Cache Redis di Azure è possibile usare?
-Uno dei principali vantaggi di Redis è la presenza di numerosi client che supportano linguaggi di sviluppo diversi. Per un elenco aggiornato dei client, vedere l'articolo relativo ai [client Redis](https://redis.io/clients). Per esercitazioni su diversi linguaggi e client, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e fare clic sul linguaggio desiderato dallo strumento di selezione del linguaggio all'inizio dell'articolo.
+Uno dei principali vantaggi di Redis è la presenza di numerosi client che supportano linguaggi di sviluppo diversi. Per un elenco aggiornato dei client, vedere l'articolo relativo ai [client Redis](https://redis.io/clients). Per esercitazioni relative a diversi linguaggi e client, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e articoli di pari livello nel sommario.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Facoltativamente, è possibile configurare un file [redis.conf](https://redis.io
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Perché Cache Redis di Azure non offre un riferimento alla libreria di classi MSDN, analogamente ad altri servizi di Azure?
 Cache Redis di Microsoft Azure si basa sulla nota cache Redis open source, a cui è possibile accedere da un'ampia gamma di [client Redis](https://redis.io/clients) disponibili per numerosi linguaggi di programmazione. Ogni client include un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](https://redis.io/commands).
 
-Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre documentazione di riferimento specifica. Oltre alla documentazione di riferimento, sono disponibili alcune esercitazioni che illustrano come iniziare a usare Cache Redis di Azure Redis con linguaggi e client di cache diversi. Per accedere a queste esercitazioni, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e fare clic sul linguaggio desiderato dallo strumento di selezione del linguaggio all'inizio dell'articolo.
+Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre documentazione di riferimento specifica. Oltre alla documentazione di riferimento, sono disponibili alcune esercitazioni che illustrano come iniziare a usare Cache Redis di Azure Redis con linguaggi e client di cache diversi. Per accedere a queste esercitazioni, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e articoli di pari livello nel sommario.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>È possibile usare Cache Redis di Azure come una cache di sessione PHP?
 Sì, per usare Cache Redis di Azure come una cache di sessione PHP, specificare la stringa di connessione all'istanza di Cache Redis di Azure in `session.save_path`.
@@ -381,7 +381,7 @@ Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è con
 
 Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
 
-### <a name="recommendation"></a>Raccomandazione
+### <a name="recommendation"></a>Recommendation
 È consigliabile impostare il numero minimo dei thread IOCP e WORKER su un valore maggiore di quello predefinito. Non è possibile fornire indicazioni universali su questo valore, perché il valore corretto per un'applicazione potrebbe essere troppo alto o troppo basso per un'altra. Questa impostazione può anche influire sulle prestazioni di altre parti di applicazioni complesse. È quindi necessario che venga regolata in base alle esigenze specifiche del cliente. Un buon punto di partenza è 200 o 300, da verificare e modificare a seconda delle necessità.
 
 Come configurare questa impostazione:

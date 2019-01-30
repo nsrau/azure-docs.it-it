@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090432"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410456"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Usare le identità gestite per autenticare Analisi di flusso in Azure Data Lake Storage Gen1
 
@@ -21,9 +21,9 @@ Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l
 
 Per registrarsi per questa anteprima e scoprire di più sulle nuove funzionalità, vedere il post di blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Otto nuove funzionalità in Analisi di flusso di Azure).
 
-Questo articolo illustra due metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1: tramite il portale di Azure e tramite la distribuzione dei modelli di Azure Resource Manager.
+Questo articolo illustra due metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1 tramite il portale di Azure, la distribuzione dei modelli di Azure Resource Manager e gli strumenti di Analisi di flusso di Azure per Visual Studio.
 
-## <a name="enable-managed-identity-with-azure-portal"></a>Abilitare l'identità gestita con il portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 
 1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Nella barra dei menu sul lato sinistro della schermata selezionare **Identità gestita (anteprima)** in **Configura**.
 
@@ -64,6 +64,28 @@ Questo articolo illustra due metodi per abilitare l'identità gestita per un pro
    ![Elenco di accesso di Analisi di flusso nel portale](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Per altre informazioni sulle autorizzazioni del file system di Data Lake Storage Gen1, vedere [Controllo di accesso in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>Strumenti di Analisi di flusso per Visual Studio
+
+1. In JobConfig.json impostare **Usa identità assegnata dal sistema** su **True**.
+
+   ![Configurazione del processo di Analisi di flusso per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. Nella finestra delle proprietà di output del sink di output di ADLS Gen1, fare clic sull'elenco a discesa Modalità di autenticazione e selezionare **Identità gestita (anteprima)**.
+
+   ![Output di ADLS per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Compilare le proprietà rimanenti e fare clic su **Salva**.
+
+4. Nell'editor di query fare clic su **Invia ad Azure**.
+
+   Quando si invia il processo, gli strumenti eseguono due operazioni:
+
+   * Creano automaticamente un'entità servizio per l'identità del processo di Analisi di flusso in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
+
+   * Impostano automaticamente le autorizzazioni di **scrittura** ed **esecuzione** per il percorso di prefisso di ADLS Gen1 usato nel processo e lo assegnano a questa cartella e a tutti gli elementi figlio.
+
+5. È possibile generare modelli di Resource Manager con la proprietà seguente usando il [pacchetto NuGet Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 o versioni successive in un computer di compilazione (all'esterno di Visual Studio). Per ottenere l'entità servizio e concedere l'accesso all'entità servizio tramite PowerShell, seguire i passaggi della distribuzione del modello di Resource Manager nella sezione successiva.
 
 ## <a name="resource-manager-template-deployment"></a>Distribuzione del modello di Resource Manager
 
@@ -153,3 +175,5 @@ Questo articolo illustra due metodi per abilitare l'identità gestita per un pro
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso)
+* [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-live-data-local-testing.md) 

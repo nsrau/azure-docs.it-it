@@ -5,7 +5,7 @@ services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415390"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448807"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale 
 
 I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale di Azure Active Directory (Azure AD) è possibile fare in modo che l'accesso alle app cloud sia limitato solo alle app client approvate in grado di proteggere i dati aziendali.  
 
@@ -191,7 +191,7 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 2. **Utenti e gruppi**: per i criteri di accesso condizionale deve essere selezionato almeno un utente o un gruppo.
 
 
-3. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
     ![Accesso condizionale](./media/app-based-conditional-access/02.png)
 
@@ -275,7 +275,7 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 2. **Utenti e gruppi**: per i criteri di accesso condizionale deve essere selezionato almeno un utente o un gruppo.
 
-3. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
      ![Accesso condizionale](./media/app-based-conditional-access/02.png)
 
@@ -371,7 +371,7 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 2. **Utenti e gruppi**: per i criteri di accesso condizionale deve essere selezionato almeno un utente o un gruppo.
 
-3. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
      ![Accesso condizionale](./media/app-based-conditional-access/02.png)
 

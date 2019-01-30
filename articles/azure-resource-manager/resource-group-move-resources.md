@@ -10,18 +10,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158857"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463032"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
-Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per eseguire un'esercitazione, vedere [Esercitazione: Spostare le risorse di Azure in un altro gruppo di risorse o sottoscrizione](./resource-manager-tutorial-move-resources.md).
 
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
 
@@ -56,6 +56,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Automazione
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Esplora dati di Azure
 * Database di Azure per MySQL
 * Database di Azure per PostgreSQL
 * Azure DevOps: le organizzazioni di Azure DevOps con gli acquisti di estensione non Microsoft devono [annullare gli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima di spostare l'account tra le sottoscrizioni.
@@ -98,7 +99,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
-* Insieme di credenziali di Servizi di ripristino: è necessario essere registrati in un'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Insieme di credenziali di Servizi di ripristino: registrare la sottoscrizione per l'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -142,7 +143,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Genomica di Microsoft
 * NetApp
 * SAP HANA in Azure
-* Sicurezza
+* Security
 * Site Recovery
 * Gestione dispositivi StorSimple
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
@@ -166,6 +167,7 @@ Dal 24 settembre 2018 è possibile spostare i dischi gestiti. È supportato lo s
 Non sono ancora supportati gli scenari seguenti:
 
 * Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
+* I dischi gestiti in zone di disponibilità non possono essere spostati in una sottoscrizione diversa.
 * Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
@@ -305,7 +307,7 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ### <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
 
-Per spostare un insieme di credenziali di Servizi di ripristino, è necessario essere registrati in un'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Per spostare un insieme di credenziali di Servizi di ripristino, registrare la sottoscrizione per l'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS.
 

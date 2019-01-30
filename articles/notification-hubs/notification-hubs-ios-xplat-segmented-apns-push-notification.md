@@ -3,8 +3,8 @@ title: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di noti
 description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a dispositivi iOS specifici.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 18caf2b1b96052d93737c8a9815e2e6643a52a67
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: aaaeb4e101147c19af5bd1dc7071cca273255863
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918063"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449760"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo argomento è basato sull'app creata nell'[Esercitazione: eseguire il push di notifiche alle app iOS con Hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario aver già completato l'[Esercitazione: eseguire il push di notifiche alle app iOS con Hub di notifica di Azure][get-started].
+Questo argomento si basa sull'app creata in [Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
@@ -59,7 +59,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     ![Strumento di creazione di interfaccia Xcode][3]
 
 2. Nell'assistente dell'editor creare outlet per tutte le opzioni e denominarli "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
-3. Creare un'azione per il pulsante denominata **subscribe**. ViewController.h deve contenere il codice seguente:
+3. Creare un'azione per il pulsante denominato `subscribe`. Il file `ViewController.h` deve contenere il codice seguente:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -135,7 +135,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     Questa classe usa l'archiviazione locale per archiviare e recuperare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre un metodo per effettuare la registrazione per queste categorie tramite una registrazione [Modello](notification-hubs-templates-cross-platform-push-messages.md) .
 
-7. Nel file Appdelegate.h, aggiungere un'istruzione import per Notifications.h e aggiungere una proprietà per un'istanza della classe delle notifiche:
+7. Nel file `AppDelegate.h` aggiungere un'istruzione import per `Notifications.h` e una proprietà per un'istanza della classe `Notifications`:
 
     ```objc
     #import "Notifications.h"
@@ -143,18 +143,17 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. Nel metodo **didFinishLaunchingWithOptions** in AppDelegate.m aggiungere il codice per inizializzare l'istanza di notifiche all'inizio del metodo.  
-
-    `HUBNAME` e `HUBLISTENACCESS` (definiti in hubinfo.h) dovrebbero già avere i segnaposto `<hub name>` e `<connection string with listen access>` sostituiti con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
+8. Nel metodo `didFinishLaunchingWithOptions` in `AppDelegate.m` aggiungere il codice per inizializzare l'istanza di notifiche all'inizio del metodo.  
+    `HUBNAME` e `HUBLISTENACCESS` (definiti in `hubinfo.h`) dovrebbero già avere i segnaposto `<hub name>` e `<connection string with listen access>` sostituiti con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
     ```
 
     > [!NOTE]
-    > Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completa viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
+    > Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completa viene utilizzata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
-9. Nel metodo **didRegisterForRemoteNotificationsWithDeviceToken** in AppDelegate.m sostituire il codice nel metodo con il codice seguente per passare il token del dispositivo alla classe delle notifiche. La classe delle notifiche esegue la registrazione per le notifiche con le categorie. Se l'utente modifica le selezioni delle categorie, chiamare il metodo `subscribeWithCategories` in risposta al pulsante **sottoscrizione** per aggiornarle.
+9. Nel metodo `didRegisterForRemoteNotificationsWithDeviceToken` in `AppDelegate.m` sostituire il codice nel metodo con il codice seguente per passare il token del dispositivo alla classe `notifications`. La classe `notifications` esegue la registrazione per le notifiche con le categorie. Se l'utente modifica le selezioni delle categorie, chiamare il metodo `subscribeWithCategories` in risposta al pulsante **sottoscrizione** per aggiornarle.
 
     > [!NOTE]
     > Poiché il token di dispositivo assegnato dal servizio di notifica Push di Apple può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
@@ -173,9 +172,9 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     }];
     ```
 
-    A questo punto nel metodo **didRegisterForRemoteNotificationsWithDeviceToken** non dovrebbe essere presente altro codice.
+    A questo punto, non dovrebbe essere presente altro codice nel metodo `didRegisterForRemoteNotificationsWithDeviceToken`.
 
-10. I metodi seguenti devono essere già presenti in AppDelegate.m in seguito al completamento dell'esercitazione [Introduzione ad Hub di notifica][get-started]. In caso contrario, aggiungerli.
+10. I metodi seguenti devono essere già presenti in `AppDelegate.m`, in seguito al completamento dell'esercitazione [Introduzione ad Hub di notifica][get-started]. In caso contrario, aggiungerli.
 
     ```objc
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -193,9 +192,9 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
      }
     ```
 
-    This method handles notifications received when the app is running by displaying a simple **UIAlert**.
+    Questo metodo gestisce le notifiche ricevute quando l'app è in esecuzione tramite la visualizzazione di un semplice **UIAlert**.
 
-11. In ViewController.m aggiungere un'istruzione import per AppDelegate.h e copiare il codice seguente nel metodo **subscribe** generato da XCode. Questo codice aggiorna la registrazione della notifica per usare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
+11. In `ViewController.m` aggiungere un'istruzione `import` per `AppDelegate.h` e copiare il codice seguente nel metodo `subscribe` generato da XCode. Questo codice aggiorna la registrazione della notifica per usare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
 
     ```objc
     #import "Notifications.h"
@@ -220,9 +219,9 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     }];
     ```
 
-    Questo metodo crea un elenco **NSMutableArray** di categorie e usa la classe **Notifications** per archiviare l'elenco nell'archiviazione locale e registrare i tag corrispondenti nell'hub di notifica. Se le categorie vengono modificate, la registrazione viene ricreata con le nuove categorie.
+    Questo metodo crea un oggetto `NSMutableArray` per le categorie e usa la classe `Notifications` per archiviare l'elenco nella risorsa di archiviazione locale e registrare i tag corrispondenti nell'hub di notifica. Se le categorie vengono modificate, la registrazione viene ricreata con le nuove categorie.
 
-3. In ViewController.m, aggiungere il codice seguente nel metodo **viewDidLoad** per impostare l'interfaccia utente in base alle categorie salvate in precedenza.
+12. In `ViewController.m` aggiungere il codice seguente nel metodo `viewDidLoad` per impostare l'interfaccia utente in base alle categorie salvate in precedenza.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -239,11 +238,11 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-Ora l'app può archiviare un insieme di categorie nella risorsa di archiviazione locale del dispositivo utilizzata per la registrazione con l'hub di notifica ogni volta che l'app viene avviata. L'utente può modificare la selezione di categorie al runtime e scegliere il metodo **subscribe** per aggiornare la registrazione per il dispositivo. Successivamente, si aggiorna l'app per inviare le notifiche relative alle ultime notizie direttamente nell'app stessa.
+Ora l'app può archiviare un insieme di categorie nella risorsa di archiviazione locale del dispositivo utilizzata per la registrazione con l'hub di notifica ogni volta che l'app viene avviata. L'utente può modificare la selezione di categorie al runtime e scegliere il metodo `subscribe` per aggiornare la registrazione per il dispositivo. Successivamente, si aggiorna l'app per inviare le notifiche relative alle ultime notizie direttamente nell'app stessa.
 
 ## <a name="optional-send-tagged-notifications"></a>(facoltativo) Invio di notifiche con tag
 
-Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [portale di Azure] usando la scheda debug per l'hub di notifica. 
+Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [portale di Azure] usando la scheda debug per l'hub di notifica.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -312,7 +311,7 @@ In genere le notifiche vengono inviate da un servizio di back-end ma per questa 
     }
     ```
 
-2. In `ViewController.m` aggiornare l'azione **Send Notification** (Invia notifica) nel modo illustrato nel codice seguente. In tal modo si inviano notifiche a più piattaforme usando singolarmente ogni tag.
+2. In `ViewController.m` aggiornare l'azione `Send Notification`, come illustrato nel codice seguente. In tal modo si inviano notifiche a più piattaforme usando singolarmente ogni tag.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -349,23 +348,15 @@ In genere le notifiche vengono inviate da un servizio di back-end ma per questa 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state inviate notifiche di trasmissione ai dispositivi iOS specifici che hanno effettuato la registrazione alle categorie. Per informazioni sulle procedure per eseguire il push di notifiche localizzate passare all'esercitazione seguente: 
+In questa esercitazione sono state inviate notifiche di trasmissione ai dispositivi iOS specifici che hanno effettuato la registrazione alle categorie. Per informazioni sulle procedure per eseguire il push di notifiche localizzate passare all'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 >[Eseguire il push di notifiche localizzate](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-
-
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -375,4 +366,4 @@ In questa esercitazione sono state inviate notifiche di trasmissione ai disposit
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com

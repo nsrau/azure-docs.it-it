@@ -1,6 +1,6 @@
 ---
 title: Streaming live con codificatori locali che creano flussi a bitrate multipli - Azure| Microsoft Docs
-description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a bitrate multipli da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Streaming o DASH.'
+description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a bitrate multipli da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Streaming, DASH.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262234"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809031"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 
@@ -39,8 +39,8 @@ In Servizi multimediali di Azure un *canale* rappresenta una pipeline per l'elab
 
 A partire da Servizi multimediali versione 2.10, quando si crea un canale è possibile specificare in che modo si vuole che il canale riceva il flusso di input. È anche possibile specificare se si vuole che il canale esegue la codifica live del flusso. Sono disponibili due opzioni:
 
-* **Pass-through**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo articolo fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
-* **Codifica live**: scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
+* **Pass-through**: Specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo articolo fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
+* **Codifica live**: Scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
 
 > [!NOTE]
 > Questo articolo illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
@@ -88,8 +88,8 @@ La procedura seguente illustra le attività relative alla creazione di applicazi
 #### <a id="ingest_protocols"></a>Protocollo di streaming di inserimento
 Servizi multimediali supporta l'inserimento di feed live usando MP4 frammentato a bitrate multipli e RTMP a bitrate multipli come protocolli di streaming. Quando è selezionato il protocollo di streaming di inserimento RTMP, vengono creati due endpoint di inserimento (input) per il canale:
 
-* **URL primario**: specifica l'URL completo dell'endpoint primario di inserimento RTMP del canale.
-* **URL secondario** (facoltativo): specifica l'URL completo dell'endpoint secondario di inserimento RTMP del canale.
+* **URL primario**: Specifica l'URL completo dell'endpoint primario di inserimento RTMP del canale.
+* **URL secondario** (facoltativo): Specifica l'URL completo dell'endpoint secondario di inserimento RTMP del canale.
 
 Usare l'URL secondario se si vuole migliorare la durabilità e la tolleranza di errore del flusso di inserimento, nonché la tolleranza di errore e il failover del codificatore, soprattutto per gli scenari seguenti.
 
@@ -115,7 +115,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, non è possibile inserire flussi RTMP tramite SSL.
 
 #### <a id="keyframe_interval"></a>Intervallo tra fotogrammi chiave
-Quando si usa un codificatore live locale per generare un flusso a bitrate multipli, l'intervallo tra fotogrammi chiave specifica la durata Group of Pictures (GOP) usata dal codificatore esterno. Dopo la ricezione del flusso in ingresso da parte del canale, è possibile distribuire il flusso live alle applicazioni di riproduzione client in uno dei formati seguenti: Smooth Streaming, DASH (Dynamic Adaptive Streaming over HTTP) e HLS (HTTP Live Streaming). Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave ricevuti dal codificatore live.
+Quando si usa un codificatore live locale per generare un flusso a bitrate multipli, l'intervallo tra fotogrammi chiave specifica la durata Group of Pictures (GOP) usata dal codificatore esterno. Dopo la ricezione del flusso in ingresso da parte del canale, è possibile distribuire il flusso live alle applicazioni di riproduzione client in uno dei formati seguenti: Smooth Streaming, flusso adattivo dinamico su HTTP (DASH) e HTTP Live Streaming (HLS). Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave ricevuti dal codificatore live.
 
 La seguente tabella illustra la modalità di calcolo della durata dei segmenti:
 
@@ -176,11 +176,11 @@ Anche dopo l'arresto e l'eliminazione del programma, gli utenti possono trasmett
 ## <a id="states"></a>Stati del canale e fatturazione
 I valori possibili per lo stato corrente di un canale includono i seguenti:
 
-* **Arrestato**: stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
-* **Avvio**: è in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato **Arrestato**.
-* **In esecuzione**: il canale può elaborare flussi live.
-* **Arresto**: è in corso l'arresto del canale. In questo stato non è consentito alcun aggiornamento o streaming.
-* **Eliminazione**: è in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Arrestato**: Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+* **Avvio in corso**: È in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato **Arrestato**.
+* **In esecuzione**: Il canale può elaborare flussi live.
+* **Arresto in corso**: È in corso l'interruzione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione in corso**: È in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
 

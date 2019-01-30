@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242354"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404663"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 - [Salvarli in un account di archiviazione](../articles/azure-monitor/platform/archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
 - [Trasmettere i log a Hub eventi](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
-- Analizzarli con [Log Analytics di Operations Management Suite](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analizzarli con [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) include funzionalità di monitoraggio, impostazione di avvisi e correzione tramite avvisi per asset cloud e locali. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che installa l'agente OMS e registra la macchina virtuale in un'area di lavoro OMS esistente.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) è un servizio incluso in OMS che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) è un servizio che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics e registra la macchina virtuale in un'area di lavoro di Log Analytics esistente.
 
     Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log e metriche consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
 

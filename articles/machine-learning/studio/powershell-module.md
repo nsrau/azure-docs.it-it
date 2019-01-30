@@ -25,7 +25,7 @@ Ecco alcune delle attività che è possibile eseguire con questo modulo PowerShe
 * Eseguire un esperimento ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * Creare un servizio Web al di fuori di un esperimento predittivo ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * Creare un endpoint in un servizio Web pubblicato ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Richiamare un endpoint di servizio Web RRS e/o BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) e [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* Richiamare un endpoint di servizio Web RRS e/o BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) e [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 Ecco un rapido esempio dell'uso di PowerShell per eseguire un esperimento esistente:
 

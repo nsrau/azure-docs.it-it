@@ -7,61 +7,85 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818932"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
-In alcuni casi un processo di Analisi di flusso di Azure arresta l'elaborazione in modo imprevisto. È importante essere in grado di risolvere i problemi di questo tipo di eventi. Questo evento potrebbe essere causato da un risultato imprevisto della query, dalla connettività ai dispositivi o da un'interruzione imprevista del servizio. I log di diagnostica di Analisi di flusso possono essere utili per identificare la causa dei problemi quando si verificano e per ridurre i tempi di ripristino.
+In alcuni casi un processo di Analisi di flusso di Azure arresta l'elaborazione in modo imprevisto. È importante essere in grado di risolvere i problemi di questo tipo di eventi. Gli errori potrebbero essere causati da un risultato imprevisto della query, dalla connettività ai dispositivi o da un'interruzione imprevista del servizio. I log di diagnostica di Analisi di flusso possono essere utili per identificare la causa dei problemi quando si verificano e per ridurre i tempi di ripristino.
 
 ## <a name="log-types"></a>Tipi di log
 
-Analisi di flusso offre due tipi di log: 
-* [Log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (sempre attivi). I log attività forniscono informazioni dettagliate sulle operazioni eseguite sui processi.
-* [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurabili). I log di diagnostica forniscono informazioni più complete su tutto ciò che accade con un processo. I log di diagnostica vengono avviati quando viene creato il processo e terminano quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
+Analisi di flusso offre due tipi di log:
+
+* I [Log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (Always on) forniscono informazioni dettagliate sulle operazioni eseguite sui processi.
+
+* I [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurabili) forniscono informazioni più complete su tutto ciò che accade con un processo. I log di diagnostica vengono avviati quando viene creato il processo e terminati quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
 
 > [!NOTE]
 > Per analizzare i dati non conformi è possibile usare servizi come Archiviazione di Azure, Hub eventi di Azure e Azure Log Analytics. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi servizi.
->
 
-## <a name="turn-on-diagnostics-logs"></a>Attivare i log di diagnostica
+## <a name="debugging-using-activity-logs"></a>Debug con l'uso dei log attività
 
-I log di diagnostica sono **disattivati** per impostazione predefinita. Per attivare i log di diagnostica, completare questi passaggi:
+I log attività sono attivati per impostazione predefinita e forniscono informazioni dettagliate sulle operazioni eseguite dal processo di Analisi di flusso. Le informazioni presenti nei log attività possono essere utili per individuare la causa radice dei problemi che si manifestano nel processo. Per usare i log attività in Analisi di flusso, eseguire i passaggi seguenti:
 
-1.  Accedere al portale di Azure e passare al pannello Processo di streaming. In **Monitoraggio**selezionare **Log di diagnostica**.
+1. Accedere al portale di Azure e selezionare **Log attività** in **Panoramica**.
+
+   ![Log attività di Analisi di flusso](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+
+2. È possibile visualizzare un elenco delle operazioni che sono state eseguite. Qualsiasi operazione che ha causato l'esito negativo del processo viene contrassegnata da una bolla rossa.
+
+3. Fare clic su un'operazione per visualizzare il riepilogo. Generalmente, le informazioni qui sono limitate. Per informazioni dettagliate sull'operazione, fare clic su **JSON**.
+
+   ![Riepilogo dell'operazione del Log attività di Analisi di flusso](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+
+4. Scorrere verso il basso fino alla sezione **pannello Proprietà** di JSON, che fornisce i dettagli dell'errore che ha causato il fallimento dell'operazione. In questo esempio, l'errore era dovuto al superamento dei valori della latitudine associata di Common Language Runtime.
+
+   ![Dettagli dell'errore JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+
+5. Si possono eseguire azioni correttive in base al messaggio di errore in JSON. In questo esempio, controlla che il valore di latitudine sia compreso tra -90 gradi e 90 gradi devono essere aggiunti alla query.
+
+6. Se il messaggio di errore nei Log attività non è utile per identificare la causa radice, abilitare i log di diagnostica e usare Log Analytics.
+
+## <a name="send-diagnostics-to-log-analytics"></a>Invio della diagnostica a Log Analytics
+
+È altamente consigliabile attivare i log di diagnostica e inviarli a Log Analytics. I log di diagnostica sono **disattivati** per impostazione predefinita. Per attivare i log di diagnostica, completare questi passaggi:
+
+1.  Accedere al portale di Azure e andare al processo di Analisi di flusso. In **Monitoraggio**selezionare **Log di diagnostica**. Selezionare quindi **Attiva diagnostica**.
 
     ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Selezionare **Attiva diagnostica**.
+2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro di Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**.
 
-    ![Attivare i log di diagnostica di Analisi di flusso di Azure](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
+    ![Impostare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3.  Nella pagina **Impostazioni di diagnostica** per **Stato**selezionare **Attivato**.
+3. Quando viene avviato il processo di Analisi di flusso, i log di diagnostica vengono indirizzati all'area di lavoro di Log Analytics. Passare all'area di lavoro di Log Analytics e scegliere **Log** all'interno della sezione **Generale**.
 
-    ![Cambiare lo stato per i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
+   ![Log Analytics registra nella sezione generale](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
-4.  Impostare la destinazione di archiviazione (account di archiviazione, hub di eventi, Log Analytics) desiderata. Quindi selezionare le categorie di log da raccogliere (Esecuzione, Creazione). 
+4. È possibile [digitare la propria query](../azure-monitor/log-query/get-started-portal.md) per cercare termini, identificare le tendenze, analizzare i modelli e ottenere informazioni dettagliate basate sui dati. Ad esempio, è possibile scrivere una query per filtrare solo i log di diagnostica con il messaggio "Processo di streaming non riuscito". I log di diagnostica da Analisi di flusso di Azure vengono archiviati nella tabella **AzureDiagnostics**.
 
-5.  Salvare poi la nuova configurazione di diagnostica.
+   ![Query di diagnostica e risultati](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-La configurazione di diagnostica impiega circa 10 minuti per diventare effettiva. I log vengono poi visualizzati nella destinazione di archiviazione configurata (è possibile vederli nella pagina **Log di diagnostica**):
+5. Quando si dispone di una query che ricerca i log corretti, salvarla selezionando **Save** e fornire un nome e una categoria. È quindi possibile creare un avviso selezionando **Nuova regola di avviso**. Successivamente, definire la condizione di avviso. Selezionare **Condizione** e immettere il valore di soglia e la frequenza con cui viene valutata la ricerca personalizzata dei log.  
 
-![Navigazione tra i pannelli per trovare i log di diagnostica - destinazioni di archiviazione](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
+   ![Query di ricerca dei log di diagnostica](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-Per altre informazioni sulla configurazione di diagnostica, vedere [Raccogliere e usare i dati di diagnostica dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+6. Scegliere il gruppo di azioni e specificare i dettagli dell'avviso, ad esempio nome e descrizione, prima di poter creare la regola di avviso. È possibile indirizzare i log di diagnostica dei diversi processi per la stessa area di lavoro di Log Analytics. In questo modo è possibile impostare gli avvisi una sola volta per tutti i processi.  
 
 ## <a name="diagnostics-log-categories"></a>Categorie del log di diagnostica
 
 Attualmente vengono acquisite due categorie di log di diagnostica:
 
-* **Creazione**. Acquisisce eventi di log relativi alle operazioni di creazione dei processi: creazione di processi, aggiunta ed eliminazione di input e output, aggiunta e aggiornamento della query, avvio e arresto del processo.
-* **Esecuzione**. Acquisisce gli eventi che si verificano durante l'esecuzione del processo:
+* **Creazione**: Acquisisce eventi di log relativi alle operazioni di creazione dei processi, tra cui creazione di processi, aggiunta ed eliminazione di input e output, aggiunta e aggiornamento della query, e avvio o arresto del processo.
+
+* **Execution** (Esecuzione): Acquisisce gli eventi che si verificano durante l'esecuzione del processo.
     * Errori di connettività
     * Errori di elaborazione dei dati, fra cui:
         * Eventi non conformi alla definizione della query (valori e tipi di campo non corrispondenti, campi mancanti e così via)
@@ -75,12 +99,12 @@ Tutti i log vengono archiviati in formato JSON. Ogni voce include i campi string
 NOME | DESCRIZIONE
 ------- | -------
 time | Timestamp del log (in UTC).
-ResourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+resourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Categoria del log, ovvero **Execution** o **Authoring**.
 operationName | Il nome dell'operazione registrata. Per esempio, **Inviare eventi: SQL Output scrive un errore in mysqloutput**.
 status | Stato dell'operazione. Ad esempio **Failed** o **Succeeded**.
 level | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
-properties | Dettagli specifici delle voci di log; serializzazione come stringa JSON. Per altre informazioni, vedere le sezioni seguenti.
+properties | Dettagli specifici delle voci di log; serializzazione come stringa JSON. Per altre informazioni, vedere le sezioni seguenti in questo articolo.
 
 ### <a name="execution-log-properties-schema"></a>Schema delle proprietà dei log di esecuzione
 
@@ -92,7 +116,7 @@ Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è
 
 NOME | DESCRIZIONE
 ------- | -------
-Sorgente | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
+Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
 type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
@@ -109,7 +133,7 @@ Gli eventi generici sono tutti gli altri.
 
 NOME | DESCRIZIONE
 -------- | --------
-Tipi di errore | (facoltativo) Informazioni sugli errori. Si tratta in genere di informazioni sulle eccezioni, se disponibili.
+Tipi di errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
 Message| Messaggio del log.
 type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.

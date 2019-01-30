@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: guida alla risoluzione dei problemi | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Guida alla risoluzione dei problemi | Microsoft Docs'
 description: Guida alla risoluzione dei problemi di Servizi di dominio di Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844654"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
@@ -128,7 +128,7 @@ Per risolvere questo errore, abilitare l'applicazione e quindi tentare di abilit
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Impossibile accedere al dominio gestito di Servizi di dominio di Azure AD
 Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dominio gestito appena creato, seguire questa procedura di risoluzione dei problemi:
 
-* **Accedere usando il formato UPN:** provare ad accedere usando il formato UPN (ad esempio "joeuser@contoso.com") anziché il formato SAMAccountName ("CONTOSO\joeuser"). L'attributo SAMAccountName può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è identico a un altro utente nel dominio gestito. Il formato UPN è garantito come univoco all'interno di un tenant di Azure AD.
+* **Accedere usando il formato UPN:** Provare a effettuare l'accesso usando il formato UPN (ad esempio joeuser@contoso.com) anziché il formato SAMAccountName ("CONTOSO\joeuser"). L'attributo SAMAccountName può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è identico a un altro utente nel dominio gestito. Il formato UPN è garantito come univoco all'interno di un tenant di Azure AD.
 
 > [!NOTE]
 > Si consiglia di usare il formato UPN per accedere al dominio gestito di Servizi di dominio Azure AD.
@@ -136,8 +136,8 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 >
 
 * Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
-* **Account esterni** : assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio "joe@live.com") o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
-* **Account sincronizzati:** : se gli account utente interessati sono sincronizzati da una directory locale, verificare quanto segue:
+* **Account esterni:** Assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio "joe@live.com") o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
+* **Account sincronizzati:** se gli account utente interessati sono sincronizzati da una directory locale, verificare quanto segue:
 
   * È stata eseguita la distribuzione o l'aggiornamento all' [ultima versione consigliata di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * Azure AD Connect è stato configurato per [eseguire una sincronizzazione completa](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l'utente abbia modificato la password dopo l'abilitazione di Servizi di dominio di Azure AD. Questa operazione comporta la generazione degli hash delle credenziali necessari per Servizi di dominio di Azure AD.
+* **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l'utente abbia modificato la password dopo l'abilitazione di Azure AD Domain Services. Questa operazione comporta la generazione degli hash delle credenziali necessari per Servizi di dominio di Azure AD.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Sono presenti uno o più avvisi nel dominio gestito
 

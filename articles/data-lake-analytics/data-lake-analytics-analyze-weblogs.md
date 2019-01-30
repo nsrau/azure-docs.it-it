@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246464"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402286"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
 Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in particolare come scoprire quali referrer hanno riscontrato errori durante la visita al il sito Web.
@@ -165,7 +165,7 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
 
 1. Da **Esplora server** espandere **Azure**, quindi **Data Lake Analytics**, l'account Data Lake Analytics e infine **Account di archiviazione**. Fare clic con il pulsante destro del mouse sull'account Data Lake Analytics predefinito e quindi scegliere **Esplora**.
 2. Fare doppio clic su **Esempi** per aprire la cartella e quindi su **Output**.
-3. Fare doppio clic su **UnsuccessfulResponsees.log**.
+3. Fare doppio clic su **UnsuccessfulResponses.log**.
 4. È anche possibile fare doppio clic sul file di output nella visualizzazione grafico del processo per passare direttamente al file di output.
 
 ## <a name="see-also"></a>Vedere anche 

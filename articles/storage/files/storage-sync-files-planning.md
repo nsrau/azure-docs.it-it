@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630326"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809191"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -113,7 +113,7 @@ Per visualizzare i risultati in CSV:
 ### <a name="system-requirements"></a>Requisiti di sistema
 - Un server che esegue Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
 
-    | Version | SKU supportati | Opzioni di distribuzione supportate |
+    | Versione | SKU supportati | Opzioni di distribuzione supportate |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
     | Windows Server 2016 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
@@ -205,6 +205,9 @@ Se si usa una soluzione di backup locale, è necessario eseguire il backup in un
 
 > [!Note]  
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.
+
+> [!Note]  
+> Gli snapshot VSS (inclusa la scheda Versioni precedenti) non sono attualmente supportati nei volumi che hanno il cloud a livelli abilitato. Se il cloud a livelli è abilitato, usare gli snapshot di condivisione file di Azure per ripristinare un file dal backup.
 
 ### <a name="encryption-solutions"></a>Soluzioni di crittografia
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:

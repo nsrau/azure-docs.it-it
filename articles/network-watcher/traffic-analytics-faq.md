@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582497"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383008"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -35,7 +35,6 @@ Analisi del traffico prevede i prerequisiti seguenti:
 
 Per abilitare Analisi del traffico, l'account deve soddisfare una delle seguenti condizioni:
 
-- L'account deve essere assegnato a uno dei seguenti ruoli a livello di abbonamento: amministratore account, amministratore del servizio o coamministratore.
 - L'account deve avere uno dei seguenti ruoli di controllo degli accessi in base al ruolo (RBAC) nell'ambito dell'abbonamento: proprietario, collaboratore, lettore o collaboratore di rete.
 - Se l'account non è assegnato a uno dei ruoli appena elencati, deve essere assegnato a un ruolo personalizzato al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione.
             
@@ -61,7 +60,7 @@ Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In quali aree è disponibile Analisi del traffico?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In quali aree di Azure è disponibile Analisi del traffico?
 
 È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
 - Canada centrale
@@ -133,7 +132,7 @@ Per il corretto funzionamento della registrazione dei flussi, è necessario regi
 
 La prima visualizzazione del dashboard può richiedere fino a 30 minuti. La soluzione deve aggregare dati sufficienti per poter ottenere informazioni significative, prima di generare i report. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Cosa succede se viene visualizzato il messaggio seguente: "Non sono stati trovati dati in questa area di lavoro per l'intervallo di tempo selezionato. Provare a modificare l'intervallo di tempo o a selezionare un'altra area di lavoro."?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "Non sono stati trovati dati per l'intervallo di tempo specificato in questa area di lavoro. Provare a modificare l'intervallo di tempo o a selezionare un'altra area di lavoro."?
 
 Provare le opzioni seguenti:
 - Modificare l'intervallo di tempo nella barra superiore.
@@ -142,7 +141,7 @@ Provare le opzioni seguenti:
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa succede se viene visualizzato il seguente messaggio: "L’analisi dei registri di flusso NSG viene eseguito per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "L'analisi dei registri di flusso NSG viene eseguita per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
 
 È possibile che venga visualizzato questo messaggio perché:
 - Analisi del traffico è stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.
@@ -150,7 +149,7 @@ Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Cosa succede se viene visualizzato il seguente È stato visualizzato il messaggio seguente: "Sono disponibili solo i dati delle risorse (topologia) e nessuna informazione sui flussi. Nel frattempo, fare clic per visualizzare solo i dati delle risorse e fare riferimento alle FAQ per ulteriori informazioni"?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "Sono disponibili solo i dati delle risorse (topologia) e nessuna informazione sui flussi. Nel frattempo, fare clic per visualizzare solo i dati delle risorse e fare riferimento alle FAQ per ulteriori informazioni"?
 
 Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono presenti le statistiche relative ai flussi. I dati potrebbero non essere presenti a causa della mancanza di flussi di comunicazione tra le risorse. Attendere 60 minuti e ricontrollare lo stato. Se il problema non viene risolto e si è certi dell'esistenza dei flussi di comunicazione tra le risorse, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -225,15 +224,15 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>Come viene determinato il prezzo di Analisi del traffico?
 
-L'analisi del traffico viene misurata. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
+Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
-Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centrali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro di Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro di Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della mappa geografica fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Distribuzione, Traffico da paesi e Dannoso). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Banner**: il banner nella parte superiore della mappa geografica fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Distribuzione, Traffico dai paesi e Di tipo dannoso). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
 - **Mappa**: sotto al banner, la sezione Mappa mostra la distribuzione del traffico tra i data center di Azure e i paesi.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
@@ -263,7 +262,7 @@ La pagina della mappa geografica contiene due sezioni principali:
 
 La pagina della topologia di rete virtuale contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della topologia di rete virtuale fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Reti virtuali connesse, Reti virtuali disconnesse e IP pubblici). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla topologia. Ad esempio, se si seleziona il pulsante Attivo, la topologia evidenzia le reti virtuali attive nella distribuzione remota.
+- **Banner**: il banner nella parte superiore della topologia di reti virtuale fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, reti virtuali connesse, reti virtuali disconnesse e IP pubblici). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla topologia. Ad esempio, se si seleziona il pulsante Attivo, la topologia evidenzia le reti virtuali attive nella distribuzione remota.
 - **Topologia**: sotto al banner, la sezione topologia mostra la distribuzione del traffico tra le reti virtuali.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner

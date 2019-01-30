@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: Informazioni di riferimento per PowerShell ADConnectivityTools | Microsoft Docs'
 description: Questo documento fornisce informazioni di riferimento per il modulo di PowerShell ADConnectivityTools.psm1.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425225"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462098"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento per PowerShell ADConnectivityTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento per PowerShell ADConnectivityTools
 La documentazione seguente fornisce informazioni di riferimento per il modulo di PowerShell ADConnectivityTools.psm1 incluso in Azure AD Connect.
 
 ## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
@@ -695,7 +695,7 @@ Accept wildcard characters: False
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 Per le installazioni personalizzate: flag che è $True se l'utente sceglie "Crea un nuovo account AD" nella finestra Account della foresta AD della procedura guidata di AAD Connect.
 $False se l'utente sceglie "Usare l'account AD esistente".
-Per installazioni rapide: il valore di questa variabile deve essere $True per le installazioni rapide.
+Per le installazioni rapide: il valore di questa variabile deve essere $True.
 
 ```yaml
 Type: Boolean

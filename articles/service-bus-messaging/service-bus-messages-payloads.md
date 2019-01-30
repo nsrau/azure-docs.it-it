@@ -3,22 +3,22 @@ title: Messaggi, payload e serializzazione del bus di servizio di Azure | Micros
 description: Panoramica dei payload dei messaggi del bus di servizio
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857602"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849363"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messaggi, payload e serializzazione
 
@@ -64,10 +64,10 @@ Il modello di messaggio astratto consente l'inserimento di un messaggio in una c
 
 Un sottoinsieme delle proprietà del broker illustrate in precedenza, in particolare [To](/dotnet/api/microsoft.azure.servicebus.message.to), [ReplyTo](/dotnet/api/microsoft.azure.servicebus.message.replyto), [ReplyToSessionId](/dotnet/api/microsoft.azure.servicebus.message.replytosessionid), [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid), [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid) e [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), viene usato per consentire alle applicazioni di indirizzare i messaggi verso destinazioni specifiche. Per illustrare questo scenario, esaminare alcuni modelli:
 
-- **Semplice richiesta/risposta**: un'entità di pubblicazione invia un messaggio a una coda e si aspetta una risposta dal consumer di messaggi. Per ricevere la risposta, l'entità di pubblicazione è proprietaria di una coda in cui si aspetta che vengano recapitate le risposte. L'indirizzo di tale coda viene espresso nella proprietà **ReplyTo** del messaggio in uscita. Quando il consumer risponde, copia il valore **MessageId** del messaggio gestito nella proprietà **CorrelationId** del messaggio di risposta e recapita il messaggio alla destinazione indicata dalla proprietà **ReplyTo**. Un messaggio può ottenere più risposte, in base al contesto dell'applicazione.
-- **Richiesta/Risposta multicast**: come variazione rispetto al modello precedente, un'entità di pubblicazione invia il messaggio in un argomento e più sottoscrittori risultano idonei all'utilizzo del messaggio. Ogni sottoscrittore può rispondere come illustrato in precedenza. Questo modello viene usato in scenari di individuazione o di verifica di presenze e l'intervistato si identifica in genere con una proprietà utente o all'interno del payload. Se **ReplyTo** fa riferimento a un argomento, tale set di risposte di individuazione può essere distribuito a un gruppo di destinatari.
+- **Richiesta/risposta semplice**: un server di pubblicazione invia un messaggio a una coda e si aspetta una risposta dal consumer di messaggi. Per ricevere la risposta, l'entità di pubblicazione è proprietaria di una coda in cui si aspetta che vengano recapitate le risposte. L'indirizzo di tale coda viene espresso nella proprietà **ReplyTo** del messaggio in uscita. Quando il consumer risponde, copia il valore **MessageId** del messaggio gestito nella proprietà **CorrelationId** del messaggio di risposta e recapita il messaggio alla destinazione indicata dalla proprietà **ReplyTo**. Un messaggio può ottenere più risposte, in base al contesto dell'applicazione.
+- **Richiesta/risposta multicast**: come variazione rispetto al modello precedente, un server di pubblicazione invia il messaggio in un argomento e più sottoscrittori risultano idonei all'utilizzo del messaggio. Ogni sottoscrittore può rispondere come illustrato in precedenza. Questo modello viene usato in scenari di individuazione o di verifica di presenze e l'intervistato si identifica in genere con una proprietà utente o all'interno del payload. Se **ReplyTo** fa riferimento a un argomento, tale set di risposte di individuazione può essere distribuito a un gruppo di destinatari.
 - **Multiplexing**: questa funzionalità della sessione consente il multiplexing dei flussi di messaggi correlati tramite una singola coda o sottoscrizione, in modo che ogni sessione o gruppo di messaggi correlati, identificati da valori **SessionId** corrispondenti, venga indirizzato a un ricevitore specifico mentre il ricevitore applica un blocco alla sessione. Altre informazioni sui dettagli delle sessioni sono disponibili [qui](message-sessions.md).
-- **Richiesta/Risposta con multiplexing**: questa funzionalità della sessione abilita le risposte con multiplexing, consentendo a diverse entità di pubblicazione di condividere una coda di risposte. Configurando il valore **ReplyToSessionId**, l'entità di pubblicazione può richiedere ai consumer di copiare tale valore nella proprietà **SessionId** del messaggio di risposta. Non è necessario che la coda o l'argomento di pubblicazione sia in grado di riconoscere la sessione. Quando il messaggio viene inviato, l'entità di pubblicazione può quindi attendere in modo specifico che nella coda si materializzi una sessione con il valore **SessionId** specificato, accettando in modo condizionale un ricevitore di sessione. 
+- **Richiesta/risposta con multiplexing**: questa funzionalità della sessione abilita le risposte con multiplexing, consentendo a diversi server di pubblicazione di condividere una coda di risposte. Configurando il valore **ReplyToSessionId**, l'entità di pubblicazione può richiedere ai consumer di copiare tale valore nella proprietà **SessionId** del messaggio di risposta. Non è necessario che la coda o l'argomento di pubblicazione sia in grado di riconoscere la sessione. Quando il messaggio viene inviato, l'entità di pubblicazione può quindi attendere in modo specifico che nella coda si materializzi una sessione con il valore **SessionId** specificato, accettando in modo condizionale un ricevitore di sessione. 
 
 È possibile ottenere il routing all'interno di uno spazio dei nomi del bus di servizio tramite il concatenamento di inoltro automatico e le regole di sottoscrizione degli argomenti. È possibile ottenere il routing tra spazi dei nomi tramite le [app per la logica di Azure](https://azure.microsoft.com/services/logic-apps/). Come indicato nell'esempio precedente, la proprietà **To** è riservata per l'uso futuro e potrebbe essere interpretata dal broker con una funzionalità abilitata in modo specifico. Le applicazioni che vogliono implementare il routing devono eseguire questa operazione in base alle proprietà utente, senza affidarsi alla proprietà **To**. Questo approccio, tuttavia, non provocherà problemi di compatibilità.
 

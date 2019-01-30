@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055048"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463287"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -42,8 +42,8 @@ Per eseguire il contenitore LUIS, è necessario quanto segue:
 
 L'**host** è il computer che esegue il contenitore Docker. Può essere un computer nell'ambiente locale o un servizio di hosting Docker in Azure, tra cui:
 
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Istanze di contenitore di Azure](../../container-instances/index.yml)
+* [Servizio Azure Kubernetes](../../aks/index.yml)
+* [Istanze di Azure Container](../../container-instances/index.yml)
 * Cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](../../azure-stack/index.yml). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md) (Distribuire Kubernetes in Azure Stack).
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
@@ -113,7 +113,8 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 |Staging|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
 |Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Importante:** Non rinominare, modificare o decomprimere i file del pacchetto LUIS.
+> [!IMPORTANT]
+> Non rinominare, modificare o decomprimere i file del pacchetto LUIS.
 
 ### <a name="packaging-prerequisites"></a>Prerequisiti per la creazione di pacchetti
 
@@ -377,9 +378,10 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]
-> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano i dati dei clienti (ad esempio, l'immagine o il testo analizzato) a Microsoft.
+> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano a Microsoft i dati dei clienti, ad esempio l'immagine o il testo analizzato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Rivedere [Configurare i contenitori](luis-container-configuration.md) per informazioni sulle impostazioni di configurazione.
 * Per risolvere i problemi correlati alla funzionalità LUIS, vedere le [domande frequenti](luis-resources-faq.md).
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

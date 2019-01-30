@@ -10,16 +10,16 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: a86db516e76a91d6e4bec378c47baf6eec13d032
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 73aa9756d7a3af4c6f7185533458e0e322b72666
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959053"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452378"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
 
-È possibile ottenere risultati locali dall'API di ricerca di attività locali Bing inviando una query di ricerca all'endpoint e includendo l'intestazione `Ocp-Apim-Subscription-Key`, che è obbligatoria. Insieme alle [intestazioni](local-search-reference.md#headers) e ai [parametri](local-search-reference.md#query-parameters) disponibili, le ricerche possono essere personalizzate specificando [confini geografici](specify-geographic-search.md) per l'area in cui eseguire la ricerca e le [categorie](local-search-query-response.md) delle località restituite.
+È possibile ottenere risultati locali dall'API di ricerca di attività locali Bing inviando una query di ricerca all'endpoint e includendo l'intestazione `Ocp-Apim-Subscription-Key`, che è obbligatoria. Insieme alle [intestazioni](local-search-reference.md#headers) e ai [parametri](local-search-reference.md#query-parameters) disponibili, le ricerche possono essere personalizzate specificando [confini geografici](specify-geographic-search.md) per l'area in cui cercare e le [categorie](local-search-query-response.md) delle località restituite.
 
 ## <a name="creating-a-request"></a>Creazione di una richiesta
 
@@ -57,7 +57,7 @@ I risultati JSON restituiti dall'API includono gli attributi seguenti:
 * _type
 * Address
 * entityPresentationInfo
-* geo
+* area geografica
 * id
 * name
 * routeablePoint
@@ -147,5 +147,5 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 ## <a name="next-steps"></a>Passaggi successivi
 - [Local Business Search quickstart](quickstarts/local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
 - [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
-- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Node)
-- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Python)
+- [Guida introduttiva a Local Business Search in Node](quickstarts/local-search-node-quickstart.md)
+- [Guida introduttiva a Local Business Search in Python](quickstarts/local-search-python-quickstart.md)

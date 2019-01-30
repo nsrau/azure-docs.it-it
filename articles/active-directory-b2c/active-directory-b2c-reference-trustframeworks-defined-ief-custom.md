@@ -3,19 +3,19 @@ title: Riferimenti - Framework attendibilità in Azure Active Directory B2C | Mi
 description: Informazioni sui criteri personalizzati e sul framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185780"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845691"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
 
@@ -52,10 +52,10 @@ I framework attendibilità rappresentano il cardine del modello di Open Identity
 - **La descrizione delle informazioni su identità digitali offerte/richieste dai membri**.
 
 - **I criteri tecnici per la produzione e l'uso delle informazioni su identità digitali e quindi per la misurazione dei livelli di verifica e dei livelli di protezione. Questi criteri scritti includono in genere le categorie seguenti:**
-    - Criteri di verifica dell'identità, ad esempio *con quale rigore vengono controllate le informazioni sull'identità di un utente?*
-    - Criteri di sicurezza, ad esempio *con quale rigore vengono protette l'integrità e la riservatezza delle informazioni?*
-    - Criteri di privacy, ad esempio *quale controllo ha un utente sulle informazioni di identificazione personale*?
-    - Criteri di capacità di sopravvivenza, ad esempio *come vengono gestite la continuità e la protezione delle informazioni di identificazione personale se un provider cessa l'attività?*
+    - Criteri di verifica dell'identità, ad esempio: *con quale rigore vengono esaminate le informazioni di identità di un utente?*
+    - Criteri di sicurezza, ad esempio: *con quale rigore vengono protette l'integrità delle informazioni e la riservatezza?*
+    - Criteri di privacy, ad esempio: *quale controllo ha un utente sulle informazioni di identificazione personale*?
+    - Criteri di capacità di sopravvivenza, ad esempio: *se un provider cessa l'attività, come si garantisce la continuità e la protezione delle informazioni personali?*
 
 - **I profili tecnici per la produzione e l'uso delle informazioni su identità digitali. Questi profili includono:**
     - Interfacce di ambito per le quali sono disponibili le informazioni su identità digitali al livello di verifica specificato.

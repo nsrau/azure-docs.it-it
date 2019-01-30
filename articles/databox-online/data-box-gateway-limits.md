@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164434"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388430"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limiti di Azure Data Box Gateway (anteprima)
 
@@ -35,8 +35,8 @@ La tabella seguente illustra i limiti del dispositivo Data Box Gateway.
 
 | DESCRIZIONE | Valore |
 |---|---|
-|No. di file per dispositivo |100 milioni <br> Il limite è di circa 25 milioni di file per ogni 2 TB di spazio su disco con un limite massimo di 100 milioni |
-|No. di condivisioni per dispositivo |24 |
+| No. di file per dispositivo |100 milioni <br> Il limite è di circa 25 milioni di file per ogni 2 TB di spazio su disco con un limite massimo di 100 milioni |
+| No. di condivisioni per dispositivo |24 |
 |Dimensione massima dei file scritti in una condivisione|Per un dispositivo virtuale di 2 TB, la dimensione massima del file è di 500 GB. <br> La dimensione massima del file aumenta con la dimensione del disco dati nel rapporto indicato in precedenza fino a raggiungere un massimo di 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limiti di Archiviazione di Azure
@@ -57,9 +57,9 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 Le avvertenze seguenti si applicano ai dati spostati in Azure.
 
 - È consigliabile evitare che più dispositivi scrivano nello stesso contenitore.
-- Se si dispone di un oggetto di Azure esistente (ad esempio un oggetto BLOB o un file) nel cloud con lo stesso nome dell'oggetto copiato, il dispositivo sovrascriverà il file nel cloud. 
+- Se si dispone di un oggetto di Azure esistente (ad esempio un oggetto BLOB o un file) nel cloud con lo stesso nome dell'oggetto copiato, il dispositivo sovrascriverà il file nel cloud.
 - Una gerarchia di directory vuota (senza alcun file) creata nelle cartelle di condivisione non viene caricata nei contenitori BLOB.
-
+- Se si copiano file che superano le dimensioni del dispositivo, è consigliabile usare *Robocopy* oppure *rsync* per assicurarsi che non si verifichino errori.
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Limiti delle dimensioni dell'oggetto e dell'account di archiviazione di Azure
 

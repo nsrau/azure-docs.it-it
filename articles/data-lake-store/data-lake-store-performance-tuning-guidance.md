@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store | Microsoft Docs
-description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 87dacdfa6df4021607953efd61fe9b4f49b30383
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196985"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402269"
 ---
-# <a name="tuning-azure-data-lake-store-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Store
+# <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Storage Gen1
 
-Data Lake Store supporta la velocità effettiva elevata per l'analisi con uso intensivo dell'I/O e lo spostamento dei dati.  In Azure Data Lake Store è importante poter usare tutta la velocità effettiva disponibile, ovvero la quantità di dati che possono essere letti o scritti al secondo, per ottenere prestazioni ottimali.  Questo risultato viene ottenuto eseguendo il numero massimo possibile di operazioni di lettura e scrittura in parallelo.
+Azure Data Lake Storage Gen1 supporta la velocità effettiva elevata per l'analisi con uso intensivo dell'I/O e lo spostamento dei dati.  In Data Lake Storage Gen1 è importante poter usare tutta la velocità effettiva disponibile, ovvero la quantità di dati che possono essere letti o scritti al secondo, per ottenere prestazioni ottimali.  Questo risultato viene ottenuto eseguendo il numero massimo possibile di operazioni di lettura e scrittura in parallelo.
 
-![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/throughput.png)
+![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
-Azure Data Lake Store può essere ridimensionato in modo da fornire la velocità effettiva necessaria per qualsiasi scenario di analisi. Per impostazione predefinita, un account di Azure Data Lake Store fornisce automaticamente la velocità effettiva sufficiente per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare il supporto tecnico Microsoft per configurare l'account ADLS in modo da ottenere maggiore velocità effettiva.
+Data Lake Storage Gen1 può essere ridimensionato per offrire la velocità effettiva necessaria per qualsiasi scenario di analisi. Per impostazione predefinita, un account Data Lake Storage Gen1 offre automaticamente la velocità effettiva sufficiente per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare il supporto tecnico Microsoft per configurare l'account Data Lake Storage Gen1 in modo da ottenere maggiore velocità effettiva.
 
 ## <a name="data-ingestion"></a>Inserimento di dati
 
-Durante l'inserimento di dati da un sistema di origine ad ADLS, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete ad ADLS può costituire il collo di bottiglia.  
+Durante l'inserimento di dati da un sistema di origine a Data Lake Storage Gen1, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete a Data Lake Storage Gen1 può costituire il collo di bottiglia.  
 
-![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 È importante verificare che questi fattori non influiscano sullo spostamento dei dati.
 
@@ -39,9 +39,9 @@ Durante l'inserimento di dati da un sistema di origine ad ADLS, è importante te
 
 Indipendentemente dall'uso di computer locali o macchine virtuali in Azure, è necessario scegliere con attenzione l'hardware appropriato. Per l'hardware del disco di origine, preferire le unità SSD alle HDD e scegliere hardware con spindle più veloci. Per l'hardware di rete di origine, usare le schede di interfaccia di rete più veloci possibili.  In Azure è consigliabile usare macchine virtuali Azure D14 che sono dotate di hardware di rete e del disco sufficientemente potente.
 
-### <a name="network-connectivity-to-azure-data-lake-store"></a>Connettività di rete ad Azure Data Lake Store
+### <a name="network-connectivity-to-data-lake-storage-gen1"></a>Connettività di rete a Data Lake Storage Gen1
 
-La connettività di rete tra i dati di origine e Azure Data Lake Store può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure usata da Data Lake Store.
+La connettività di rete tra i dati di origine e Data Lake Storage Gen1 può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure dell'account Data Lake Storage Gen1.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurare gli strumenti di inserimento di dati per la massima parallelizzazione
 
@@ -57,7 +57,7 @@ Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dall
 
 ## <a name="structure-your-data-set"></a>Strutturare il set di dati
 
-Quando i dati vengono archiviati in Data Lake Store, le dimensioni dei file, il numero di file e la struttura di cartelle influiscono sulle prestazioni.  La sezione seguente descrive le procedure consigliate in queste aree.  
+Quando i dati vengono archiviati in Data Lake Storage Gen1, le dimensioni dei file, il numero di file e la struttura di cartelle influiscono sulle prestazioni.  La sezione seguente descrive le procedure consigliate in queste aree.  
 
 ### <a name="file-size"></a>Dimensioni complete
 
@@ -96,7 +96,7 @@ Le linee guida seguenti sono applicabili solo ai processi con uso intensivo dell
 ### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considerazioni generali per un cluster HDInsight
 
 * **Versioni di HDInsight.** Per prestazioni ottimali, usare la versione più recente di HDInsight.
-* **Aree.** Posizionare l'istanza di Data Lake Store nella stessa area del cluster HDInsight.  
+* **Aree.** Inserire l'account Data Lake Storage Gen1 nella stessa area del cluster HDInsight.  
 
 Un cluster HDInsight è composto da due nodi head e da alcuni nodi di ruolo di lavoro. Ogni nodo di ruolo di lavoro fornisce un numero specifico di core e memoria, in base al tipo di macchina virtuale.  Quando si esegue un processo, YARN è il negoziatore di risorse che alloca la memoria e i core disponibili per creare contenitori.  Ogni contenitore esegue le attività necessarie per completare il processo.  I contenitori vengono eseguiti in parallelo per l'elaborazione rapida delle attività. È quindi possibile ottenere un miglioramento delle prestazioni eseguendo la quantità massima possibile di contenitori paralleli.
 
@@ -110,15 +110,15 @@ All'interno di un cluster HDInsight sono presenti tre livelli che possono essere
 
 **Eseguire il cluster con più nodi e/o macchine virtuali di dimensioni maggiori.**  Un cluster di dimensioni maggiori consentirà di eseguire più contenitori YARN, come illustrato nell'immagine seguente.
 
-![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
-**Usare macchine virtuali con maggiore larghezza di banda di rete.**  La larghezza di banda di rete può costituire un collo di bottiglia se la larghezza di banda di rete disponibile è inferiore alla velocità effettiva di Data Lake Store.  Macchine virtuali differenti avranno dimensioni variabili della larghezza di banda di rete.  Scegliere un tipo di macchina virtuale con la massima larghezza di banda di rete possibile.
+**Usare macchine virtuali con maggiore larghezza di banda di rete.**  La larghezza di banda di rete può costituire un collo di bottiglia se la larghezza di banda di rete disponibile è inferiore alla velocità effettiva di Data Lake Storage Gen1.  Macchine virtuali differenti avranno dimensioni variabili della larghezza di banda di rete.  Scegliere un tipo di macchina virtuale con la massima larghezza di banda di rete possibile.
 
 ### <a name="yarn-layer"></a>Livello YARN
 
 **Usare contenitori YARN di dimensioni inferiori.**  Ridurre le dimensioni di ogni contenitore YARN per creare altri contenitori con la stessa quantità di risorse.
 
-![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima per i contenitori YARN. Se si sceglie un contenitore troppo piccolo, si verificheranno problemi di memoria insufficiente per i processi. In genere, la dimensione dei contenitori YARN non deve essere inferiore a 1 GB. I contenitori YARN hanno spesso una dimensione di 3 GB. Per alcuni carichi di lavoro, possono essere necessari contenitori YARN più grandi.  
 
@@ -128,7 +128,7 @@ A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima pe
 
 **Usare tutti i contenitori disponibili.**  Impostare un numero di attività uguale o maggiore del numero di contenitori disponibili, in modo da usare tutte le risorse.
 
-![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Le attività che non vengono eseguite correttamente sono dispendiose.** Se ogni attività deve elaborare una grande quantità di dati, l'esito negativo di un'attività ha come risultato l'esecuzione di un nuovo tentativo impegnativo in termini di risorse.  È quindi preferibile creare un numero maggiore di attività, ognuna delle quali elabora una piccola quantità di dati.
 
@@ -136,11 +136,11 @@ Oltre alle linee guida generali sopra illustrate, ogni applicazione dispone di d
 
 | Carico di lavoro               | Parametro per impostare le attività                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Spark in HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Spark in HDInsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [Hive in HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [MapReduce in HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm in HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Numero di processi del ruolo di lavoro</li><li>Numero di istanze di spout executor</li><li>Numero di istanze di bolt executor </li><li>Numero di attività spout</li><li>Numero di attività bolt</li></ul>|
 
 ## <a name="see-also"></a>Vedere anche 
-* [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
+* [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introduzione all’analisi dei dati di Data Lake di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

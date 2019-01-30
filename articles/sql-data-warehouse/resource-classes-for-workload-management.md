@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287473"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402252"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query in Azure SQL Data Warehouse.  
@@ -90,7 +90,7 @@ Se si approfondiscono i dettagli delle classi di risorse dinamiche della Prima g
 ### <a name="default-resource-class"></a>Classe di risorse predefinita
 Per impostazione predefinita, ogni utente è membro della classe di risorse dinamica **smallrc**. 
 
-La classe di risorse dell'amministratore del servizio è fissa e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.
+La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per l'"accesso amministratore server" durante la creazione di una nuova istanza di SQL Data Warehouse con un nuovo server.
 
 > [!NOTE]
 > Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.

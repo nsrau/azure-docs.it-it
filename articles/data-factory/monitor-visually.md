@@ -10,31 +10,31 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: c2967de97e9cc3b6f59eb742ecbfef9acbe64d20
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019776"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54409963"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
-In questo argomento di avvio rapido si apprenderà come monitorare visivamente le pipeline di data factory versione 2 senza scrivere alcuna riga di codice.
+
+In questo argomento di avvio rapido si apprenderà come monitorare visivamente le pipeline di Data Factory senza scrivere alcuna riga di codice.
+
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="monitor-data-factory-pipelines"></a>Monitorare le pipeline di Data Factory
+
+È possibile monitorare le esecuzioni di pipeline e attività con una semplice interfaccia vista elenco. Tutte le esecuzioni vengono visualizzate nel fuso orario del browser locale. È possibile modificare il fuso orario. In questo caso, tutti i campi data e ora passano al fuso orario selezionato.  
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 2. Accedere al [portale di Azure](https://portal.azure.com/).
 3. Passare al pannello della data factory creata nel portale di Azure e fare clic sul riquadro 'Monitoraggio e gestione' per avviare l'esperienza di monitoraggio visivo di Data Factory.
 
-## <a name="list-view-monitoring"></a>Monitoraggio vista elenco
-
-È possibile monitorare le esecuzioni di pipeline e attività con una semplice interfaccia vista elenco. Tutte le esecuzioni vengono visualizzate nel fuso orario del browser locale. È possibile modificare il fuso orario. In questo caso, tutti i campi data e ora passano al fuso orario selezionato.  
-
-### <a name="monitoring-pipeline-runs"></a>Monitoraggio delle esecuzioni di pipeline
+## <a name="monitor-pipeline-runs"></a>Monitorare le esecuzioni di pipeline
 Vista elenco che illustra ogni esecuzione di pipeline per la data factory versione 2. Colonne incluse:
 
 | **Nome colonna** | **Descrizione** |
@@ -44,14 +44,14 @@ Vista elenco che illustra ogni esecuzione di pipeline per la data factory versio
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline (GG/MM/AAAA, HH:MM:SS) |
 | Duration | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Trigger manuale o pianificato |
-| Status | Non riuscito, riuscito, in corso |
+| Stato | Non riuscito, riuscito, in corso |
 | Parametri | Parametri di esecuzione della pipeline (nome, coppie di valori) |
 | Tipi di errore | Eventuale errore di esecuzione della pipeline |
 | ID esecuzione | ID dell'esecuzione pipeline |
 
 ![Monitorare le esecuzioni di pipeline](media/monitor-visually/pipeline-runs.png)
 
-### <a name="monitoring-activity-runs"></a>Monitoraggio delle esecuzioni di attività
+## <a name="monitor-activity-runs"></a>Monitorare le esecuzioni delle attività
 Visualizzazione elenco che illustra le esecuzioni di attività corrispondenti a ogni esecuzione di pipeline. Fare clic sull'icona **'Esecuzioni attività'** nella colonna **'Azioni'** per visualizzare le esecuzioni di attività per ogni esecuzione di pipeline. Colonne incluse:
 
 | **Nome colonna** | **Descrizione** |
@@ -60,7 +60,7 @@ Visualizzazione elenco che illustra le esecuzioni di attività corrispondenti a 
 | Tipo di attività | Tipo di attività, ad esempio Copy, HDInsightSpark, HDInsightHive e così via. |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione dell'attività (GG/MM/AAAA, HH:MM:SS) |
 | Duration | Durata dell'esecuzione (HH:MM:SS) |
-| Status | Non riuscito, riuscito, in corso |
+| Stato | Non riuscito, riuscito, in corso |
 | Input | Matrice JSON con la descrizione degli input dell'attività |
 | Output | Matrice JSON con la descrizione degli output dell'attività |
 | Tipi di errore | Eventuale errore di esecuzione dell'attività |
@@ -69,18 +69,17 @@ Visualizzazione elenco che illustra le esecuzioni di attività corrispondenti a 
 
 > [!IMPORTANT]
 > Per aggiornare l'elenco delle esecuzioni di pipeline e attività, è necessario fare clic sull'icona **'Aggiorna'** nella parte superiore. L'aggiornamento automatico non è attualmente supportato.
->
 
 ![Aggiorna](media/monitor-visually/refresh.png)
 
-## <a name="monitoring-features"></a>Funzionalità di monitoraggio
-
-### <a name="select-a-data-factory-to-monitor"></a>Selezionare una data factory per il monitoraggio
+## <a name="select-a-data-factory-to-monitor"></a>Selezionare una data factory per il monitoraggio
 Passare il mouse sull'icona **Data factory** nella parte superiore sinistra. Fare clic sull'icona 'Freccia' per visualizzare un elenco di sottoscrizioni e data factory di Azure che è possibile monitorare.
 
 ![Selezionare la data factory](media/monitor-visually/select-datafactory.png)
 
-### <a name="rich-ordering-and-filtering"></a>Ordinamento e filtro avanzati
+## <a name="configure-the-list-view"></a>Configurare la visualizzazione elenco
+
+### <a name="apply-rich-ordering-and-filtering"></a>Applicare ordinamento e filtro avanzati
 
 È possibile ordinare le esecuzioni di pipeline in ordine crescente e decrescente in base all'inizio dell'esecuzione e filtrarle in base alle colonne seguenti:
 
@@ -92,15 +91,15 @@ Passare il mouse sull'icona **Data factory** nella parte superiore sinistra. Far
 
 ![Filtro](media/monitor-visually/filter.png)
 
-### <a name="addremove-columns-in-list-view"></a>Aggiungere o rimuovere colonne nella vista elenco
+### <a name="add-or-remove-columns"></a>Aggiungere o rimuovere le colonne
 Fare clic con il pulsante destro del mouse sull'intestazione della vista elenco e scegliere le colonne da visualizzare all'interno di questa
 
 ![Colonne](media/monitor-visually/columns.png)
 
-### <a name="reorder-column-widths-in-list-view"></a>Modificare la larghezza delle colonne nella vista elenco
+### <a name="adjust-column-widths"></a>Regolare la larghezza delle colonne
 Per aumentare e ridurre la larghezza delle colonne nella vista elenco, è sufficiente passare il mouse sull'intestazione delle colonne
 
-### <a name="user-properties"></a>Proprietà utente
+## <a name="promote-user-properties-to-monitor"></a>Alzare di livello le proprietà utente per il monitoraggio
 
 È possibile alzare di livello delle proprietà dell'attività di pipeline come una proprietà utente in modo che diventi un'entità che è possibile monitorare. Ad esempio, è possibile alzare di livello delle proprietà **Origine** e **Destinazione** dell'attività di copia nella pipeline come proprietà dell'utente. È anche possibile selezionare **genera automaticamente** per generare le proprietà utente **Origine** e **Destinazione** per un'attività di copia.
 
@@ -117,21 +116,43 @@ Dopo aver creato le proprietà utente, è possibile monitorarle successivamente 
 
 ![Elenco esecuzioni attività con colonne per le proprietà utente](media/monitor-visually/monitor-user-properties-image4.png)
 
-### <a name="guided-tours"></a>Presentazioni guidate
+## <a name="rerun-activities-inside-a-pipeline"></a>Eseguire nuovamente attività all'interno di una pipeline
+
+È ora possibile eseguire nuovamente attività all'interno di una pipeline. Fare clic su **View activity runs** (Visualizza le esecuzioni di attività) e selezionare l'attività nella pipeline da cui si vuole eseguire nuovamente la pipeline.
+
+![Visualizzare le esecuzioni di attività](media/monitor-visually/rerun-activities-image1.png)
+
+![Selezionare un'esecuzione di attività](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="view-rerun-history"></a>Visualizzare la cronologia di riesecuzione
+
+È possibile visualizzare la cronologia di riesecuzione per tutte le esecuzioni di pipeline nella visualizzazione elenco.
+
+![Visualizzare la cronologia](media/monitor-visually/rerun-history-image1.png)
+
+È anche possibile visualizzare la cronologia di riesecuzione per una specifica esecuzione della pipeline.
+
+![Visualizzare la cronologia di un'esecuzione della pipeline](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="guided-tours"></a>Presentazioni guidate
 Fare clic sull'icona 'Informazioni' nella parte inferiore sinistra e quindi su 'Presentazione guidata' per ottenere istruzioni dettagliate su come monitorare le esecuzioni di pipeline e attività.
 
 ![Presentazioni guidate](media/monitor-visually/guided-tours.png)
 
-### <a name="feedback"></a>Commenti e suggerimenti
+## <a name="feedback"></a>Commenti e suggerimenti
 Fare clic sull'icona 'Commenti e suggerimenti' per offrire un parere sulle diverse funzionalità o su eventuali problemi riscontrati.
 
 ![Commenti e suggerimenti](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile generare avvisi sulle metriche supportate in Data Factory. Selezionare Monitoraggio -> Avvisi e metriche nella pagina Monitoraggio di Data Factory per iniziare.
+È possibile generare avvisi sulle metriche supportate in Data Factory. Selezionare **Monitoraggio -> Avvisi e metriche** nella pagina Monitoraggio di Data Factory per iniziare.
 
 ![](media/monitor-visually/alerts01.png)
+
+Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### <a name="create-alerts"></a>Creare avvisi
 

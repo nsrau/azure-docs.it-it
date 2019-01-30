@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301246"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411116"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
 Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero. 
@@ -91,6 +91,8 @@ SQL Data Warehouse è un sistema con scalabilità orizzontale che supporta il pr
 
 Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
+I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU. 
+
 ## <a name="view-current-dwu-settings"></a>Visualizzare le impostazioni DWU correnti
 
 Per visualizzare l'impostazione corrente per le unità DWU:
@@ -134,7 +136,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU o DWU a ele
 Per modificare le unità DWU o DWU a elevato utilizzo di calcolo:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
+2. Usare l'istruzione TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) . L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW

@@ -10,16 +10,16 @@ ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/12/2019
-ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/15/2019
+ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427917"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo di Istanza gestita di database SQL di Azure
 
@@ -28,102 +28,135 @@ Il controllo di [Istanza gestita di database SQL di Azure](sql-database-managed-
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
 - Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure 
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure
 
 La sezione seguente descrive la configurazione del controllo per Istanza gestita.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. La procedura seguente crea il **contenitore** di Archiviazione di Azure in cui archiviare i log di controllo.
+1. Creare un **contenitore** di Archiviazione di Azure in cui archiviare i log di controllo.
 
-   - Passare all'archiviazione di Azure in cui si vogliono archiviare i log di controllo.
+   1. Passare all'archiviazione di Azure in cui si vogliono archiviare i log di controllo.
 
-     > [!IMPORTANT]
-     > Usare un account di archiviazione nella stessa area del server di Istanza gestita per evitare operazioni di lettura e scrittura tra aree diverse.
+      > [!IMPORTANT]
+      > Usare un account di archiviazione nella stessa area del server di Istanza gestita per evitare operazioni di lettura e scrittura tra aree diverse.
 
-   - Nell'account di archiviazione passare a **Panoramica** e fare clic su **BLOB**.
+   1. Nell'account di archiviazione passare a **Panoramica** e fare clic su **BLOB**.
 
-     ![Riquadro di spostamento][1]
+      ![Widget BLOB di Azure](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   - Nel menu in alto fare clic su **+ Contenitore** per creare un nuovo contenitore.
+   1. Nel menu in alto fare clic su **+ Contenitore** per creare un nuovo contenitore.
 
-     ![Riquadro di spostamento][2]
+      ![Icona per creare un contenitore BLOB](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   - Specificare un **Nome** per il contenitore, impostare Livello di accesso pubblico su **Privato** e quindi fare clic su **OK**.
+   1. Specificare un **Nome** per il contenitore, impostare Livello di accesso pubblico su **Privato** e quindi fare clic su **OK**.
 
-     ![Riquadro di spostamento][3]
+     ![Creare una configurazione del contenitore BLOB](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-   - Nell'elenco dei contenitori fare clic sul contenitore appena creato e quindi fare clic su **Proprietà del contenitore**.
+1. Dopo aver creato il contenitore, è possibile configurarlo come destinazione dei log di controllo in due modi: [usando T-SQL](#blobtsql) oppure [tramite l'interfaccia utente di SQL Server Management Studio (SSMS)](#blobssms):
 
-     ![Riquadro di spostamento][4]
+   - <a id="blobtsql"></a>Configurare l'archiviazione BLOB per i log di controllo usando T-SQL:
 
-   - Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato dell'URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Nell'elenco dei contenitori fare clic sul contenitore appena creato e quindi fare clic su **Proprietà del contenitore**.
 
-     ![Riquadro di spostamento][5]
+        ![Pulsante delle proprietà del contenitore BLOB](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-3. La procedura seguente genera un **token di firma di accesso condiviso** di Archiviazione di Azure usato per concedere al controllo di Istanza gestita diritti di accesso all'account di archiviazione.
+     1. Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato dell'URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
-   - Passare all'account di Archiviazione di Azure in cui è stato creato il contenitore nel passaggio precedente.
+        ![URL da copiare del contenitore BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-   - Fare clic su **Firma di accesso condiviso** nel menu Impostazioni di archiviazione.
+     1. Generare un **token di firma di accesso condiviso** di Archiviazione di Azure per concedere all'account di archiviazione i diritti di accesso al controllo di Istanza gestita:
 
-     ![Riquadro di spostamento][6]
+        - Passare all'account di Archiviazione di Azure in cui è stato creato il contenitore nel passaggio precedente.
 
-   - Configurare SAS come segue:
-     - **Servizi consentiti**: BLOB
-     - **Data di inizio**: per evitare problemi correlati al fuso orario, è consigliabile usare la data del giorno precedente.
-     - **Data di fine**: scegliere la data di scadenza del token di firma di accesso condiviso. 
+        - Fare clic su **Firma di accesso condiviso** nel menu Impostazioni di archiviazione.
 
-       > [!NOTE]
-       > Rinnovare il token alla scadenza per evitare errori di controllo.
+          ![Icona Firma di accesso condiviso nel menu Impostazioni di archiviazione](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
-     - Fare clic su **Genera firma di accesso condiviso**.
+        - Configurare SAS come segue:
 
-       ![Riquadro di spostamento][7]
+          - **Servizi consentiti**: BLOB
 
-   - Fare clic su Genera firma di accesso condiviso. Il token verrà visualizzato in basso. Copiare il token facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro.
+          - **Data di inizio**: per evitare problemi correlati al fuso orario, è consigliabile usare la data del giorno precedente
 
-     > [!IMPORTANT]
-     > Rimuovere il carattere punto interrogativo ("?") dall'inizio del token.
+          - **Data di fine**: scegliere la data di scadenza del token di firma di accesso condiviso
 
-     ![Riquadro di spostamento][8]
+            > [!NOTE]
+            > Rinnovare il token alla scadenza per evitare errori di controllo.
 
-4. Connettersi a Istanza gestita tramite SQL Server Management Studio (SSMS).
+          - Fare clic su **Genera firma di accesso condiviso**.
+            
+            ![Configurazione della firma di accesso condiviso](./media/sql-managed-instance-auditing/7_sas_configure.png)
 
-5. Eseguire l'istruzione T-SQL seguente per **creare nuove credenziali** usando l'URL del contenitore e il token di firma di accesso condiviso creati nei passaggi precedenti:
+        - Fare clic su Genera firma di accesso condiviso. Il token verrà visualizzato in basso. Copiare il token facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro.
 
-    ```SQL
-    CREATE CREDENTIAL [<container_url>]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',
-    SECRET = '<SAS KEY>'
-    GO
-    ```
+          ![Copiare il token di accesso condiviso](./media/sql-managed-instance-auditing/8_sas_copy.png)
 
-6. Eseguire l'istruzione T-SQL seguente per creare un nuovo controllo server. Scegliere un nome personalizzato per il controllo, usare l'URL del contenitore creato nei passaggi precedenti:
+          > [!IMPORTANT]
+          > Rimuovere il carattere punto interrogativo ("?") dall'inizio del token.
 
-    ```SQL
-    CREATE SERVER AUDIT [<your_audit_name>]
-    TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
-    GO
-    ```
+     1. Connettersi a Istanza gestita tramite SQL Server Management Studio (SSMS) o qualsiasi altro strumento supportato.
 
-    Se non specificato altrimenti, l'impostazione predefinita di `RETENTION_DAYS` è 0 (conservazione illimitata).
+     1. Eseguire l'istruzione T-SQL seguente per **creare nuove credenziali** usando l'URL del contenitore e il token di firma di accesso condiviso creati nei passaggi precedenti:
 
-    Per altre informazioni:
-    - [Controllo delle differenze tra Istanza gestita, database SQL di Azure e SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
-    - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-    - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+        ```SQL
+        CREATE CREDENTIAL [<container_url>]
+        WITH IDENTITY='SHARED ACCESS SIGNATURE',
+        SECRET = '<SAS KEY>'
+        GO
+        ```
 
-7. Creare una specifica di controllo server o di controllo database come si farebbe per SQL Server:
-    - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+     1. Eseguire l'istruzione T-SQL seguente per creare un nuovo controllo server. Scegliere un nome personalizzato per il controllo e usare l'URL del contenitore creato nei passaggi precedenti. Se non specificato diversamente, l'impostazione predefinita di `RETENTION_DAYS` è 0 (conservazione illimitata):
 
-8. Abilitare il controllo server creato nel passaggio 6:
+        ```SQL
+        CREATE SERVER AUDIT [<your_audit_name>]
+        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        GO
+        ```
+
+      1. Proseguire con la [creazione di una specifica di controllo server o una specifica di controllo database](#createspec)
+
+   - <a id="blobssms"></a>Configurare l'archiviazione BLOB per i log di controllo tramite SQL Server Management Studio (SSMS) 18 (anteprima):
+
+     1. Connettersi all'istanza gestita tramite l'interfaccia utente di SQL Server Management Studio (SSMS).
+
+     1. Espandere il nodo radice di Esplora oggetti.
+
+     1. Espandere il nodo **Sicurezza**, fare clic con il pulsante destro del mouse sul nodo **Controlli** e scegliere "Nuovo controllo":
+
+        ![Espandere i nodi Sicurezza e Controlli](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
+
+     1. Verificare che in **Destinazione controllo** sia selezionata l'opzione "URL" e fare clic su **Sfoglia**:
+
+        ![Sfogliare Archiviazione di Azure](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
+
+     1. (Facoltativo) Accedere all'account di Azure:
+
+        ![Accedere ad Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+
+     1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
+
+        ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+
+     1. Fare clic su **OK** nella finestra di dialogo "Crea controllo".
+
+1. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione dei log di controllo, creare una specifica di controllo server o una specifica di controllo database come nel caso di SQL Server:
+
+   - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+1. Abilitare il controllo server creato nel passaggio 6:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
     WITH (STATE=ON);
     GO
     ```
+
+Per altre informazioni:
+
+- [Controllo delle differenze tra Istanza gestita, database SQL di Azure e SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configurare il controllo per il server in Hub eventi o Log Analytics
 
@@ -141,7 +174,7 @@ I log di controllo da un'istanza gestita possono essere inviati anche ad hub eve
 
 6. Fare clic su **Save**.
 
-  ![Riquadro di spostamento][9]
+    ![Configurare le impostazioni di diagnostica](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
 7. Connettersi all'istanza gestita usando **SQL Server Management Studio (SSMS)** o qualsiasi altro client supportato.
 
@@ -172,12 +205,12 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 - Usare la funzione di sistema `sys.fn_get_audit_file` (T-SQL) per restituire i dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere la [documentazione su sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato sqldbauditlogs. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
+- È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Archiviazione di Azure i log di controllo vengono salvati come raccolta di file BLOB in un contenitore appositamente definito per l'archiviazione di questi log. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
-> [!IMPORTANT]
-> Il metodo per la visualizzazione dei record di controllo dal portale di Azure (riquadro "Record di controllo") non è attualmente disponibile per Istanza gestita.
+  > [!IMPORTANT]
+  > Il metodo per la visualizzazione dei record di controllo dal portale di Azure (riquadro "Record di controllo") non è attualmente disponibile per Istanza gestita.
 
 ### <a name="consume-logs-stored-in-event-hub"></a>Utilizzo dei log archiviati in Hub eventi
 
@@ -213,12 +246,12 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo nell'arc
 - Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->
-[1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
-[2]: ./media/sql-managed-instance-auditing/2_create_container_button.png
-[3]: ./media/sql-managed-instance-auditing/3_create_container_config.png
-[4]: ./media/sql-managed-instance-auditing/4_container_properties_button.png
-[5]: ./media/sql-managed-instance-auditing/5_container_copy_name.png
-[6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
-[7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
-[8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
-[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png
+
+
+
+
+
+
+
+
+

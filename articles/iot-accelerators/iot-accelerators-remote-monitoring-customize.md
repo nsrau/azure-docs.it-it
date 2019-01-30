@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345097"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462200"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -77,12 +77,12 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
 
 ## <a name="customize-the-layout"></a>Personalizzare il layout
 
-Ogni pagina nella soluzione di monitoraggio remoto è costituita da un set di controlli, a cui si fa riferimento nel codice sorgente come *pannelli*. La pagina **Dashboard** è costituita da cinque pannelli: Panoramica, Mappa, Avvisi, Telemetria e Analytics. È possibile trovare il codice sorgente che definisce ogni pagina e i pannelli nel repository GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Ad esempio, il codice che definisce la pagina **Dashboard**, il layout e i pannelli nella pagina si trova nella cartella [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Ogni pagina nella soluzione di monitoraggio remoto è costituita da un set di controlli, a cui si fa riferimento nel codice sorgente come *pannelli*. La pagina **Dashboard** è costituita da cinque pannelli: Panoramica, Mappa, Avvisi, Telemetria e Analisi. È possibile trovare il codice sorgente che definisce ogni pagina e i pannelli nel repository GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Ad esempio, il codice che definisce la pagina **Dashboard**, il layout e i pannelli nella pagina si trova nella cartella [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Poiché i pannelli gestiscono il proprio layout e il ridimensionamento, è possibile modificare facilmente il layout di una pagina. Apportare le modifiche seguenti all'elemento **PageContent** nel file `src/components/pages/dashboard/dashboard.js` per:
 
 * Scambiare le posizioni dei pannelli Mappa e Telemetria.
-* Modificare le larghezze relative dei pannelli Mappa e Analytics.
+* Modificare le larghezze relative dei pannelli Mappa e Analisi.
 
 ```nodejs
 <PageContent className="dashboard-container">
@@ -365,7 +365,7 @@ La pagina **Dashboard** mostra gli indicatori KPI nel pannello **Analytics**. Qu
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

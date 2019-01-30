@@ -4,7 +4,7 @@ description: Panoramica e mappa dei contenuti della guida alle considerazioni su
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344883"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463015"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory 
 I dispositivi basati sull’utente stanno proliferando nel mondo aziendale, e le applicazioni software come servizio (SaaS) basate sul cloud sono facili da utilizzare. Come risultato, mantenere il controllo sull’accesso alle applicazioni degli utenti tra centri dati interni e piattaforme cloud è arduo.  
@@ -49,7 +49,7 @@ L'illustrazione precedente è un esempio di soluzione di identità ibrida che st
 
 Questa guida fornisce una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per soddisfare i requisiti di qualità delle funzionalità e del servizio della propria organizzazione.
 
-**Presupposti**: avere esperienza con Windows Server, Active Directory Domain Services e Azure Active Directory. In questo documento si presuppone che il lettore sia interessato al modo in cui queste soluzioni possono soddisfare le esigenze aziendali nella propria soluzione o in una soluzione integrata.
+**Presupposti**: avere esperienza di Windows Server, Active Directory Domain Services e Azure Active Directory. In questo documento si presuppone che il lettore sia interessato al modo in cui queste soluzioni possono soddisfare le esigenze aziendali nella propria soluzione o in una soluzione integrata.
 
 ## <a name="design-considerations-overview"></a>Panoramica delle considerazioni di progettazione
 Questa guida presenta una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfi i propri requisiti. Questi passaggi sono presentati in sequenza ordinata: Tuttavia, le considerazioni sulla progettazione presenti nei passaggi successivi possono richiedere il cambiamento di decisioni prese nei passaggi precedenti a causa di scelte di progettazione conflittuali. Nel corso della documentazione è stato fatto il possibile per segnalare all’utente potenziali conflitti di progettazione. 

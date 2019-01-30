@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448484"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurare l'applicazione nel portale di pubblicazione
 
@@ -27,7 +27,7 @@ A questo punto si è pronti a configurare l'applicazione nel portale di pubblica
 
 ## <a name="login-and-create-a-new-offer"></a>Accedere e creare una nuova offerta
 
-1. Accedere al [Portale per Cloud Partner](http://cloudpartner.azure.com/).
+1. Accedere al [portale Cloud Partner](http://cloudpartner.azure.com/).
 2. Nella barra di spostamento a sinistra scegliere "+ Nuova offerta" e selezionare "Dynamics 365 for Customer Engagement".
 
 ![Selezione di una nuova offerta](./media/CRMScreenShot14.png)
@@ -59,7 +59,7 @@ Ad esempio, se un editore **"contoso"** crea un'offerta con ID **"sample-WebApp"
 
 Questo elenco a discesa consente di scegliere il profilo di pubblicazione in cui si desidera pubblicare l'offerta. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Name (Nome)
 
 Nome visualizzato dell'offerta. È il nome che verrà visualizzato in [AppSource](https://appsource.microsoft.com/). Può contenere massimo 50 caratteri.
 
@@ -82,9 +82,9 @@ In questi campi la maggior parte degli editori lascerà i valori predefiniti, Us
 
 Di seguito è riportata una spiegazione di questi campi:
 
-* File name of your package (Nome file del pacchetto): nome del file creato nel passaggio precedente in cui è stato creato il file ZIP, che è il pacchetto CRM per AppSource. Nell'esempio precedente è "Microsoft\_SamplePackage.zip".
-* URL of your package location (URL del percorso pacchetto): URL per l'account Archiviazione di Azure che contiene il nome file del pacchetto specificato in precedenza. È l'URL creato nel passaggio 9 della sezione precedente.
-* Is there more than one crm package in your package file (Sono presenti più pacchetti CRM nel file del pacchetto): selezionare Yes (Sì) **SOLO** se si supportano più versioni di CRM con pacchetti diversi. Per la maggior parte dei partner questo valore è "No". Se si seleziona Yes (Sì), è necessario creare pacchetti AppSource per ogni versione della soluzione. _Nota: NON viene chiesto se si dispone di più file **ZIP**. Se si dispone di più file solution.zip ma di un'unica versione, selezionare "No". Lo strumento per la creazione di pacchetti li raggrupperà automaticamente._
+* File name of your package (Nome file del pacchetto): nome del file creato nel passaggio precedente in cui è stato creato il file con estensione zip, ovvero il pacchetto CRM per AppSource. Nell'esempio precedente è "Microsoft\_SamplePackage.zip".
+* URL of your package location (URL del percorso pacchetto): URL per l'account Archiviazione di Azure che contiene il nome file del pacchetto specificato sopra. È l'URL creato nel passaggio 9 della sezione precedente.
+* Is there more than one crm package in your package file (Sono presenti più pacchetti CRM nel file del pacchetto): selezionare Yes (Sì) **SOLO** se si supportano più versioni di CRM con pacchetti diversi. Per la maggior parte dei partner questo valore è "No". Se si seleziona Yes (Sì), è necessario creare pacchetti AppSource per ogni versione della soluzione. _Nota: NON viene chiesto se si hanno più file con estensione **zip**. Se si dispone di più file solution.zip ma di un'unica versione, selezionare "No". Lo strumento per la creazione di pacchetti li raggrupperà automaticamente._
 
 ### <a name="crm-package-availability"></a>Disponibilità del pacchetto CRM
 
@@ -94,7 +94,7 @@ Nota: la distribuzione nei "cloud sovrani e US Gov" in Germania RICHIEDE UN'AUTO
 
 ## <a name="storefront-details"></a>Dati da visualizzare nella vetrina
 
-### <a name="offer-summary"></a>Riepilogo dell'offerta
+### <a name="offer-summary"></a>Riepilogo offerta
 
 Il riepilogo della proposta di valore dell'offerta, che verrà visualizzato nella pagina di ricerca dell'offerta. La lunghezza massima è 100 caratteri.
 
@@ -176,7 +176,7 @@ Immettere l'URL dell'informativa sulla privacy dell'app
 
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-Immettere le condizioni per l'utilizzo dell'app. Per ricevere la versione di valutazione dell'app, i clienti di AppSource sono tenuti ad accettare queste condizioni.
+Immettere le condizioni per l'uso dell'app. Per ricevere la versione di valutazione dell'app, i clienti di AppSource sono tenuti ad accettare queste condizioni.
 
 ### <a name="support-url"></a>URL del supporto
 
@@ -184,7 +184,7 @@ Immettere l'URL del supporto per l'app.
 
 ### <a name="lead-destination"></a>Clienti potenziali destinatari
 
-Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. Selezionare "Azure Table" (Tabella di Azure) se si usa uno di questi sistemi CRM: Salesforce, Marketo o Microsoft Dynamics CRM. Nel sistema CRM selezionato verranno scritti i dettagli degli utenti finali che provano l'app specifica in AppSource (clienti potenziali). In base al sistema CRM selezionato fare clic sull'URL corrispondente di seguito per informazioni su come completare il set di campi successivo.
+Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. Selezionare "Azure Table" (Tabella di Azure) se si usa uno di questi sistemi CRM: Salesforce, Marketo, Microsoft Dynamics CRM. Nel sistema CRM selezionato verranno scritti i dettagli degli utenti finali che provano l'app specifica in AppSource (clienti potenziali). In base al sistema CRM selezionato fare clic sull'URL corrispondente di seguito per informazioni su come completare il set di campi successivo.
 
 * [Tabella di Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
@@ -193,4 +193,4 @@ Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. S
 
 ## <a name="storefront-details"></a>Dati da visualizzare nella vetrina
 
-I dettagli di contatto vengono usati solo per le comunicazioni interne tra il partner e Microsoft. Nota: in questi campi è importante usare un indirizzo e-mail che viene monitorato. Questo indirizzo verrà usato per comunicare con l'utente sullo stato di avanzamento della pubblicazione in AppSource. Solo l'URL del supporto sarà visibile ai clienti.
+I dettagli di contatto vengono usati solo per le comunicazioni interne tra il partner e Microsoft. Nota: in questi campi è importante usare un indirizzo di posta elettronica che viene monitorato. Questo indirizzo verrà usato per comunicare con l'utente sullo stato di avanzamento della pubblicazione in AppSource. Solo l'URL del supporto sarà visibile ai clienti.

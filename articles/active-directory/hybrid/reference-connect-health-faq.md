@@ -4,7 +4,7 @@ description: Di seguito sono elencate le domande frequenti e le relative rispost
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497740"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470325"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -82,7 +82,7 @@ L'impatto dell'installazione dell'agente di Microsoft Azure AD Connect Health, d
 I numeri seguenti sono approssimativi:
 
 * Utilizzo della CPU: ~1-5% di incremento.
-* Utilizzo della memoria: fino a al 10% della memoria di sistema totale.
+* Utilizzo della memoria: fino al 10% della memoria di sistema totale.
 
 > [!NOTE]
 > Se l'agente non può comunicare con Azure, archivia i dati localmente per un limite massimo definito. L'agente sovrascrive i dati "memorizzati nella cache" secondo un criterio di tipo "intervento di manutenzione meno recente".
@@ -140,7 +140,7 @@ Le possibili cause per cui un agente per l'integrità non riesce a eseguire la r
 Azure AD Connect Health genera l'avviso quando non riceve tutti i punti dati dal server nelle ultime due ore. [Altre informazioni](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Domande sulle operazioni
-**D: è necessario abilitare il controllo nei server proxy applicazione Web?**
+**D: È necessario abilitare il controllo nei server proxy applicazione Web?**
 
 No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 
@@ -148,13 +148,13 @@ No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 
 Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. In altri termini, se entro 72 ore dalla generazione dell'avviso non viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
 
-**D: Viene visualizzato l'avviso "La richiesta di autenticazione di test (transazione sintetica) non è riuscita a ottenere un token." Come si risolve il problema?**
+**D: Viene visualizzato l'avviso "La richiesta di autenticazione di test (transazione sintetica) non è riuscita a ottenere un token". Come si risolve il problema?**
 
 Azure AD Connect Health per AD FS genera questo avviso quando l'agente installato in un server AD FS non riesce a ottenere un token in quanto parte di una transazione sintetica avviata dall'agente stesso. L'agente di Azure AD Connect Health usa il contesto di sistema locale e tenta di ottenere un token per un self relying party. Si tratta di un test di tipo catch-all per assicurarsi che AD FS sia in uno stato di rilascio di token.
 
 Spesso questo test ha esito negativo perché l'agente di Azure AD Connect Health non può risolvere il nome della farm AD FS. Questa situazione può verificarsi se i server AD FS si trovano dietro un bilanciamento del carico di rete e la richiesta viene avviata da un nodo che si trova dietro il bilanciamento del carico, in contrapposizione a un client normale che si trova davanti al bilanciamento del carico. Questo problema può essere risolto aggiornando il file "hosts" in "C:\Windows\System32\drivers\etc" per includere l'indirizzo IP del server AD FS o un indirizzo IP di loopback (127.0.0.1) per il nome della farm AD FS, come ad esempio sts.contoso.com. Quando si aggiunge il file host, la chiamata di rete viene messa in corto circuito, consentendo in tal modo all'agente di Azure AD Connect Health di ottenere il token.
 
-**D: Viene ricevuto un messaggio di posta elettronica che indica che il computer non ha le patch corrette per gli attacchi ransomeware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
+**D: Viene ricevuto un messaggio di posta elettronica che indica che il computer non ha le patch corrette per gli attacchi ransomware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
 
 Il servizio di Azure AD Connect Health ha analizzato tutti i computer di cui esegue il monitoraggio per verificare che le patch necessarie siano installate. Se almeno un computer non dispone delle patch critiche, viene inviato tale messaggio di posta elettronica agli amministratori del tenant. Per arrivare a tale decisione, è stata usata la logica seguente.
 1. Trovare tutti gli hotfix installati nel computer.
@@ -184,7 +184,7 @@ CheckForMS17-010
 
 ```
 
-**D: Perché nei risultati del cmdlet di PowerShell <i>Get-MsolDirSyncProvisioningError</i> ci sono meno errori di sincronizzazione?**
+**D: Perché nei risultati del cmdlet di PowerShell <i>Get-MsolDirSyncProvisioningError</i> sono riportati meno errori di sincronizzazione?**
 
 <i>Get-MsolDirSyncProvisioningError</i> restituisce solo errori di provisioning DirSync. Oltre a questo, il portale Connect Health mostra altri tipi di errore di sincronizzazione, ad esempio errori di esportazione, in conformità con i risultati Delta di Azure AD Connect. Ulteriori informazioni sugli [errori di sincronizzazione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
