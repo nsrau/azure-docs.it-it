@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7b16fb718e689eec8ea016b513d866390b2328e0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 74602a64820d277de2222e29e5d9b59354d709f0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197382"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare un report relativo agli accessi con il portale di Azure
 
@@ -34,7 +34,7 @@ In questa guida introduttiva si apprenderà come scaricare i dati di accesso per
 * Un tenant di Azure Active Directory con una licenza Premium per visualizzare il report delle attività di accesso. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Si noti che se i dati sulle attività non erano disponibili prima dell'aggiornamento, ci vorranno un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza premium.
 * Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza**, **Ruolo con autorizzazioni di lettura per i report** o **Amministratore globale** per il tenant. Qualsiasi utente nel tenant, inoltre, può visualizzare i propri accessi.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Avvio rapido: Scaricare un report relativo agli accessi
+## <a name="quickstart-download-a-sign-in-report"></a>Guida introduttiva: Scaricare un report relativo agli accessi
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.

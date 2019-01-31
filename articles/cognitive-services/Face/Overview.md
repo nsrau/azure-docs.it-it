@@ -5,16 +5,16 @@ description: Informazioni su come usare il servizio Viso per rilevare e analizza
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 361d80bcca0b0a151e9fcdaab938de0c8ff5f8bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220111"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -82,4 +82,4 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Viso 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Seguire una guida introduttiva per implementare un semplice scenario di rilevamento del viso nel codice.
-- [Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)
+- [Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)

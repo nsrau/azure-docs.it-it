@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 84522612dbd31d406537b9679887e0f82a971b1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31db299fba70775c85ac5b5ad1a641c2ebe2575b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000502"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221131"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Go
 
@@ -32,7 +32,7 @@ Questa guida introduttiva richiede:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Go tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `detect-language.go`.
+Creare un nuovo progetto Go usando l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `detect-language.go`.
 
 ```go
 package main
@@ -88,7 +88,7 @@ func detect(subscriptionKey string) {
 }
 ```
 
-Creare quindi l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`.
+Successivamente, è possibile creare l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`.
 
 Copiare questo codice nella funzione `detect`.
 
@@ -118,7 +118,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Compilare la richiesta
 
-Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile creare la richiesta POST e chiamare l'API Traduzione testuale.
+Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile compilare la richiesta POST e chiamare l'API Traduzione testuale.
 
 ```go
 // Build the HTTP POST request
@@ -139,7 +139,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gestire e stampare la risposta
 
-Aggiungere questo codice alla funzione `detect` per decodificare la risposta JSON e quindi formattare e stampare il risultato.
+Aggiungere questo codice alla funzione `detect` per decodificare la risposta JSON, quindi formattare e stampare il risultato.
 
 ```go
 // Decode the JSON response

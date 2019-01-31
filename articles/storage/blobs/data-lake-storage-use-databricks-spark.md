@@ -3,17 +3,17 @@ title: 'Esercitazione: Accedere ai dati della versione di anteprima di Azure Dat
 description: Questa esercitazione mostra come eseguire query Spark su un cluster Azure Databricks per accedere ai dati in un account di archiviazione Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 31d18d7ea4ee195f7ffcfa04fb247b5dfd525c6a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321807"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251479"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks tramite Spark
 
@@ -40,9 +40,9 @@ Per completare questa esercitazione, è necessario un account di archiviazione c
 
 ## <a name="set-aside-storage-account-configuration"></a>Esaminare l'account di archiviazione
 
-Saranno necessari il nome dell'account di archiviazione e un URI dell'endpoint del file system.
+Saranno necessari il nome dell'account di archiviazione e l'URI di un endpoint del file system.
 
-Per ottenere il nome dell'account di archiviazione nel portale di Azure, scegliere **tutti i servizi** e filtrare in base al termine *archiviazione*. Quindi, selezionare **Account di archiviazione** e cercare il proprio account di archiviazione.
+Per ottenere il nome dell'account di archiviazione nel portale di Azure, scegliere **tutti i servizi** e filtrare in base al termine *archiviazione*. Quindi, selezionare **Account di archiviazione** e individuare il proprio account di archiviazione.
 
 Per ottenere l'URI dell'endpoint del file system, scegliere il riquadro **Proprietà**, quindi trovare il valore del campo **Primary ADLS FILE SYSTEM ENDPOINT**.
 
@@ -52,7 +52,7 @@ Incollare entrambi questi valori in un file di testo. Saranno necessari a breve.
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Creare un'entità servizio seguendo le indicazioni fornite in questo argomento: [Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Creare un'entità servizio seguendo le indicazioni fornite in questo argomento: [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Ecco alcune operazioni specifiche che è necessario eseguire seguendo i passaggi descritti in questo articolo.
 

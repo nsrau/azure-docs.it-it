@@ -3,19 +3,19 @@ title: MFA e reimpostazione della password self-service basate su rischi con Azu
 description: In questa esercitazione si abiliteranno le integrazioni di Azure Identity Protection per Multi-Factor Authentication e la reimpostazione della password self-service, per ridurre i comportamenti rischiosi.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434921"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075483"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
 

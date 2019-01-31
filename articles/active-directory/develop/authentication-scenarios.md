@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f541212cd549cde21bc3b2048bf633c57a911653
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967728"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095634"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -129,7 +129,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome dell'entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Version | Contiene il numero di versione del token. |
+| Versione | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,7 +3,7 @@ title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con
 description: Informazioni su come ridimensionare automaticamente con Azure PowerShell un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 96b556e9b96118626d4abe0c5ed82a457091ab9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f73d24bd4c9d3d313fcc396cc4ddc1e18d276cae
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232552"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887802"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]

@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5848b16624f3b8c307a022b9f79c61910736b83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433731"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167139"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
@@ -56,8 +56,8 @@ Per una migliore comprensione di PIM e della rispettiva documentazione, esaminar
 
 | Termine o concetto | Categoria di assegnazione di ruolo | DESCRIZIONE |
 | --- | --- | --- |
-| idoneo | type | Un'assegnazione di ruolo che richiede a un utente di eseguire una o più azioni per usare il ruolo. Se un utente è stato reso idoneo per un ruolo, potrà attivare il ruolo quando avrà bisogno di svolgere le attività con privilegi. Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con l'assegnazione permanente e quello con l'assegnazione di idoneità al ruolo. L'unica differenza è che alcuni utenti non necessitano dell'accesso continuo. |
-| active | type | Un'assegnazione di ruolo che non richiede a un utente di eseguire alcuna azione per usare il ruolo. Gli utenti con questo tipo di assegnazione hanno i privilegi assegnati al ruolo. |
+| idoneo | Type | Un'assegnazione di ruolo che richiede a un utente di eseguire una o più azioni per usare il ruolo. Se un utente è stato reso idoneo per un ruolo, potrà attivare il ruolo quando avrà bisogno di svolgere le attività con privilegi. Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con l'assegnazione permanente e quello con l'assegnazione di idoneità al ruolo. L'unica differenza è che alcuni utenti non necessitano dell'accesso continuo. |
+| active | Type | Un'assegnazione di ruolo che non richiede a un utente di eseguire alcuna azione per usare il ruolo. Gli utenti con questo tipo di assegnazione hanno i privilegi assegnati al ruolo. |
 | activate |  | Il processo di esecuzione di una o più azioni per usare il ruolo per cui un utente è idoneo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati. |
 | assegnato | Stato | Un utente che ha un'assegnazione di ruolo attiva. |
 | attivato | Stato | Un utente che ha un'assegnazione di ruolo idonea, ha eseguito le azioni per attivare il ruolo ed è ora attivo. |

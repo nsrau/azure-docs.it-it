@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C++ in Linux con Speech Service SDK
+description: Informazioni sul riconoscimento vocale in C++ su Linux con l'SDK del servizio Voce
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 914f86e8705916af4927aa192a41fc7636b80f3a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723647"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228696"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in C++ in Linux con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

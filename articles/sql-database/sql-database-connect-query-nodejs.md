@@ -11,14 +11,14 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: 22c783574897076b697b4b2bb3e8fc1da284dcae
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724673"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194305"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Node.js per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Node.js per eseguire query su un database SQL di Azure
 
 Questo articolo illustra come usare [Node.js](https://nodejs.org) per connettersi a un database SQL di Azure. È quindi possibile usare istruzioni T-SQL per eseguire query sui dati.
 
@@ -27,8 +27,6 @@ Questo articolo illustra come usare [Node.js](https://nodejs.org) per connetters
 Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Una [regola del firewall a livello di server](sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato
 
 - Software correlato a Node.js per il sistema operativo in uso
 

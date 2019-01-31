@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4cca3db778347e9bd8c8b881d85f0882f6b90f72
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581709"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216252"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Esempio: Come chiamare l'API Visione artificiale
 
@@ -150,7 +150,7 @@ Ad esempio:
     }
   }
 ```
-Campo   | type  | Content
+Campo   | Type  | Content
 ------|------|------|
 Tag    | object    | Oggetto di primo livello per la matrice di tag
 tags[].Name | stringa    | Parola chiave dal classificatore tags
@@ -210,7 +210,7 @@ Per i modelli specifici di dominio che usano l'opzione due (analisi avanzata), i
 
 Il campo categories è un elenco di una o più delle [86 categorie](../Category-Taxonomy.md) della tassonomia originale. Si noti inoltre che le categorie che terminano con un carattere di sottolineatura corrisponderanno alla categoria in oggetto e ai relativi elementi figlio (ad esempio, people_ e people_group per il modello celebrities).
 
-Campo   | type  | Content
+Campo   | Type  | Content
 ------|------|------|
 Categorie | object | Oggetto di primo livello
 categories[].name    | stringa   | Nome dalla tassonomia di 86 categorie

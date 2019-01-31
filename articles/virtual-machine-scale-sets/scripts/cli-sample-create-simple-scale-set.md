@@ -3,7 +3,7 @@ title: Esempi dell'interfaccia della riga di comando di Azure - Creare un set di
 description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9eca348c6cc8ba9559c501f6fae266bee59b4cd0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 06ce83695181968e54592a09b93ce084b55294bf
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844297"
+ms.locfileid: "54888856"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali di Azure con sistema operativo Ubuntu e le relative risorse di rete, incluso un servizio di bilanciamento del carico. Dopo aver eseguito lo script, è possibile accedere alle istanze di macchina virtuale tramite SSH.

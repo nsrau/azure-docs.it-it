@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 808ee8bb34aa4bb81ce1bcdd50193efa05f5692d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427013"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103765"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso per gli utenti e chiamata dell'API Microsoft Graph da un'app di Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -53,9 +53,9 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 > > [Apporta questa modifica per me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Già configurata](media/quickstart-v2-android/green-check.png) l'applicazione è configurata con questi attributi
+> > ![Già configurata](media/quickstart-v2-android/green-check.png) L'applicazione è configurata con questi attributi
 
-#### <a name="step-2-download-the-project"></a>Passaggio 2 : Scaricare il progetto
+#### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto
 
 * [Scaricare il progetto Android Studio](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 

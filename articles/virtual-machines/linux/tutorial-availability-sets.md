@@ -3,7 +3,7 @@ title: 'Esercitazione: Disponibilità elevata per le macchine virtuali Linux in 
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848734"
+ms.locfileid: "54885588"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con l'interfaccia della riga di comando di Azure
 

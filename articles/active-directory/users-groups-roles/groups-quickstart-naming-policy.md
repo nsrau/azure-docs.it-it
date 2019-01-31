@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4c607558c721b38bd63a8094f433bfe9499013af
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273120"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102210"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
 
@@ -38,14 +38,14 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 1. Aprire l'app Windows PowerShell come amministratore.
 2. Disinstallare qualsiasi versione precedente di AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Installare la versione più recente di AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'installazione del nuovo modulo potrebbe richiedere alcuni minuti.
 
 ## <a name="set-up-naming-policy"></a>Configurare i criteri di denominazione
@@ -56,10 +56,10 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
 
 2. Eseguire i comandi seguenti per preparare l'esecuzione dei cmdlet.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
 
 3. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
@@ -68,35 +68,35 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
 
 1. Visualizzare le impostazioni dei criteri di denominazione correnti.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Visualizzare le impostazioni del gruppo corrente.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Passaggio 3: Impostare i criteri di denominazione ed eventuali parole bloccate personalizzate
 
-1. Impostare prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell. Affinché la funzionalità non presenti problemi, [GroupName] deve essere incluso nelle impostazioni.
+1. Impostare prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell. Per un corretto funzionamento [GroupName] deve essere incluso nell'impostazione.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Impostare le parole bloccate personalizzate da limitare. Nell'esempio seguente viene illustrato come aggiungere le parole personalizzate.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Salvare le impostazioni per applicare i nuovi criteri, come nell'esempio seguente.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 È tutto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate personalizzate.
 
@@ -104,21 +104,21 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
 
 1. Rimuovere prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Rimuovere le parole bloccate personalizzate.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Salvare le impostazioni.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

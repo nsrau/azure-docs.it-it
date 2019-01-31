@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 06f20bd54e9a0057bab14ce144c126f56d54a062
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e173783b76ed53269722d363545692480c29c9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857081"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182116"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Bilanciare il carico del traffico tra macchine virtuali a disponibilità elevata
 
@@ -54,9 +54,9 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | Consente di creare un bilanciamento del carico di rete di Azure (NLB). |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az_network_lb_probe_create) | Consente di creare un probe di bilanciamento del carico di rete. Il probe di bilanciamento del carico di rete viene usato per monitorare ogni macchina virtuale nel set di bilanciamento del carico di rete. Se una macchina virtuale diventa inaccessibile, il traffico non viene indirizzato sulla macchina virtuale. |
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Consente di creare una regola di bilanciamento del carico di rete. In questo esempio viene creata una regola per la porta 80. Poiché il traffico HTTP arriva al bilanciamento del carico di rete, viene indirizzato sulla porta 80 di una delle macchine virtuali presenti nel set di bilanciamento del carico di rete. |
-| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#az_network_lb_inbound_nat_rule_create) | Consente di creare una regola Network Address Translation (NAT) di bilanciamento del carico di rete.  Le regole NAT mappano di una porta del bilanciamento del carico di rete su una porta in una macchina virtuale. In questo esempio viene creata una regola NAT per il traffico SSH in ogni macchina virtuale disponibile nel set di bilanciamento del carico di rete.  |
+| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Consente di creare una regola Network Address Translation (NAT) di bilanciamento del carico di rete.  Le regole NAT mappano di una porta del bilanciamento del carico di rete su una porta in una macchina virtuale. In questo esempio viene creata una regola NAT per il traffico SSH in ogni macchina virtuale disponibile nel set di bilanciamento del carico di rete.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Consente di creare un gruppo di sicurezza di rete, ovvero un confine di sicurezza tra Internet e la macchina virtuale. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
+| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Consente di creare una scheda di rete virtuale e la collega alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Consente di creare un set di disponibilità. I set di disponibilità garantiscono il tempo di attività dell'applicazione suddividendo le macchine virtuali in risorse fisiche in modo tale che, in caso di errore, non venga interessato l'intero set. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |

@@ -3,7 +3,7 @@ title: Esempio di script di Azure PowerShell - NGINX | Microsoft Docs
 description: Esempio di script di Azure PowerShell - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ba64d5d72bd03e0f4556dfc79ed95a96d22d6ce6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d957b366a2926750e593e497f953fc57b0c160e0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467209"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888355"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>Creare una VM NGINX con PowerShell
 

@@ -3,23 +3,23 @@ title: Usare un'identità gestita assegnata dal sistema per una macchina virtual
 description: Esercitazione che descrive in modo dettagliato l'uso di un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere all'API Graph di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: daveba
-ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: ad2d20bc54a2de5a049beadac779fff47d39d9b4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432643"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167955"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere all'API Graph di Azure AD
 

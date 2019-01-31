@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 0f4b5e5605ed88aac2ffb979e2c009e0f0b99a98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 667d32c825f61751970bbcaa47045929ad708490
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411425"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160271"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Esempio di script per instradare il traffico attraverso un'appliance virtuale di rete
 
@@ -56,7 +56,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Consente di creare un'interfaccia di rete virtuale e attiva l'inoltro IP. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Consente di creare un gruppo di sicurezza di rete. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Consente di creare regole del gruppo di sicurezza di rete per le porte HTTP e HTTPS in ingresso alla VM. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Consente di associare il gruppo di sicurezza di rete e le tabelle di route alle subnet. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Consente di associare il gruppo di sicurezza di rete e le tabelle di route alle subnet. |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Consente di creare una tabella di route per tutte le route. |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Consente di creare le route per instradare il traffico tra subnet e Internet attraverso la macchina virtuale. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Consente di creare una macchina virtuale e vi connette la NIC. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione. |

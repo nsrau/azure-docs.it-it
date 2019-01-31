@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 64faed888352e641cb51200d81c038fe5caf7ef4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960201"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098545"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione UWP (Universal Windows Platform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 

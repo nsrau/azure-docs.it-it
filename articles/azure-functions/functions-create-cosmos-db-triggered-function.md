@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f0173940656581c8bf6b66b0d2a4744e1c751f82
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968289"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904285"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -102,7 +102,7 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
 
     ![Definire taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
 
-    | Impostazione|Valore consigliato|Descrizione |
+    | Impostazione|Valore consigliato|DESCRIZIONE |
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
     | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |
@@ -140,8 +140,6 @@ Dopo aver creato la raccolta specificata nell'associazione della funzione, è po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita quando un documento viene aggiunto o modificato nel database di Azure Cosmos DB.
+È stata creata una funzione che viene eseguita quando un documento viene aggiunto o modificato nel database di Azure Cosmos DB. Per altre informazioni sui trigger di Azure Cosmos DB, vedere [Binding di Azure Cosmos DB per Funzioni di Azure](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Per altre informazioni sui trigger di Azure Cosmos DB, vedere [Binding di Azure Cosmos DB per Funzioni di Azure](functions-bindings-cosmosdb.md).

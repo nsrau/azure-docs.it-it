@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a8844e339f439de4e5446e00f8e40e9a0fd1a3de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260974"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172137"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Java
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: cd4346c738e1c1c52ee181f764f827b1b1060650
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547202"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179975"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Abilitare e scaricare i log di query lente di un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando abilita e scarica i log di query lente di un singolo server di Database di Azure per PostgreSQL.
@@ -37,7 +37,7 @@ Questo script usa i comandi illustrati nella tabella seguente:
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Crea un server PostgreSQL che ospita i database. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Elenca i valori di configurazione per un server. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Elenca i valori di configurazione per un server. |
 | [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Aggiorna la configurazione di un server. |
 | [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Elenca i file di log per un server. |
 | [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Scarica i file di log. |

@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826157"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189137"
 ---
 # <a name="security-info-preview-overview"></a>Panoramica delle informazioni di sicurezza (anteprima)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Impostare le informazioni per la verifica in due passaggi e la reimpostazione della password in **Informazione di sicurezza**. È sufficiente impostare le informazioni di sicurezza una sola volta. È tuttavia possibile modificare le informazioni e modificare il metodo predefinito in qualsiasi momento.
+
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Impostare le informazioni per la verifica in due passaggi e la reimpostazione della password in **Informazione di sicurezza**. È sufficiente impostare le informazioni di sicurezza una sola volta. È tuttavia possibile modificare le informazioni e modificare il metodo predefinito in qualsiasi momento.
 
 È possibile aggiungere uno dei seguenti metodi:
 

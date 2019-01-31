@@ -6,19 +6,19 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3e62e5af00e69cea4656c38d9cde57fae11b67fa
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 7835137d821c2a722ed1fecdac0ea06c4cd6cc2a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582695"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208950"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
 
 In questa guida introduttiva si analizza un'immagine archiviata in locale per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 

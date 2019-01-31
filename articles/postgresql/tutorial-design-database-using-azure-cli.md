@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 1782aa2a29bc2cf2593aa5bb1c356d4176196055
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 795fe2b54c806947df2f4c078722e9acae3df96f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854412"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148581"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL
-Creare un [database di Azure per il server PostgreSQL](overview.md) tramite il comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Un server contiene un gruppo di database gestiti come gruppo. 
+Creare un [database di Azure per il server PostgreSQL](overview.md) tramite il comando [az postgres server create](/cli/azure/postgres/server). Un server contiene un gruppo di database gestiti come gruppo. 
 
 Nell'esempio seguente viene creato un server denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con account di accesso dell'amministratore del server `myadmin`. Poiché viene eseguito il mapping del nome di un server a un nome DNS, il nome deve essere univoco a livello globale in Azure. Sostituire `<server_admin_password>` con il proprio valore. Questo è un server per utilizzo generico di generazione 4 con 2 vCore.
 ```azurecli-interactive

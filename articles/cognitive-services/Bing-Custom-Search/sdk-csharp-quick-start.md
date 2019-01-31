@@ -6,24 +6,24 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: f5ede8d8dc2950551655e7e0331a68b15ba13cf8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 55a9982026e118e3c375908879967831a8121ede
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555779"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178240"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK 
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con C# SDK. Benché Ricerca personalizzata Bing includa un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un semplice strumento per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'istanza di Ricerca personalizzata Bing. Vedere [Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
+- Un'istanza di Ricerca personalizzata Bing. Vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
 - Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
 - Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).

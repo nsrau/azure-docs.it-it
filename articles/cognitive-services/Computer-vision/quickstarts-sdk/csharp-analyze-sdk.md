@@ -1,24 +1,24 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine - SDK, C#"
+title: "Avvio rapido: Analizzare un'immagine - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5bb11d77a6bdca3ef328ad24ac18ade8df9f65ec
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c0cfbf28420ba81abfd03b6090bff3e168c81283
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583377"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208909"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: Analizzare un'immagine usando SDK e C# di Visione artificiale
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Avvio rapido: Analizzare un'immagine usando SDK e C# di Visione artificiale
 
 In questa guida introduttiva si analizzano un'immagine locale e una remota per estrarre le caratteristiche visive usando la libreria client Windows di Visione artificiale.
 

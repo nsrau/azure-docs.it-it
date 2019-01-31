@@ -11,17 +11,17 @@ Customer intent: I want to create a Basic Load balancer so that I can load balan
 ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: 18c5b8f31b2a912eade360ebc2c5845782667250
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 884d64c2d7286dde7a62ac5e9a6fd3054b683fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230221"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245951"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupLB* nella posizione *eastus*:
 
@@ -45,7 +45,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupLB* nell
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-Per accedere all'app Web in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Usare il comando [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) per creare un indirizzo IP pubblico denominato *myPublicIP* in *myResourceGroupLB*.
+Per accedere all'app Web in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Usare il comando [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) per creare un indirizzo IP pubblico denominato *myPublicIP* in *myResourceGroupLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -61,7 +61,7 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) per creare un servizio Azure Load Balancer pubblico denominato **myLoadBalancer**, che include un pool front-end denominato **myFrontEndPool** e un pool back-end denominato **myBackEndPool**, associato all'indirizzo IP pubblico **myPublicIP** creato nel passaggio precedente.
+Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) per creare un servizio Azure Load Balancer pubblico denominato **myLoadBalancer**, che include un pool front-end denominato **myFrontEndPool** e un pool back-end denominato **myBackEndPool**, associato all'indirizzo IP pubblico **myPublicIP** creato nel passaggio precedente.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/net
 
 ### <a name="create-the-health-probe"></a>Creare il probe di integrità
 
-Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano inviare il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) per monitorare l'integrità delle macchine virtuali. 
+Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano inviare il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Un probe di integrità controlla tutte le istanze di una macchina virtuale per a
 
 ### <a name="create-the-load-balancer-rule"></a>Creare la regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. Creare una regola di bilanciamento del carico *myLoadBalancerRuleWeb* con il comando [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) per l'ascolto sulla porta 80 nel pool front-end *myFrontEndPool* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
+Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. Creare una regola di bilanciamento del carico *myLoadBalancerRuleWeb* con il comando [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) per l'ascolto sulla porta 80 nel pool front-end *myFrontEndPool* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -108,7 +108,7 @@ Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciam
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo *myResourceGroup* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo *myResourceGroup* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \

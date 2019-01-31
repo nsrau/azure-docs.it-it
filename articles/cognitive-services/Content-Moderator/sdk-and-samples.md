@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: a57f6a312b00d7ec3d927c6fda319f1de8663c9c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e05058be5b1ea8aa8faee3f3328a1b84935a3ac7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220451"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228577"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>SDK ed esempi di Content Moderator
 
@@ -34,24 +34,24 @@ L'elenco seguente include i collegamenti agli esempi di codice compilati usando 
 
 ### <a name="moderation"></a>Moderazione 
 - **Moderazione immagini**: [esaminare un'immagine per valutare la presenza di contenuto esplicito e spinto, testo e visi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Vedere la [guida introduttiva](image-moderation-quickstart-dotnet.md).
-- **Immagini personalizzate**: [moderarle con elenchi personalizzati di immagini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Vedere la [guida introduttiva](image-lists-quickstart-dotnet.md).
+- **Immagini personalizzate**: [Eseguire la moderazione con elenchi personalizzati di immagini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Vedere la [guida introduttiva](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
 > È previsto un limite massimo di **cinque elenchi di immagini** e ogni elenco **non può includere più di 10.000 immagini**.
 >
 
 - **Moderazione testo**: [individuare nel testo la presenza di contenuti volgari e informazioni personali (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Vedere la [guida introduttiva](text-moderation-quickstart-dotnet.md).
-- **Termini personalizzati**: [ moderarli con elenchi personalizzati di termini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Vedere la [guida introduttiva](term-lists-quickstart-dotnet.md).
+- **Termini personalizzati**: [eseguire la moderazione con elenchi personalizzati di termini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Vedere la [guida introduttiva](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]
 > È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
 >
 
-- **Moderazione video**: [ analizzare un video per ottenere risultati relativi a contenuto esplicito e spinto](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Vedere la [guida introduttiva](video-moderation-api.md).
+- **Moderazione video**: [analizzare un video per ottenere risultati relativi a contenuto esplicito e spinto](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Vedere la [guida introduttiva](video-moderation-api.md).
 
 ### <a name="review"></a>Revisione
 - **Processi di immagini**: [ avviare un processo di moderazione che analizza le immagini e crea revisioni](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Vedere la [guida introduttiva](moderation-jobs-quickstart-dotnet.md).
-- **Revisioni di immagini**: [creare revisioni human-in-the-loop ](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Vedere la [guida introduttiva](moderation-reviews-quickstart-dotnet.md).
+- **Revisioni di immagini**: [Creare revisioni human-in-the-loop](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Vedere la [guida introduttiva](moderation-reviews-quickstart-dotnet.md).
 - **Revisioni di video**: [creare revisioni di video human-in-the-loop ](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Vedere la [guida introduttiva](video-reviews-quickstart-dotnet.md)
 - **Revisioni di trascrizioni video**: [creare revisioni di trascrizioni video manuali](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs). Vedere la [guida introduttiva](video-reviews-quickstart-dotnet.md)
 

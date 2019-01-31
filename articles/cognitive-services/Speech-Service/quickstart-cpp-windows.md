@@ -6,16 +6,16 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 60897e1fac607ebd5bfe7e7c35a43c249f7c71e2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17bc5fb4ed059c0922e85e467cbafbd5a90299b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722126"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221641"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
@@ -49,7 +49,7 @@ In questo articolo, viene creata un'applicazione console C++ per Windows. Utiliz
 
    ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione selezionata](media/sdk/qs-cpp-windows-06-build.png)
 
-1. Avviare l'applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
 
    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug selezionata](media/sdk/qs-cpp-windows-07-start-debugging.png)
 

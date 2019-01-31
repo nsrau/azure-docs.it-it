@@ -3,7 +3,7 @@ title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con
 description: Informazioni su come usare i modelli di Azure Resource Manager per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413856"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887769"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:

@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Python"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Python"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3930de4d8d1f50c0ba6908ea642fc152c29b7371
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 37fef6100d78b46d0fb52e486f1788eb78ea2578
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744803"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193761"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Guida introduttiva: La prima query di Ricerca visiva Bing in Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Avvio rapido: La prima query di Ricerca visiva Bing in Python
 
 Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ricerca visiva Bing e visualizzare i risultati della ricerca. Questa semplice applicazione JavaScript carica un'immagine nell'API e visualizza le informazioni restituite. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

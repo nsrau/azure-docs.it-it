@@ -7,22 +7,22 @@ ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d26a8ba40d145515d35de929682125ba9d3e397f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752606"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205780"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Esercitazione: Estrarre dati in formato libero con entità pattern.any
 
 Questa esercitazione illustra come usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione. 
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
 > * Importare l'app di esempio

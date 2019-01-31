@@ -1,15 +1,15 @@
 ---
-author: cynthn
+author: sptramer
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: cynthn
-ms.openlocfilehash: 8507d61db5b9d81dba9cbf35f98cff8537cd4177
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.author: sttramer
+ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440240"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54899351"
 ---
 Per eseguire questo esempio, verificare di aver installato l'ultima versione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per iniziare, eseguire `az login` per creare una connessione con Azure.
 

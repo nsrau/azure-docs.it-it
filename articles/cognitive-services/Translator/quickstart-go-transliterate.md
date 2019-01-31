@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 6b86d94e53b1ecb7a0d0d7b1f325a425f05c9e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 976ca2623667abc4e49ceb91ec97706723bc32c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211747"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Go
 
@@ -32,7 +32,7 @@ Questa guida introduttiva richiede:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Go tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `transliterate-text.go`.
+Creare un nuovo progetto Go usando l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `transliterate-text.go`.
 
 ```go
 package main
@@ -88,7 +88,7 @@ func transliterate(subscriptionKey string) {
 }
 ```
 
-Creare quindi l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`. È possibile notare che vengono aggiunti parametri con il metodo `Add()`. In questo esempio viene traslitterato un testo dal giapponese all'alfabeto latino.
+Successivamente, è possibile creare l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`. È possibile notare che vengono aggiunti parametri con il metodo `Add()`. In questo esempio viene traslitterato un testo dal giapponese all'alfabeto latino.
 
 Copiare questo codice nella funzione `transliterate`.
 
@@ -121,7 +121,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Compilare la richiesta
 
-Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile creare la richiesta POST e chiamare l'API Traduzione testuale.
+Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile compilare la richiesta POST e chiamare l'API Traduzione testuale.
 
 ```go
 // Build the HTTP POST request
@@ -142,7 +142,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gestire e stampare la risposta
 
-Aggiungere questo codice alla funzione `transliterate` per decodificare la risposta JSON e quindi formattare e stampare il risultato.
+Aggiungere questo codice alla funzione `transliterate` per decodificare la risposta JSON, quindi formattare e stampare il risultato.
 
 ```go
 // Decode the JSON response

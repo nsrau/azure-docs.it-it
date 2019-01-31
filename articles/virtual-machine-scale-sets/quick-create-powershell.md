@@ -3,7 +3,7 @@ title: Guida introduttiva - Creare un set di scalabilità di macchine virtuali c
 description: Informazioni su come creare rapidamente un set di scalabilità di macchine virtuali con Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/18
-ms.author: zarhoads
-ms.openlocfilehash: b704a7bb4849b387be516dc32d1bf9ef321453b6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: cynthn
+ms.openlocfilehash: 6e59c6ead364c77e3659b9c2a92106cb55abf744
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430959"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885966"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali e si distribuisce un'applicazione di esempio con Azure PowerShell.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

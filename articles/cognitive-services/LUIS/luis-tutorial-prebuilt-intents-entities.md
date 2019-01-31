@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d8569bbc2d1befdd2b6fb9c8783dab206e19c7c9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211968"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Esercitazione: Identificare finalità ed entità comuni
 
@@ -24,7 +24,7 @@ In questa esercitazione, aggiungere finalità ed entità predefinite a un'app de
 
 I modelli predefiniti (domini, finalità ed entità) aiutano a compilare il modello rapidamente.
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
 > * Creare una nuova app

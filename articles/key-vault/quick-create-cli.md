@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: 9b57dfcd6ecd00f9f1bb8ec752e0996ee52305db
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159044"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168261"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure con comandi o script. In questa guida introduttiva viene creata un'istanza di Key Vault. Successivamente verrà archiviato un segreto.
 
@@ -88,7 +88,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
-Quando non sono più necessari, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#delete). È possibile eliminare le risorse in questo modo:
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group). È possibile eliminare le risorse in questo modo:
 
 ```azurecli
 az group delete --name ContosoResourceGroup

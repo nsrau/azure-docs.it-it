@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 96daacef134ca60cb497907a770c83a4bba24a5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 66ba6aa874e84ce86d54d5ea0f827a83dc6564b4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208552"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 Microsoft Azure è una raccolta in continua crescita di servizi cloud pubblici integrati, che includono analisi, macchine virtuali, database, dispositivi mobili, rete, archiviazione, servizi cloud e Web, ideali per l'hosting delle soluzioni.  Microsoft Azure fornisce una piattaforma di elaborazione scalabile che consente di pagare solo ciò che si usa, quando necessario, senza dover investire in hardware locale.  Azure è subito pronto quando occorre aumentare le prestazioni e le istanze delle soluzioni per ottenere la massima scalabilità necessaria per soddisfare le esigenze dei clienti.
@@ -72,7 +72,7 @@ Ogni sottoscrizione di Azure ha limiti di quota predefiniti che possono influire
 Microsoft collabora con i partner per verificare che le immagini disponibili vengano aggiornate e ottimizzate per un runtime Azure.  Per altre informazioni sui partner Azure, vedere i collegamenti seguenti:
 
 * Linux in Azure - [Distribuzioni supportate](endorsed-distros.md)
-* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES?tab=Overview)
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
@@ -123,8 +123,8 @@ La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso d
 
 ## <a name="containers"></a>Contenitori
 * [Macchine virtuali e contenitori in Azure](containers.md)
-* [Introduzione al servizio contenitore di Azure](../../container-service/container-service-intro.md)
-* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md)
+* [Introduzione al servizio Azure Container](../../container-service/container-service-intro.md)
+* [Distribuire un cluster del servizio Azure Container](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Quella descritta è panoramica di Linux in Azure.  Il passaggio successivo consiste nella creazione di alcune macchine virtuali.

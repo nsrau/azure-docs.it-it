@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Usare Azure Storage Explorer per gestire i dati in Azure Data Lake Storage Gen2 '
+title: 'Guida introduttiva: Usare Azure Storage Explorer per gestire i dati in Azure Data Lake Storage Gen2 '
 description: In questa guida introduttiva si descrive come usare Azure Storage Explorer per creare un file system in un account di Azure Data Lake Storage Gen2, nonché una directory e un file. Verrà successivamente illustrato come scaricare il file nel computer locale e come visualizzare tutti i file in una directory.
 services: storage
 author: tamram
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423597"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250453"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Avvio rapido: Usare Azure Storage Explorer per gestire i dati in un account di Azure Data Lake Storage Gen2
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Guida introduttiva: Usare Azure Storage Explorer per gestire i dati in un account di Azure Data Lake Storage Gen2
 
 In questa guida introduttiva si descrive come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare una directory e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in una directory. Verranno fornite informazioni anche su come creare lo snapshot di un BLOB, come gestire i criteri d'accesso alla directory e come creare una firma di accesso condiviso.
 

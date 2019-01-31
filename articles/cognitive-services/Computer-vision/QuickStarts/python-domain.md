@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Contenuto di immagini specifico di dominio - REST, Python'
+title: 'Avvio rapido: Contenuto di immagini specifico di dominio - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identificheranno celebrità e luoghi di interesse in un'immagine in base a modelli di dominio usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9a511cb26f5bc4ba44e4d999cb7b3c3ba98bca4c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d0f7512fc7ed5b261a23e5f07d96016c0477e47b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582236"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211053"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Usare un modello di dominio usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Usare un modello di dominio usando l'API REST e Python in Visione artificiale
 
 In questa guida introduttiva si identificheranno luoghi di interesse o celebrità in un'immagine archiviata in remoto in base a un modello di dominio usando l'API REST di Visione artificiale. Con il metodo [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), è possibile applicare un modello specifico di un dominio per riconoscere contenuti all'interno di un'immagine.
 

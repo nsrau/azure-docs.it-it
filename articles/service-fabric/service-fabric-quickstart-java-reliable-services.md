@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ad14e552bd685c42289e7007002f5ddf039f8925
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312579"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297957"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services Java su Service Fabric
 
@@ -34,7 +34,6 @@ In questa guida introduttiva si apprende come:
 
 * Usare Eclipse come strumento per le applicazioni Java di Service Fabric
 * Distribuire l'applicazione nel cluster locale
-* Distribuire l'applicazione in un cluster in Azure
 * Scalare orizzontalmente l'applicazione in più nodi
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -82,99 +81,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 È ora possibile aggiungere un set di opzioni per le votazioni e iniziare a raccogliere i voti. L'applicazione viene eseguita e archivia tutti i dati nel cluster di Service Fabric, senza che sia necessario un database separato.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurare il cluster di Azure Service Fabric
-
-Per distribuire l'applicazione in un cluster di Azure, creare un cluster personale.
-
-I cluster di entità sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure ed eseguiti dal team di Service Fabric. È possibile usare i cluster di entità per distribuire le applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo.
-
-Eseguire l'accesso e aggiungere un [cluster Linux](https://aka.ms/tryservicefabric). Scaricare il certificato PFX nel computer facendo clic sul collegamento **PFX**. Fare clic sul collegamento **ReadMe** (Leggimi) per trovare la password del certificato e le istruzioni per configurare diversi ambienti per usare il certificato. Tenere aperte entrambe le pagine **Welcome** (Benvenuto) e **ReadMe** (Leggimi) perché si useranno alcune delle istruzioni nei passaggi seguenti.
-
-> [!Note]
-> È disponibile un numero limitato di cluster di entità ogni ora. Se viene restituito un errore quando si prova a registrarsi a un cluster di entità, è possibile attendere e riprovare in seguito oppure seguire i passaggi descritti in [Creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) per creare un cluster nella propria sottoscrizione.
->
-> Il servizio Spring Boot è configurato per l'ascolto del traffico in ingresso sulla porta 8080. Assicurarsi che tale porta sia aperta nel cluster. Se si usa il cluster di entità, questa porta è aperta.
->
-
-Service Fabric fornisce numerosi strumenti che è possibile usare per gestire un cluster e le applicazioni:
-
-* Service Fabric Explorer, uno strumento basato su browser.
-* Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure.
-* Comandi di PowerShell.
-
-In questa guida introduttiva si usano l'interfaccia della riga di comando di Service Fabric e Service Fabric Explorer.
-
-Per usare l'interfaccia della riga di comando, è necessario creare un file PEM basato sul file PFX scaricato. Per convertire il file, usare il comando seguente. Per i cluster di entità, è possibile copiare un comando specifico nel file PFX dalle istruzioni della pagina **ReadMe** (Leggimi).
-
-    ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-    ```
-
-Per usare Service Fabric Explorer, è necessario importare il file PFX del certificato scaricato dal sito Web del cluster di entità nell'archivio certificati (Windows o Mac) oppure nel browser stesso (Ubuntu). È necessaria la password della chiave privata PFX, che è possibile ottenere dalla pagina **ReadMe** (Leggimi).
-
-Usare il metodo preferito per importare il certificato nel sistema. Ad esempio: 
-
-* In Windows: Fare doppio clic sul file PFX e seguire i prompt per installare il certificato nell'archivio personale, `Certificates - Current User\Personal\Certificates`. In alternativa, è possibile usare il comando di PowerShell nelle istruzioni di **ReadMe** (Leggimi).
-* Su Mac: Fare doppio clic sul file PFX e seguire i prompt per installare il certificato nel keychain.
-* In Ubuntu: Mozilla Firefox è il browser predefinito in Ubuntu 16.04. Per importare il certificato in Firefox, fare clic sul pulsante di menu nell'angolo in alto a destra del browser, quindi fare clic su **Opzioni**. Nella pagina **Preferenze** usare la casella di ricerca per cercare "certificati". Fare clic su **Mostra certificati**, selezionare la scheda **Certificati personali**, fare clic su **Importa** e seguire i prompt per importare il certificato.
-
-   ![Installare il certificato in Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png)
-
-### <a name="add-certificate-information-to-your-application"></a>Aggiungere le informazioni del certificato all'applicazione
-
-L'identificazione personale del certificato deve essere aggiunta all'applicazione perché usa i modelli di programmazione di Service Fabric.
-
-1. L'identificazione personale del certificato sarà necessaria nel file `Voting/VotingApplication/ApplicationManifest.xml` durante l'esecuzione in un cluster sicuro. Eseguire il comando seguente per estrarre l'identificazione personale del certificato.
-
-    ```bash
-    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
-    ```
-
-2. Nel file `Voting/VotingApplication/ApplicationManifest.xml` aggiungere il frammento di codice seguente sotto il tag **ApplicationManifest**. Il valore **X509FindValue** deve essere l'identificazione personale dal passaggio precedente, senza punto e virgola.
-
-    ```xml
-    <Certificates>
-        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
-    </Certificates>
-    ```
-
-### <a name="deploy-the-application-using-eclipse"></a>Distribuire l'applicazione tramite Eclipse
-
-Ora che l'applicazione e il cluster sono pronti, è possibile procedere alla distribuzione in un cluster direttamente da Eclipse.
-
-1. Aprire il file **Cloud.json** nella directory **PublishProfiles** e compilare i campi `ConnectionIPOrURL` e `ConnectionPort` in modo appropriato. Di seguito è illustrato un esempio:
-
-    ```bash
-    {
-         "ClusterConnectionParameters":
-         {
-            "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
-            "ConnectionPort": "19080",
-            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
-            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
-         }
-    }
-    ```
-
-2. Fare clic con il pulsante destro del mouse sul progetto e selezionare **Publish Application** (Pubblica applicazione) nell'elenco a discesa **Service Fabric**. Scegliere **PublishProfiles/Cloud.json** come profilo target e fare clic su Publish (Pubblica).
-
-    ![Finestra di dialogo Publish (Pubblica)](./media/service-fabric-quickstart-java/cloudjson.png)
-
-3. Aprire il Web browser e accedere all'applicazione tramite **http://\<ConnectionIPOrURL>:8080**.
-
-    ![Cloud front-end dell'applicazione](./media/service-fabric-quickstart-java/runningcloud.png)
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Ridimensionare applicazioni e servizi in un cluster
 
 I servizi possono essere facilmente ridimensionati in un cluster per supportare le modifiche del carico sui servizi. È possibile ridimensionare un servizio modificando il numero di istanze in esecuzione nel cluster. Sono disponibili diversi sistemi per garantire il ridimensionamento dei servizi. È ad esempio possibile usare gli script o i comandi dell'interfaccia della riga di comando di Service Fabric (sfctl). I passaggi seguenti usano Service Fabric Explorer.
 
-Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser passando alla porta di gestione HTTP (19080) del cluster, ad esempio `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser passando alla porta di gestione HTTP (19080) del cluster, ad esempio `http://localhost:19080`.
 
 Per ridimensionare il servizio front-end Web, seguire questa procedura:
 
-1. Aprire Service Fabric Explorer nel cluster, ad esempio `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Aprire Service Fabric Explorer nel cluster, ad esempio `https://localhost:19080`.
 2. Fare clic sui puntini di sospensione accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e scegliere **Scale Service** (Ridimensiona servizio).
 
     ![Ridimensionamento dei servizi in Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -196,7 +111,6 @@ In questa guida introduttiva si è appreso come:
 
 * Usare Eclipse come strumento per le applicazioni Java di Service Fabric
 * Distribuire le applicazioni Java nel cluster locale
-* Distribuire le applicazioni Java in un cluster in Azure
 * Scalare orizzontalmente l'applicazione in più nodi
 
 Per altre informazioni sull'uso di app Java in Service Fabric, continuare con l'esercitazione sulle app Java.

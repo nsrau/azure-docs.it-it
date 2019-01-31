@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 805a917cbb4d867ee866ec99c8e90ea883527856
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245359"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100955"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Guida introduttiva: Rimuovere un'applicazione da Azure Active Directory
 

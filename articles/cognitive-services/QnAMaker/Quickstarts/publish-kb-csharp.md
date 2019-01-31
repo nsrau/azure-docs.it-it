@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/18/2018
 ms.author: diberry
-ms.openlocfilehash: 678b5d340fc81ad917e42e9b8e80051cc511da87
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d8ca655eb3c1c06871b421acb840948aaee25dcd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162614"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214422"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Avvio rapido: Pubblicare una knowledge base in QnA Maker con C#
 
@@ -33,7 +33,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 
     ![ID della knowledge base di QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se non si ha ancora una knowledge base, è possibile crearne una di esempio da usare per questa guida di avvio rapido: [Creare una nuova knowledge base](create-new-kb-csharp.md).
+    Se non si ha ancora una knowledge base, è possibile crearne una di esempio da usare per questa guida introduttiva: [Creare una nuova knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
 > I file di soluzione completi sono disponibili nel [repository GitHub **Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).

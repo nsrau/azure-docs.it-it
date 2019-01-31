@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 30927f4a8213f3ca8b94a2c799e6204be003e2a7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755122"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213209"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni. È consigliabile includere l'esaminazione delle espressioni endpoint come parte normale della manutenzione programmata di LUIS. 
@@ -29,7 +29,7 @@ Questo processo di revisione è un altro approccio usato da LUIS per conoscere i
 
 La revisione delle espressioni endpoint consente di verificare o correggere la finalità prevista dell'espressione. Consente anche di etichettare entità personalizzate non previste o previste in modo errato. 
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

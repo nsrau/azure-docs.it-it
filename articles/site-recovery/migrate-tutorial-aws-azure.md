@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042054"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226384"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -169,7 +169,7 @@ Quando si è terminato con tutte le cinque sezioni in **Preparare l'infrastruttu
 
 Abilitare la replica per ogni macchina virtuale di cui si vuole eseguire la migrazione. Quando viene abilitata la replica, Site Recovery installa automaticamente il servizio Mobility.
 
-1. Accedere al [portale di Azure](htts://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella pagina dell'insieme di credenziali in **Riquadro attività iniziale** selezionare **Site Recovery**.
 2. In **Per macchine locali e macchine virtuali di Azure** selezionare **Passaggio 1: Eseguire la replica dell'applicazione**. Completare le pagine della procedura guidata con le informazioni seguenti. Selezionare **OK** in ogni pagina al termine:
     - 1: Configurare l'origine

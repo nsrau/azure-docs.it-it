@@ -1,29 +1,29 @@
 ---
-title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python | Microsoft Docs"
+title: "Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con Python
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 9534a60e66f194bf653e1bfd28d6d6f2a96ba90a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 30f7fd2a2169e798997b424ea16715940f810ccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558720"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155188"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing. Benché l'applicazione sia scritta in Python, l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'istanza di Ricerca personalizzata Bing. Vedere [Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
+- Un'istanza di Ricerca personalizzata Bing. Vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
 - [Python](https://www.python.org/) 2.x o 3.x
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]

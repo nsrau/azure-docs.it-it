@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48d23f9d6d79e89e24c808a59b73854952c93240
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425442"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081212"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL.  
@@ -144,7 +144,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 5. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. Una console di PowerShell viene aperta al di fuori dell'istanza di Visual Studio. Immettere la password di amministratore di SQL Server nella console di PowerShell quando richiesto. **La console di PowerShell potrebbe essere nascosta dietro altri elementi o ridotta a icona nella barra delle applicazioni.**  Cercare la console e selezionarla per immettere la password.
    
    > [!NOTE]
-   > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Per distribuire correttamente i gruppi di risorse, è necessario il cmdlet di Azure PowerShell. Se richiesto, occorre installarli. Per altre informazioni, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+   > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Per distribuire correttamente i gruppi di risorse, è necessario il cmdlet di Azure PowerShell. Se richiesto, occorre installarli. Per altre informazioni, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
    > 
    > 
 6. La distribuzione può richiedere alcuni minuti. Nelle finestre **Output** viene visualizzato lo stato della distribuzione. Al termine della distribuzione, l'ultimo messaggio indica una distribuzione riuscita con un testo simile al seguente:

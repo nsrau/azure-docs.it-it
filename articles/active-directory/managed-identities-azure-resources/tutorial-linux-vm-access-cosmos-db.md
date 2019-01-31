@@ -3,23 +3,23 @@ title: Usare un'identità gestita assegnata dal sistema per una macchina virtual
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: daveba
-ms.openlocfilehash: 08f0760a4d21870c9266110295eb5f9c80a064c1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: a79a776e088461b702a3fe5217eceb6c7234919c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435143"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186639"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Cosmos DB 
 

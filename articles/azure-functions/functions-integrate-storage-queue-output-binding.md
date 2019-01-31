@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995527"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900358"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
@@ -55,7 +55,7 @@ In questa sezione si usa l'interfaccia utente del portale per aggiungere un'asso
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Impostazione      |  Valore consigliato   | Descrizione                              |
+    | Impostazione      |  Valore consigliato   | DESCRIZIONE                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome del parametro del messaggio** | outputQueueItem | Nome del parametro di binding di output. | 
     | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
@@ -162,6 +162,6 @@ Se Storage Explorer è già stato installato e connesso all'account di archiviaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata aggiunta un'associazione di output a una funzione esistente. Per altre informazioni sul binding all'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md). 
+In questa guida introduttiva è stata aggiunta un'associazione di output a una funzione esistente. Per altre informazioni sul binding all'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: a7ae48d65a5cceb11339c4f304a3149741c2a7e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844994"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172766"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 

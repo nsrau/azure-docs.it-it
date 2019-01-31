@@ -7,23 +7,23 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: fdfb917a925352d0be58f8fc66c379291dad3195
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9c6a8df29fd360773880594962fb8048602746e5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815124"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177237"
 ---
 # <a name="my-apps-portal-overview"></a>Panoramica del portale delle app personali
 
+Se si ha un account aziendale o dell'istituto di istruzione e l'amministratore ha fornito l'accesso, è possibile usare il portale delle app personali per visualizzare e avviare app basate sul cloud.
+
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Se si ha un account aziendale o dell'istituto di istruzione e l'amministratore ha fornito l'accesso, è possibile usare il portale delle app personali per visualizzare e avviare app basate sul cloud.
 
 |Articolo |DESCRIZIONE |
 |------|------------|

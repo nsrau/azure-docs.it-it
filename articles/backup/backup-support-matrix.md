@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360654"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883705"
 ---
 # <a name="azure-backup-support-matrix"></a>Matrice di supporto di Backup di Azure
 
@@ -30,17 +30,17 @@ Numero di insiemi di credenziali | Fino a 500 insiemi di credenziali di Servizi 
 Computer in un insieme di credenziali | Fino a 1000 VM di Azure in un singolo insieme di credenziali.<br/><br/> È possibile registrare in un singolo insieme di credenziali fino a 50 computer locali che eseguono l'agente di Backup di Azure (agente di Servizi di ripristino di Microsoft Azure).
 Origine dati nella risorsa di archiviazione dell'insieme di credenziali | Massimo 54400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
 Backup in un insieme di credenziali | Macchine virtuali di Azure: una volta al giorno; computer protetti da DPM/MABS: due volte al giorno; computer sottoposti a backup direttamente tramite l'agente MARS: tre volte al giorno.  
-Spostamento degli insiemi di credenziali | È possibile spostare gli insiemi di credenziali di Servizi di ripristino tra gruppi di risorse e sottoscrizioni. [Altre informazioni](backup-azure-move-recovery-services-vault.md)
+Spostamento degli insiemi di credenziali | Per spostare un insieme di credenziali di Servizi di ripristino, è necessario registrarsi in un'anteprima privata. Per provare, scrivere a AskAzureBackupTeam@microsoft.com.
 Spostamento dei dati tra insiemi di credenziali | Lo spostamento dei dati sottoposti a backup tra insiemi di credenziali non è supportato.
 Tipo di replica di archiviazione | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica/locale) per un insieme di credenziali prima dell'archiviazione dei backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 
 
 
-## <a name="on-premises-backup-support"></a>Supporto del backup in locale 
+## <a name="on-premises-backup-support"></a>Supporto del backup in locale
 
 Se si vuole eseguire il backup dei computer locali, sono supportati gli scenari seguenti.
 
-**Computer** | **Posizione** | **Backup** | **Funzionalità**
+**Computer** | **Posizione** | **Eseguire il backup** | **Funzionalità**
 --- | --- | --- | ---
 **Sistemi Windows fisici/virtuali (nessun server di backup)** | File, cartelle, stato del sistema | Backup eseguito in un insieme di credenziali di Servizi di ripristino | Backup eseguito tre volte al giorno.<br/><br/> Backup senza riconoscimento delle app.<br/><br/> Ripristino di file, cartelle, volumi.
 **Sistemi Linux fisici/virtuali (nessun server di backup)** | Backup non supportato.
@@ -62,7 +62,7 @@ Dimensioni dei dischi di dati delle VM di Azure | Ogni singolo disco può avere 
 
 Se si vuole eseguire il backup delle VM di Azure, sono supportati gli scenari seguenti.
 
-**Computer** | **Posizione** | **Backup** | **Funzionalità**
+**Computer** | **Posizione** | **Eseguire il backup** | **Funzionalità**
 --- | --- | --- | ---
 **VM di Azure (nessun server di backup)** | File, cartelle, stato del sistema | Backup eseguito nell'insieme di credenziali. | Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> VM/disco di ripristino.<br/><br/> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
 **VM di Azure con DPM** | File, cartelle, volumi, stato del sistema, dati delle app. | Backup eseguito in DPM in esecuzione in Azure (in un disco collegato in locale al server DPM). Nastro non supportato.<br/><br/> DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/>. Oracle non supportato.
@@ -77,8 +77,8 @@ Se si vuole eseguire il backup delle VM di Azure, sono supportati gli scenari se
 Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari seguenti.
 
 **Backup** | **Linux (approvato per Azure)**
---- | --- 
-**Computer Linux locale (senza DPM o MABS)**. | No. L'agente MARS può essere installato solo in computer Windows. 
+--- | ---
+**Computer Linux locale (senza DPM o MABS)**. |  No. L'agente MARS può essere installato solo in computer Windows.
 **VM di Azure (senza DPM o MABS)** | Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
 **Computer locale/VM di Azure con DPM** | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure
 **Computer locale/VM di Azure con MABS** | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le VM di Azure.
@@ -110,7 +110,7 @@ Sicurezza dei dati:
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Yes][green] | ![Yes][green]
-Macchine virtuali di Azure | ![Yes][green] | ![Yes][green] 
+Macchine virtuali di Azure | ![Yes][green] | ![Yes][green]
 Computer locali/VM di Azure con DPM | ![Yes][green] | ![Yes][green]
 Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
@@ -121,7 +121,7 @@ Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 Backup supporta la compressione del traffico di backup, come riepilogato nella tabella seguente. Si noti che:
 
 - Per le VM di Azure, l'estensione macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, quindi non è necessario comprimere il traffico.
-- Se si usa DPM o MABS, è possibile comprimere i dati prima di eseguirne il backup in questi server per risparmiare larghezza di banda. 
+- Se si usa DPM o MABS, è possibile comprimere i dati prima di eseguirne il backup in questi server per risparmiare larghezza di banda.
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Compressione (HTTPS) in insieme di credenziali**
 --- | --- | ---
@@ -134,12 +134,12 @@ Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 
-**Impostazione** | **Limiti** 
---- | --- 
+**Impostazione** | **Limiti**
+--- | ---
 Numero massimo di punti di ripristino per ogni istanza protetta (computer/carico di lavoro) | 9999
 Tempo massimo prima della scadenza di un punto di ripristino | Nessun limite
 Frequenza massima di backup in DPM/MABS | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro.
-Frequenza massima di backup in insieme di credenziali | Computer Windows locali/VM di Azure che eseguono MARS: tre volte al giorno<br/><br/> DPM/MABS: due volte al giorno<br/><br/> Backup di VM di Azure: una volta al giorno
+Frequenza massima di backup in insieme di credenziali | Computer Windows locali/VM di Azure che eseguono MARS: tre volte al giorno<br/><br/> DPM/MABS: due volte al giorno<br/><br/> Backup di VM di Azure: Una volta al giorno
 Conservazione dei punti di ripristino | Giornaliera, settimanale, mensile, annuale.
 Periodo massimo di conservazione | Dipende dalla frequenza dei backup.
 Punti di ripristino su disco DPM/MABS | 64 per i file server, 448 per i server applicazioni.<br/><br/> I punti di ripristino su nastro sono illimitati per DPM locale.
@@ -147,7 +147,7 @@ Punti di ripristino su disco DPM/MABS | 64 per i file server, 448 per i server a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire un backup delle VM di Azure](backup-azure-arm-vms-prepare.md)
-- [Eseguire il backup dei computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza server di backup.
+- [Eseguire il backup di computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza un server di backup.
 - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in MABS.
 - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in DPM.
 

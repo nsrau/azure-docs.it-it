@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine locale - REST, cURL"
+title: "Avvio rapido: Analizzare un'immagine locale - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine locale usando l'API Visione artificiale con cURL.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c5e3de438593a6fb960edaffd14fa18ebe03f548
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 91e127c1ad41c459d0f1a1c2070cb193d59dd80b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579389"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209962"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e cURL in Visione artificiale
 

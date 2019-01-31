@@ -3,7 +3,7 @@ title: Esercitazione - Bilanciare il carico delle macchine virtuali Linux in Azu
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per creare un bilanciamento del carico per un'applicazione a disponibilità elevata e proteggere l'applicazione fra tre macchine virtuali Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162294"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Esercitazione: Bilanciare il carico per le macchine virtuali di Linux in Azure per creare un'applicazione a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
@@ -148,7 +148,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Le schede di interfaccia di rete virtuale vengono create con [az network nic create](/cli/azure/network/nic#az_network_nic_create). L'esempio seguente crea tre schede di interfaccia di rete virtuali, Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
+Le schede di interfaccia di rete virtuale vengono create con [az network nic create](/cli/azure/network/nic). L'esempio seguente crea tre schede di interfaccia di rete virtuali, Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
 
 ```bash
 for i in `seq 1 3`; do

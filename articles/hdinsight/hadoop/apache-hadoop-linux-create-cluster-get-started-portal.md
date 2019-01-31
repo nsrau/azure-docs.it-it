@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b19866ad560dcb056f1cfad8fbc1918930bd143d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: dbae234739cd58278b1dc56c956a5fb058394681
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811546"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913411"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Guida introduttiva: Iniziare a usare Apache Hadoop e Apache Hive in Azure HDInsight con il portale di Azure
 
@@ -172,6 +172,7 @@ Se si è pronti per iniziare a usare i dati, ma sono necessarie altre informazio
 * Per informazioni sul modo in cui HDInsight usa Archiviazione di Azure, vedere [Usare Archiviazione di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * Per informazioni su come creare un cluster HDInsight con Data Lake Storage, vedere [Guida introduttiva: impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Per informazioni su come caricare i dati in HDInsight, vedere [Caricare dati in HDInsight](../hdinsight-upload-data.md).
+* [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 Per altre informazioni sull'analisi dei dati con HDInsight, vedere gli articoli seguenti:
 

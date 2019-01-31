@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 781e64c57c53412e999de98b937d568097b2825e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254038"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204117"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -242,7 +242,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 In questa esercitazione è stato illustrato come usare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori in seguito all'aggiornamento dell'immagine di base. Passare ora alle informazioni sull'autenticazione per il registro contenitori.
 
 > [!div class="nextstepaction"]
-> [Autenticazione in Registro contenitori di Azure](container-registry-authentication.md)
+> [Autenticazione in Registro Azure Container](container-registry-authentication.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
@@ -256,10 +256,10 @@ In questa esercitazione è stato illustrato come usare un'attività per attivare
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-create]: /cli/azure/acr
 [az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr#az-acr-task
 
 <!-- IMAGES -->

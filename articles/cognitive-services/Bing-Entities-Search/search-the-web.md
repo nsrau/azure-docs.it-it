@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813601"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181827"
 ---
 # <a name="what-is-bing-entity-search"></a>Informazioni su Ricerca entità Bing
 
@@ -48,7 +48,7 @@ La risposta contiene un oggetto [SearchResponse](https://docs.microsoft.com/rest
 > [!NOTE]
 > Le risposte Entità supportano più mercati, ma la risposta Località supporta solo sedi aziendali negli Stati Uniti. 
 
-Il campo `entities` è un oggetto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) che contiene un elenco di oggetti [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (vedere il campo `value`). L'elenco può contenere una singola entità dominante, più entità di disambiguazione o entrambi. 
+Il campo `entities` è un oggetto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) che contiene un elenco di oggetti [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (vedere il campo `value`). L'elenco può contenere una singola entità dominante, più entità di disambiguazione o entrambi. 
 
 Un'entità dominante è un'entità ritenuta da Bing l'unica in grado di soddisfare la richiesta (nessuna ambiguità rispetto all'entità che soddisfa la richiesta). Se più entità possono soddisfare la richiesta, l'elenco contiene più di un'entità di disambiguazione. Se ad esempio la richiesta usa il titolo generico di una serie di film, l'elenco conterrà probabilmente entità di disambiguazione. Se invece la richiesta specifica un titolo specifico della serie, l'elenco conterrà probabilmente una singola entità dominante.
 

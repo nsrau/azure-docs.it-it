@@ -3,7 +3,7 @@ title: Esempi dell'interfaccia della riga di comando di Azure - Installare app |
 description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c1b0d4ea794e5b3ed4f899addef18da2465562a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468455"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882192"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Installare applicazioni in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu e usa l'estensione Script personalizzato per installare un'applicazione Web di base. Dopo aver eseguito lo script, è possibile accedere all'app Web tramite un Web browser.

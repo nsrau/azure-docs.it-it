@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bca5ff84dee08d7681939b55ccb344f9507ccb38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258662"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178019"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e C#
 

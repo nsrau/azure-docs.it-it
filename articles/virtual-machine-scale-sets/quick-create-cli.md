@@ -3,7 +3,7 @@ title: Avvio rapido - Creare un set di scalabilità di macchine virtuali con l'i
 description: Informazioni su come creare rapidamente un set di scalabilità di macchine virtuali con Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: zarhoads
-ms.openlocfilehash: 57e7bb04bcf8831b8807e6abdd8959bc2a08de68
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: cynthn
+ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848785"
+ms.locfileid: "54884895"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva viene creato un set di scalabilità di macchine virtuali e viene distribuita un'applicazione di esempio con l'interfaccia della riga di comando di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

@@ -6,17 +6,17 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 8f45e0921748092af4702e03d557e52153a78ec0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: adfdfd56c4ff678f3a0b87cd75dad50b5c5f0c01
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258663"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204032"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Node.js
 

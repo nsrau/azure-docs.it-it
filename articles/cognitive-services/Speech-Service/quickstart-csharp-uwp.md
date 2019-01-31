@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Riconoscere i contenuti vocali, C# (UWP) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Riconoscere i contenuti vocali, C# (UWP) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK di Servizi cognitivi. Trascrizione riconoscimento vocale in tempo reale dal microfono del dispositivo. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2d51bd910b86c81304fb228d35079fca166b1eb7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b6b7ec6e6601c37ce66147ba635693205f2a05b5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719882"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224357"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in un'app UWP con Speech SDK
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -60,9 +60,9 @@ Questa guida introduttiva richiede:
 
     ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione evidenziata](media/sdk/qs-csharp-uwp-08-build.png "Compilazione completata")
 
-1. Avviare l'applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-uwp-09-start-debugging.png "Avviare l'applicazione per eseguire il debug")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-uwp-09-start-debugging.png "Avviare l’applicazione per eseguire il debug")
 
 1. Viene visualizzata una finestra. Selezionare **Attiva microfono** e confermare la richiesta di autorizzazione che viene visualizzata.
 

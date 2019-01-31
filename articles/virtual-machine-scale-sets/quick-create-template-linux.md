@@ -3,7 +3,7 @@ title: Guida introduttiva - Creare un set di scalabilità di macchine virtuali L
 description: Informazioni su come creare rapidamente un set di scalabilità di macchine virtuali Linux con un modello di Azure Resource Manager che distribuisce un'app di esempio e configura le regole di scalabilità automatica
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: zarhoads
-ms.openlocfilehash: 315281124a1fa9af575d1423f66595d297961848
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.author: cynthn
+ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037328"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884453"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali Linux con un modello di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali e si distribuisce un'applicazione di esempio con un modello di Azure Resource Manager.

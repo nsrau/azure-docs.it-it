@@ -6,18 +6,18 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830754"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184513"
 ---
-# <a name="quickstart-making-your-first-autosuggest-query"></a>Guida introduttiva: Creazione della prima query di Suggerimenti automatici
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Avvio rapido: Creazione della prima query di Suggerimenti automatici
 
 Prima di poter effettuare la prima chiamata, è necessario ottenere una chiave di sottoscrizione di Servizi cognitivi. Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

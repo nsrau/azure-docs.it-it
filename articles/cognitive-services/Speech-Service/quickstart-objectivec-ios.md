@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Objective-C su iOS con l'SDK del servizio Voce
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 044d703af50a951e1c406014f3e00eb49c1632a2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718113"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209622"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Objective-C su iOS con l'SDK dei servizi di riconoscimento vocale
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Objective-C su iOS con l'SDK dei servizi di riconoscimento vocale
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -45,7 +45,7 @@ Speech SDK di Servizi cognitivi per Mac e iOS viene attualmente distribuito come
 Avviare Xcode e avviare un nuovo progetto facendo clic su **File** > **Nuovo** > **Progetto**.
 Nella finestra di dialogo di selezione del modello, scegliere il modello "iOS Single View App".
 
-Nelle finestre di dialogo che seguono effettuare le selezioni seguenti:
+Nelle finestre di dialogo che seguono, effettuare le selezioni seguenti:
 
 1. Finestra di dialogo Opzioni di progetto
     1. Immettere un nome per l'app di Guida introduttiva, ad esempio `helloworld`.

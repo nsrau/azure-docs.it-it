@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Servizio visione artificiale personalizzato per C#"
+title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Servizio visione artificiale personalizzato per C#"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando .NET SDK con C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: aaffd5e47c8465d44c2dbcdde3f40cf6e6995e55
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 01c4da98bbc89a49007aa7064907abd9ed01cc0d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079086"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227540"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con .NET SDK Servizio visione artificiale personalizzato
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Avvio rapido: Creare un progetto di classificazione immagini con .NET SDK Servizio visione artificiale personalizzato
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con C# per compilare un modello di classificazione delle immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione .NET personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 

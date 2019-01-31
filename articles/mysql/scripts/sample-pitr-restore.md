@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 74f187cff5abd54780d064e9e74c33901aa9fb82
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6ad90c2d13ebeaa077dc6264f84a4ebd8a340a8c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410745"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159081"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Ripristinare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure consente di ripristinare un database singolo di Azure per il server MySQL a un momento precedente.
@@ -35,8 +35,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | **Comando** | **Note** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Crea un server MySQL che ospita i database. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az mysql server create](/cli/azure/mysql/server) | Crea un server MySQL che ospita i database. |
 | [az mysql server restore](/cli/azure/mysql/server#restore) | Ripristina un server da un backup. |
 | [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

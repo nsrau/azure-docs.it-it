@@ -3,7 +3,7 @@ title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle richieste in termini di CPU
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471306"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170709"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
 
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
 
@@ -41,13 +41,13 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
-Creare un gruppo di risorse con [az group create](/cli/azure/group#create), come illustrato di seguito:
+Creare un gruppo di risorse con [az group create](/cli/azure/group), come illustrato di seguito:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#create). L'esempio seguente crea un set di scalabilità con numero di istanze pari a *2* e genera le chiavi SSH, se non sono presenti:
+Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss). L'esempio seguente crea un set di scalabilità con numero di istanze pari a *2* e genera le chiavi SSH, se non sono presenti:
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando l'output visualizzato da **stress** è simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
+Quando **stress** visualizza un output simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
 
 Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Anche in questo caso, quando l'output visualizzato da **stress** è simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
+Anche in questo caso, quando **stress** visualizza un output simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
 
 Chiudere la connessione alla seconda istanza di VM. **stress** continuerà a essere eseguito nell'istanza di VM.
 

@@ -1,24 +1,24 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, PHP"
+title: "Avvio rapido: Generare un'anteprima - REST, PHP"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà generata l'anteprima di un'immagine usando l'API Visione artificiale con PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a9a3e2cb1dec8d47c468313f057e3845ea81900c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579346"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222372"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Guida introduttiva: Generare un'anteprima con l'API REST e PHP in Visione artificiale
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e PHP in Visione artificiale
 
 In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale ricorre al ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 

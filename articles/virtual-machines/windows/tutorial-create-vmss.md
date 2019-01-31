@@ -3,7 +3,7 @@ title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali per Wi
 description: In questa esercitazione si apprenderà come usare Azure PowerShell per creare e distribuire un'applicazione a disponibilità elevata nelle macchine virtuali Windows usando un set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 11/07/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4d7d1ad57feab0c73b0f2e77b815bad746040b00
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f4641125d15f159c6f50d2889e13b06ba954401b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426591"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886815"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di macchine virtuali nel set di scalabilità, nonché definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure e viene spiegato come:

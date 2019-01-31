@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a16cbdb441436e95ad1cdbe4880855b5eb05281e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 161c1ec72b14f4cc1b2517a0dc6282f0548575b3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854879"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182303"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Avvio rapido: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C 
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C 
 
 Azure Active Directory (Azure AD) B2C consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social networking e account aziendali usando protocolli standard aperti. In questa guida introduttiva si usa un'applicazione desktop WPF (Windows Presentation Foundation) per eseguire l'accesso con un provider di identità basato su social network e chiamare un'API Web protetta da Azure AD B2C.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e67cd535235593cc466e7e34506c44f9824e2c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 73492e98d75ddcfe4ef6e40f8a43dcb983320ee1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848496"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192690"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Creare una macchina virtuale completamente configurata
 
@@ -51,7 +51,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Consente di creare una rete virtuale e una subnet di Azure. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Consente di creare un indirizzo IP pubblico con un indirizzo IP statico e un nome DNS associato. |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Consente di creare un indirizzo IP pubblico con un indirizzo IP statico e un nome DNS associato. |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Consente di creare un gruppo di sicurezza di rete, ovvero un confine di sicurezza tra Internet e la macchina virtuale. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Consente di creare una scheda di rete virtuale e la collega alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. |

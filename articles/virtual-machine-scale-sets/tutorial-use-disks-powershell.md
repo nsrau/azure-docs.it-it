@@ -3,7 +3,7 @@ title: Esercitazione - Creare e usare dischi per set di scalabilità con Azure P
 description: Informazioni su come usare Azure PowerShell per creare e usare dischi gestiti con set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429464"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881682"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con Azure PowerShell
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -48,7 +48,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 **Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host di Azure dell'istanza di macchina virtuale. Si tratta di dischi ad alte prestazioni e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Se tuttavia l'istanza di macchina virtuale viene spostata in un nuovo host, tutti i dati archiviati in un disco temporaneo verranno rimossi. Le dimensioni del disco temporaneo sono determinate dalle dimensioni dell'istanza di macchina virtuale. I dischi temporanei vengono etichettati come */dev/sdb* e hanno un punto di montaggio */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
-| type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
+| Type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
 |----|----|----|
 | [Utilizzo generico](../virtual-machines/windows/sizes-general.md) | Serie A, B e D | 1600 |
 | [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md) | Serie F | 576 |
@@ -62,7 +62,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 È possibile aggiungere altri dischi dati se è necessario installare applicazioni e archiviare dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensioni dell'istanza di macchina virtuale determinano il numero di dischi dati che possono essere collegati. Per ogni vCPU della macchina virtuale, è possibile collegare due dischi dati.
 
 ### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
-| type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
+| Type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
 |----|----|----|
 | [Utilizzo generico](../virtual-machines/windows/sizes-general.md) | Serie A, B e D | 64 |
 | [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md) | Serie F | 64 |

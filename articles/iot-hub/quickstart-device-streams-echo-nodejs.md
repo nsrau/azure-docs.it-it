@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: a90357e0075856049616a026fee7a49606ea4d90
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830513"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219006"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire l'applicazione sul lato servizio in questa guida introduttiva è necessario Node.js versione 4.x.x o versione successiva nel computer di sviluppo.
 
-È possibile scaricare Node.js per più piattaforme da [Nodejs.org](https://Node.js.org).
+È possibile scaricare Node.js per più piattaforme da [Nodejs.org](https://nodejs.org).
 
 È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
 
@@ -48,7 +48,7 @@ Per eseguire l'applicazione sul lato servizio in questa guida introduttiva è ne
 node --version
 ```
 
-Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip ed estrarre l'archivio ZIP.
+Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip ed estrarre l'archivio ZIP.
 
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT

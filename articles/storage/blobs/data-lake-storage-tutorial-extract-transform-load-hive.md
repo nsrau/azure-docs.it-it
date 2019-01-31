@@ -3,17 +3,17 @@ title: 'Esercitazione: Eseguire operazioni di estrazione, trasformazione e caric
 description: In questa esercitazione si apprenderà come estrarre dati da un set di dati non elaborati in formato CSV, trasformarli usando Apache Hive in Azure HDInsight e quindi caricare i dati trasformati nel database SQL di Azure tramite Sqoop.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jamesbak
-ms.openlocfilehash: 65d2d69c788a54371664d1a443a79bd121332470
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70ad37aa0ccbab762aa6e5cfb05d385e8b2a86ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105152"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244012"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight
 
@@ -32,11 +32,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 * **Un cluster Hadoop basato su Linux in HDInsight**. Per creare un nuovo cluster HDInsight basato su Linux, vedere [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](./data-lake-storage-quickstart-create-connect-hdi-cluster.md).
 
-* **Database SQL di Azure**. Come archivio dati di destinazione usare un database SQL di Azure. Se non si ha un database SQL, vedere [Creare un database SQL di Azure nel portale di Azure](../../sql-database/sql-database-get-started.md).
+* **Database SQL di Azure**: Come archivio dati di destinazione usare un database SQL di Azure. Se non si ha un database SQL, vedere [Creare un database SQL di Azure nel portale di Azure](../../sql-database/sql-database-get-started.md).
 
-* **Interfaccia della riga di comando di Azure**. Se l'interfaccia della riga di comando di Azure non è installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Interfaccia della riga di comando di Azure**: Se l'interfaccia della riga di comando di Azure non è installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client SSH**: Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]
 > Per i passaggi descritti in questo articolo, è necessario un cluster HDInsight basato su Linux. Linux è l'unico sistema operativo usato in Azure HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -1,21 +1,21 @@
 ---
-title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
+title: 'Guida introduttiva: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
 description: Usare questo articolo per creare un'istanza di Bing personalizzata che può eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: ba1444b3115ffd2c73e1773aa926d11fed81f830
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556119"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177883"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
 
@@ -52,4 +52,4 @@ Per creare un'istanza di Ricerca personalizzata Bing:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing](./call-endpoint-csharp.md)
+> [Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing](./call-endpoint-csharp.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818507"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Esercitazione: Integrazione di Azure Active Directory con Signagelive
 
@@ -104,7 +104,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Signagelive, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Signagelive](common/sp-signonurl.png)
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Signagelive](mailto:support@signagelive.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189275"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219227"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Esercitazione: Bot LUIS in C# con Bot Framework 4.x e il bot app Web di Azure
 Usando C#, è possibile creare un chat bot integrato con Language Understanding (LUIS). Questo bot Usa l'app HomeAutomation per implementare una soluzione di bot. Il bot viene compilato con il [bot per app Web](https://docs.microsoft.com/azure/bot-service/) di Azure e la [versione Bot Framework](https://github.com/Microsoft/botbuilder-js) 4.

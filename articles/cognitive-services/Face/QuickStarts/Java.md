@@ -6,18 +6,18 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 200c3a227ef3b13e995b049b67c9da71938dec83
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212873"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214073"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Java
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Java per rilevare i visi umani in un'immagine.
 

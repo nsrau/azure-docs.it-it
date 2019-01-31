@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (.NET Core - Windows)'
+title: 'Avvio rapido: Traduzione vocale, C# (.NET Core - Windows)'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 62d94113872585f1eb3444e57017046a7a684834
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1f2aea353bdff41ef340e1f68dd684a994d70d7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729607"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227761"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Core
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Traduzione vocale con Speech SDK per .NET Core
 
 In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
 
@@ -145,9 +145,9 @@ Questa guida introduttiva richiede:
 
     ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione evidenziata](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Compilazione completata")
 
-1. Avviare l'applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l'applicazione per eseguire il debug")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l’applicazione per eseguire il debug")
 
 1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale, tradotto e trascritto in formato testo, che appare nella stessa finestra.
 

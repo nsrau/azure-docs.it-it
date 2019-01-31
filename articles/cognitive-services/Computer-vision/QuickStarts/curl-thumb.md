@@ -1,22 +1,22 @@
 ---
-title: "Avvio rapido: Generare un'anteprima - REST, cURL"
+title: "Guida introduttiva: Generare un'anteprima - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si genererà l'anteprima di un'immagine usando l'API Visione artificiale con cURL.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9931737cde1b6c13f3edb9772d0080cd4431aa39
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f9468a06ca497ba4317edbaada26c878b8e2ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579754"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212346"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e cURL in Visione artificiale
 

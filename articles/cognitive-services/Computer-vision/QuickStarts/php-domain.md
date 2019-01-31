@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Contenuto di immagini specifico di dominio - REST, PHP'
+title: 'Guida introduttiva: Contenuto di immagini specifico di dominio - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identificano luoghi di interesse in un'immagine in base a un modello di dominio usando l'API Visione artificiale con PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 19aa1874a93c4a52f6fc5ff75848c1ca6815db1e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 86b2d7ae385fb7ad9342cf2067283ff8dc69762f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581342"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210966"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Avvio rapido: Riconoscere contenuto specifico di dominio usando l'API REST e PHP con Visione artificiale
 

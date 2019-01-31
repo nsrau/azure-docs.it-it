@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C# per .NET Core su Windows con Speech Service SDK
+description: Informazioni sul riconoscimento vocale in C# per .NET Core su Windows con l'SDK del servizio Voce
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a5a04fdede498d404a00d666e4042337b4dc675b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4ff005c3d3955c0df7090fa70f0e116bd216eb91
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727837"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220587"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
 
@@ -58,9 +58,9 @@ Questa guida introduttiva richiede:
 
     ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione evidenziata](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Compilazione completata")
 
-1. Avviare l'applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l'applicazione per eseguire il debug")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l’applicazione per eseguire il debug")
 
 1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella stessa finestra.
 
