@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare gli archivi dati per accedere alle risorse di archiviazione dei dati di accesso durante il training con il servizio Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187144"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252116"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Accedere ai dati durante il training dagli archivi dati
 Usare un archivio dati per interagire con i dati nei flussi di lavoro di Azure Machine Learning e accedervi.

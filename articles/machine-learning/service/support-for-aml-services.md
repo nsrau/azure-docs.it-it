@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Ottenere supporto e training e offrire feedback per il servizio Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: bfde26bd455d24a3f38f225de30496953d7b4ead
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0d730634bc5f12828fe26a213bebb291b79a6bad
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329906"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251912"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Ottenere supporto e training per il servizio di Azure Machine Learning
 

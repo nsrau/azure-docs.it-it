@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
-ms.author: cwatson
-ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: banders
+ms.openlocfilehash: 3a421e71cf93820716298fcfe4ccb1bcbe843bd1
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314041"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904030"
 ---
 # <a name="view-reservations-for-azure-in-the-azure-portal"></a>Visualizzare le prenotazioni per Azure nel portale di Azure
 

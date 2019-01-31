@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727716"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095771"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
 Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo stato in più nodi per mantenere questa disponibilità elevata.  Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
@@ -227,7 +227,7 @@ Dopo aver abilitato il backup incrementale, quest'ultimo può avere esito negati
   - La replica non ha mai eseguito un backup completo dopo essere diventata primaria.
   - Alcuni dei record di log sono stati troncati in seguito all'ultimo backup.
 
-Quando è abilitato il backup incrementale, `KvsActorStateProvider` non usa il buffer circolare per gestire i propri record di log e lo tronca periodicamente. Se in 45 minuti non viene eseguito alcun backup da parte dell'utente, il sistema tronca automaticamente i record di log. Questo intervallo può essere configurato specificando `logTrunctationIntervalInMinutes` nel costruttore `KvsActorStateProvider`, in maniera simile a quando si abilita il backup incrementale. I record di log potrebbero essere troncati anche se la replica primaria deve creare un'altra replica inviando tutti i propri dati.
+Quando è abilitato il backup incrementale, `KvsActorStateProvider` non usa il buffer circolare per gestire i propri record di log e lo tronca periodicamente. Se in 45 minuti non viene eseguito alcun backup da parte dell'utente, il sistema tronca automaticamente i record di log. Questo intervallo può essere configurato specificando `logTruncationIntervalInMinutes` nel costruttore `KvsActorStateProvider`, in maniera simile a quando si abilita il backup incrementale. I record di log potrebbero essere troncati anche se la replica primaria deve creare un'altra replica inviando tutti i propri dati.
 
 Quando si esegue il ripristino da una catena di backup, in maniera simile a Reliable Services, BackupFolderPath deve contenere sottodirectory con una di queste contenente il backup completo e le altre contenenti i backup incrementali. Se la convalida della catena di backup non riesce, l'API di ripristino genererà FabricException con un messaggio di errore appropriato. 
 

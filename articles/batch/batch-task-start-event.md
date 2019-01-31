@@ -2,7 +2,7 @@
 title: Evento di avvio attività di Azure Batch | Microsoft Docs
 description: Riferimento per l'evento di avvio dell'attività batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 0ad0f87df9db39088769579d538b919b42634c4b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311856"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474429"
 ---
 # <a name="task-start-event"></a>Evento di avvio attività
 
@@ -48,7 +48,7 @@ ms.locfileid: "30311856"
 }
 ```
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |jobId|string|ID del processo contenente l'attività.|
 |id|string|ID dell'attività.|
@@ -61,25 +61,25 @@ ms.locfileid: "30311856"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |poolId|string|ID del pool in cui viene eseguita l'attività.|
 |nodeId|string|ID del nodo in cui viene eseguita l'attività.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |numberOfInstances|int|Numero di nodi di calcolo richiesti dall'attività.|
 
 ###  <a name="constraints"></a> constraints
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|Numero massimo di tentativi consentiti per l'attività. Il servizio Batch ripete un'attività se il relativo codice di uscita è diverso da zero.<br /><br /> Si noti che questo valore controlla specificamente il numero di tentativi. Il servizio Batch eseguirà l'attività una volta e quindi ripeterà l'esecuzione fino al limite di tentativi specificato. Ad esempio, se il numero massimo di tentativi è 3, il servizio Batch eseguirà l'attività 4 volte, ovvero una iniziale e 3 ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è 0, il servizio Batch non eseguirà ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è -1, il servizio Batch continuerà a eseguire tentativi senza limiti.<br /><br /> Il valore predefinito è 0, ovvero nessun tentativo.|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|

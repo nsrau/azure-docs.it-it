@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194165"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096790"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -81,7 +81,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |storPortTrace|s|Opzione che abilita la traccia StorPort. I valori validi sono **s** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |srNumber|123452016365929|Numero del ticket di supporto, se disponibile. Se non è disponibile, lasciare vuoto il valore.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Data e ora correnti in formato UTC. Se l'estensione viene installata tramite il portale, non è necessario specificare questo valore.
-|ResourceId|/subscriptions/{IDSottoscrizione}/resourceGroups/{NomeGruppoDiRisorse}/providers/{SpaziDeiNomiDelProviderDiRisorse}/{TipoRisorsa}/{NomeRisorsa}|Identificatore univoco di una macchina virtuale.
+|resourceId|/subscriptions/{IDSottoscrizione}/resourceGroups/{NomeGruppoDiRisorse}/providers/{SpaziDeiNomiDelProviderDiRisorse}/{TipoRisorsa}/{NomeRisorsa}|Identificatore univoco di una macchina virtuale.
 |storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
 
@@ -123,7 +123,7 @@ Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
 ## <a name="template-deployment"></a>Distribuzione del modello
 Le estensioni per macchine virtuali di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON dettagliato illustrato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione per macchine virtuali Azure Performance Diagnostics durante la distribuzione di un modello di Azure Resource Manager. Di seguito è riportato un modello di esempio:
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 Il comando `Set-AzureRmVMExtension` consente di distribuire l'estensione per macchine virtuali Azure Performance Diagnostics in una macchina virtuale esistente.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>Informazioni sui dati acquisiti
 Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnostica, in base allo scenario selezionato. Per altre informazioni, vedere la [documentazione di PerfInsights](https://aka.ms/perfinsights).

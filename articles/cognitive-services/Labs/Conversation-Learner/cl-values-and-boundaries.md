@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8050008bbae4a23f09b5fa94874a6315e798b448
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173626"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211288"
 ---
 # <a name="default-values-and-boundaries"></a>Limiti e valori predefiniti
 
@@ -35,8 +35,8 @@ API di creazione, numero massimo di chiamate HTTP al mese | 5M
 API di creazione, numero massimo di chiamate HTTP al secondo | 25
 API di sessione, numero massimo di chiamate HTTP al mese | 500K
 API di sessione, numero massimo di chiamate HTTP al secondo | 10
-Numero massimo di entità personalizzate (non a livello di codice) per modello | Vedere il documento [Limiti di LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries). Il numero effettivo nella pratica potrebbe essere leggermente inferiore.
-Numero massimo di entità predefinite per modello | Vedere il documento [Limiti di LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Numero massimo di entità personalizzate (non a livello di codice) per modello | Vedere il documento [Limiti di LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries). Il numero effettivo nella pratica potrebbe essere leggermente inferiore.
+Numero massimo di entità predefinite per modello | Vedere il documento [Limiti di LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Numero massimo di entità (in totale) per modello | 100
 Numero massimo di azioni per modello | 32
 Numero massimo di dialoghi di training per modello | 1000

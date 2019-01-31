@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ae017461767a207deae1d990980258a1f661df3d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302642"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468445"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Uso di schemi definiti dall'utente in SQL Data Warehouse
 Suggerimenti per l'uso di schemi T-SQL definiti dall'utente in Azure SQL Data Warehouse per lo sviluppo di soluzioni.

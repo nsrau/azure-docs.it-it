@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 75f068a857be33337348958fbc472f37f6d84e12
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 824793c9897d7d728f621182a02a6092edc69e89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075855"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452380"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
@@ -34,7 +34,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Uno strumento di copia dei dati dai BLOB di Archiviazione di Azure in Azure Data Lake Store. Consente anche di copiare dati tra due account di Azure Data Lake Store.      |
-| Versioni supportate della macchina virtuale per data science      |  Windows      |
+| Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di più BLOB di Archiviazione di Azure in Azure Data Lake Store.      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `adlcopy` per ottenere assistenza.    |
 | Collegamenti agli esempi      | [Con AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
@@ -57,7 +57,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Uno strumento per copiare i dati da e verso i file locali, BLOB di archiviazione di Azure, file e tabelle.      |
-| Versioni supportate della macchina virtuale per data science      |  Windows      |
+| Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Copia di file di archiviazione BLOB, copia di BLOB tra account.      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `azcopy` per ottenere assistenza.    |
 | Collegamenti agli esempi      | [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
@@ -69,7 +69,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Uno strumento per importare dati da diverse origini, tra cui file JSON, file CSV, SQL, MongoDB, archivio tabelle di Azure, Amazon DynamoDB e raccolte di API SQL di Azure Cosmos DB in Azure Cosmos DB.      |
-| Versioni supportate della macchina virtuale per data science      |  Windows      |
+| Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di file da una macchina virtuale in CosmosDB, importazione di dati dall'archiviazione in tabelle di Azure in CosmosDB o importazione di dati da un database di SQL Server in CosmosDB.     |
 |  Come usarla o eseguirla?    |   Per usare la versione della riga di comando, aprire un prompt dei comandi e digitare `dt`. Per usare lo strumento GUI, aprire un prompt dei comandi e digitare `dtui`.    |
 | Collegamenti agli esempi      | [Importare i dati in CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
@@ -81,7 +81,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Strumento di SQL Server per copiare i dati tra SQL Server e un file di dati.      |
-| Versioni supportate della macchina virtuale per data science      |  Windows      |
+| Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di un file CSV in una tabella di SQL Server, esportazione di una tabella di SQL Server in un file.      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `bcp` per ottenere assistenza.    |
 | Collegamenti agli esempi      | [Utilità di copia bulk](https://docs.microsoft.com/sql/tools/bcp-utility)      |
@@ -104,7 +104,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Uno strumento per la connessione locale delle origini dati ai servizi cloud di uso.      |
-| Versioni supportate della macchina virtuale per data science      |  Windows      |
+| Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Connessione di un macchina virtuale a origini dati locali.      |
 |  Come usarla o eseguirla?    |   Avviare "Gateway di gestione dati di Microsoft" dal menu Start.    |
 | Collegamenti agli esempi      | [Gateway di gestione dati](https://msdn.microsoft.com/library/dn879362.aspx)      |

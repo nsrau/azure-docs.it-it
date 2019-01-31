@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fe2ff3697d362119db2df682aacd89ebcf073059
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 61a613d6f92e1a6d4b89b6f61c85b004af1f40f1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465633"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152774"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione all'autenticazione pass-through per Azure Active Directory
 
@@ -147,7 +147,7 @@ Per altre informazioni sulla condizione relativa alla **posizione** nell'accesso
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD ibrido
 
-Quando si aggiunge un dispositivo ad Azure AD, è possibile creare regole di accesso condizionale che obbligano i dispositivi a rispettare gli standard di accesso relativi a sicurezza e conformità. Gli utenti possono inoltre accedere a un dispositivo usando un account aziendale o dell'istituto di istruzione invece di un account personale. Quando si usano dispositivi aggiunti ad Azure AD ibrido, è possibile aggiungere ad Azure AD i dispositivi aggiunti a un dominio di Active Directory. L'ambiente federato potrebbe essere stato configurato per usare questa funzionalità.
+Quando si aggiunge un dispositivo ad Azure AD, è possibile creare regole di accesso condizionale che obbligano i dispositivi a rispettare gli standard di accesso relativi a sicurezza e conformità. Gli utenti possono anche accedere a un dispositivo usando un account aziendale o dell'istituto di istruzione invece di un account personale. Quando si usano dispositivi aggiunti ad Azure AD ibrido, è possibile aggiungere ad Azure AD i dispositivi aggiunti a un dominio di Active Directory. L'ambiente federato potrebbe essere stato configurato per usare questa funzionalità.
 
 Per assicurarsi che la funzionalità di aggiunta a un ambiente ibrido continui a funzionare per eventuali dispositivi aggiunti al dominio dopo che i domini sono stati convertiti all'autenticazione pass-through, per i client Windows 10 è necessario usare Azure AD Connect per sincronizzare con Azure AD gli account computer di Active Directory.
 
@@ -185,7 +185,7 @@ I client di autenticazione moderni (Office 2016 e Office 2013, iOS e app Android
 > [!IMPORTANT]
 > Non arrestare l'ambiente di AD FS né rimuovere il trust della relying party Office 365 finché non si è verificato che tutti gli utenti possano essere autenticati usando il processo di autenticazione cloud.
 
-### <a name="plan-for-rollback"></a>Pianificare il ripristino dello stato precedente
+### <a name="plan-for-rollback"></a>Pianificare per il rollback
 
 Se si riscontra un problema importante che non può essere risolto rapidamente, è possibile decidere di eseguire il ripristino della soluzione alla federazione. È importante pianificare le operazioni da eseguire se la distribuzione non viene implementata come previsto. Se la conversione del dominio o degli utenti non riesce durante la distribuzione oppure se si deve eseguire il ripristino alla federazione, è necessario comprendere in che modo attenuare le eventuali interruzioni del servizio e ridurre l'effetto sugli utenti.
 
@@ -212,7 +212,7 @@ Includere gli elementi seguenti nella strategia di comunicazione:
 
 ## <a name="implement-your-solution"></a>Implementare la soluzione
 
-Ora che la soluzione è stata pianificata è possibile implementarla. L'implementazione consiste nelle operazioni seguenti:
+Ora che la soluzione è stata pianificata, è possibile implementarla. L'implementazione consiste nelle operazioni seguenti:
 
 * Esecuzione delle attività preliminari per l'accesso Single Sign-On facile.
 * Conversione del metodo di accesso all'autenticazione pass-through e abilitazione dell'accesso Single Sign-On facile.
@@ -385,7 +385,7 @@ Per testare l'autenticazione pass-through:
 
 4. Dopo che si è immessa la password e si è selezionato **Accedi**, si verrà reindirizzati al portale di Office 365.
 
-   ![Schermata che mostra il portale di Office 365](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
+   ![Screenshot che mostra il portale di Office 365](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
 
 ### <a name="test-seamless-sso"></a>Testare l'accesso Single Sign-On facile
 
@@ -414,13 +414,13 @@ Dopo aver verificato che tutti gli utenti e i client eseguano correttamente l'au
 
 Se non si usa AD FS per altri scopi, ovvero per altri trust di relying party, a questo punto si possono rimuovere senza problemi le autorizzazioni di AD FS.
 
-### <a name="rollback"></a>Eseguire il ripristino dello stato precedente
+### <a name="rollback"></a>Rollback
 
 Se si riscontra un problema importante che non può essere risolto rapidamente, può essere opportuno eseguire il ripristino della soluzione alla federazione.
 
 Vedere la documentazione relativa alla progettazione e alla distribuzione della federazione per i dettagli della specifica distribuzione. Il processo deve includere queste attività:
 
-* Convertire i domini gestiti all'autenticazione federata tramite il cmdlet **Convert-MSOLDomainToFederated**.
+* Convertire i domini gestiti all'autenticazione federata usando il cmdlet **Convert-MSOLDomainToFederated**.
 * Se necessario, configurare altre regole per le attestazioni.
 
 ### <a name="sync-userprincipalname-updates"></a>Sincronizzare gli aggiornamenti di userPrincipalName
@@ -434,7 +434,7 @@ Per informazioni su come verificare o attivare questa funzionalità, vedere [Sin
 
 ## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>Rinnovare la chiave di decrittografia di Kerberos per l'accesso Single Sign-On facile
 
-È importante rinnovare spesso la chiave di decrittografia di Kerberos dell'account computer AZUREADSSOACC, che rappresenta Azure AD. L'account computer AZUREADSSOACC viene creato nella foresta locale di Active Directory. È consigliabile rinnovare la chiave di decrittografia di Kerberos almeno ogni 30 giorni in modo che la frequenza di rinnovo sia allineata a quella con cui i membri del dominio di Active Directory inviano gli aggiornamenti delle password. Nessun dispositivo associato è collegato all'oggetto account computer AZUREADSSOACC ed è pertanto necessario eseguire il rinnovo manualmente.
+È importante rinnovare spesso la chiave di decrittografia di Kerberos dell'account computer AZUREADSSOACC, che rappresenta Azure AD. L'account computer AZUREADSSOACC viene creato nella foresta locale di Active Directory. È consigliabile rinnovare la chiave di decrittografia di Kerberos almeno ogni 30 giorni in modo che la frequenza di rinnovo sia allineata a quella con cui i membri del dominio di Active Directory inviano gli aggiornamenti delle password. Nessun dispositivo associato è collegato all'oggetto account computer AZUREADSSOACC ed è quindi necessario eseguire il rinnovo manualmente.
 
 Avviare il rinnovo della chiave di decrittografia di Kerberos per l'accesso Single Sign-On facile nel server locale che esegue Azure AD Connect.
 

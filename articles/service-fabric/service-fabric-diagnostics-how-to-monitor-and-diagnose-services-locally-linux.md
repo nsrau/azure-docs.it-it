@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309162"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185466"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-La cartella a cui fa riferimento il file `app.properties` deve essere presente. Dopo la creazione del file `app.properties`, è anche necessario modificare lo script del punto di ingresso`entrypoint.sh`, nella cartella `<applicationfolder>/<servicePkg>/Code/` in modo da impostare la proprietà `java.util.logging.config.file` sul file `app.propertes`. La voce dovrebbe essere simile al frammento seguente:
+La cartella a cui fa riferimento il file `app.properties` deve essere presente. Dopo la creazione del file `app.properties`, è anche necessario modificare lo script del punto di ingresso`entrypoint.sh`, nella cartella `<applicationfolder>/<servicePkg>/Code/` in modo da impostare la proprietà `java.util.logging.config.file` sul file `app.properties`. La voce dovrebbe essere simile al frammento seguente:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Sono disponibili vari framework per il tracciamento delle applicazioni CoreCLR i
 
 Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da poter scrivere i log in m in memoria, flussi di output o file di console.  Per la registrazione tramite EventSource, aggiungere il seguente progetto a project.json:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

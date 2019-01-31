@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320056"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904081"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure
 Il Servizio Migrazione del database di Azure è progettato per supportare una varietà di scenari di migrazione (coppie origine/destinazione) per le migrazioni sia offline (uniche) che online (sincronizzazione continua). Gli scenari supportati dal Servizio Migrazione del database di Azure aumentano con il tempo. Nuovi scenari vengono aggiunti regolarmente. Questo articolo identifica gli scenari di migrazione attualmente supportati dal Servizio Migrazione del database di Azure e lo stato (Anteprima privata [o limitata], Anteprima pubblica o Disponibile a livello generale) per ogni scenario.
@@ -37,7 +37,7 @@ Le tabelle seguenti mostrano gli scenari di migrazione supportati quando si usa 
 ### <a name="offline-one-time-migration-support"></a>Supporto della migrazione offline (unica)
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
-| Destinazione  | Sorgente | Supporto |
+| Destinazione  | Source (Sorgente) | Supporto |
 | ------------- | ------------- | :-------------: |
 | **Database SQL di Azure**  | SQL Server | ✔ |
 |   | RDS SQL  |  ✔ |
@@ -47,7 +47,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 |   | Oracle  | ✔  |
 | **VM di Azure SQL**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Database di Azure per MySQL**  | MySQL |  |
 |   | Servizi Desktop remoto MySQL  |  |
 | **Database di Azure per PostgreSQL**  | PostgreSQL |  |
@@ -56,7 +56,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 ### <a name="online-continuous-sync-migration-support"></a>Supporto della migrazione online (sincronizzazione continua)
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
-| Destinazione  | Sorgente | Supporto |
+| Destinazione  | Source (Sorgente) | Supporto |
 | ------------- | ------------- | :-------------: |
 | **Database SQL di Azure**  | SQL Server | ✔ |
 |   | RDS SQL  |   |
@@ -66,7 +66,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 |   | Oracle  | ✔  |
 | **VM di Azure SQL**  | SQL Server  |   |
 |   | Oracle  | ✔  |
-| **Cosmos DB**  | MongoDB  | ✔ |
+| **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Database di Azure per MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Database di Azure per PostgreSQL**  | PostgreSQL | ✔ |

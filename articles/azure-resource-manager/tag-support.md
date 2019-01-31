@@ -4,14 +4,14 @@ description: Informazioni sui tipi di risorse di Azure che supportano i tag. Inc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267454"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884946"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
@@ -40,7 +40,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | addsservices | No  | 
 | agents | No  | 
 | anonymousapiusers | No  | 
-| configuration | No  | 
+| configurazione | No  | 
 | logs | No  | 
 | reports | No  | 
 | services | No  | 
@@ -48,9 +48,9 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| configurations | No  | 
+| configurazioni | No  | 
 | generateRecommendations | No  | 
-| recommendations | No  | 
+| raccomandazioni di film | No  | 
 | suppressions | No  | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -89,7 +89,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | denyAssignments | No  | 
 | elevateAccess | No  | 
 | locks | No  | 
-| permissions | No  | 
+| autorizzazioni | No  | 
 | policyAssignments | No  | 
 | policyDefinitions | No  | 
 | policySetDefinitions | No  | 
@@ -244,7 +244,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | edgenodes | No  | 
-| profiles | Yes | 
+| Profili | Yes | 
 | profiles/endpoints | Yes | 
 | profiles/endpoints/customdomains | No  | 
 | profiles/endpoints/origins | No  | 
@@ -314,7 +314,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Tipo di risorsa | Tag supportati |
@@ -347,23 +347,23 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | AggregatedCost | No  | 
-| Balances | No  | 
+| Saldi | No  | 
 | Budget | No  | 
 | Charges | No  | 
 | CostTags | No  | 
 | credits | No  | 
-| events | No  | 
-| Forecasts | No  | 
+| eventi | No  | 
+| Previsioni | No  | 
 | lots | No  | 
-| Marketplaces | No  | 
+| Marketplace | No  | 
 | Pricesheets | No  | 
 | products | No  | 
 | ReservationDetails | No  | 
 | ReservationRecommendations | No  | 
 | ReservationSummaries | No  | 
 | ReservationTransactions | No  | 
-| Tags | No  | 
-| Terms | No  | 
+| Tag | No  | 
+| Termini | No  | 
 | UsageDetails | No  | 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -407,27 +407,27 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| applications | Yes | 
+| scala Web | Yes | 
 | updateCommunicationPreference | No  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Alerts | No  | 
+| Avvisi | No  | 
 | BillingAccounts | No  | 
-| Connectors | Yes | 
+| Connettori | Yes | 
 | Departments | No  | 
-| Dimensions | No  | 
+| Dimensioni | No  | 
 | EnrollmentAccounts | No  | 
 | Query | No  | 
 | register | No  | 
 | Reportconfigs | No  | 
-| Reports | No  | 
+| Report | No  | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo di risorsa | Tag supportati |
@@ -459,7 +459,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| workspaces | Yes | 
+| aree di lavoro | Yes | 
 | workspaces/virtualNetworkPeerings | No  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -484,7 +484,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 | accounts/dataLakeStoreAccounts | No  | 
 | accounts/storageAccounts | No  | 
 | accounts/storageAccounts/containers | No  | 
@@ -492,7 +492,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 | accounts/eventGridFilters | No  | 
 | accounts/firewallRules | No  | 
 
@@ -530,7 +530,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| IotHubs | Yes | 
+| Hub IoT | Yes | 
 | IotHubs/eventGridFilters | No  | 
 | ProvisioningServices | Yes | 
 | usages | No  | 
@@ -584,7 +584,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | clusters | Yes | 
-| namespaces | Yes | 
+| spazi dei nomi | Yes | 
 | namespaces/authorizationrules | No  | 
 | namespaces/disasterrecoveryconfigs | No  | 
 | namespaces/eventhubs | No  | 
@@ -594,8 +594,8 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| features | No  | 
-| providers | No  | 
+| funzionalità | No  | 
+| provider | No  | 
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 | Tipo di risorsa | Tag supportati |
@@ -668,7 +668,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | logs | No  | 
 | migrateToNewPricingModel | No  | 
 | myWorkbooks | No  | 
-| queries | No  | 
+| query | No  | 
 | rollbackToLegacyPricingModel | No  | 
 | scheduledqueryrules | Yes | 
 | vmInsightsOnboardingStatuses | No  | 
@@ -689,13 +689,13 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Graph | Yes | 
+| Grafico | Yes | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | deletedVaults | No  | 
-| vaults | Yes | 
+| insiemi di credenziali | Yes | 
 | vaults/accessPolicies | No  | 
 | vaults/secrets | No  | 
 
@@ -716,12 +716,12 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo di risorsa | Tag supportati |
@@ -732,19 +732,19 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | integrationAccounts | Yes | 
-| workflows | Yes | 
+| flussi di lavoro | Yes | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | commitmentPlans | Yes | 
 | webServices | Yes | 
-| Workspaces | Yes | 
+| Aree di lavoro | Yes | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 | accounts/workspaces | Yes | 
 | accounts/workspaces/projects | Yes | 
 | teamAccounts | Yes | 
@@ -754,12 +754,12 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| workspaces | Yes | 
+| aree di lavoro | Yes | 
 | workspaces/computes | No  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -780,7 +780,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 | accounts/eventGridFilters | No  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -898,7 +898,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| namespaces | Yes | 
+| spazi dei nomi | Yes | 
 | namespaces/notificationHubs | Yes | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -907,7 +907,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | devices | No  | 
 | linkTargets | No  | 
 | storageInsightConfigs | No  | 
-| workspaces | Yes | 
+| aree di lavoro | Yes | 
 | workspaces/dataSources | No  | 
 | workspaces/linkedServices | No  | 
 | workspaces/query | No  | 
@@ -918,7 +918,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | managementassociations | No  | 
 | managementconfigurations | Yes | 
 | solutions | Yes | 
-| views | Yes | 
+| Viste | Yes | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo di risorsa | Tag supportati |
@@ -948,18 +948,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| accounts | Yes | 
+| account | Yes | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | backupProtectedItems | No  | 
-| vaults | Yes | 
+| insiemi di credenziali | Yes | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| namespaces | Yes | 
+| spazi dei nomi | Yes | 
 | namespaces/authorizationrules | No  | 
 | namespaces/hybridconnections | No  | 
 | namespaces/hybridconnections/authorizationrules | No  | 
@@ -978,9 +978,9 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | availabilityStatuses | No  | 
 | childAvailabilityStatuses | No  | 
 | childResources | No  | 
-| events | No  | 
+| eventi | No  | 
 | impactedResources | No  | 
-| notifications | No  | 
+| Notifiche | No  | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Tipo di risorsa | Tag supportati |
@@ -989,7 +989,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | deployments/operations | No  | 
 | links | No  | 
 | notifyResourceJobs | No  | 
-| providers | No  | 
+| provider | No  | 
 | resourceGroups | No  | 
 | resources | No  | 
 | subscriptions | No  | 
@@ -1004,7 +1004,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| applications | Yes | 
+| scala Web | Yes | 
 | saasresources | No  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -1038,7 +1038,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | monitoring/antimalware | No  | 
 | monitoring/baseline | No  | 
 | monitoring/patch | No  | 
-| policies | No  | 
+| criteri | No  | 
 | pricings | No  | 
 | securityContacts | No  | 
 | securitySolutions | No  | 
@@ -1049,8 +1049,8 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | securityStatus/virtualMachines | No  | 
 | securityStatuses | No  | 
 | securityStatusesSummaries | No  | 
-| settings | No  | 
-| tasks | No  | 
+| Scheda Impostazioni | No  | 
+| attività | No  | 
 | topologies | No  | 
 | workspaceSettings | No  | 
 
@@ -1063,7 +1063,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| namespaces | Yes | 
+| spazi dei nomi | Yes | 
 | namespaces/authorizationrules | No  | 
 | namespaces/disasterrecoveryconfigs | No  | 
 | namespaces/eventgridfilters | No  | 
@@ -1084,10 +1084,10 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| applications | Yes | 
+| scala Web | Yes | 
 | gateways | Yes | 
 | networks | Yes | 
-| secrets | Yes | 
+| chiavi private | Yes | 
 | volumes | Yes | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -1101,12 +1101,22 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | applianceDefinitions | Yes | 
 | appliances | Yes | 
 | applicationDefinitions | Yes | 
-| applications | Yes | 
+| scala Web | Yes | 
 | jitRequests | Yes | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| managedInstances | Yes |
+| managedInstances/databases | Yes |
+| managedInstances/databases/backupShortTermRetentionPolicies | No  |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No  |
+| managedInstances/databases/vulnerabilityAssessments | No  |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No  |
+| managedInstances/encryptionProtector | No  |
+| managedInstances/keys | No  |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No  |
+| managedInstances/vulnerabilityAssessments | No  |
 | servers | Yes | 
 | servers/administrators | No  | 
 | servers/communicationLinks | No  | 
@@ -1215,12 +1225,12 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | hostingEnvironments/workerPools | No  | 
 | hostingEnvironments/workerPools/instances | No  | 
 | publishingUsers | No  | 
-| recommendations | No  | 
+| raccomandazioni di film | No  | 
 | resourceHealthMetadata | No  | 
 | runtimes | No  | 
 | serverFarms | Yes | 
 | serverFarms/workers | No  | 
-| sites | Yes | 
+| siti | Yes | 
 | sites/domainOwnershipIdentifiers | No  | 
 | sites/hostNameBindings | No  | 
 | sites/instances | No  | 

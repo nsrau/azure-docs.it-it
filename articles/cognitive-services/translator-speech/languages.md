@@ -1,22 +1,26 @@
 ---
-title: Lingue supportate nell'API Traduzione vocale Microsoft | Microsoft Docs
-description: Informazioni sulle lingue supportate dall'API Traduzione vocale Microsoft.
+title: Lingue supportate - API Traduzione vocale
+titlesuffix: Azure Cognitive Services
+description: Informazioni sulle lingue supportate dall'API Traduzione vocale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
-ms.topic: article
+ms.subservice: translator-speech
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2b518b695fa18a2babb5c5bc4ee84a1193b69d4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378422"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460338"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Lingue supportate dall'API Traduzione vocale Microsoft
+# <a name="languages-supported-by-the-translator-speech-api"></a>Lingue supportate dall'API Traduzione vocale
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per la traduzione vocale sono supportate entrambe le lingue, sono disponibili i servizi di traduzione da contenuto vocale a contenuto vocale o da contenuto vocale a testo. Se la lingua di destinazione non è supportata per la traduzione vocale, è disponibile solo la traduzione da contenuto vocale a testo. 
 
 | Lingua per la sintesi vocale    |
@@ -32,7 +36,7 @@ Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per l
 | Russo      |
 | Spagnolo      | 
 
-L'API Traduzione vocale Microsoft supporta le lingue seguenti come lingue di destinazione per la traduzione da contenuto vocale a testo. 
+L'API Traduzione vocale supporta le lingue seguenti come lingue di destinazione per la traduzione da contenuto vocale a testo. 
 
 | Lingua per il testo    | Codice lingua |
 |:----------- |:-------------:|
@@ -102,7 +106,7 @@ L'API Traduzione vocale Microsoft supporta le lingue seguenti come lingue di des
 
 ## <a name="access-the-list-programmatically"></a>Accedere all'elenco a livello di codice
 
-È possibile accedere all'elenco di lingue supportate a livello di codice usando la risorsa Languages. L'elenco fornice il codice della lingua e il nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando vengono rese disponibili nuove lingue.
+È possibile accedere all'elenco di lingue supportate a livello di codice usando la risorsa Languages. L'elenco fornice il codice della lingua e il nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Traduzione vocale quando vengono rese disponibili nuove lingue.
 
 La risorsa Languages restituisce l'elenco di lingue supportate per riconoscimento vocale, testo e sintesi vocale. La risorsa Languages non richiede l'autenticazione.
 

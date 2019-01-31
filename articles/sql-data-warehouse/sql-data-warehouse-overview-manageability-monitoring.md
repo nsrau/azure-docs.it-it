@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d29da5469119d7212b792aba31f171705e3189cf
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307290"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460251"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gestione e monitoraggio con Azure SQL Data Warehouse
 

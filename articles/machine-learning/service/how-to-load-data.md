@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni sul caricamento dei dati con Azure Machine Learning Data Prep SDK. È possibile caricare diversi tipi di dati di input, specificare i parametri e i tipi di file di dati oppure usare la funzionalità di lettura smart SDK per rilevare automaticamente il tipo di file.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263816"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247528"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Caricare e leggere dati con Azure Machine Learning
 

@@ -2,19 +2,19 @@
 title: Popolamento di UserPrincipalName di Azure AD
 description: Il documento seguente descrive come viene popolato l'attributo UserPrincipalName.
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: daveba
-ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b2043ae15cd99b50e33fa6cf896af73f03ef6b66
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197807"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
 

@@ -6,18 +6,18 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 44bd03a8f710cf4b61e063688c9532dc6cce6480
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cccbeefd49f5374aeffcae07ac8c888f7a28690f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465599"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159999"
 ---
 # <a name="linkedin-integration"></a>Integrazione di LinkedIn
 
@@ -71,6 +71,6 @@ Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il comput
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare il collegamento seguente per visualizzare l'impostazione corrente dell'integrazione di LinkedIn nel portale di Azure:
+Usare il collegamento seguente per visualizzare le impostazioni correnti dell'integrazione di LinkedIn nel portale di Azure:
 
 [Visualizzare l'impostazione corrente dell'integrazione di LinkedIn nel portale di Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

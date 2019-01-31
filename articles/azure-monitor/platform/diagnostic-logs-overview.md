@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467469"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885848"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -31,7 +31,7 @@ Questi log differiscono dal [log attività](activity-logs-overview.md). Il log a
 
 Questi log differiscono anche dal log di diagnostica a livello del sistema operativo guest. I log di diagnostica del sistema operativo guest vengono compilati da un agente in esecuzione all'interno di una macchina virtuale o di un altro tipo di risorsa supportato. I log di diagnostica a livello di risorsa non richiedono l'uso di un agente e acquisiscono i dati specifici della risorsa dalla piattaforma di Azure stessa, mentre i log di diagnostica a livello del sistema operativo guest acquisiscono i dati dal sistema operativo e dalle applicazioni in esecuzione in una macchina virtuale.
 
-Non tutti i servizi supportano il log di diagnostica descritto di seguito. [Questo articolo contiene una sezione che elenca i servizi supportati dai log di diagnostica](./../../azure-monitor/platform/tutorial-dashboards.md).
+Non tutti i servizi supportano il log di diagnostica descritto di seguito. [Questo articolo contiene una sezione che elenca i servizi supportati dai log di diagnostica](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Che cosa si può fare con i log di diagnostica
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
@@ -229,7 +229,7 @@ Aggiungendo un'impostazione di diagnostica verrà visualizzata la vista Impostaz
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Servizi, categorie e schemi supportati per i log di diagnostica
 
-[Vedere questo articolo](../../azure-monitor/platform/tutorial-dashboards.md) per un elenco completo di servizi, categorie di log e schemi supportati usati da questi servizi.
+[Vedere questo articolo](../../azure-monitor/platform/diagnostic-logs-schema.md) per un elenco completo di servizi, categorie di log e schemi supportati usati da questi servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

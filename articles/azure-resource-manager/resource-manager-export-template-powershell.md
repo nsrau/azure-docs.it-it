@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359221"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081603"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Esportare modelli di Azure Resource Manager con PowerShell
 
@@ -36,18 +36,18 @@ Questo articolo illustra entrambi gli approcci.
 Per illustrare entrambi gli approcci per l'esportazione di un modello, si inizia con la distribuzione di una soluzione nella sottoscrizione in uso. Se nella sottoscrizione è già presente un gruppo di risorse che si vuole esportare, non è necessario distribuire la soluzione. Il resto dell'articolo si riferisce tuttavia al modello per questa soluzione. Lo script di esempio distribuisce un account di archiviazione.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## <a name="save-template-from-deployment-history"></a>Salvare il modello dalla cronologia di distribuzione
 
-È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate). L'esempio seguente illustra come salvare il modello distribuito in precedenza:
+È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate). L'esempio seguente illustra come salvare il modello distribuito in precedenza:
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 Restituisce il percorso del modello.
@@ -62,10 +62,10 @@ Aprendo il file si noterà che si tratta dello stesso modello usato per la distr
 
 ## <a name="export-resource-group-as-template"></a>Esportare il gruppo di risorse come modello
 
-Invece di recuperare un modello dalla cronologia di distribuzione, è possibile recuperarne uno che rappresenta lo stato attuale di un gruppo di risorse usando il comando [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
+Invece di recuperare un modello dalla cronologia di distribuzione, è possibile recuperarne uno che rappresenta lo stato attuale di un gruppo di risorse usando il comando [Export-AzureRmResourceGroup](/powershell/module/az.resources/export-azresourcegroup). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 Restituisce il percorso del modello.
@@ -111,7 +111,7 @@ Aprendo il file si noterà che è diverso rispetto al modello di GitHub. Contien
 È possibile ridistribuire questo modello, ma è necessario individuare un nome univoco per l'account di archiviazione. Il nome del parametro è leggermente diverso.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```

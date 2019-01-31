@@ -4,19 +4,19 @@ description: Tener traccia degli engagement con i clienti di Azure collegando un
 services: billing
 author: dhirajgandhi
 manager: dhgandhi
-ms.author: cwatson
+ms.author: banders
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: eeb88627cbcc1736586defd403b19c19c9cdf56c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579244"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900239"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 

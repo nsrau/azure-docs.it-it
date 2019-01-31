@@ -4,19 +4,19 @@ description: È possibile consentire a un utente guest di aggiungere altri utent
 services: active-directory
 documentationcenter: ''
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 7ddd5c0195bdd59deac453fe324b6d8c6898ec2e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90b085ca0cf57391d24ddfbdfe56776afb26cc64
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434207"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075874"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Aggiungere utenti guest di Collaborazione B2B senza un invito
 

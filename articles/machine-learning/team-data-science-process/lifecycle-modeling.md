@@ -6,23 +6,23 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474021"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
 Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di modellazione del processo TDSP. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione delle strategie aziendali**
+   1. **Comprensione del business**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -45,14 +45,14 @@ Questa fase comprende tre attività principali:
   * **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato rispetto alle metriche di riuscita.
   * Stabilire se il modello è **adatto alla produzione**.
 
-### <a name="feature-engineering"></a>Progettazione di caratteristiche
-La progettazione di caratteristiche prevede l'aggiunta, l'aggregazione e la trasformazione delle variabili non elaborate per creare le caratteristiche usate nell'analisi. Se si vuole analizzare i risultati di un modello, è necessario comprendere in che modo le caratteristiche sono correlate tra loro e come gli algoritmi di Machine Learning useranno tali caratteristiche. 
+### <a name="feature-engineering"></a>Progettazione delle funzioni
+La progettazione di funzionalità prevede l'aggiunta, l'aggregazione e la trasformazione delle variabili non elaborate per creare funzionalità usate nell'analisi. Se si vuole analizzare i risultati di un modello, è necessario comprendere in che modo le funzioni sono correlate tra loro e come gli algoritmi di Machine Learning vengono usati da tali funzionalità. 
 
-Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. La progettazione di caratteristiche è un compromesso di ricerca e inclusione di variabili informative, evitando al contempo troppe variabili non correlate. Le variabili informative migliorano il risultato, mentre le variabili non correlate disturbano inutilmente il modello. È anche necessario generare queste caratteristiche per i nuovi dati ottenuti durante la valutazione. La generazione di queste caratteristiche può quindi dipendere esclusivamente dai dati disponibili al momento della valutazione. 
+Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. La progettazione di funzionalità è un compromesso di ricerca e inclusione di variabili informative, evitando al contempo troppe variabili non correlate. Le variabili informative migliorano il risultato, mentre le variabili non correlate disturbano inutilmente il modello. È anche necessario generare le seguenti funzionalità per i nuovi dati ottenuti durante la valutazione. La generazione di queste funzionalità, quindi, può dipendere esclusivamente dai dati disponibili al momento della valutazione. 
 
-Per indicazioni tecniche sulla progettazione di caratteristiche quando si usano varie tecnologie di dati di Azure, vedere [Progettazione di caratteristiche nel processo di data science](create-features.md). 
+Per indicazioni tecniche sulla progettazione delle funzionalità quando si usano varie tecnologie di dati di Azure, vedere [Progettazione di funzionalità nell'analisi scientifica dei dati](create-features.md). 
 
-### <a name="model-training"></a>Training del modello
+### <a name="model-training"></a>Training dei modelli
 A seconda del tipo di domanda a cui si tenta di rispondere, sono disponibili numerosi algoritmi di modellazione. Per istruzioni sulla scelta dell'algoritmo, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Sebbene questo articolo sia stato scritto per Microsoft Azure Machine Learning, le informazioni fornite possono essere usate per qualsiasi progetto Machine Learning. 
 
 Il processo di training del modello include i passaggi seguenti: 
@@ -67,22 +67,22 @@ Il processo di training del modello include i passaggi seguenti:
 > 
 > 
 
-Con il processo TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzato](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di modellazione di base che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza delle variabili. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di caratteristiche. 
+Con il processo TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzato](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di modellazione di base che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza delle variabili. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di funzionalità. 
 
 ## <a name="artifacts"></a>Elementi
 Gli elementi generati in questa fase includono:
 
-   * [Set di caratteristiche](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): le caratteristiche sviluppate per la modellazione sono descritte nella sezione relativa al **set di caratteristiche** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le caratteristiche e una descrizione di come queste vengono generate.
+   * [Set di caratteristiche](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): le caratteristiche sviluppate per la modellazione sono descritte nella sezione relativa al **set di caratteristiche** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
    * [Report del modello](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modello che fornisce dettagli su ogni esperimento.
    * **Decisione di checkpoint**: valutare se le prestazioni del modello sono sufficienti per la distribuzione in un sistema di produzione. Alcune domande chiave da porsi:
      * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
-     * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di caratteristiche o provare con altri algoritmi?
+     * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di funzionalità o provare con altri algoritmi?
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione delle strategie aziendali](lifecycle-business-understanding.md)
+   1. [Comprensione del business](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)
@@ -90,4 +90,4 @@ Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data scie
 
 Sono disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Usare il processo di data science per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: ac8de247f09ba3b4e38cabb565fe332eba909ccc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f377e073f42e96264fe4c7edb31ea58c68c46494
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118133"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474973"
 ---
-# <a name="translator-speech-api-languages"></a>API Traduzione vocale: Lingue
+# <a name="translator-speech-api-languages"></a>API Traduzione vocale: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -131,7 +131,7 @@ Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (ogg
 
 ### <a name="headers"></a>Headers
 
-|Intestazione|DESCRIZIONE|type|
+|Intestazione|DESCRIZIONE|Type|
 :--|:--|:--|
 X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|stringa|
 

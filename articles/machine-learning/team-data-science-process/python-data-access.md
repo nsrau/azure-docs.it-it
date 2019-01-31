@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471998"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -66,9 +66,9 @@ Dall'interfaccia Web di Studio è possibile generare frammenti di codice che inc
 ### <a name="security"></a>Sicurezza per l'accesso ai dati
 I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
 
-Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner**. Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
+Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
 
-![Sicurezza][security]
+![Security][security]
 
 Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di essere nuovamente invitati con il ruolo di proprietario o chiedere il frammento di codice al proprietario dell'area di lavoro.
 
@@ -123,7 +123,7 @@ Per ottenere un output in un formato supportato, è necessario usare un modulo d
 I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperimento e si accede al set di dati intermedio.
 
 1. Creare un nuovo esperimento.
-2. Inserire un modulo **Adult Census Income Binary Classification dataset**.
+2. Inserire un modulo **Adult Census Income Binary Classification dataset** .
 3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo del set di dati.
 4. Inserire un modulo [Convert to CSV][convert-to-csv] (Converti in CSV) e connetterne l'input a uno degli output del modulo [Split][split] (Dividi).
 5. Salvare l'esperimento, eseguirlo e attendere il completamento dell'esecuzione.
@@ -282,7 +282,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-È possibile anche impostare una nuova descrizione specificando un valore per il parametro `description`.
+È possibile anche impostare una nuova descrizione specificando un valore per il parametro `description` .
 
     dataset = ws.datasets['existing dataset']
 
@@ -295,7 +295,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-È possibile anche impostare un nuovo nome specificando un valore per il parametro `name`. D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente consente di aggiornare i dati, il nome e la descrizione.
+È possibile anche impostare un nuovo nome specificando un valore per il parametro `name` . D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente consente di aggiornare i dati, il nome e la descrizione.
 
     dataset = ws.datasets['existing dataset']
 

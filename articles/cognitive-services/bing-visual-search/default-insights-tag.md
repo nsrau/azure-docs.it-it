@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: cf0b53d13e65b0815c0501a70570788f7be599b1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3e8e63ec6bfc67cdda9df763795c6c8f35dc6011
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883399"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168168"
 ---
 # <a name="default-insights-tag"></a>Tag informazioni dettagliate predefinite
 
@@ -432,4 +432,4 @@ Le informazioni dettagliate di tipo DocumentLevelSuggestions forniscono un elenc
 
 Esaminare esempi del modo in cui Bing potrebbe visualizzare le informazioni visive dettagliate (vedere [Esempi di utilizzo delle informazioni dettagliate di Bing](bing-insights-usage.md)).
 
-Per imparare rapidamente a gestire la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d596c4c614119caa4078df1ed569e685031e9c7c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796555"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206001"
 ---
 # <a name="how-to-use-version-tagging"></a>Come usare l'assegnazione di tag alle versioni
 
@@ -57,7 +57,7 @@ Il bot userà la versione del modello selezionata come versione "Live", ma quals
     - `npm run tutorial-general`
 4. In Bot Framework Emulator creare una nuova configurazione del bot, impostare l'URL dell'endpoint su `http://localhost:3978/api/messages`
 
-### <a name="version-1"></a>versione 1
+### <a name="version-1"></a>Versione 1
 
 Si creerà una singola azione per la versione 1.
 
@@ -77,7 +77,7 @@ La versione verrà contrassegnata come "versione 1" del modello.
 
 A questo punto "Version 1" sarà visibile nella griglia dei "tag di versione".
 
-### <a name="version-2"></a>versione 2
+### <a name="version-2"></a>Versione 2
 
 Ora si modificherà il modello per distinguerlo dalla versione 1.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
-ms.author: cwatson
-ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: kfollis
+ms.openlocfilehash: 815c2e9d7ec8aef9fe823f8d89304b45c099e812
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308584"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882073"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Esportare o eliminare le impostazioni nel portale di Azure
 È possibile esportare ed eliminare le impostazioni seguenti dal menu delle impostazioni del portale di Azure:

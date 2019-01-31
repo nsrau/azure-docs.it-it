@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078757"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250807"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -44,7 +44,7 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
       3. **Password**: password dell'account amministratore.
       4. **Sottoscrizione** Se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
       5. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse di Azure oppure usarne uno **vuoto** esistente nella sottoscrizione.
-      6. **Posizione**: selezionare il data center più appropriato. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
+      6. **Località**: selezionare il data center più appropriato. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
       
 > [!NOTE]
 > Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
@@ -79,9 +79,9 @@ Per la DLVM Linux è già stato effettuato il provisioning con il server X2Go. L
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
-     * **Host**: nome host o indirizzo IP della Data Science Virtual Machine Linux.
-     * **Login**(Accesso): nome utente della VM Linux.
-     * **SSH Port** (Porta SSH): lasciare il valore predefinito 22.
+     * **Host**: nome host o indirizzo IP della Data Science VM per Linux.
+     * **Accesso**: nome utente della VM Linux.
+     * **Porta SSH**: lasciare il valore predefinito 22.
      * **Session Type** (Tipo di sessione): modificare il valore in **XFCE**. La DSVM Linux attualmente supporta solo l'ambiente desktop XFCE.
    * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
    * **Shared folders** (Cartelle condivise): se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.

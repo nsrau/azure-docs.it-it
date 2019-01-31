@@ -2,7 +2,7 @@
 title: Evento di creazione pool di Azure Batch | Microsoft Docs
 description: Riferimento per l’evento di creazione del pool di batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259841"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470595"
 ---
 # <a name="pool-create-event"></a>Evento di creazione di pool
 
@@ -57,22 +57,22 @@ ms.locfileid: "54259841"
 |[networkConfiguration](#bk_netconf)|Tipo complesso|La configurazione della rete per il pool.|
 |resizeTimeout|Tempo|Il timeout per l'allocazione dei nodi di calcolo per il pool specificato per l'ultima operazione di ridimensionamento del pool.  L'impostazione iniziale delle dimensioni, eseguita quando si crea il pool, viene considerata come un ridimensionamento.|
 |targetDedicated|Int32|Numero di nodi di calcolo richiesti per il pool.|
-|enableAutoScale|Booleano|Specifica se le dimensioni del pool vengono regolate automaticamente nel tempo.|
-|enableInterNodeCommunication|Booleano|Specifica se il pool consente o meno la comunicazione diretta tra nodi.|
-|isAutoPool|Booleano|Specifica se il pool è stato creato tramite il meccanismo di pool automatico di un processo.|
+|enableAutoScale|Bool|Specifica se le dimensioni del pool vengono regolate automaticamente nel tempo.|
+|enableInterNodeCommunication|Bool|Specifica se il pool consente o meno la comunicazione diretta tra nodi.|
+|isAutoPool|Bool|Specifica se il pool è stato creato tramite il meccanismo di pool automatico di un processo.|
 |maxTasksPerNode|Int32|Numero massimo di attività che possono essere eseguite simultaneamente in un singolo nodo di calcolo nel pool.|
 |vmFillType|string|Definisce il modo in cui il servizio Batch distribuisce le attività tra i nodi di calcolo nel pool. I valori validi sono Spread o Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |osFamily|string|La famiglia del sistema operativo guest Azure da installare nelle macchine virtuali nel pool.<br /><br /> I valori possibili sono:<br /><br /> **2** - Famiglia 2 del sistema operativo, equivalente a Windows Server 2008 R2 SP1.<br /><br /> **3** - Famiglia 3 del sistema operativo, equivalente a Windows Server 2012.<br /><br /> **4** - Famiglia 4 del sistema operativo, equivalente a Windows Server 2012 R2.<br /><br /> Per altre informazioni, vedere [Rilasci del sistema operativo guest Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|string|La versione del sistema operativo guest Azure da installare nelle macchine virtuali nel pool.<br /><br /> Il valore predefinito è **\***, che specifica la versione più recente del sistema operativo per la famiglia specificata.<br /><br /> Per altri valori consentiti, vedere [Rilasci del sistema operativo guest Azure ](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complesso|Specifica le informazioni sulla piattaforma o sull'immagine del Marketplace da usare.|
 |nodeAgentSKUId|string|Lo SKU dell'agente di nodo Batch sottoposto a provisioning nel nodo di calcolo.|
@@ -80,7 +80,7 @@ ms.locfileid: "54259841"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |publisher|string|L'autore dell'immagine.|
 |offer|string|L'offerta dell'immagine.|
@@ -89,12 +89,12 @@ ms.locfileid: "54259841"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|boolean|Indica se la macchina virtuale è abilitata per gli aggiornamenti automatici. Se questa proprietà non è specificata, viene usato il valore predefinito.|
+|enableAutomaticUpdates|Boolean|Indica se la macchina virtuale è abilitata per gli aggiornamenti automatici. Se questa proprietà non è specificata, viene usato il valore predefinito.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nome dell'elemento|type|Note|
+|Nome dell'elemento|Type|Note|
 |------------------|--------------|----------|
 |subnetId|string|Specifica l'identificatore di risorsa della subnet in cui vengono creati i nodi di calcolo del pool.|

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: iainfou
-ms.openlocfilehash: f9f4c1cccac7e40c7d2fd8f76221bc1870ade45f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a3f5bad20ddd0968f2e76008799494adbb55bc31
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993247"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092139"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installare le applicazioni con Helm nel servizio Azure Kubernetes
 
@@ -67,7 +67,7 @@ Con un cluster Kubernetes abilitato per il controllo degli accessi in base al ru
 
 ## <a name="configure-helm"></a>Configurare Helm
 
-Per distribuire un'applicazione Tiller di base in un cluster del servizio Kubernetes di Azure, usare il comando [helm init] [ helm-init]. Se il cluster non è abilitato per il controllo degli accessi in base al ruolo, rimuovere l'argomento e il valore `--service-account`. Se TLS/SSL non è configurato per Tiller e Helm, ignorare questo passaggio di inizializzazione di base e fornire invece il valore `--tiller-tls-` necessario come illustrato nell'esempio seguente.
+Per distribuire un'applicazione Tiller di base in un cluster del servizio Azure Kubernetes, usare il comando [helm init][helm-init]. Se il cluster non è abilitato per il controllo degli accessi in base al ruolo, rimuovere l'argomento e il valore `--service-account`. Se TLS/SSL non è configurato per Tiller e Helm, ignorare questo passaggio di inizializzazione di base e fornire invece il valore `--tiller-tls-` necessario come illustrato nell'esempio seguente.
 
 ```console
 helm init --service-account tiller
@@ -99,7 +99,6 @@ L'output di esempio sintetico seguente mostra alcuni dei grafici di Helm disponi
 $ helm search
 
 NAME                           CHART VERSION    APP VERSION  DESCRIPTION
-stable/aks-engine-autoscaler   2.2.0            2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7            v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7            0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0            6.2.4        The server receives data from the Elastic APM a...
