@@ -4,25 +4,25 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come utilizzare un servizio Web generato al momento della distribuzione di un modello con il modello di Azure Machine Learning. Il servizio Web espone un'API REST. Creare client per questa API usando il linguaggio di programmazione preferito.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753388"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242264"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Quando si distribuisce un'immagine in Istanze di Azure Container, nel servizio Azure Kubernetes o in Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione.
+Quando si distribuisce un'immagine in Istanze di Azure Container, nel servizio Azure Kubernetes o in Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
@@ -33,7 +33,7 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 ## <a name="connection-information"></a>Informazioni di connessione
 
 > [!NOTE]
-> Usare l'SDK di Azure Machine Learning per ottenere le informazioni sul servizio Web. Questo è un SDK per Python. È possibile usare qualsiasi linguaggio per creare un client per il servizio.
+> Usare l'SDK di Azure Machine Learning per ottenere le informazioni sul servizio Web. Si tratta di un SDK per Python. È possibile usare qualsiasi linguaggio per creare un client per il servizio.
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
@@ -84,7 +84,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## <a name="request-data"></a>Dati richiesta
 
@@ -100,7 +100,7 @@ L'API REST prevede che il corpo della richiesta sia un documento JSON con la str
 ```
 
 > [!IMPORTANT]
-> La struttura dei dati deve corrispondere a quanto previsto dallo script di assegnazione dei punteggi e dal modello nel servizio. Lo script di assegnazione dei punteggi può modificare i dati prima di passarli al modello.
+> La struttura dei dati deve corrispondere allo script di punteggio e al modello nelle stime del servizio. Lo script di punteggio può modificare i dati prima di trasferirli al modello.
 
 Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) è prevista una matrice di 10 numeri. Lo script di assegnazione dei punteggi per questo esempio crea una matrice Numpy dalla richiesta e la passa al modello. Nell'esempio seguente sono visualizzati i dati che questo servizio prevede:
 

@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081864"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241697"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure
 
@@ -117,7 +117,7 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pr
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
-     * **Host**: nome host o indirizzo IP dell'istanza di Data Science Virtual Machine per Linux.
+     * **Host**: nome host o indirizzo IP della Data Science VM per Linux.
      * **Accesso**: nome utente della VM Linux.
      * **Porta SSH**: lasciare il valore predefinito 22.
      * **Tipo di sessione**: modificare il valore in XFCE. La VM Linux attualmente supporta solo l'ambiente desktop XFCE.
@@ -154,7 +154,7 @@ Python 3.5 viene installato in */anaconda/envs/py35/bin*.
 
 Per richiamare la sessione interattiva di Python, è sufficiente digitare **python** nella shell. Se si usa un'interfaccia grafica o è installato l'inoltro X11, è possibile digitare il comando **pycharm** per avviare l'IDE di PyCharm Python.
 
-Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. Ad esempio: 
+Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ```pip``` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. Ad esempio: 
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario esegui
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-È possibile arrestare i servizi relativi a Hadoop quando non servono eseguendo ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````. un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nella directory `/dsvm/samples/MRS`. 
+È possibile arrestare i servizi relativi a Hadoop quando non servono eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nella directory `/dsvm/samples/MRS`. 
 
 ### <a name="ides-and-editors"></a>IDE ed editor
 È possibile scegliere tra diversi editor di codice, Ciò include VI/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse e IntelliJ. gEdit, Eclipse, IntelliJ, RStudio e PyCharm sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
@@ -255,7 +255,7 @@ Per accedere a **Postgres**:
 Nella VM sono installati gli strumenti di Azure seguenti:
 
 * **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
+* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati rispettivamente in o da BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
 * **Librerie di Azure**: di seguito sono elencate alcune delle librerie preinstallate.
   
   * **Python**: le librerie installate correlate ad Azure in Python sono **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.

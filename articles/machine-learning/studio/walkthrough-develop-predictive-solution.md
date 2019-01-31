@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2c21c08e71592e417d8ee3850af61ca2c1486a76
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464726"
 ---
 # <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Procedura dettagliata: Sviluppare una soluzione predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio
 
@@ -56,6 +56,6 @@ Per creare la soluzione di valutazione del rischio di credito, seguire la proced
 6. [Accedere al servizio Web](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> È possibile trovare una copia di lavoro dell'esperimento sviluppato in questa procedura dettagliata in [Azure AI Gallery](https://gallery.cortanaintelligence.com). Passare a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Procedura dettagliata: previsione del rischio di credito) e fare clic su **Apri in Studio** per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
+> È possibile trovare una copia di lavoro dell'esperimento sviluppato in questa procedura dettagliata nella [raccolta per intelligenza artificiale di Azure](https://gallery.cortanaintelligence.com). Passare a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Procedura dettagliata: previsione del rischio di credito) e fare clic su **Apri in Studio** per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
 > 
 > Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270) (Classificazione binaria: previsione del rischio di credito) nella [Gallery](http://gallery.cortanaintelligence.com/).

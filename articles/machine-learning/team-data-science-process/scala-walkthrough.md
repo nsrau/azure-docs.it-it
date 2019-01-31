@@ -6,20 +6,20 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135148"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470315"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
-Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di data science](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione di caratteristiche, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
+Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
 
 * Problema di regressione: stima dell'importo della mancia ($) per una corsa in taxi
 * Classificazione binaria: previsione riguardo al fatto che venga lasciata o meno una mancia (1/0) per una corsa in taxi
@@ -544,7 +544,7 @@ Creare quindi un modello di regressione logistica usando la funzione `LogisticRe
 
 1. **Training dei dati del modello** con un set di parametri.
 2. **Valutazione del modello** su un set di dati di test con metriche.
-3. **Salvataggio del modello** in un'archiviazione BLOB per l'utilizzo in futuro.
+3. **Salvataggio del modello** in un'archiviazione BLOB per l'uso in futuro.
 4. **Assegnazione di un punteggio al modello** in base ai dati di test.
 5. **Tracciamento dei risultati** con curve ROC.
 
@@ -1104,5 +1104,5 @@ Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle
 
 [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](walkthroughs.md) descrive altre procedure dettagliate end-to-end che illustrano i passaggi del processo di analisi scientifica dei dati per i team in scenari specifici. Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 
-[Assegnare punteggi a modelli di Machine Learning compilati con Spark](spark-model-consumption.md) illustra come usare il codice di Scala per caricare automaticamente nuovi set di dati e assegnare loro un punteggio con modelli di Machine Learning compilati in Spark e salvati nell'archiviazione BLOB di Azure. È possibile seguire le istruzioni illustrate nell'argomento e sostituire semplicemente il codice Python con il codice Scala indicato in questo articolo per abilitare l'uso automatico.
+[Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md) illustra come usare il codice di Scala per caricare automaticamente nuovi set di dati e assegnare loro un punteggio con modelli di Machine Learning compilati in Spark e salvati nell'archiviazione BLOB di Azure. È possibile seguire le istruzioni illustrate nell'argomento e sostituire semplicemente il codice Python con il codice Scala indicato in questo articolo per abilitare l'uso automatico.
 

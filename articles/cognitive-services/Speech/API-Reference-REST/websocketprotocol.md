@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341821"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217289"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocollo WebSocket di Riconoscimento vocale Bing
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come risolvere o trovare soluzioni alternative per i più comuni errori di distribuzione di Docker con il servizio Azure Kubernetes e Istanze di Azure Container quando si usa il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
+author: chris-lauren
+ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401317"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247069"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
 

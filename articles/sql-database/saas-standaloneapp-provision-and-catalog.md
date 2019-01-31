@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/31/2018
-ms.openlocfilehash: 92a1745f8da9783a22c7cbf417acb0709759f41c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 12beb167c5225f669529dd2db375468fc881c8eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468564"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 
@@ -28,6 +28,7 @@ L'articolo presenta due parti principali:
     * L'esercitazione usa l'applicazione SaaS di esempio Wingtip Tickets, adattata al modello di un'app autonoma per ogni tenant.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modello di applicazione autonoma per ogni tenant
+
 Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e un database SQL.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant. 
 
    ![modello di applicazione per ogni tenant](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -35,6 +36,7 @@ Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le app
 Quando si distribuisce un'applicazione per un tenant, il provisioning dell'app e del database viene effettuato in un nuovo gruppo di risorse creato per il tenant.  L'utilizzo di gruppi di risorse separate consente di isolare le risorse delle applicazioni di ogni tenant e di gestirle in modo indipendente. All'interno di ogni gruppo di risorse, ogni istanza dell'applicazione viene configurata per l'accesso diretto al database corrispondente.  Questo modello di connessione è diverso da altri modelli che usano un catalogo per gestire le connessioni tra l'app e il database.  Poiché non esiste una condivisione di risorse, è necessario effettuare il provisioning di ogni database tenant con risorse sufficienti per gestire il relativo carico di picco. In genere questo modello viene usato per le applicazioni SaaS con un numero ridotto di tenant, in cui si presta particolare importanza all'isolamento dei tenant e minore attenzione ai costi delle risorse.  
 
 ## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Utilizzo di un catalogo di tenant con il modello di un'applicazione per ogni tenant
+
 Sebbene l'app e il database di ogni tenant siano completamente isolati, alcuni scenari di gestione e di analisi possono usare più tenant.  Ad esempio, l'applicazione di una modifica apportata allo schema per una nuova versione dell'applicazione richiede modifiche allo schema di ogni database tenant. Anche gli scenari di reporting e di analisi possono richiedere l'accesso a tutti i database tenant indipendentemente dalla posizione in cui vengono distribuiti.
 
    ![modello di applicazione per ogni tenant](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
@@ -42,19 +44,22 @@ Sebbene l'app e il database di ogni tenant siano completamente isolati, alcuni s
 Il catalogo di tenant contiene un mapping tra un identificatore del tenant e un database tenant, consentendo la risoluzione di un identificatore in un nome di server e di database.  Nell'app SaaS Wingtip Tickets l'identificatore del tenant viene calcolato come hash del nome del tenant, anche se possono essere usati altri schemi.  Sebbene le applicazioni autonome non necessitino del catalogo per la gestione delle connessioni, è possibile usare il catalogo per definire l'ambito di altre azioni a un set di database tenant. Ad esempio, la query elastica può usare il catalogo per determinare il set di database attraverso cui le query vengono distribuite per il reporting tra tenant.
 
 ## <a name="elastic-database-client-library"></a>Libreria client del database elastico
-Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant*.  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
+
+Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](sql-database-elastic-database-client-library.md).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant*.  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
 
 È possibile chiamare le funzioni della libreria client dei database elastici dalle applicazioni o dagli script di PowerShell per creare e gestire le voci della mappa partizioni. Altre funzioni della libreria client dei database elastici consentono il recupero del set di partizioni o la connessione al database corretto per una specifica chiave del tenant. 
-    
-> [!IMPORTANT] 
+
+> [!IMPORTANT]
 > Non modificare i dati direttamente nel database di catalogo o nella mappa partizioni locale nei database tenant. Gli aggiornamenti diretti non sono supportati per l'elevato rischio di danneggiamento dei dati. Modificare, invece, i dati di mapping usando solo le API della libreria client dei database elastici.
 
 ## <a name="tenant-provisioning"></a>Provisioning dei tenant 
+
 Ogni tenant richiede un nuovo gruppo di risorse di Azure, che è necessario creare prima di poter effettuare il provisioning delle risorse in esso contenute. Dopo aver creato il gruppo di risorse, è possibile usare un modello di Azure Resource Manager per distribuire i componenti dell'applicazione e il database e quindi configurare la connessione del database. Per inizializzare lo schema del database, il modello può importare un file BACPAC.  In alternativa è possibile creare il database come copia di un database "modello".  Il database viene quindi ulteriormente aggiornato con i dati delle sedi iniziali e registrato nel catalogo.
 
 ## <a name="tutorial"></a>Esercitazione
 
 In questa esercitazione si apprenderà come:
+
 * Effettuare il provisioning di un catalogo
 * Registrare i database tenant di esempio distribuiti in precedenza nel catalogo
 * Effettuare il provisioning di un tenant aggiuntivo e registrarlo nel catalogo
@@ -64,12 +69,16 @@ Per distribuire e configurare l'applicazione, creare il database tenant e inizia
 Al termine di questa esercitazione si disporrà di un set di applicazioni autonome di tenant e ogni database sarà registrato nel catalogo.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati: 
+
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Effettuare il provisioning del catalogo
+
 In questa attività si apprenderà come effettuare il provisioning del catalogo usato per registrare tutti i database tenant. Si apprenderà come: 
+
 * **Effettuare il provisioning del database di catalogo** usando un modello di gestione delle risorse di Azure. Il database viene inizializzato importando un file BACPAC.  
 * **Registrare le app del tenant di esempio** che sono state distribuite in precedenza.  Ogni tenant viene registrato con una chiave calcolata da un hash del nome del tenant.  Anche il nome del tenant viene archiviato in una tabella di estensione nel catalogo.
 
@@ -108,6 +117,7 @@ A questo punto esaminare le risorse appena create.
 ## <a name="provision-a-new-tenant-application"></a>Effettuare il provisioning di una nuova applicazione di tenant
 
 In questa attività si apprenderà come effettuare il provisioning di una singola applicazione di tenant. Si apprenderà come:  
+
 * **Creare un nuovo gruppo di risorse** per il tenant. 
 * **Effettuare il provisioning dell'applicazione e del database** nel nuovo gruppo di risorse usando un modello di gestione delle risorse di Azure.  Questa azione include l'inizializzazione del database con i dati di riferimento e lo schema comune importando un file BACPAC. 
 * **Inizializzare il database con le informazioni di base sul tenant**. Questa azione include la specifica del tipo di sede, che determina la fotografia usata come sfondo per il sito Web degli eventi. 
@@ -129,7 +139,7 @@ Dopo che è stato eseguito il provisioning del tenant, viene aperto il sito Web 
    ![risorse di red maple racing](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
 
-## <a name="to-stop-billing-delete-resource-groups"></a>Per interrompere la fatturazione, eliminare i gruppi di risorse ##
+## <a name="to-stop-billing-delete-resource-groups"></a>Per interrompere la fatturazione, eliminare i gruppi di risorse
 
 Quando si finisce di esplorare l'esempio, è importante eliminare tutti i gruppi di risorse creati per interrompere la fatturazione correlata.
 
@@ -146,4 +156,4 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md).  

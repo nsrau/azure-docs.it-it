@@ -1,24 +1,25 @@
 ---
-title: Creare un endpoint personalizzato per il riconoscimento vocale - Servizio di riconoscimento vocale personalizzato
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato.
+title: Creare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+description: Informazioni su come creare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: conceptual
+ms.subservice: custom-speech
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f9aca8529bf0407022ff3683c1cd73b87045f2f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219024"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216668"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Creare un endpoint personalizzato per il riconoscimento vocale
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Dopo aver creato modelli acustici o linguistici personalizzati, è possibile distribuirli in un endpoint personalizzato di riconoscimento vocale. 
 
 ## <a name="create-an-endpoint"></a>Creare un endpoint

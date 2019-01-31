@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339934"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224446"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introduzione al Servizio di riconoscimento vocale personalizzato
 
@@ -36,7 +36,7 @@ Prima di provare l'esempio menzionato sopra, è necessario sottoscrivere il Serv
 ## <a name="creating-a-custom-acoustic-model"></a>Creazione di un modello acustico personalizzato
 Per personalizzare il modello acustico per un particolare contesto, è necessario disporre di una raccolta di dati di riconoscimento vocale. Questa raccolta è costituita da un set di file audio con i dati per il riconoscimento vocale e da un file di testo con le trascrizioni di ciascun file audio. I dati audio devono essere rappresentativi del contesto in cui si vuole usare il servizio di riconoscimento.
 
-Ad esempio, se si vuole usare il riconoscimento vocale in una fabbrica rumorosa, i file audio dovrebbero contenere le voci di persone che parlano in una fabbrica rumorosa.
+Ad esempio:  Se si intende utilizzare il riconoscimento vocale in una fabbrica rumorosa, i file audio devono contenere persone che parlano in una fabbrica rumorosa.
 Se si è interessati a ottimizzare le prestazioni per un unico parlante, ad esempio se si vogliono trascrivere i famosi discorsi radiofonici del presidente Franklin D. Roosevelt, i file audio devono consistere di numerosi esempi di tale voce parlante.
 
 Una descrizione dettagliata sulla procedura di creazione di un modello acustico personalizzato è disponibile [qui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

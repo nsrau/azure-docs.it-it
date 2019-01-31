@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5cef98fedc0e2e29582c8cde8c75837880f1cf58
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216065"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Aggiornare il servizio QnA Maker
 È possibile scegliere di aggiornare i singoli componenti dello stack di QnA Maker dopo la creazione iniziale. Vedere i dettagli dei componenti dipendenti e della selezione dello SKU [qui](https://aka.ms/qnamaker-docs-capacity).

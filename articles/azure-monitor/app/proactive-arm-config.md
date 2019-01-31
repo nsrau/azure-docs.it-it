@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853596"
+ms.locfileid: "54881597"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -157,7 +157,7 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
 
-Questa sezione si applica esclusivamente agli avvisi classici di rilevamento intelligente e facilita l'ottimizzazione delle notifiche di avviso per garantire che solo i destinatari desiderati ricevano le notifiche. Per comprendere meglio la differenza tra gli [avvisi classici] (../platform/alerts-classic.overview.md e la nuova esperienza di avvisi, consultare l'[articolo di panoramica sugli avvisi](../platform/alerts-overview.md). Attualmente gli avvisi di rilevamento intelligente supportano solo l'esperienza di avvisi classici. L'unica eccezione sono gli [avvisi di rilevamento intelligente nei servizi cloud di Azure](./proactive-cloud-services.md). Per controllare la notifica di avviso degli avvisi di rilevamento intelligente nei servizi cloud di Azure, usare [gruppi di azioni](../platform/action-groups.md).
+Questa sezione si applica esclusivamente agli avvisi classici di rilevamento intelligente e facilita l'ottimizzazione delle notifiche di avviso per garantire che solo i destinatari desiderati ricevano le notifiche. Per comprendere meglio la differenza tra [avvisi classici](../platform/alerts-classic.overview.md) e la nuova esperienza di avvisi, fare riferimento all'[articolo di panoramica sugli avvisi](../platform/alerts-overview.md). Attualmente gli avvisi di rilevamento intelligente supportano solo l'esperienza di avvisi classici. L'unica eccezione sono gli [avvisi di rilevamento intelligente nei servizi cloud di Azure](./proactive-cloud-services.md). Per controllare la notifica di avviso degli avvisi di rilevamento intelligente nei servizi cloud di Azure, usare [gruppi di azioni](../platform/action-groups.md).
 
 * È consigliabile l'uso di destinatari specifici per le notifiche di avviso classiche o di rilevamento intelligente.
 

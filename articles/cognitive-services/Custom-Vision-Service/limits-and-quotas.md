@@ -6,16 +6,16 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: d0a6b7be62afcd8e9f51b6a9387c9aa33f62d9a9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 296f9046b8409de2626296e5b6e654c015d4c962
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430069"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215266"
 ---
 # <a name="pricing-and-limits"></a>Prezzi e limiti
 
@@ -29,8 +29,8 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |-----|-----|-----|-----|
 |Progetti|2|2|100|
 |Immagini di training per progetto, classificazione|5.000|5.000|50.000|
-|Immagini di training per progetto, rilevamento di oggetti|5.000|5.000|10.000|
-|Previsioni/mese|10.000 |10.000|Illimitato|
+|Immagini di training per progetto, rilevamento di oggetti|5.000|5.000|10,000|
+|Previsioni/mese|10,000 |10,000|Illimitato|
 |Tag/progetto|50|50|250|
 |Iterazioni |10|10|10|
 |Numero minimo di immagini con etichette per tag, classificazione (opzione consigliata: più di 50) |5|5|5|

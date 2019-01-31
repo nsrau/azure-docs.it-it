@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319851"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221599"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
@@ -275,7 +275,7 @@ Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disco
 
-**Varianza dati di origine** | **Limite massimo**
+**Varianza dati di origine** | **Limite Massimo**
 ---|---
 Varianza media dei dati per VM| 25 MB/s
 Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s

@@ -1,22 +1,24 @@
 ---
-title: Formato dello schema nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni sul formato dello schema nell'API Knowledge Exploration Service (KES) in Servizi cognitivi.
+title: Formato dello schema - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni sul formato dello schema nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 3009392a5acb12a8f4df3d30a2cbe5e74f2172fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227302"
 ---
 # <a name="schema-format"></a>Formato dello schema
+
 Lo schema è specificato in un file JSON che descrive la struttura di attributi degli oggetti nel file di dati usato per creare l'indice.  Per ogni attributo, lo schema specifica il nome, il tipo di dati, le operazioni facoltative e l'elenco facoltativo di sinonimi.  Un oggetto può avere 0 o più valori di ogni attributo.  Di seguito è disponibile un esempio semplificato, tratto da un dominio di pubblicazioni accademiche:
 
 ``` json
@@ -36,9 +38,10 @@ Lo schema è specificato in un file JSON che descrive la struttura di attributi 
 I nomi degli attributi sono identificatori che rilevano la differenza tra maiuscole e minuscole, che iniziano con una lettera e contengono solo lettere (A-Z), numeri (0-9) e caratteri di sottolineatura (\_).  L'attributo riservato "logprob" viene usato per specificare le probabilità relative basate su logaritmi naturali tra gli oggetti.
 
 ## <a name="attribute-type"></a>Tipo di attributo
+
 Di seguito è riportato un elenco dei tipi di dati degli attributi supportati:
 
-| type | DESCRIZIONE | Operazioni | Esempio |
+| Type | DESCRIZIONE | Operazioni | Esempio |
 |------|-------------|------------|---------|
 | string | Stringa (da 1 a 1024 caratteri) | equals, starts_with | "hello world" |
 | Int32 | Valore intero a 32 bit con segno | equals, starts_with, is_between | 2016 |
@@ -60,11 +63,13 @@ Gli attributi di tipo GUID vengono usati per rappresentare in modo efficiente i 
 Gli attributi di tipo BLOB vengono usati per codificare in modo efficiente i BLOB di dati potenzialmente di grandi dimensioni per la ricerca runtime dall'oggetto corrispondente, senza il supporto per le operazione di indicizzazione in base al contenuto dei valori BLOB.
 
 ### <a name="composite-attributes"></a>Attributi compositi
+
 Gli attributi composti vengono usati per rappresentare un raggruppamento di valori di attributi.  Il nome di ogni attributo secondario inizia con il nome dell'attributo composito seguito da ".".  I valori per gli attributi compositi vengono specificati come oggetto JSON contenente i valori degli attributi annidati.  Gli attributi compositi possono avere più valori di oggetto.  Gli attributi compositi, tuttavia, potrebbero non avere attributi secondari che sono a loro volta attributi compositi.
 
 Nell'esempio di pubblicazione accademica precedente, ciò consente al servizio di cercare i documenti di "harry shum" mentre lavora presso "microsoft".  Senza attributi compositi, il servizio può cercare solo i documenti in cui uno degli autori è "harry shum" e uno degli autori è presso "microsoft".  Per altre informazioni, vedere [Query composite](SemanticInterpretation.md#composite-function).
 
 ## <a name="attribute-operations"></a>Operazioni degli attributi
+
 Per impostazione predefinita, ogni attributo viene indicizzato per supportare tutte le operazioni disponibili per il tipo di dati dell'attributo.  Se una determinata operazione non è obbligatoria, il set di operazioni indicizzate può essere specificato in modo esplicito per ridurre le dimensioni dell'indice.  Nel frammento seguente, tratto dallo schema di esempio precedente, l'attributo Author.Id viene indicizzato per supportare solo l'operazione *equals*, ma non le operazioni *starts_with* e *is_between* aggiuntive per gli attributi Int32.
 ```json
 {"name":"Author.Id", "type":"Int32", "operations":["equals"]}
@@ -73,6 +78,7 @@ Per impostazione predefinita, ogni attributo viene indicizzato per supportare tu
 Quando si fa riferimento a un attributo all'interno di una grammatica, l'operazione *starts_with* deve essere specificata nello schema in modo che il servizio possa generare i completamenti dalle query parziali.  
 
 ## <a name="attribute-synonyms"></a>Sinonimi degli attributi
+
 È spesso consigliabile fare riferimento a un particolare valore di attributo di tipo stringa con un sinonimo.  Gli utenti, ad esempio, possono fare riferimento a "Microsoft" come "MSFT" o "MS".  In questi casi, la definizione dell'attributo può specificare il nome di un file di schema che si trova nella stessa directory del file di schema.  Ogni riga del file di sinonimo rappresenta una voce sinonimo nel formato JSON seguente: `["<canonical>", "<synonym>"]`.  Nello schema di esempio "AuthorName.syn" è un file JSON contenente i valori sinonimo per l'attributo Author.Name.
 
 `{"name":"Author.Name", "type":"String", "synonyms":"AuthorName.syn"}`

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come eseguire il training su nodo singolo e distribuito di modelli di TensorFlow con Estimator di TensorFlow
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094109"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244726"
 ---
 # <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Eseguire il training di modelli TensorFlow con il servizio Azure Machine Learning
 

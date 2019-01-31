@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849210"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157466"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 Un'appliance virtuale di rete è una macchina virtuale che svolge una funzione di rete, ad esempio il routing, la protezione tramite firewall o l'ottimizzazione della WAN.
 
-Creare un'appliance virtuale di rete nella subnet *DMZ* con [az vm create](/cli/azure/vm#az_vm_create). Quando si crea una macchina virtuale, Azure crea e assegna un indirizzo IP pubblico alla macchina virtuale, per impostazione predefinita. Il parametro `--public-ip-address ""` indica ad Azure di non creare e assegnare un indirizzo IP pubblico alla macchina virtuale, perché non è necessario connettersi alla macchina virtuale da Internet. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
+Creare un'appliance virtuale di rete nella subnet *DMZ* con [az vm create](/cli/azure/vm). Quando si crea una macchina virtuale, Azure crea e assegna un indirizzo IP pubblico alla macchina virtuale, per impostazione predefinita. Il parametro `--public-ip-address ""` indica ad Azure di non creare e assegnare un indirizzo IP pubblico alla macchina virtuale, perché non è necessario connettersi alla macchina virtuale da Internet. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ L'esecuzione del comando può richiedere fino a un minuto.
 
 Creare due macchine virtuali nella rete virtuale per poter verificare che il traffico dalla subnet *Public* venga indirizzato alla subnet *Private* attraverso l'appliance virtuale di rete in un passaggio successivo. 
 
-Creare una macchina virtuale nella subnet *Public* con [az vm create](/cli/azure/vm#az_vm_create). Il parametro `--no-wait` consente ad Azure di eseguire il comando in background, pertanto è possibile continuare con il comando successivo. Per semplificare questo articolo, viene usata una password. Le chiavi in genere vengono usate per le distribuzioni di produzione. Se si usano chiavi, occorre configurare anche l'inoltro dell'agente SSH. Per altre informazioni, vedere la documentazione del client SSH. Sostituire `<replace-with-your-password>` nel comando seguente con una password a scelta.
+Creare una macchina virtuale nella subnet *Public* con [az vm create](/cli/azure/vm). Il parametro `--no-wait` consente ad Azure di eseguire il comando in background, pertanto è possibile continuare con il comando successivo. Per semplificare questo articolo, viene usata una password. Le chiavi in genere vengono usate per le distribuzioni di produzione. Se si usano chiavi, occorre configurare anche l'inoltro dell'agente SSH. Per altre informazioni, vedere la documentazione del client SSH. Sostituire `<replace-with-your-password>` nel comando seguente con una password a scelta.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

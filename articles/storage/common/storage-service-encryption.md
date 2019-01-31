@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384123"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457174"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 La crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere i dati in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Con questa funzionalità, la piattaforma di archiviazione di Azure crittografa automaticamente i dati prima di renderli permanenti su Managed Disks di Azure, BLOB di Azure, Archiviazione code e tabelle o File di Azure e li decrittografa prima del recupero. La gestione della crittografia, la crittografia di dati inattivi, la decrittografia e la gestione delle chiavi in Crittografia del servizio di archiviazione sono attività completamente trasparenti per gli utenti. Tutti i dati scritti nella piattaforma di archiviazione di Azure sono crittografati tramite [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei tipi di crittografia a blocchi più sicuri tra quelli disponibili.

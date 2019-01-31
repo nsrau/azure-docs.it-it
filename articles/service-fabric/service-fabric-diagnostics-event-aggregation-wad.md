@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002400"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187437"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ Dopo aver modificato il file template.json come descritto, pubblicare nuovamente
 
 ### <a name="update-storage-quota"></a>Aggiornare la quota di archiviazione
 
-Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento della quota, è possibile valutare la possibilità di ridurre le dimensioni della quota. Il valore predefinito è 50 GB e può essere configurato nel modello nel campo `overallQuotainMB` in `DiagnosticMonitorConfiguration`.
+Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento della quota, è possibile valutare la possibilità di ridurre le dimensioni della quota. Il valore predefinito è 50 GB e può essere configurato nel modello nel campo `overallQuotaInMB` in `DiagnosticMonitorConfiguration`.
 
 ```json
 "overallQuotaInMB": "50000",

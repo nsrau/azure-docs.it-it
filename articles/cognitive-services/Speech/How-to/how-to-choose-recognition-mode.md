@@ -1,24 +1,27 @@
 ---
-title: Come scegliere la modalità di riconoscimento | Microsoft Docs
-description: Come scegliere la modalità di riconoscimento più adatta.
+title: Come scegliere la modalità di riconoscimento di Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Come scegliere la modalità di riconoscimento più adatta di Riconoscimento vocale Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed270ed19959240bc1b90ba6171792cf4369e273
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373793"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221596"
 ---
-# <a name="speech-recognition-modes"></a>Modalità di riconoscimento vocale
+# <a name="bing-speech-recognition-modes"></a>Modalità di riconoscimento di Riconoscimento vocale Bing
 
-Le API *Riconoscimento vocale* di Microsoft supportano varie modalità di riconoscimento vocale. Scegliere la modalità che offre i risultati di riconoscimento più adatti per l'applicazione.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Le API Riconoscimento vocale Bing supportano varie modalità di riconoscimento vocale. Scegliere la modalità che offre i risultati di riconoscimento più adatti per l'applicazione.
 
 | Mode | DESCRIZIONE |
 |---|---|

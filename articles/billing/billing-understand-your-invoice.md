@@ -3,7 +3,7 @@ title: Comprendere la fattura di Azure | Microsoft Docs
 description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581556"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901021"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendere i termini sulla fattura di Microsoft Azure
 
@@ -100,7 +100,7 @@ La tabella seguente descrive le intestazioni delle colonne relative agli addebit
 | Termine |DESCRIZIONE |
 | --- | --- |
 | NOME |Identifica il servizio di primo livello per l'utilizzo |
-| type |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
+| Type |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
 | Risorsa |Identifica l'unità di misura del contatore utilizzato |
 | Region |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione del centro dati stesso |
 | Consumato |La quantità riportata dal contatore utilizzata durante il periodo di fatturazione |

@@ -3,19 +3,19 @@ title: Controllo e creazione di report per un utente di Collaborazione B2B di Az
 description: Le proprietà di un utente guest sono configurabili in Collaborazione B2B di Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: a31f9a5a0f613d6c70e8c95e584d8caca87e93be
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 06622c093ca90b3873365e6c93c40fc7221a6398
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434156"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075194"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
 Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. 

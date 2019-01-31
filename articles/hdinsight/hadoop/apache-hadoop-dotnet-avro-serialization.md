@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227948"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serializzare i dati in Apache Hadoop con la libreria Microsoft Avro
 
@@ -1351,7 +1351,7 @@ Il sesto esempio mostra alcune tecniche di programmazione correlate all'interazi
 L'esempio esegue le attività seguenti:
 
 * Connessione a un cluster esistente del servizio HDInsight.
-* Serializzazione di diversi file con estensione csv e caricamento dei risultati nell'archivio BLOB di Azure. I file CSV vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](https://www.infochimps.com/) per il periodo 1970-2010. L'esempio legge i dati del file CSV, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
+* Serializzazione di diversi file con estensione csv e caricamento dei risultati nell'archivio BLOB di Azure. I file CSV vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](https://www.infochimps.org/) per il periodo 1970-2010. L'esempio legge i dati del file CSV, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
 * Viene creata una nuova tabella esterna chiamata **Stocks** in Hive, che viene quindi collegata ai dati caricati nel passaggio precedente.
 * Usando Hive, viene eseguita una query sulla tabella **Stocks** .
 

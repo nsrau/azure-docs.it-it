@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come raccogliere i dati del modello di input di Azure Machine Learning in un archivio BLOB di Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271573"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247375"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
-In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Azure Kubernetes (AKS) in una risorsa di archiviazione BLOB di Azure. 
+In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Kubernetes di Azure in un archivio BLOB di Azure. 
 
 Una volta abilitata, la raccolta dei dati consente di:
 * Monitorare le deviazioni mentre i dati di produzione attraversano il modello
@@ -32,7 +32,7 @@ Una volta abilitata, la raccolta dei dati consente di:
 ## <a name="what-is-collected-and-where-does-it-go"></a>Quali informazioni vengono raccolte e dove sono trasferite?
 
 Possono essere raccolti i dati seguenti:
-* Dati di **input** del modello dai servizi Web distribuiti nel cluster Azure Kubernetes (AKS) (audio, immagini e video **non** vengono raccolti) 
+* Dati di **input** del modello dai servizi Web distribuiti nel cluster Kubernetes di Azure (audio, immagini e video **non** vengono raccolti) 
   
 * Previsioni del modello usando i dati di input di produzione.
 
@@ -54,7 +54,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 - Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
-- Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes (AKS). Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
+- Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes. Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
 
 - Un cluster del servizio Azure Kubernetes. Per informazioni su come creare un cluster di questo tipo e distribuire un modello in tale cluster, vedere il documento [Come e dove distribuire modelli](how-to-deploy-and-where.md).
 

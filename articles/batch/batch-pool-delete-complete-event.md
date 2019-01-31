@@ -2,7 +2,7 @@
 title: Evento di completamento eliminazione pool di Azure Batch | Microsoft Docs
 description: Riferimento per l’evento di completamento eliminazione del pool di batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30310315"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474549"
 ---
 # <a name="pool-delete-complete-event"></a>Evento di completamento eliminazione pool
 
@@ -36,7 +36,7 @@ ms.locfileid: "30310315"
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
 |id|string|ID del pool.|
-|startTime|Datetime|Data e ora in cui è stata avviata l'eliminazione del pool.|
+|startTime|DateTime|Data e ora in cui è stata avviata l'eliminazione del pool.|
 |endTime|DateTime|Data e ora in cui è stata completata l'eliminazione del pool.|
 
 ## <a name="remarks"></a>Osservazioni

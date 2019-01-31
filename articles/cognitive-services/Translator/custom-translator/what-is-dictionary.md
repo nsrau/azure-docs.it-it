@@ -5,16 +5,16 @@ description: Un dizionario è un documento allineato che specifica un elenco di 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 18260de82125c2e582e9c817ef733dd3757790b3
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975093"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212410"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 
@@ -23,7 +23,7 @@ Un dizionario è una coppia allineata di documenti che specifica un elenco di es
 I dizionari funzionano solo per i progetti in coppie di lingue per le quali è disponibile un sistema di traduzione automatica neurale (NMT) Microsoft completamente supportato. L’elenco completo delle lingue è disponibile in http://www.aka.ms/translatorlanguages.
 
 ## <a name="phrase-dictionary"></a>Dizionario di espressioni 
-Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o espressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.
+Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o epressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.
 
 ## <a name="sentence-dictionary"></a>Dizionario di frasi
 Il dizionario di frasi consente di specificare una traduzione di destinazione esatta di una frase di origine. La corrispondenza con una frase del dizionario si verifica se l'intera frase inviata corrisponde alla voce di origine del dizionario.  Se solo una parte della frase corrisponde, la corrispondenza con la voce non si verifica.  Quando viene rilevata una corrispondenza, verrà restituita la voce di destinazione del dizionario di frasi.

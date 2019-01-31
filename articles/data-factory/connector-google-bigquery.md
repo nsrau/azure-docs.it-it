@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0cb556bf2b36ec2b6ebee7163ec44e459f35ab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023686"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301357"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiare dati da Google BigQuery usando Azure Data Factory
 
@@ -42,7 +42,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per il servizio collegato Google BigQuery sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **GoogleBigQuery**. | Yes |
 | project | ID di progetto del progetto BigQuery su cui eseguire query.  | Yes |
@@ -54,7 +54,7 @@ Per il servizio collegato Google BigQuery sono supportate le proprietà seguenti
 
 Impostare la proprietà "authenticationType" su **UserAuthentication** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | clientId | ID dell'applicazione usata per generare il token di aggiornamento. | No  |
 | clientSecret | Segreto dell'applicazione usata per generare il token di aggiornamento. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
@@ -78,8 +78,8 @@ Impostare la proprietà "authenticationType" su **UserAuthentication** e specifi
                 "value":"<secret of the application used to generate the refresh token>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refresh token>"
+                "type": "SecureString",
+                "value": "<refresh token>"
             }
         }
     }
@@ -90,7 +90,7 @@ Impostare la proprietà "authenticationType" su **UserAuthentication** e specifi
 
 Impostare la proprietà "authenticationType" su **ServiceAuthentication** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione. È possibile usare questo tipo di autenticazione solo sul runtime di integrazione self-hosted.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo sul runtime di integrazione self-hosted.  | No  |
 | keyFilePath | Percorso completo per il file di chiave con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. | No  |
@@ -116,16 +116,16 @@ Impostare la proprietà "authenticationType" su **ServiceAuthentication** e spec
             "type": "IntegrationRuntimeReference"
         }
     }
-} 
+}
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Google BigQuery.
 
 Per copiare dati da Google BigQuery, impostare la proprietà type del set di dati su **GoogleBigQueryObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **GoogleBigQueryObject** | Yes |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
@@ -154,7 +154,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Google BigQuery, impostare il tipo di origine nell'attività di copia su **GoogleBigQuerySource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **GoogleBigQuerySource**. | Yes |
 | query | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |

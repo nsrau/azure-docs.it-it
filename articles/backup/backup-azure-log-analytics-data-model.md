@@ -2,19 +2,18 @@
 title: Modello di dati di Log Analytics per Backup di Azure
 description: Questo articolo illustra i dettagli del modello di dati di Log Analytics per i dati di Backup di Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877582"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299573"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 Usare il modello di dati di Log Analytics per creare report. Con il modello di dati, è possibile creare dashboard e query personalizzate o personalizzare i dati di Backup di Azure, come si preferisce.
@@ -128,7 +127,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
 | ResourceType |Text |Tipo di risorse per il quale vengono raccolti i dati. Ad esempio, Insieme di credenziali |
 
-### <a name="policy"></a>Criterio
+### <a name="policy"></a>Policy
 Questa tabella offre dettagli sui campi relativi al criterio.
 
 | Campo | Tipo di dati | DESCRIZIONE |
@@ -281,4 +280,4 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 | ResourceType |Text |Tipo di risorse per il quale vengono raccolti i dati. Ad esempio, Insieme di credenziali |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../azure-monitor/platform/dashboards.md) in Log Analytics.
+Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) in Log Analytics.

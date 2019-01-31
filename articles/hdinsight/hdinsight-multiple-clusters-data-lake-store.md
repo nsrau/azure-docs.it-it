@@ -10,17 +10,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743703"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912419"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usare più cluster HDInsight con un account Azure Data Lake Storage
 
 A partire da HDInsight versione 3.5, è possibile creare cluster HDInsight con account Azure Data Lake Storage come file system predefinito.
-Supportando l'archiviazione illimitata, Data Lake Storage è ideale non solo per l'hosting di grandi quantità di dati, ma anche per l'hosting di più cluster HDInsight che condividono un unico account Data Lake Storage. Per istruzioni su come creare un cluster HDInsight con Data Lake Storage come risorsa di archiviazione, vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Supportando l'archiviazione illimitata, Data Lake Storage è ideale non solo per l'hosting di grandi quantità di dati, ma anche per l'hosting di più cluster HDInsight che condividono un unico account Data Lake Storage. Per istruzioni su come creare un cluster HDInsight con Data Lake Storage come risorsa di archiviazione, vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 Questo articolo offre all'amministratore di Data Lake Storage le informazioni necessarie per configurare un singolo account Data Lake Storage condiviso utilizzabile in più cluster HDInsight **attivi**. Queste indicazioni valgono per l'hosting di più cluster Apache Hadoop sicuri e non sicuri in un account Data Lake Storage condiviso.
 
@@ -93,5 +93,5 @@ Impostare le autorizzazioni di lettura ed esecuzione per gli **altri** membri at
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
+* [Avvio rapido: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

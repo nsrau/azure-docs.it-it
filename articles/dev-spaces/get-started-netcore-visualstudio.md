@@ -5,19 +5,19 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e81073850ebb45e82f2f702bec976eed4725f62e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706263"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462563"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Guida introduttiva ad Azure Dev Spaces con .NET Core e Visual Studio
 
@@ -40,14 +40,14 @@ In questa guida si apprenderà come:
    Completare i passaggi seguenti in ogni intestazione del modulo per la creazione di un cluster del servizio Azure Container.
 
     - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
-    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere EastUS, EastUS2, CentralUS, WestEurope, WestUS2, SoutheastAsia, CanadaCentral o CanadaEast), versione e prefisso del nome DNS per il cluster AKS.
-    - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente AKS e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster servizio Azure Kubernetes. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster servizio Azure Kubernetes è possibile facilmente creare un nuovo cluster servizio Azure Kubernetes con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
+    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere EastUS, EastUS2, CentralUS, WestEurope, WestUS2, SoutheastAsia, CanadaCentral o CanadaEast), versione e prefisso del nome DNS per il cluster servizio Azure Kubernetes.
+    - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente servizio Azure Kubernetes e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster servizio Azure Kubernetes. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster servizio Azure Kubernetes è possibile facilmente creare un nuovo cluster servizio Azure Kubernetes con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
 
    Assicurarsi di scegliere Kubernetes versione 1.9.6 o versioni successive.
 
    ![Impostazioni di configurazione di Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Al termine, selezionare **Avanti: autenticazione**.
+   Selezionare **Avanti: Autenticazione** al termine.
 
 1. Scegliere l'impostazione desiderata per il controllo degli accessi in base al ruolo. Azure Dev Spaces supporta i cluster con il controllo degli accessi in base al ruolo abilitato o disabilitato.
 

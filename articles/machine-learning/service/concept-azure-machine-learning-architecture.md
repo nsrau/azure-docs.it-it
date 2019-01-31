@@ -1,22 +1,22 @@
 ---
-title: 'Machine Learning nel cloud: Termini e architettura'
+title: 'Apprendimento automatico nel cloud: Termini e architettura'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su architettura, terminologia e concetti del servizio Azure Machine Learning. Si otterranno informazioni anche sul flusso di lavoro generale dell'uso del servizio e sui servizi di Azure usati dal servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 751a1dc84f81b388a1fffb82cc3dfbc4996eed1f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401975"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249630"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -26,7 +26,7 @@ In questo articolo vengono descritti l'architettura e i concetti del servizio Az
 
 Il flusso di lavoro, in genere, segue questa sequenza:
 
-1. Sviluppare script di training per il Machine Learning in **Python**.
+1. Sviluppare script di training per l'apprendimento automatico in **Python**.
 1. Creare e configurare una **destinazione di calcolo**.
 1. **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
 1. **Eseguire una query sull'esperimento** per le metriche registrate dalle esecuzioni correnti e precedenti. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
@@ -73,7 +73,7 @@ Nella forma più semplice, un modello è un frammento di codice che accetta un i
 
 Un modello è prodotto da un'esecuzione in Azure Machine Learning. È anche possibile usare un modello il cui training sia stato eseguito all'esterno di Azure Machine Learning. È possibile registrare un modello in un'area di lavoro del servizio Azure Machine Learning.
 
-Il servizio Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare un qualsiasi framework di Machine Learning comune, ad esempio Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (precedentemente noto come CNTK).
+Il servizio Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare un qualsiasi framework di apprendimento automatico comune, ad esempio Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (precedentemente noto come CNTK).
 
 Per un esempio di training di un modello, vedere [Avvio rapido: Creare un'area di lavoro del servizio Machine Learning](quickstart-get-started.md).
 
@@ -157,9 +157,9 @@ Per un esempio d'uso di un esperimento, vedere [Avvio rapido: Introduzione al se
 
 ## <a name="pipeline"></a>Pipeline
 
-Le pipeline di Machine Learning consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dei processi di Machine Learning. Ad esempio, una pipeline può includere le fasi di preparazione dei dati, training del modello, distribuzione del modello e inferenza. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
+Le pipeline di Machine Learning consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Ad esempio, una pipeline può includere le fasi di preparazione dei dati, training del modello, distribuzione del modello e inferenza. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
 
-Per altre informazioni sulle pipeline di Machine Learning, vedere [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
+Per altre informazioni sulle pipeline di apprendimento automatico, vedere [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>Destinazione del calcolo
 
@@ -182,11 +182,11 @@ Le destinazioni di calcolo sono allegate a un'area di lavoro. Le destinazioni di
 
 ### <a name="managed-and-unmanaged-compute-targets"></a>Destinazioni di calcolo gestite e non gestite
 
-* **Gestite**: destinazioni di calcolo create e gestite dal servizio Azure Machine Learning. Queste destinazioni sono ottimizzate per i carichi di lavoro di Machine Learning. L'ambiente di calcolo di Azure Machine Learning è l'unica destinazione di calcolo gestita alla data di questo documento (4 dicembre 2018). È possibile che in futuro vengano aggiunte altre destinazioni di calcolo gestite. 
+* **Gestite**: destinazioni di calcolo create e gestite dal servizio Azure Machine Learning. Queste destinazioni sono ottimizzate per i carichi di lavoro di apprendimento automatico. L'ambiente di calcolo di Azure Machine Learning è l'unica destinazione di calcolo gestita alla data di questo documento (4 dicembre 2018). È possibile che in futuro vengano aggiunte altre destinazioni di calcolo gestite. 
 
-    È possibile creare istanze dell'ambiente di calcolo di Machine Learning direttamente tramite l'area di lavoro usando il portale di Azure, l'SDK di Azure Machine Learning o l'interfaccia della riga di comando di Azure. Tutte le altre destinazioni di calcolo devono essere create al di fuori dell'area di lavoro e quindi collegate a tale area.
+    È possibile creare istanze dell'ambiente di calcolo di apprendimento automatico direttamente tramite l'area di lavoro usando il portale di Azure, l'SDK di Azure Machine Learning o l'interfaccia della riga di comando di Azure. Tutte le altre destinazioni di calcolo devono essere create al di fuori dell'area di lavoro e quindi collegate a tale area.
 
-* **Non gestite**: destinazioni di calcolo *non* gestite dal servizio Azure Machine Learning. Può essere necessario crearle all'esterno di Azure Machine Learning e quindi collegarle all'area di lavoro prima dell'uso. Le destinazioni di calcolo non gestite possono richiedere passaggi aggiuntivi per mantenere o migliorare le prestazioni per i carichi di lavoro di Machine Learning.
+* **Non gestite**: destinazioni di calcolo *non* gestite dal servizio Azure Machine Learning. Può essere necessario crearle all'esterno di Azure Machine Learning e quindi collegarle all'area di lavoro prima dell'uso. Le destinazioni di calcolo non gestite possono richiedere passaggi aggiuntivi per mantenere o migliorare le prestazioni per i carichi di lavoro di apprendimento automatico.
 
 Per informazioni sulla selezione di una destinazione di calcolo per il training, vedere [Selezionare e usare una destinazione di calcolo per eseguire il training del modello](how-to-set-up-training-targets.md).
 

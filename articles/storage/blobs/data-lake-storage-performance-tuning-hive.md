@@ -3,17 +3,17 @@ title: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data 
 description: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Storage Gen2
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 90982491ecd64ff707bc47d71f374668ed74eb38
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976853"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239792"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Le impostazioni predefinite sono state impostate per fornire buone prestazioni p
 * **Un account di Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Avvio rapido: Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2.
 * **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Tuning Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md) (Ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2).
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) (Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2).
 
 ## <a name="parameters"></a>Parametri
 
@@ -47,7 +47,7 @@ Di seguito sono elencate le impostazioni più importanti da ottimizzare per otte
 
 **hive.exec.reducer.bytes.per.reducer**: questo parametro consente di impostare la dimensione di ciascun riduttore.  Per impostazione predefinita, ogni riduttore ha una dimensione di 256 MB.  
 
-## <a name="guidance"></a>Indicazioni
+## <a name="guidance"></a>Materiale sussidiario
 
 **Set hive.exec.reducer.bytes.per.reducer**: il valore predefinito funziona bene quando i dati non sono compressi.  In caso di dati compressi, è consigliabile ridurre la dimensione del riduttore.  
 

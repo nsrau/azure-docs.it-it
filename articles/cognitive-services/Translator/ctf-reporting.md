@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646011"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218157"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -36,7 +36,7 @@ L'endpoint dell'API di creazione report di CTF è http://api.microsofttranslator
 
 
 ## <a name="methods"></a>Metodi
-| NOME |    Descrizione|
+| NOME |    DESCRIZIONE|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -74,7 +74,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 **Parameters**
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -96,7 +96,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserTranslationCount presenta gli elementi seguenti:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | Da | Lingua di origine|
@@ -145,7 +145,7 @@ UserTranslation[] GetUserTranslations (
 
 **Parameters**
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -167,7 +167,7 @@ UserTranslation[] GetUserTranslations (
 
 Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTranslation presenta gli elementi seguenti:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 |:---|:---|
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | Da| Lingua di origine|

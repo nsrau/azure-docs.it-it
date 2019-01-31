@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230830"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093088"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 e il flusso del codice del dispositivo OAuth 2.0
 
@@ -128,9 +128,9 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Formato | Descrizione |
+| Parametro | Format | DESCRIZIONE |
 | --------- | ------ | ----------- |
-|`token_type` | Stringa| Sempre "Bearer". |
+|`token_type` | string| Sempre "Bearer". |
 |`scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 |`expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 |`access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |

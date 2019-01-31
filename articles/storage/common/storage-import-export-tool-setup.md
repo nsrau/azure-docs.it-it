@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: c122d4bc0091eade90c2491c5893f7a2f5c9f455
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526879"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452414"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 
@@ -203,7 +203,7 @@ Examples:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import.md)
+* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import.md) (Preparazione dei dischi rigidi per un processo di importazione)
 * [Previewing drive usage for an export job](../storage-import-export-tool-previewing-drive-usage-export-v1.md) (Anteprima dell'uso del disco per un processo di esportazione)
 * [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)

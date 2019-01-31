@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997690"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467816"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL
 
@@ -39,7 +39,7 @@ Sono disponibili le istruzioni DDL (data definition language) di base, tuttavia 
 
 - Le istruzioni CREATE e ALTER DATABASE offrono numerose opzioni. Le istruzioni includono le opzioni di posizionamento dei file, FILESTREAM e service broker che si applicano solo a SQL Server. Questo potrebbe non essere rilevante se si creano database prima di eseguire la migrazione, ma se si esegue la migrazione di codice T-SQL che crea i database è necessario confrontare [CREATE DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/dn268335.aspx) con la sintassi di SQL Server in [CREATE DATABASE (Transact-SQL di SQL Server)](https://msdn.microsoft.com/library/ms176061.aspx) per assicurarsi che tutte le opzioni in uso siano supportate. CREATE DATABASE per il database SQL di Azure ha anche opzioni di obiettivo di servizio e di scalabilità elastica che si applicano solo al database SQL.
 - Le istruzioni CREATE e ALTER TABLE hanno opzioni FileTable che non possono essere usate nel database SQL perché FILESTREAM non è supportato.
-- Le istruzioni di accesso CREATE e ALTER sono supportate, ma il database SQL non offre tutte le opzioni. Per aumentare la portabilità del database, il database SQL invita a usare utenti contenuti nel database anziché gli account di accesso tutte le volte che è possibile. Per altre informazioni, vedere [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [Controllo e concessione dell'accesso al database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- Le istruzioni di accesso CREATE e ALTER sono supportate, ma il database SQL non offre tutte le opzioni. Per aumentare la portabilità del database, il database SQL invita a usare utenti contenuti nel database anziché gli account di accesso tutte le volte che è possibile. Per altre informazioni, vedere [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [Controllo e concessione dell'accesso al database](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintassi di Transact-SQL non supportata nel database SQL di Azure
 

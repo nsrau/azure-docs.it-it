@@ -3,7 +3,7 @@ title: Installare MySQL in una macchina virtuale OpenSUSE in Azure | Microsoft D
 description: Informazioni su come installare MySQL in una macchina virtuale OpenSUSE Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 114b929899e00df9efe64aa387e0e27bd592b57e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469436"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227855"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -163,7 +163,7 @@ quit
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su MySQL, vedere la [documentazione di MySQL](http://dev.mysql.com/doc/index-topic.html).
+Per informazioni su MySQL, vedere la [documentazione di MySQL](http://dev.mysql.com/doc).
 
 
 

@@ -7,17 +7,19 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146614"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247749"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
-Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire alla creazione e all'eliminazione di oggetti BLOB usando moderne architetture senza server e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa. 
+Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire alla creazione e all'eliminazione di oggetti BLOB usando moderne architetture senza server e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa.
+
+Gli eventi di archiviazione BLOB vengono inviati in modo sicuro al servizio Griglia di eventi che offre servizi di recapito affidabili per le applicazioni tramite criteri avanzati di ripetizione dei tentativi e recapito di messaggi non recapitabili.
 
 Tra gli scenari comuni di eventi di Archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file.  I caricamenti asincroni di file sono operazioni perfette per gli eventi.  Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
 
@@ -26,7 +28,7 @@ Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un
 ![Modello di Griglia di eventi di Azure](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
-Gli eventi di archiviazione BLOB sono disponibili in [account di archiviazione di oggetti BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e in [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2-accounts). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
+Gli eventi di archiviazione BLOB sono disponibili negli account di archiviazione BLOB e negli account di archiviazione per utilizzo generico v2. Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Eventi di archiviazione BLOB disponibili
 Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori.  Le sottoscrizioni di eventi di archiviazione BLOB possono includere due tipi di eventi:  
@@ -39,7 +41,7 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md
 ## <a name="event-schema"></a>Schema di eventi
 Gli eventi di archiviazione BLOB contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati.  Un evento di archiviazione BLOB è riconoscibile perché la proprietà eventType inizia con "Microsoft.Storage". Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia di eventi sono disponibili nello [schema di eventi di Griglia di eventi](../../event-grid/event-schema.md).  
 
-> |Proprietà|type|DESCRIZIONE|
+> |Proprietà|Type|DESCRIZIONE|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |argomento|stringa|ID completo di Azure Resource Manager dell'account di archiviazione che genera l'evento.|
 > |subject|stringa|Percorso relativo della risorsa all'oggetto che è l'argomento dell'evento, con lo stesso formato esteso di Azure Resource Manager che si usa per descrivere gli account di archiviazione, i servizi e i contenitori per Controllo degli accessi in base al ruolo di Azure.  Questo formato include un nome di BLOB che conserva le maiuscole/minuscole.|

@@ -2,26 +2,20 @@
 title: Creare un nuovo report da un set di dati nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: È ora possibile creare report di raccolta di aree di lavoro di Power BI da un set di dati nell'applicazione.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409517"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170420"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creare un nuovo report da un set di dati nelle raccolte di aree di lavoro di Power BI
 
@@ -38,7 +32,7 @@ Quando si crea un report incorporato, i token rilasciati riguardano un set di da
 
 Le raccolte di aree di lavoro di Power BI usano un token incorporato, ovvero token Web JSON con firma HMAC. I token sono firmati con la chiave di accesso della raccolta di aree di lavoro di Power BI. Per impostazione predefinita, i token di incorporamento vengono usati per concedere l'accesso di sola lettura a un report da incorporare in un'applicazione. I token di incorporamento vengono rilasciati per un report specifico e dovranno essere associati a un URL di incorporamento.
 
-I token di accesso devono essere creati nel server perché le chiavi di accesso vengono usate per firmare/crittografare i token. Per informazioni sulla creazione di un token di accesso, vedere [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md). È anche possibile esaminare il metodo [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Di seguito è riportato un esempio corrispondente all'uso di .NET SDK per Power BI.
+I token di accesso devono essere creati nel server perché le chiavi di accesso vengono usate per firmare/crittografare i token. Per informazioni sulla creazione di un token di accesso, vedere [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md). È anche possibile esaminare il metodo [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Di seguito è riportato un esempio corrispondente all'uso di .NET SDK per Power BI.
 
 In questo esempio è disponibile l'ID del set di dati su cui si vuole creare il nuovo report. È anche necessario aggiungere gli ambiti per *Dataset.Read e Workspace.Report.Create*.
 

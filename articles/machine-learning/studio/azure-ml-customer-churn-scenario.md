@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente con Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401968"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244182"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analizzare la varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
@@ -25,7 +25,7 @@ Questo argomento illustra un'implementazione di riferimento di un progetto di an
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
-> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di Machine Learning per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
@@ -198,9 +198,9 @@ L'uso di queste quattro categorie crea l'illusione che un semplice approccio *de
 
 Questa importante osservazione è spesso sottovalutata dalle aziende, dove in genere si preferisce un approccio di tipo business intelligence, principalmente perché è una soluzione più semplice e ammette un'automazione semplificata.  
 
-Tuttavia, la promessa dell'analisi self-service utilizzando Machine Learning Studio è data dal fatto che quattro categorie di informazioni, classificate per divisione o dipartimento, diventano un'origine preziosa per le attività di Machine Learning rivolte alla varianza.  
+Tuttavia, la promessa dell'analisi self-service utilizzando Machine Learning Studio è data dal fatto che quattro categorie di informazioni, classificate per divisione o dipartimento, diventano un'origine preziosa per le attività di apprendimento automatico rivolte alla varianza.  
 
-Un'altra funzionalità interessante di Machine Learning presente in Azure Machine Learning è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning nel mercato.  
+Un'altra funzionalità interessante di apprendimento automatico presente in Azure Machine Learning è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning nel mercato.  
 
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   

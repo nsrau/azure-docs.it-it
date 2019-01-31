@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907498"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220395"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse
-Questo articolo illustra come spostare una VM di Linux tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
+Questo articolo illustra come spostare una macchina virtuale di Linux tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
 
 > [!IMPORTANT]
->Non è possibile spostare Managed Disks in questa fase. 
+>Non è possibile spostare Azure Managed Disks in questa fase. 
 >
->Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Una volta spostata la VM, è necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
+>Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Dopo aver spostato la macchina virtuale, sarà necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
 > 
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usare l'interfaccia della riga di comando di Azure per spostare una VM
 
 
-Prima di spostare la macchina virtuale usando l'interfaccia della riga di comando, assicurarsi che le sottoscrizioni di origine e di destinazione si trovino all'interno dello stesso tenant. Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare [az account show](/cli/azure/account#az_account_show).
+Prima di spostare la macchina virtuale usando l'interfaccia della riga di comando di Azure, verificare che le sottoscrizioni di origine e di destinazione si trovino all'interno dello stesso tenant. Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare [az account show](/cli/azure/account#az_account_show).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -58,7 +58,7 @@ nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/p
 pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
 vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
 diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
-storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccountname    
 
 az resource move \
     --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
@@ -67,7 +67,7 @@ az resource move \
 
 Se si desidera spostare la macchina virtuale e le relative risorse in una sottoscrizione diversa, aggiungere il parametro **--destination-subscriptionId** per specificare la sottoscrizione di destinazione.
 
-Viene richiesto di confermare che si desidera spostare la risorsa specificata. Digitare **Y** per confermare lo spostamento delle risorse.
+Quando viene richiesto di confermare che si vogliono spostare le risorse specificate, immettere **Y** per confermare.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

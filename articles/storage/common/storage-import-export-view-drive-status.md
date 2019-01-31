@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.subservice: common
+ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584673"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467748"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
 
@@ -35,7 +35,7 @@ Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui
 | Ricevuto | Dopo che tutte le unità sono state ricevute nel data center, lo stato del processo viene impostato su **Ricevuto**. |
 | Transferring | Dopo l'avvio dell'elaborazione per almeno un'unità, lo stato del processo viene impostato su **Trasferimento**. Per altre informazioni, vedere [Visualizzare lo stato dell'unità](#view-drive-status). |
 | Packaging | Una volta completata l'elaborazione di tutte le unità, lo stato del processo viene impostato su **Imballaggio** fino a quando le unità non vengono rispedite all'utente. |
-| Completed | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
+| Completi | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
 | Chiuso | Dopo che tutte le unità sono state rispedite, se si sono verificati errori durante l'elaborazione del processo, il suo stato viene impostato su **Chiuso**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Chiuso**. |
 
 ## <a name="view-drive-status"></a>Visualizzare lo stato dell'unità
@@ -50,7 +50,7 @@ La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un pro
 | Ricevuto | Le unità passano allo stato **Ricevuta** quando il servizio Importazione/Esportazione ha elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**. |
 | MaiRicevuta | L'unità passa allo stato **MaiRicevuta** se il pacchetto di un processo viene ricevuto, ma non contiene l'unità. Un'unità può anche passare a questo stato se sono trascorse due settimane da quando il servizio ha ricevuto le informazioni sulla spedizione, ma il pacchetto non è ancora stato ricevuto nel data center. |
 | Transferring | Un'unità passa allo stato **Trasferimento** quando il servizio inizia a trasferire i dati dall'unità ad Archiviazione di Azure. |
-| Completed | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
+| Completi | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
 | CompletataPiùInformazioni | Un'unità passa allo stato **CompletataPiùInformazioni** se il servizio ha riscontrato problemi durante la copia dei dati da o verso l'unità. Le informazioni possono includere errori, avvisi o messaggi informativi sulla sovrascrittura dei BLOB.
 | Rispedita | Un'unità passa allo stato **Rispedita** quando viene spedita dal data center all'indirizzo mittente. |
 

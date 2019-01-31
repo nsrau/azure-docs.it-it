@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186989"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464297"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Come creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. I grafici mostrano l'utilizzo delle risorse in un periodo di tempo per consentire di identificare colli di bottiglia e anomalie o passare a una prospettiva che elenchi ogni macchina per visualizzare l'utilizzo delle risorse in base alla metrica selezionata. Sebbene esistano numerosi elementi da considerare riguardo alle prestazioni, Monitoraggio di Azure per le macchine virtuali è incentrato sul sistema operativo attraverso processore, memoria, schede di rete e dischi. Prestazioni si integra alla funzionalità di monitoraggio dell'integrità e consente di esporre i problemi che indicano un possibile errore dei componenti di sistema, agevolare l'ottimizzazione per aumentare l'efficienza o supportare la pianificazione della capacità.  
@@ -102,8 +102,8 @@ Vengono forniti i grafici di utilizzo della capacità seguenti:
 
 ![Vista di Prestazioni di Informazioni dettagliate macchina virtuale direttamente dalla macchina virtuale](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>Avvisi e gestione degli avvisi 
-Le metriche delle prestazioni abilitate nell'ambito di Monitoraggio di Azure per macchine virtuali non includono regole di avviso preconfigurate. Se vengono generati [avvisi di integrità](vminsights-health.md#alerting-and-alert-management) corrispondenti a problemi di prestazioni rilevati nella macchina virtuale di Azure (ad esempio, elevato utilizzo della CPU, memoria disponibile insufficiente, I/O disco, spazio su disco insufficiente e così via), questi avvisi vengono applicati solo alle macchine virtuali connesse alla stessa area di lavoro di Log Analytics abilitata per Monitoraggio di Azure per le macchine virtuali. 
+## <a name="alerts"></a>Avvisi 
+Le metriche delle prestazioni abilitate nell'ambito di Monitoraggio di Azure per macchine virtuali non includono regole di avviso preconfigurate. Se vengono generati [avvisi di integrità](vminsights-health.md#alerts) corrispondenti a problemi di prestazioni rilevati nella macchina virtuale di Azure (ad esempio, elevato utilizzo della CPU, memoria disponibile insufficiente, I/O disco, spazio su disco insufficiente e così via), questi avvisi vengono applicati solo alle macchine virtuali connesse alla stessa area di lavoro di Log Analytics abilitata per Monitoraggio di Azure per le macchine virtuali. 
 
 È possibile tuttavia raccogliere e archiviare solo un subset delle metriche delle prestazioni necessarie nell'area di lavoro Log Analytics. Se la strategia di monitoraggio richiede analisi o avvisi con altre metriche delle prestazioni per valutare in modo efficace la capacità o l'integrità della macchina virtuale o è necessaria la flessibilità di specificare dei criteri o una logica per gli avvisi personalizzata, è possibile configurare la [raccolta dei contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics e definire gli [avvisi dei log](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). Mentre Log Analytics consente di eseguire un'analisi complessa con altri tipi di dati e di offrire un periodo di conservazione più lungo per l'analisi delle tendenze, le metriche sono leggere e in grado di supportare scenari quasi in tempo reale. Vengono raccolte dall'[agente Diagnostica di Azure](../../virtual-machines/windows/monitor.md) e memorizzate nell'archivio metriche di Monitoraggio di Azure permettendo di creare avvisi con minor latenza e costi inferiori.
 

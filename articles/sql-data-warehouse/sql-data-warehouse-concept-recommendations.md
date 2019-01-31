@@ -6,22 +6,22 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232155"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460439"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Consigli di SQL Data Warehouse
 
 Questo articolo descrive i consigli offerti da SQL Data Warehouse tramite Azure Advisor.  
 
-SQL Data Warehouse offre consigli in grado di garantire l'ottimizzazione costante delle prestazioni del data warehouse in uso. Gli elementi consigliati di data warehouse sono strettamente integrati con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per presentare le procedure consigliate direttamente all'interno del [portale di Azure](https://aka.ms/Azureadvisor). SQL Data Warehouse analizza lo stato corrente del data warehouse, raccoglie i dati di telemetria e visualizza consigli per il carico di lavoro attivo con frequenza giornaliera. Di seguito sono descritti gli scenari supportati per i consigli sul data warehouse ed è anche descritto come mettere in pratica le azioni consigliate.
+SQL Data Warehouse offre consigli in grado di garantire l'ottimizzazione costante delle prestazioni del data warehouse in uso. Gli elementi consigliati di data warehouse sono strettamente integrati con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per presentare le procedure consigliate direttamente all'interno del [portale di Azure](https://aka.ms/Azureadvisor). SQL Data Warehouse analizza lo stato corrente del data warehouse, raccoglie i dati di telemetria e visualizza consigli per il carico di lavoro attivo con frequenza giornaliera. Di seguito sono descritti gli scenari supportati per i consigli sul data warehouse dati supportati ed è anche descritto come mettere in pratica le azioni consigliate.
 
 In caso di feedback su Azure SQL Data Warehouse Advisor o se si riscontrano problemi, contattare[sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
 

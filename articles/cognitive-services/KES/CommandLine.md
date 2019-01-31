@@ -1,23 +1,26 @@
 ---
-title: Interfaccia della riga di comando di Knowledge Exploration Service | Microsoft Docs
-description: Usare l'interfaccia della riga di comando di KES per compilare file di indice e grammatica da dati strutturati e quindi distribuirli come servizi Web in Servizi cognitivi Microsoft.
+title: Interfaccia della riga di comando - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Usare l'interfaccia della riga di comando per compilare file di indice e grammatica da dati strutturati e quindi distribuirli come servizi Web.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136356"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228526"
 ---
 # <a name="command-line-interface"></a>Interfaccia della riga di comando
-L'interfaccia della riga di comando di KES offre la possibilità di compilare file di indice e grammatica da dati strutturati e distribuirli come servizi Web.  Usa la sintassi generale: `kes.exe <command> <required_args> [<optional_args>]`.  È possibile eseguire `kes.exe` senza argomenti per visualizzare un elenco dei comandi oppure `kes.exe <command>` per visualizzare un elenco degli argomenti disponibili per il comando specificato.  Di seguito è riportato un elenco dei comandi disponibili:
+
+L'interfaccia della riga di comando di Knowledge Exploration Service (KES) offre la possibilità di compilare file di indice e grammatica da dati strutturati e distribuirli come servizi Web.  Usa la sintassi generale: `kes.exe <command> <required_args> [<optional_args>]`.  È possibile eseguire `kes.exe` senza argomenti per visualizzare un elenco dei comandi oppure `kes.exe <command>` per visualizzare un elenco degli argomenti disponibili per il comando specificato.  Di seguito è riportato un elenco dei comandi disponibili:
+
 * build_index
 * build_grammar
 * host_service

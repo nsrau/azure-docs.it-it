@@ -1,27 +1,30 @@
 ---
-title: Metodo Evaluate nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni su come usare il metodo Evaluate nell'API Knowledge Exploration Service (KES) in Servizi cognitivi.
+title: Metodo Evaluate - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come usare il metodo Evaluate nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373113"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220774"
 ---
 # <a name="evaluate-method"></a>Metodo evaluate
+
 Il metodo *evaluate* valuta e restituisce l'output di un'espressione di query strutturata in base ai dati dell'indice.
 
 In genere, si otterrà un'espressione da una risposta al metodo interpret.  Ma è possibile anche comporre manualmente le espressioni di query (vedere [Espressioni di query strutturate](Expressions.md)).  
 
 ## <a name="request"></a>Richiesta 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 NOME|Valore|DESCRIZIONE

@@ -6,18 +6,18 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815872"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247409"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -64,7 +64,7 @@ Se si dispone già di un ambiente Python 3, o si vogliono solo conoscere i passa
 
 Per iniziare a sviluppare con Azure Notebooks, vedere [Introduzione al servizio Azure Machine Learning](quickstart-get-started.md).
 
-Per impostazione predefinita, Azure Notebooks usa un livello di servizio gratuito limitato a 4 GB di memoria e 1 GB di dati. È, tuttavia, possibile rimuovere questi limiti mediante l'aggiunta di un'istanza di Data Science Virtual Machine al progetto Azure Notebooks. Per altre informazioni, consultare [Manage and configure Azure Notebooks projects - Compute tier (Gestire e configurare i progetti Azure Notebooks - Livello di calcolo)](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Per impostazione predefinita, Azure Notebooks usa un livello di servizio gratuito limitato a 4 GB di memoria e 1 GB di dati. È, tuttavia, possibile rimuovere questi limiti mediante l'aggiunta di un'istanza di Data Science Virtual Machine al progetto Azure Notebooks. Per altre informazioni, consultare [Manage and configure Azure Notebooks projects - Compute tier (Gestire e configurare i progetti Azure Notebooks - Livello di calcolo)](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

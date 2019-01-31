@@ -1,5 +1,5 @@
 ---
-title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Microsoft Azure | Microsoft Docs
+title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Microsoft Azure | Documentazione Microsoft
 description: Usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure.
 services: storage
 author: fhryo-msft
@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121737"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474004"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -466,7 +466,7 @@ La causa più comune dell'errore è la disconnessione del client prima della sca
 ### <a name="the-client-is-receiving-403-messages"></a>Il client sta ricevendo messaggi HTTP 403 (Accesso negato)
 Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente il client sta utilizzando una firma di accesso condiviso (SAS, Shared Access Signature) scaduta per inviare una richiesta di archiviazione (benché esistano altre cause possibili, come sfasamento di orario, chiavi non valide e intestazioni vuote). Se la causa è una chiave SAS scaduta, non si vedrà alcuna voce nei dati di log della registrazione dell'archiviazione lato server. La tabella che segue mostra un esempio del file di log lato client generato da Storage Client Library in cui è illustrato il problema in corso:
 
-| Sorgente | Livello di dettaglio | Livello di dettaglio | ID richiesta client | testo dell'operazione |
+| Source (Sorgente) | Livello di dettaglio | Livello di dettaglio | ID richiesta client | testo dell'operazione |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
@@ -560,7 +560,7 @@ Se l'applicazione client tenta di usare una chiave SAS che non include le autori
 
 La tabella che segue mostra un esempio di messaggio del log lato server generato dal file di log della registrazione dell'archiviazione:
 
-| Nome | Valore |
+| NOME | Valore |
 | --- | --- |
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |
@@ -677,8 +677,8 @@ Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Si stanno verificando problemi di installazione di Azure SDK per .NET
 Quando si installa l'SDK, si verifica un errore se si tenta di installare l'emulatore di archiviazione sul computer locale. Il log di installazione contiene uno dei seguenti messaggi:
 
-* CAQuietExec:  Error: Unable to access SQL instance (Errore: Non è possibile accedere all'instanza SQL)
-* CAQuietExec:  Error: Unable to create database (Errore: Non è possibile creare il database)
+* CAQuietExec:  Errore: Unable to access SQL instance (Errore: Non è possibile accedere all'instanza SQL)
+* CAQuietExec:  Errore: Unable to create database (Errore: Non è possibile creare il database)
 
 La causa è un problema nell'installazione LocalDB già esistente. Per impostazione predefinita, l'emulatore di archiviazione utilizza LocalDB per mantenere persistenti i dati quando simula i servizio di archiviazione Azure. Per reimpostare l'istanza LocalDB, eseguire i comandi indicati di seguito in una finestra del prompt dei comandi prima di provare a installare l'SDK.
 

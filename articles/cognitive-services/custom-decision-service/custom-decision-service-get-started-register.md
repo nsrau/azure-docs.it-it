@@ -1,20 +1,22 @@
 ---
-title: Registrare l'applicazione - Servizi cognitivi Microsoft di Azure | Microsoft Docs
-description: Una guida dettagliata su come registrare una nuova app con il Servizio decisionale personalizzato di Azure
+title: Registrare l'applicazione - Servizio decisionale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Guida dettagliata sulla procedura per registrare una nuova app con il Servizio decisionale personalizzato di Azure.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.reviewer: marcozo;alekh;marossi
-ms.openlocfilehash: 2aa8fbe77c11df4434eefa4c92d8529d5ca1d885
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.reviewer: marcozo
+ms.openlocfilehash: f642e0d4e21c180a92b4b76d05fb2c9bac9f2976
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376916"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219737"
 ---
 # <a name="register-your-application"></a>Registrare l'applicazione
 

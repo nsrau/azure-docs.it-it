@@ -3,19 +3,19 @@ title: Risoluzione dei problemi relativi alla reimpostazione della password self
 description: Risolvere i problemi di reimpostazione della password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: d16af67676c2d329e6ecb9e6ba83cb1afee748f0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 76df049bd782c4e50b0d8abdf2f209162d82320a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428972"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079801"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -96,7 +96,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se l'origine dell'evento è ADSync
 
-| Codice | Nome o messaggio | Descrizione |
+| Codice | Nome o messaggio | DESCRIZIONE |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Una restrizione impedisce la modifica della password in quella corrente specificata." | Questo evento si verifica quando il servizio di writeback delle password cerca di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati i requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime *N* volte, dove *N* è l'impostazione relativa alla cronologia delle password. Se si seleziona una password che è stata usata nelle ultime *N* volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia delle password su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà. |
 | 6329 | MMS(3040): admaexport.cpp(2837): Il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recente) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](https://support.microsoft.com/kb/2386717). |

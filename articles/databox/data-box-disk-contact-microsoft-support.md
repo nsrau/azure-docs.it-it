@@ -4,16 +4,16 @@ description: Informazioni sulla registrazione di richieste di supporto per probl
 services: databox
 author: alkohli
 ms.service: databox
+ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: alkohli;
-ms.component: ''
-ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.author: alkohli
+ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422814"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470162"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Aprire un ticket di supporto per Azure Data Box 
 

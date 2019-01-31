@@ -3,19 +3,19 @@ title: Registrazione convergente per la reimpostazione della password self-servi
 description: Registrazione per Multi-Factor Authentication e la reimpostazione della password self-service di Azure AD (anteprima pubblica)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472678"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)
 
@@ -74,8 +74,6 @@ In questa pagina gli utenti visualizzano i metodi di autenticazione registrati i
 Per questa nuova esperienza esistono log di controllo nella categoria Metodi di autenticazione del log di controllo.  
 
 ## <a name="known-issues"></a>Problemi noti
-
-È stato identificato un bug relativo alla registrazione convergente in cui gli utenti guest B2B che sono abilitati per la registrazione convergente non riescono a registrarsi per MFA. Quando gli utenti vengono indirizzati alla pagina di registrazione, la pagina restituisce un errore. Gli sviluppatori sono a conoscenza di questo problema e stanno lavorando per fornire la soluzione. Al momento, si consiglia di creare un gruppo e di escludere tutti gli utenti B2B dal gruppo.
 
 **Il metodo MFA predefinito viene impostato sulla chiamata telefonica quando l'utente registra un telefono con un SMS**
 

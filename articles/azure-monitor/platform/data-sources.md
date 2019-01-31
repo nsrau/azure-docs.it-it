@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020133"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889060"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origini dei dati in Monitoraggio di Azure
 Questo articolo descrive le origini dei dati raccolti da Monitoraggio di Azure per monitorare l'integrità e le prestazioni delle risorse e le applicazioni che si basano su tali dati. Queste risorse possono trovarsi in Azure, in un altro cloud o in locale.  Vedere [Dati raccolti da Monitoraggio di Azure](data-collection.md) per informazioni dettagliate sul modo in cui vengono archiviati questi dati e su come visualizzarli.
@@ -61,7 +61,7 @@ La maggior parte dei servizi di Azure genera [metriche di piattaforma](data-coll
 
 
 ### <a name="resource-diagnostic-logs"></a>Log di diagnostica delle risorse
-Mentre il log attività include informazioni sulle operazioni eseguite nelle risorse di Azure, i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) a livello di risorsa presentano informazioni approfondite sul funzionamento della risorsa stessa.   I requisiti di configurazione e il contenuto di questi log [variano in base al tipo di risorsa](../../azure-monitor/platform/tutorial-dashboards.md).
+Mentre il log attività include informazioni sulle operazioni eseguite nelle risorse di Azure, i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) a livello di risorsa presentano informazioni approfondite sul funzionamento della risorsa stessa.   I requisiti di configurazione e il contenuto di questi log [variano in base al tipo di risorsa](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Non è possibile visualizzare direttamente i log di diagnostica nel portale di Azure, ma è possibile [inviarli ad Archiviazione di Azure per l'archiviazione](../../azure-monitor/platform/archive-diagnostic-logs.md) ed esportarli nell'[hub eventi](../../event-hubs/event-hubs-about.md) per il reindirizzamento ad altri servizi o a [Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) per l'analisi. Alcune risorse possono scrivere direttamente in Log Analytics mentre altre scrivono in un account di archiviazione prima di essere [importate in Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

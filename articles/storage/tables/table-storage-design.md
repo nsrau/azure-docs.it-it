@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237775"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472559"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Progettare tabelle scalabili ad alte prestazioni
 
@@ -132,7 +132,7 @@ Il nome account, il nome tabella e **PartitionKey** insieme identificano la part
 
 Nel servizio tabelle un solo nodo gestisce una o più partizioni complete e il servizio è scalabile grazie al bilanciamento dinamico del carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.  
 
-Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’ [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).  
 
 ## <a name="entity-group-transactions"></a>Transazioni dei gruppi di entità
 Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni EGT sono chiamate anche *transazioni batch*. Tali transazioni possono essere usate solo con le entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una tabella specifica). Ogni volta che è necessario un comportamento transazionale atomico tra più entità, è quindi necessario assicurarsi che le entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni EGT simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano applicate a entità che sono comuni tra le transazioni EGT, altrimenti l'elaborazione potrebbe subire ritardi.

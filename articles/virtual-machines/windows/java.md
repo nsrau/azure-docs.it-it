@@ -3,7 +3,7 @@ title: Creare e gestire una macchina virtuale di Azure tramite Java | Microsoft 
 description: Usare Java e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: zarhoads
-ms.openlocfilehash: 2e8cc14c2879c9ef98357f19580e59dacc11b930
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: cynthn
+ms.openlocfilehash: 3ec6b6f22e32a628edc3146ac17a9e5d8e605b05
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884215"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creare e gestire macchine virtuali Windows in Azure tramite Java
 
@@ -187,7 +187,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
 ## <a name="create-resources"></a>Creare le risorse
 
-### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+### <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Tutte le risorse devono essere contenute in un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md).
 

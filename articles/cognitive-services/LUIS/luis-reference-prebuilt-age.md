@@ -1,30 +1,30 @@
 ---
 title: Entità predefinita age
 titleSuffix: Azure
-description: Questo articolo contiene informazioni sull'entità predefinita age in Language Understanding, ovvero LUIS.
+description: Questo articolo contiene informazioni sull'entità predefinita età in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 88d2633a107f36c7c0eab8803a3b6ea10e067506
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 7644f2c4f4479ae234dc2d4b501be17455230bde
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166541"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217850"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entità predefinita age per un'app LUIS
-L'entità predefinita age acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità age è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
+L'entità predefinita età acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità età è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Tipi di età
 L'entità age viene gestita nel repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3).
 
-## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità predefinita age
+## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità età predefinita
 L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 
 ```json

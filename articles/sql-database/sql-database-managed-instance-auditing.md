@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427917"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456035"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo di Istanza gestita di database SQL di Azure
 
@@ -207,7 +207,7 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 - È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Archiviazione di Azure i log di controllo vengono salvati come raccolta di file BLOB in un contenitore appositamente definito per l'archiviazione di questi log. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > Il metodo per la visualizzazione dei record di controllo dal portale di Azure (riquadro "Record di controllo") non è attualmente disponibile per Istanza gestita.
@@ -242,7 +242,7 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo nell'arc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
 - Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->
