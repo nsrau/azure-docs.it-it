@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046320"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807457"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guida di Azure per sviluppatori di R
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -40,7 +40,7 @@ Questo articolo tratta i seguenti servizi di Azure che supportano il linguaggio 
 |[Azure Databricks](#azure-databricks)                            |ambiente di collaborazione Spark che supporta linguaggi R e vari altri               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |esecuzione di script R personalizzati con esperimenti di apprendimento automatico di Azure                      |
 |[Azure Batch](#azure-batch)                                      |offre una varietà di opzioni per l'esecuzione economica del codice R attraverso diversi nodi di un cluster|
-|[Azure Notebooks](#azure-notebooks)                              |una versione di Jupyter notebooks a costo zero (ma limitata) basata su cloud                  |
+|[Azure Notebooks](#azure-notebooks)                              |una versione di Jupyter Notebook a costo zero basata sul cloud                  |
 |[Database SQL di Azure](#azure-sql-database)                        |esecuzione degli script R all'interno del motore di database di SQL Server                            |
 
 ## <a name="data-science-virtual-machine"></a>Macchina virtuale di data science
@@ -104,18 +104,19 @@ Questo pacchetto rende molto più semplice l'utilizzo di Azure Machine Learning 
 ## <a name="azure-batch"></a>Azure Batch
 Per i processi R su larga scala, è possibile usare [Azure Batch](https://azure.microsoft.com/services/batch/).  Questo servizio consente la gestione di calcolo e pianificazione del processo su scala cloud in modo da poter ridimensionare il carico di lavoro R tra decine, centinaia o migliaia di macchine virtuali.  Poichè si tratta di una piattaforma di calcolo generalizzata, esistono alcune opzioni per l'esecuzione di processi R con Azure Batch.
 
-Un'opzione consiste nell'usare il pacchetto di <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> Microsoft.  Questo pacchetto R è un back-end parallelo al `foreach` pacchetto.  Consente l'esecuzione in parallelo di ogni iterazione del ciclo `foreach` su un nodo all'interno del cluster di Azure Batch.  Per un'introduzione al pacchetto, leggere il post di blog ["doAzureParallel: sfruttare i vantaggi delle risorse del calcolo flessibile di Azure direttamente dalla sessione R"](https://azure.microsoft.com/blog/doazureparallel/).
+Un'opzione consiste nell'usare il pacchetto di <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> Microsoft.  Questo pacchetto R è un back-end parallelo al `foreach` pacchetto.  Consente l'esecuzione in parallelo di ogni iterazione del ciclo `foreach` su un nodo all'interno del cluster di Azure Batch.  Per un'introduzione al pacchetto, leggere il post di blog ["doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session"](https://azure.microsoft.com/blog/doazureparallel/) (Sfruttare i vantaggi delle risorse del calcolo flessibile di Azure direttamente dalla sessione R).
 
 Un'altra opzione per l'esecuzione di uno script R di Azure Batch consiste nell'aggregare il codice "RScript.exe" come un'App di Batch nel portale di Azure.  Per una procedura dettagliata, consultare ["Carichi di lavoro R su Azure Batch"](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/).
 
 Una terza opzione consiste nell'usare la [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), che consente di eseguire il provisioning di cluster di Spark su richiesta usando i contenitori Docker di Azure Batch.  Ciò costituisce un modo economico per eseguire i processi Spark di Azure.  Usando [SparklyR con AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), gli script R possono essere aumentati sul cloud in modo semplice ed economico.
 
 ## <a name="azure-notebooks"></a>Notebook di Azure
+
 [Azure Notebooks](https://notebooks.azure.com) è un metodo economico e a basso attrito per gli sviluppatori di R che preferiscono lavorare con i notebook per portare il proprio codice ad Azure.  È un servizio gratuito per tutti coloro che vogliono sviluppare ed eseguire un codice nel proprio browser usando [Jupyter](https://jupyter.org/), ovvero un progetto open source che consente di combinare markdown della prosa, codice eseguibile e grafica in una canvas singola.
 
-Mentre Azure Notebooks è un'opzione valida per i progetti su scala ridotta, presenta alcune limitazioni che lo rendono inappropriato per i progetti di analisi scientifica dei dati su larga scala.  Attualmente, il servizio limita il processo di ogni notebook a 4 GB di memoria e i set di dati solo a 1 GB.  Tuttavia, per la pubblicazione di analisi più piccole, questa è un'opzione semplice, senza alcun costo.
+Il livello di servizio gratuito di Azure Notebooks è un'opzione valida per i progetti su scala ridotta, poiché limita il processo di ogni notebook a 4 GB di memoria e 1 GB di set di dati. Se sono necessari più dati e potenza di calcolo rispetto a queste limitazioni, tuttavia, è possibile eseguire i notebook in un'istanza di Data Science Virtual Machine. Per altre informazioni, vedere [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) (Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo).
 
-## <a name="azure-sql-database"></a>database SQL di Azure
+## <a name="azure-sql-database"></a>Database SQL di Azure
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) è un servizio di database cloud relazionale completamente gestito e intelligente.  Consente di usare tutta la potenza di SQL Server senza alcun problema di configurazione dell'infrastruttura.  Questo comprende [Servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), ovvero una delle aggiunte più recenti al servizio SQL.
 
 Questa funzionalità offre un'analisi predittiva e incorporata e un motore di data science che può eseguire un codice R all'interno di un database di SQL Server come stored procedure, come script T-SQL contenenti le istruzioni di R o come codice R che contiene T-SQL.  Invece di estrarre i dati dal database e caricarli nell'ambiente R, si carica il codice R direttamente nel database e si lascia in esecuzione accanto ai dati.
