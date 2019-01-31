@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413669"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228798"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -115,7 +115,7 @@ Origini dati e soluzioni creano tipi di record distinti con il proprio set di pr
 
 La maggior parte delle interazioni con Log Analytics avviene attraverso il portale di Azure che viene eseguito in qualsiasi browser e fornisce all'utente l'accesso alle impostazioni e a più strumenti di configurazione per analizzare e agire in base ai dati raccolti. Nel portale è possibile usare:
 * [Ricerche nei log](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) in cui si creano query per analizzare i dati raccolti.
-* [Dashboard](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
+* [Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
 * [Soluzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), che forniscono ulteriori funzionalità e strumenti di analisi.
 
 ![Strumenti di analisi](./media/azure-threat-detection/azure-threat-detection-fig6.png)
@@ -211,7 +211,7 @@ Il Centro sicurezza di Azure opera insieme a team dedicati alle ricerche sulla s
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Funzionalità avanzate di rilevamento delle minacce: altri servizi di Azure
+## <a name="advanced-threat-detection-features-other-azure-services"></a>Funzionalità avanzate di rilevamento delle minacce: Altri servizi di Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Macchine virtuali: Microsoft Antimalware
 
@@ -231,7 +231,7 @@ Di seguito sono riportate alcune funzionalità di Azure per distribuire e abilit
 
 -   **Aggiornamenti del motore antimalware**: aggiorna automaticamente il motore antimalware Microsoft.
 
--   **Aggiornamenti della piattaforma antimalware**: aggiorna automaticamente la piattaforma antimalware Microsoft.
+-   **Aggiornamenti del motore antimalware**: aggiorna automaticamente la piattaforma antimalware Microsoft.
 
 -   **Protezione attiva**: segnala a Microsoft Azure i metadati di telemetria sulle minacce rilevate e sulle risorse sospette per garantire una risposta rapida al mutevole panorama delle minacce, oltre ad abilitare la distribuzione di firme sincrone in tempo reale tramite Microsoft Active Protection System.
 

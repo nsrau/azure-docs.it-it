@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/21/2017
 ms.author: ergreenl
-ms.openlocfilehash: 80b0ecade7183a015656e1e6e77d08876a8df116
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0659586512b36c51c5058271fa5e1bdb46efbc3b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855126"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193285"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenari di distribuzione e casi d'uso
 Questa sezione illustra alcuni scenari e casi d'uso che traggono vantaggio dall'utilizzo di Servizi di dominio Azure Active Directory (AD).

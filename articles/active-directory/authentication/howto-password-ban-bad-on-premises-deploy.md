@@ -3,19 +3,19 @@ title: Distribuire la funzione della password di protezione di Azure AD disponib
 description: Distribuire la funzione della password di protezione di Azure AD disponibile in anteprima per escludere le password non valide in locale
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: c74cd5c8a8cfd00d61006c7ebbc4ced299b68e40
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efa684d75cd30dcbfc971d0ef0a3717cc15bd0e4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422254"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081280"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Anteprima: Distribuire la protezione delle password di Azure AD
 

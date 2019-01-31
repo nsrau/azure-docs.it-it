@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142005"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913615"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Come eseguire una verifica del possesso per certificati della CA X.509 con il servizio Device Provisioning
 
@@ -54,7 +54,7 @@ A questo punto, è necessario firmare il *codice di verifica* con la chiave priv
 Microsoft offre strumenti ed esempi che facilitano la creazione di un certificato di verifica firmato: 
 
 - **Azure IoT Hub C SDK** fornisce script PowerShell (Windows) e Bash (Linux) che consentono di creare più facilmente certificati della CA e foglia per lo sviluppo e per l'esecuzione della verifica del possesso tramite un codice di verifica. È possibile scaricare i [file](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) pertinenti al sistema in uso in una cartella di lavoro e seguire le istruzioni nel [file Leggimi Managing CA certificates](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Gestione di certificati della CA) per eseguire la verifica del possesso per un certificato della CA. 
-- **Azure IoT Hub C# SDK** contiene l'[esempio di verifica del certificato di gruppo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), che è possibile usare per effettuare la verifica del possesso.
+- **Azure IoT Hub C# SDK** contiene l'[esempio di verifica del certificato di gruppo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), che è possibile usare per effettuare la verifica del possesso.
  
 > [!IMPORTANT]
 > Oltre a eseguire la verifica del possesso, gli script di PowerShell e Bash citati in precedenza consentono anche di creare certificati radice, certificati intermedi e certificati foglia utilizzabili per eseguire l'autenticazione e il provisioning di dispositivi. Questi certificati devono essere usati solo per lo sviluppo. Non devono mai essere usati in un ambiente di produzione. 

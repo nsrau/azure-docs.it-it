@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175707"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
@@ -64,7 +64,7 @@ Nella pagina **Informazioni di base** della procedura guidata specificare il nom
    > * **Nome di dominio predefinito:** per impostazione predefinita, la procedura guidata specifica il nome di dominio predefinito della directory con suffisso **.onmicrosoft.com**. Se si sceglie di abilitare l'accesso LDAP sicuro al dominio gestito su Internet, si verificheranno problemi nella creazione di un record DNS pubblico o nell'ottenimento di un certificato LDAP sicuro da un'autorità di certificazione pubblica per questo nome di dominio. Microsoft è proprietaria del dominio *.onmicrosoft.com* e l'autorità di certificazione non emette certificati a garanzia di questo dominio.
    * **Nomi di dominio personalizzati:** È anche possibile immettere un nome di dominio personalizzato. In questo esempio, il nome di dominio personalizzato è *contoso100.com*.
    * **Suffissi di dominio non instradabili:** in genere è consigliabile evitare suffissi di dominio non instradabili. È ad esempio preferibile evitare di creare un dominio con il nome di dominio DNS 'contoso.local'. Il suffisso DNS '.local' non è instradabile e può causare problemi con la risoluzione DNS.
-   * **Limitazioni dei prefissi di dominio:** Il prefisso del nome del dominio specificato (ad esempio, *contoso100* nel nome di dominio *contoso100.com*) può contenere massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
+   * **Limitazioni dei prefissi di dominio:** Il prefisso del nome del dominio specificato (ad esempio, contoso100 nel nome di dominio *contoso100.com*) può contenere massimo 15 caratteri. Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri.
    * **Conflitti nei nomi di rete:** Assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. In particolare, verificare se:
        * È già presente un dominio di Active Directory con lo stesso nome di dominio DNS nella rete virtuale.
        * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.

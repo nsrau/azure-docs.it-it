@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463746"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472782"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -228,7 +228,7 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate i
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Né MSDTC, né le [transazioni elastiche](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) sono attualmente supportate in Istanza gestita.
+Né MSDTC, né le [transazioni elastiche](sql-database-elastic-transactions-overview.md) sono attualmente supportate in Istanza gestita.
 
 ### <a name="extended-events"></a>Eventi estesi
 
@@ -279,8 +279,8 @@ Operazioni
 - Gli account di accesso SQL creati `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Sono supportati gli accessi ad Azure Active Directory (AAD) creati con la sintassi [CREA ACCESSO](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o con la sintassi [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**anteprima pubblica**).
 - Gli account di accesso Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati. Usare gli accessi e gli utenti di Azure Active Directory.
-- L'utente di Azure Active Directory (Azure AD) che ha creato l'istanza ha [privilegi amministrativi illimitati](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- L'utente di Azure Active Directory (Azure AD) che ha creato l'istanza ha [privilegi amministrativi illimitati](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>PolyBase
 

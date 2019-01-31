@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203811"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Servizio di sincronizzazione Azure AD Connect: Abilitare il Cestino di AD
 È consigliabile abilitare la funzionalità Cestino di Active Directory per le Active Directory locali che vengono sincronizzate con Azure AD. 
@@ -39,9 +39,6 @@ Questa funzionalità consente di ripristinare gli oggetti utente di Azure AD eff
 
 > [!NOTE]
 > Per impostazione predefinita, Azure AD mantiene gli oggetti utente di Azure AD in uno stato di eliminazione temporanea per 30 giorni, prima che vengano eliminati definitivamente. Tuttavia, gli amministratori possono accelerare l'eliminazione di tali oggetti. Dopo che gli oggetti sono stati eliminati in modo permanente, non possono più essere ripristinati, anche se è abilitata la funzionalità Cestino di Active Directory locale.
-
->[!NOTE]
->In precedenza, quando un utente veniva rimosso dall'ambito della sincronizzazione in locale ed eliminato nel cloud, lo stato DirSyncEnabled dell'account veniva impostato erroneamente su "False". Se, in seguito, tale utente veniva ripristinato manualmente dal cestino di Azure AD, si visualizzava lo stato erroneo "Solo Cloud". Questo problema ora è stato risolto e il valore dello stato DirSyncEnabled viene sempre mantenuto su "True" quando un utente viene rimosso dall'ambito di sincronizzazione, quindi eliminato temporaneamente e ripristinato manualmente dal cestino di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**

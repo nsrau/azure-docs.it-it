@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 24c451dda398cfa65dd24a4500871c67943b79bf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c71358828be1c5a2a83092f8079eca37c9e757dd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259460"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207208"
 ---
 # <a name="workflows-from-the-api-console"></a>Flussi di lavoro dalla console per le API
 
@@ -82,7 +82,7 @@ Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key*
 
 - **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: il nome del flusso di lavoro. Usare `default`.
-- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
+- **Ocp-Apim-Subscription-Key**: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
   ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 
@@ -140,7 +140,7 @@ Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key*
 
 - **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: il nome del nuovo flusso di lavoro.
-- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
+- **Ocp-Apim-Subscription-Key**: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
   ![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
 

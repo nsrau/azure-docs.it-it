@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448109"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227710"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -86,7 +86,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio, *http://your_backend.azurewebsites.net*.
+4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

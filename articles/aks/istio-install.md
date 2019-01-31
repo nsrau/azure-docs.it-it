@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: 33a72b6e8fdd4a66425405ff15d7cc31461c0bf3
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ecabb139b79494e8a62687a5634d9865d578c5c6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893051"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104400"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
-[Istio][istio-github] è una rete mesh di servizi open source che offre un set di funzionalità chiave per i microservizi in un cluster Kubernetes. Queste funzionalità includono la gestione del traffico, l'identità del servizio, la sicurezza, l'applicazione dei criteri e l'osservabilità. Per maggiori informazioni su Istio, vedere la documentazione ufficiale [Cos'è Istio?][istio-docs-concepts].
+[Istio][istio-github] è una rete mesh di servizi open source che offre un set di funzionalità chiave per i microservizi in un cluster Kubernetes. Queste funzionalità includono la gestione del traffico, l'identità e la sicurezza del servizio, l'applicazione dei criteri e l'osservabilità. Per maggiori informazioni su Istio, vedere la documentazione ufficiale [Cos'è Istio?][istio-docs-concepts].
 
 Questo articolo illustra come installare Istio. Il file binario del client di Istio `istioctl` viene installato nel computer client e quindi i componenti di Istio in un cluster Kubernetes nel servizio Azure Kubernetes. Queste istruzioni fanno riferimento alla versione di Istio *1.0.4*. È possibile trovare versioni di Istio aggiuntive in [GitHub - Versioni di Istio][istio-github-releases].
 
@@ -141,7 +141,7 @@ cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:/Program Files/Istio"
 mv ./bin/istioctl.exe "C:/Program Files/Istio/"
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:/Program Files/Istio/", "User")
+[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Program Files\Istio\", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Installare i componenti Kubernetes per Istio

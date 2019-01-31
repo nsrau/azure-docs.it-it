@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e954d8535b5ac78da2066af5c97afac12c09319
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 37c2374738cbebceb11dbaeb973c6713c87ff4b0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789416"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Two
 
@@ -168,7 +168,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Fare clic su **Configure SAML**.
 
-11. Nella finestra **Modifica SAML** eseguire i passaggi seguenti e fare clic su Salva.  
+11. Nella finestra **Modifica SAML** eseguire i passaggi seguenti: e fare clic su Salva.  
             
     ![Gestire utenti e autenticazione](./media/zscaler-two-tutorial/ic800208.png "Gestire utenti e autenticazione")
     
@@ -274,7 +274,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][202]
 
-4. Fare clic su **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 

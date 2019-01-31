@@ -3,19 +3,19 @@ title: Indicazioni sulla sicurezza per Azure Multi-Factor Authentication
 description: Questo documento include le linee guida relative all'uso di Azure MFA con account Azure
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 35e39ca4aa00838d7437ec675294b6c3cc62be6f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34b7607ffe8e23b09782fee8394c00f23909af6b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426223"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078152"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Linee guida sulla sicurezza per l'uso di Azure Multi-Factor Authentication con account Azure AD
 

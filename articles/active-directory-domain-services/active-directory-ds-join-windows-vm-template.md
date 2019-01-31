@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856639"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203335"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito usando un modello di Resource Manager
 Questo articolo illustra come aggiungere una macchina virtuale Windows Server a un dominio gestito Azure AD Domain Services, usando i modelli Resource Manager.
@@ -100,7 +100,7 @@ Al termine della distribuzione le macchine virtuali Windows specificate vengono 
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Panoramica di Azure PowerShell](/powershell/azure/overview)
 * [Modello di avvio rapido di Azure - Aggiunta al dominio di una nuova macchina virtuale](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Modello di avvio rapido di Azure - Aggiunta al dominio di macchine virtuali esistenti](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

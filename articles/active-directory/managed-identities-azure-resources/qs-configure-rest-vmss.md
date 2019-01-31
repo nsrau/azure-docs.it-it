@@ -3,23 +3,23 @@ title: Come configurare identità gestite di sistema o assegnate dall'utente in 
 description: Istruzioni dettagliate per configurare identità gestite di sistema e assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure usando CURL per eseguire le chiamate API REST.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: daveba
-ms.openlocfilehash: 17c40fca9bb07a2da3fcd575d142c2e197d73bec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 149116b5388273729ca41c6b2e29fc8915df88ec
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433289"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175843"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
 

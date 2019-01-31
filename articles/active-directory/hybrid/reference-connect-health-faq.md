@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470325"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077302"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -62,7 +62,7 @@ Esempio:
 
 **D: Azure AD Connect Health supporta il cloud di Azure Germania?**
 
-Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezione della [funzionalità di report degli errori di sincronizzazione](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezione della [funzionalità di report degli errori di sincronizzazione](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Ruoli | Funzionalità | Supportato nel cloud di Azure in Germania |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezio
 | Connect Health per file system distribuito di Azure | Monitoraggio/informazioni dettagliate/avvisi/analisi | No  |
 | Connect Health per ADDS | Monitoraggio/informazioni dettagliate/avvisi/analisi | No  |
 
-Per garantire la connettività degli agenti di Connect Health per la sincronizzazione, configurare il [requisito di installazione](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) di conseguenza.   
+Per garantire la connettività degli agenti di Connect Health per la sincronizzazione, configurare il [requisito di installazione](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) di conseguenza.
 
 ## <a name="installation-questions"></a>Domande sull'installazione
 
@@ -163,7 +163,7 @@ Il servizio di Azure AD Connect Health ha analizzato tutti i computer di cui ese
 
 Per eseguire manualmente questo controllo, è possibile usare lo script di PowerShell seguente. In questo modo viene implementata la logica precedente.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **D: Perché i controlli AD FS non vengono generati?**
 
-Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicurarsi che i log di controllo non siano disabilitati. Sono disponibili altre informazioni sui [log di controllo AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Si noti che in presenza di impostazioni di controllo avanzate di cui è stato eseguito il push nel server AD FS, le eventuali modifiche con auditpol.exe verranno sovrascritte, anche se l'impostazione Generato dall'applicazione non è configurata. In questo caso, impostare i criteri di sicurezza locale per la registrazione degli esiti negativi e positivi di Generato dall'applicazione. 
+Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicurarsi che i log di controllo non siano disabilitati. Sono disponibili altre informazioni sui [log di controllo AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Si noti che in presenza di impostazioni di controllo avanzate di cui è stato eseguito il push nel server AD FS, le eventuali modifiche con auditpol.exe verranno sovrascritte, anche se l'impostazione Generato dall'applicazione non è configurata. In questo caso, impostare i criteri di sicurezza locale per la registrazione degli esiti negativi e positivi di Generato dall'applicazione.
 
 
 ## <a name="related-links"></a>Collegamenti correlati

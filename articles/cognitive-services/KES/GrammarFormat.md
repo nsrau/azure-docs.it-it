@@ -1,27 +1,30 @@
 ---
-title: Formato della grammatica nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni sul formato della grammatica nell'API Knowledge Exploration Service (KES) in Servizi cognitivi.
+title: Formato della grammatica - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni sul formato della grammatica nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f3cb307a52cfddebfa97c1b8608549acdd89169d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865754"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215069"
 ---
 # <a name="grammar-format"></a>Formato della grammatica
+
 La grammatica è un file XML che specifica il set pesato di query in linguaggio naturale che il servizio può interpretare, nonché il modo in cui queste query in linguaggio naturale vengono convertite in espressioni di query semantiche.  La sintassi della grammatica è basata su [SRGS](http://www.w3.org/TR/speech-grammar/), uno standard W3C per le grammatiche di riconoscimento vocale, con estensioni per supportare l'integrazione di indici dei dati e funzioni semantiche.
 
 Di seguito vengono descritti tutti gli elementi sintattici che possono essere usati in una grammatica.  Vedere [questo esempio](#example) per una grammatica completa che dimostra l'uso di questi elementi nel contesto.
 
-### <a name="grammar-element"></a>Elemento grammar 
+### <a name="grammar-element"></a>Elemento grammar
+
 L'elemento `grammar` è l'elemento di primo livello nel file XML di specifica della grammatica.  L'attributo obbligatorio `root` specifica il nome della regola radice che definisce il punto iniziale della grammatica.
 
 ```xml
@@ -29,6 +32,7 @@ L'elemento `grammar` è l'elemento di primo livello nel file XML di specifica de
 ```
 
 ### <a name="import-element"></a>Elemento import
+
 L'elemento `import` importa una definizione di schema da un file esterno per abilitare i riferimenti agli attributi. L'elemento deve essere un elemento figlio dell'elemento `grammar` di primo livello e viene visualizzato prima di qualsiasi elemento `attrref`. L'attributo `schema` obbligatorio specifica il nome di un file di schema che si trova nella stessa directory del file XML della grammatica. L'elemento `name` obbligatorio specifica l'alias dello schema usato dagli elementi `attrref` successivi per i riferimenti agli attributi definiti all'interno di questo schema.
 
 ```xml
@@ -36,6 +40,7 @@ L'elemento `import` importa una definizione di schema da un file esterno per abi
 ```
 
 ### <a name="rule-element"></a>Elemento rule
+
 L'elemento `rule` definisce una regola della grammatica, ovvero un'unità strutturale che specifica un set di espressioni di query che il sistema può interpretare.  L'elemento deve essere un elemento figlio dell'elemento `grammar` di primo livello.  L'attributo obbligatorio `id` specifica il nome della regola, a cui viene fatto riferimento dagli elementi `grammar` o `ruleref`.
 
 Un elemento `rule` definisce un set di espansioni valide.  Per i token del testo vengono individuate le corrispondenze direttamente in base alla query di input.  Gli elementi `item` specificano ripetizioni e modificano le probabilità di interpretazione.  Gli elementi `one-of` indicano scelte alternative.  Gli elementi `ruleref` consentono la costruzione di espansioni più complesse da quelle più semplici.  Gli elemento `attrref` consentono corrispondenze in base ai valori di attributo dall'indice.  Gli elementi `tag` specificano la semantica dell'interpretazione e possono modificare la probabilità di interpretazione.
@@ -45,6 +50,7 @@ Un elemento `rule` definisce un set di espansioni valide.  Per i token del testo
 ```
 
 ### <a name="example-element"></a>Elemento example
+
 L'elemento facoltativo `example` specifica frasi di esempio che possono essere accettate dalla definizione di `rule` che lo contiene.  Può essere usato per la documentazione e/o per i test automatizzati.
 
 ```xml
@@ -52,6 +58,7 @@ L'elemento facoltativo `example` specifica frasi di esempio che possono essere a
 ```
 
 ### <a name="item-element"></a>Elemento item
+
 L'elemento `item` raggruppa una sequenza di costrutti della grammatica.  Può essere usato per indicare ripetizioni della sequenza di espansione o per specificare alternative in combinazione con l'elemento `one-of`.
 
 Quando un elemento `item` non è un elemento figlio di un elemento `one-of`, può specificare la ripetizione della sequenza inclusa assegnando l'attributo `repeat` a un valore di conteggio.  Un valore di conteggio "*n*" (dove *n* è un numero intero) indica che la sequenza deve essere ripetuta esattamente *n* volte.  Un valore di conteggio "*m*-*n*" consente la comparsa della sequenza tra *m* e *n* volte, incluse.  Un valore di conteggio "*m*-" specifica che la sequenza deve comparire almeno *m* volte.  L'attributo facoltativo `repeat-logprob` può essere usato per modificare la probabilità di interpretazione per ogni ripetizione aggiuntiva oltre il minimo.
@@ -71,6 +78,7 @@ Quando gli elementi `item` vengono visualizzati come elementi figlio di un eleme
 ```
 
 ### <a name="one-of-element"></a>Elemento one-of
+
 L'elemento `one-of` specifica le espansioni alternative tra uno degli elementi `item` figlio.  Solo gli elementi `item` possono comparire all'interno di un elemento `one-of`.  È possibile specificare probabilità relative tra le diverse opzioni tramite l'attributo `logprob` in ogni elemento figlio `item`.
 
 ```xml
@@ -82,6 +90,7 @@ L'elemento `one-of` specifica le espansioni alternative tra uno degli elementi `
 ```
 
 ### <a name="ruleref-element"></a>Elemento ruleref
+
 L'elemento `ruleref` specifica le espansioni valide tramite riferimenti a un altro elemento `rule`.  L'uso degli elementi `ruleref` consente di creare espressioni più complesse da regole più semplici.  L'attributo `uri` obbligatorio indica il nome dell'elemento `rule` di riferimento usando la sintassi "#*nomeregola*".  Per acquisire l'output semantico della regola di riferimento, usare l'attributo facoltativo `name` per specificare il nome di una variabile a cui assegnare l'output semantico.
  
 ```xml
@@ -89,6 +98,7 @@ L'elemento `ruleref` specifica le espansioni valide tramite riferimenti a un alt
 ```
 
 ### <a name="attrref-element"></a>Elemento attrref
+
 L'elemento `attrref` fa riferimento a un attributo di indice, consentendo l'individuazione di corrispondenze in base ai valori di attributo osservati nell'indice.  L'attributo obbligatorio `uri` specifica il nome dello schema dell'indice e il nome dell'attributo con la sintassi "*nomeSchema*#*nomeAttr*".  Deve essere presente un elemento `import` precedente che importa lo schema denominato *nomeSchema*.  Il nome dell'attributo è il nome di un attributo definito nello schema corrispondente.
 
 Oltre a individuare le corrispondenze per l'input dell'utente, l'elemento `attrref` restituisce anche un oggetto query strutturata come output che seleziona il subset di oggetti nell'indice corrispondente al valore di input.  Usare l'attributo facoltativo `name` per specificare il nome della variabile in cui deve essere archiviato l'output dell'oggetto query.  L'oggetto query può essere composto con altri oggetti query in modo da formare espressioni più complesse.  Vedere [Interpretazione semantica](SemanticInterpretation.md) per altri dettagli.  
@@ -97,7 +107,8 @@ Oltre a individuare le corrispondenze per l'input dell'utente, l'elemento `attrr
 <attrref uri="academic#Keyword" name="keyword"/>
 ```
 
-#### <a name="query-completion"></a>Completamento della query 
+#### <a name="query-completion"></a>Completamento della query
+
 Per supportare i completamenti delle query durante l'interpretazione di query utente parziali, ogni attributo a cui viene fatto riferimento deve includere "starts_with" come operazione nella definizione dello schema.  Dato un prefisso di query utente, `attrref` individuerà come corrispondenze tutti i valori nell'indice che completano il prefisso e restituirà ogni valore completo come interpretazione separata della grammatica.  
 
 Esempi:
@@ -105,6 +116,7 @@ Esempi:
 * La corrispondenza di `<attrref uri="academic#Year" name="year"/>` in base al prefisso di query "200" genera una interpretazione per i documenti del "2000", una interpretazione per i documenti del "2001" e così via.
 
 #### <a name="matching-operations"></a>Operazioni di corrispondenza
+
 Oltre alla corrispondenza esatta, alcuni tipi di attributo supportano anche corrispondenze in base a prefisso e disuguaglianza tramite l'attributo facoltativo `op`.  Se nessun oggetto nell'indice ha un valore corrispondente, il percorso della grammatica viene bloccato e il servizio non genererà alcuna interpretazione su questo percorso della grammatica.   Il valore predefinito dell'attributo `op` è "eq".
 
 ```xml
@@ -129,6 +141,7 @@ Esempi:
 * `<attrref uri="academic#Year" op="starts_with" name="year"/>` individua come corrispondenza la stringa di input "20" e restituisce in un'interpretazione singola i documenti pubblicati nel 299 200, 2000-2999 e così via.  Questo è un caso d'uso non comune.
 
 ### <a name="tag-element"></a>Elemento tag
+
 L'elemento `tag` specifica come deve essere interpretato un percorso attraverso la grammatica.  Contiene una sequenza di istruzioni che terminano con punto e virgola.  Un'istruzione può essere un'assegnazione di un valore letterale o di una variabile a un'altra variabile.  Può anche assegnare l'output di una funzione con 0 o più parametri a una variabile.  Ogni parametro di funzione può essere specificato usando un valore letterale o una variabile.  Se la funzione non restituisce alcun output, l'assegnazione viene omessa.  L'ambito della variabile è locale per la regola che la contiene.
 
 ```xml
@@ -144,12 +157,13 @@ Alcune istruzioni possono modificare la probabilità di un percorso di interpret
 Per un elenco di funzioni semantiche supportate, vedere [Funzioni semantiche](SemanticInterpretation.md#semantic-functions).
 
 ## <a name="interpretation-probability"></a>Probabilità dell'interpretazione
+
 La probabilità di un percorso di interpretazione attraverso la grammatica è la probabilità logaritmica cumulativa di tutti gli elementi `<item>` e delle funzioni semantiche rilevati lungo il percorso.  Descrive la probabilità relativa di individuare una corrispondenza per una particolare sequenza di input.
 
 Dato un valore di probabilità *p* compreso tra 0 e 1, la probabilità logaritmica corrispondente può essere calcolata come log(*p*), dove log() è la funzione logaritmo naturale.  L'uso delle probabilità logaritmiche consente al sistema di accumulare la probabilità congiunta di un percorso di interpretazione tramite aggiunta semplice.  Evita inoltre le condizioni di underflow a virgola mobile comuni a tali calcoli di probabilità congiunta.  Si noti che per impostazione predefinita, la probabilità logaritmica è sempre un valore a virgola mobile negativo o 0, dove i valori superiori indicano maggiore probabilità.
 
-<a name="example"></a>
 ## <a name="example"></a>Esempio
+
 Di seguito è riportato un file XML di esempio dal dominio delle pubblicazioni accademiche che illustra i vari elementi di una grammatica:
 
 ```xml
