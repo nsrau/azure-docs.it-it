@@ -166,28 +166,28 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 
 | Tipo di dati di SAP BW | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ACCP | int |
-| CHAR | string |
-| CLNT | string |
-| CURR | Decimale |
-| CUKY | string |
+| ACCP | Int |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
 | DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
-| LANG | string |
-| LCHR | string |
+| INT4 | Int |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | string |
-| UNITÀ | string |
-| DATS | string |
-| NUMC | string |
-| TIMS | string |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
