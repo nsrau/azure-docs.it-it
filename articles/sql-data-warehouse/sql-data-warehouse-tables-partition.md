@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 04e489e6b6841f1038830d0b160e88111be8d838
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301961"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245889"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Tabelle di partizionamento in SQL Data Warehouse
 Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -70,7 +70,7 @@ WITH
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrazione del partizionamento da SQL Server
 Per eseguire la migrazione delle definizioni delle partizioni di SQL Server a SQL Data Warehouse, è necessario semplicemente:
 
-- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql) di SQL Server.
+- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql)di SQL Server.
 - Aggiungere la definizione di [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql) all'istruzione CREATE TABLE.
 
 Se si sta migrando una tabella con partizionamento da un'istanza di SQL Server, l'SQL di seguito è utile per calcolare il numero di righe in ogni partizione. È necessario tenere presente che se viene usata la stessa granularità di partizionamento in SQL Data Warehouse, il numero di righe per partizione diminuisce di un fattore pari a 60.  

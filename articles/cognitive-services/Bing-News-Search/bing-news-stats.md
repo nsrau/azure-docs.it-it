@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 435365ff0e10ce7340b7109701e55f126a85f9f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab4f175afb3fde924ccffe2ce935b10fdd5483f5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192877"
 ---
 # <a name="how-to-get-analytics-for-bing-news-search-api"></a>Come ottenere l'analisi per l'API Ricerca notizie Bing
 

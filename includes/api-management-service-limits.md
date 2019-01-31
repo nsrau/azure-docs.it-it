@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292691"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084886"
 ---
 | Risorsa | Limite |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "52292691"
 | Dimensione massima della risposta memorizzata nella cache | 2 MB |
 | Dimensioni massime del documento dei criteri | 256 KB<sup>5</sup> | 
 | Numero massimo di domini gateway personalizzati per istanza del servizio<sup>6</sup> | 20 | 
-| Numero massimo di istanze del servizio per sottoscrizione<sup>7</sup> | 5 | 
+| Numero massimo di istanze del servizio per sottoscrizione<sup>7</sup> | 20 | 
 | Numero massimo di sottoscrizioni per ogni istanza del servizio<sup>7</sup> | 500 |
 | Numero massimo di certificati client per istanza del servizio<sup>7</sup> | 50 | 
 | Numero massimo di API per istanza del servizio<sup>7</sup> | 50 | 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601968"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207412"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601968"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Eseguire il test di un'espressione
 
 1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali). 
@@ -40,13 +41,8 @@ ms.locfileid: "53601968"
 
     ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Cancellare il pannello test
-Per cancellare tutte le espressioni di test inserite e i relativi risultati dalla console di test, selezionare **Start over** (Inizia da capo) nell'angolo in alto a sinistra del **pannello test**. 
+## <a name="inspect-score"></a>Ispezionare il punteggio
 
-## <a name="close-test-panel"></a>Chiudere il pannello test
-Per chiudere il pannello **test**, selezionare nuovamente il pulsante **Test**.
-
-## <a name="inspect-score"></a>Punteggio dell'ispezione
 È possibile ispezionare i dettagli dei risultati del test nel pannello **Inspect** (Ispeziona). 
  
 1. Con il pannello a scorrimento **Test** aperto, selezionare **Inspect** (Ispeziona) per un'espressione da confrontare. 
@@ -72,9 +68,11 @@ Se l'**analisi del sentiment** è stata configurata nella pagina **[Publish](lui
 ![Immagine del riquadro Test con analisi del sentiment](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Correggere la finalità del criterio corrispondente
+
 Se si usano [criteri](luis-concept-patterns.md) e l'espressione corrisponde a un criterio, ma è stata stimata la finalità errata, selezionare il collegamento **Edit** (Modifica) del criterio, quindi selezionare la finalità corretta.
 
 ## <a name="compare-with-published-version"></a>Eseguire il confronto con la versione pubblicata
+
 È possibile testare la versione attiva dell'app con la versione [endpoint](luis-glossary.md#endpoint) pubblicata. Nel pannello **Inspect** (Ispeziona) selezionare **Compare with published** (Confronta con pubblicata). Eventuali test sul modello pubblicato vengono dedotti dal saldo della quota di sottoscrizione di Azure. 
 
 ![Compare with published (Confronta con pubblicata)](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Se si usano [criteri](luis-concept-patterns.md) e l'espressione corrisponde a un
 ## <a name="additional-settings-in-test-panel"></a>Impostazioni aggiuntive nel pannello test
 
 ### <a name="luis-endpoint"></a>Endpoint LUIS
+
 Se si dispone di diversi endpoint LUIS, usare il collegamento **Additional Settings** (Impostazioni aggiuntive) nel riquadro Test's Published (Pubblicato test) per modificare l'endpoint usato per il test. Se non si sa quale endpoint usare, selezionare quello predefinito **Starter_Key** (Chiave di avvio). 
 
 ![Pannello test con il collegamento Additional Settings (Impostazioni avanzate) evidenziato](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Visualizzare le correzioni del Controllo ortografico Bing nel pannello test
+
 Requisiti per visualizzare le correzioni ortografiche: 
 
 * App pubblicata
@@ -124,6 +124,7 @@ Usare la procedura seguente per includere il servizio [Controllo ortografico Bin
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Test in batch
 Vedere i [concetti](luis-concept-batch-test.md) del test in batch e imparare a [testare](luis-how-to-batch-test.md) un batch di espressioni.
 

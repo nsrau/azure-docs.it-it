@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167071"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| NOME | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
+| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
 | PartnerClaimType | Yes | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -106,7 +106,7 @@ L'elemento **Mask** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| type | Yes | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
+| Type | Yes | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | Regex (Espressione regolare) | No  | Se **Type** è impostato su `Regex`, specificare l'espressione regolare da usare.
 
 L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:

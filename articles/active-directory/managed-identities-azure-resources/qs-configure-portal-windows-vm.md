@@ -3,23 +3,23 @@ title: Come configurare le identità gestite per le risorse di Azure in una macc
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: daveba
-ms.openlocfilehash: d3f8fe41174e6c75a8546c0c987acd56fc5921c9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: e7b20c092a0655c1453daaa67d730a7b49a6330a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436192"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181598"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure
 

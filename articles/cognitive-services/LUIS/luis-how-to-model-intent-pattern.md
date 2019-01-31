@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 46b7e7757c2bf1b01bebeff059f0028b9e9d189c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134999"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220757"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Modalità tramite cui aggiungere Criteri per migliorare la precisione delle previsioni
 Dopo che l'app LUIS ha ricevuto le espressioni di endpoint, usa il [concetto](luis-concept-patterns.md) di Criteri per migliorare la precisione della previsione per quelle espressioni che presentano un criterio a livello di ordine delle parole e di scelta lessicale. I criteri usano le [entità](luis-concept-entity-types.md) e i rispettivi ruoli per estrarre i dati tramite la sintassi di un criterio specifico. 

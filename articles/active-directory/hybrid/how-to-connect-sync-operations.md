@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fb7e4fa929305075df038843e8c6ab324a648e07
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467537"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195342"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
 L'obiettivo di questo argomento è descrivere le attività operative per il servizio di sincronizzazione Azure AD Connect.

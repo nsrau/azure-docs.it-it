@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 81b963a56b35cc1206982680f8742c2fea9f2446
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598503"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219329"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
@@ -24,19 +24,7 @@ Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gr
 
 Le finalità sono gestite nella sezione **Compilazione** sulla barra di navigazione superiore nel pannello **Finalità** a sinistra. 
 
-## <a name="create-an-app"></a>Creare un'app
-
-1. Accedere al portale [LUIS](https://www.luis.ai).
-
-1. Selezionare **Create new app** (Crea nuova app). 
-
-1. Assegnare alla nuova app il nome `MyHumanResourcesApp`. Seleziona **Inglese** dalle impostazioni cultura. La descrizione è facoltativa. 
-
-1. Selezionare **Operazione completata**. 
-
 ## <a name="add-intent"></a>Aggiungere le finalità
-
-1. L'app si apre mostrando l'elenco **Finalità**.
 
 1. Nella pagina **Intents** (Finalità) selezionare **Create new intent** (Crea nuova finalità).
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207293"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -234,7 +234,7 @@ Esaminare i [limiti](luis-boundaries.md#model-boundaries) per comprendere il num
 
 Sia le entità composite che le entità gerarchiche hanno relazioni padre-figlio e sono basate su Machine Learning. L'apprendimento basato su Machine Learning consente a LUIS di comprendere le entità in base ai diversi contesti (disposizione delle parole). Le entità composite sono più flessibili perché consentono tipi di entità diversi come figli. I figli delle entità gerarchiche sono solo entità semplici. 
 
-|type|Scopo|Esempio|
+|Type|Scopo|Esempio|
 |--|--|--|
 |Gerarchica|Padre-figlio di entità semplici|Location.Origin=New York<br>Location.Destination=London|
 |Composita|Entità padre-figlio: predefinite, elenco, semplici, gerarchiche| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

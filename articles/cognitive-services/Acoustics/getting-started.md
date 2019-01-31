@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 0aad231b4a57c2d9927a553a43394681282b5494
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902944"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155953"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Introduzione a Project Acoustics
 Questa guida introduttiva illustra come integrare il plug-in nel progetto Unity, effettuare il bake della scena e applicare l'acustica alle sorgenti audio. Per questa guida introduttiva, è necessario prima di tutto creare un [account Azure Batch](create-azure-account.md). Questa guida presuppone una certa conoscenza di Unity.

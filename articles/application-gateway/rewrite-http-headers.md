@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198526"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103429"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
@@ -94,8 +94,6 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Restituisce l'elenco di modalità di crittografia supportate dal client          |
 | ciphers_used               | Restituisce la stringa di crittografia usata per una connessione SSL stabilita |
-| client_latitude            | Per determinare il paese, l'area e la città in base all'indirizzo IP del client |
-| client_longitude           | Per determinare il paese, l'area e la città in base all'indirizzo IP del client |
 | client_port                | Porta del client                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP client. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente fornito per l'autenticazione |

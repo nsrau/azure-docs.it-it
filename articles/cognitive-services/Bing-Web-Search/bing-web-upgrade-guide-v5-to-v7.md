@@ -1,23 +1,24 @@
 ---
-title: Aggiornare l'API Ricerca Web Bing da v5 a v7 | Microsoft Docs
-description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
+title: Aggiornare l'API dalla versione 5 alla versione 7 - API Ricerca Web Bing
+titleSuffix: Azure Cognitive Services
+description: Determinare per quali parti dell'applicazione sono necessari gli aggiornamenti per usare le API Ricerca Web Bing versione 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.subservice: bing-web-search
+ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 155297f230c0ee02d6fa49d6d35eb24d9941f29b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376937"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188933"
 ---
-# <a name="web-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca Web
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
@@ -34,11 +35,11 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 - All'oggetto `Error` sono stati aggiunti i campi seguenti.  
   - `subCode`&mdash;Partiziona il codice di errore in bucket discreti, se possibile
   - `moreDetails`&mdash;Include informazioni aggiuntive sull'errore descritto nel campo `message`
-   
+
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|Descrizione
+|Codice|Sottocodice|DESCRIZIONE
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta includerà questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.
@@ -79,10 +80,9 @@ Bloccato|InvalidRequest.Blocked
 ### <a name="query-parameters"></a>Parametri di query
 
 - È stato aggiunto il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
-  
+
 - È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per promuovere video e immagini nella risposta, impostare promote su *videos,images*. L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` ha valore 2 e `promote` è impostato su *videos,images*, la risposta potrebbe includere pagine Web, notizie, video e immagini.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
 - Il campo `someResultsRemoved` è stato aggiunto all'oggetto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer). Il campo contiene un valore booleano che indica se la risposta ha escluso alcuni risultati dal riscontro Web.  
-

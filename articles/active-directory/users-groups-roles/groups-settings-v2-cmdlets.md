@@ -9,18 +9,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2ecd65bab478c37f1d3daa3ff86fdfadc788b301
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cb496ad1ad679fd3a4e6f55f15f658f084e308a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448948"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176336"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 > [!div class="op_single_selector"]
@@ -218,15 +218,15 @@ Per disabilitare la creazione di gruppi da parte degli utenti non amministratori
 
 1. Verificare che gli utenti non amministratori siano autorizzati a creare gruppi:
    
-  ````
+  ```
   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+  ```
   
 2. Se restituisce `UsersPermissionToCreateGroupsEnabled : True`, gli utenti non amministratori possono creare gruppi. Per disabilitare questa funzionalità:
   
-  ```` 
+  ``` 
   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+  ```
   
 ## <a name="manage-owners-of-groups"></a>Gestire i proprietari di gruppi
 Per aggiungere proprietari a un gruppo, usare il cmdlet AzureADGroupOwner:
@@ -250,8 +250,8 @@ Per rimuovere un proprietario da un gruppo, usare il cmdlet Remove-AzureADGroupO
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>Alias riservati 
-Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
-  
+Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
+  
 * abuse 
 * admin 
 * entità 
@@ -268,4 +268,4 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Integrazione delle identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

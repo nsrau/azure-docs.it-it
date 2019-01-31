@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164159"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creare unit test per i servizi con stato
 Il testing unità dei servizi con stato di Service Fabric svela gli errori comuni che non verrebbero necessariamente rilevati dall'applicazione convenzionale o testing unità specifico di dominio. Durante lo sviluppo di unit test per i servizi con stato, esistono alcune considerazioni speciali che devono essere tenute a mente.
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary
+//promote idle secondary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

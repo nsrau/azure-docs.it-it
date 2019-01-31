@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 2ce4bf8e5c3356a5fae6d213e6e48c1313a12463
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 870ceaf1ded3dd8eb08128514dcc7020fe74e7ae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580339"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903911"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Creare una sottoscrizione di Azure aggiuntiva nel portale di Azure
 
@@ -48,6 +48,6 @@ Se non si ha già una sottoscrizione di Azure, è possibile creare un [account g
 - [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Annullare la sottoscrizione di Azure](billing-how-to-cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza e contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
