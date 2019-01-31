@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264751"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470596"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
-Questa esercitazione illustra uno scenario di ripristino di emergenza completo per un'applicazione SaaS multi-tenant implementata con il database per modello di tenant. Si usa il [ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) per ripristinare in un'area alternativa i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. Dopo aver risolto il problema, si usa la [replica geografica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) per ricollocare i database modificati nella rispettiva area di origine.
+Questa esercitazione illustra uno scenario di ripristino di emergenza completo per un'applicazione SaaS multi-tenant implementata con il database per modello di tenant. Si usa il [ripristino geografico](sql-database-recovery-using-backups.md) per ripristinare in un'area alternativa i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. Dopo aver risolto il problema, si usa la [replica geografica](sql-database-geo-replication-overview.md) per ricollocare i database modificati nella rispettiva area di origine.
 
 ![Architettura di ripristino geografico](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ Il ripristino di emergenza è importante per molte applicazioni, per motivi di c
 Questa esercitazione usa le funzionalità del database SQL di Azure e della piattaforma Azure per risolvere i problemi seguenti:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
-* [Libreria EDCL](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (Elastic Database Client Library, libreria client dei database elastici), per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
-* [Funzionalità di ripristino della gestione delle partizioni](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) della libreria EDCL, per gestire le voci relative alle posizioni dei database nel catalogo durante il ripristino e il ricollocamento.  
-* [Ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
+* [Libreria EDCL](sql-database-elastic-database-client-library.md) (Elastic Database Client Library, libreria client dei database elastici), per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
+* [Funzionalità di ripristino della gestione delle partizioni](sql-database-elastic-database-recovery-manager.md) della libreria EDCL, per gestire le voci relative alle posizioni dei database nel catalogo durante il ripristino e il ricollocamento.  
+* [Ripristino geografico](sql-database-disaster-recovery.md), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
 * [Operazioni di ripristino asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
-* [Replica geografica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
-* [Alias DNS del server SQL](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
+* [Replica geografica](sql-database-geo-replication-overview.md), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
+* [Alias DNS del server SQL](dns-alias-overview.md), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza
 
@@ -378,4 +378,4 @@ Passare all'esercitazione [Ripristino di emergenza per un'applicazione SaaS mult
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[Altre esercitazioni basate sull'applicazione SaaS Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Altre esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

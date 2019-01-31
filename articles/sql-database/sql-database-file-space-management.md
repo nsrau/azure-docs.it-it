@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605977"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468632"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
 Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
@@ -27,6 +27,7 @@ Questo articolo descrive i diversi tipi di spazio di archiviazione nel database 
 Nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
 Può essere necessario monitorare l'utilizzo dello spazio file e compattare i file di dati per:
+
 - Consentire l'aumento delle dimensioni dei dati in un pool elastico quando lo spazio file allocato per i relativi database raggiunge le dimensioni massime del pool.
 - Consentire la riduzione delle dimensioni massime di un database singolo o di un pool elastico.
 - Consentire il passaggio di un database singolo o di un pool elastico a un livello di servizio o a un livello di prestazioni diverso con dimensioni massime inferiori.
@@ -118,6 +119,7 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 Le query seguenti possono essere usate per determinare le quantità di spazio di archiviazione per un pool elastico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Spazio dati del pool elastico usato
+
 Modificare la query seguente per restituire la quantità di spazio dati del pool elastico usato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
@@ -234,9 +236,9 @@ Dopo la compattazione dei file di dati del database, gli indici possono diventar
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sulle dimensioni massime dei database, vedere:
-  - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
+  - [Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Per altre informazioni sul comando `SHRINKDATABASE`, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

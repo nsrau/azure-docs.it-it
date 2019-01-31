@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84a51f65ef46c390f84308ab17cf83859a16c3b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960290"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55428513"
 ---
 Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -24,7 +24,7 @@ Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub event
 | Numero di partizioni per hub eventi |Entità |- |32 |
 | Numero di gruppi consumer per hub eventi |Entità |- |20 |
 | Numero di connessioni AMQP per spazio dei nomi |Spazio dei nomi |Le richieste successive di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. |5.000 |
-| Dimensione massima degli eventi di Hub eventi|Entità |- |256 KB |
+| Dimensione massima degli eventi di Hub eventi|Entità |- |1 MB |
 | Dimensione massima del nome di un hub eventi |Entità |- |50 caratteri |
 | Numero di ricevitori non epoch per gruppo consumer |Entità |- |5 |
 | Periodo di conservazione massimo dei dati dell'evento |Entità |- |1-7 giorni |

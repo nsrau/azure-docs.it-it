@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 661df6039948539d6b50b4c8caf8ca7bd9b58730
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.subservice: files
+ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321497"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474820"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 

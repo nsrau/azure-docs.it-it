@@ -1,21 +1,21 @@
 ---
-title: Risoluzione dei problemi | Microsoft Docs
+title: Risoluzione dei problemi | Documentazione Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: article
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413609"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467102"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 

@@ -2,7 +2,7 @@
 title: Monitorare Azure Batch | Microsoft Docs
 description: Informazioni su servizi di monitoraggio Azure, metriche, log di diagnostica e altre funzionalità di monitoraggio per Azure Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: danlep
-ms.openlocfilehash: e80eaf8e2ab1cf001e06aac1b5f23c7714c9013b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.author: lahugh
+ms.openlocfilehash: a04161d80a6dd3f9db2a95a8556eaac466407047
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117012"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470077"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 

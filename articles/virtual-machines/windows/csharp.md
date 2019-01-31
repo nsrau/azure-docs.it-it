@@ -3,7 +3,7 @@ title: Creare e gestire una macchina virtuale di Azure tramite C# | Microsoft Do
 description: Usare C# e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: zarhoads
-ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: cynthn
+ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956715"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883059"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creare e gestire macchine virtuali Windows in Azure tramite C# #
 
@@ -110,7 +110,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
 ## <a name="create-resources"></a>Creare le risorse
 
-### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+### <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Tutte le risorse devono essere contenute in un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md).
 

@@ -6,20 +6,20 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453652"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di data science per i team in azione: uso di SQL Server
-Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di data science standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
+Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
 I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto forma di file CSV compressi(circa 48 GB senza compressione), e includono oltre 173 milioni di corse singole nonché le tariffe pagate per ciascuna corsa. Il record di ogni corsa include la località e l'orario di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -47,7 +47,7 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
 1. Classificazione binaria: consente di prevedere se è stata lasciata una mancia per una corsa oppure no, ovvero se un valore di *tip\_amount* superiore a $0 è un esempio positivo, mentre un valore di *tip\_amount* pari a $0 è un esempio negativo.
-2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene suddiviso in cinque bin o classi:
+2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -164,7 +164,7 @@ Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate 
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Esplorazione: distribuzione delle corse per licenza
-In questo esempio viene identificata la licenza (numero identificativo del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
+In questo esempio viene identificata la licenza (numero del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
 
     SELECT medallion, COUNT(*)
     FROM nyctaxi_fare
@@ -191,7 +191,7 @@ In questo esempio viene esaminato se uno dei campi relativi alla longitudine o a
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per cui è stata lasciata una mancia e e di quelle per cui non è stata lasciata una mancia
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per cui è stata lasciata una mancia e e di quelle per le quali non è stata lasciata una mancia
 In questo esempio viene individuato il numero di corse per le quali è stata lasciata una mancia e il numero di corse per le quali non è stata lasciata una mancia in un determinato periodo (o nel set di dati completo, in caso di un anno intero). Questa distribuzione riflette la distribuzione delle etichette binarie che dovranno essere utilizzate in seguito per la creazione di modelli di classificazione binaria.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -352,7 +352,7 @@ In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-La distribuzione precedente può essere rappresentata in un grafico a barre o linee come illustrato di seguito
+La distribuzione precedente può essere rappresentata in un tracciato a barre o linee come illustrato di seguito
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
@@ -487,7 +487,7 @@ In questo esempio un campo di categoria viene trasformato in un campo numerico m
     cursor.commit()
 
 #### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Progettazione di caratteristiche: caratteristiche di tipo contenitore per le colonne numeriche
-In questo esempio, un campo numerico continuo viene trasformato in intervalli di categoria predefiniti, vale a dire che il campo numerico verrà trasformato in un campo di categoria.
+In questo esempio, un campo numerico continuo viene trasformato in intervalli di categorie predefiniti, vale a dire che il campo numerico verrà trasformato in un campo di categoria.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -550,7 +550,7 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate, in base alle classi definite in precedenza.
 3. Attività di regressione: consente di stimare l'importo della mancia lasciata per una corsa.  
 
-## <a name="mlmodel"></a>Creazione di modelli in Azure Machine Learning
+## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
 Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](../studio/create-workspace.md).
 
 1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../studio/what-is-ml-studio.md)

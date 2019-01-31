@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177033"
 ---
 # <a name="publish-azure-application-offer"></a>Pubblicare un'offerta di applicazione Azure
 
@@ -28,6 +28,7 @@ Dopo avere creato un'offerta specificando le informazioni nella pagina **Nuova o
 Il diagramma seguente illustra i passaggi principali del processo di pubblicazione che rende un'offerta disponibile in Azure Marketplace.
 
 ![Procedura di pubblicazione dell'offerta](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>Descrizione dettagliata dei passaggi per la pubblicazione
 
@@ -44,12 +45,14 @@ La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indic
 | Revisione Microsoft                | 7 - 14 giorni | Microsoft esamina interamente l'applicazione Azure e, in caso di problemi, invia un messaggio di posta elettronica.  La durata di questo passaggio dipende dalla complessità dell'applicazione, dai problemi rilevati e dalla rapidità con cui si reagisce.  |
 | Live                           | < 1 giorno | L'offerta viene rilasciata, replicata nelle aree specificate e resa disponibile al pubblico. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 È possibile monitorare il processo di pubblicazione nella scheda **Stato** per l'offerta nel portale Cloud Partner.
 
 ![Scheda Stato per l'offerta di un'app Azure](./media/offer-status-tab.png)
 
 Al termine del processo di pubblicazione, l'offerta sarà disponibile nell'elenco della [categoria dell'applicazione di Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
 
 
 ## <a name="errors-and-review-feedback"></a>Errori e commenti e suggerimenti della revisione

@@ -1,20 +1,21 @@
 ---
-title: API di Servizi cognitivi di Azure | Microsoft Docs
-description: Questo articolo offre una guida facile e completa sulle API per il Servizio decisionale personalizzato di Azure, un'API basata sul cloud per una gestione più precisa del processo decisionale contestuale.
+title: Riferimenti per le API - Servizio decisionale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Guida completa alle API del Servizio decisionale personalizzato.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 403b17e33394016a07a7b33ba1bcbfe6afdcc05b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3476c353a2b5c5eeaaa7406712bebd178ac5c1e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377497"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227744"
 ---
 # <a name="api"></a>API
 
@@ -143,7 +144,7 @@ Qui `data` è l'argomento della funzione `callback()`, come descritto in precede
 Solo per i test, l'API premio può essere chiamata tramite [cURL](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
-curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 L'effetto previsto è una risposta HTTP 200 (OK). È possibile vedere il premio pari a 1 per questo evento nel log (se è stata specificata una chiave dell'account di archiviazione di Azure nel portale).

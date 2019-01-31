@@ -1,30 +1,30 @@
 ---
 title: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure - Processo di data science per i team
-description: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure
+description: Spostare i dati da e verso l'archivio BLOB di Azure
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca5a75ec61a0f75b3a008762561fed8231fce33d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139858"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453757"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso l'archivio BLOB di Azure
 
-Il processo di data science per i team richiede l'inserimento o il caricamento di dati in una vasta gamma di ambienti di archiviazione diversi per l'elaborazione e l'analisi nei modi più appropriati in ogni fase del processo.
+Il Processo di analisi scientifica dei dati per i team richiede l'inserimento o il caricamento di dati in una vasta gamma di ambienti di archiviazione diversi per l'elaborazione e l'analisi nei modi più appropriati in ogni fase del processo.
 
 ## <a name="different-technologies-for-moving-data"></a>Tecnologie diverse per lo spostamento dei dati
 
-Gli articoli seguenti descrivono come spostare i dati da e verso una risorsa di archiviazione BLOB di Azure usando tecnologie diverse.
+Gli articoli seguenti descrivono come spostare i dati da e verso l'archivio BLOB di Azure usando tecnologie diverse.
 
 * [Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AzCopy](move-data-to-azure-blob-using-azcopy.md)

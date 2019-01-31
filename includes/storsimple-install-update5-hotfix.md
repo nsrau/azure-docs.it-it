@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 14aac6103f1a560a50bc9dd80e18d5e2fbaae3c4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 450f62cd3605656ff8907c0020775f634dba0b4a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264357"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148001"
 ---
 <!--author=alkohli last changed: 08/21/17-->
 
@@ -55,7 +55,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     >[!NOTE] 
     > È consigliabile installare prima _HcsSoftwareUpdate.exe_. Al termine, installare quindi _CisMdsAgentUpdate.exe_.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -66,7 +66,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 5. Digitare **Y** quando viene richiesto di confermare l'installazione dell'hotfix.
 6. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus` . L'aggiornamento verrà innanzitutto completato sul controller passivo. Dopo aver aggiornato il controller passivo, si verificherà un failover e l'aggiornamento verrà quindi applicato all'altro controller. L'aggiornamento è completato quando entrambi i controller vengono aggiornati.
    
@@ -95,7 +95,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     > [!NOTE]
     > In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 
-7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare: 
+7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
    
     `Get-HcsSystem`
    
@@ -177,7 +177,7 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus` . L'aggiornamento è completo quando `RunInProgress` diventa `False`.
-4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1, **Accedi con accesso completo** e verificare la versione del firmware del disco. Digitare: 
+4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1, **Accedi con accesso completo** e verificare la versione del firmware del disco. Digitare:
    
    `Get-HcsFirmwareVersion`
    

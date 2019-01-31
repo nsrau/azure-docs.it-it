@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702375"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097972"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
  
@@ -28,7 +28,7 @@ Un'aggregazione definita dall'utente viene usata su una finestra temporale speci
 
 Le aggregazioni di tipo AccumulateOnly possono solo accumulare nuovi eventi in base al relativo stato. L'algoritmo non consente la decumulazione dei valori. Scegliere questo tipo di aggregazione quando risulta impossibile implementare la decumulazione delle informazioni di un evento dal valore di stato. Di seguito è illustrato il modello JavaScript per le aggregazioni di tipo AccumulatOnly:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>Aggregazioni di tipo AccumulateDeaccumulate
 
 Le aggregazioni di tipo AccumulateDeaccumulate consentono la decumulazione di un valore precedentemente accumulato dallo stato, ad esempio la rimozione di una coppia chiave-valore da un elenco di valori di evento o la sottrazione di un valore da uno stato di somma di aggregazioni. Di seguito è illustrato il modello JavaScript per le aggregazioni di tipo AccumulateDeaccumulate:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>Aggregazione definita dall'utente - Dichiarazione della funzione JavaScript
 
@@ -129,7 +129,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
 1. Nella visualizzazione Nuova funzione selezionare **UDA JavaScript** nel campo Tipo di funzione. Nell'editor verrà visualizzato un modello UDA predefinito.
 1. Immettere "TWA" come alias dell'aggregazione definita dall'utente e modificare l'implementazione della funzione come indicato di seguito:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
             return result;
         }
     }
-    ````
+    ```
 
 1. Dopo aver fatto clic sul pulsante "Salva", l'aggregazione definita dall'utente verrà visualizzata nell'elenco delle funzioni.
 
@@ -177,7 +177,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
 
 Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio: 
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>Test della query mediante un'aggregazione definita dall'utente
 
 Creare un file JSON locale con il contenuto riportato di seguito, caricare il file nel processo di Analisi di flusso di Azure ed eseguire il test della query illustrata in precedenza.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Creare un file JSON locale con il contenuto riportato di seguito, caricare il fi
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Ottenere aiuto
 

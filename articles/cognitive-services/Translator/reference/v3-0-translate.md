@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470876"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -35,7 +35,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
@@ -95,7 +95,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>_Intestazione_<br/>_di autorizzazione_</td>
     <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
@@ -173,7 +173,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,7 +190,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>200</td>
     <td>Completamento della procedura.</td>

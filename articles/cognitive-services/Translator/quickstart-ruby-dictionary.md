@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 76357db32ad676cc5246e7f9edfae238d33b0696
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461152"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Ruby
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Ruby
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
 

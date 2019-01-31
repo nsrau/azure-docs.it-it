@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454845"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato dei file di log del servizio Importazione/Esportazione di Azure
 Quando il servizio Importazione/Esportazione di Microsoft Azure esegue un'azione in un'unità come parte di un processo di importazione o di esportazione, i log vengono scritti in BLOB in blocchi nell'account di archiviazione associato a tale processo.  
@@ -101,7 +101,7 @@ properties-status ::=
 
 Nella tabella seguente vengono illustrati gli elementi del file di log.  
   
-|Elemento XML|type|DESCRIZIONE|  
+|Elemento XML|Type|DESCRIZIONE|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Rappresenta un log di unità.|  
 |`Version`|Attributo, stringa|Versione del formato del log.|  
@@ -110,9 +110,9 @@ Nella tabella seguente vengono illustrati gli elementi del file di log.
 |`Blob`|Elemento XML nidificato|Rappresenta un BLOB.|  
 |`Blob/BlobPath`|string|L'URI del BLOB.|  
 |`Blob/FilePath`|string|Il percorso relativo verso il file nell'unità.|  
-|`Blob/Snapshot`|Datetime|La versione dello snapshot del BLOB, solo per un processo di esportazione.|  
+|`Blob/Snapshot`|DateTime|La versione dello snapshot del BLOB, solo per un processo di esportazione.|  
 |`Blob/Length`|Integer|La lunghezza totale dei BLOB in byte.|  
-|`Blob/LastModified`|Datetime|Data e ora dell'ultima modifica al BLOB, solo per un processo di esportazione.|  
+|`Blob/LastModified`|DateTime|Data e ora dell'ultima modifica al BLOB, solo per un processo di esportazione.|  
 |`Blob/ImportDisposition`|string|La disposizione di importazione del BLOB, solo per un processo di importazione.|  
 |`Blob/ImportDisposition/@Status`|Attributo, stringa|Lo stato della disposizione di importazione.|  
 |`PageRangeList`|Elemento XML nidificato|Rappresenta un elenco di intervalli di pagine per un BLOB di pagine.|  

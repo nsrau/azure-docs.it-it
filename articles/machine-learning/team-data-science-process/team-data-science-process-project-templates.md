@@ -6,17 +6,17 @@ manager: cgronlun
 editor: cgronlun
 services: machine-learning
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137912"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474463"
 ---
 # <a name="team-data-science-process-project-planning"></a>Pianificazione di un progetto di data science per i team
 
@@ -24,7 +24,7 @@ Il processo di data science per i team (TDSP) fornisce un ciclo di vita per stru
 
 Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-- Comprensione delle strategie aziendali
+- Informazioni commerciali
 - Acquisizione e comprensione dei dati
 - Modellazione
 - Distribuzione

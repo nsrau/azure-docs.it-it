@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: bace951141ea1d437d102b11ac4f548beaf5c75e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329413"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474225"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Creazione di una pipeline di integrazione continua in Azure tramite Docker, Kubernetes e Python Flask
 Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi di lavoro: i data scientist che compilano modelli di Machine Learning e gli sviluppatori di app che compilano l'applicazione e la espongono per gli utenti finali. Questo articolo illustra come implementare una pipeline di integrazione continua/recapito continuo per un'applicazione di intelligenza artificiale. L'applicazione di intelligenza artificiale è una combinazione del codice di applicazione incorporato con un modello di Machine Learning (ML) di cui è stato eseguito il training. In questo articolo viene recuperato un modello di cui è già stato eseguito il training da un account di archiviazione BLOB privato di Azure, ma è possibile usare anche un account AWS S3. Nell'articolo viene usata una semplice applicazione Web Python Flask.
@@ -33,13 +33,13 @@ Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi 
 I prerequisiti seguenti si applicano alla pipeline di integrazione continua/recapito continuo descritta di seguito:
 * [Organizzazione DevOps di Azure](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Cluster del servizio contenitore di Azure (AKS) che esegue Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Account del Registro contenitori di Azure (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Cluster del servizio Azure Container che esegue Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Account di Registro Azure Container](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Installare Kubectl per eseguire i comandi nel cluster Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Necessario per recuperare la configurazione dal cluster ACS. 
 * Creare una fork del repository nell'account GitHub.
 
 ## <a name="description-of-the-cicd-pipeline"></a>Descrizione della pipeline di integrazione continua/recapito continuo
-La pipeline viene attivata per ogni nuovo commit e viene eseguito il gruppo di test. Se il test ha esito positivo, viene usata l'ultima compilazione che viene inserita in un contenitore Docker. Il contenitore viene quindi distribuito usando il servizio contenitore di Azure (ACS), mentre le immagini vengono archiviate in modo sicuro nel Registro contenitori di Azure (ACR). ACS esegue Kubernetes per la gestione dei cluster contenitore, ma è possibile scegliere Docker Swarm o Mesos.
+La pipeline viene attivata per ogni nuovo commit e viene eseguito il gruppo di test. Se il test ha esito positivo, viene usata l'ultima compilazione che viene inserita in un contenitore Docker. Il contenitore viene quindi distribuito usando il servizio Azure Container, mentre le immagini vengono archiviate in modo sicuro in Registro Azure Container. ACS esegue Kubernetes per la gestione dei cluster contenitore, ma è possibile scegliere Docker Swarm o Mesos.
 
 L'applicazione esegue il pull del modello più recente da un account di archiviazione di Azure e lo inserisce come parte dell'applicazione. L'applicazione distribuita ha il codice dell'app e il modello di Machine Learning inserito come singolo contenitore. Ciò consente di separare gli sviluppatori di app dai data scientist per garantire che la relativa app di produzione esegua sempre il codice più recente con il modello di Machine Learning più recente.
 
@@ -54,7 +54,7 @@ L'architettura della pipeline è descritta di seguito.
 4. Al termine, il modello viene pubblicato in un repository di modelli, in questo caso un account di archiviazione BLOB. 
 5. Viene avviata una compilazione in Azure DevOps in base al commit in GitHub.
 6. La pipeline di compilazione Azure DevOps esegue il pull del modello più recente dal contenitore BLOB e crea un contenitore.
-7. Azure DevOps esegue il push dell'immagine nel repository delle immagini privato nel Registro contenitori di Azure
+7. Azure DevOps esegue il push dell'immagine nel repository delle immagini privato in Registro Azure Container
 8. La pipeline di versione viene avviata in base alla pianificazione impostata (notturna).
 9. Viene eseguito il pull dell'immagine più recente di ACR che viene distribuita nel cluster Kubernetes in ACS.
 10. La richiesta dell'app da parte degli utenti avviene tramite il server DNS.
@@ -67,4 +67,4 @@ L'architettura della pipeline è descritta di seguito.
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [Azure DevOps](https://www.visualstudio.com/vso/)
-* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* [Servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)

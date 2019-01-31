@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526233"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457004"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato di file dei metadati e delle proprietà di Importazione/Esportazione di Azure
 È possibile specificare i metadati e le proprietà per uno o più BLOB nell'ambito di un processo di importazione o esportazione. Per impostare i metadati o le proprietà per i BLOB che vengono creati nell'ambito di un processo di importazione, occorre fornire un file di metadati o delle proprietà nel disco rigido contenente i dati da importare. In un processo di esportazione, i metadati e le proprietà vengono scritti in un file di metadati o delle proprietà che viene incluso nel disco rigido restituito all'utente.  
@@ -30,7 +30,7 @@ Il formato del file di metadati è indicato di seguito:
 </Metadata>  
 ```
   
-|Elemento XML|type|DESCRIZIONE|  
+|Elemento XML|Type|DESCRIZIONE|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento radice|L'elemento radice del file di metadati.|  
 |`metadata-name`|string|facoltativo. L'elemento XML specifica il nome dei metadati per il BLOB e il relativo valore specifica il valore dell'impostazione dei metadati.|  
@@ -52,7 +52,7 @@ Il formato di un file delle proprietà è indicato di seguito:
 </Properties>  
 ```
   
-|Elemento XML|type|DESCRIZIONE|  
+|Elemento XML|Type|DESCRIZIONE|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento radice|L'elemento radice del file delle proprietà.|  
 |`Last-Modified`|string|facoltativo. L'ora dell'ultima modifica per il BLOB. Solo per i processi di esportazione.|  

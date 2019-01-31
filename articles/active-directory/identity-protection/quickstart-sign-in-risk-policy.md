@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a7dc8fc5e2a705612cecc3cf7d108d38f1e3b2bc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169281"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Avvio rapido: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Guida introduttiva: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection  
 
 Per mantenere l'ambiente protetto, è possibile bloccare l'accesso per gli utenti sospetti. Azure Active Directory (Azure AD) Identity Protection analizza ogni accesso e calcola la probabilità che un tentativo di accesso non sia stato eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato livello di rischio di accesso. Impostando la condizione di rischio di accesso, è possibile configurare un criterio di accesso condizionale per il rischio di accesso per rispondere ai livelli di rischio di accesso specifico. 
 

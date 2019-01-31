@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259427"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466184"
 ---
 # <a name="translator-speech-api"></a>API Traduzione vocale
 
@@ -186,7 +186,7 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|Modello di risposta|Intestazioni|
+|Codice di stato HTTP|Motivo|Modello di risposta|Headers|
 |:--|:--|:--|:--|
 |101    |Aggiornamento WebSocket.|Valore di esempio del modello <br/> Oggetto {}|X-RequestId<br/>Valore che identifica la richiesta per la risoluzione dei problemi.<br/>stringa|
 |400    |Richiesta non valida. Controllare i parametri di input per verificare che siano validi. L'oggetto della risposta include una descrizione più dettagliata dell'errore.|||

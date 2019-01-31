@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461560"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
 Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
@@ -37,7 +37,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 Innanzitutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o nell'archivio BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
 
-| Progettazione | Raccomandazione |
+| Progettazione | Recommendation |
 |:--- |:--- |
 | Distribuzione | Round robin |
 | Indicizzazione | Heap |
@@ -50,7 +50,7 @@ Sono disponibili altre informazioni sulla [migrazione dei dati], sul [caricament
 
 A seconda delle proprietà della tabella usare le strategie seguenti:
 
-| type | Ideale per...| Prestare attenzione se...|
+| Type | Ideale per...| Prestare attenzione se...|
 |:--- |:--- |:--- |
 | Replicata | • Tabelle delle dimensioni ridotte in uno schema star con meno di 2 GB di spazio di archiviazione dopo la compressione (compressione ~5x) |• Molte transazioni di scrittura sono sulla tabella (ad esempio, insert, upsert, delete, update)<br></br>• Modifica frequente del provisioning delle unità Data Warehouse (DWU)<br></br>• Vengono usate solo 2-3 colonne ma la tabella contiene molte colonne<br></br>• Viene indicizzata una tabella replicata |
 | Round robin (predefinita) | • Tabella di staging/temporanea<br></br> • Nessuna chiave di join ovvia o colonna candidata ottimale |• Rallentamento delle prestazioni a causa dello spostamento dei dati |
@@ -70,7 +70,7 @@ Sono disponibili altre informazioni sulle [tabelle replicate] e le [tabelle dist
 
 L'indicizzazione è utile per leggere rapidamente le tabelle. È disponibile un set univoco di tecnologie che è possibile usare in base alle proprie esigenze:
 
-| type | Ideale per... | Prestare attenzione se...|
+| Type | Ideale per... | Prestare attenzione se...|
 |:--- |:--- |:--- |
 | Heap | • Tabella di staging/temporanea<br></br>• Tabelle ridotte con ricerche limitate |• Qualsiasi ricerca analizza la tabella completa |
 | Indice cluster | • Tabelle con meno di 100 milioni di righe<br></br>• Tabelle estese (più di 100 milioni di righe) con solo 1-2 colonne usate di frequente |• Usato su una tabella replicata<br></br>• Query complesse che includono più operazioni di Join, Group By<br></br>• Aggiornamenti nelle colonne indicizzate: richiede memoria |

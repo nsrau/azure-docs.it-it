@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166252"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476214"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Consente di accelerare il processo di big data analytics in tempo reale con connettore Spark per database SQL di Azure e SQL Server
 
@@ -28,13 +28,13 @@ Per iniziare, scaricare il connettore Spark per database SQL dal repository [rep
 
 ## <a name="official-supported-versions"></a>Versioni supportate ufficialmente
 
-| Componente                            |Version                  |
+| Componente                            |Versione                  |
 | :----------------------------------- | :---------------------- |
 | Apache Spark                         |2.0.2 o versione successiva           |
 | Scala                                |2.10 o versione successiva            |
 | Microsoft JDBC Driver per SQL Server |6.2 o versione successiva             |
 | Microsoft SQL Server                 |SQL Server 2008 o versione successiva |
-| database SQL di Azure                   |Supportato                |
+| Database SQL di Azure                   |Supportato                |
 
 Il connettore Spark per database SQL di Azure e SQL Server utilizza Microsoft JDBC Driver per SQL Server per trasferire dati tra i nodi di lavoro Spark e i database SQL:
  
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Requisiti di installazione
 Se si utilizza la modalità di autenticazione basata su token di accesso, è necessario scaricare [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) e le relative dipendenze e includerli nel percorso di compilazione Java.
 
-Vedere [Utilizzare l’autenticazione di Azure Active Directory per l'autenticazione con il database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) per informazioni su come ottenere token di accesso per il database SQL di Azure.
+Vedere [Utilizzare l’autenticazione di Azure Active Directory per l'autenticazione con il database SQL](sql-database-aad-authentication.md) per informazioni su come ottenere token di accesso per il database SQL di Azure.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

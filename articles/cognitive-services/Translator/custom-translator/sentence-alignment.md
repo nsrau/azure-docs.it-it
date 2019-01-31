@@ -5,16 +5,16 @@ description: Durante l'esecuzione del training, le frasi presenti in documenti p
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 557cd8d3af0c774d4dd0558d5d25dba8eec07268
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 663dba72619a14c66fdafe083454d0df9b3f6216
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626902"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209928"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
@@ -36,7 +36,7 @@ La tabella seguente mostra il numero minimo di frasi estratte e frasi allineate 
 
 | Set di dati   | Numero minimo suggerito di frasi estratte | Numero minimo suggerito di frasi allineate | Numero massimo di frasi allineate |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Training   | 10.000                                     | 2.000                                    | Nessun limite massimo                 |
+| Formazione   | 10,000                                     | 2.000                                    | Nessun limite massimo                 |
 | Ottimizzazione     | 2.000                                      | 500                                      | 2.500                          |
 | Test    | 2.000                                      | 500                                      | 2.500                          |
 | Dizionario | 0                                          | 0                                        | Nessun limite massimo                 |

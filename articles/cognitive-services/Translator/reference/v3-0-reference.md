@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870403"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459073"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -41,7 +41,7 @@ Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsof
 
 Per fare in modo che la richiesta venga gestita da un data center specifico, cambiare l'endpoint Globale nella richiesta API nell'endpoint desiderato a livello di area:
 
-|Descrizione|Area|URL di base|
+|DESCRIZIONE|Region|URL di base|
 |:--|:--|:--|
 |Azure|Globale|  api.cognitive.microsofttranslator.com|
 |Azure|America del Nord|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Sottoscrivere l'API Traduzione testuale o l'[offerta per Servizi cognitivi integ
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
-|Intestazioni|Descrizione|
+|Headers|DESCRIZIONE|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
@@ -67,7 +67,7 @@ La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `
 ### <a name="authorization-token"></a>Token di autorizzazione
 In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Ambiente     | URL servizio di autenticazione                                |
+| Environment     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -125,7 +125,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
