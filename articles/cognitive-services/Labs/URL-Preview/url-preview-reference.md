@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999750"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222916"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informazioni di riferimento su Project URL Preview v7
 
@@ -31,10 +31,10 @@ Usare solo i dati di URL Preview per visualizzare frammenti e immagini in antepr
 Per richiedere i risultati di URL Preview, inviare una richiesta all'endpoint seguente. Usare le intestazioni e i parametri URL per definire altre specifiche.
 
 Endpoint GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 La richiesta deve usare il protocollo HTTPS e includere il parametro di query seguente:
 
@@ -73,7 +73,7 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 ## <a name="query-parameters"></a>Parametri della query
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query. La query deve essere un URL assoluto con schema http o https; non sono supportati URL relativi o altri schemi, ad esempio ftp://
 
-|NOME|Valore|type|Obbligatoria|
+|NOME|Valore|Type|Obbligatoria|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, vedere [Codici di mercato](#market-codes).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|string|Yes|
 |<a name="query" />q|URL per l'anteprima|string|Yes|
@@ -90,7 +90,7 @@ Lo schema di risposta è [WebPage] o ErrorResponse, come nell'API Ricerca Web. S
 ### <a name="error"></a>Tipi di errore
 Definisce l'errore che si è verificato.
 
-|Elemento|DESCRIZIONE|type|
+|Elemento|DESCRIZIONE|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|string|
 |<a name="error-message" />message|Descrizione dell'errore.|string|
@@ -102,7 +102,7 @@ Definisce l'errore che si è verificato.
 ### <a name="errorresponse"></a>ErrorResponse
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.
 
-|NOME|Valore|type|
+|NOME|Valore|Type|
 |----------|-----------|----------|
 |_type|Hint per il tipo.|string|
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error](#error)[]|
@@ -110,7 +110,7 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="webpage"></a>WebPage
 Definisce le informazioni su una pagina Web in anteprima.
 
-|NOME|Valore|type|
+|NOME|Valore|Type|
 |----------|-----------|----------|
 |name|Titolo della pagina, non necessariamente il titolo HTML|string|
 |URL|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|string|
@@ -119,7 +119,7 @@ Definisce le informazioni su una pagina Web in anteprima.
 |primaryImageOfPage/contentUrl|URL di un'immagine rappresentativa da includere nell'anteprima|string|
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valore|type|
+|NOME|Valore|Type|
 |-------------|-----------------|----------|
 |id|Identificatore di risorsa|string|
 

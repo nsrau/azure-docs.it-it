@@ -1,22 +1,24 @@
 ---
-title: Interpretazione semantica nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni su come usare l'interpretazione semantica nell'API Knowledge Exploration Service in Servizi cognitivi.
+title: Interpretazione semantica - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come usare l'interpretazione semantica nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 022188464eb7269b69f96a058b444167b587387c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373308"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217272"
 ---
 # <a name="semantic-interpretation"></a>Interpretazione semantica
+
 L'interpretazione semantica associa l'output semantico a ogni percorso interpretato tramite la grammatica.  In particolare, il servizio valuta la sequenza di istruzioni negli elementi `tag` attraversati dall'interpretazione per calcolare l'output finale.  
 
 Un'istruzione può essere un'assegnazione di un valore letterale o di una variabile a un'altra variabile.  Può anche assegnare l'output di una funzione con 0 o più parametri a una variabile.  Ogni parametro di funzione può essere specificato usando un valore letterale o una variabile.  Se la funzione non restituisce alcun output, l'assegnazione viene omessa.
@@ -31,31 +33,34 @@ Una variabile viene specificata usando un identificatore name che inizia con una
 
 Di seguito è riportato un elenco dei tipi di dati attualmente supportati:
 
-|type|DESCRIZIONE|Esempi|
+|Type|DESCRIZIONE|Esempi|
 |----|----|----|
 |string|Sequenza di 0 o più caratteri|"Hello World!"<br/>""|
-|Booleano|Valore booleano|true<br/>false|
+|Bool|Valore booleano|true<br/>false|
 |Int32|Intero con segno a 32 bit.  Da -2,1e9 a 2,1e9|123<br/>-321|
 |Int64|Intero con segno a 64 bit. -9,2e18 e 9,2e18|9876543210|
 |Double|Virgola mobile a precisione doppia. 1,7e+/-308 (15 cifre)|123,456789<br/>1,23456789e2|
 |Guid|Identificatore univoco globale|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Query|Espressione di query che specifica un subset di oggetti dati nell'indice|All()<br/>And(*q1*, *q2*)|
 
-<a name="semantic-functions"></a>
 ## <a name="semantic-functions"></a>Funzioni semantiche
+
 Esiste un set predefinito di funzioni semantiche,  che consentono la costruzione di query sofisticate e offrono il controllo sensibile al contesto sulle interpretazioni della grammatica.
 
 ### <a name="and-function"></a>Funzione And
+
 `query = And(query1, query2);`
 
 Restituisce una query composta dall'intersezione di due query di input.
 
 ### <a name="or-function"></a>Funzione Or
+
 `query = Or(query1, query2);`
 
 Restituisce una query composta dall'unione di due query di input.
 
 ### <a name="all-function"></a>Funzione All
+
 `query = All();`
 
 Restituisce una query che include tutti gli oggetti dati.
@@ -71,6 +76,7 @@ Nell'esempio seguente la funzione All() viene usata per creare in modo iterativo
 ```
 
 ### <a name="none-function"></a>Funzione None
+
 `query = None();`
 
 Restituisce una query che non include oggetti dati.
@@ -86,6 +92,7 @@ Nell'esempio seguente la funzione None() viene usata per creare in modo iterativ
 ```
 
 ### <a name="query-function"></a>Funzione Query
+
 ```
 query = Query(attrName, value)
 query = Query(attrName, value, op)
@@ -104,8 +111,8 @@ written in the 90s
 </tag>
 ```
 
-<a name="composite-function"/>
 ### <a name="composite-function"></a>Funzione Composite
+
 `query = Composite(innerQuery);`
 
 Restituisce una query che incapsula un elemento *innerQuery* costituito da corrispondenze con gli attributi secondari di un comune attributo composito *attr*.  Per l'incapsulamento è necessario che l'attributo composito *attr* di qualsiasi oggetto dati corrispondente abbia almeno un valore che soddisfa singolarmente *innerQuery*.  Si noti che una query sugli attributi secondari di un attributo composito deve essere incapsulata usando la funzione Composite() prima di poter essere combinata con altre query.
@@ -123,6 +130,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 ```
 
 ### <a name="getvariable-function"></a>Funzione GetVariable
+
 `value = GetVariable(name, scope);`
 
 Restituisce il valore della variabile *name* definito nell'elemento *scope* specificato.  *name* è un identificatore che inizia con una lettera ed è costituito solo da lettere (A-Z), numeri (0-9) e dal carattere di sottolineatura ().  *scope* può essere impostato su "request" o "system".  Si noti che le variabili definite in ambiti diversi sono diverse tra loro, incluse quelle definite tramite l'output delle funzioni semantiche.
@@ -131,12 +139,13 @@ Le variabili dell'ambito della richiesta vengono condivise da tutte le interpret
 
 Le variabili di sistema sono predefinite dal servizio e possono essere usate per recuperare diverse statistiche sullo stato corrente del sistema.  Di seguito è riportato il set di variabili di sistema attualmente supportate:
 
-|NOME|type|DESCRIZIONE|
+|NOME|Type|DESCRIZIONE|
 |----|----|----|
-|IsAtEndOfQuery|Booleano|true se l'interpretazione corrente ha confrontato tutto il testo della query di input|
-|IsBeyondEndOfQuery|Booleano|true se l'interpretazione corrente ha suggerito completamenti oltre al testo della query di input|
+|IsAtEndOfQuery|Bool|true se l'interpretazione corrente ha confrontato tutto il testo della query di input|
+|IsBeyondEndOfQuery|Bool|true se l'interpretazione corrente ha suggerito completamenti oltre al testo della query di input|
 
 ### <a name="setvariable-function"></a>Funzione SetVariable
+
 `SetVariable(name, value, scope);`
 
 Assegna *value* alla variabile *name* nell'elemento *scope* specificato.  *name* è un identificatore che inizia con una lettera ed è costituito solo da lettere (A-Z), numeri (0-9) e dal carattere di sottolineatura ().  Al momento l'unico valore valido per *scope* è "request".  Non sono disponibili variabili sistema impostabili.
@@ -144,11 +153,13 @@ Assegna *value* alla variabile *name* nell'elemento *scope* specificato.  *name*
 Le variabili dell'ambito della richiesta vengono condivise da tutte le interpretazioni all'interno della richiesta di interpretazione corrente.  Possono essere usate per controllare la ricerca di interpretazioni tramite la grammatica.
 
 ### <a name="assertequals-function"></a>Funzione AssertEquals
+
 `AssertEquals(value1, value2);`
 
 Se *value1* e *value2* sono equivalenti, la funzione ha esito positivo e nessun effetto collaterale.  In caso contrario, la funzione ha esito negativo e rifiuta l'interpretazione.
 
 ### <a name="assertnotequals-function"></a>Funzione AssertNotEquals
+
 `AssertNotEquals(value1, value2);`
 
 Se *value1* e *value2* non sono equivalenti, la funzione ha esito positivo e nessun effetto collaterale.  In caso contrario, la funzione ha esito negativo e rifiuta l'interpretazione.

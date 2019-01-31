@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c55ef6fdfefbd50442da63637ba98bc43865d27
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226934"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206103"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -32,7 +32,7 @@ L'API per il testo restituisce un codice di errore che segnala che il testo è p
 Il contenuto è di proprietà dell'utente e non può essere conservato da Microsoft senza il consenso dell'utente. Microsoft adotta misure di sicurezza leader del settore per proteggere il contenuto.
 
 #### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>È possibile usare Content Moderator per filtrare le immagini per lo sfruttamento sessuale minorile illegale?
-No. Tuttavia, organizzazioni qualificate possono usare il [servizio cloud PhotoDNA](https://www.microsoft.com/photodna "Servizio cloud Microsoft PhotoDNA") per filtrare questo tipo di contenuto.
+ No. Tuttavia, organizzazioni qualificate possono usare il [servizio cloud PhotoDNA](https://www.microsoft.com/photodna "Servizio cloud Microsoft PhotoDNA") per filtrare questo tipo di contenuto.
 
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Fino a quanti team di revisione può partecipare un utente? L'utente può cambiare team?
 Un utente può partecipare a un team alla volta.

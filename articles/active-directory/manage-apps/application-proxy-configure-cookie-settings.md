@@ -5,18 +5,18 @@ services: active-directory
 author: barbkess
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: concept
 ms.date: 01/16/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 9c5979357532bb29f8e3545db57aa32603763dc1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d8255d8d002660c9d7a5e6e030197a71a32dae65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855602"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190208"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie settings for accessing on-premises applications in Azure Active Directory (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory)
 

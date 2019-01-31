@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180705"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito
 Questo articolo illustra come distribuire una macchina virtuale Windows Server usando il portale di Azure. Descrive quindi come aggiungere la macchina virtuale a un dominio gestito di Azure Active Directory Domain Services.

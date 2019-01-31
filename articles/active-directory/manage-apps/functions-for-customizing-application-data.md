@@ -6,19 +6,19 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823677"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179039"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -47,7 +47,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
@@ -60,7 +60,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -76,7 +76,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
@@ -89,7 +89,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
 | **start** |Obbligatoria |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
@@ -103,7 +103,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string | In genere un attributo nome o cognome |
 
@@ -115,7 +115,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
@@ -142,7 +142,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
@@ -165,7 +165,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare |
 
@@ -178,7 +178,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]**. |
 
@@ -190,7 +190,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |**source** da aggiornare. |
 
@@ -202,7 +202,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
@@ -217,7 +217,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
@@ -230,7 +230,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|

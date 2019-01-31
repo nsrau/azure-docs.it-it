@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902384"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197637"
 ---
 # <a name="graph-search-method"></a>Metodo Graph Search
 
@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parametri della richiesta  
-Nome     | Valore | Obbligatorio?  | Descrizione
+NOME     | Valore | Obbligatorio?  | DESCRIZIONE
 -----------|-----------|---------|--------
 **mode**       | Stringa di testo | Yes | Nome della modalità che si vuole usare. Il valore può essere *json* oppure *lambda*.
 
@@ -46,7 +46,7 @@ Per la ricerca *lambda*, il corpo POST è una stringa di testo normale. Il corpo
 
 <br>
 ## <a name="response-json"></a>Risposta (JSON)
-Nome | Descrizione
+NOME | DESCRIZIONE
 -------|-----   
 **results** | Matrice di 0 o più entità che corrispondono all'espressione di query. Ogni entità contiene i valori degli attributi richiesti. Questo campo è presente se la richiesta è stata elaborata correttamente.
 **error** | Codici di stato HTTP. Questo campo è presente se la richiesta ha esito negativo.

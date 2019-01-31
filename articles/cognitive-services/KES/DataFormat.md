@@ -1,22 +1,24 @@
 ---
-title: Formato dei dati nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni sul formato dei dati nell'API Knowledge Exploration Service (KES) in Servizi cognitivi.
+title: Formato dei dati - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni sul formato dei dati nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a763505ac6458d68df74ae73e71029b81202ec8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c06a90b7c53067723280b6a1573ada9fbf65e10d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223239"
 ---
 # <a name="data-format"></a>Formato dati
+
 Il file di dati descrive l'elenco di oggetti da indicizzare.
 Ogni riga nel file specifica i valori attributo di un oggetto in [formato JSON](http://json.org/) con la codifica UTF-8.
 Oltre agli attributi definiti nello [schema](SchemaFormat.md), ogni oggetto ha un attributo "logprob" facoltativo che specifica la probabilità logaritmica relativa tra gli oggetti.

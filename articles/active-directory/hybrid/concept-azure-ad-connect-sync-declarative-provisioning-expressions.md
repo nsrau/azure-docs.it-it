@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0f15915d7c515387658ee132fcc1217958728c8a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460494"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166748"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.

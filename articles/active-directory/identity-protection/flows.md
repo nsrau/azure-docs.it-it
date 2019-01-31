@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 42a32562eccc86d2516af14a529967a08108c94c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464205"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155290"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Esperienze di accesso con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection è possibile:
@@ -57,18 +57,13 @@ Gli amministratori possono impostare criteri che richiedono agli utenti di confi
 
 1. Nel primo passaggio l'utente riceve una notifica della necessità di impostare l'account per l’autenticazione a più fattori. 
    
-    ![Correzione](./media/flows/301.png "Correzione")
-
+    ![Correzione](./media/flows/140.png "Correzione")
 2. Per configurare l'autenticazione a più fattori, occorre indicare al sistema in che modo si vuole essere contattati.
    
-    ![Correzione](./media/flows/302.png "Correzione")
-
-3. Specificare il sistema con il numero di telefono e la modalità di contatto preferita.
-
-    ![Correzione](./media/flows/303.png "Correzione")
-
-Per completare la registrazione è necessario rispondere a una chiamata telefonica o immettere un codice. 
-
+    ![Correzione](./media/flows/141.png "Correzione")
+3. Il sistema invia una richiesta ed è necessario rispondere.
+   
+    ![Correzione](./media/flows/142.png "Correzione")
 
 ## <a name="risky-sign-in-recovery"></a>Ripristino di un accesso rischioso
 Se un amministratore ha configurato criteri per i rischi di accesso, gli utenti interessati ricevono una notifica quando provano ad accedere. 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4bc79e9492f4f1c27bd374949bea4f17e4475139
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468557"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154042"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti in:
