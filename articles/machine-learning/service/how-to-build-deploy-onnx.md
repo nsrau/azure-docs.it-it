@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su ONNX e sull'uso di Azure Machine Learning per la creazione e la distribuzione i modelli ONNX
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6deeabfe57f946a9c31548791c00ee70ecd9f2d6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437433"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251249"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e Azure Machine Learning: Creare e distribuire modelli di intelligenza artificiale interoperativi
 

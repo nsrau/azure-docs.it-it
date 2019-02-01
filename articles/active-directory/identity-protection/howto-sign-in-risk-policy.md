@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462063"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297492"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedura: Configurare i criteri di rischio di accesso
 
@@ -77,7 +77,7 @@ Per motivi di sicurezza, tuttavia, questa impostazione funziona soltanto per gli
 
 Per richiedere l'autenticazione MFA per gli accessi a rischio, è necessario:
 
-1. Abilitare il [criterio di registrazione per l'autenticazione a più fattori](#multi-factor-authentication-registration-policy) per gli utenti interessati.
+1. Abilitare il [criterio di registrazione per l'autenticazione a più fattori](howto-mfa-policy.md) per gli utenti interessati.
 
 2. Richiedere agli utenti interessati di accedere in una sessione non rischiosa per eseguire la registrazione per l'autenticazione MFA.
 

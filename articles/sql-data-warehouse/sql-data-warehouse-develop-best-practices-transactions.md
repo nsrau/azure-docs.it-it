@@ -3,19 +3,19 @@ title: Ottimizzazione delle transazioni per Azure SQL Data Warehouse | Microsoft
 description: Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 59467c0cd93141cef56e1c9d2f36b0870a589712
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795535"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476265"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Ottimizzazione delle transazioni in Azure SQL Data Warehouse
 Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
@@ -417,5 +417,5 @@ Lo scenario migliore sarebbe consentire il completamento delle transazioni di mo
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) per altre informazioni su limiti transazionali e livelli di isolamento.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Vedere [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) per ulteriori informazioni su limiti transazionali e livelli di isolamento.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

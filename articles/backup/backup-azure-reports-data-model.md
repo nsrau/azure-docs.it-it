@@ -2,19 +2,18 @@
 title: Modello di dati per Backup di Microsoft Azure
 description: Questo articolo illustra i dettagli del modello di dati di Power BI per i report di Backup di Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877134"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299419"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
 Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello. 
@@ -97,7 +96,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | Stato processo |Text |Stato del processo completato, ad esempio, Completed o Failed |
 | JobUniqueId |Text |ID univoco per l'identificazione del processo |
 
-### <a name="policy"></a>Criterio
+### <a name="policy"></a>Policy
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai criteri.
 
 | Campo | Tipo di dati | DESCRIZIONE |

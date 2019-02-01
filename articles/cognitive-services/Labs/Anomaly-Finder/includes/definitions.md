@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a49df0c18ef9db9d0d41ca2e714474e6386ae7d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904617"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228901"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definizioni

@@ -6,23 +6,23 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141663"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477455"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
 
-Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di comprensione delle strategie aziendali nel processo di data science per i team (TDSP, Team Data Science Process). Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
+Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di comprensione del business del processo di data science per i team. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione delle strategie aziendali**
+   1. **Comprensione del business**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -85,7 +85,7 @@ Ecco i risultati finali di questa fase:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione delle strategie aziendali](lifecycle-business-understanding.md)
+   1. [Comprensione del business](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

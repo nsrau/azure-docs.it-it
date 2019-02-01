@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526947"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454675"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 Per preparare uno o più dischi rigidi per il processo di importazione, seguire questi passaggi:
@@ -129,7 +129,8 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 |----------------------------|-----------------|
 |**/srcdir:**<SourceDirectory\>|`Required.` Directory di origine contenente i file da copiare nell'unità di destinazione. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` Percorso alla directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può esistere già o meno.<br /><br /> È possibile specificare un contenitore o un prefisso di BLOB come `music/70s/`. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e può facoltativamente includere una directory di BLOB virtuale che termina con "/".<br /><br /> Quando il contenitore di destinazione è il contenitore radice, è necessario specificare in modo esplicito il contenitore radice, inclusa la barra, ad esempio `$root/`. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice tutte le sottodirectory nella directory di origine non verranno copiate.<br /><br /> Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole sulla denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati).|
-|**/Disposition:**&lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&gt;|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.<br /><br /> Il valore specificato per questo parametro ha effetto su tutti i file nella directory specificati dal parametro `/srcdir`.|
+|
+  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.<br /><br /> Il valore specificato per questo parametro ha effetto su tutti i file nella directory specificati dal parametro `/srcdir`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Specifica il tipo di BLOB per i BLOB di destinazione. I valori validi sono: `BlockBlob` e `PageBlob`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `BlockBlob`.<br /><br /> Nella maggior parte dei casi, è consigliato `BlockBlob`. Se si specifica `PageBlob`, la lunghezza di ogni file nella directory deve essere un multiplo di 512, le dimensioni di una pagina per i BLOB di pagine.|
 |**/PropertyFile:**<PropertyFile\>|`Optional.` Percorso del file delle proprietà per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
 |**/MetadataFile:**<MetadataFile\>|`Optional.` Percorso del file dei metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
@@ -141,7 +142,8 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 |----------------------------|-----------------|
 |**/srcfile:**<SourceFile\>|`Required.` Percorso completo del file da copiare. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
 |**/dstblob:**<DestinationBlobPath\>|`Required.` Percorso del BLOB di destinazione nell'account di archiviazione di Windows Azure. Il BLOB può esistere già o meno.<br /><br /> Specificare il nome del BLOB che inizia con il nome del contenitore. Il nome del BLOB non può iniziare con "/" o con il nome dell'account di archiviazione. Per le regole sulla denominazione dei BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati).<br /><br /> Quando il contenitore di destinazione è il contenitore radice, è necessario specificare in modo esplicito `$root` come contenitore, ad esempio `$root/sample.txt`. Si noti che i BLOB nel contenitore radice non possono includere "/" nei nomi.|
-|**/Disposition:**&lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&gt;|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.|
+|
+  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Specifica il tipo di BLOB per i BLOB di destinazione. I valori validi sono: `BlockBlob` e `PageBlob`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `BlockBlob`.<br /><br /> Nella maggior parte dei casi, è consigliato `BlockBlob`. Se si specifica `PageBlob`, la lunghezza di ogni file nella directory deve essere un multiplo di 512, le dimensioni di una pagina per i BLOB di pagine.|
 |**/PropertyFile:**<PropertyFile\>|`Optional.` Percorso del file delle proprietà per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
 |**/MetadataFile:**<MetadataFile\>|`Optional.` Percorso del file dei metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
@@ -172,7 +174,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)
 * [Impostazione di proprietà e metadati durante il processo di importazione](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md) (Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione)
-* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
 * [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)

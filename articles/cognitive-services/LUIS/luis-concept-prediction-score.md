@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e301edfc183c627307e6e00ced2077ceaa15f3c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221998"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 

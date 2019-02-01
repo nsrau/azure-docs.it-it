@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191711"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900290"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
 Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
 * Monitoraggio delle prestazioni di rete per
- * Verificare l'integrità della rete
+    * Verificare l'integrità della rete
 * Azure Application Gateway Analytics per analizzare
- * Log di gateway applicazione di Azure
- * Metriche di gateway applicazione di Azure
+    * Log di gateway applicazione di Azure
+    * Metriche di gateway applicazione di Azure
 * Soluzioni per monitorare e controllare l'attività della rete cloud
-* [Analisi del traffico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Analisi del gruppo di sicurezza di rete di Azure
+    * [Analisi del traffico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Analisi del gruppo di sicurezza di rete di Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitoraggio delle prestazioni di rete
 

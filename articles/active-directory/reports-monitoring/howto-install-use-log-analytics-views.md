@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bda6e277d0900795ab7a7dbc5b4440178535fb3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825205"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153131"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di Log Analytics per Azure Active Directory
 
@@ -51,7 +51,7 @@ Per usare le viste di Log Analytics, è necessario:
 2. Nell'area di lavoro selezionare **Riepilogo dell'area di lavoro**. Dovrebbero essere visualizzate le tre viste seguenti:
 
     * **Azure AD Account Provisioning Events (Eventi di provisioning degli account di Azure AD)**: questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
-    * **Sign-ins Events (Eventi di accesso)**: questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
+    * **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
 
 3. Selezionare una di queste viste per passare ai singoli report. È anche possibile impostare avvisi per qualsiasi parametro dei report. Ad esempio, di seguito viene descritto come impostare un avviso per ogni errore di accesso. Selezionare prima di tutto la vista **Sign-ins Events** (Eventi di accesso), selezionare il report **Sign-in errors over time** (Errori di accesso nel tempo) e quindi selezionare **Analytics** (Analisi) per aprire la pagina dei dettagli con la query effettiva associata al report. 
 

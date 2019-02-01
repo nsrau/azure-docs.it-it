@@ -3,17 +3,17 @@ title: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure 
 description: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Storage Gen2
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976873"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249113"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ ms.locfileid: "52976873"
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Avvio rapido: Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Uso di MapReduce in HDInsight**.  Per ulteriori informazioni, vedere [Usare MapReduce in Hadoop su HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) (Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2).
@@ -40,7 +40,7 @@ Vengono ora illustrati i parametri da configurare per aumentare le prestazioni i
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** Ciò determinerà il numero massimo di mapper o riduttori da creare.  Il numero di suddivisioni determinerà la quantità di mapper creati per il processo MapReduce.  Pertanto, se ci sono meno suddivisioni rispetto ai mapper richiesti, si potrebbero ottenere meno mapper.       
 
-## <a name="guidance"></a>Indicazioni
+## <a name="guidance"></a>Materiale sussidiario
 
 > [!NOTE]
 > Le indicazioni fornite in questo documento presuppongono che l'applicazione sia l'unica in esecuzione nel cluster.

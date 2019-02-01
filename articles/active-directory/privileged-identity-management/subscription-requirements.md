@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dd4fa72b3e0b57ab227146eae6e2c7d20d0ce47a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187284"
 ---
 # <a name="license-requirements-to-use-pim"></a>Requisiti della licenza per usare PIM
 
@@ -38,7 +38,7 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](../funda
 
 ## <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
 
-Ogni amministratore o utente che interagisce con o riceve un vantaggio da PIM deve avere una licenza. Ad esempio:
+Ogni amministratore o utente che interagisce con o riceve un vantaggio da PIM deve avere una licenza. Tra gli esempi sono inclusi:
 
 - Amministratori con ruoli di Azure AD gestiti tramite PIM
 - Amministratori con ruoli di risorse di Azure gestiti tramite PIM
