@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: files
+ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242456"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462733"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
@@ -129,7 +129,7 @@ Per sostituire una condivisione file locale, è utile per pre-montare le condivi
 > [!Note]  
 > Il montaggio di una condivisione file di Azure richiede l'uso della chiave dell'account di archiviazione come password e di conseguenza è consigliabile montarla solo in ambienti attendibili. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 PowerShell può essere usato eseguire il comando di montaggio in più PC. Nell'esempio seguente, `$computers` viene compilato manualmente, ma è possibile generare l'elenco dei computer da montare automaticamente. Ad esempio, è possibile compilare questa variabile con i risultati di Active Directory.
 
 ```PowerShell

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5de9c674ceeab6d45211b46e2f03d91b943751ac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005802"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246212"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Eseguire il ripristino di Azure SQL Data Warehouse 
 Questo articolo illustra come effettuare le operazioni seguenti nel portale di Azure e in PowerShell:
@@ -27,7 +27,7 @@ Questo articolo illustra come effettuare le operazioni seguenti nel portale di A
 - Creare una copia del data warehouse da un punto di ripristino definito dall'utente
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-**Verificare la capacità in DTU.** Ogni SQL Data Warehouse è ospitato in un server SQL (ad esempio mioserver.database.windows.net), che ha una quota DTU predefinita.  Per poter ripristinare un database SQL, verificare che la quota DTU rimanente nell'istanza del server SQL sia sufficiente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere altre DTU, vedere come [richiedere una modifica della quota DTU][Request a DTU quota change].
+**Verificare la capacità in DTU.**  Ogni SQL Data Warehouse è ospitato in un server SQL (ad esempio mioserver.database.windows.net), che ha una quota DTU predefinita.  Per poter ripristinare un database SQL, verificare che la quota DTU rimanente nell'istanza del server SQL sia sufficiente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere altre DTU, vedere come [richiedere una modifica della quota DTU][Request a DTU quota change].
 
 ## <a name="restore-through-powershell"></a>Eseguire il ripristino tramite PowerShell
 

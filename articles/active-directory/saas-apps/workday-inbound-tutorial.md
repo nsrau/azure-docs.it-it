@@ -7,19 +7,19 @@ documentationcenter: na
 manager: daveba
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: 913304884867751e3e4c929ce6f4cf8819c15ef2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825545"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188593"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -484,9 +484,9 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
       * **Tipo di mapping**
 
-         * **Diretto**: scrive il valore dell'attributo di Workday nell'attributo di AD, senza modifiche
+         * **Direct** (Diretto): scrive il valore dell'attributo di Workday nell'attributo di AD, senza modifiche
 
-         * **Costante**: scrive un valore stringa costante statico nell'attributo di AD
+         * **Costant** (Costante): scrive un valore stringa costante statico nell'attributo di AD
 
          * **Espressione**: consente di scrivere un valore personalizzato per l'attributo di Active Directory, in base a uno o più attributi di Workday. [Per altre informazioni, vedere questo articolo sulle espressioni](../manage-apps/functions-for-customizing-application-data.md).
 

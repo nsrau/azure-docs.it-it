@@ -21,7 +21,7 @@ items:
       href: sql-database-managed-instance-get-started.md
   - name: Configurare
     items:
-    - name: Regola del firewall del server logico
+    - name: Regole del firewall per il server di database SQL
       href: sql-database-get-started-portal-firewall.md
     - name: Connessione della macchina virtuale client a un'istanza gestita
       href: sql-database-managed-instance-configure-vm.md
@@ -75,9 +75,9 @@ items:
       href: sql-database-design-first-database-csharp.md
   - name: Eseguire la migrazione al database SQL di Azure
     items:
-    - name: Eseguire la migrazione a un database singolo con il Servizio Migrazione del database
+    - name: Eseguire la migrazione a un database singolo/in pool con il Servizio Migrazione del database
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Eseguire la migrazione a un'istanza gestita con il servizio Migrazione del database
+    - name: Eseguire la migrazione a un'istanza gestita con il Servizio Migrazione del database
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: Sicurezza in Database SQL di Azure
     items:
@@ -115,11 +115,11 @@ items:
     items:
     - name: Panoramica
       href: sql-database-service-tiers-general-purpose-business-critical.md
-    - name: Utilizzo generico/Standard
+    - name: Livelli di servizio Utilizzo generico/Standard
       href: sql-database-service-tier-general-purpose.md
-    - name: Business critical/Premium
+    - name: Livelli di servizio Business critical/Premium
       href: sql-database-service-tier-business-critical.md
-    - name: Hyperscale
+    - name: Livello di servizio Hyperscale
       href: sql-database-service-tier-hyperscale.md
     - name: Domande frequenti su Hyperscale
       href: sql-database-service-tier-hyperscale-faq.md
@@ -127,36 +127,40 @@ items:
     items:
     - name: Panoramica del database singolo
       href: sql-database-single-index.yml
-    - name: Informazioni di riferimento sull'API Gestione
+    - name: Server di database SQL
+      items:
+      - name: Panoramica dei server di database
+        href: sql-database-servers.md
+      - name: Limiti delle risorse dei server di database
+        href: sql-database-resource-limits-database-server.md
+    - name: Risorse del database singolo
+      items:
+      - name: Limiti delle risorse basati su vCore
+        href: sql-database-vcore-resource-limits-single-databases.md
+      - name: Limiti delle risorse basati su DTU
+        href: sql-database-dtu-resource-limits-single-databases.md
+      - name: Ridimensionare le risorse
+        href: sql-database-single-database-scale.md
+    - name: Creare e gestire server e database
       href: sql-database-single-databases-manage.md
-    - name: Server logici
-      items:
-      - name: Creare e gestire
-        href: sql-database-logical-servers.md
-      - name: Limiti delle risorse
-        href: sql-database-resource-limits-logical-server.md
-      - name: Architettura della connettività
-        href: sql-database-connectivity-architecture.md
+    - name: Architettura della connettività
+      href: sql-database-connectivity-architecture.md
+    - name: Differenze con T-SQL
+      href: sql-database-transact-sql-information.md
+  - name: Pool elastici
+    items:
     - name: Pool elastici
+      href: sql-database-elastic-pool.md
+    - name: Risorse del pool elastico
       items:
-      - name: Pool elastici
-        href: sql-database-elastic-pool.md
-      - name: Creare e gestire
-        href: sql-database-elastic-pool-manage.md
       - name: Limiti delle risorse basati su vCore
         href: sql-database-vcore-resource-limits-elastic-pools.md
       - name: Limiti delle risorse basati su DTU
         href: sql-database-dtu-resource-limits-elastic-pools.md
       - name: Ridimensionare le risorse
         href: sql-database-elastic-pool-scale.md
-    - name: Limiti delle risorse basati su vCore
-      href: sql-database-vcore-resource-limits-single-databases.md
-    - name: Limiti delle risorse basati su DTU
-      href: sql-database-dtu-resource-limits-single-databases.md
-    - name: Ridimensionare le risorse
-      href: sql-database-single-database-scale.md
-    - name: Differenze con T-SQL
-      href: sql-database-transact-sql-information.md
+    - name: Creare e gestire
+      href: sql-database-elastic-pool-manage.md
   - name: Istanze gestite
     items:
     - name: Panoramica di Istanze gestite
@@ -209,9 +213,9 @@ items:
       href: sql-database-security-index.yml
     - name: Funzionalità di sicurezza
       href: sql-database-security-overview.md
-    - name: Advanced Threat Protection
+    - name: Sicurezza dei dati avanzata
       items:
-      - name: Advanced Threat Protection
+      - name: Sicurezza dei dati avanzata
         href: sql-advanced-threat-protection.md
       - name: Individuazione e classificazione dei dati
         href: sql-database-data-discovery-and-classification.md
@@ -561,7 +565,7 @@ items:
           href: saas-tenancy-welcome-wingtip-tickets-app.md
         - name: Indicazioni generali
           href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: Applicazione autonoma
+        - name: Applicazione singola
           items:
           - name: Distribuire un'applicazione di esempio
             href: saas-standaloneapp-get-started-deploy.md
@@ -696,9 +700,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: b69adc5f54e2566f62049225ccb0fc438a33ca6e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226809"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471029"

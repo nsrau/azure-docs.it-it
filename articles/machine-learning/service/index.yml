@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8b591cacd1c468f46dcdb5809cdc6ff0adf09ccb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247681"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471685"
 documentType: LandingData
 title: Documentazione del servizio Azure Machine Learning
 metadata:
-  title: Documentazione - Servizio Azure Machine Learning – Esercitazioni, API informazioni di riferimento | Microsoft Docs
-  description: Informazioni su come integrare algoritmi intelligenti in app e siti Web. Usare Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python per creare un modello di Machine Learning ed eseguirne il training in locale o nel cloud. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
+  title: Documentazione del servizio Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  description: Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per sviluppare, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning. Il servizio Azure Machine Learning offre il supporto completo per tecnologie open source come Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python. Informazioni su come usare il servizio Azure Machine Learning per i flussi di lavoro di Machine Learning con guide introduttive ed esercitazioni.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,22 +17,17 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 12/04/2018
+  ms.date: 1/30/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Informazioni su come integrare algoritmi intelligenti in app e siti Web. Usare Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python per creare un modello di Machine Learning ed eseguirne il training in locale o nel cloud. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
+  description: Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per sviluppare, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning. Questo servizio offre il supporto completo per tecnologie open source come Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python. Informazioni su come usare questo servizio per i flussi di lavoro di Machine Learning con guide introduttive ed esercitazioni.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: "Informazioni su come configurare l'area di lavoro e le risorse per il servizio Azure Machine Learning con una guida introduttiva:"
-  - type: list
-    style: unordered
-    items:
-    - html: Introduzione all'uso del <a href="quickstart-get-started">portale di Azure</a>.
-    - html: Introduzione all'uso di <a href="quickstart-create-workspace-with-python">Python</a>.
+    text: Per iniziare, creare un'area di lavoro e le risorse del servizio <a href="quickstart-get-started">nel portale di Azure</a> o <a href="quickstart-create-workspace-with-python">in Python</a>.
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
@@ -40,18 +35,20 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Eseguire il training e distribuire modelli di classificazione delle immagini</a> (<b>serie in due parti</b>).
-    - html: <a href="tutorial-data-prep">Preparare i dati e usare l'apprendimento automatico</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">Eseguire il training</a> e <a href="tutorial-deploy-models-with-aml">distribuire</a> modelli di classificazione delle immagini (<b>serie in due parti</b>).<br>&nbsp;
+    - html: <a href="tutorial-data-prep">Preparare i dati</a> e <a href="tutorial-auto-train-models">usare tecniche automatizzate di Machine Learning</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).
+- title: Esempi
+  items:
   - type: paragraph
-    text: '<b>Esempi</b>: Esplorare il servizio con questi <a href="https://aka.ms/aml-notebooks">notebook Jupyter</a> in GitHub.'
+    text: Esplorare il servizio in Github con i <a href="samples-notebooks">notebook Jupyter</a>.
 - title: riferimento
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Data Prep SDK</a>
-    - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning SDK per Python (SDK principale)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring SDK</a>
+    - html: <a href="https://aka.ms/aml-sdk">SDK principale (Python)</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">SDK di preparazione dei dati (Python)</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">SDK di monitoraggio (Python)</a>
 - title: Altre tecnologie di Azure Machine Learning
   items:
   - type: list

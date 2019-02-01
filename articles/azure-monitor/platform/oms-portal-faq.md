@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384718"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883399"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -111,7 +111,7 @@ Nel portale di OMS le soluzioni di gestione vengono installate dalla Raccolta so
 Le regole di avviso basate sulle query di Log Analytics vengono ora gestite nella [visualizzazione unificata degli avvisi](../../azure-monitor/platform/alerts-metric.md). Per altri dettagli sulla configurazione e l'uso di avvisi nel portale di Azure, vedere [Come estendere gli avvisi di Log Analytics a Azure](../../azure-monitor/platform/alerts-extend-tool.md).
 
 ## <a name="how-do-i-access-my-dashboards"></a>Come si accede ai dashboard personali?
-La funzionalità [Dashboard](dashboards.md) di Log Analytics è deprecata. Questa funzionalità consentiva di avere una raccolta privata di parti della progettazione vista ed è stata sostituita dalla funzionalità Dashboard di Azure incorporata. È possibile continuare a visualizzare i dati in Log Analytics usando la funzionalità di [progettazione vista](view-designer.md) per le viste condivise. È anche possibile aggiungere visualizzazioni da queste viste o per [singole query](../learn/tutorial-logs-dashboards.md) ai dashboard di Azure.
+La funzionalità **Dashboard** di Log Analytics è deprecata. Questa funzionalità consentiva di avere una raccolta privata di parti della progettazione vista ed è stata sostituita dalla funzionalità Dashboard di Azure incorporata. È possibile continuare a visualizzare i dati in Log Analytics usando la funzionalità di [progettazione vista](view-designer.md) per le viste condivise. È anche possibile aggiungere visualizzazioni da queste viste o per [singole query](../learn/tutorial-logs-dashboards.md) ai dashboard di Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Come è possibile controllare l'utilizzo?
 Ora è possibile visualizzare e gestire facilmente l'utilizzo e il costo di Log Analytics selezionando **Utilizzo e costi stimati** nell'area di lavoro.

@@ -78,9 +78,9 @@ items:
       href: distribute-data-globally.md
     - name: Livelli di coerenza
       href: consistency-levels.md
-    - name: Scelta del livello di coerenza ottimale
+    - name: Scegliere il livello di coerenza appropriato
       href: consistency-levels-choosing.md
-    - name: Livelli di coerenza e API di Cosmos DB
+    - name: Livelli di coerenza e API di Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Compromessi tra coerenza, disponibilità e prestazioni
       href: consistency-levels-tradeoffs.md
@@ -98,9 +98,9 @@ items:
     items:
     - name: Panoramica
       href: partitioning-overview.md
-    - name: Partizioni logiche
+    - name: Partizionamento e scalabilità orizzontale
       href: partition-data.md
-    - name: Creazione di una chiave di partizione sintetica
+    - name: Creare una chiave di partizione sintetica
       href: synthetic-partition-keys.md
   - name: Velocità effettiva con provisioning
     items:
@@ -108,7 +108,7 @@ items:
       href: request-units.md
     - name: Effettuare il provisioning della velocità effettiva per contenitori e database
       href: set-throughput.md
-  - name: Uso dell'account Azure Cosmos
+  - name: Usare l'account Azure Cosmos
     href: account-overview.md
   - name: Contenitori ed elementi
     items:
@@ -122,7 +122,7 @@ items:
       items:
       - name: Panoramica
         href: index-overview.md
-      - name: Criterio di indicizzazione
+      - name: Criteri di indicizzazione
         href: index-policy.md
       - name: Tipi di indice
         href: index-types.md
@@ -136,17 +136,17 @@ items:
         href: read-change-feed.md
       - name: Processore dei feed di modifiche
         href: change-feed-processor.md
-      - name: Feed di modifiche con Funzioni di Azure
+      - name: Attivare Funzioni di Azure
         href: change-feed-functions.md
     - name: Durata (TTL)
       href: time-to-live.md
     - name: Vincoli di chiave univoca
       href: unique-keys.md
-    - name: Transazioni e concorrenza ottimistica
+    - name: Transazioni e controllo della concorrenza ottimistica
       href: database-transactions-optimistic-concurrency.md
   - name: Programmazione lato server
     items:
-    - name: Stored procedure, trigger e funzioni definite dall'utente
+    - name: Stored procedure, trigger e UDF
       href: stored-procedures-triggers-udfs.md
     - name: API di query JavaScript
       href: javascript-query-api.md
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Ottimizzare il costo per più aree geografiche
       href: optimize-cost-regions.md
-    - name: Ottimizzare i carichi di lavoro di sviluppo/test
+    - name: Ottimizzare il costo di sviluppo/test
       href: optimize-dev-test.md
-    - name: Ottimizzare con la capacità riservata
+    - name: Ottimizzare il costo con la capacità riservata
       href: cosmos-db-reserved-capacity.md
   - name: Security
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Soluzione pronta per l'azienda
     items:
-    - name: Backup e ripristino online
+    - name: Backup online e ripristino su richiesta
       href: online-backup-and-restore.md
     - name: Conformità
       href: compliance.md
@@ -467,19 +467,19 @@ items:
   expanded: true
 - name: Guide alle procedure
   items:
-  - name: Gestire un account di database
+  - name: Gestire l'account Azure Cosmos DB
     href: how-to-manage-database-account.md
   - name: Distribuzione globale
     items:
-    - name: Gestire la coerenza
+    - name: Gestire i livelli di coerenza
       href: how-to-manage-consistency.md
-    - name: Gestire i conflitti
+    - name: Configurare i criteri di risoluzione dei conflitti
       href: how-to-manage-conflicts.md
   - name: Velocità effettiva con provisioning
     items:
-    - name: Effettuare il provisioning della velocità effettiva di contenitori
+    - name: Effettuare il provisioning della velocità effettiva in un contenitore
       href: how-to-provision-container-throughput.md
-    - name: Effettuare il provisioning della velocità effettiva di database
+    - name: Effettuare il provisioning della velocità effettiva in un database
       href: how-to-provision-database-throughput.md
   - name: Uso di contenitori ed elementi
     items:
@@ -489,9 +489,13 @@ items:
       href: how-to-query-container.md
     - name: Configurare la durata (TTL)
       href: how-to-time-to-live.md
+    - name: Gestire i dati con Azure Storage Explorer
+      href: storage-explorer.md
+    - name: Gestire i dati con Azure Cosmos Explorer
+      href: data-explorer.md
     - name: Indicizzazione
       items:
-      - name: Configurare l'indicizzazione
+      - name: Gestire l'indicizzazione
         href: how-to-manage-indexing-policy.md
   - name: Security
     items:
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configurare la condivisione di risorse tra le origini (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Abilitare la protezione con Key Vault
+    - name: Proteggere le chiavi di Azure Cosmos con Key Vault
       href: access-secrets-from-keyvault.md
   - name: Soluzione pronta per l'azienda
     items:
     - name: Ripristinare i dati da un backup
       href: how-to-backup-and-restore.md
-  - name: Gestisci
+  - name: Gestire le risorse di Azure Cosmos DB
     items:
     - name: Gestire usando PowerShell
       href: manage-account-with-powershell.md
     - name: Gestire con l'interfaccia della riga di comando di Azure
       href: manage-with-cli.md
-    - name: Gestire con Storage Explorer
-      href: storage-explorer.md
-    - name: Gestire con Esplora dati
-      href: data-explorer.md
   - name: Registrazione
     items:
     - name: Registrazione diagnostica
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 93d8abe428305ce62fb95afabc6ab71dfc8f67b4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464875"

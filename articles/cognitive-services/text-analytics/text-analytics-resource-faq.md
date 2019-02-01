@@ -1,22 +1,23 @@
 ---
-title: Domande frequenti sull'API Analisi del testo - Servizi cognitivi di Azure | Microsoft Docs
-description: Risposte a domande comuni sull'API Analisi del testo di Servizi cognitivi Microsoft in Azure.
+title: Domande frequenti sull'API Analisi del testo
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come ottenere risposte alle domande comuni sull'API Analisi del testo.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2d04d93cf11f6c42a6411dc27b6bbeb2a9028773
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377793"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226554"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Domande frequenti sull'API Analisi del testo
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Domande frequenti sul servizio cognitivo Analisi del testo
 
  Questo articolo offre risposte alle domande frequenti sui concetti, il codice e gli scenari correlati all'API Analisi del testo per Servizi cognitivi Microsoft in Azure.
 
@@ -52,5 +53,5 @@ La domanda riguarda una funzione o una funzionalità mancante? È possibile rich
 
 ## <a name="see-also"></a>Vedere anche 
 
- [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)  (StackOverflow: API Analisi del testo)  
+ [StackOverflow: API Analisi del testo   
  [StackOverflow: Servizi cognitivi](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

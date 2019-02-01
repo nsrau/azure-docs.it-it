@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 5f6908a80a467e1a8a12d61be2f67cbe70cce8a0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: common
+ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275638"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457786"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -24,14 +24,14 @@ Questo articolo descrive i requisiti essenziali per il servizio Importazione/Esp
 Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supportati i **sistemi operativi a 64 bit seguenti che supportano Crittografia unità BitLocker**.
 
 
-|Piattaforma |Version |
+|Piattaforma |Versione |
 |---------|---------|
 | Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
 
-|Piattaforma |Version |
+|Piattaforma |Versione |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |

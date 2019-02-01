@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138042"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469601"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -36,7 +36,7 @@ Le domande di logistica riguardano la posizione dell'**origine dati**, la **dest
    
    * Archiviazione BLOB di Azure
    * Database SQL Azure
-   * SQL Server in macchina virtuale di Azure
+   * Macchine virtuali SQL Server in Azure
    * Tabelle Hive o HDInsight (Hadoop in Azure)
    * Azure Machine Learning
    * Dischi rigidi virtuali di Azure montabili.
@@ -72,7 +72,7 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di elabora
 Si consideri ad esempio l'ambiente di Azure Machine Learning Studio:
 
 * Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#data-formats-and-data-types-supported) .
-* Per informazioni sulle limitazioni dei dati per Azure Machine Learning Studio, vedere la sezione **Qual è la grandezza massima dei set di dati per i moduli?** in [Importazione ed esportazione dei dati per Machine Learning](../studio/faq.md#machine-learning-studio-questions)
+
 
 Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-subscription-service-limits.md).
 
