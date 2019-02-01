@@ -21,7 +21,7 @@ items:
       href: sql-database-managed-instance-get-started.md
   - name: Configurare
     items:
-    - name: Regole del firewall per il server di database SQL
+    - name: Regole del firewall per il server di database
       href: sql-database-get-started-portal-firewall.md
     - name: Connessione della macchina virtuale client a un'istanza gestita
       href: sql-database-managed-instance-configure-vm.md
@@ -127,12 +127,20 @@ items:
     items:
     - name: Panoramica del database singolo
       href: sql-database-single-index.yml
-    - name: Server di database SQL
+    - name: Funzionalità del database singolo
+      href: sql-database-single-database.md
+    - name: Informazioni di riferimento sull'API Gestione
+      href: sql-database-single-databases-manage.md
+    - name: Differenze con T-SQL
+      href: sql-database-transact-sql-information.md
+    - name: Server e risorse di database
       items:
       - name: Panoramica dei server di database
         href: sql-database-servers.md
       - name: Limiti delle risorse dei server di database
         href: sql-database-resource-limits-database-server.md
+      - name: Architettura della connettività
+        href: sql-database-connectivity-architecture.md
     - name: Risorse del database singolo
       items:
       - name: Limiti delle risorse basati su vCore
@@ -141,12 +149,6 @@ items:
         href: sql-database-dtu-resource-limits-single-databases.md
       - name: Ridimensionare le risorse
         href: sql-database-single-database-scale.md
-    - name: Creare e gestire server e database
-      href: sql-database-single-databases-manage.md
-    - name: Architettura della connettività
-      href: sql-database-connectivity-architecture.md
-    - name: Differenze con T-SQL
-      href: sql-database-transact-sql-information.md
   - name: Pool elastici
     items:
     - name: Pool elastici
@@ -223,7 +225,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Introduzione al rilevamento delle minacce
         href: sql-database-threat-detection-overview.md
-    - name: Regole del firewall
+    - name: Regole del firewall IP per il server di database
       items:
       - name: Creare e gestire
         href: sql-database-firewall-configure.md
@@ -241,7 +243,7 @@ items:
       href: sql-database-aad-authentication.md
     - name: Controllo
       items:
-      - name: Controllo - Server, pool e database
+      - name: Controllo - Database singoli e pool elastici
         href: sql-database-auditing.md
       - name: Controllo - Istanza gestita
         href: sql-database-managed-instance-auditing.md
@@ -662,6 +664,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Risorse
   items:
+  - name: Glossario dei termini
+    href: sql-database-glossary-terms.md
   - name: Sviluppare le proprie competenze con Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: Roadmap per Azure
@@ -700,9 +704,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471029"
+ms.locfileid: "55512415"
