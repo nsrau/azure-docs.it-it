@@ -70,7 +70,7 @@ items:
       href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metriche in Monitoraggio di Azure
       href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Ripristino di emergenza
+  - name: Ripristino di emergenza e failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Limiti
   - name: Domande frequenti
@@ -105,6 +105,8 @@ items:
       href: storage-sync-files-server-endpoint.md
     - name: Gestire le risorse di archiviazione nei cloud indipendenti di Azure
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Avviare il failover di un account
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitorare
     items:
     - name: Monitorare Sincronizzazione file di Azure
@@ -249,9 +251,9 @@ items:
       href: https://github.com/Azure/azure-storage-cpp
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: d303fd76043616c194ef56b8f28795b325b37b01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6df9d99a4b10987dad56315144d3bb082f76e62a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162498"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507213"

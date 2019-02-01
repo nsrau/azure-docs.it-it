@@ -95,7 +95,7 @@ items:
       href: security-center-managing-and-responding-alerts.md
     - name: Eventi imprevisti relativi alla sicurezza
       href: security-center-incident.md
-    - name: Tipi di avviso
+    - name: Informazioni sugli avvisi di sicurezza
       href: security-center-alerts-type.md
     - name: Convalida degli avvisi
       href: security-center-alert-validation.md
@@ -157,7 +157,7 @@ items:
       href: security-center-events-dashboard.md
     - name: Ricerca
       href: security-center-search.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: API REST
     href: https://docs.microsoft.com/rest/api/securitycenter/
@@ -191,9 +191,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Risolvere problemi
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: 7aaca2a30fb130c3d7d68faf9f353539be044315
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4c68265d59ab40ed93ceb7b1961520866d89129f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259156"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495780"

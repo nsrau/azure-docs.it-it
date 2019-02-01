@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 78d5f767f137b8b1e925b95efb60136353401ce9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298621"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507427"
 documentType: LandingData
 title: Gestione di Azure - Governance
 metadata:
@@ -50,7 +50,7 @@ sections:
       html: <p>Definire e applicare standard alle risorse nell'ambiente. Impedire la creazione di risorse indesiderate, ottimizzare nuove risorse con elementi aggiuntivi e controllare e correggere risorse già nell'ambiente.</p>
       image:
         src: ./media/policy-illustration.svg
-      title: Criterio
+      title: Policy
     - href: ./blueprints/
       html: <p>Creare un pacchetto nativo di Azure di <i>artefatti</i> (gruppi di risorse, criteri, assegnazioni di ruolo, modelli di Resource Manager e altro) che possa essere distribuito in modo dinamico alle sottoscrizioni per creare ambienti coerenti e ripetibili.</p>
       image:

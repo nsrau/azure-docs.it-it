@@ -6,6 +6,8 @@ items:
   - name: Informazioni su Ricerca Web Bing
     href: overview.md
     expanded: true
+  - name: Confrontare le API di ricerca Bing
+    href: ../Bing-Web-Search/bing-api-comparison.md
 - name: Guide introduttive
   items:
   - name: API REST
@@ -88,6 +90,8 @@ items:
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
+  - name: Requisiti per l'uso e la visualizzazione
+    href: Use-display-requirements.md
 - name: Risorse
   items:
   - name: Domande frequenti
@@ -100,8 +104,6 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Requisiti per l'uso e la visualizzazione
-    href: UseAndDisplayRequirements.md
   - name: Supporto di lingua e area geografica
     href: language-support.md
   - name: Analisi per l'API Ricerca Web Bing
@@ -116,9 +118,9 @@ items:
       href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 0e86f4433a79475089c9bb1dbe7a84ac3ebb9b51
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 31705085d83fa95fd0cedb28035ceaed0fef2c59
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507101"

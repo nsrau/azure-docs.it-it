@@ -15,8 +15,6 @@ items:
   - name: Domande frequenti
     displayName: FAQ
     href: faq.md
-  - name: Novità
-    href: whats-new.md
   expanded: true
 - name: Esercitazioni
   items:
@@ -41,8 +39,6 @@ items:
     - name: 6 - Accedere al servizio Web
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Introduzione a R
-    href: r-quickstart.md
 - name: Esempi
   items:
   - name: Set di dati disponibili
@@ -120,6 +116,8 @@ items:
         href: debug-models.md
     - name: Usare R e Python
       items:
+      - name: Introduzione a R
+        href: r-quickstart.md
       - name: Eseguire script R
         href: extend-your-experiment-with-r.md
       - name: Creare moduli R personalizzati
@@ -208,21 +206,25 @@ items:
     href: /rest/api/machinelearning
 - name: Risorse
   items:
+  - name: Aggiornamenti del servizio
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Supporto
+    href: support-aml-studio.md
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
+  - name: Disponibilità internazionale
+    href: https://azure.microsoft.com/regions/services/
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Guida per sviluppatori R
     href: ../r-developers-guide.md
-  - name: Reti neurali personalizzate con Net#
+  - name: Reti neurali personalizzate (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Supporto
-    href: support-aml-studio.md
   - name: Confrontare i prodotti Machine Learning
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 12fa71315c1cb43570505d2428804f4a5348a266
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 27cd57a52b80006482f50f96120e8eaf8a8cb00e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512194"

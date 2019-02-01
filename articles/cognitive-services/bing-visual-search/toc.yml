@@ -5,6 +5,9 @@ items:
   items:
   - name: Informazioni sull'API Ricerca visiva Bing
     href: overview.md
+  - name: Confrontare le API di ricerca Bing
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
 - name: Guide introduttive
   items:
   - name: API REST
@@ -51,15 +54,13 @@ items:
   items:
   - name: Ottenere informazioni dettagliate tramite token
     href: use-insights-token.md
-  - name: Usare e visualizzare i risultati
-    href: use-and-display-requirements.md
   - name: Ridimensionare e ritagliare le anteprime
     href: resize-and-crop-thumbnails.md
   - name: Cercare un'immagine con i token delle informazioni dettagliate dell'immagine
     href: tutorial-visual-search-insights-token.md
   - name: Creare un'app Web a pagina singola
     href: tutorial-bing-visual-search-single-page-app.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: API REST v7
     href: https://aka.ms/bingvisualsearchreferencedoc
@@ -71,6 +72,9 @@ items:
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
+  - name: Requisiti per l'uso e la visualizzazione
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Risorse
   items:
   - name: Supporto di lingua e area geografica
@@ -83,9 +87,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: 6291b480d8c1ba44f6c0306c090cdee3df1fec95
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 9fa28fc3e8398d6fe3b0253a7d6e146e61b48021
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789178"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510290"
