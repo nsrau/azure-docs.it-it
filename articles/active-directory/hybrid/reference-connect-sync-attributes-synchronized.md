@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d6808f17116df033c2b001eff05bd83bc5f1d3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196532"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -45,6 +45,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | displayName |X | |
 | objectSID |X |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | pwdLastSet |X |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Viene usata dalla sincronizzazione dell'hash delle password, dall'autenticazione pass-through e dalla federazione. |
+|samAccountName|X| |
 | sourceAnchor |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | usageLocation |X |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
