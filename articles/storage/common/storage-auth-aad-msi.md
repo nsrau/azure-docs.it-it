@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427417"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251691"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticare l'accesso a BLOB e code con identità gestite per Risorse di Azure (anteprima)
 
@@ -43,7 +43,7 @@ Prima di poter autenticare un'identità gestita dall'applicazione di Archiviazio
 
 Per eseguire l'autenticazione con un'identità gestita, l'applicazione o lo script deve acquisire un token di accesso di identità gestita. Per informazioni su come acquisire un token di accesso, vedere [Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: creare un BLOB in blocchi
+## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: Creare un BLOB in blocchi
 
 L'esempio di codice presuppone la disponibilità di un token di accesso per l'identità gestita. Il token di accesso viene usato per autorizzare l'identità gestita per la creazione di un BLOB in blocchi.
 
