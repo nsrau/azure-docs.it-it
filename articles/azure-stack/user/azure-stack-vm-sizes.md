@@ -14,12 +14,12 @@ ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6f3b4632674217133f4af4c95143d2df51ecde6a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ffcb6d6d7955a2b276850d6db9d08a2cc5c16adb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247460"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565021"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
@@ -177,10 +177,10 @@ Memoria ottimizzati dimensioni delle macchine Virtuali offrono un rapporto eleva
 ### <a name="mo-dsv2"></a>DSv2-series
 |Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Schede di interfaccia di rete max |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16 x 2300  |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64 x 2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4 x 2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16 x 2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

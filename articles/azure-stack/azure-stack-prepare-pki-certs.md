@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247205"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656720"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per l'uso nella distribuzione o la rotazione
+
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) devono essere importati ed esportati con proprietà corrispondenti requisiti dei certificati di Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Preparare i certificati per la distribuzione
+
 Usare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack che saranno utilizzati per la distribuzione di un nuovo ambiente di Azure Stack o per la rotazione dei segreti in un ambiente Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importare il certificato
@@ -83,7 +84,9 @@ Aprire la console di gestione certificati MMC e connettersi all'archivio certifi
     
     ![Esportazione guidata certificati con opzioni selezionate](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Selezionare **Password** e fornire una password per i certificati. Prendere nota della password perché è usato come parametro di distribuzione. Selezionare **Avanti**.
+1. Selezionare **Password** e fornire una password per i certificati. Creare una password che soddisfi i seguenti requisiti di complessità delle password. Una lunghezza minima di otto caratteri. La password contenga almeno tre dei seguenti: lettere maiuscole di lettere, lettera minuscola, i numeri da 0 a 9, caratteri speciali, un carattere alfabetico che non maiuscoli né minuscoli. Prendere nota della password. Si utilizzerà come parametro di distribuzione.
+
+1. Selezionare **Avanti**.
 
 1. Scegliere un nome file e percorso del file pfx da esportare. Selezionare **Avanti**.
 

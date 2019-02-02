@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244250"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660120"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -49,7 +49,7 @@ L'elenco seguente descrive i requisiti dei certificati necessari per distribuire
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Enhanced Key Usage".
 - Il certificato "rilasciato a:" campo non deve essere lo stesso come relativo "rilasciato da:" campo.
 - Le password per tutti i file di certificato pfx devono essere uguale al momento della distribuzione
-- Password per il file di certificato pfx deve essere una password complessa.
+- Password per il file di certificato pfx deve essere una password complessa. Creare una password che soddisfi i seguenti requisiti di complessità delle password. Una lunghezza minima di otto caratteri. La password contenga almeno tre dei seguenti: lettere maiuscole di lettere, lettera minuscola, i numeri da 0 a 9, caratteri speciali, un carattere alfabetico che non maiuscoli né minuscoli. Prendere nota della password. Si utilizzerà come parametro di distribuzione.
 - Verificare che i nomi di soggetto e nomi alternativi del soggetto nella corrispondenza (x509v3_config) estensione nome alternativo soggetto. Il campo nome alternativo soggetto consente di specificare i nomi host aggiuntivi (siti Web, gli indirizzi IP, nomi comuni) per essere protetti da un solo certificato SSL.
 
 > [!NOTE]  

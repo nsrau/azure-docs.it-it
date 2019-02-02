@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237852"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663415"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!Note]  
-> Kubernetes in Azure Stack è disponibile in anteprima.
+> Kubernetes in Azure Stack è disponibile in anteprima. Scenario disconnesso di Azure Stack non è attualmente supportato per l'anteprima.
 
 L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e rivedere lo stato della distribuzione per gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. È anche necessario rivolgersi all'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
 
