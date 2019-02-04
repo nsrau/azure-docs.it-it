@@ -1,23 +1,23 @@
 ---
-title: "Esercitazione: Rilevare e mostrare i dati sui volti in un'immagine usando .NET SDK"
+title: "Esercitazione: Rilevare e mostrare i dati sui visi in un'immagine usando .NET SDK"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà creata un'app Windows che usa la funzione API Viso per rilevare e incorniciare il volto in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852674"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221182"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app WPF per mostrare i dati sui volti in un'immagine
+# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app WPF per mostrare i dati sui visi in un'immagine
 
 In questa esercitazione si apprenderà come usare l'API viso di Azure, tramite il client .NET SDK, per rilevare i visi in un'immagine e quindi presentare i dati nell'interfaccia utente. Verrà creata una semplice applicazione Windows Presentation Foundation (WPF) che rileva i volti, disegna una cornice intorno a ogni viso e visualizza una descrizione del viso nella barra di stato. 
 

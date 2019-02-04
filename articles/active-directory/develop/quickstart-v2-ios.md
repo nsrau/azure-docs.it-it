@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973610"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094309"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Guida introduttiva: eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'app nativa iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app nativa iOS
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -48,7 +48,7 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 > > [Apporta questa modifica per me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Già configurata](media/quickstart-v2-ios/green-check.png) L'applicazione viene configurata con questo attributo
+> > ![Già configurata](media/quickstart-v2-ios/green-check.png) L'applicazione è configurata con questo attributo
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Passaggio 2: Scaricare il server Web o il progetto
 

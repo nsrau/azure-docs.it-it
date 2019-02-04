@@ -6,16 +6,16 @@ services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365639"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216813"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Esercitazione: Creare un'app Entity Linking con C#
 
@@ -35,7 +35,7 @@ Questa esercitazione illustra il collegamento di entità tramite la libreria cli
 ### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Passaggio 1: Iscriversi a Servizio di intelligence Entity Linking e ottenere la chiave</a>
 Prima di usare Servizio di intelligence Entity Linking, è necessario iscriversi per ottenere una chiave API. Vedere [Sottoscrizioni](https://www.microsoft.com/cognitive-services/en-us/sign-up). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria.
 
-### <a name="step-2-create-a-new-project-in-visual-studio">Passaggio 2: Creare un nuovo progetto in Visual Studio</a>
+### <a name="step-2-create-a-new-project-in-visual-studio"> Passaggio 2: Creare un nuovo progetto in Visual Studio</a>
 
 Per iniziare, creare un nuovo progetto in Visual Studio. Innanzitutto, avviare Visual Studio 2015 dal menu Start. Creare quindi un nuovo progetto selezionando **Installati → Modelli → Visual C# → Universale di Windows → App vuota** per il modello di progetto:
 

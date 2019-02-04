@@ -8,32 +8,32 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0aa15c34e6fd6c7952a457d36e072bc91d4d5dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727609"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102173"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console usando l'identità dell'app
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app console usando l'identità dell'app
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-In questa guida introduttiva verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
+In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
 
 ![Funzionamento dell'app di esempio generata da questa guida introduttiva](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa guida introduttiva è richiesto [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
+Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -70,7 +70,7 @@ Per questa guida introduttiva è richiesto [.NET Core 2.1](https://www.microsoft
 > ### <a name="download-and-configure-your-quickstart-app"></a>Scaricare e configurare l'app della guida introduttiva
 > 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per fare in modo che l'esempio di codice per questa guida introduttiva funzioni, è necessario creare un segreto client e aggiungere l'autorizzazione dell'applicazione **User.Read.All** dell'API Graph.
+> Per fare in modo che l'esempio di codice per questo avvio rapido funzioni, è necessario creare un segreto client e aggiungere l'autorizzazione dell'applicazione **User.Read.All** dell'API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
@@ -107,7 +107,7 @@ Per questa guida introduttiva è richiesto [.NET Core 2.1](https://www.microsoft
     
 #### <a name="step-4-admin-consent"></a>Passaggio 4: Consenso dell'amministratore
 
-Le *autorizzazioni solo per app* richiedono il consenso amministratore. È quindi necessario che un amministratore globale della directory conceda il consenso all'applicazione. Selezionare una delle opzioni seguenti in base al ruolo:
+Se si prova a eseguire l'applicazione a questo punto, si riceverà l'errore *HTTP 403 - Accesso negato*: `Insufficient privileges to complete the operation`. Questo errore si verifica perché le *autorizzazioni solo per app* richiedono il consenso amministratore. È quindi necessario che un amministratore globale della directory conceda il consenso all'applicazione. Selezionare una delle opzioni seguenti in base al ruolo:
 
 ##### <a name="global-tenant-administrator"></a>Amministratore del tenant globale
 
@@ -149,16 +149,25 @@ dotnet run
 
 Come risultato si dovrebbe vedere un elenco di utenti nel tenant di Azure AD.
 
+> [!IMPORTANT]
+> Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni su come usare un certificato, vedere [queste istruzioni](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) nel repository GitHub per questo esempio.
+
 ## <a name="more-information"></a>Altre informazioni
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Azure Active Directory (Azure AD). Come descritto, questa guida introduttiva richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)*. Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Azure Active Directory (Azure AD). Come descritto, questo avvio rapido richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)*. Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
 
  È possibile installare MSAL.NET eseguendo questo comando in **Console di Gestione pacchetti** in Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+In alternativa, se non si usa Visual Studio, è possibile eseguire il comando seguente per aggiungere MSAL al progetto:
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### <a name="msal-initialization"></a>Inizializzazione della libreria MSAL

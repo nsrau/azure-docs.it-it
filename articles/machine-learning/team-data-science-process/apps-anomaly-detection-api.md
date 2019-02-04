@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469822"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 ## <a name="overview"></a>Panoramica
@@ -36,25 +36,25 @@ L'offerta per il rilevamento anomalie include strumenti utili per iniziare.
 
 > [!NOTE]
 > Provare la **soluzione IT Anomaly Insights** supportata da [questa API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
-> 
+>
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
---> 
+-->
 
 ## <a name="api-deployment"></a>Distribuzione API
-Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile eseguire questa operazione in [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con questa operazione due servizi Web di AzureML (e le relative risorse) verranno distribuite alla sottoscrizione di Azure, uno per il rilevamento delle anomalie con rilevamento della stagionalità e l'altro senza rilevamento della stagionalità.  Dopo aver completato la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi Web di AzureML](https://services.azureml.net/webservices/).  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile eseguire questa operazione in [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con questa operazione due servizi Web di Azure Machine Learning Studio (e le relative risorse) verranno distribuite alla sottoscrizione di Azure, uno per il rilevamento delle anomalie con rilevamento della stagionalità e l'altro senza rilevamento della stagionalità.  Dopo aver completato la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi Web di Azure Machine Learning Studio](https://services.azureml.net/webservices/).  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Scalabilità dell'API
 Per impostazione predefinita, la distribuzione disporrà di un piano di fatturazione di sviluppo/test gratuito che include 1.000 operazioni e 2 ore di calcolo al mese.  È possibile passare a un altro piano in base alle proprie esigenze.  I dettagli sui prezzi dei vari piani sono disponibili [qui](https://azure.microsoft.com/pricing/details/machine-learning/) in "Prezzi API Web di produzione".
 
-## <a name="managing-aml-plans"></a>Gestione dei piani AML 
+## <a name="managing-aml-plans"></a>Gestione dei piani AML
 È possibile gestire il piano di fatturazione [qui](https://services.azureml.net/plans/).  Il nome del piano si basa sul nome del gruppo di risorse scelto durante la distribuzione dell'API, oltre a una stringa univoca per la sottoscrizione.  Le istruzioni su come aggiornare il piano sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) nella sezione "Gestione dei piani di fatturazione".
 
 ## <a name="api-definition"></a>Definizione dell'API
 Il servizio Web offre un’API basata su REST in HTTPS che può essere usata in modi diversi, ad esempio come applicazione Web o mobile, R, Python, Excel, ecc.  I dati delle serie temporali vengono inviati al servizio tramite una chiamata API REST che esegue una combinazione dei tre tipi di anomalie descritte di seguito.
 
 ## <a name="calling-the-api"></a>Chiamata all'API
-Per chiamare l'API, è necessario conoscere la posizione endpoint e la chiave API.  Entrambi gli elementi, insieme al codice di esempio per chiamare l'API, sono disponibili nella pagina dei [servizi Web di AzureML](https://services.azureml.net/webservices/).  Passare all'API desiderato e quindi fare clic sulla scheda "Consumo" per individuarli.  Si noti che è possibile chiamare l'API come API Swagger (vale a dire con il parametro URL `format=swagger`) o come un API non Swagger (ovvero senza il parametro URL `format`).  Il codice di esempio usa il formato Swagger.  Di seguito viene riportato un esempio di richiesta e risposta in formato non Swagger.  Questi esempi sono endpoint di stagionalità.  L'endpoint di non stagionalità è simile.
+Per chiamare l'API, è necessario conoscere la posizione endpoint e la chiave API.  Entrambi gli elementi, insieme al codice di esempio per chiamare l'API, sono disponibili nella pagina dei [servizi Web di Azure Machine Learning Studio](https://services.azureml.net/webservices/).  Passare all'API desiderato e quindi fare clic sulla scheda "Consumo" per individuarli.  Si noti che è possibile chiamare l'API come API Swagger (vale a dire con il parametro URL `format=swagger`) o come un API non Swagger (ovvero senza il parametro URL `format`).  Il codice di esempio usa il formato Swagger.  Di seguito viene riportato un esempio di richiesta e risposta in formato non Swagger.  Questi esempi sono endpoint di stagionalità.  L'endpoint di non stagionalità è simile.
 
 ### <a name="sample-request-body"></a>Corpo della richiesta di esempio
 La richiesta contiene due oggetti: `Inputs` e `GlobalParameters`.  Nella richiesta di esempio riportata di seguito, alcuni parametri vengono inviati in modo esplicito, mentre per altri questo non avviene (scorrere verso il basso per un elenco completo dei parametri per ogni endpoint).  I parametri che non vengono inviati in modo esplicito nella richiesta useranno i valori predefiniti indicati di seguito.
@@ -100,7 +100,8 @@ Si noti che, per visualizzare il campo `ColumnNames`, è necessario includere `d
 
 
 ## <a name="score-api"></a>API Score
-Questa API viene usata per eseguire il rilevamento anomalie nei dati delle serie temporali non stagionali. L'API esegue una serie di funzionalità di rilevamento anomalie sui dati e restituisce i punteggi delle anomalie. La figura seguente illustra un esempio di anomalie che l'API Score può rilevare. Questa serie temporale presenta due modifiche di livello distinte e 3 picchi. I punti rossi mostrano il momento in cui viene rilevata la modifica di livello, mentre i punti neri indicano i picchi rilevati.
+Questa API viene usata per eseguire il rilevamento anomalie nei dati delle serie temporali non stagionali. L'API esegue una serie di funzionalità di rilevamento anomalie sui dati e restituisce i punteggi delle anomalie.
+La figura seguente illustra un esempio di anomalie che l'API Score può rilevare. Questa serie temporale presenta due modifiche di livello distinte e 3 picchi. I punti rossi mostrano il momento in cui viene rilevata la modifica di livello, mentre i punti neri indicano i picchi rilevati.
 ![API Score][1]
 
 ### <a name="detectors"></a>Funzionalità di rilevamento
@@ -116,7 +117,7 @@ L'API di rilevamento anomalie supporta funzionalità di rilevamento in 3 categor
 ### <a name="parameters"></a>Parametri
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | DESCRIZIONE | Impostazione predefinita | type | Intervallo valido | Intervallo consigliato |
+| Parametri di input | DESCRIZIONE | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
 | detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
@@ -127,7 +128,7 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |numero intero |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
 ### <a name="output"></a>Output
-L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API. 
+L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
 | Output | DESCRIZIONE |
 | --- | --- |
@@ -141,7 +142,7 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 | talert |Valore 1/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
-L'API ScoreWithSeasonality viene usata per eseguire il rilevamento di anomalie in serie temporali che includono modelli stagionali. Questa API è utile per rilevare le deviazioni nei modelli stagionali.  
+L'API ScoreWithSeasonality viene usata per eseguire il rilevamento di anomalie in serie temporali che includono modelli stagionali. Questa API è utile per rilevare le deviazioni nei modelli stagionali.
 La figura seguente illustra un esempio di anomalie rilevate in una serie temporale stagionale. La serie temporale presenta un picco (primo punto nero), due flessioni (secondo punto nero e uno alla fine) e una modifica di livello (punto rosso). Si noti che sia la flessione al centro della serie temporale sia la modifica di livello sono rilevabili solo dopo la rimozione dei componenti stagionali dalla serie.
 ![Stagionalità API][2]
 
@@ -152,7 +153,7 @@ I rilevatori nell'endpoint stagionalità sono simili a quelli nell'endpoint non 
 
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | DESCRIZIONE | Impostazione predefinita | type | Intervallo valido | Intervallo consigliato |
+| Parametri di input | DESCRIZIONE | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |numero intero |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
 | preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
@@ -170,7 +171,7 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |numero intero |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
 ### <a name="output"></a>Output
-L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API. 
+L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
 | Output | DESCRIZIONE |
 | --- | --- |

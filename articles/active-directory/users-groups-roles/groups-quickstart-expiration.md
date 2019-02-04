@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: quickstart
 ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7008943e9077cbad3c58de43f64b105f35931bf3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6d2b5201c41ba9d5c849976f0227e9abadea7658
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208901"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165235"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Guida introduttiva: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
+# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Avvio rapido: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
 
 In questa guida introduttiva si impostano i criteri di scadenza per i gruppi di Office 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
 
@@ -54,7 +54,7 @@ Per impostare la scadenza di un gruppo, è necessario essere un amministratore g
   
   ![Impostazioni di scadenza](./media/groups-quickstart-expiration/expiration-settings.png)
 
-2. Impostare l'intervallo di scadenza. Selezionare un valore predefinito o immettere un valore personalizzato superiore a 31 giorni. 
+2. Impostare l'intervallo di scadenza. Selezionare un valore predefinito o immettere un valore personalizzato superiore a 31 giorni. 
 
 3. Specificare un indirizzo e-mail per l'invio delle notifiche di scadenza quando un gruppo non ha un proprietario.
 

@@ -6,20 +6,20 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016858"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216762"
 ---
 # <a name="speaker-recognition-api"></a>API Riconoscimento voce
 
-Benvenuti alle API Riconoscimento del parlante di Servizi cognitivi di Azure. Le API Riconoscimento del parlante sono API basate sul cloud dotate di algoritmi estremamente avanzati per la verifica e l'identificazione della voce. Le funzionalità di riconoscimento del parlante possono essere suddivise in due categorie: verifica e identificazione della voce.
+Benvenuti alle API Riconoscimento del parlante di Servizi cognitivi di Azure. Le API di riconoscimento della voce sono API basate sul cloud dotate di algoritmi estremamente avanzati per la verifica e l'identificazione della voce. Le funzionalità di riconoscimento del parlante possono essere suddivise in due categorie: verifica e identificazione della voce.
 
 
 ## <a name="speaker-verification"></a>Verifica voce
@@ -38,7 +38,7 @@ Durante la registrazione, la voce dell'utente viene registrata mentre l'utente p
 
 Durante la verifica, la voce e la frase di input vengono confrontate con la firma vocale e la frase di registrazione per verificare se provengono dalla stessa persona e se la frase è corretta.
 
-Per altri dettagli sulla verifica voce, fare riferimento all'API [Verifica voce](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Per altri dettagli sulla verifica voce, fare riferimento all'API  [Verifica voce](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificazione voce
 
@@ -56,4 +56,4 @@ La registrazione per l'identificazione voce non dipende dal testo. Ciò signific
 
 Durante il riconoscimento viene fornito l'audio dell'utente sconosciuto insieme al potenziale gruppo di utenti. La voce di input viene confrontata con tutti gli utenti per stabilire a chi appartiene. Se viene trovata una corrispondenza, viene restituita l'identità di chi parla.
 
-Per altri dettagli sull'identificazione voce, fare riferimento all'API [Identificazione voce](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Per altri dettagli sull'identificazione voce, fare riferimento all'API  [Identificazione voce](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

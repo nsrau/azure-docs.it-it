@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Python"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con Python per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: d2a98226895bbe5996785ca4726f20df9b98ffdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 606f01059620443c8c42a24f416128d0856eff50
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683611"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213787"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e Python
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Python per rilevare i visi umani in un'immagine. Lo script disegna cornici intorno ai visi, sovrapponendo informazioni su sesso ed età sull'immagine.
 

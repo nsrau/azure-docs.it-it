@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222815"
 ---
 # <a name="example-how-to-add-faces"></a>Esempio: Come aggiungere visi
 

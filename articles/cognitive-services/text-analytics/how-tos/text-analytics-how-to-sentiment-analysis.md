@@ -5,16 +5,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632867"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212495"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Esempio: Come rilevare il sentiment in Analisi del testo
 
@@ -77,7 +77,7 @@ Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e s
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (API Analisi del sentiment)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
 + Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
@@ -131,7 +131,7 @@ L'esempio seguente mostra la risposta per la raccolta di documenti in questo art
 }
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'analisi del sentiment eseguita tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
@@ -140,7 +140,7 @@ In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'ana
 + La richiesta POST viene indirizzata a un endpoint `/sentiment` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
 + L'output di risposta, costituito da un punteggio di sentiment per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche  
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

@@ -6,18 +6,18 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: aahi
-ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 13040cf7f75b8bf2c0bf898dc4f3b16c99a80560
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161923"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172478"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app a singola pagina con l'API Ricerca Web Bing
 
 Questa app di una pagina offre una dimostrazione su come recuperare, analizzare e visualizzare i risultati della ricerca dall'API Ricerca Web Bing. L'esercitazione usa codice HTML e CSS boilerplate ed è incentrata sul codice JavaScript. I file HTML, CSS e JS sono disponibili su [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) insieme a istruzioni di avvio rapido.
 

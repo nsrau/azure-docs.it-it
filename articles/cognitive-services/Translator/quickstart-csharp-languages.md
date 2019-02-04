@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 54896e96658286297d90f488bd02f11da505ec50
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889090"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215572"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con C#
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando C#
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 
@@ -136,7 +136,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

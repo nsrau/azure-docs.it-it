@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824576"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168644"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Esercitazione: Come scaricare e usare uno script per accedere ai log di accesso
 
@@ -35,7 +35,7 @@ Elementi necessari
 
 * Un tenant di Azure Active Directory con una licenza Premium (P1/P2). Si noti che se i dati sulle attività non erano disponibili prima dell'aggiornamento, ci vorranno un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza premium. 
 * Un utente con ruolo **Amministratore globale**, **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Ruolo con autorizzazioni di lettura per i report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
-* Se si vuole eseguire lo script scaricato nel computer Windows 10, [configurare il modulo AzureRM e configurare i criteri di esecuzione](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* Se si vuole eseguire lo script scaricato nel computer Windows 10, [configurare il modulo Azure PowerShell e configurare i criteri di esecuzione](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Esercitazione
 

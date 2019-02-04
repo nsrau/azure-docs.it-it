@@ -1,23 +1,23 @@
 ---
-title: 'Esercitazione: Caricare dati in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Esercitazione: Caricare i dati su Azure SQL Data Warehouse | Microsoft Docs'
 description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un archivio BLOB di Azure pubblico ad Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286934"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454335"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati in Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
 Questa esercitazione usa PolyBase per caricare il data warehouse WideWorldImportersDW dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
 

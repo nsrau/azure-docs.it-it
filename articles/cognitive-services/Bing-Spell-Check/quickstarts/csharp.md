@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API Controllo ortografico Bing, C#'
+title: 'Avvio rapido: API Controllo ortografico Bing, C#'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Controllo ortografico Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: fbad56b59664a6c75e6bec911e891145a18b1161
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 77ad43b63d5548cf57024bc0c2b707e51f1c8496
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189817"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-c"></a>Guida introduttiva all'API Controllo ortografico Bing con C#
 

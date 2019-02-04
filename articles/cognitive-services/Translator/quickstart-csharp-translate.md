@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo, C# - Traduzione testuale'
+title: 'Avvio rapido: Tradurre un testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con C#.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887679"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214518"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con C#
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con C#
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con .NET Core e l'API REST Traduzione testuale.
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

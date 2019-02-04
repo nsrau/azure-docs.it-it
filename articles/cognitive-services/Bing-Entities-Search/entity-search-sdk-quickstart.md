@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Bing Entity Search SDK, C#'
+title: 'Avvio rapido: SDK di Ricerca entità Bing, C#'
 titleSuffix: Azure Cognitive Services
 description: Configurazione per l'applicazione console Entity Search SDK con C#.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3b4f38d8e2cb32758253fe4d121e6b2505f792c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307359"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152943"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Guida introduttiva: Bing Entity Search SDK con C#
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Avvio rapido: SDK di Ricerca entità Bing con C#
 
 L'API Ricerca entità Bing contiene la funzionalità dell'API REST per query di entità e analisi dei risultati.
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48873991"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205132"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (Gateway VPN) e un gateway di rete virtualedella WAN virtuale di Azure?
 
@@ -29,7 +29,7 @@ Per i passaggi di automazione dei partner, vedere [Virtual WAN partner automatio
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>È necessario usare il dispositivo di un partner preferito?
 
-No. È possibile usare qualsiasi dispositivo che supporti la VPN e soddisfi i requisiti di Azure per il supporto di IKEv2/IKEv1 IPsec.
+ No. È possibile usare qualsiasi dispositivo che supporti la VPN e soddisfi i requisiti di Azure per il supporto di IKEv2/IKEv1 IPsec.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>In che modo i partner di WAN virtuale automatizzano la connettività con la WAN virtuale di Azure?
 
@@ -53,11 +53,11 @@ Sì. Il flusso del traffico quando inizia proviene dal dispositivo locale verso 
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>È supportato il peering di reti virtuali globale con la WAN virtuale di Azure? 
 
- No.
+  No.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Le reti virtuali spoke connesse a un hub virtuale possono comunicare tra loro?
 
-Sì. È possibile eseguire direttamente il peering di reti virtuali fra spoke connessi a un hub virtuale. Per altre informazioni, vedere [Peering di rete virtuale](../articles/virtual-network/virtual-network-peering-overview.md).
+Sì. Le reti virtuali spoke possono comunicare direttamente tramite il peering di rete virtuale. Tuttavia, non sono supportate le reti virtuali che comunicano in modo transitorio tramite l'hub. Per altre informazioni, vedere [Peering di rete virtuale](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>È possibile distribuire e usare l'appliance virtuale di rete preferita (in una rete virtuale di appliance virtuali di rete) con la WAN virtuale di Azure?
 
@@ -65,7 +65,7 @@ Sì, è possibile connettere la rete virtuale dell'appliance virtuale di rete pr
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>Una rete virtuale di appliance virtuali di rete può avere un gateway di rete virtuale?
 
-No. La rete virtuale di appliance virtuali di rete non può avere un gateway di rete virtuale se è connessa all'hub virtuale. 
+ No. La rete virtuale di appliance virtuali di rete non può avere un gateway di rete virtuale se è connessa all'hub virtuale. 
 
 ### <a name="is-there-support-for-bgp"></a>È disponibile il supporto per BGP?
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 33c192009088aff3313bb970a319fa49bfca6e0e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889260"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220298"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

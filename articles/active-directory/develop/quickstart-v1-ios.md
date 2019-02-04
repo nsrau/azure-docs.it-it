@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980577"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095975"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -51,7 +51,7 @@ Per iniziare, completare questi prerequisiti:
 > [!TIP]
 > Provare il nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/iOS) per imparare a usare Azure AD in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si ottiene un'applicazione semplice in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passaggio 1: determinare qual è l'URI di reindirizzamento per iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passaggio 1: Determinare qual è l'URI di reindirizzamento per iOS
 
 Per avviare in modo sicuro le applicazioni in determinati scenari SSO, è necessario creare un *URI di reindirizzamento* in un formato particolare. Un URI di reindirizzamento viene usato per assicurarsi che i token vengano restituiti all'applicazione corretta che li aveva richiesti.
 
@@ -115,7 +115,7 @@ Ora che si dispone di un'applicazione in Azure AD, è possibile installare ADAL 
     * `clientId` è l'ID client dell'applicazione copiato dal portale.
     * `redirectUri` è l'URL di reindirizzamento registrato nel portale.
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 4: Usare ADAL per ottenere token da Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 4: Usare ADAL per ottenere i token da Azure AD
 
 Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un token di accesso, deve solo chiamare un CompletionBlock `+(void) getToken : ` e ADAL fa il resto.
 

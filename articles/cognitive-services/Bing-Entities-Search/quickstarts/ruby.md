@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API Ricerca entità Bing, Ruby'
+title: 'Avvio rapido: API Ricerca entità Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca entità Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: aahi
-ms.openlocfilehash: d0ee5aa69c0431600604c993bc8cde75a9f17c45
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2dec6359da7afc9e0e6c8dabaec1afb35e77e85c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314150"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191547"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Guida introduttiva all'API Ricerca entità Bing con Ruby
 

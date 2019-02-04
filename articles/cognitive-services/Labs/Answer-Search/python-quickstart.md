@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465509"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218293"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guida introduttiva: Project Answer Search con Python
 
@@ -41,7 +41,7 @@ Viene implementato nei passaggi seguenti:
 
 Il codice completo per questa demo è il seguente:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>Passaggi successivi
 - [Guida introduttiva in C#](c-sharp-quickstart.md)
 - [Guida introduttiva in Java](java-quickstart.md)

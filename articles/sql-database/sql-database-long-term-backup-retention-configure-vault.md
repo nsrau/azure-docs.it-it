@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603549"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455637"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurare la conservazione dei backup a lungo termine tramite l'insieme di credenziali di Servizi di ripristino di Azure
 
@@ -71,7 +71,7 @@ Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per 
    ![crea insieme di credenziali](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > L'insieme di credenziali deve trovarsi nella stessa area del server logico di Azure SQL e deve usare lo stesso gruppo di risorse del server logico.
+   > L'insieme di credenziali deve trovarsi nella stessa area del server di database SQL e deve usare lo stesso gruppo di server di database SQL.
 
 10. Dopo aver creato il nuovo insieme di credenziali, eseguire i passaggi necessari per tornare alla pagina **Insieme di credenziali di Servizi di ripristino**.
 
@@ -154,7 +154,7 @@ Nelle sezioni seguenti viene illustrato come usare PowerShell per configurare l'
 Usare [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) per creare un nuovo insieme di credenziali dei servizi di ripristino.
 
 > [!IMPORTANT]
-> L'insieme di credenziali deve trovarsi nella stessa area del server logico di Azure SQL e deve usare lo stesso gruppo di risorse del server logico.
+> L'insieme di credenziali deve trovarsi nella stessa area del server di database SQL e deve usare lo stesso gruppo di server di database SQL.
 
 ```PowerShell
 # Create a recovery services vault

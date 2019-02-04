@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare, distribuire e usare un modello personalizzato - Custom Translator'
+title: 'Guida introduttiva: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
 titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva illustra nel dettaglio il processo di creazione di un sistema di traduzione con Custom Translator.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 61e02a1c85e89e207a96ba56e068eaa96bff6b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975773"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205865"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Avvio rapido: Creare, distribuire e usare un modello personalizzato per la traduzione
 
 Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzione con Custom Translator.
 

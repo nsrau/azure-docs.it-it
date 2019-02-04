@@ -3,18 +3,18 @@ title: Guida introduttiva per aggiungere un utente guest con PowerShell per Coll
 description: In questa guida introduttiva si apprenderà come usare PowerShell per inviare un invito a un utente esterno di Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986563"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094802"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell
 
@@ -29,29 +29,29 @@ Verificare che sia installata la versione più recente del modulo di Azure AD Po
 
 Controllare innanzitutto quali moduli sono installati. Aprire Windows PowerShell come utente con privilegi elevati (Esegui come amministratore) ed eseguire il comando seguente:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Se il modulo AzureADPreview viene visualizzato senza alcun messaggio che indica la disponibilità di una versione più recente, procedere. In caso contrario, in base al contenuto del messaggio, eseguire una delle operazioni seguenti:
 
 - Se non viene restituito alcun risultato, eseguire il comando seguente per installare il modulo AzureADPreview:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Se nei risultati viene visualizzato solo il modulo AzureAD, eseguire i comandi seguenti per installare il modulo AzureADPreview: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Se nei risultati viene visualizzato solo il modulo AzureADPreview, ma si riceve un messaggio che indica che è disponibile una versione più recente, eseguire i comandi seguenti per aggiornare il modulo: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Potrebbe essere visualizzato un prompt che indica che si sta installando il modulo da un repository non attendibile. Ciò si verifica se il repository PSGallery non è stato precedentemente impostato come repository attendibile. Premere **Y** per installare il modulo.
 

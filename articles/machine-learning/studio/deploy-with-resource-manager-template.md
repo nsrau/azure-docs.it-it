@@ -1,5 +1,5 @@
 ---
-title: Distribuire l'area di lavoro di Studio con Azure Resource Manager titleSuffix: Azure Machine Learning Studio description: Come distribuire un'area di lavoro di Azure Machine Learning usando il modello di Azure Resource Manager services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Distribuire l'area di lavoro di Studio con Azure Resource Manager titleSuffix: Descrizione di Azure Machine Learning Studio: Come distribuire un'area di lavoro di Azure Machine Learning usando il modello di Azure Resource Manager services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
@@ -64,7 +64,7 @@ Salvare questo modello come file mlworkspace.json in c:\temp\.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Distribuire il gruppo di risorse in base al modello
 * Aprire PowerShell
-* Installare i moduli per Azure Resource Manager e Azure Service Management  
+* Installare i moduli per Azure Resource Manager e Azure Service Management
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -74,9 +74,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Con questi passaggi vengono scaricati e installati i moduli necessari per completare i passaggi rimanenti. È necessario eseguirli una sola volta nell'ambiente in cui si eseguono i comandi di PowerShell.   
+   Con questi passaggi vengono scaricati e installati i moduli necessari per completare i passaggi rimanenti. È necessario eseguirli una sola volta nell'ambiente in cui si eseguono i comandi di PowerShell.
 
-* Eseguire l'autenticazione ad Azure  
+* Eseguire l'autenticazione ad Azure
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -110,22 +110,22 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 Una volta completata la distribuzione, è semplice accedere alle proprietà dell'area di lavoro distribuita. Ad esempio, è possibile accedere al token di chiave primaria.
 
 ```
-# Access Azure ML Workspace Token after its deployment.
+# Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 Un altro modo per recuperare i token dell'area di lavoro esistente consiste nell'utilizzare il comando Invoke-AzureRmResourceAction. Ad esempio, è possibile elencare i token primari e secondari di tutte le aree di lavoro.
 
-```  
+```
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
-* Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates). 
-* Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
+* Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
+* Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Vedere la [guida di riferimento dei modelli di Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 <!--Image references--> [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
 

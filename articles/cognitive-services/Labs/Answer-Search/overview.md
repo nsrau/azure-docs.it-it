@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465917"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220196"
 ---
 # <a name="what-is-project-answer-search"></a>Informazioni su Project Answer Search
 L'API Project Answer Search usa l'endpoint Bing v7 per ottenere risposte alle query interrogative. Una domanda come ad esempio "Qual è la circonferenza della terra?" restituisce una risposta con informazioni fattuali.  Una query per una persona, un luogo o un oggetto restituisce informazioni sull'entità identificata dalla query. Questi scenari possono essere utili nelle applicazioni, ad esempio bot di conversazione, app di messaggistica, lettori e così via.  
@@ -28,10 +28,10 @@ Per ottenere risposte a una domanda o informazioni su una persona, un luogo o un
 La query seguente ottiene risposte alla domanda: "Qual è la circonferenza della terra?"
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 Il parametro URL `q=` è necessario per specificare l'oggetto della ricerca.
 
@@ -39,7 +39,7 @@ Il parametro URL `q=` è necessario per specificare l'oggetto della ricerca.
 
 La risposta include intestazioni HTTP, pagine Web, fatti e/o entità.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Condizioni per l'utilizzo
 Project Answer Search e Project Video Trends sono soggetti ai [requisiti di visualizzazione e utilizzo di Ricerca Bing](use-display-requirements.md).

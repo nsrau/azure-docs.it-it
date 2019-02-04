@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Traslitterare un testo, Node.js - API Traduzione testuale'
+title: 'Avvio rapido: Traslitterare un testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035816"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207922"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Traslitterare](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {

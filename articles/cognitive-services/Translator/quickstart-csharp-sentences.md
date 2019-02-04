@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, C# - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come determinare la lunghezza delle frasi con .NET Core e l'API Traduzione testuale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 868c19f8c9e42bcd4a03aa2c766dff185f6319a7
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: daa1afd2caf5d5bfa2452858501f550e4c7e387b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888342"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212019"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con C#
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con C#
 
 In questa guida introduttiva si apprenderà come determinare la lunghezza delle frasi con .NET Core e l'API Traduzione testuale.
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

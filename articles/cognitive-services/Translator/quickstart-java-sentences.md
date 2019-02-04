@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Java - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come determinare la lunghezza delle frasi con Java e l'API Traduzione testuale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888580"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208398"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Java
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Java
 
 In questo argomento di avvio rapido si apprenderà come determinare la lunghezza delle frasi con Java e l'API Traduzione testuale.
 

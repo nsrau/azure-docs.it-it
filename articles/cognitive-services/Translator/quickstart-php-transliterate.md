@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e858e33864ddec211f2424c7380b5b421a3db0f5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: becc73438762efb4b8cdda2be32e59feebc7dd20
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208195"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Avvio rapido: Traslitterare un testo con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
 

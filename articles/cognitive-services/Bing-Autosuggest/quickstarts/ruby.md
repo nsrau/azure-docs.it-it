@@ -1,25 +1,25 @@
 ---
-title: 'Guida introduttiva: API Suggerimenti automatici Bing, Ruby'
+title: 'Avvio rapido: API Suggerimenti automatici Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 463ad901edeec3790586f9494a7411b678c4ecf8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831178"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183612"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Avvio rapido per l'API Suggerimenti automatici Bing con Ruby 
 
-Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Ruby. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
+Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Ruby. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

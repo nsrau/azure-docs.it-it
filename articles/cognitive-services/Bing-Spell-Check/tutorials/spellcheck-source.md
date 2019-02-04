@@ -6,18 +6,18 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186519"
 ---
-# <a name="tutorial-single-page-web-app"></a>Esercitazione: app Web a pagina singola
+# <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 
 Qui è riportato il codice sorgente completo descritto nell'[esercitazione sull'app a pagina singola](spellcheck.md) per l'API Controllo ortografico Bing. Per eseguire l'app, copiare il codice sorgente in un editor di testo e salvarle il file con il nome `spellcheck.html`. Quindi aprire il file salvato nel Web browser.
 

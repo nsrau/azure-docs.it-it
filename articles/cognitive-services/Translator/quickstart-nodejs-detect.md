@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248762"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222049"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Rileva](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```javascript
 let options = {

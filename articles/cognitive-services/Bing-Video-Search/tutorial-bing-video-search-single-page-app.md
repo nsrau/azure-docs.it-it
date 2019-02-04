@@ -1,23 +1,23 @@
 ---
-title: "Esercitazione: creare un'app a singola pagina di ricerca video Bing"
+title: "Esercitazione: Creare un'app a pagina singola Ricerca video Bing"
 titlesuffix: Azure Cognitive Services
 description: Illustra come usare l'API Ricerca video Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: rosh
-ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5661cab24d3c5ada401f416a3d39b1a787094b5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226603"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175112"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Esercitazione: applicazione Ricerca video a pagina singola
+# <a name="tutorial-single-page-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video
 L'API Ricerca video Bing consente di eseguire ricerche sul Web e di ottenere come risultati video pertinenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca video Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.

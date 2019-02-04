@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API Suggerimenti automatici Bing, Java'
+title: 'Avvio rapido: API Suggerimenti automatici Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9a7edbd6c1099a79cf655a592fbe801d3c8f0061
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421119"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195482"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Avvio rapido per l'API Suggerimenti automatici Bing con Java
 
@@ -25,7 +25,7 @@ Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://a
 
 Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Suggerimenti automatici Bing versione 7**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/#search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Suggerimenti automatici Bing versione 7**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/#search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="get-autosuggest-results"></a>Ottenere risultati di Suggerimenti automatici
 
@@ -188,7 +188,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione per Suggerimenti automatici Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
 - [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

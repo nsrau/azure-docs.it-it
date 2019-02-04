@@ -6,20 +6,20 @@ services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 60585b2d5884962d0f988597ef1e50107e548122
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1b3bb50ac45c748ba54fa4cab21836fd8e7a299b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830618"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156787"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Avvio rapido per l'API Suggerimenti automatici Bing con Python
 
-Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Python. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
+Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Python. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

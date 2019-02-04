@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Bing Entity Search SDK, Python'
+title: 'Avvio rapido: SDK di Ricerca entità Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Configurazione per l'applicazione console Bing Entity Search SDK.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4e79fdbf465c04075320b71b5471b196e603d046
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d26a61a35525cc399b2ca5d6c8d19816018d5ebb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189715"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Guida introduttiva: Bing Entity Search SDK con Python
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Avvio rapido: SDK di Ricerca entità Bing con Python
 
 L'SDK di Ricerca entità contiene la funzionalità dell'API REST per query Web e analisi dei risultati.
 

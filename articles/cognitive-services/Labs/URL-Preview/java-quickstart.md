@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Progetto Anteprima URL, Java'
+title: 'Avvio rapido: Progetto Anteprima URL, Java'
 titlesuffix: Azure Cognitive Services
 description: Esempio di script per iniziare a usare Progetto Anteprima URL con Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cfc0cd690c040ed912281be081daffd26566bd4d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465713"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209125"
 ---
-# <a name="quickstart-url-preview-with-java"></a>Guida introduttiva: Anteprima URL con Java
+# <a name="quickstart-url-preview-with-java"></a>Avvio rapido: Anteprima URL con Java
 
 L'esempio in Java seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 
@@ -29,7 +29,7 @@ Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab d
 
 Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "https://swiftkey.com/en".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,7 +47,7 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Codice completo
 
@@ -58,7 +58,7 @@ L'API Bing Answer Search restituisce i risultati dal motore di ricerca Bing.
 4. Sostituire il valore subscriptionKey con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -165,7 +165,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Guida introduttiva in C#](csharp.md)

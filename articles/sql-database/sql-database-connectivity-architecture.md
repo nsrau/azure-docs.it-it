@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388346"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469115"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -34,7 +34,7 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 >
 > Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti:
 > - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni
-> - La logica di distribuzione automatizzata crea un server logico presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy`
+> - La logica di distribuzione automatizzata crea un database SQL presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy`
 >
 > Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In tal caso, è necessario aprire le regole del firewall e i gruppi di sicurezza di rete della macchina virtuale a tutti gli indirizzi IP di Azure dell'area appartenenti al [tag di servizio](../virtual-network/security-overview.md#service-tags) Sql per le porte 11000-12000. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
 > [!NOTE]

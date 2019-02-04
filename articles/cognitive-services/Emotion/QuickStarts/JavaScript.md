@@ -1,24 +1,24 @@
 ---
-title: "Guida introduttiva: Riconoscere le emozioni espresse dai visi in un'immagine - API Emozioni, JavaScript"
+title: "Avvio rapido: Riconoscere le emozioni espresse dai visi in un'immagine - API Emozioni, JavaScript"
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Emozioni con JavaScript.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239490"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208951"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Avvio rapido: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 
 > [!IMPORTANT]
 > L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 

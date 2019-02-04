@@ -6,22 +6,22 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869591"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226061"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>Esercitazione: Definizione e specifica di funzioni
 
 Questa esercitazione illustra la funzionalità avanzata di apprendimento automatico del Servizio decisionale personalizzato. L'esercitazione è costituita da due parti: [definizione delle funzioni](#featurization-concepts-and-implementation) e [specifica delle funzioni](#feature-specification-format-and-apis). La definizione delle funzioni è la rappresentazione dei dati come "funzioni" per l'apprendimento automatico. La specifica delle funzioni riguarda il formato JSON e le API ausiliarie per specificare le funzioni.
 
-Per impostazione predefinita, l'apprendimento automatico nel Servizio decisionale personalizzato è trasparente al cliente. Le funzioni vengono estratte automaticamente dal contenuto e viene usato un algoritmo di apprendimento per rinforzo standard. L'estrazione delle funzioni sfrutta molti altri Servizi cognitivi di Azure: [Collegamento delle entità](../entitylinking/home.md), [Analisi del testo](../text-analytics/overview.md), [Emozioni](../emotion/home.md) e [Visione artificiale](../computer-vision/home.md). È possibile saltare questa esercitazione se si usa solo la funzionalità predefinita.
+Per impostazione predefinita, l'apprendimento automatico nel Servizio decisionale personalizzato è trasparente al cliente. Le funzioni vengono estratte automaticamente dal contenuto e viene usato un algoritmo di apprendimento per rinforzo standard. L'estrazione delle funzioni sfrutta molti altri Servizi cognitivi di Azure: [Entity Linking](../entitylinking/home.md), [Analisi del testo](../text-analytics/overview.md), [Emozioni](../emotion/home.md) e [Visione artificiale](../computer-vision/home.md). È possibile saltare questa esercitazione se si usa solo la funzionalità predefinita.
 
 ## <a name="featurization-concepts-and-implementation"></a>Definizione delle funzioni: concetti e implementazione
 

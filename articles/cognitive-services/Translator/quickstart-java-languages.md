@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226974"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con Java
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Java
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 

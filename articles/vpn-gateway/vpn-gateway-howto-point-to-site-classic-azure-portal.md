@@ -73,11 +73,11 @@ Usare i valori seguenti per creare un ambiente di test o fare riferimento a ques
    - **Tipo di connessione**: Selezionare **Da punto a sito**.
    - **Spazio indirizzi client**: Immettere *172.16.201.0/24*. I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool specificato.
 
-- **Impostazioni di configurazione del gateway VPN**
+- **Impostazioni della subnet per la configurazione del gateway**
    - **Nome**: Completato automaticamente con *GatewaySubnet*.
    - **Intervallo di indirizzi**: Immettere *192.168.200.0/24*. 
 
-- **Impostazioni di configurazione del gateway VPN**:
+- **Impostazioni per la configurazione del gateway**
    - **Dimensione**: Selezionare lo SKU del gateway da usare.
    - **Tipo di routing**: Selezionare **Dinamico**.
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129072"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208092"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Esempio: Come identificare i visi nelle immagini
+# <a name="example-how-to-identify-faces-in-images"></a>Esempio: Come identificare visi nelle immagini
 
 Questa guida illustra come identificare visi sconosciuti tramite gruppi di persone (PersonGroup) creati anticipatamente da persone note. Gli esempi sono scritti in C# usando la libreria client dell'API Viso.
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-In alternativa, la chiave di sottoscrizione può anche essere specificata nell'intestazione della richiesta HTTP: **ocp-apim-subscription-key: &lt;Chiave sottoscrizione&gt;** Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceServiceClient. Ad esempio: 
+La chiave di sottoscrizione può essere in alternativa specificata nell'intestazione della richiesta HTTP: **ocp-apim-subscription-key: &lt;Chiave di sottoscrizione&gt;** Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceServiceClient. Ad esempio: 
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");

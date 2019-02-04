@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995609"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902687"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Creare una funzione attivata dall'archiviazione code di Azure
 
@@ -113,8 +113,9 @@ Connettersi quindi all'account di archiviazione di Azure e creare la coda di arc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita nel momento in cui un messaggio viene aggiunto a una coda di archiviazione.
+È stata creata una funzione che viene eseguita nel momento in cui un messaggio viene aggiunto a una coda di archiviazione. Per altre informazioni sui trigger dell'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Dopo avere creato la prima funzione, è possibile aggiungere un'associazione di output alla funzione che esegue il writeback del messaggio in un'altra coda.
 
-Per altre informazioni sui trigger dell'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md).
+> [!div class="nextstepaction"]
+> [Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni](functions-integrate-storage-queue-output-binding.md)

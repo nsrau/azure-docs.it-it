@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123080"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222899"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>Esempio: Come usare la funzionalità su larga scala
 
@@ -41,7 +41,7 @@ Se non si ha familiarità con i concetti seguenti in questa guida, cercare le de
 
 - LargePersonGroup: raccolta di persone con capacità fino a 1.000.000.
 - LargeFaceList: raccolta di visi con capacità fino a 1.000.000.
-- Train: analisi preliminare per verificare le prestazioni delle operazioni Identification/FindSimilar.
+- Training: analisi preliminare per verificare le prestazioni delle operazioni Identification/FindSimilar.
 - Identification: identificazione di uno o più visi in un elemento PersonGroup o LargePersonGroup.
 - FindSimilar: ricerca di visi simili in un elemento FaceList o LargeFaceList.
 
@@ -220,8 +220,8 @@ I tempi di training stimati per dimensioni diverse sono elencati nella tabella s
 | Dimensione (visi o persone) | Tempo di training stimato |
 |:---:|:---:|
 | 1.000 | 1-2 s |
-| 10.000 | 5-10 s |
-| 100.000 | 1-2 min |
+| 10,000 | 5-10 s |
+| 100,000 | 1-2 min |
 | 1.000.000 | 10-30 min |
 
 Per usare al meglio la funzionalità su larga scala, è consigliabile prendere in considerazione alcune strategie.

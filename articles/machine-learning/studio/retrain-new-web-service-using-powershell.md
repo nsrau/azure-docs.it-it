@@ -1,6 +1,6 @@
 ---
-title: Ripetere il training di un nuovo servizio Web di Machine Learning Studio con PowerShell titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello in modo programmatico e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Ripetere il training di un nuovo servizio Web di Machine Learning Studio con PowerShell titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello in modo programmatico e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
 ---

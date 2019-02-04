@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807457"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211433"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guida di Azure per sviluppatori di R
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -83,23 +83,23 @@ L'articolo ["Cos'è Azure Databricks?"](https://docs.microsoft.com/azure/azure-d
 può fornire altri dettagli sulla piattaforma e acquisire familiarità con essa.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva nel cloud.  Consente ai data scientist emergenti di creare e distribuire modelli di machine learning senza la necessità di scrivere tutto il codice.
+[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) è uno strumento di trascinamento della selezione collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva nel cloud.  Consente ai data scientist emergenti di creare e distribuire modelli di machine learning senza la necessità di scrivere tutto il codice.
 
-Machine Learning Studio supporta sia R che Python.  È possibile usare R con Machine Learning Studio in due modi.
+Azure Machine Learning Studio supporta sia R che Python.  È possibile usare R con Azure Machine Learning Studio in due modi.
 
 ### <a name="custom-r-scripts-in-your-experiments"></a>Personalizza gli script R negli esperimenti
 In primo luogo, è possibile estendere la manipolazione dei dati e le funzionalità di machine learning di ML Studio scrivendo script R personalizzati.
 Anche se ML Studio comprende un'ampia gamma di moduli per la preparazione e l'analisi dei dati, può non essere compatibile con le funzionalità di un linguaggio avanzato come quello R. Pertanto, il servizio è stato progettato per consentire l'introduzione degli script R personalizzati nei casi in cui i moduli forniti non soddisfino le proprie esigenze.
 
-Per sfruttare questa funzionalità, trascinare un modulo "Esegui Script R"nell'esperimento.  Quindi usare il codice editor nel riquadro "Proprietà" per scrivere un nuovo script R o incollare uno script esistente.  All'interno dello script, è possibile fare riferimento ai pacchetti R esterni.  È possibile usare lo script per modificare i dati o eseguire il training di modelli di Machine Learning complessi che non fanno parte della raccolta del modello di Machine Learning Studio standard.
+Per sfruttare questa funzionalità, trascinare un modulo "Esegui Script R"nell'esperimento.  Quindi usare il codice editor nel riquadro "Proprietà" per scrivere un nuovo script R o incollare uno script esistente.  All'interno dello script, è possibile fare riferimento ai pacchetti R esterni.  È possibile usare lo script per modificare i dati o eseguire il training di modelli di Machine Learning complessi che non fanno parte della raccolta del modello di Azure Machine Learning Studio standard.
 
-Per un'introduzione completa all'uso di R all'interno di esperimenti di Machine Learning Studio, consultare ["Esercitazione con guida rapida al linguaggio di programmazione R di Azure Machine Learning"](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart).
+Per un'introduzione completa all'uso di R all'interno di esperimenti di Machine Learning Studio, consultare ["Esercitazione di avvio rapido per il linguaggio di programmazione R per Azure Machine Learning Studio"](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart).
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>Creare, gestire e distribuire gli esperimenti dall'ambiente R locale
-L'altro modo per usare R con Machine Learning Studio consiste nell'usare il
-pacchetto <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> per monitorare e controllare il processo di sperimentazione con l'ambiente di programmazione R.  Questo pacchetto gestito da Microsoft, consente di caricare e scaricare i set di dati da e verso Azure Machine Learning, interrogare gli esperimenti, pubblicare funzioni di R come i servizi web di Azure Machine Learning ed eseguire i dati R tramite i servizi web esistenti e recuperare l'output.
+L'altro modo per usare R con Azure Machine Learning Studio consiste nell'usare il
+pacchetto <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> per monitorare e controllare il processo di sperimentazione con l'ambiente di programmazione R.  Questo pacchetto gestito da Microsoft consente di caricare e scaricare i set di dati da e verso Azure Machine Learning Studio, interrogare gli esperimenti, pubblicare funzioni di R come i servizi Web, eseguire i dati R tramite i servizi Web esistenti e recuperare l'output.
 
-Questo pacchetto rende molto più semplice l'utilizzo di Azure Machine Learning come piattaforma di distribuzione scalabile per il codice R.  Invece di selezionare e trascinare nell'interfaccia utente, è possibile automatizzare l'intero processo di distribuzione usando lo strumento che già si conosce.
+Questo pacchetto rende molto più semplice l'uso di Azure Machine Learning Studio come piattaforma di distribuzione scalabile per il codice R.  Invece di selezionare e trascinare nell'interfaccia utente, è possibile automatizzare l'intero processo di distribuzione usando lo strumento che già si conosce.
 
 ## <a name="azure-batch"></a>Azure Batch
 Per i processi R su larga scala, è possibile usare [Azure Batch](https://azure.microsoft.com/services/batch/).  Questo servizio consente la gestione di calcolo e pianificazione del processo su scala cloud in modo da poter ridimensionare il carico di lavoro R tra decine, centinaia o migliaia di macchine virtuali.  Poichè si tratta di una piattaforma di calcolo generalizzata, esistono alcune opzioni per l'esecuzione di processi R con Azure Batch.
@@ -114,7 +114,7 @@ Una terza opzione consiste nell'usare la [Azure Distributed Data Engineering Too
 
 [Azure Notebooks](https://notebooks.azure.com) è un metodo economico e a basso attrito per gli sviluppatori di R che preferiscono lavorare con i notebook per portare il proprio codice ad Azure.  È un servizio gratuito per tutti coloro che vogliono sviluppare ed eseguire un codice nel proprio browser usando [Jupyter](https://jupyter.org/), ovvero un progetto open source che consente di combinare markdown della prosa, codice eseguibile e grafica in una canvas singola.
 
-Il livello di servizio gratuito di Azure Notebooks è un'opzione valida per i progetti su scala ridotta, poiché limita il processo di ogni notebook a 4 GB di memoria e 1 GB di set di dati. Se sono necessari più dati e potenza di calcolo rispetto a queste limitazioni, tuttavia, è possibile eseguire i notebook in un'istanza di Data Science Virtual Machine. Per altre informazioni, vedere [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) (Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo).
+Il livello di servizio gratuito di Azure Notebooks è un'opzione valida per i progetti su scala ridotta, poiché limita il processo di ogni notebook a 4 GB di memoria e 1 GB di set di dati. Se sono necessari più dati e potenza di calcolo rispetto a queste limitazioni, tuttavia, è possibile eseguire i notebook in un'istanza di Data Science Virtual Machine. Per altre informazioni, vedere [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo).
 
 ## <a name="azure-sql-database"></a>Database SQL di Azure
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) è un servizio di database cloud relazionale completamente gestito e intelligente.  Consente di usare tutta la potenza di SQL Server senza alcun problema di configurazione dell'infrastruttura.  Questo comprende [Servizi di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), ovvero una delle aggiunte più recenti al servizio SQL.

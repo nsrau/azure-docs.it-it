@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026263"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211169"
 ---
 # <a name="example-call-emotion-api-for-video"></a>Esempio: Chiamare l'API Emozioni per un video
 
@@ -28,7 +28,7 @@ Questa guida descrive come chiamare l'API Emozioni per i video. Gli esempi sono 
 ### <a name="Prep">Operazioni preliminari</a>
 Per usare l'API Emozioni per i video, occorre un video che includa persone, preferibilmente con il viso rivolto verso la telecamera.
 
-### <a name="Step1">Passaggio 1: Autorizzare la chiamata all'API</a>
+### <a name="Step1">Passaggio 1: Autorizzare la chiamata API</a>
 Ogni chiamata all'API Emozioni per i video richiede una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o essere specificata nell'intestazione della richiesta. Per passare la chiave di sottoscrizione tramite una stringa di query, fare riferimento all'URL della richiesta seguente per l'API Emozioni per i video, ad esempio:
 
 ```
@@ -48,7 +48,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 Per ottenere una chiave di sottoscrizione, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Passaggio 2: Caricare un video nel servizi e controllarne lo stato</a>
+### <a name="Step2">Passaggio 2: Caricare un video nel servizio e controllarne lo stato</a>
 Il modo più semplice per eseguire una qualsiasi chiamata all'API Emozioni per i video consiste nel caricare il video direttamente. Si invia a tal fine una richiesta "POST" con il tipo di contenuto del flusso applicazione/flusso di ottetti insieme ai dati letti da un file video. La dimensione massima del video è di 100 MB.
 
 Quando di usa la libreria client, la stabilizzazione tramite caricamento viene ottenuta passando un oggetto flusso. Vedere l'esempio seguente:
@@ -117,7 +117,7 @@ Il file JSON sul rilevamento e monitoraggio dei volti include gli attributi segu
 
 Attributo | DESCRIZIONE
 -------------|-------------
-Version | Si riferisce alla versione dell'API Emozioni per i video JSON.
+Versione | Si riferisce alla versione dell'API Emozioni per i video JSON.
 Scala cronologica | "Tick" al secondo del video.
 Offset  |Differenza di orario dei timestamp. Nella versione 1.0 dell'API Emozioni per i video, questo valore sarà sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare.
 Frequenza fotogrammi | Fotogrammi al secondo del video.

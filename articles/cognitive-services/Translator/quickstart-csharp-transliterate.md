@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Convertire uno script di testo, C# - Traduzione testuale'
+title: 'Avvio rapido: Convertire uno script di testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889141"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220154"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con C#
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

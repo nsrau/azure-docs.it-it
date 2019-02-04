@@ -2,18 +2,18 @@
 title: Configurare gli endpoint del nodo nel pool di Azure Batch | Microsoft Docs
 description: Come configurare o disabilitare l'accesso alle porte SSH o RDP nei nodi di calcolo in un pool di Azure Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
-ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: lahugh
+ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358728"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457616"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch
 

@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344575"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216422"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 

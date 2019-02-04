@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Uso di Java per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Java per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo nei Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fdca883e2637998222bfcc4cdc799fe4dec4ab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223307"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Java per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Java per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.

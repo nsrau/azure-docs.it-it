@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329705"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466354"
 documentType: LandingData
 title: Istanza gestita di database SQL di Azure
 metadata:
@@ -78,7 +78,7 @@ sections:
     - html: È possibile <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare un periodo di conservazione backup fino a 35 giorni</a> per il ripristino temporizzato. Si noti che la conservazione backup a lungo termine (fino a 10 anni) non è ancora abilitata ed è quindi possibile usare <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come opzione alternativa.
     - html: (Anteprima) È possibile usare <a href="https://aka.ms/managed-instance-failover-groups">gruppi di failover con distribuzione geografica</a> per mantenere una copia dell'istanza in un'altra area geografica e assicurare che i dati saranno disponibili anche in caso di emergenza a livello di area.
     - html: (Anteprima) È possibile <a href="https://aka.ms/managed-instance-tde-byok">trasferire le proprie chiavi di crittografia</a> durante la migrazione di database locali per i quali è già abilitata la tecnologia Transparent Data Encryption (TDE).
-    - html: Le istanze gestite sono protette con un <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">firewall predefinito</a>.
+    - html: Le istanze gestite sono protette con un <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall predefinito</a>.
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph

@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217629"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 
@@ -46,7 +46,7 @@ Ad esempio:
 * Se si intende usare il riconoscimento vocale in un ambiente rumoroso, i file audio devono contenere persone che parlano in tale ambiente.
 * Se si è interessati a ottimizzare le prestazioni per un unico parlante, ad esempio, si vogliono trascrivere i famosi discorsi radiofonici del presidente Franklin D. Roosevelt, i file audio devono essere costituiti da numerosi esempi di tale voce parlante.
 
-Un set di dati acustico per la personalizzazione del modello acustico si compone di due parti: (1) un set di file audio contenente i dati per il riconoscimento vocale e (2) un file con le trascrizioni di tutti i file audio.
+Un set di dati acustici per la personalizzazione del modello acustico si compone di due parti: (1) un set di file audio contenente i dati per il riconoscimento vocale e (2) un file con le trascrizioni di tutti i file audio.
 
 ### <a name="audio-data-recommendations"></a>Consigli per i dati audio
 

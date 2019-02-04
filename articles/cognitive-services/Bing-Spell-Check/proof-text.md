@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345709"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149772"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 
@@ -39,7 +39,7 @@ Questo correttore ortografico può gestire qualsiasi scenario di elaborazione di
 L'API supporta due modalità di controllo ortografico, `Proof` e `Spell`.  Alcuni esempi sono disponibili [qui](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Proof - Per scenari relativi ai documenti
 La modalità predefinita è `Proof`. La modalità di controllo ortografico `Proof` offre i controlli più completi, incluse la distinzione tra maiuscole e minuscole, la punteggiatura di base e altre funzionalità utili per la creazione di documenti. È tuttavia disponibile solo nei mercati en-US (Inglese - Stati Uniti), es-ES (Spagnolo), pt-BR (Portoghese). Nota: per lo spagnolo e il portoghese è disponibile solo la versione beta. Per tutti gli altri mercati è necessario impostare su Spell il parametro della query per la modalità. 
-<br /><br/>**NOTA:** se la lunghezza del testo della query è superiore a 4096, il testo verrà troncato a 4096 caratteri e quindi verrà elaborato. 
+<br /><br/>**NOTA:**   se la lunghezza del testo della query è superiore a 4096, il testo verrà troncato a 4096 caratteri e quindi verrà elaborato. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell - Per scenari di ricerche Web/query
 L'opzione `Spell` è più aggressiva, in modo da restituire risultati della ricerca migliori. La modalità `Spell` individua la maggior parte degli errori di ortografia, ma non trova alcuni errori grammaticali rilevati da `Proof`, ad esempio gli errori relativi a maiuscole e minuscole e alle parole ripetute.
 

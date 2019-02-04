@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Python'
+title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Python SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: b95adf3cb07ae98d4b690dbe29d72d30671c4a6a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 25528d0d867700dcf1f46b62fbac387c3a1b6481
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681212"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214127"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Python
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con Python per compilare un modello di classificazione delle immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 

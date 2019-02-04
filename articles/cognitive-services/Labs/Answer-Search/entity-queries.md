@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210693"
 ---
 # <a name="quickstart-query-for-entities"></a>Guida introduttiva: Query per le entità
 
@@ -33,7 +33,7 @@ Per determinare lo scenario di query, usare il campo `queryScenario` dell'oggett
 -   Attraction 
  
 Per determinare il tipo di entità che contiene la risposta, usare il campo `entityTypeHints` come illustrato nella query per Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ Per determinare il tipo di entità che contiene la risposta, usare il campo `ent
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 Di seguito è riportata una query per Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 La risposta include il riscontro `entities`. Notare i campi `entityScenario` e `entityTypeHints`. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ La risposta include il riscontro `entities`. Notare i campi `entityScenario` e `
       }
     ]
   },
-````
+```
 
 Una query può restituire un elenco se è pertinente.
 
 **Query:** la query seguente trova un elenco delle specie in pericolo:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **Risposta:** la risposta include un elenco formattato per la visualizzazione come valori tabulari:
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

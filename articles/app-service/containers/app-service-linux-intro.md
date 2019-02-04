@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232788"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903724"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
-[App Web](../overview.md) è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. I clienti possono usare il servizio app in Linux per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. Le sezioni seguenti elencano gli stack di applicazioni attualmente supportati.
+[Servizio app di Azure](../overview.md) è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. I clienti possono usare il servizio app in Linux per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. La sezione [Linguaggi](#languages) elenca gli stack di applicazioni attualmente supportati.
 
-## <a name="languages"></a>Lingue
+## <a name="languages"></a>Languages
 
 Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la produttività degli sviluppatori. Se il runtime richiesto dall'applicazione non è supportato nelle immagini incorporate, sono disponibili istruzioni su come [creare un'immagine Docker personalizzata](tutorial-custom-docker-image.md) da distribuire in app Web per contenitori.
 
@@ -40,8 +40,6 @@ Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la 
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
 
-Per altri dettagli, vedere [Creare un'app Web Java nel servizio app in Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
-
 ## <a name="deployments"></a>Deployments
 
 * FTP
@@ -52,7 +50,7 @@ Per altri dettagli, vedere [Creare un'app Web Java nel servizio app in Linux](ht
 ## <a name="devops"></a>DevOps
 
 * Ambienti di staging
-* [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) e DockerHub CI/CD
+* [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/container-registry-intro) e DockerHub CI/CD
 
 ## <a name="console-publishing-and-debugging"></a>Console, pubblicazione e debug
 
@@ -75,7 +73,9 @@ Il portale di Azure mostra solo le funzionalità che possono essere usate attual
 
 Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, non sono ancora disponibili. Man mano che queste funzionalità dinvetano disponibili, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
-In Linux il servizio app è supportato solo nei piani di servizio app [Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux. Una limitazione corrente impedisce anche che nello stesso gruppo di risorse si trovino app di Windows e di Linux.
+In Linux il servizio app è supportato solo nei piani di servizio app [Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux. 
+
+Inoltre, in base una limitazione corrente, non combinare app di Windows e Linux nello stesso gruppo di risorse.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -84,9 +84,11 @@ Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Re
 
 ![Abilitazione della registrazione][2]
 
-![Uso di Kudu per visualizzare i log di Docker][1]
+L'impostazione ha effetto immediato. Il servizio app rileva la modifica delle impostazioni e riavvia automaticamente il contenitore per l'utente.
 
 È possibile accedere al sito SCM da **Strumenti avanzati** nel menu **Strumenti di sviluppo**.
+
+![Uso di Kudu per visualizzare i log di Docker][1]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -101,7 +103,7 @@ Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux co
 * [Go](quickstart-docker-go.md)
 * [App con più contenitori](quickstart-multi-container.md)
 
-Vedere anche gli articoli seguenti per altre informazioni sul servizio app in Linux:
+Per altre informazioni sul Servizio app in Linux, vedere:
 
 * [Domande frequenti sul servizio app per Linux](app-service-linux-faq.md)
 * [Supporto SSH per il servizio app in Linux](app-service-linux-ssh-support.md)

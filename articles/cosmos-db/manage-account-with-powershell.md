@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7f58e851ab7783e43cd6235b2169847cbf0ac5a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 80ed88bbc901d2cbcd6bc8104e55de73549744f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036631"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477829"
 ---
-# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>Creare e gestire risorse di Azure Cosmos DB tramite PowerShell
+# <a name="manage-azure-cosmos-resources-using-powershell"></a>Gestire le risorse di Azure Cosmos DB usando PowerShell
 
 La guida seguente illustra i comandi per automatizzare la gestione degli account del database Azure Cosmos DB usando Azure Powershell. Include anche i comandi per gestire le chiavi dell'account e le priorità di failover in [account di database tra più aree][distribute-data-globally]. L'aggiornamento dell'account del database consente di modificare i criteri di coerenza e di aggiungere/rimuovere le aree. Per la gestione multipiattaforma dell'account di Azure Cosmos DB, è possibile usare l'[interfaccia della riga di comando di Azure](cli-samples.md), l'[API REST del provider di risorse][rp-rest-api] o il [portale di Azure](create-sql-api-dotnet.md#create-account).
 

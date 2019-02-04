@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210948"
 ---
-# <a name="quickstart-query-for-facts"></a>Guida introduttiva: Query per fatti
+# <a name="quickstart-query-for-facts"></a>Guida introduttiva: Query per i fatti
 
 Se la query è per un fatto, ad esempio una data o informazioni personali, la risposta può contenere risposte `facts`. Le risposte di fatti contengono i risultati pertinenti estratti da paragrafi di documenti Web.  Queste query restituiscono sempre pagine Web, e i [fatti](fact-queries.md) e/o le [entità](entity-queries.md) dipendono dalla query.
 
@@ -26,14 +26,14 @@ Le query come San Valentino+2016 o quando+è+il+ramadan vengono considerate quer
 L'esempio seguente contiene una risposta `facts` correlata a date. 
 
 **Query:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
 **Risposta:** il campo `subjectName` contiene una versione visualizzata della query dell'utente che è possibile usare come etichetta quando si visualizza il fatto. Se la stringa di query è San Valentino+2016, Bing può modificarla con il giorno di San Valentino 2016. Il campo descrizione contiene il fatto.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 La query "Why is the sky blue?" restituisce un esempio di una risposta correlata a informazioni.
 
 **Query:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
 **Risposta:** il campo `value/description` contiene le informazioni richieste dalla query.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Dati tabulari
 In alcuni casi, i fatti possono essere restituiti come `_type: StructuredValue/TabularData`. La query seguente ottiene i dati tabulari con informazioni contrastanti su caffè e tè.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 I risultati `facts` includono le righe e celle seguenti:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ I risultati `facts` includono le righe e celle seguenti:
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Guida introduttiva in C#](c-sharp-quickstart.md)

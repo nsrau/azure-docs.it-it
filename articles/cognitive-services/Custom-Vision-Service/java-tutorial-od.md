@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java'
+title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Java SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: d5dd481d32ede9a400def02d421a7cb8b816338a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8012dd484e769041ea235c33c334bfbbf8580800
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279586"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207650"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con Java per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. 
 

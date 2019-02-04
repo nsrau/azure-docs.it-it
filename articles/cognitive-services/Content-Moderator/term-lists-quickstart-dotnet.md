@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: af65fffaf864fd4d5b7123b4c6b66644ef6624e7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b3b2d7fe3268846546d1727b62018d9ef5b409ce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219295"
 ---
 # <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Guida introduttiva: Controllare testo in base a un elenco personalizzato di termini in C#
 

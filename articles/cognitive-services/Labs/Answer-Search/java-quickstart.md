@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226877"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Guida introduttiva: Query di Project Answer Search in Java
 Questo articolo usa Java per illustrare l'API Bing Answer Search, parte di Servizi cognitivi Microsoft in Azure. L'API è un servizio Web REST compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare i dati JSON.
@@ -30,7 +30,7 @@ Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab d
 
 Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "Gibraltar".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Codice completo
 
@@ -57,7 +57,7 @@ L'API Bing Answer Search restituisce i risultati dal motore di ricerca Bing.
 4. Sostituire il valore subscriptionKey con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Guida introduttiva in C#](c-sharp-quickstart.md)
