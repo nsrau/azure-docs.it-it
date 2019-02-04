@@ -132,6 +132,12 @@ items:
       href: event-hubs-management-libraries.md
   - name: Ottenere la stringa di connessione di Hub eventi
     href: event-hubs-get-connection-string.md
+  - name: Sviluppo Java
+    items:
+    - name: Creare un'app Spring Cloud Stream Binder
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+    - name: Usare l'utilità di avvio Spring Boot per Apache Kafka
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
   - name: Risolvere problemi
     items:
     - name: Eccezioni
@@ -149,7 +155,7 @@ items:
   - name: Creare un'applicazione Spring Cloud Stream Binder
     href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
     maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Java
     items:
@@ -193,9 +199,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 16f34ab31adc7cb45ac9adf8b22123786d6f8b73
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 95e32aa7c38ba5cda4ac6a83bb72f5d28d5b5e9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099244"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560788"

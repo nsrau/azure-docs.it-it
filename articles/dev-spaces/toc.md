@@ -10,16 +10,20 @@
 ## Esercitazioni
 ### Java (Visual Studio Code & interfaccia della riga di comando)
 #### [1 - Introduzione](get-started-java.md)
-#### [2 - Team di sviluppo](team-development-java.md)
+#### [2 - Sviluppo di più servizi](multi-service-java.md)
+#### [3 - Sviluppo in team](team-development-java.md)
 ### .NET Core (Visual Studio Code e interfaccia della riga di comando)
 #### [1 - Introduzione](get-started-netcore.md)
-#### [2 - Team di sviluppo](team-development-netcore.md)
+#### [2 - Sviluppo di più servizi](multi-service-netcore.md)
+#### [3 - Sviluppo in team](team-development-netcore.md)
 ### .NET Core (Visual Studio 2017)
 #### [1 - Introduzione](get-started-netcore-visualstudio.md)
-#### [2 - Team di sviluppo](team-development-netcore-visualstudio.md)
+#### [2 - Sviluppo di più servizi](multi-service-netcore-visualstudio.md)
+#### [3 - Sviluppo in team](team-development-netcore-visualstudio.md)
 ### Node.js (Visual Studio Code e interfaccia della riga di comando)
 #### [1 - Introduzione](get-started-nodejs.md)
-#### [2 - Team di sviluppo](team-development-nodejs.md)
+#### [2 - Sviluppo di più servizi](multi-service-nodejs.md)
+#### [3 - Sviluppo in team](team-development-nodejs.md)
 
 ## Procedure
 ### [Creare un cluster Kubernetes usando Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
@@ -28,9 +32,7 @@
 ### [Usare un feed NuGet personalizzato](how-to/use-custom-nuget-feed.md)
 ### [Usare kubectl con Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Aggiornare Azure Dev Spaces Tools](how-to/upgrade-tools.md)
+### [Uso di CI/CD con Azure Dev Spaces](how-to/setup-cicd.md)
 ### [Continuità aziendale e ripristino di emergenza per Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
 ## [Risoluzione dei problemi](troubleshooting.md)
-
-
-

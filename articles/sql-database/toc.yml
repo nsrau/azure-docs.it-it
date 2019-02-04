@@ -545,6 +545,12 @@ items:
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Java
+      items:
+      - name: Usare JDBC per Spring Data
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+      - name: Usare JPA per Spring Data
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Progettare le applicazioni
     items:
     - name: Progettazione per il ripristino di emergenza
@@ -615,7 +621,7 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -704,9 +710,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1e0f7cb461441c500e3fd1b9b78ae6e829d9d578
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512415"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561451"

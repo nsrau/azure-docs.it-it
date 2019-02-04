@@ -1,48 +1,45 @@
 items:
-- name: Documentazione di Ricerca video Bing
+- name: Documentazione dell'API Ricerca video Bing
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Ricerca video Bing
-    href: search-the-web.md
+  - name: Che cos'è l'API Ricerca video Bing?
+    href: overview.md
   - name: Confrontare le API di ricerca Bing
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
+  expanded: true
 - name: Guide introduttive per l'API REST
   items:
-  - name: Attività iniziali
-    href: quick-start.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
+  - name: API REST
+    items:
+    - name: Uso di C#
+      href: quickstarts/csharp.md
+    - name: Uso di Java
+      href: quickstarts/java.md
+    - name: Uso di Node.js
+      href: quickstarts/nodejs.md
+    - name: Uso di PHP
+      href: quickstarts/php.md
+    - name: Uso di Python
+      href: quickstarts/python.md
+    - name: Uso di Ruby
+      href: quickstarts/ruby.md
+  - name: SDK
+    items:
+    - name: Uso di C#
+      href: quickstarts/sdk-csharp-quickstart.md
+    - name: Uso di Node.js
+      href: quickstarts/sdk-node-quickstart.md
+    - name: Uso di Python
+      href: quickstarts/sdk-python-quickstart.md
+    - name: Uso di Java
+      href: quickstarts/sdk-java-quickstart.md
   expanded: true
-- name: Guide introduttive per SDK
-  items:
-  - name: Panoramica degli esempi di SDK
-    href: sdk.md
-  - name: Guida introduttiva per Video Search SDK in C#
-    href: video-search-sdk-quickstart.md
-  - name: Guida introduttiva per Video Search SDK in Node
-    href: video-search-sdk-node-quickstart.md
-  - name: Guida introduttiva per Video Search SDK in Python
-    href: video-sdk-python-quickstart.md
-  - name: Guida introduttiva per Video Search SDK in Java
-    href: video-sdk-java-quickstart.md
 - name: Esercitazioni
   items:
-  - name: App Web a singola pagina
+  - name: Creare app Web a pagina singola
     href: tutorial-bing-video-search-single-page-app.md
-  - name: App Web a singola pagina (codice sorgente)
-    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Esempi
   items:
   - name: Esempi di codice
@@ -59,7 +56,13 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: Aggiornamento da v5 a v7
     href: bing-video-upgrade-guide-v5-to-v7.md
-- name: riferimento
+- name: Concetti
+  items:
+  - name: Recupero di video dal Web
+    href: concepts/get-videos.md
+  - name: Invio delle richieste di ricerca
+    href: concepts/sending-requests.md
+- name: Informazioni di riferimento
   items:
   - name: API Ricerca video Bing v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
@@ -98,13 +101,11 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Prova
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Endpoint di Ricerca video Bing
-    href: video-search-endpoints.md
   - name: Analisi per l'API Ricerca video Bing
     href: bing-video-stats.md
-ms.openlocfilehash: e8f0e84b405232ff7145f0a8fed4ab42d03a4c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509702"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568036"

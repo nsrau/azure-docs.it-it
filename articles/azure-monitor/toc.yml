@@ -343,6 +343,8 @@ items:
           href: app/java-filter-telemetry.md
         - name: Metriche di Micrometer
           href: app/micrometer-java.md
+        - name: Configurare un'app di inizializzazione Spring Boot
+          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
       - name: App Node.js
         items:
         - name: Node.js
@@ -850,7 +852,7 @@ items:
         href: platform/powershell-quickstart-samples.md
       - name: Cmdlet PowerShell
         href: platform/powershell-workspace-configuration.md
-      - name: APPLICAZIONI
+      - name: Applicazioni
         items:
         - name: Creare risorse di Application Insights
           href: app/powershell.md
@@ -906,7 +908,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
@@ -1021,9 +1023,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 1199720ddd3014c52c8436e06a638876a7ecb486
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 751b6c7066a85258b7b7449969ea185cec354644
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297753"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564375"
