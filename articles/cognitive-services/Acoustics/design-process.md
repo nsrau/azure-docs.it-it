@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901363"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470486"
 ---
 # <a name="design-process-overview"></a>Panoramica del processo di progettazione
 È possibile esprimere la finalità della progettazione in tutte e tre le fasi del flusso di lavoro di Project Acoustics: impostazione scena pre-bake, posizionamento della sorgente sonora e progettazione post-bake. Il processo richiede meno markup associato al posizionamento dei volumi di riverbero pur mantenendo il controllo sull'audio di una scena.
@@ -39,7 +39,7 @@ Visualizzare i voxel e i punti di probe in fase di esecuzione consente di esegui
 La visualizzazione dei voxel consente di determinare se ai componenti visivi del gioco è applicata una trasformazione. In questo caso, applicare la stessa trasformazione all'elemento GameObject che ospita **Acoustics Manager**.
 
 ### <a name="voxel-size-discrepancies"></a>Discrepanze nella dimensione dei voxel
-È possibile notare che la dimensione dei voxel utilizzati per illustrare quali dei mesh della scena partecipano al bake acustico è diversa nelle viste di runtime e della fase di progettazione. Questa differenza non influisce sulla qualità e la granularità della frequenza di simulazione selezionata, ma è piuttosto un effetto collaterale dell'uso della scena con voxel al runtime. Al runtime i voxel di simulazione vengono "affinati" per supportare l'interpolazione tra le posizioni di origine. Questo permette anche, in fase di progettazione, di posizionare origini audio più vicine ai mesh della scena rispetto a quanto consentito dalla dimensione dei voxel di simulazione, poiché le origini all'interno di un voxel che contengono un mesh trattato per l'acustica non emettono alcun suono.
+È possibile notare che la dimensione dei voxel utilizzati per illustrare quali dei mesh della scena partecipano al bake acustico è diversa nelle viste di runtime e della fase di progettazione. Questa differenza non influisce sulla qualità e la granularità della frequenza di simulazione selezionata, ma è piuttosto un effetto collaterale dell'uso della scena con voxel al runtime. Al runtime, i voxel di simulazione vengono "affinati" per supportare l'interpolazione tra le posizioni di origine. Questo permette anche, in fase di progettazione, di posizionare origini audio più vicine ai mesh della scena rispetto a quanto consentito dalla dimensione dei voxel di simulazione, poiché le origini all'interno di un voxel che contengono un mesh trattato per l'acustica non emettono alcun suono.
 
 Ecco due immagini che mostrano la differenza tra voxel di progettazione (pre-bake) e voxel di runtime (post-bake) come sono visualizzati dal plug-in Unity:
 
@@ -61,24 +61,30 @@ Il DSP audio fornito dal plug-in di spazializzazione di Unity **Microsoft Acoust
 
 ![Attenuazione della distanza](media/distanceattenuation.png)
 
-I calcoli acustici vengono eseguiti in un'area "di simulazione", un riquadro centrato intorno alla posizione del lettore. Se un'origine audio è distante dal lettore, fuori da quest'area simulazione, solo la geometria all'interno del riquadro influirà sulla propagazione dell'audio, ad esempio causando occlusione, cosa che funziona ragionevolmente bene quando sono presenti elementi di occlusione in prossimità del lettore. Quando il lettore si trova invece in uno spazio aperto, ma gli elementi di occlusione sono vicino all'origine audio distante, la rimozione dell'effetto occlusione può risultare non realistica. La soluzione alternativa suggerita in questi casi è assicurarsi che l'attenuazione dell'audio diminuisca a 0 a circa 45 metri, la distanza orizzontale predefinita dal lettore al lato del riquadro.
+I calcoli acustici vengono eseguiti in un'area "di simulazione", un riquadro centrato intorno alla posizione del lettore. Se un'origine audio è distante dal lettore, fuori da quest'area simulazione, solo la geometria all'interno del riquadro influirà sulla propagazione dell'audio, ad esempio causando occlusione, cosa che funziona ragionevolmente bene quando sono presenti elementi di occlusione in prossimità del lettore. Quando il lettore si trova invece in uno spazio aperto, ma gli elementi di occlusione sono vicino all'origine audio distante, la rimozione dell'effetto occlusione può risultare non realistica. La soluzione alternativa suggerita in questi casi è assicurarsi che l'attenuazione dell'audio diminuisca a 0 a circa 45 m, la distanza orizzontale predefinita dal lettore al lato del riquadro.
 
 ### <a name="tuning-scene-parameters"></a>Regolazione dei parametri della scena
-Per regolare i parametri per tutte le sorgenti, fare clic sulla barra del canale in **Audio Mixer** (Mixer audio) di Unity e regolare i parametri nell'effetto **Acoustics Mixer** (Mixer acustica).
+Per regolare i parametri per tutte le sorgenti, fare clic sulla barra del canale in **Audio Mixer** (Mixer audio) di Unity e regolare i parametri nell'effetto **Project Acoustics Mixer** (Mixer acustica di progetto).
 
 ![Personalizzazione del mixer](media/MixerParameters.png)
+
+* **Regolazione intensità riverbero**: consente di regolare la potenza di riverbero, nel database, in tutte le origini della scena in base alla distanza dell'ascoltatore. I valori positivi rendono un suono più riverberante, mentre i valori negativi lo rendono più secco.
+* **Scalabilità RT60**: moltiplicazione scalare per tempo di riverbero.
+* **Panoramica d'uso**: controlla se l'audio viene restituito come panoramica binaurale (0) o multicanale (1). Qualsiasi valore escluso 1 indica una panoramica binaurale. L'output binaurale è spazializzato con HRTF per l'uso con auricolari, mentre l'output multicanale è spazializzato con VBAP per l'uso con i sistemi di voce surround multicanale. Se si utilizza la panoramica multicanale, assicurarsi di selezionare la modalità altoparlante che corrisponda alle impostazioni del dispositivo, disponibile in **Impostazioni del progetto** > **Audio**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Regolazione dei parametri della sorgente
 Collegando lo script **AcousticsAdjust** a un'origine, è possibile regolare i parametri per tale origine. Per collegare lo script, fare clic su **Add Component** (Aggiungi componente) nella parte inferiore del pannello **Inspector** (Controllo) e passare a **Scripts > Acoustics Adjust** (Script > Regolazione acustica). Lo script ha sei controlli:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Enable Acoustics** (Abilita acustica): controlla se l'acustica è applicazione a questa sorgente. Se deselezionato, la sorgente sarà spazializzata con HRTF, ma senza acustica, vale a dire senza parametri di ostruzione, occlusione e riverbero dinamico, ad esempio livello e tempo di decadimento. Il riverbero viene comunque applicato con un livello e un tempo di decadimento fissi.
+* **Enable Acoustics** (Abilita acustica): controlla se l'acustica è applicazione a questa sorgente. Se deselezionata, l'origine viene spazializzata con HRTF o tramite panoramica, ma non vi sarà alcuna acustica. Ciò significa che non vi sarà alcuna ostruzione, occlusione né parametri di riverbero dinamico, ad esempio livello e tempo di decadimento. Il riverbero viene comunque applicato con un livello e un tempo di decadimento fissi.
 * **Occlusion** (Occlusione): applicare un moltiplicatore al livello di dB di occlusione calcolato dal sistema acustico. Se questo moltiplicatore è maggiore di 1, l'occlusione sarà estrema; con i valori minori di 1, l'effetto di occlusione è più sottile; il valore 0 disattiva l'occlusione.
 * **Transmission (dB)** (Trasmissione (dB)): impostare l'attenuazione, in dB, causata dalla trasmissione attraverso la geometria. Impostare questo dispositivo di scorrimento al livello più basso per disattivare la trasmissione. Il segnale audio iniziale viene spazializzato quando arriva intorno alla geometria della scena (portaling). La trasmissione fornisce un segnale in arrivo aggiuntivo che viene spazializzato nella direzione della linea di visuale. Si noti che viene applicata anche la curva di attenuazione della distanza per l'origine.
-* **Wetness (dB)** (Intensità riverbero (dB)): consente di regolare la potenza del riverbero, in dB, in base alla distanza dall'origine. I valori positivi rendono un suono più riverberante, mentre i valori negativi lo rendono più secco. Fare clic sul controllo curva, la linea verde, per visualizzare l'editor della curva. Modificare la curva facendo clic con il pulsante sinistro del mouse per aggiungere punti e trascinando i punti per formare la funzione desiderata. L'asse x è la distanza dall'origine e l'asse y è la regolazione del riverbero in dB. Per altri dettagli su come modificare le curve, vedere questo [Manuale di Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Per riportare la curva alla forma predefinita, fare clic su **Wetness** (Intensità riverbero) e selezionare **Reset** (Ripristina).
+* **Wetness (dB)** (Intensità riverbero (dB)): consente di regolare la potenza del riverbero, in dB, in base alla distanza dall'origine. I valori positivi rendono un suono più riverberante, mentre i valori negativi lo rendono più secco. Fare clic sul controllo curva, la linea verde, per visualizzare l'editor della curva. Modificare la curva facendo clic con il pulsante sinistro del mouse per aggiungere punti e trascinando i punti per formare la funzione desiderata. L'asse x è la distanza dall'origine e l'asse y è la regolazione del riverbero in dB. Per altri dettagli su come modificare le curve, consultare il [Manuale di Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Per riportare la curva alla forma predefinita, fare clic su **Wetness** (Intensità riverbero) e selezionare **Reset** (Ripristina).
 * **Decay Time Scale** (Scala tempo di decadimento): regola un moltiplicatore per il tempo di decadimento. Se ad esempio il risultato del bake specifica un tempo di decadimento di 750 millisecondi, ma questo valore è impostato su 1,5, il tempo di decadimento applicato alla sorgente è di 1.125 millisecondi.
-* **Outdoorness** (Effetto all'aperto): una regolazione additiva della stima del sistema acustico di quanto il riverbero dovrebbe risultare "esterno" per un'origine. Impostando questa proprietà su 1, l'audio dell'origine apparirà sempre come se fosse all'aperto, mentre impostandola su -1 l'audio apparirà sempre come se fosse al chiuso.
+* **Outdoorness** (Effetto all'aperto): una regolazione additiva della stima del sistema acustico di quanto il riverbero dovrebbe risultare "esterno" per un'origine. Impostando questo valore su 1, l'audio dell'origine apparirà sempre come se fosse all'aperto, mentre impostandolo su -1 l'audio apparirà sempre come se fosse al chiuso.
 
 Diverse sorgenti possono richiedere impostazioni diverse per ottenere alcuni effetti estetici o di gioco. Il dialogo è un possibile esempio. L'orecchio umano percepisce meglio il riverbero nel parlato, mentre il dialogo spesso deve essere comprensibile per il gioco. È possibile tenere conto di questo aspetto senza rendere la finestra di dialogo non diegetica spostando **Wetness** (Intensità riverbero) verso il basso, regolando il parametro **Perceptual Distance Warp** (Distorsione della distanza percettiva) descritto di seguito, aumentando **Transmission** (Trasmissione) per ottenere la propagazione dell'audio attraverso le pareti e/o riducendo **Occlusion** (Occlusione) dal valore 1 per ottenere maggiore audio attraverso i portali.
 
@@ -86,5 +92,5 @@ Collegando lo script **AcousticsAdjustExperimental** a un'origine, è possibile 
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Perceptual Distance Warp** (Distorsione della distanza percettiva): applicare una distorsione esponenziale alla distanza utilizzata per calcolare il rapporto segnale-riverbero. I livelli di riverbero vengno calcolati per tutto lo spazio e variano in modo uniforme con la distanza creando effetti adeguati di distanza percepita. I valori di distorsione maggiori di 1 esasperano questo effetto aumentando i livelli di riverbero correlati alla distanza con il risultato di un audio "distante", mentre i valori di distorsione minori di 1 applicano una variazione più sottile del riverbero in base alla distanza con il risultato di un audio più "presente".
+* **Perceptual Distance Warp** (Distorsione della distanza percettiva): applicare una distorsione esponenziale alla distanza utilizzata per calcolare il rapporto segnale-riverbero. I livelli di riverbero vengno calcolati per tutto lo spazio e variano in modo uniforme con la distanza creando effetti adeguati di distanza percepita. L'alterazione dei valori maggiori di 1 comporta un'esagerazione dell'effetto dovuta all'aumento dei livelli di riverbero relativi alla distanza; ciò rende il suono "distante". L'alterazione dei valori inferiori a 1 rende la modifica del riverbero relativa alla distanza più tenue; ciò rende il suono più "presente".
 

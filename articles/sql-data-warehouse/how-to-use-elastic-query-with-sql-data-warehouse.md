@@ -3,19 +3,19 @@ title: 'Query elastiche: accedere ai dati in Azure SQL Data Warehouse dal databa
 description: Informazioni sulle procedure consigliate per l'uso di query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 344cb1bed56b0b6af7bd3704f8674ae30695f885
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141152"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466286"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Procedure consigliate per l'uso delle query elastiche nel database SQL di Azure per accedere ai dati in Azure SQL Data Warehouse
 Informazioni sulle procedure consigliate per l'uso di query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure. 
@@ -127,15 +127,15 @@ Usare il database SQL di Azure quando:
 
 D: È possibile usare i database all'interno di un pool elastico con una query elastica?
 
-A: Sì. I database SQL all'interno di un pool elastico possono usare una query elastica. 
+R: Sì. I database SQL all'interno di un pool elastico possono usare una query elastica. 
 
 D: È previsto un limite per il numero di database che è possibile usare per una query elastica?
 
 R: Non è previsto un limite rigido per il numero di database che è possibile usare per una query elastica. Tuttavia, ogni query elastica (query che accede a SQL Data Warehouse) viene conteggiata per il raggiungimento dei normali limiti di concorrenza.
 
-D: Sono previsti limiti per le unità DTU in relazione a una query elastica?
+D: Sono previsti limiti per le unità di transazione di database in relazione a una query elastica?
 
-R: I limiti DTU non vengono applicati in modo diverso nel caso di una query elastica. In base ai criteri standard, i server logici sono soggetti a limiti di DTU per impedire ai clienti di spendere accidentalmente più del dovuto. Se si abilitano diversi database per la query elastica insieme a un'istanza di SQL Data Warehouse, si potrebbe raggiungere il limite in modo imprevisto. In questo caso, inviare una richiesta per aumentare il limite di DTU per il server logico. È possibile aumentare la quota [creando un ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selezionando *Quota* come tipo di richiesta
+R: I limiti per le unità di transazione di database non vengono applicati in modo diverso nel caso di una query elastica. In base ai criteri standard, i server logici sono soggetti a limiti di DTU per impedire ai clienti di spendere accidentalmente più del dovuto. Se si abilitano diversi database per la query elastica insieme a un'istanza di SQL Data Warehouse, si potrebbe raggiungere il limite in modo imprevisto. In questo caso, inviare una richiesta per aumentare il limite di DTU per il server logico. È possibile aumentare la quota [creando un ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selezionando *Quota* come tipo di richiesta
 
 D: È possibile usare la sicurezza a livello di riga/Dynamic Data Masking con una query elastica?
 

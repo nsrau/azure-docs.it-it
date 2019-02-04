@@ -2,20 +2,20 @@
 title: Analizzare i dati con Azure Machine Learning | Documentazione di Microsoft
 description: Usare Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
-manager: craigg-msft
+author: KavithaJonnakuti
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601329"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477659"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Questa esercitazione usa Azure Machine Learning per creare un modello predittivo
 > 
 > 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa esercitazione, è necessario:
 
 * Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse, ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
@@ -84,7 +84,7 @@ Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale
    ![Rimuovere le colonne non necessarie][5]
 
 ## <a name="3-build-the-model"></a>3. Compilare il modello
-Si suddivideranno i dati 80-20: 80% per il training di un modello di Machine Learning e 20% per testare il modello. Per questo problema di classificazione binaria si useranno gli algoritmi "Two-Class".
+Si suddivideranno i dati 80-20: l'80% per il training di un modello di Machine Learning e il 20% per testare il modello. Per questo problema di classificazione binaria si useranno gli algoritmi "Two-Class".
 
 1. Trascinare il modulo **Split** nell'area di disegno.
 2. Immettere 0,8 per Fraction of rows nel primo set di dati di output nel riquadro Properties.
@@ -101,7 +101,7 @@ Si suddivideranno i dati 80-20: 80% per il training di un modello di Machine Lea
 A questo punto si verificheranno le prestazioni del modello sui dati di test. L'algoritmo scelto verrà confrontato con un algoritmo diverso per verificare quale offre prestazioni migliori.
 
 1. Trascinare il modulo **Score Model** nell'area di disegno.
-    Primo input: Trained Model Secondo input: Test data ![Assegnare un punteggio al modello][9]
+    Primo input: Secondo input del modello su cui è eseguito il training: ![Assegnare un punteggio al modello][9] dei dati di test
 2. Trascinare il **Two-Class Bayes Point Machine** nell'area di disegno dell'esperimento. Si confronteranno le prestazioni di questo algoritmo rispetto a Two-Class Boosted Decision Tree.
 3. Copiare e incollare i moduli Train Model e Score Model nell'area di disegno.
 4. Trascinare il modulo **Evaluate Model** nell'area di disegno per confrontare i due algoritmi.

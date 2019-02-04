@@ -1,6 +1,6 @@
 ---
-title: Importare dati da file titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come caricare un file di dati di training dal disco rigido in Azure Machine Learning Studio. Questa operazione crea un modulo set di dati nell'area di lavoro.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Importare dati da file titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come caricare un file di dati di training dal disco rigido in Azure Machine Learning Studio. Questa operazione crea un modulo set di dati nell'area di lavoro.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040847"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455933"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>Come ripristinare i dati di Azure Cosmos DB da un backup
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Ripristinare i dati da un backup in Azure Cosmos DB 
 
 Se si elimina accidentalmente il database o un contenitore, è possibile [inviare un ticket di supporto]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure]( https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup automatici online. Il supporto di Azure è disponibile solo per piani selezionati, ad esempio **Standard**, **Developer e piani superiori. Il supporto di Azure non è disponibile con il piano **Basic**. Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/). 
 

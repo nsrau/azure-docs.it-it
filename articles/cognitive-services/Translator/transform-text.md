@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9586ffac2fc1f4d3e0a03d0e20052ad16b88cbe9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 66371fcdc3afba7a5974d8db047242c0c1646bc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684785"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476860"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Come usare il metodo TransformText
 
@@ -30,7 +30,7 @@ Il metodo è un servizio RESTful che usa GET su HTTP. Supporta la serializzazion
 
 | Parametro | DESCRIZIONE |
 |:---|:---|
-| Authorization header (Intestazione dell'autorizzazione) | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare la chiave: "Authorization" e il valore: token di accesso "Bearer" + " " +. Per informazioni dettagliate, vedere qui.|
+| Authorization header (Intestazione dell'autorizzazione) | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare chiave: "Authorization" e valore: "Bearer" + " " + access token. Per informazioni dettagliate, vedere qui.|
 | Linguaggio | **Obbligatorio** Una stringa che rappresenta il codice della lingua. Questo parametro supporta solo la lingua inglese con **en** come nome della lingua.|
 | category | **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **general**.|
 | frase | **Obbligatorio** una frase che si vuole correggere. |

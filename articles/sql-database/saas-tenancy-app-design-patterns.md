@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471199"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -33,8 +33,8 @@ In cambio della tariffa di noleggio, ogni tenant ottiene l'accesso ai componenti
 
 Il termine *modello di tenancy* indica il modo in cui sono organizzati i dati dei tenant che vengono archiviati:
 
-- *A tenancy singolo:*&nbsp; in ogni database sono archiviati i dati di un solo tenant.
-- *A più tenancy:*&nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
+- *Singola tenancy:*&nbsp; in ogni database sono archiviati i dati di un solo tenant.
+- *Multi-tenancy:*&nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
 - Sono disponibili anche modelli di tenancy ibridi.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Come scegliere il modello di tenancy appropriato
@@ -47,9 +47,9 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
     - Archiviazione in modo aggregato.
     - Carico di lavoro.
 
-- **Isolamento del tenant:** &nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
+- **Isolamento dei tenant:**&nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
 
-- **Costo per tenant:** &nbsp; costi del database.
+- **Costo per singolo tenant:**&nbsp; Costi del database.
 
 - **Complessità di sviluppo:**
     - Modifiche allo schema.
