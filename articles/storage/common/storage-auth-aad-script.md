@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.subservice: common
+ms.openlocfilehash: 6369c9c2c3c517012018063883b04487f86ddfd9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460489"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Usare un'identità di Azure AD per accedere ad Archiviazione di Azure con l'interfaccia della riga di comando o PowerShell (anteprima)
 
@@ -25,7 +25,7 @@ Quando si accede all'interfaccia della riga di comando di Azure o a PowerShell c
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
-Le estensioni in anteprima sono supportate per le operazioni su contenitori e code. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'identità di Azure AD usata per accedere all'interfaccia della riga di comando di Azure o a PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se all'identità viene assegnato un ruolo di Lettore dei dati, è possibile eseguire i comandi di scripting che leggono i dati da un contenitore o una coda. Se all'identità viene assegnato un ruolo di Collaboratore ai dati, è possibile eseguire i comandi di scripting per la lettura, scrittura o eliminazione di un contenitore o coda o dei dati in essi contenuti. 
+Le estensioni in anteprima sono supportate per le operazioni su contenitori e code. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'identità di Azure AD usata per accedere all'interfaccia della riga di comando di Azure o a PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se all'identità viene assegnato un ruolo di Lettore dei dati, è possibile eseguire i comandi di scripting che leggono i dati da un contenitore o una coda. Se all'identità viene assegnato un ruolo di Collaboratore ai dati, è possibile eseguire i comandi di scripting per la lettura, scrittura o eliminazione di un contenitore, di una coda o dei dati in essi contenuti. 
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di Archiviazione di Azure su un contenitore o una coda, vedere [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Autorizzazioni per la chiamata di operazioni REST).  
 

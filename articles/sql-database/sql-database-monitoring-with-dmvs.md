@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604430"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465283"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -549,7 +549,7 @@ Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafic
 Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche, invece che per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
 
 > [!NOTE]
-> È necessario essere connessi al database **master** del server logico del database SQL per eseguire la query **sys.resource_stats** negli esempi seguenti.
+> È necessario essere connessi al database **master** del server di database SQL per eseguire la query **sys.resource_stats** negli esempi seguenti.
 
 Questo esempio illustra la modalità di esposizione dei dati in questa vista:
 

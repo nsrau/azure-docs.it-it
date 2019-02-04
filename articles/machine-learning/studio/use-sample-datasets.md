@@ -1,6 +1,6 @@
 ---
-title: Usare i set di dati di esempio titleSuffix: Descrizione di Azure Machine Learning Studio: Descrizione dei set di dati usati nei modelli di esempio inclusi in Machine Learning Studio. È possibile usare questi set di dati di esempio per gli esperimenti.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Usare i set di dati di esempio titleSuffix: Descrizione di Azure Machine Learning Studio: Descrizione dei set di dati usati nei modelli di esempio inclusi in Machine Learning Studio. È possibile usare questi set di dati di esempio per gli esperimenti.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---

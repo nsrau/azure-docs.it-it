@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/30/2019
+ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215474"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461067"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici
 
@@ -260,5 +260,5 @@ La tabella seguente descrive le proprietà per i database in pool.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
-- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
+- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).

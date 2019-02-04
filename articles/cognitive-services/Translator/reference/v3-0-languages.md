@@ -1,24 +1,25 @@
 ---
-title: Metodo per le lingue dell'API Traduzione testuale Microsoft | Microsoft Docs
-description: Usare il metodo per le lingue dell'API Traduzione testuale Microsoft.
+title: Metodo Languages dell'API Traduzione testuale
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo Languages dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.subservice: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470927"
 ---
-# <a name="text-api-30-languages"></a>API per testo 3.0: lingue
+# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
 
-Viene recuperato il set delle lingue attualmente supportate dalle altre operazioni dell'API per testo. 
+Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -29,7 +30,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-I parametri della richiesta passati nella stringa di query sono i seguenti:
+I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
@@ -100,7 +101,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
   * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-  * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+  * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
   Di seguito è riportato un esempio:
           
@@ -134,7 +135,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
     * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-    * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+    * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
     * `toScripts`: elenco degli alfabeti in cui è possibile convertire il testo. Ogni elemento dell'elenco di `toScripts` contiene le proprietà `code`, `name`, `nativeName` e `dir` descritte in precedenza.
 
@@ -191,7 +192,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
   * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-  * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+  * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
   * `translations`: elenco delle lingue con traduzioni alternative ed esempi della query espressa nella lingua di origine. Ogni elemento dell'elenco di `translations` contiene le proprietà seguenti.
 
@@ -199,7 +200,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
     * `nativeName`: nome visualizzato della lingua di destinazione nelle relative impostazioni locali native.
 
-    * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+    * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
     
     * `code`: codice di lingua che identifica la lingua di destinazione.
 
@@ -258,7 +259,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -266,17 +267,17 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione `X-RequestId` della risposta e identificatore del client dall'intestazione `X-ClientTraceId` della richiesta.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. Ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione `X-RequestId` della risposta e identificatore del client dall'intestazione `X-ClientTraceId` della richiesta.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Esempi
 
-L'esempio seguente mostra come recuperare le lingue supportate per la traduzione di testo.
+L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230170"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465589"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Ottimizzazione del costo della velocità effettiva in Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
 Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB garantisce prestazioni prevedibili su qualsiasi scala. Riservando la velocità effettiva o effettuandone il provisioning in anticipo, si elimina l'effetto"noisy neighbor" sulle prestazioni. Se si specifica la quantità esatta di velocità effettiva necessaria, Azure Cosmos DB garantisce la velocità effettiva configurata, supportata dal contratto di servizio.
 

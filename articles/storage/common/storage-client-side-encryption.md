@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: common
+ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140520"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478322"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -241,7 +241,7 @@ Come indicato in precedenza, se l'entità implementa TableEntity, le proprietà 
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Scaricare il [pacchetto NuGet per la libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) per l'Insieme di credenziali delle chiavi di Azure  
 * Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md)

@@ -1,25 +1,25 @@
 ---
 title: Gateway applicazione con ridimensionamento automatico e ridondanza della zona in Azure (anteprima pubblica)
-description: Questo articolo descrive gli elenchi di esclusione e i limiti di dimensioni delle richieste di Web application firewall nel gateway applicazione con il portale di Azure.
+description: Questo articolo presenta la SKU versione 2 dell'applicazione Azure, che include le funzionalità di scalabilità automatica e di ridondanza della zona.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/31/2019
 ms.author: victorh
-ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213757"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461441"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)
 
 Il gateway applicazione e Web application firewall sono ora disponibili in anteprima pubblica in una nuova SKU versione 2 che offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per gli indirizzi VIP statici. Le funzionalità esistenti nella SKU disponibile a livello generale continuano a essere supportate nella nuova SKU versione 2, con alcune eccezioni elencate nella sezione delle limitazioni note. Le nuove SKU versione 2 includono i miglioramenti seguenti:
 
 - **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF nello SKU con ridimensionamento automatico possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Di conseguenza, la SKU offre una reale elasticità. Nella nuova SKU il gateway applicazione può operare sia in modalità di capacità fissa (ridimensionamento automatico disabilitato) che di ridimensionamento automatico abilitato. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è vantaggiosa nelle applicazioni con traffico delle applicazioni soggetto a numerose varianze.
-   
+
    > [!NOTE]
    > La scalabilità automatica non è attualmente disponibile per la SKU WAF. Configurare WAF con la modalità di capacità fissa, invece che con la modalità di scalabilità automatica.
 - **Ridondanza della zona**: una distribuzione del gateway applicazione o WAF può estendersi a più zone di disponibilità, eliminando la necessità di effettuare il provisioning e aggiungere istanze del gateway applicazione separate in ogni zona con un'utilità di Gestione traffico. È possibile scegliere una o più zone in cui distribuire le istanze del gateway applicazione, assicurando così la resilienza dagli errori delle zone. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
@@ -33,10 +33,12 @@ Il gateway applicazione e Web application firewall sono ora disponibili in antep
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Aree supportate
-La SKU con ridimensionamento automatico è disponibile in Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali 2, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Francia centrale, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Asia sud-orientale e Giappone orientale.
+
+Lo SKU di scalabilità automatica è disponibile nelle aree seguenti: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus (BL), centralus (DM) e japanwest (OS).
 
 ## <a name="pricing"></a>Prezzi
-Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di risorse diverse dal gateway applicazione, ad esempio Key Vault, macchine virtuali e così via. 
+
+Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di risorse diverse dal gateway applicazione, ad esempio Key Vault, macchine virtuali e così via.
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
@@ -51,9 +53,9 @@ Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di ri
 |Modalità FIPS, WebSocket|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|
 |Scalabilità automatica di Web application firewall|WAF non supporta la modalità di scalabilità automatica. È supportata la modalità con capacità fissa.|
+|Integrazione di Netwatcher|Non è supportata nell'anteprima pubblica.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un gateway applicazione con scalabilità automatica e ridondanza della zona con un indirizzo IP virtuale riservato tramite Azure PowerShell](tutorial-autoscale-ps.md)
 - Altre informazioni sul [gateway applicazione](overview.md).
-- Altre informazioni su [Firewall di Azure](../firewall/overview.md). 
-
+- Altre informazioni su [Firewall di Azure](../firewall/overview.md).

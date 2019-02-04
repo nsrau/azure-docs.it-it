@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301255"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -49,9 +49,9 @@ R: L'estrazione di Campi personalizzati è attualmente supportata nell'esperienz
 
 R: La visualizzazione elenco non è disponibile nella nuova esperienza Log. È presente una freccia a sinistra di ogni record nella tabella dei risultati. Fare clic su tale freccia per visualizzare i dettagli per un record specifico. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>D: Dopo aver eseguito una query, viene visualizzato un elenco di filtri suggeriti che non include tutti i filtri. Come è possibile visualizzare i filtri restanti? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>D: Dopo aver eseguito una query, è disponibile un elenco di filtri suggeriti. Come è possibile visualizzare i filtri? 
 
-R: Ciò che è attualmente visualizzato è un'anteprima dell'implementazione dei nuovi filtri. Ora i filtri si basano sul set di risultati completo anziché essere vincolati dal limite di 10.000 record dell'interfaccia utente. Al momento questo è un elenco dei filtri più popolari e dei 10 valori più comuni per ogni filtro. 
+R: Fare clic su "Filtri" nel riquadro sinistro per visualizzare un'anteprima dell'implementazione di nuovi filtri. Ora i filtri si basano sul set di risultati completo anziché essere vincolati dal limite di 10.000 record dell'interfaccia utente. Al momento questo è un elenco dei filtri più popolari e dei 10 valori più comuni per ogni filtro. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>D: Perché viene visualizzato l'errore "Registrare il provider di risorse 'Microsoft.Insights' per questa sottoscrizione per abilitare questa query" in Log, dopo l'esplorazione dalla macchina virtuale? 
 

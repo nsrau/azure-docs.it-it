@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 749c139e35118ac8b83281bd255b152f61accc0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542561"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478441"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
 
@@ -24,7 +24,7 @@ Catturare uno [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.
 >[!WARNING]
 > - Se in precedenza è stata usata la [Crittografia dischi di Azure con l'app Azure AD](azure-security-disk-encryption-prerequisites-aad.md) per crittografare la macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare la [Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) in questa macchina virtuale crittografata poiché non è uno scenario supportato ovvero non è ancora supportato il trasferimento dall'applicazione AAD per questa macchina virtuale.
  > - Per Crittografia dischi di Azure è necessario che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area. Creare e usare un insieme di credenziali delle chiavi nella stessa area della macchina virtuale da crittografare.
-> - La procedura per crittografare i volumi del sistema operativo Linux potrebbe richiedere alcune ore. È normale che i volumi del sistema operativo Linux richiedano più tempo rispetto ai volumi di dati da crittografare. 
+> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale sarà non disponibile e SSH verrà disabilitato. Per controllare lo stato di avanzamento, si possono usare i comandi [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) oppure [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
 > - La disabilitazione della crittografia nelle macchine virtuali Linux è supportata solo per i volumi di dati. Non è supportata nei dati o nei volumi del sistema operativo, se il volume del sistema operativo è stato crittografato.  
 
 
@@ -211,9 +211,9 @@ Usare il cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurer
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+    ```
 
-
--  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
+-  **Crittografare un set di scalabilità di macchine virtuali in esecuzione usando una chiave di crittografia della chiave (KEK) per eseguire il wrapping della chiave**:
     ```powershell
      $rgName= "MySecureRg";
      $VmssName = "MySecureVmss";

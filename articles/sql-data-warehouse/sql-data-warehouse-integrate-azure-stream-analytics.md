@@ -2,20 +2,20 @@
 title: Usare Analisi di flusso di Azure con SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per l'uso di Analisi di flusso di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7c940b10e88e50988b574dbc1fa365dc9d8fd7d5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962946"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452397"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usare Analisi di flusso di Azure con SQL Data Warehouse
 Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure][Introduction to Azure Stream Analytics]. È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].
@@ -32,7 +32,7 @@ Eseguire prima di tutto questa procedura nell'esercitazione [Introduzione all'us
 
 Creare quindi un database di Azure SQL Data Warehouse
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Specificare l'output del processo: database di Azure SQL Warehouse
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Specificare l'output del processo: Database di Azure SQL Data Warehouse
 ### <a name="step-1"></a>Passaggio 1
 Nel processo di Analisi di flusso fare clic su **OUTPUT** nella parte superiore della pagina e quindi scegliere **AGGIUNGI OUTPUT**.
 
@@ -53,7 +53,7 @@ Immettere i valori seguenti nella pagina successiva:
 
 ![][server-name]
 
-* *Nome utente*: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
+* *Nome utente*: specificare il nome utente di un account con autorizzazioni di scrittura nel database.
 * *Password*: fornire la password per l'account utente specificato.
 * *Tabella*: specificare il nome della tabella di destinazione nel database.
 

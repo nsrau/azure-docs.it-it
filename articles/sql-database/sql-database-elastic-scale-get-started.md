@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603050"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462971"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
+
 Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Microsoft Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Strumenti di database elastico per Java
+
 ### <a name="prerequisites"></a>Prerequisiti
+
 * Java Developer Kit (JDK) versione 1.8 o successiva
 * [Maven](http://maven.apache.org/download.cgi)
-* Un server logico in Azure o in un'istanza di SQL Server locale
+* Un server di database SQL in Azure o un'istanza di SQL Server locale
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
+
 Per compilare i file JAR e iniziare a usare il progetto di esempio, eseguire i passaggi seguenti: 
 1. Clonare il [repository GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) che contiene la libreria client e l'app di esempio. 
 
@@ -65,12 +69,15 @@ Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza se
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Strumenti di database elastico per .NET 
+## <a name="elastic-database-tools-for-net"></a>Strumenti di database elastico per .NET
+
 ### <a name="prerequisites"></a>Prerequisiti
+
 * Visual Studio 2012 o versione successiva con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) (Installazione di NuGet).
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
+
 Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La libreria viene installata con l'app di esempio descritta nella sezione seguente.
 
 Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura: 
@@ -91,10 +98,9 @@ Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata 
 
 > [!IMPORTANT]
 > È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti per Azure e per il database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Elementi chiave dell'esempio di codice
+
 * **Gestione di partizioni e mappe delle partizioni**: il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).  
 
 * **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene illustrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596). 
@@ -104,11 +110,13 @@ Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata 
 * **Aggiunta di partizioni vuote**: l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Altre operazioni di scalabilità elastica
+
 * **Divisione di una partizione esistente**: la possibilità di dividere partizioni viene fornita tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md).
 
 * **Unione di partizioni esistenti**: le unioni di partizioni vengono eseguite anche tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Costi
+
 La libreria di strumenti di database elastico è gratuita. L'uso di strumenti di database elastico non comporta costi aggiuntivi oltre a quelli applicati per l'uso di Azure. 
 
 Quindi, nel caso dei nuovi database creati dall'applicazione di esempio, il costo dipende dall'edizione del database SQL scelta e dall'uso di Azure da parte dell'applicazione.
@@ -116,6 +124,7 @@ Quindi, nel caso dei nuovi database creati dall'applicazione di esempio, il cost
 Per informazioni sui prezzi, vedere [Prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sugli strumenti di database elastico, vedere gli articoli seguenti:
 
 * Esempi di codice: 

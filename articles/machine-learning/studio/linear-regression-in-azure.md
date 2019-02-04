@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dei dati di analisi da Excel ad Azure Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Un confronto dei modelli di regressione lineare in Excel e nei servizi di Azure Machine Learning Studio: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Eseguire la migrazione dei dati di analisi da Excel ad Azure Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Un confronto dei modelli di regressione lineare in Excel e in Azure Machine Learning Studio: services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---
@@ -52,7 +52,7 @@ Il processo e i risultati sono stati sottoposti agli sviluppatori e ai data scie
   * Ordinary Least Squares: questo è il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
 * Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0.001, ma per i set di dati di piccole dimensioni in questo caso è stato impostato su 0.005 per migliorare le prestazioni. 
 
-### <a name="mystery-solved"></a>Mistero risolto
+### <a name="mystery-solved"></a>Misero risolto
 Dopo aver applicato i suggerimenti, in Studio sono state raggiunte le stesse prestazioni di base di Excel: 
 
 |  | Excel | Studio (iniziale) | Studio con Least Squares |

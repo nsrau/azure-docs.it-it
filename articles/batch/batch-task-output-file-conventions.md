@@ -3,7 +3,7 @@ title: Rendere persistente l'output di processi e attività in Archiviazione di 
 description: Informazioni su come usare la libreria Azure Batch File Conventions per .NET per rendere persistente l'output di attività e processi di Batch in Archiviazione di Azure e visualizzare l'output reso persistente nel portale di Azure.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706603"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472984"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
@@ -115,7 +115,7 @@ Il parametro `kind` del metodo [TaskOutputStorage](https://msdn.microsoft.com/li
 Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili in [Recuperare l'output](#retrieve-output) più avanti nell'articolo.
 
 > [!TIP]
-> Il tipo di output determina anche dove viene visualizzato un file specifico nel portale di Azure. *TaskOutput*: i file categorizzati vengono visualizzati in **File di output delle attività** e i file di *TaskLog* vengono visualizzati in **Task logs** (Log delle attività).
+> Il tipo di output determina inoltre in quale area del portale di Azure viene visualizzato un file specifico: i file categorizzati come *TaskOutput* vengono visualizzati in **File di output delle attività** e i file *TaskLog* vengono visualizzati in **Task logs** (Log delle attività).
 
 ### <a name="store-job-outputs"></a>Archiviare gli output del processo
 

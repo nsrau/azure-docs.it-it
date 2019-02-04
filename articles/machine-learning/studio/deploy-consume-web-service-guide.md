@@ -1,5 +1,5 @@
 ---
-title: Distribuzione e utilizzo titleSuffix: Descrizione di Azure Machine Learning Studio: È possibile usare Azure Machine Learning per distribuire i flussi di lavoro e i modelli di Machine Learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Distribuzione e utilizzo titleSuffix: Descrizione di Azure Machine Learning Studio: È possibile usare Azure Machine Learning per distribuire i flussi di lavoro e i modelli di Machine Learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

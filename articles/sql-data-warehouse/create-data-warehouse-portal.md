@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query - Portale di Azure | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ca3128cd265b614dc1a1e4f21074018eacbed89
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 317756f8684088b9df52856ce4f10c5401485e86
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140552"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461866"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query nel portale di Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
 
 Creare rapidamente un data warehouse SQL di Azure ed eseguirvi una query usando il portale di Azure.
 

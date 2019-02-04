@@ -1,6 +1,6 @@
 ---
-title: Ripetere il training di un modello di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Ripetere il training di un modello di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

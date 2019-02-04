@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034047"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469482"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Come usare il feed di modifiche di Azure Cosmos DB con Funzioni di Azure
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Attivare Funzioni di Azure da Azure Cosmos DB
 
 Se si usa Funzioni di Azure, il modo più semplice per connettersi a un feed di modifiche è quello di aggiungere un [trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) all'app Funzioni di Azure. Quando si crea un trigger di Cosmos DB in un'app di Funzioni di Azure, si sceglie il contenitore di Cosmos a cui connettersi e la funzione viene attivata ogni volta che viene apportata una modifica al contenitore.
 

@@ -1,6 +1,6 @@
 ---
-title: Passaggio 2: Caricare dati in un esperimento di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Passaggio 2 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Passaggio 2: Caricare dati in un esperimento di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Passaggio 2 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473766"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](http://www.w3.org/TR/cors/).
@@ -67,11 +67,11 @@ Di seguito è riportato un esempio di una regola CORS singola, specificata trami
 
 Ciascun elemento incluso nella regola CORS è descritto di seguito:
 
-* **AllowedOrigins**: domini di origine ai quali è consentito effettuare una richiesta al servizio di archiviazione tramite condivisione CORS. Il dominio di origine è quello da cui proviene la richiesta. L'origine deve corrispondere esattamente, anche con distinzione tra maiuscole e minuscole, all'origine inviata al servizio dall'agente utente. È inoltre possibile utilizzare il carattere jolly '*' per consentire a tutti i domini di origine di effettuare richieste tramite condivisione CORS. Nell'esempio precedente, ai domini [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) è consentito eseguire richieste al servizio tramite la condivisione CORS.
-* **AllowedMethods**: metodi (verbi di richiesta HTTP) che possono essere utilizzati dal dominio di origine per una richiesta CORS. Nell'esempio precedente, sono consentite solo le richieste PUT e GET.
-* **AllowedHeaders**: intestazioni di richiesta che possono essere specificate dal dominio di origine nella richiesta CORS. Nell'esempio precedente, sono consentite tutte le intestazioni di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly "*" indica che è consentita qualsiasi intestazione che inizi col prefisso specificato.
-* **ExposedHeaders**: intestazioni di risposta che possono essere inviate in risposta alla richiesta CORS ed esposte al richiedente dal browser. Nell'esempio precedente, al browser viene indicato di esporre qualsiasi intestazione che inizi con x-ms-meta.
-* **MaxAgeInSeconds**: quantità di tempo massima in cui la richiesta preliminare OPTIONS deve essere memorizzata nella cache di un browser.
+* **AllowedOrigins**: i domini di origine ai quali è consentito effettuare una richiesta al servizio di archiviazione tramite la condivisione CORS. Il dominio di origine è quello da cui proviene la richiesta. L'origine deve corrispondere esattamente, anche con distinzione tra maiuscole e minuscole, all'origine inviata al servizio dall'agente utente. È inoltre possibile utilizzare il carattere jolly '*' per consentire a tutti i domini di origine di effettuare richieste tramite condivisione CORS. Nell'esempio precedente, ai domini [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) è consentito eseguire richieste al servizio tramite la condivisione CORS.
+* **AllowedMethods**: i metodi (verbi di richiesta HTTP) che possono essere usati dal dominio di origine per una richiesta CORS. Nell'esempio precedente, sono consentite solo le richieste PUT e GET.
+* **AllowedHeaders**: le intestazioni di richiesta che possono essere specificate dal dominio di origine nella richiesta CORS. Nell'esempio precedente, sono consentite tutte le intestazioni di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly "*" indica che è consentita qualsiasi intestazione che inizi col prefisso specificato.
+* **ExposedHeaders**: le intestazioni di risposta che possono essere inviate in risposta alla richiesta CORS ed esposte all'emittente della richiesta dal browser. Nell'esempio precedente, al browser viene indicato di esporre qualsiasi intestazione che inizi con x-ms-meta.
+* **MaxAgeInSeconds**: la quantità di tempo massima in cui la richiesta preliminare OPTIONS deve essere memorizzata nella cache di un browser.
 
 I servizi di archiviazione di Azure supportano la specifica di intestazioni con prefisso sia per gli elementi **AllowedHeaders**, sia per gli elementi **ExposedHeaders**. Per consentire una categoria di intestazioni, è possibile specificare un prefisso comune a tale categoria. Ad esempio, specificando *x-ms-meta** come intestazione con prefisso, viene impostata una regola corrispondente a tutte le intestazioni che iniziano con x-ms-meta.
 
@@ -166,11 +166,11 @@ Nella tabella seguente viene indicata la risposta del servizio di archiviazione 
 | **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini(*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
 | No  |No  |No  |No  |No  |No  |No  |
 | No  |Yes |No  |No  |Yes |No  |No  |
-| No  |Yes |Yes |No  |No  |Yes |Yes |
-| Yes |No  |No  |No  |No  |No  |No  |
-| Yes |Yes |No  |Yes |Yes |No  |Yes |
-| Yes |Yes |No  |No  |Yes |No  |No  |
-| Yes |Yes |Yes |No  |No  |Yes |Yes |
+| No  |Yes |Sì |No  |No  |Yes |Sì |
+| Sì |No  |No  |No  |No  |No  |No  |
+| Yes |Sì |No  |Yes |Sì |No  |Yes |
+| Sì |Sì |No  |No  |Yes |No  |No  |
+| Yes |Sì |Sì |No  |No  |Yes |Yes |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.

@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning Studio aggiungendo altri endpoint.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Ridimensionare un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning Studio aggiungendo altri endpoint.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 23/01/2017
 ---
