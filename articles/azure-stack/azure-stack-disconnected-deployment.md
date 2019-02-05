@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244369"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691168"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure distribuzione disconnessa pianificazione decisioni per Azure Stack
 Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -47,7 +47,7 @@ Azure Stack è stato progettato per funzionare meglio quando si è connessi ad A
 |Distribuzione di macchine Virtuali con l'estensione Docker per eseguire i comandi di Docker|Compromessa – Docker controllerà Internet per la versione più recente e la verifica avrà esito negativo.|
 |Collegamenti alla documentazione nel portale di Azure Stack|Non disponibile: collegamenti, ad esempio fornire commenti e suggerimenti, informazioni della Guida, Guida introduttiva, e così via, che usano un URL Internet non funzionerà.|
 |Correzione o mitigazione degli avvisi che fa riferimento a una Guida di monitoraggio e aggiornamento in linea|Non disponibile: qualsiasi correzione dell'avviso collega che usano che un URL Internet non funzionerà.|
-|Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Con difficoltà: quando si distribuisce Azure Stack in modalità disconnessa (senza connettività di Internet), non è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile usare la [dello strumento di diffusione di marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) per scaricare gli elementi del marketplace in un computer con connettività internet e quindi di trasferirle all'ambiente Azure Stack.|
+|Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Con difficoltà: quando si distribuisce Azure Stack in modalità disconnessa (senza connettività di Internet), non è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile usare la [dello strumento di diffusione di marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) per scaricare gli elementi del marketplace in un computer con connettività internet e quindi di trasferirle all'ambiente Azure Stack.|
 |Uso di account di Azure Active Directory federation per gestire una distribuzione di Azure Stack|Non disponibile: questa funzionalità richiede la connettività ad Azure. Invece è necessario utilizzare AD FS con un'istanza di Active Directory locale.|
 |Servizi app|Vista - App Web può richiedere l'accesso a Internet per contenuto aggiornato.|
 |Interfaccia della riga di comando|Con difficoltà – CLI offre funzionalità ridotte in termini di provisioning delle entità servizio e autenticazione.|

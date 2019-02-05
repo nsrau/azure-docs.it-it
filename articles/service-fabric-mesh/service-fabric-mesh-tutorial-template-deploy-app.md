@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246365"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158843"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -57,7 +57,7 @@ Prima di iniziare questa esercitazione:
 
 Le immagini del contenitore associate ai servizi nell'applicazione Service Fabric Mesh devono essere archiviate in un registro contenitori.  Questa esercitazione usa un'istanza privata di Registro Azure Container. 
 
-Seguire questa procedura per creare un'istanza di Registro contenitori di Azure.  Se è già disponibile un'istanza di Registro contenitori di Azure, è possibile procedere oltre.
+Seguire questa procedura per creare un'istanza di Registro Azure Container.  Se è già disponibile un'istanza di Registro Azure Container, è possibile procedere oltre.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Creare il registro contenitori
 
-Creare un'istanza di Registro contenitori di Azure usando il comando `az acr create`. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry*. Se un errore segnala che il nome del registro è già usato, scegliere un nome diverso.
+Creare un'istanza di Registro Azure Container usando il comando `az acr create`. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry*. Se un errore segnala che il nome del registro è già usato, scegliere un nome diverso.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -109,9 +109,9 @@ Quando viene creato il registro, l'output generato sarà simile al seguente:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Eseguire il push delle immagini in Registro Azure Container
 
-Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Le immagini del contenitore per i servizi [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) sono disponibili nell'hub Docker. Vedere [come creare un'app Web Servic Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) per informazioni su come compilare l'applicazione in Visual Studio. Service Fabric Mesh supporta l'esecuzione di contenitori Docker Windows o Linux.  Se si utilizzano contenitori Linux, selezionare **Switch to Linux containers** (Passa a contenitori Linux) in Docker.  Se si utilizzano contenitori Windows, selezionare **Switch to Windows containers** (Passa a contenitori Windows) in Docker.
+Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Le immagini del contenitore per i servizi [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) sono disponibili nell'hub Docker. Vedere [come creare un'app Web di Azure Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) per informazioni su come compilare l'applicazione in Visual Studio. Service Fabric Mesh supporta l'esecuzione di contenitori Docker Windows o Linux.  Se si utilizzano contenitori Linux, selezionare **Switch to Linux containers** (Passa a contenitori Linux) in Docker.  Se si utilizzano contenitori Windows, selezionare **Switch to Windows containers** (Passa a contenitori Windows) in Docker.
 
-Per eseguire il push di un'immagine in un'istanza di Registro contenitori di Azure, è prima necessario avere un'immagine del contenitore. Se non sono ancora disponibili immagini del contenitore locale, usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per eseguire il pull delle immagini [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) dall'hub Docker.
+Per eseguire il push di un'immagine in un'istanza di Registro Azure Container, è prima necessario avere un'immagine del contenitore. Se non sono ancora disponibili immagini del contenitore locale, usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per eseguire il pull delle immagini [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) dall'hub Docker.
 
 Eseguire il pull di immagini di Windows:
 
@@ -122,7 +122,7 @@ docker pull seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 
 Prima di poter eseguire il push di un'immagine nel registro, è necessario contrassegnarla con il nome completo del server di accesso del record di controllo di accesso.
 
-Eseguire il comando seguente per ottenere il nome del server di accesso completo dell'istanza di Registro contenitori di Azure.
+Eseguire il comando seguente per ottenere il nome del server di accesso completo dell'istanza di Registro Azure Container.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -145,7 +145,7 @@ Accedere al Registro Azure Container.
 az acr login -n myContainerRegistry
 ```
 
-Eseguire il push dell'immagine nell'istanza di Registro contenitori di Azure con il comando [docker push](https://docs.docker.com/engine/reference/commandline/push/):
+Eseguire il push dell'immagine nell'istanza di Registro Azure Container con il comando [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
 ```bash
 docker push mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709
@@ -154,7 +154,7 @@ docker push mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0
 
 ### <a name="list-container-images"></a>Elencare le immagini del contenitore
 
-Per visualizzare i repository nell'istanza di Registro contenitori di Azure, eseguire il comando seguente:
+Per visualizzare i repository nell'istanza di Registro Azure Container, eseguire il comando seguente:
 
 ```azurecli
 az acr repository list --name myContainerRegistry --output table
@@ -180,7 +180,7 @@ L'output precedente conferma la presenza di `azure-mesh-todo-service:1.0-nanoser
 ## <a name="retrieve-credentials-for-the-registry"></a>Recuperare le credenziali per il registro
 
 > [!IMPORTANT]
-> Non è consigliabile abilitare l'utente amministratore in un'istanza di Registro contenitori di Azure per scenari di produzione. In questo esempio ciò avviene per comodità. Per gli scenari di produzione, usare un'[entità servizio](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) per l'autenticazione di utenti e del sistema negli scenari di produzione.
+> Non è consigliabile abilitare l'utente amministratore in un'istanza di Registro Azure Container per scenari di produzione. In questo esempio ciò avviene per comodità. Per gli scenari di produzione, usare un'[entità servizio](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) per l'autenticazione di utenti e del sistema negli scenari di produzione.
 
 Per distribuire un'istanza del contenitore dal registro creato usando un modello, è necessario specificare le credenziali del registro durante la distribuzione. Abilitare prima di tutto l'utente amministratore nel registro con il comando seguente:
 
@@ -196,7 +196,7 @@ az acr credential show --name myContainerRegistry --query username
 az acr credential show --name myContainerRegistry --query "passwords[0].value"
 ```
 
-Usare il nome del server di accesso di Registro contenitori di Azure, il nome utente e la password restituiti durante la creazione dei file del modello di Resource Manager e dei parametri nella sezione seguente.
+Usare il nome del server di accesso di Registro Azure Container, il nome utente e la password restituiti durante la creazione dei file del modello di Resource Manager e dei parametri nella sezione seguente.
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Scaricare ed esplorare i file del modello e dei parametri
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 2966683c086cfcd122c364dd6808f841a85bbee9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.subservice: blobs
+ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704716"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241390"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Scaricare grandi quantità di dati casuali da Archiviazione di Azure
 
@@ -30,7 +30,7 @@ Nella terza parte della serie si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, è necessario aver completato la precedente esercitazione sull'archiviazione: [Caricare grandi quantità di dati casuali in parallelo con Archiviazione di Azure][previous-tutorial].
+Per completare questa esercitazione è necessario aver completato l'esercitazione di archiviazione precedente: [Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Creare una sessione remota nella macchina virtuale
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316183"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099109"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Esercitazione: aggiunta del completamento automatico alla casella di ricerca tramite Ricerca di Azure
 
@@ -60,7 +60,7 @@ Segui i passaggi descritti in questa sezione se vuoi importare i dati per l'appl
 
 ### <a name="running-the-sample"></a>Esecuzione dell'esempio
 
-A questo punto è possibile far partire l'applicazione di esempio dell'esercitazione.  Apri il file di soluzione AutocompleteTutorial.sln in Visual Studio per far partire l'esercitazione.  La soluzione contiene un progetto ASP.NET MVC.  Premi F5 per far partire il progetto e caricare la pagina nel browser che preferisci.  Nella parte superiore, vedrai un'opzione per la selezione di C# o JavaScript.  L'opzione C# chiama la classe HomeController dal browser e usa .Net SDK di Ricerca di Azure per ottenere risultati.  L'opzione JavaScript chiama l'API REST di Ricerca di Azure direttamente dal browser.  Questa opzione ha in genere prestazioni nettamente migliori poiché esclude i controller dal flusso.  È possibile scegliere l'opzione adatta alle proprie esigenze e preferenze linguistiche.  Sono disponibili nella pagina alcuni esempi di completamento automatico con alcune indicazioni specifiche.  Ogni esempio presenta un testo di esempio consigliato che è possibile provare.  Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
+A questo punto è possibile far partire l'applicazione di esempio dell'esercitazione.  Apri il file di soluzione AutocompleteTutorial.sln in Visual Studio per far partire l'esercitazione.  La soluzione contiene un progetto ASP.NET MVC.  Premi F5 per far partire il progetto e caricare la pagina nel browser che preferisci.  Nella parte superiore, vedrai un'opzione per la selezione di C# o JavaScript.  L'opzione C# chiama la classe HomeController dal browser e usa .Net SDK di Ricerca di Azure per ottenere risultati.  L'opzione JavaScript chiama l'API REST di Ricerca di Azure direttamente dal browser.  Questa opzione ha in genere prestazioni nettamente migliori perché esclude i controller dal flusso.  È possibile scegliere l'opzione adatta alle proprie esigenze e preferenze linguistiche.  Sono disponibili nella pagina alcuni esempi di completamento automatico con alcune indicazioni specifiche.  Ogni esempio presenta un testo di esempio consigliato che è possibile provare.  Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
 
 ## <a name="how-this-works-in-code"></a>Funzionamento in codice
 

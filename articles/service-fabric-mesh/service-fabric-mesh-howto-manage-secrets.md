@@ -2,19 +2,19 @@
 title: Gestire i segreti delle applicazioni Azure Service Fabric Mesh | Microsoft Docs
 description: Come gestire i segreti dell'applicazione per poter creare e distribuire in modo sicuro un'applicazione Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: segreti
-author: aljo
+keywords: chiavi private
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891918"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236752"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gestire i segreti delle applicazioni Azure Service Fabric Mesh
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro. Questo articolo illustra come usare il servizio di archiviazione sicura di Service Fabric per distribuire e gestire i segreti.
@@ -183,7 +183,7 @@ Di seguito è riportato un esempio di dichiarazione di risorse Segreti/Valori di
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Modificare l'applicazione Mesh in modo che faccia riferimento ai valori dei segreti Mesh
 Le applicazioni Service Fabric Mesh devono riconoscere le due stringhe seguenti per poter utilizzare i valori dei segreti del servizio di archiviazione sicura:
-1. Micrsoft.ServiceFabricMesh/Secrets.name contiene il nome del file e conterrà il valore dei segreti in testo non crittografato.
+1. Microsoft.ServiceFabricMesh/Secrets.name contiene il nome del file e conterrà il valore dei segreti in testo non crittografato.
 2. La variabile di ambiente Windows o Linux "Fabric_SettingPath" contiene il percorso della directory in cui saranno accessibili i file che contengono i valori dei segreti del servizio di archiviazione sicura. Questo percorso è "C:\Impostazioni" per le applicazioni Mesh ospitate in Windows e "/var/settings" per le applicazioni Mesh ospitate in Linux.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Distribuire o usare un aggiornamento in sequenza in modo che l'applicazione Mesh possa utilizzare i valori dei segreti

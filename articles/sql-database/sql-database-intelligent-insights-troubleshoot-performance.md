@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600863"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455066"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -50,7 +50,7 @@ Intelligent Insights rileva automaticamente i problemi di prestazioni relativi a
 | [Downgrade del piano tariffario](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Un'azione di downgrade del piano tariffario ha ridotto le risorse disponibili. Questo influisce sulle prestazioni del database SQL. | Un'azione di downgrade del piano tariffario ha ridotto le risorse disponibili. Questo influisce sulle prestazioni del database. |
 
 > [!TIP]
-> Per un'ottimizzazione continua delle prestazioni del database SQL, abilitare l'[ottimizzazione automatica del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Questa funzionalità univoca di intelligence incorporata nel database SQL consente di monitorare in modo continuo il database SQL, ottimizzare automaticamente gli indici e applicare correzioni ai piani di esecuzione delle query.
+> Per un'ottimizzazione continua delle prestazioni del database SQL, abilitare l'[ottimizzazione automatica del database SQL di Azure](sql-database-automatic-tuning.md). Questa funzionalità univoca di intelligence incorporata nel database SQL consente di monitorare in modo continuo il database SQL, ottimizzare automaticamente gli indici e applicare correzioni ai piani di esecuzione delle query.
 >
 
 La sezione seguente descrive in modo più dettagliato i modelli di prestazioni rilevabili.
@@ -61,7 +61,7 @@ La sezione seguente descrive in modo più dettagliato i modelli di prestazioni r
 
 Questo modello di prestazioni rilevabili combina i problemi di prestazioni correlati al raggiungimento dei limiti delle risorse disponibili, dei thread di lavoro e delle sessioni. Dopo che il problema è stato rilevato, un campo di descrizione del log di diagnostica indica se il problema di prestazioni è correlato ai limiti delle risorse, dei thread di lavoro o delle sessioni.
 
-Le risorse nel database SQL vengono in genere definite risorse [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). Il modello del raggiungimento dei limiti delle risorse viene riconosciuto quando la riduzione delle prestazioni delle query rilevata è provocata dal raggiungimento di uno qualsiasi dei limiti delle risorse misurate.
+Le risorse nel database SQL vengono in genere definite risorse [DTU](sql-database-what-is-a-dtu.md) o [vCore](sql-database-service-tiers-vcore.md). Il modello del raggiungimento dei limiti delle risorse viene riconosciuto quando la riduzione delle prestazioni delle query rilevata è provocata dal raggiungimento di uno qualsiasi dei limiti delle risorse misurate.
 
 La risorsa con limiti di sessione indica il numero di accessi simultanei disponibili al database SQL. Questo modello di prestazioni viene riconosciuto nel caso in cui le applicazioni che si connettono ai database SQL abbiano raggiunto il numero di accessi simultanei disponibili al database. Se le applicazioni tentano di usare più sessioni rispetto a quelle disponibili in un database, le prestazioni delle query ne sono influenzate.
 
@@ -73,7 +73,7 @@ Il log di diagnostica genera hash di query per le query con effetti sulle presta
 
 Se sono stati raggiunti i limiti delle sessioni disponibili, è possibile ottimizzare le applicazioni riducendo il numero di accessi al database. Se non si riesce a ridurre il numero di accessi dalle applicazioni al database, valutare il passaggio a un piano tariffario di livello superiore per il database. In alternativa, è possibile suddividere e spostare il database in più database per una distribuzione più equilibrata del carico di lavoro.
 
-Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
+Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
 
 ## <a name="workload-increase"></a>Aumento del carico di lavoro
 

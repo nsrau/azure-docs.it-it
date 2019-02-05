@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868549"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092771"
 ---
-# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Come monitorare e aggiornare una macchina virtuale Linux in Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare e aggiornare una macchina virtuale Linux in Azure
 
 Per assicurarsi che le macchine virtuali in Azure vengano eseguite correttamente, è possibile esaminare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti. In questa esercitazione si apprenderà come:
 
@@ -153,7 +153,7 @@ L'esempio seguente crea un avviso per l'uso medio della CPU.
 5. Facoltativamente, è possibile selezionare la casella per *Invia messaggio di posta elettronica a proprietari, collaboratori e lettori* per inviare una notifica tramite posta elettronica. L'azione predefinita è di presentare una notifica nel portale.
 6. Selezionare il pulsante **OK**.
 
-## <a name="manage-package-updates"></a>Gestire gli aggiornamenti dei pacchetti
+## <a name="manage-software-updates"></a>Gestire gli aggiornamenti software
 
 La gestione degli aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Linux di Azure.
 Direttamente dalla macchina virtuale è possibile valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente alla macchina virtuale.
@@ -175,15 +175,14 @@ L'area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.m
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 Per eseguire altre azioni nelle macchine virtuali che richiedono gli aggiornamenti, Automazione di Azure consente di eseguire runbook nelle macchine virtuali, ad esempio il download e l'applicazione degli aggiornamenti.
 
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione.
-L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento.
+Il processo di convalida controlla anche se nella macchina virtuale sono presenti l'agente Log Analytics e un ruolo di lavoro ibrido per runbook di Automazione. L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento.
 
 Scegliere l'area di lavoro di Log Analytics e l'account di Automazione da usare e selezionare **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
 * Area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automazione](../../automation/automation-offering-get-started.md)
+* [Account di Automazione](../../automation/automation-offering-get-started.md)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
 
 Viene visualizzata la schermata **Gestione aggiornamenti**. Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e selezionare **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
@@ -291,22 +290,9 @@ Il grafico mostra le modifiche nel tempo. Dopo aver aggiunto una connessione al 
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-È possibile eseguire un monitoraggio più avanzato della macchina virtuale usando soluzioni quali Gestione aggiornamenti e Modifiche e inventario, disponibili in [Automazione di Azure](../../automation/automation-intro.md).
+Per il monitoraggio più avanzato della macchina virtuale è possibile usare una soluzione come [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md), che monitora le macchine virtuali di Azure su larga scala analizzando le prestazioni e l'integrità delle macchine virtuali Windows e Linux, inclusi i relativi processi e le dipendenze interconnesse ad altre risorse e processi esterni. La gestione della configurazione delle proprie macchine virtuali di Azure viene fornita con la soluzione Rilevamento modifiche e inventario di [Automazione di Azure](../../automation/automation-intro.md) per identificare facilmente le modifiche nell'ambiente in uso. La gestione della conformità di aggiornamento viene fornita con la soluzione Gestione aggiornamenti di Automazione di Azure.   
 
-Quando si ha accesso all'area di lavoro di Log Analytics, è possibile trovare la chiave e l'identificatore dell'area di lavoro selezionando **Impostazioni avanzate** in **IMPOSTAZIONI**. Sostituire \<workspace-key\> e \<workspace-id\> con i valori dell'area di lavoro di Log Analytics. Sarà quindi possibile usare **az vm extension set** per aggiungere l'estensione alla macchina virtuale:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Dopo alcuni minuti, la nuova macchina virtuale sarà visualizzata nell'area di lavoro di Log Analytics.
+Dall'area di lavoro Log Analytics a cui è connessa la macchina virtuale, è anche possibile recuperare, consolidare e analizzare i dati raccolti con il [linguaggio di query avanzato](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Gestire iterazioni dell'esperimento in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio. È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Gestire iterazioni dell'esperimento in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio. È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

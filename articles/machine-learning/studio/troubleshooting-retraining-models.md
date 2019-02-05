@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Identificare e correggere i problemi comuni rilevati durante la ripetizione del training del modello per un servizio Web di Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Identificare e correggere i problemi comuni rilevati durante la ripetizione del training del modello per un servizio Web di Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
 ---

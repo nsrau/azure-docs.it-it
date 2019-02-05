@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239231"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697476"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Distribuire una rete di blockchain Ethereum in Azure Stack
 
@@ -25,7 +25,7 @@ Il modello di soluzione Ethereum è progettato per renderlo più semplice e rapi
 
 Con pochi gli input dell'utente e una distribuzione a singolo clic tramite il portale tenant di Azure Stack, ogni membro possa effettuare il provisioning il footprint di rete. Footprint di rete di ogni membro è costituito da un set di nodi con bilanciamento del carico delle transazioni con cui un'applicazione o un utente può interagire per inviare le transazioni, un set di nodi di data mining per registrare le transazioni e un'Appliance virtuale di rete (NVA). Un passaggio successivo di connessione connette le Appliance virtuali di rete per creare una rete completamente configurata multimembro blockchain.
 
-Per impostare questa funzionalità, è:
+Per configurare:
 
 - Scegliere un'architettura di distribuzione
 - Distribuire un autonomo, leader consortium o rete di consorzio membro
@@ -157,7 +157,7 @@ Per verificare la distribuzione del membro, selezionare il sito di amministrazio
 
 ![Riepilogo della distribuzione membro](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Come illustrato nell'immagine, lo stato di nodi del membro è **non è in esecuzione**. Questo avviene perché non viene stabilita la connessione tra il membro e leader. La connessione tra il membro e leader è una connessione bidirezionale. Quando si distribuisce membro, modello crea automaticamente la connessione dal membro per il leader. Per creare la connessione dal leader a membro, andare al passaggio successivo.
+Come illustrato nell'immagine, lo stato di nodi del membro è **non è in esecuzione**. Questo stato è perché non viene stabilita la connessione tra il membro e leader. La connessione tra il membro e leader è una connessione bidirezionale. Quando si distribuisce membro, modello crea automaticamente la connessione dal membro per il leader. Per creare la connessione dal leader a membro, andare al passaggio successivo.
 
 ### <a name="connect-member-and-leader"></a>Connettersi al membro e il carattere di riempimento
 

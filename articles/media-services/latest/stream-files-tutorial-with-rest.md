@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811639"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883518"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -101,10 +101,10 @@ In questa sezione vengono inviate le richieste rilevanti per la codifica e la cr
 
 1. Ottenere il token di Azure AD per l'autenticazione di un'entità servizio
 2. Creare un asset di output
-3. Creare una trasformazione
-4. Creare un processo 
-5. Creare un localizzatore di streaming
-6. Elencare i percorsi del localizzatore di streaming
+3. Creare una **trasformazione**
+4. Creare un **processo**
+5. Creare un **localizzatore di streaming**
+6. Elencare i percorsi del **localizzatore di streaming**
 
 > [!Note]
 >  In questa esercitazione si presuppone che tutte le risorse vengano create con nomi univoci.  
@@ -232,16 +232,16 @@ L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Q
 
 ### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
-Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
+Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'**asset** di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
 
-Il processo di creazione di un oggetto **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
+Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, **PredefinedStreamingPolicy.ClearStreamingOnly**.
+Quando si crea un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, **PredefinedStreamingPolicy.ClearStreamingOnly**.
 
 > [!IMPORTANT]
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. 
 
-L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Evitare quindi di creare un nuovo oggetto StreamingPolicy per ogni StreamingLocator.
+L'account di Servizi multimediali prevede una quota per il numero di occorrenze di **criteri di streaming**. Evitare quindi di creare nuovi **criteri di streaming** per ogni **localizzatore di streaming**.
 
 1. Nella finestra a sinistra di Postman selezionare "Streaming Policies" (Criteri di streaming).
 2. Selezionare quindi "Create a Streaming Locator" (Crea un localizzatore di streaming).
@@ -267,7 +267,7 @@ L'account di Servizi multimediali prevede una quota per il numero di occorrenze 
 
 #### <a name="list-paths"></a>Elencare i percorsi
 
-Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming.
+Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming
 
 1. Nella finestra a sinistra di Postman selezionare "Streaming Policies" (Criteri di streaming).
 2. Selezionare quindi "List Paths" (Elenca percorsi).
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia in esecuzione.
+> Verificare che l'**endpoint di streaming** da cui si vuole trasmettere il contenuto sia in esecuzione.
 
 Per testare lo streaming, in questo articolo viene usato Azure Media Player. 
 
@@ -350,7 +350,7 @@ Azure Media Player può essere usato a scopo di test ma non deve essere usato in
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano gli oggetti Transform e si salvano in modo permanente oggetti come StreamingLocator. Se dopo l'attività di sperimentazione si vuole pulire il proprio account, è necessario eliminare le risorse che non si prevede di riutilizzare.  
+Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano le **trasformazioni** e si salvano in modo permanente i **localizzatori di streaming**. Se dopo l'attività di sperimentazione si vuole pulire il proprio account, è necessario eliminare le risorse che non si prevede di riutilizzare.  
 
 Per eliminare una risorsa, selezionare l'operazione "Elimina" per qualsiasi risorsa che si vuole eliminare.
 

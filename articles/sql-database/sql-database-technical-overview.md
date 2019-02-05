@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270009"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469550"
 ---
 # <a name="the-azure-sql-database-service"></a>Servizio database SQL di Azure
 
@@ -26,8 +26,8 @@ Il database SQL è un servizio gestito di database relazionale per utilizzo gene
 
 Per la distribuzione di un database SQL di Azure sono disponibili le opzioni seguenti:
 
-- Come database singolo con uno specifico set di risorse gestito tramite un server logico
-- Come database di un [pool elastico](sql-database-elastic-pool.md) con un set condiviso di risorse gestito tramite un server logico
+- Come database singolo con uno specifico set di risorse gestito tramite server di database SQL
+- Come database di un [pool elastico](sql-database-elastic-pool.md) con un set condiviso di risorse gestito tramite un server di database SQL
 - Come parte di una raccolta di database, denominata [Istanza gestita](sql-database-managed-instance.md), che contiene database utente e di sistema e condivide un set di risorse
 
 La figura seguente illustra queste opzioni di distribuzione:
@@ -68,7 +68,7 @@ Il database SQL offre un [modello di acquisto basato su DTU](sql-database-servic
 > [!IMPORTANT]
 > Il [livello di servizio con iperscalabilità](sql-database-service-tier-hyperscale.md) è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 
-La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. Un singolo database SQL di Azure supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Esistono comunque script utili per automatizzare la scalabilità per un singolo database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
+La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. Un singolo database supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Esistono comunque script utili per automatizzare la scalabilità per un database singolo. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un database singolo SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -148,7 +148,7 @@ Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
-SQL Advanced Threat Protection è un pacchetto che raccoglie le funzionalità di sicurezza SQL avanzate. Include funzionalità per l'individuazione e la classificazione di dati sensibili, per la gestione delle vulnerabilità dei database e per il rilevamento di attività anomale che potrebbero indicare una minaccia al database. Offre una posizione unica per l'abilitazione e la gestione di queste funzionalità.
+SQL Advanced Data Security è un pacchetto che raccoglie le funzionalità di sicurezza avanzate SQL. Include funzionalità per l'individuazione e la classificazione di dati sensibili, per la gestione delle vulnerabilità dei database e per il rilevamento di attività anomale che potrebbero indicare una minaccia al database. Offre una posizione unica per l'abilitazione e la gestione di queste funzionalità.
 
 - [Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md):
 

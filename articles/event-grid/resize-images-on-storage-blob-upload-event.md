@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463712"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301459"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -68,11 +68,21 @@ I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 
 
 Nel comando seguente sostituire il segnaposto `<general_storage_account>` con il nome globalmente univoco dell'account di archiviazione generale. 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. Impostare una variabile per includere il nome del gruppo di risorse creato nell'esercitazione precedente. 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. Impostare una variabile per il nome dell'account di archiviazione che la funzione di Azure richiede. 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. Creare l'account di archiviazione per la funzione di Azure. Differisce dall'archiviazione che contiene le immagini. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni  
 
@@ -80,10 +90,16 @@ Per ospitare l'esecuzione della funzione è necessaria un'app per le funzioni. L
 
 Nel comando seguente sostituire il segnaposto `<function_app>` con il nome univoco dell'app per le funzioni. Poiché verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che il app per le funzioni sia univoco tra tutte le app in Azure. Per `<general_storage_account>` sostituire il nome dell'account di archiviazione generale creato.
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. Specificare un nome per l'app per le funzioni da creare. 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. Creare la funzione di Azure. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 È ora necessario configurare l'app per le funzioni per la connessione all'account di archiviazione BLOB creato nell'[esercitazione precedente][previous-tutorial].
 
@@ -93,18 +109,18 @@ La funzione richiede la stringa di connessione per connettersi all'account di ar
 
 Nei comandi seguenti dell'interfaccia della riga di comando `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato nell'esercitazione precedente.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. Ottenere la stringa di connessione per l'account di archiviazione che contiene le immagini. 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. Configurare l'app per le funzioni. 
 
-Con l'impostazione `FUNCTIONS_EXTENSION_VERSION=~2` l'app per le funzioni viene eseguita nella versione 2.x del runtime di Funzioni di Azure.
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    Con l'impostazione `FUNCTIONS_EXTENSION_VERSION=~2` l'app per le funzioni viene eseguita nella versione 2.x del runtime di Funzioni di Azure.
 
 È ora possibile distribuire un progetto di codice funzione in quest'app per le funzioni.
 
@@ -117,9 +133,7 @@ La funzione di ridimensionamento di esempio mediante script C# (CSX) è disponib
 Nel comando seguente `<function_app>` è il nome dell'app per le funzioni creata in precedenza.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -148,11 +162,11 @@ Il codice del progetto funzione viene distribuito direttamente dal repository pu
 
 Una sottoscrizione di eventi indica quali eventi generati dal provider si desidera inviare a un endpoint specifico. In questo caso l'endpoint viene esposto dalla funzione. Seguire questa procedura per creare una sottoscrizione di eventi che invia notifiche alla funzione nel portale di Azure: 
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic sulla freccia in basso a sinistra per espandere tutti i servizi, digitare *funzioni* nel campo **Filtro** e quindi scegliere **App per le funzioni**. 
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi** nel menu a sinistra e quindi selezionare **App per le funzioni**. 
 
     ![Passare ad App per le funzioni nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. Espandere l'app per le funzioni, scegliere la funzione **imageresizerfunc** e quindi selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
+2. Espandere l'app per le funzioni, scegliere la funzione **Anteprima** e quindi selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
 
     ![Passare ad App per le funzioni nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -160,8 +174,9 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     
     ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
+    | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
     | **Tipo di argomento** |  Account di archiviazione | Scegliere il provider di eventi Account di archiviazione. | 
     | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente.   |
     | **Gruppo di risorse** | myResourceGroup | Selezionare **Usa esistente** e scegliere il gruppo di risorse usato in questa esercitazione.  |
@@ -169,9 +184,8 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Tipi di evento** | Blob created (BLOB creato) | Deselezionare tutti i tipi diversi da **Blob created** (BLOB creato). Solo i tipi di evento `Microsoft.Storage.BlobCreated` vengono passati alla funzione.| 
     | **Tipo di sottoscrittore** |  generato automaticamente |  Predefinito come webhook. |
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
-    | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
 4. *Facoltativo:* nel caso in cui sia necessario creare altri contenitori nello stesso archivio BLOB per scopi diversi in futuro, è possibile usare le funzionalità di **filtro per l'oggetto** nella scheda **Filtri** per definire in modo più granulare le destinazioni di eventi BLOB e assicurarsi che l'app per le funzioni venga chiamata solo quando i BLOB vengono aggiunti specificamente al contenitore **images**. 
-5. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva `imageresizerfunc` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
+5. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
 
 Ora che i servizi back-end sono stati configurati, testare la funzione di ridimensionamento delle immagini nell'applicazione Web di esempio. 
 

@@ -1,6 +1,6 @@
 ---
-title: Come configurare il database SQL di Azure - Singleton | Microsoft Docs
-description: Informazioni su come configurare e gestire il database SQL di Azure (database singolo).
+title: Come configurare un database SQL di Azure autonomo | Microsoft Docs
+description: Informazioni su come configurare e gestire un database SQL di Azure - Database autonomo
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477795"
 ---
-# <a name="how-to-use-single-database"></a>Come usare un database singolo
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Come usare un database singolo in Database SQL di Azure
 
-In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database SQL di Azure (database singolo).
+In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database singolo in Database SQL di Azure
 
 ## <a name="migrate"></a>Migrazione
 
-- [Eseguire la migrazione nel database SQL](sql-database-cloud-migrate.md): ottenere informazioni sul processo di migrazione consigliato e sugli strumenti per la migrazione nell'istanza gestita.
+- [Eseguire la migrazione nel database SQL](sql-database-cloud-migrate.md): ottenere informazioni sul processo di migrazione consigliato e sugli strumenti per la migrazione in un'istanza gestita.
 - Imparare a [gestire il database SQL dopo la migrazione](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurare le funzionalità
@@ -74,4 +74,4 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Usare Dapper Framework](sql-database-elastic-scale-working-with-dapper.md) per eseguire query sui dati partizionati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Ottenere informazioni sulle [guide pratiche nell'istanza gestita](sql-database-howto-managed-instance.md)
+- Ottenere altre informazioni sulle [Guide pratiche per l'istanza gestita](sql-database-howto-managed-instance.md)

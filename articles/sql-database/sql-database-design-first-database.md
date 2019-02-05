@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Progettare il primo database SQL di Azure con SSMS | Microsoft Docs'
+title: 'Esercitazione: Progettare il primo database singolo nel database SQL di Azure con SSMS | Microsoft Docs'
 description: Informazioni su come progettare il primo database SQL di Azure con SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956058"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459537"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Esercitazione: Progettare il primo database SQL di Azure con SSMS
 
@@ -47,7 +47,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Creazione di un database vuoto
 
-Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md).
+Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server di database SQL di Azure](sql-database-features.md).
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
@@ -107,13 +107,13 @@ Il servizio di database SQL crea un firewall a livello di server. Il firewall im
 
    ![Nome del server](./media/sql-database-design-first-database/server-name.png)
 
-1. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Verrà visualizzata la pagina **Impostazioni del firewall** per il server di database SQL.
+1. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server del database SQL.
 
    ![Regola del firewall del server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
    1. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-   1. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+   1. Fare clic su **Save**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL di Azure.
 
    1. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
@@ -124,7 +124,7 @@ L'indirizzo IP può ora superare il firewall. È ora possibile connettersi al se
 
 ## <a name="connect-to-the-database"></a>Connettersi al database
 
-Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) per stabilire una connessione al server di database SQL di Azure.
+Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) per stabilire una connessione al server del database SQL di Azure.
 
 1. Aprire SQL Server Management Studio.
 

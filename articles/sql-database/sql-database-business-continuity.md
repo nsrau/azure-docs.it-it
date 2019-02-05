@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599434"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473426"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -46,7 +46,7 @@ Quindi, sono disponibili informazioni sui meccanismi aggiuntivi che è possibile
 
 - [Le tabelle temporali](sql-database-temporal-tables.md) consentono di ripristinare le versioni delle righe da qualsiasi punto nel tempo.
 - [I backup automatici incorporati](sql-database-automated-backups.md) e il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) consentono di ripristinare un database completo a un certo punto nel tempo negli ultimi 35 giorni.
-- È possibile [ripristinare il database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore) al punto in cui è stato eliminato se **il server logico non è stato eliminato**.
+- È possibile [ripristinare il database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore) al punto in cui è stato eliminato se **il server di database SQL non è stato eliminato**.
 - [La conservazione backup a lungo termine](sql-database-long-term-retention.md) consente di conservare i backup fino a 10 anni.
 - La [replica geografica attiva](sql-database-active-geo-replication.md) consente di creare repliche leggibili e di eseguire il failover manuale a qualsiasi replica in caso di interruzione del data center o di aggiornamento dell'applicazione.
 - Il [gruppo di failover automatico](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) consente all'applicazione di eseguire un ripristino automatico in caso di interruzione del data center.
@@ -63,7 +63,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di ser
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperare un database nel server esistente
 
-Il database SQL esegue automaticamente una combinazione di backup completi del database su base settimanale, backup differenziali del database (in genere ogni 12 ore) e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. I backup vengono archiviati in archiviazione RA-GRS per 35 giorni per tutti i livelli di servizio, ad eccezione dei livelli di servizio Basic DTU, in cui i backup sono archiviati per 7 giorni. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md). È possibile ripristinare i backup automatizzati di un modulo di database esistente a un punto specifico nel tempo come un nuovo database nello stesso server logico tramite il portale di Azure, PowerShell o l'API REST. Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
+Il database SQL esegue automaticamente una combinazione di backup completi del database su base settimanale, backup differenziali del database (in genere ogni 12 ore) e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. I backup vengono archiviati in archiviazione RA-GRS per 35 giorni per tutti i livelli di servizio, ad eccezione dei livelli di servizio Basic DTU, in cui i backup sono archiviati per 7 giorni. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md). È possibile ripristinare i backup automatizzati di un modulo di database esistente a un momento specifico nel tempo come un nuovo database nello stesso server di database SQL tramite il portale di Azure, PowerShell o l'API REST. Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se il periodo di conservazione massimo point-in-time restore supportato del ripristino temporizzato non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 

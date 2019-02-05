@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454488"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -89,7 +89,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * [Controllo degli accessi in base al ruolo di Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Questo articolo descrive il controllo degli accessi in base al ruolo di Azure Active Directory e il relativo funzionamento.
-* [RBAC: Ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
+* [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
 
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
 * [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -240,7 +240,7 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
 * Si tratta di esercitazioni per l'uso della libreria client .NET per creare firme di accesso condiviso e criteri di accesso archiviati.
 
   * [Uso delle firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Questo articolo contiene una spiegazione del modello di firma di accesso condiviso, esempi di firme di accesso condiviso e suggerimenti per la procedura consigliata da usare per le firme di accesso condiviso. È descritta anche la revoca dell'autorizzazione concessa.
 
@@ -479,7 +479,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 * [Supporto della condivisione risorse tra le origini (CORS) per i servizi di archiviazione di Azure in MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Si tratta della documentazione di riferimento per il supporto di CORS per i servizi di archiviazione di Azure. Include i collegamenti ad articoli applicabili a ogni servizio di archiviazione e illustra un esempio descrivendo ogni elemento nel file CORS.
-* [Archiviazione di Microsoft Azure: Introduzione a CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Archiviazione di Microsoft Azure: Presentazione di CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Questo è un collegamento all'articolo relativo al blog iniziale che annuncia CORS e illustra come usarlo.
 
@@ -504,6 +504,6 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 * [Convalida FIPS 140](https://technet.microsoft.com/library/cc750357.aspx)
 
   Questo articolo fornisce informazioni sulla conformità dei prodotti e dei moduli di crittografia Microsoft allo standard FIPS per il Governo Federale degli Stati Uniti.
-* [Effetti delle impostazioni di sicurezza "Crittografia di sistema: usa algoritmi FIPS conformi per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
+* [Effetti delle impostazioni di sicurezza "Crittografia di sistema: Usa algoritmi FIPS compatibili per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
 
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.

@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Istanza gestita di database SQL di Azure | Microsoft Docs
-description: Questo argomento descrive un'istanza gestita di Azure SQL Database e spiega come funziona e in cosa differisce da un database singolo nel database SQL di Azure.
+description: Questo argomento descrive un'istanza gestita di database SQL di Azure e spiega come funziona e in cosa differisce da un database singolo o in pool nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994760"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465708"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Usare Istanza gestita di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -34,7 +34,7 @@ L’Istanza gestita di database SQL di Azure per i clienti che desiderano esegui
 
 In base alla disponibilità generale, Istanza gestita mira a offrire una compatibilità della superficie di attacco prossima al 100% con l'ultima versione di SQL Server in locale tramite un piano di rilascio a fasi.
 
-Per la scelta tra Database singolo Database SQL di Azure, istanza gestita di Database di Azure SQL e SQL Server in IaaS ospitate in macchine virtuali, vedere [come scegliere la versione corretta di SQL Server nel cloud Azure](sql-database-paas-vs-sql-server-iaas.md).
+Per la scelta tra database singolo Database SQL di Azure, database in pool, istanza gestita e SQL Server ospitati in macchine virtuali, vedere [come scegliere la versione corretta di SQL Server nel cloud Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Funzionalità e le caratteristiche chiave
 
@@ -185,7 +185,7 @@ L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di
 - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> I backup da un'istanza gestita possono essere ripristinati solo in un'altra istanza gestita. Non possono essere ripristinati in un Server SQL in locale o in un database singolo o in pool di server logico del database SQL di Azure.
+> I backup da un'istanza gestita possono essere ripristinati solo in un'altra istanza gestita. Non possono essere ripristinati in SQL Server locale o in database singolo o pool elastico.
 
 ### <a name="data-migration-service"></a>Servizio di migrazione dei dati
 
@@ -210,7 +210,7 @@ Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud
 - Istanza gestita non consente l'uso di percorsi fisici completi, pertanto tutti gli scenari corrispondenti devono essere supportati in modo diverso: RESTORE DB non supporta WITH MOVE, CREATE DB non consente i percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via.
 - Istanza gestita supporta l'[autenticazione di Azure AD](sql-database-aad-authentication.md) come alternativa cloud all'autenticazione di Windows.
 - Istanza gestita gestisce automaticamente filegroup XTP e i file per i database contenenti oggetti di OLTP in memoria
-- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per comparare le funzioni SSIS nel database SQL come parte di un'istanza gestita, vedere [Comparare il server logico e l'istanza gestita del database SQL](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per comparare le funzioni SSIS nel database SQL come parte di un'istanza gestita, vedere [Comparare i database singoli o i pool elastici e l'istanza gestita del database SQL](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione di Istanza gestita
 

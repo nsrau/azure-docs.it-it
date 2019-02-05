@@ -3,7 +3,7 @@ title: Esercitazione - Creare e usare dischi per set di scalabilità con l'inter
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare e usare dischi gestiti con un set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469385"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163059"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -48,7 +48,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 **Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host di Azure dell'istanza di macchina virtuale. Si tratta di dischi ad alte prestazioni e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Se tuttavia l'istanza di macchina virtuale viene spostata in un nuovo host, tutti i dati archiviati in un disco temporaneo verranno rimossi. Le dimensioni del disco temporaneo sono determinate dalle dimensioni dell'istanza di macchina virtuale. I dischi temporanei vengono etichettati come */dev/sdb* e hanno un punto di montaggio */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
-| type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
+| Type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
 |----|----|----|
 | [Utilizzo generico](../virtual-machines/linux/sizes-general.md) | Serie A, B e D | 1600 |
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
@@ -62,7 +62,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 È possibile aggiungere altri dischi dati se è necessario installare applicazioni e archiviare dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensioni dell'istanza di macchina virtuale determinano il numero di dischi dati che possono essere collegati. Per ogni vCPU della macchina virtuale, è possibile collegare due dischi dati.
 
 ### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
-| type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
+| Type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
 |----|----|----|
 | [Utilizzo generico](../virtual-machines/linux/sizes-general.md) | Serie A, B e D | 64 |
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md) | Serie F | 64 |
@@ -132,7 +132,7 @@ I dischi che vengono creati e collegati a istanze di VM del set di scalabilità 
 
 Per automatizzare il processo in più istanze di macchina virtuale di un set di scalabilità, è possibile usare l'estensione Script personalizzato di Azure. Questa estensione può eseguire script in locale in ogni istanza di macchina virtuale, ad esempio per preparare i dischi dati collegati. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/linux/extensions-customscript.md).
 
-L'esempio seguente esegue uno script da un repository GitHub di esempio in ogni istanza di macchina virtuale con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) per preparare tutti i dischi dati non formattati collegati:
+L'esempio seguente esegue uno script da un repository GitHub di esempio in ogni istanza di macchina virtuale con [az vmss extension set](/cli/azure/vmss/extension) per preparare tutti i dischi dati non formattati collegati:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ Vengono visualizzate informazioni su dimensioni del disco, livello di archiviazi
 
 
 ## <a name="detach-a-disk"></a>Scollegare un disco
-Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco dati da un set di scalabilità, usare il comando [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [az vmss show](/cli/azure/vmss#az_vmss_show) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *2* dal set di scalabilità:
+Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco dati da un set di scalabilità, usare il comando [az vmss disk detach](/cli/azure/vmss/disk) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [az vmss show](/cli/azure/vmss#az_vmss_show) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *2* dal set di scalabilità:
 
 ```azurecli-interactive
 az vmss disk detach \

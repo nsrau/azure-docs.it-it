@@ -1,8 +1,21 @@
 ---
-title: Usare un servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Dopo la distribuzione di un servizio di apprendimento automatico da Azure Machine Learning Studio è possibile usare il servizio Web RESTFul come servizio di richiesta-risposta o come un servizio di esecuzione batch.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/06/2017
+title: Usare un servizio Web
+titleSuffix: Azure Machine Learning Studio
+description: Dopo la distribuzione di un servizio di apprendimento automatico da Azure Machine Learning Studio è possibile usare il servizio Web RESTFul come servizio di richiesta-risposta o come un servizio di esecuzione batch.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464382"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
 

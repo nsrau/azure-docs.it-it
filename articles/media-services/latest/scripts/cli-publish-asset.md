@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 1ce85c18b93f22e9078e551deda74c6e6ff0b28b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614923"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095503"
 ---
-# <a name="cli-example-publish-an-asset"></a>Esempio dell'interfaccia della riga di comando: Pubblicare un asset
+# <a name="cli-example-publish-an-asset"></a>Esempio di interfaccia della riga di comando: Pubblicare un asset
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare un localizzatore di streaming e ottenere gli URL di streaming. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+[Creare un account di Servizi multimediali di Azure](../create-account-cli-how-to.md).
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
-
-- [Creare un account di Servizi multimediali di Azure](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script di esempio
 

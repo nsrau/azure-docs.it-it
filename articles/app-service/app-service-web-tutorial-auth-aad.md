@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297090"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure
 
@@ -293,7 +293,7 @@ Salvare le impostazioni facendo clic su **PUT**.
 
 Le app sono ora configurate. Il front-end è pronto per accedere al back-end con un token di accesso appropriato.
 
-Per informazioni su come eseguire questa configurazione per altri provider, vedere [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens) (Aggiornare i token di accesso).
+Per informazioni su come eseguire questa configurazione per altri provider, vedere [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens) (Aggiornare i token del provider di identità).
 
 ## <a name="call-api-securely-from-server-code"></a>Chiamare l'API in modo sicuro dal codice del server
 
@@ -331,7 +331,7 @@ Accedere di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Nella pagi
 
 Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end come prima. L'unica differenza consiste nel fatto che ora entrambe le app, incluse le chiamate da servizio a servizio, sono protette dall'autenticazione e dall'autorizzazione del servizio app.
 
-Congratulazioni Il codice del server accede ora ai dati del back-end per conto dell'utente autenticato.
+Congratulazioni! Il codice del server accede ora ai dati del back-end per conto dell'utente autenticato.
 
 ## <a name="call-api-securely-from-browser-code"></a>Chiamare l'API in modo sicuro dal codice del browser
 
@@ -413,11 +413,11 @@ git push frontend master
 
 Passare di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end direttamente nell'app Angular.js.
 
-Congratulazioni Il codice del client accede ora ai dati del back-end per conto dell'utente autenticato.
+Congratulazioni! Il codice del client accede ora ai dati del back-end per conto dell'utente autenticato.
 
 ## <a name="when-access-tokens-expire"></a>Quando scadono i token di accesso
 
-Il token di accesso scade dopo un certo periodo di tempo. Per informazioni su come aggiornare i token di accesso senza chiedere agli utenti di autenticarsi di nuovo nell'app, vedere [Aggiornare i token di accesso](app-service-authentication-how-to.md#refresh-access-tokens).
+Il token di accesso scade dopo un certo periodo di tempo. Per informazioni su come aggiornare i token di accesso senza chiedere agli utenti di autenticarsi di nuovo nell'app, vedere [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens) (Aggiornare i token del provider di identità).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

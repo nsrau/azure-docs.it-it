@@ -3,19 +3,19 @@ title: Reimpostazione della password self-service di Azure AD dalla schermata di
 description: In questa esercitazione verrà abilitata la reimpostazione della password dalla schermata di accesso di Windows 10 per ridurre le chiamate al supporto tecnico.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430672"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474871"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -28,11 +28,11 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Aggiornamento di aprile 2018 di Windows 10 o un client più recente:
-   * [Computer aggiunto ad Azure AD](../device-management-azure-portal.md) o
-   * [Computer aggiunto ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
+* È necessario eseguire almeno Windows 10, versione aggiornamento di aprile 2018 e i dispositivi devono essere:
+   * [Aggiunti ad Azure AD](../device-management-azure-portal.md) oppure
+   * [Aggiunti ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
-* Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`.
+* Se i dispositivi Windows 10 sono protetti da un firewall o un server proxy, è necessario aggiungere gli URL `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` al proprio elenco di URL consentiti per il traffico HTTPS (porta 443).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurare il collegamento di reimpostazione della password con Intune
 

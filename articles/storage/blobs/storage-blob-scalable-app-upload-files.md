@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565735"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240081"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -35,7 +35,7 @@ Un altro fattore importante nella progettazione di un'applicazione ad alte prest
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione è necessario aver completato la precedente esercitazione sull'archiviazione: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
+Per completare questa esercitazione è necessario aver completato l'esercitazione di archiviazione precedente: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Creare una sessione remota nella macchina virtuale
 

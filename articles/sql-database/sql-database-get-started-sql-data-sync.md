@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304279"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478424"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra il database SQL di Azure e SQL Server in locale
 
@@ -71,11 +71,11 @@ Nella sezione **Database hub** immettere le credenziali esistenti per il server 
 
 ### <a name="to-add-an-azure-sql-database"></a>Per aggiungere un database SQL di Azure
 
-Nella sezione **Database membro** aggiungere facoltativamente un database SQL di Azure al gruppo di sincronizzazione selezionando **Aggiungi un database di Azure**. Verrà aperta la pagina **Configura database di Azure**.
+Nella sezione **Database membro** aggiungere facoltativamente un database SQL di Azure al gruppo di sincronizzazione selezionando **Aggiungi un database SQL di Azure**. Verrà aperta la pagina **Configura database SQL di Azure**.
 
   ![Passaggio 2: Configura database](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Nella pagina **Configura database di Azure** cambiare le impostazioni seguenti:
+  Nella pagina **Configura database SQL di Azure** cambiare le impostazioni seguenti:
 
   | Impostazione                       | DESCRIZIONE |
   | ----------------------------- | ------------------------------------------------- |

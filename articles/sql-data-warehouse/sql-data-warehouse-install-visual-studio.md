@@ -4,20 +4,20 @@ description: Installare Visual Studio e SQL Server Data Tools (SSDT) per Azure S
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ba84b64afb1d5ebcd5ec153787ddc7d0739bd8d8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e27a3d4f2fe4b8421b637e485d77d6376d15bf9a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307386"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461492"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Installare Visual Studio e SSDT per SQL Data Warehouse
 Per sviluppare applicazioni per SQL Data Warehouse, è consigliabile usare la versione più recente di Visual Studio con la versione più recente di SQL Server Data Tools (SSDT).  È supportato anche Visual Studio 2013 Update 5 con SSDT per la compatibilità con le versioni precedenti.  
@@ -29,13 +29,13 @@ L'uso di Visual Studio con SSDT consentirà di usare Esplora oggetti di SQL Serv
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>Passaggio 1: Installare Visual Studio
+## <a name="step-1-install-visual-studio"></a>Passaggio 1: Installazione di Visual Studio
 Seguire questi collegamenti per scaricare e installare Visual Studio. Se Visual Studio 2013 o versione successiva è già installato, è possibile procedere al passaggio 2 per installare SSDT.
 
 1. [Scaricare Visual Studio][].
 2. Seguire le istruzioni di [Installazione di Visual Studio][Installing Visual Studio] in MSDN e scegliere le configurazioni predefinite.
 
-## <a name="step-2-install-ssdt"></a>Passaggio 2: Installare SSDT
+## <a name="step-2-install-ssdt"></a>Passaggio 2: Installazione di SSDT
 Per installare SSDT per Visual Studio, per prima cosa selezionare un aggiornamento di SSDT dall'interno di Visual Studio seguendo questa procedura.
 
 1. In Visual Studio fare clic su **Strumenti** / **Estensioni e aggiornamenti** /  **Aggiornamenti**

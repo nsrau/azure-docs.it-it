@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960703"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888924"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -32,63 +32,61 @@ Per completare questa guida introduttiva, assicurarsi di disporre di quanto segu
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è una raccolta logica per le risorse di Azure. Tutte le risorse vengono distribuite e gestite in un gruppo di risorse. Per creare un gruppo di risorse, seguire questa procedura:
+Un gruppo di risorse è una raccolta logica per le risorse di Azure. Tutte le risorse vengono distribuite e gestite in un gruppo di risorse. Per creare un gruppo di risorse:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel riquadro di spostamento a sinistra fare clic su **Gruppi di risorse**. Fare quindi clic su **Aggiungi**.
 
    ![Gruppi di risorse: pulsante Aggiungi](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. Digitare un nome univoco per il gruppo di risorse. Il sistema verifica immediatamente se il nome è disponibile nella sottoscrizione di Azure attualmente selezionata.
-
-3. In **Sottoscrizione** fare clic sul nome della sottoscrizione di Azure in cui si vuole creare il gruppo di risorse.
-
-4. Selezionare un'area geografica per il gruppo di risorse.
-
-5. Fare clic su **Create**(Crea).
+2. Per **Sottoscrizione** selezionare il nome della sottoscrizione di Azure in cui si vuole creare il gruppo di risorse.
+3. Digitare un **nome univoco per il gruppo di risorse**. Il sistema verifica immediatamente se il nome è disponibile nella sottoscrizione di Azure attualmente selezionata.
+4. Selezionare un'**area** per il gruppo di risorse.
+5. Selezionare **Rivedi e crea**.
 
    ![Gruppo di risorse: Crea](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. Nel riquadro **Rivedi e crea** selezionare **Crea**. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
 Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, a cui fa riferimento il nome di dominio completo, in cui si crea uno o più hub eventi. Per creare uno spazio dei nomi nel gruppo di risorse usando il portale, eseguire le azioni seguenti:
 
 1. Nel portale di Azure fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
-
-2. Fare clic su **Internet delle cose** e quindi su **Hub eventi**.
-
-3. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-
-   ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-create/create-event-hub1.png)
-
-4. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario (Basic o Standard). Scegliere anche una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa.
- 
-5. Fare clic su **Crea** per creare lo spazio dei nomi. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
-6. Selezionare **Avvisi** e quindi selezionare la **distribuzione** con lo stesso nome dello spazio dei nomi dell'hub eventi. 
-
-   ![Gruppo di risorse: avviso da creazione](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Selezionare lo spazio dei nomi dell'hub eventi nell'elenco delle risorse create nella distribuzione. 
-
-   ![Selezionare lo spazio dei nomi dalla distribuzione](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. Nella pagina **Spazio dei nomi di Hub eventi** selezionare **Criteri di accesso condivisi** e quindi fare clic su **RootManageSharedAccessKey**.
+2. Selezionare **Tutti i servizi** nel menu a sinistra e scegliere la **stella (`*`)** accanto a **Hub eventi** nella categoria **Analytics**. Verificare che **Hub eventi** venga aggiunto a **PREFERITI** nel menu di spostamento a sinistra. 
     
-8. Fare clic sul pulsante di copia per copiare la stringa di connessione **RootManageSharedAccessKey** negli Appunti. Salvare la stringa di connessione in una posizione temporanea, ad esempio il Blocco note, per usarla in seguito.
+   ![Cercare Hub eventi](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. Selezionare **Hub eventi** sotto **PREFERITI** nel menu di spostamento a sinistra e scegliere **Aggiungi** sulla barra degli strumenti.
+
+   ![Pulsante Aggiungi della barra degli strumenti](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. Nella pagina **Crea spazio dei nomi** seguire questa procedura:
+    1. Immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+    2. Scegliere il piano tariffario (Base o Standard).
+    3. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
+    4. Selezionare una **località** per lo spazio dei nomi.
+    5. Selezionare **Create**. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
+
+       ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. Aggiornare la pagina **Hub eventi** per visualizzare lo spazio dei nomi dell'hub eventi. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. 
+
+    ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. Selezionare lo spazio dei nomi. Verrà visualizzata la home page per lo **spazio dei nomi Hub eventi** nel portale. 
+
+   ![Home page dello spazio dei nomi](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
 Per creare un hub eventi all'interno dello spazio dei nomi, eseguire le azioni seguenti:
 
-1. Nella pagina Spazio dei nomi di Hub eventi fare clic su **Hub eventi**.
-   
-    ![Selezionare Hub eventi nel menu a sinistra](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. Nella pagina dello spazio dei nomi degli hub eventi selezionare **Hub eventi** nel menu a sinistra.
 1. Nella parte superiore della finestra fare clic su **+ Hub eventi**.
    
     ![Aggiungi hub eventi: pulsante](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Digitare un nome per l'hub eventi e quindi fare clic su **Crea**.
    
     ![Creare un hub eventi](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. Dopo aver creato l'hub eventi, è possibile visualizzarlo nell'elenco degli hub eventi come illustrato nell'immagine seguente:
 
+    ![Hub eventi creato](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Congratulazioni! È stato usato il portale per creare uno spazio dei nomi di Hub eventi e un hub eventi nello spazio dei nomi. 
 

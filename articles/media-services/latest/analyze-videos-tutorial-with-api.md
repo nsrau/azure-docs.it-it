@@ -1,5 +1,5 @@
 ---
-title: Analizzare i video con Servizi multimediali di Azure | Microsoft Docs
+title: Analizzare i video con Servizi multimediali di Azure usando .NET | Microsoft Docs
 description: Seguire i passaggi di questa esercitazione per analizzare i video usando Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133894"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150394"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Esercitazione: Analizzare i video con Servizi multimediali v3 usando le API
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET
 
 Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard. In questo modo, possono acquisire informazioni dettagliate sull'andamento dell'attività, generando ad esempio un elenco dei reclami frequenti, delle origini di tali reclami, nonché altre informazioni utili.
 
 Questa esercitazione illustra come:    
 
 > [!div class="checklist"]
-> * Creare un account di Servizi multimediali
-> * Accedere all'API di Servizi multimediali
-> * Configurare l'app di esempio
+> * Scaricare l'app di esempio descritta nell'argomento
 > * Esaminare il codice che analizza il video specificato
 > * Esecuzione dell'app
 > * Esaminare l'output
@@ -39,15 +37,10 @@ Questa esercitazione illustra come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
-    Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
-
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-
-    Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
-
-## <a name="download-the-sample"></a>Scaricare l'esempio
+## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
 Clonare nel computer un repository GitHub contenente l'esempio .NET usando il comando seguente:  
 
@@ -57,7 +50,7 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET usando il co
 
 L'esempio si trova nella cartella [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Aprire [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute dall'[accesso alle API](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Esaminare il codice che analizza il video specificato
 
@@ -65,8 +58,8 @@ Questa sezione esamina le funzioni definite nel file [Program.cs](https://github
 
 L'esempio esegue le azioni seguenti:
 
-1. Crea una trasformazione e un processo per analizzare il video.
-2. Crea un asset di input e carica il video al suo interno. L'asset viene usato come input del processo.
+1. Crea una **trasformazione** e un **processo** per analizzare il video.
+2. Crea un **asset** di input e carica il video al suo interno. L'asset viene usato come input del processo.
 3. Crea un asset di output che archivia l'output del processo. 
 4. Invia il processo.
 5. Controlla lo stato del processo.

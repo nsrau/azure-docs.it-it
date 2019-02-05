@@ -1,5 +1,5 @@
 ---
-title: Streaming live con Servizi multimediali di Azure v3 | Microsoft Docs
+title: Streaming live con Servizi multimediali di Azure v3 usando .NET | Microsoft Docs
 description: Questa esercitazione illustra i passaggi per lo streaming live con Servizi multimediali v3 usando .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811214"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170522"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando le API
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando .NET
 
-In Servizi multimediali di Azure le entità [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità LiveEvent riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Le entità LiveEvent forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
+In Servizi multimediali di Azure le entità [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità evento live fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità evento live riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming con uno o più [Endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Gli eventi live forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
 
 > [!NOTE]
 > Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
@@ -31,8 +31,7 @@ In Servizi multimediali di Azure le entità [LiveEvent](https://docs.microsoft.c
 L'esercitazione illustra come:    
 
 > [!div class="checklist"]
-> * Accedere all'API di Servizi multimediali
-> * Configurare l'app di esempio
+> * Scaricare l'app di esempio descritta nell'argomento
 > * Esaminare il codice che esegue lo streaming live
 > * Guardare l'evento con [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) in http://ampdemo.azureedge.net
 > * Pulire le risorse
@@ -44,18 +43,12 @@ L'esercitazione illustra come:
 Per completare l'esercitazione è necessario quanto segue.
 
 - Installare Visual Studio Code o Visual Studio.
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
-
-    Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
-
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-
-    Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
-
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 - Una fotocamera o un dispositivo (ad esempio un laptop) usato per trasmettere un evento.
 - Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live Servizi multimediali. Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
 
-## <a name="download-the-sample"></a>Scaricare l'esempio
+## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
 Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming usando il comando seguente:  
 
@@ -65,11 +58,10 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
 
 L'esempio di streaming live è disponibile nella cartella [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-> [!IMPORTANT]
-> Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più LiveEvent. <br/>
-> Assicurarsi di arrestare i LiveEvent in esecuzione. In caso contrario, verranno **fatturati**.
+Aprire [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute dall'[accesso alle API](access-api-cli-how-to.md).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+> [!IMPORTANT]
+> Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Esaminare il codice che esegue lo streaming live
 
@@ -78,8 +70,8 @@ Questa sezione esamina le funzioni definite nel file [Program.cs](https://github
 L'esempio crea un suffisso univoco per ogni risorsa in modo che non si verifichino conflitti di nomi se si esegue l'esempio più volte senza ripulire.
 
 > [!IMPORTANT]
-> Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più LiveEvent. <br/>
-> Assicurarsi di arrestare i LiveEvent in esecuzione. In caso contrario, verranno **fatturati**.
+> Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>
+> Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
  
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 
@@ -89,29 +81,20 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un LiveEvent di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un LiveEvent abilitato per la codifica live, impostare LiveEventEncodingType su **Standard**. 
+Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un evento live abilitato per la codifica live, impostare LiveEventEncodingType su **Standard**. 
 
 Altre caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
 * Account di Servizi multimediali 
-* Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming)
-       
-    Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione del LiveEvent o dei LiveOutput associati. Se sono necessari protocolli diversi, è necessario creare LiveEvent separati per ogni protocollo di streaming.  
-* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo LiveEvent. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').
-    
-    Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
-    
-    Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
-
-* Quando si crea l'evento, è possibile impostarne l'avvio automatico. 
-
-    Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena l'evento live è in esecuzione. È necessario chiamare esplicitamente Stop sulla risorsa LiveEvent per interrompere la fatturazione. Per altre informazioni, vedere la sezione [Stati e fatturazione di LiveEvent](live-event-states-billing.md).
+* Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
+* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
+* Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere la sezione [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 
-Al termine della creazione di LiveEvent, è possibile ottenere gli URL di inserimento che verranno passati al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
+Al termine della creazione dell'evento live, è possibile ottenere gli URL di inserimento che verranno passati al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -124,24 +107,28 @@ Usare previewEndpoint per visualizzare in anteprima e verificare che l'input dal
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
-### <a name="create-and-manage-liveevents-and-liveoutputs"></a>Creare e gestire LiveEvent e LiveOutput
+### <a name="create-and-manage-live-events-and-live-outputs"></a>Creare e gestire eventi live e output live
 
-Dopo l'avvio del flusso nel LiveEvent, è possibile iniziare l'evento di streaming creando Asset, LiveOutput e StreamingLocator. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite StreamingEndpoint. 
+Dopo l'avvio del flusso nell'evento live, è possibile iniziare l'evento di streaming creando un asset, un output live e un localizzatore di streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming. 
 
 #### <a name="create-an-asset"></a>Creare un asset
 
+Creare un asset utilizzabile dall'output live.
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
 
-Creare un asset utilizzabile da LiveOutput.
+#### <a name="create-a-live-output"></a>Creare un output live
 
-#### <a name="create-a-liveoutput"></a>Creare un LiveOutput
+Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina l'output live, non si elimina l'asset sottostante e il contenuto dell'asset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
-#### <a name="create-a-streaminglocator"></a>Creare un StreamingLocator
+#### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
 > [!NOTE]
 > Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+
+Quando l'asset output live è stato pubblicato usando un localizzatore di streaming, l'evento live (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore raggiunto per primo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
@@ -166,18 +153,20 @@ foreach (StreamingPath path in paths.StreamingPaths)
 Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui in precedenza è stato effettuato il provisioning, attenersi alla procedura seguente.
 
 * Interrompere il push del flusso dal codificatore.
-* Arrestare il LiveEvent. Dopo l'arresto, il LiveEvent non è soggetto ad alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
-* È possibile arrestare StreamingEndpoint, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se LiveEvent è arrestato, non è soggetto ad alcun addebito.
+* Arrestare l'evento live. Dopo l'arresto, l'evento live non è soggetto ad alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
+* È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento live è stato arrestato, non è soggetto ad alcun addebito.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
+Il codice seguente mostra come pulire l'account da tutti gli eventi live:
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>Guardare l'evento
 
-Per controllare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in [Creare un StreamingLocator](#create-a-streaminglocator) e usare un lettore di propria scelta. È possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo http://ampdemo.azureedge.net. 
+Per controllare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in [Creare un localizzatore di streaming](#create-a-streaminglocator) e usare un lettore di propria scelta. È possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo http://ampdemo.azureedge.net. 
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta. Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
 
@@ -192,9 +181,9 @@ az group delete --name amsResourceGroup
 ```
 
 > [!IMPORTANT]
-> Lasciare LiveEvent in esecuzione comporta costi di fatturazione. Tenere presente, in caso di arresto anomalo o chiusura del programma/progetto, che LiveEvent potrebbe rimanere in esecuzione in stato di fatturazione.
+> Lasciare l'evento live in esecuzione comporta costi di fatturazione. Tenere presente, in caso di arresto anomalo o chiusura del programma/progetto, che l'evento live potrebbe rimanere in esecuzione in stato di fatturazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Streaming di file](stream-files-tutorial-with-api.md)
-
+ 

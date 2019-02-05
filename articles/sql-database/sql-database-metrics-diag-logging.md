@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044570"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462801"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
 Database SQL di Azure, pool elastici, istanza gestita e database di istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
 
-- **Analisi SQL di Azure**: per ottenere un monitoraggio intelligente dei database di Azure che includa i report delle prestazioni, gli avvisi e i suggerimenti di mitigazione dei rischi.
+- **Analisi SQL di Azure**: per ottenere un monitoraggio intelligente dei database SQL di Azure che includa i report delle prestazioni, gli avvisi e i suggerimenti di mitigazione dei rischi.
 - **Hub eventi di Azure**: per integrare i dati di telemetria del database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
 - **Archiviazione di Azure**: per archiviare enormi quantità di dati di telemetria a un costo nettamente inferiore.
 
@@ -68,7 +68,7 @@ Abilitare le metriche e la registrazione diagnostica nel database SQL e nei data
 | [Tutte le metriche](sql-database-metrics-diag-logging.md#all-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Yes | No  |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'uso della CPU e le statistiche sulla durata delle query. | Yes | Yes |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contiene le informazioni sulle statistiche di attesa delle query (le cause di attesa delle query) ad esempio CPU, LOG o LOCKING. | Yes | Yes |
-| [Errori](sql-database-metrics-diag-logging.md#errors-dataset): Contiene informazioni sugli errori di SQL nel database. | Yes | No  |
+| [Errori](sql-database-metrics-diag-logging.md#errors-dataset): Contiene informazioni sugli errori di SQL nel database. | Yes | Yes |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contiene informazioni sul tempo di attesa trascorso dal database per tipi di attesa diversi. | Yes | No  |
 | [Timeout](sql-database-metrics-diag-logging.md#time-outs-dataset): Contiene informazioni sui timeout nel database. | Yes | No  |
 | [Blocchi](sql-database-metrics-diag-logging.md#blockings-dataset): Contiene informazioni sugli eventi di blocco nel database. | Yes | No  |
@@ -414,7 +414,7 @@ Fare riferimento alla tabella seguente per informazioni dettagliate sui log per 
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: ResourceUsageStats |
 |Risorsa|Nome della risorsa |
@@ -443,7 +443,7 @@ Fare riferimento alle tabelle seguenti per informazioni dettagliate sui log per 
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Sempre: QueryStoreRuntimeStatisticsEvent |
@@ -494,7 +494,7 @@ Altre informazioni sui [dati delle statistiche di runtime di Query Store](https:
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Sempre: QueryStoreWaitStatisticsEvent |
@@ -532,7 +532,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT.SQ |
 |Categoria|Nome della categoria. Sempre: Errors |
 |OperationName|Nome dell'operazione. Sempre: ErrorEvent |
@@ -561,7 +561,7 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://msdn.microsoft
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Sempre: DatabaseWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Timeout |
 |OperationName|Nome dell'operazione. Sempre: TimeoutEvent |
@@ -613,7 +613,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Blocchi |
 |OperationName|Nome dell'operazione. Sempre: BlockEvent |
@@ -637,7 +637,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Deadlock |
 |OperationName|Nome dell'operazione. Sempre: DeadlockEvent |
@@ -658,7 +658,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|type|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: AutomaticTuning |
 |Risorsa|Nome della risorsa |

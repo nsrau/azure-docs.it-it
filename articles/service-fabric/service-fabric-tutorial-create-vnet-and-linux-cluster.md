@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831484"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101806"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Esercitazione: distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
+# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) tramite l'interfaccia della riga di comando di Azure e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -66,7 +66,7 @@ Il certificato del cluster deve:
 * essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange);
 * avere un nome del soggetto corrispondente al dominio usato per accedere al cluster di Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio .cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster di Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
+L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
 
 Questa esercitazione distribuisce un cluster con cinque nodi in un unico tipo di nodo. La [pianificazione della capacità](service-fabric-cluster-capacity.md), tuttavia, è un passaggio importante per qualsiasi distribuzione di cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
 
@@ -89,7 +89,7 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 
 * Unico tipo di nodo
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello)
-* Sistema operativo Ubuntu 16.04 LTS (configurabile nei parametri del modello)
+* Sistema operativo: Ubuntu 16.04 LTS (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato
 * [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
@@ -108,10 +108,10 @@ Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio 
 
 ### <a name="virtual-network-and-subnet"></a>Rete virtuale e subnet
 
-I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello,  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
+I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
 
-* Spazio indirizzi della rete virtuale: 10.0.0.0/16
-* Spazio indirizzi della subnet di Service Fabric: 10.0.2.0/24
+* Spazio degli indirizzi della rete virtuale: 10.0.0.0/16
+* Spazio degli indirizzi della subnet di Service Fabric: 10.0.2.0/24
 
 Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risorsa Microsoft.Network/loadBalancers in modo da consentire il traffico in ingresso.
 
@@ -198,7 +198,7 @@ Gli altri articoli in questa serie di esercitazioni usano il cluster appena crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale in Azure usando l'interfaccia della riga di comando di Azure

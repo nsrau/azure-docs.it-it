@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222066"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
@@ -125,7 +125,7 @@ Selezionare e verificare le risorse di destinazione.
 I criteri vengono automaticamente associati al server di configurazione.
 
 > [!WARNING]
-> Assicurarsi di specificare **Disattivata** nell'impostazione della frequenza snapshot coerenti con l'app dei criteri di replica. Sono supportati solo i punti di recupero coerenti con l'arresto anomalo del sistema quando si replicano i server con Windows Server 2008. Se si specificano altri valori per la frequenza snapshot coerenti con l'app, verranno generati falsi avvisi poiché lo stato dell'integrità della replica del server diventa critico a causa della mancanza di punti di recupero coerenti con l'app.
+> Assicurarsi di specificare **Disattivata** nell'impostazione della frequenza snapshot coerenti con l'app dei criteri di replica. Sono supportati solo i punti di recupero coerenti con l'arresto anomalo del sistema quando si replicano i server con Windows Server 2008. Se si specificano altri valori per la frequenza snapshot coerenti con l'app, verranno generati falsi avvisi perché lo stato dell'integrità della replica del server diventa critico a causa della mancanza di punti di recupero coerenti con l'app.
 
    ![Creare criteri di replica](media/migrate-tutorial-windows-server-2008/create-policy.png)
 

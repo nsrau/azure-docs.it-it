@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790175"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224242"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Eseguire un backup dei database SQL Server in Azure
 
@@ -483,7 +483,14 @@ Questa procedura illustra in dettaglio il ripristino dei dati in un percorso alt
 > È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure. Il server di destinazione deve essere registrato nell’insieme di credenziali di Servizi di ripristino.
 >
 
-Nel menu **Configurazione di ripristino**, l’elenco a discesa **Server** mostra solo le istanze SQL Server registrate nell’insieme di credenziali di Servizi di ripristino. Se il server che si vuole usare non appare nell'elenco, vedere [Individuare i database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) per trovarlo. Durante il processo di individuazione, eventuali nuovi server vengono registrati nell'insieme di credenziali di Servizi di ripristino.
+Nel menu **Configurazione di ripristino**, l’elenco a discesa **Server** mostra solo le istanze SQL Server registrate nell’insieme di credenziali di Servizi di ripristino. Se il server che si vuole usare non appare nell'elenco, vedere [Individuare i database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) per trovarlo. Durante il processo di individuazione, eventuali nuovi server vengono registrati nell'insieme di credenziali di Servizi di ripristino.<br>
+Per ripristinare un database SQL, occorrono le autorizzazioni seguenti:
+
+* Autorizzazioni di **Operatore di backup** per l'**insieme di credenziali**di Servizi di ripristino in cui si esegue il ripristino.
+* Accesso come **Collaboratore (scrittura)** alla **VM SQL di origine**, cioè la macchina virtuale di cui è stato eseguito un backup e da cui si prova a eseguire il ripristino.
+* Accesso come **Collaboratore (scrittura)** alla VM SQL di destinazione, cioè la macchina virtuale in cui si esegue il ripristino. Si tratta della macchina virtuale di origine nel caso di ripristino del percorso originale.
+
+Per ripristinare in un percorso alternativo:
 
 1. Nel menu **Configurazione di ripristino**:
 

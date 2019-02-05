@@ -1,6 +1,6 @@
 ---
-title: Valutazione dei dati titleSuffix: Descrizione di Azure Machine Learning Studio: Quattro criteri che i dati devono soddisfare per essere pronti per l'analisi scientifica. Questo video illustra esempi concreti per la valutazione dei dati di base.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Valutazione dei dati titleSuffix: Descrizione di Azure Machine Learning Studio: Quattro criteri che i dati devono soddisfare per essere pronti per l'analisi scientifica. Questo video illustra esempi concreti per la valutazione dei dati di base.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

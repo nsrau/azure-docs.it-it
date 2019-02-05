@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252133"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729935"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Applicare gli aggiornamenti in Azure Stack
 
@@ -37,6 +37,9 @@ Quando un pacchetto di aggiornamento Microsoft o un OEM per Azure Stack è dispo
 - Corrispondente `<PackageName>.bin` file. Questi file forniscono la compressione per il payload che è associato il *PackageName*.exe file.
 
 - Oggetto `Metadata.xml` file. Questo file contiene le informazioni essenziali sull'aggiornamento, ad esempio il server di pubblicazione, nome, prerequisito, dimensioni e URL del percorso.
+
+> [!IMPORTANT]  
+> Dopo aver applicato il pacchetto di aggiornamento di Azure Stack 1901, il formato di pacchetto per Azure Stack update pacakges passerà da .exe, .bin(s) e il formato con estensione XML da un .zip(s) e formato. Xml. Operatori di Azure Stack che si sono connessi gli indicatori non saranno interessati. Operatori di Azure Stack disconnesse semplicemente importerà i file con estensione XML e ZIP usando lo stesso processo descritto di seguito.
 
 ## <a name="import-and-install-updates"></a>Importare e installare gli aggiornamenti
 

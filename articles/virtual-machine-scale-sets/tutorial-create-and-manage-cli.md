@@ -3,7 +3,7 @@ title: Esercitazione - Creare e gestire un set di scalabilità di macchine virtu
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466138"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179481"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -51,7 +51,7 @@ In questa esercitazione, il nome del gruppo di risorse viene specificato quando 
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Un set di scalabilità di macchine virtuali viene creato con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti:
+Un set di scalabilità di macchine virtuali viene creato con il comando [az vmss create](/cli/azure/vmss). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>Visualizzare l'elenco delle informazioni di connessione
 Al servizio di bilanciamento del carico che indirizza il traffico alle singole istanze di VM viene assegnato un indirizzo IP pubblico. Per impostazione predefinita, al servizio di bilanciamento del carico di Azure che inoltra il traffico di connessione remota a ogni VM su una determinata porta vengono aggiunte regole NAT (Network Address Translation). Per connettersi alle istanze di VM di un set di scalabilità, si crea una connessione remota a un indirizzo IP pubblico e un numero di porta assegnati.
 
-Per visualizzare l'elenco con l'indirizzo e le porte per la connessione alle istanze di VM di un set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Per visualizzare l'elenco con l'indirizzo e le porte per la connessione alle istanze di VM di un set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -192,7 +192,7 @@ Una dimensione di istanza di VM, o *SKU*, determina la quantità di risorse di c
 ### <a name="vm-instance-sizes"></a>Dimensioni delle istanze di VM
 La tabella seguente classifica le dimensioni di VM comuni in base ai casi d'uso.
 
-| type                     | Dimensioni comuni           |    DESCRIZIONE       |
+| Type                     | Dimensioni comuni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -202,7 +202,7 @@ La tabella seguente classifica le dimensioni di VM comuni in base ai casi d'uso.
 | [Prestazioni elevate](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 
 
 ### <a name="find-available-vm-instance-sizes"></a>Trovare le dimensioni di istanze di VM disponibili
-Per visualizzare un elenco delle dimensioni di istanze di VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes).
+Per visualizzare un elenco delle dimensioni di istanze di VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ L'output è simile all'esempio sintetico seguente, che mostra le risorse assegna
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>Creare un set di scalabilità con una dimensione di istanza di VM specifica
-Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stato usato lo SKU di VM predefinito *Standard_D1_v2*. È possibile specificare una dimensione di istanza di VM diversa in base all'output di [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). L'esempio seguente creerà un set di scalabilità con il parametro `--vm-sku` per specificare la dimensione di istanza di VM *Standard_F1*. Dato che la creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti, non è necessario distribuire il set di scalabilità seguente:
+Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stato usato lo SKU di VM predefinito *Standard_D1_v2*. È possibile specificare una dimensione di istanza di VM diversa in base all'output di [az vm list-sizes](/cli/azure/vm). L'esempio seguente creerà un set di scalabilità con il parametro `--vm-sku` per specificare la dimensione di istanza di VM *Standard_F1*. Dato che la creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti, non è necessario distribuire il set di scalabilità seguente:
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
-Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per impostazione predefinita sono state distribuite due istanze di VM. È possibile specificare il parametro `--instance-count` con [az vmss create](/cli/azure/vmss#az_vmss_create) per modificare il numero delle istanze create con un set di scalabilità. Per aumentare o ridurre il numero di istanze di VM nel set di scalabilità esistente, è possibile modificare la capacità manualmente. Il set di scalabilità crea o rimuove il numero necessario di istanze di VM, quindi configura il servizio di bilanciamento del carico per la distribuzione del traffico.
+Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per impostazione predefinita sono state distribuite due istanze di VM. È possibile specificare il parametro `--instance-count` con [az vmss create](/cli/azure/vmss) per modificare il numero delle istanze create con un set di scalabilità. Per aumentare o ridurre il numero di istanze di VM nel set di scalabilità esistente, è possibile modificare la capacità manualmente. Il set di scalabilità crea o rimuove il numero necessario di istanze di VM, quindi configura il servizio di bilanciamento del carico per la distribuzione del traffico.
 
 Per aumentare o ridurre manualmente il numero di istanze di VM nel set di scalabilità, usare [az vmss scale](/cli/azure/vmss#az_vmss_scale). L'esempio seguente imposta il numero di istanze di VM nel set di scalabilità su *3*:
 

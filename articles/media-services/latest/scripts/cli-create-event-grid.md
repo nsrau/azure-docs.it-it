@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: a3cff649001adf569f1454d16a2a97b32972ef00
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2fcacd559db0ab143ffa7ed49bbd546785765154
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612621"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098906"
 ---
-# <a name="cli-example-create-an-azure-event-grid-subscription"></a>Esempio dell'interfaccia della riga di comando: Creare una sottoscrizione di Griglia di eventi di Azure 
+# <a name="cli-example-create-an-azure-event-grid-subscription"></a>Esempio di interfaccia della riga di comando: Creare una sottoscrizione di Griglia di eventi di Azure 
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare una sottoscrizione di Griglia di eventi di Azure a livello di account per modifiche dello stato dei processi.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+[Creare un account di Servizi multimediali di Azure](../create-account-cli-how-to.md).
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
-
-- [Creare un account di Servizi multimediali di Azure](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script di esempio
 

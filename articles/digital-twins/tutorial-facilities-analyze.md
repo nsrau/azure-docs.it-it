@@ -6,20 +6,20 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554521"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883875"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure usando Time Series Insights
 
-Dopo aver distribuito l'istanza di Gemelli digitali di Azure, avere effettuato il provisioning degli spazi e avere implementato una funzione personalizzata per il monitoraggio di condizioni specifiche, è possibile visualizzare gli eventi e i dati provenienti dagli spazi per identificare tendenze e anomalie. 
+Dopo aver distribuito l'istanza di Gemelli digitali di Azure, avere effettuato il provisioning degli spazi e avere implementato una funzione personalizzata per il monitoraggio di condizioni specifiche, è possibile visualizzare gli eventi e i dati provenienti dagli spazi per identificare tendenze e anomalie.
 
-Nella [prima esercitazione](tutorial-facilities-setup.md) è stato configurato il grafico spaziale di un edificio immaginario, con una stanza contenente sensori relativi a movimento, anidride carbonica e temperatura. Nella [seconda esercitazione](tutorial-facilities-udf.md) è stato effettuato il provisioning del grafico e di una funzione definita dall'utente. La funzione monitora i valori dei sensori e attiva le notifiche per condizioni appropriate, ovvero se la stanza è vuota e la temperatura e i livelli di anidride carbonica sono normali. 
+Nella [prima esercitazione](tutorial-facilities-setup.md) è stato configurato il grafico spaziale di un edificio immaginario, con una stanza contenente sensori relativi a movimento, anidride carbonica e temperatura. Nella [seconda esercitazione](tutorial-facilities-udf.md) è stato effettuato il provisioning del grafico e di una funzione definita dall'utente. La funzione monitora i valori dei sensori e attiva le notifiche per condizioni appropriate, ovvero se la stanza è vuota e la temperatura e i livelli di anidride carbonica sono normali.
 
 Questa esercitazione illustra come integrare le notifiche e i dati provenienti dall'installazione di Gemelli digitali di Azure on Azure Time Series Insights. È quindi possibile visualizzare i valori dei sensori nel tempo. È possibile cercare le tendenze, ad esempio la stanza più usata e l'orario di maggiore affollamento durante la giornata. È anche possibile rilevare le anomalie, ad esempio la stanza con aria più viziata o la più calda oppure un'area dell'edificio che invia valori di temperatura costantemente elevati, che indicano un guasto nell'impianto di condizionamento dell'aria.
 
@@ -32,43 +32,44 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che siano già state effettuate le attività di [configurazione](tutorial-facilities-setup.md) e [provisioning](tutorial-facilities-udf.md) dell'installazione di Gemelli digitali di Azure. Prima di procedere, assicurarsi di avere:
+
 - Un [account Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un'istanza di Gemelli digitali in esecuzione.
 - Gli [esempi C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp) scaricati ed estratti nel computer di lavoro.
-- [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta. 
-
+- [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Trasmettere dati con Hub eventi
+
 Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una pipeline per lo streaming dei dati. Questa sezione illustra come creare l'hub eventi da usare come connettore tra Gemelli digitali di Azure e le istanze di Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Creare un hub eventi
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel riquadro a sinistra selezionare **Crea risorsa**. 
+1. Nel riquadro a sinistra selezionare **Crea risorsa**.
 
 1. Cercare e selezionare **Hub eventi**. Selezionare **Create**.
 
-1. In **Nome** immettere un nome per lo spazio dei nomi di Hub eventi. Scegliere **Standard** per **Piano tariffario** e indicare **Sottoscrizione**, **Gruppo di risorse** usato per l'istanza di Gemelli digitali e **Località**. Selezionare **Create**. 
+1. In **Nome** immettere un nome per lo spazio dei nomi di Hub eventi. Scegliere **Standard** per **Piano tariffario** e indicare **Sottoscrizione**, **Gruppo di risorse** usato per l'istanza di Gemelli digitali e **Località**. Selezionare **Create**.
 
 1. Nella distribuzione dello spazio dei nomi di Hub eventi, selezionare lo spazio dei nomi in **RISORSA**.
 
     ![Spazio dei nomi di Hub eventi dopo la distribuzione](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-
-1. Nel riquadro **Panoramica** dello spazio dei nomi di Hub eventi selezionare il pulsante **Hub eventi** nella parte superiore. 
+1. Nel riquadro **Panoramica** dello spazio dei nomi di Hub eventi selezionare il pulsante **Hub eventi** nella parte superiore.
     ![Pulsante Hub eventi](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. In **Nome** immettere un nome per l'hub eventi e selezionare **Crea**. 
+1. In **Nome** immettere un nome per l'hub eventi e selezionare **Crea**.
 
    Una volta completata la distribuzione, l'hub eventi sarà presente nel riquadro **Hub eventi** dello spazio dei nomi di Hub eventi con lo stato **Attivo**. Selezionare l'hub eventi per aprire il relativo riquadro **Panoramica**.
 
 1. Selezionare il pulsante **Gruppo di consumer** nella parte superiore e immettere un nome, ad esempio **tsievents** per il gruppo di consumer. Selezionare **Create**.
+
     ![Gruppo di consumer dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Una volta creato, il gruppo di consumer verrà visualizzato nell'elenco nella parte inferiore del riquadro **Panoramica** dell'hub eventi. 
+   Una volta creato, il gruppo di consumer verrà visualizzato nell'elenco nella parte inferiore del riquadro **Panoramica** dell'hub eventi.
 
-1. Aprire il riquadro **Criteri di accesso condivisi** per l'hub eventi e selezionare il pulsante **Aggiungi**. Immettere **ManageSend** come nome del criterio, assicurarsi che tutte le caselle di controllo siano selezionate e selezionare **Crea**. 
+1. Aprire il riquadro **Criteri di accesso condivisi** per l'hub eventi e selezionare il pulsante **Aggiungi**. Immettere **ManageSend** come nome del criterio, assicurarsi che tutte le caselle di controllo siano selezionate e selezionare **Crea**.
 
     ![Stringhe di connessione dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
@@ -100,13 +101,13 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Sostituire i segnaposto `Primary_connection_string_for_your_event_hub` con il valore di **Stringa di connessione - chiave primaria** per l'hub eventi. Assicurarsi che il formato della stringa di connessione sia il seguente:
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Sostituire i segnaposto `Secondary_connection_string_for_your_event_hub` con il valore di **Stringa di connessione - chiave secondaria** per l'hub eventi. Assicurarsi che il formato della stringa di connessione sia il seguente: 
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -115,13 +116,12 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
     > [!IMPORTANT]
     > Immettere tutti i valori senza virgolette. Verificare che sia presente almeno uno spazio dopo i due punti nel file YAML. È anche possibile convalidare i contenuti del file YAML usando qualsiasi validator YAML online, come [questo strumento](https://onlineyamltools.com/validate-yaml).
 
-
 1. Salvare e chiudere il file. Immettere il comando seguente nella finestra di comando e accedere con il proprio account Azure, quando richiesto.
 
     ```cmd/sh
     dotnet run CreateEndpoints
     ```
-   
+
    Vengono creati due endpoint per l'hub eventi.
 
    ![Endpoint per Hub eventi](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
@@ -165,12 +165,11 @@ Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibi
     > [!TIP]
     > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
 
-2. Se necessario, eliminare le applicazioni di esempio nel computer di lavoro. 
-
+2. Se necessario, eliminare le applicazioni di esempio nel computer di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Passare all'articolo successivo per altre informazioni sui grafici di intelligenza spaziale e sui modelli a oggetti in Gemelli digitali di Azure. 
+Passare all'articolo successivo per altre informazioni sui grafici di intelligenza spaziale e sui modelli a oggetti in Gemelli digitali di Azure.
+
 > [!div class="nextstepaction"]
 > [Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md)
-

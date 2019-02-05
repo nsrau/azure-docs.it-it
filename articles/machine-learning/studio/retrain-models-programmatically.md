@@ -1,6 +1,6 @@
 ---
-title: Ripetere il training dei modelli di Machine Learning Studio a livello di codice titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Ripetere il training dei modelli di Machine Learning Studio a livello di codice titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come ripetere il training di un modello a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

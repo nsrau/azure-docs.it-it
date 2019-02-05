@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/16/2018
-ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536373"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461220"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maschera dati dinamica del database SQL
 
@@ -28,12 +28,15 @@ Il mascheramento dei dati dinamici impedisce l'accesso non autorizzato ai dati s
 Ad esempio, un addetto all'assistenza in un call center può identificare i chiamanti da alcune cifre del numero di carta di credito, ma tali elementi di dati non devono essere completamente visibili all'addetto all'assistenza. È possibile definire una regola di maschera che renda visibili solo le ultime quattro cifre del numero di carta di credito nel set di risultati di tutte le query. Oppure, è possibile definire una maschera dati appropriata per la protezione di informazioni personali identificabili (PII), in modo che uno sviluppatore possa eseguire una query negli ambienti di produzione a scopi di risoluzione dei problemi senza violare le normative di conformità.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>Nozioni fondamentali sulla funzione Maschera dati dinamica del database SQL
+
 Per impostare un criterio di maschera dati dinamica del database SQL nel portale di Azure, selezionare l'operazione Maschera dati dinamica nel pannello di configurazione o delle impostazioni del database SQL.
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorizzazioni per il mascheramento dei dati dinamici
-Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministratore del database di Azure, Amministratore del server o [Gestore Sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+
+Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministratore del database SQL di Azure, Amministratore del server o [Gestore Sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Criteri di mascheramento dei dati dinamici
+
 * **Utenti SQL esclusi dalla maschera**: set di utenti SQL o identità AAD che visualizzano dati senza maschera nei risultati delle query SQL. Gli utenti con privilegi di amministratore sono sempre esclusi dalla maschera e possono visualizzare i dati originali senza maschera.
 * **Regole di maschera**: set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
 * **Funzioni maschera** : set di metodi che consentono di controllare l'esposizione dei dati per scenari diversi.
@@ -49,11 +52,13 @@ Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministrat
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Campi consigliati a cui applicare la maschera
+
 Il motore di raccomandazioni DDM evidenzia determinati campi del database come potenzialmente sensibili e quindi come ottimi candidati per l'applicazione della maschera. Nel pannello Maschera dati dinamica nel portale saranno visibili le colonne consigliate per il proprio database. È sufficiente fare clic su **Aggiungi maschera** per una o più colonne e quindi su **Salva** per applicare una maschera a questi campi.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurare il mascheramento dei dati dinamici per il database usando i cmdlet di PowerShell.
+
 Vedere [Cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurare il mascheramento dei dati dinamici per il database usando l'API REST
-Vedere [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx) (Operazioni per i database SQL di Azure).
 
+Vedere [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx) (Operazioni per i database SQL di Azure).
