@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
+title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Python SDK.
 services: cognitive-services

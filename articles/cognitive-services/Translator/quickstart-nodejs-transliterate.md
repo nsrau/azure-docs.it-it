@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Traslitterare un testo, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Traslitterare un testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55207922"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 

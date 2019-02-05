@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
+title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'SDK Viso di Azure per rilevare i visi in un'immagine.
 services: cognitive-services

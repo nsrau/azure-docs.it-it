@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55210796"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Avvio rapido: Identificare la lingua del testo con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Identificare la lingua del testo con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale.
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Go"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Go per rilevare i visi in un'immagine.
 services: cognitive-services

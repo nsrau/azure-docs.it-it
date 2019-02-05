@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Java - API Traduzione testuale'
+title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come determinare la lunghezza delle frasi con Java e l'API Traduzione testuale.
 services: cognitive-services

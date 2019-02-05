@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55214586"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Python per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Python per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Questa procedura dettagliata illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis) e [estrarre le frasi chiave](#KeyPhraseExtraction) usando l'[API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)con Python.

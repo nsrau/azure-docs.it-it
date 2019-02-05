@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55222049"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 

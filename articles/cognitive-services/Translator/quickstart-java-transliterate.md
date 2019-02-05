@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Convertire uno script di testo, Java - API Traduzione testuale'
+title: 'Guida introduttiva: Convertire uno script di testo, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Java e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55210056"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Java
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Java
 
 In questo argomento di avvio rapido si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Java e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 

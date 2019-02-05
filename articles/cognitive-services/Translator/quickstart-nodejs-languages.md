@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere un elenco delle lingue supportate, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Ottenere un elenco delle lingue supportate, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Node.js.
 services: cognitive-services

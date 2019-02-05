@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere la lunghezza delle frasi, PHP - API Traduzione testuale'
+title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, PHP - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale con PHP.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55209452"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Avvio rapido: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale.
 

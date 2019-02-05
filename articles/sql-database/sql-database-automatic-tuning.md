@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a0b7d3f059001aec28dd52c9666ea7b5af3c6f95
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478169"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -65,6 +65,7 @@ Per una panoramica del funzionamento dell'ottimizzazione automatica e per gli sc
 ## <a name="automatic-tuning-options"></a>Opzioni di ottimizzazione automatica
 
 Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure sono le seguenti:
+
  1. **CREATE INDEX** (Crea indice), che identifica quali sono gli indici in grado di migliorare le prestazioni del carico di lavoro, li crea e verifica automaticamente il miglioramento delle prestazioni delle query.
  2. **DROP INDEX** (Elimina indice), che identifica gli indici ridondanti e duplicati ogni giorno, ad eccezione degli indici univoci e di quelli non usati per molto tempo (intervallo maggiore di 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione.
  3. **FORCE LAST GOOD PLAN** (Forza piano valido più recente), che identifica le query SQL che usano un piano di esecuzione, ma che sono più lente rispetto a un piano valido precedente e le query che usano l'ultimo piano valido noto invece del piano con regressione.
@@ -73,7 +74,7 @@ L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice)
 
 È possibile applicare manualmente le opzioni di ottimizzazione usando il portale o è possibile consentirne l'applicazione autonoma da parte dell'ottimizzazione automatica. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita. Nel caso in cui si applichino manualmente le opzioni di ottimizzazione, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili.
 
-Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server logici e applicate a ogni database che eredita le impostazioni dal server. I server logici possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
+Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server di database SQL e applicate a ogni database che eredita le impostazioni dal server. I server di database SQL possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 
 Il metodo consigliato per la configurazione dell'ottimizzazione automatica è quello che prevede la configurazione delle opzioni di ottimizzazione automatica in un server e l'eredità delle impostazioni per i database appartenenti al server padre, poiché questo metodo semplifica la gestione delle opzioni di ottimizzazione automatica per un numero elevato di database.
 

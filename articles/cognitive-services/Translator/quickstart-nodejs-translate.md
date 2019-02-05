@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55214019"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Node.js
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Node.js e l'API REST Traduzione testuale.
 

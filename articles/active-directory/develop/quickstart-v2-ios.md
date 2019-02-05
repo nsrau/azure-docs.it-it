@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55094309"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app nativa iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app nativa iOS
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
