@@ -74,6 +74,7 @@
 ### Architettura a disponibilità elevata
 #### [Architettura e scenari a disponibilità elevata](sap-high-availability-architecture-scenarios.md)
 #### [Architettura e scenari a disponibilità più elevata](sap-higher-availability-architecture-scenarios.md)
+#### [Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure](sap-ha-availability-zones.md)
 #### [Disponibilità elevata in Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Disponibilità elevata in Windows con condivisione file SOFS per l'istanza (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Disponibilità elevata in SUSE Linux per l'istanza (A)SCS](high-availability-guide-suse.md)

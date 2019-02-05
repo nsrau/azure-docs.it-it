@@ -81,6 +81,8 @@ items:
       href: stream-analytics-job-reliability.md
     - name: Eseguire l'autenticazione con un'identità gestita
       href: stream-analytics-managed-identities-adls.md
+    - name: Informazioni di riferimento per l'uso di SQL
+      href: sql-reference-data.md
   - name: Creare soluzioni
     items:
     - name: Analisi del sentiment su Twitter
@@ -391,7 +393,7 @@ items:
   - name: Garanzie di recapito degli eventi
     href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
   maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.streamanalytics
@@ -427,9 +429,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: afaa9f2a88a6ac3f93ffb58747381ae93ccd677a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 63ca98d968397f7626341e9cfdece664bdde971e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886544"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695305"
