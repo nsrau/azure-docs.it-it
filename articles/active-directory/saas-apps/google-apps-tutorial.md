@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f37873fdbc26e1c82b6c1d9e6be8132641d94773
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809174"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Esercitazione: Integrazione di Azure Active Directory con G Suite
 
@@ -75,11 +75,11 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
     R: Per questa configurazione, l'attributo di posta elettronica viene richiesto agli utenti per effettuare l'accesso. Non è possibile impostare manualmente questo attributo.
 
-    L'attributo di posta elettronica viene compilato automaticamente per tutti gli utenti con una licenza valida di Exchange. Se l'utente non è abilitato alla posta elettronica, si riceverà questo errore in quanto l'applicazione deve ottenere questo attributo per concedere l'accesso.
+    L'attributo di posta elettronica viene compilato automaticamente per tutti gli utenti con una licenza valida di Exchange. Se l'utente non è abilitato alla posta elettronica, verrà visualizzato questo errore perché l'applicazione deve ottenere questo attributo per concedere l'accesso.
 
-    È possibile passare a portal.office.com con un account amministratore, quindi fare clic nell'interfaccia di amministrazione, fatturazione e sottoscrizioni, selezionare l'abbonamento a Office 365 e quindi fare clic su Assegna a utenti, selezionare gli utenti di cui si desidera controllare la sottoscrizione e nel riquadro destro fare clic su modifica licenze.
+    Per assegnare una licenza di Exchange, passare a portal.office.com con un account amministratore, quindi fare clic su Fatturazione e su Abbonamenti nell'interfaccia di amministrazione, selezionare l'abbonamento a Office 365 e infine fare clic su Assegna agli utenti, selezionare gli utenti di cui si vuole controllare l'abbonamento e nel riquadro destro fare clic per modificare le licenze.
 
-    Una volta assegnata la licenza O365, l'applicazione potrebbe richiedere alcuni minuti. Successivamente, l'attributo user.mail sarà compilato automaticamente e il problema dovrebbe essere risolto.
+    Dopo l'assegnazione della licenza di Exchange, potrebbero trascorrere alcuni minuti prima che venga applicata. Successivamente, l'attributo user.mail sarà compilato automaticamente e il problema dovrebbe essere risolto.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 

@@ -1,33 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con iDiD Manager | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e iDiD Manager.
+title: 'Esercitazione: Integrazione di Azure Active Directory con IDrive | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e IDrive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
+ms.assetid: 72266be2-c21e-4745-96fb-14f112ac12d1
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/25/2019
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.openlocfilehash: 84f3c6cf7cba3d5678eb128acae6c72283c507bc
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100020"
+ms.locfileid: "55105448"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Esercitazione: Integrazione di Azure Active Directory con iDiD Manager
+# <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Esercitazione: Integrazione di Azure Active Directory con IDrive
 
-Questa esercitazione descrive come integrare iDiD Manager con Azure Active Directory (Azure AD).
-L'integrazione di iDiD Manager con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare IDrive con Azure Active Directory (Azure AD).
+L'integrazione di IDrive con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a iDiD Manager.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a iDiD Manager con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a IDrive.
+* È possibile consentire agli utenti l'accesso automatico (Single Sign-On) a IDrive con i rispettivi account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con iDiD Manager, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con IDrive, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di iDiD Manager abilitata per l'accesso Single Sign-On
+* Sottoscrizione di IDrive abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* iDiD Manager supporta l'accesso SSO avviato da **SP e IDP**
+* IDrive supporta l'accesso SSO avviato da **provider di servizi e provider di identità**
 
-## <a name="adding-idid-manager-from-the-gallery"></a>Aggiunta di iDiD Manager dalla raccolta
+## <a name="adding-idrive-from-the-gallery"></a>Aggiunta di IDrive dalla raccolta
 
-Per configurare l'integrazione di iDiD Manager in Azure AD, è necessario aggiungere iDiD Manager dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di IDrive in Azure AD, è necessario aggiungere IDrive dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere iDiD Manager dalla raccolta, seguire questa procedura:**
+**Per aggiungere IDrive dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -64,31 +64,31 @@ Per configurare l'integrazione di iDiD Manager in Azure AD, è necessario aggiun
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **iDiD Manager**, selezionare **iDiD Manager** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **IDrive**, selezionare **IDrive** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![iDiD Manager nell'elenco risultati](common/search-new-app.png)
+     ![IDrive nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con iDiD Manager con un utente di test di nome **Britta Simon**.
-Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in iDiD Manager.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con IDrive con un utente di test di nome **Britta Simon**.
+Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in IDrive.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con iDiD Manager, è necessario completare i blocchi predefiniti seguenti.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con IDrive, è necessario completare i blocchi predefiniti seguenti.
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per iDiD Manager](#configure-idid-manager-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di IDrive](#configure-idrive-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di iDiD Manager](#create-idid-manager-test-user)**: per avere una controparte di Britta Simon in iDiD Manager collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di IDrive](#create-idrive-test-user)**: per avere una controparte di Britta Simon in IDrive collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con iDiD Manager, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con IDrive, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **iDiD Manager** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **IDrive** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -102,24 +102,31 @@ Per configurare l'accesso Single Sign-On di Azure AD con iDiD Manager, seguire q
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iDiD Manager](common/preintegrated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iDiD Manager](common/metadata-upload-additional-signon.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/metadata-upload-additional-signon.png)
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://idid2.fi/saml/login/<domain>`
+    Nella casella di testo **URL di accesso** digitare l'URL `https://www.idrive.com/idrive/login/loginForm`
 
-    > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di iDiD Manager](mailto:support@idid.fi). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
+    ![Collegamento di download del certificato](common/certificateraw.png)
 
-    ![Collegamento di download del certificato](common/copy-metadataurl.png)
+7. Nella sezione **Configura IDrive** copiare gli URL appropriati in base alle proprie esigenze.
 
-### <a name="configure-idid-manager-single-sign-on"></a>Configurare l'accesso Single Sign-On per iDiD Manager
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-Per configurare l'accesso Single Sign-On sul lato **iDiD Manager**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di iDiD Manager](mailto:support@idid.fi). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+    a. URL di accesso
+
+    b. Identificatore Azure AD
+
+    c. URL di chiusura sessione
+
+### <a name="configure-idrive-single-sign-on"></a>Configurare l'accesso Single Sign-On di IDrive
+
+Per configurare l'accesso Single Sign-On sul lato **IDrive**, è necessario inviare il file di **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di IDrive](https://www.idrive.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -148,15 +155,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a iDiD Manager.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a IDrive.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **iDiD Manager**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **IDrive**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **iDiD Manager**.
+2. Nell'elenco delle applicazioni selezionare **IDrive**.
 
-    ![Collegamento di iDiD Manager nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di IDrive nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -172,15 +179,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-idid-manager-test-user"></a>Creare l'utente di test di iDiD Manager
+### <a name="create-idrive-test-user"></a>Creare un utente di test di IDrive
 
-In questa sezione viene creato un utente di nome Britta Simon in iDiD Manager. Collaborare con il  [team di supporto iDiD Manager](mailto:support@idid.fi) per aggiungere gli utenti alla piattaforma iDiD Manager. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome Britta Simon in IDrive. Per aggiungere utenti nella piattaforma IDrive, rivolgersi al  [team di supporto di IDrive](https://www.idrive.com/support). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di iDiD Manager nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione iDiD Manager per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro IDrive nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione IDrive per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,33 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Autotask Endpoint Backup | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Autotask Endpoint Backup.
+title: 'Esercitazione: Integrazione di Azure Active Directory con MindTickle | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e MindTickle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 9f55319e-895b-4130-8460-71713f25ed04
+ms.assetid: 49751a98-bfde-48b4-a8f8-b96e1d18aefa
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/19/2019
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: da0627b51b52c1ab5c83d518edcfda2ff98dff5d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5e4a7f5e0076485b81f78ccde11a1ebd949df476
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151301"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55105467"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Esercitazione: Integrazione di Azure Active Directory con Autotask Endpoint Backup
+# <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Esercitazione: Integrazione di Azure Active Directory con MindTickle
 
-Questa esercitazione descrive come integrare Autotask Endpoint Backup con Azure Active Directory (Azure AD).
-L'integrazione di Autotask Endpoint Backup con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare MindTickle con Azure Active Directory (Azure AD).
+L'integrazione di MindTickle con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere ad Autotask Endpoint Backup.
-* È possibile consentire agli utenti l'accesso automatico (Single Sign-On) ad Autotask Endpoint Backup con i rispettivi account Azure AD.
+* È possibile controllare in Azure AD chi può accedere a MindTickle.
+* È possibile consentire agli utenti l'accesso automatico (Single Sign-On) a MindTickle con i rispettivi account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,24 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Autotask Endpoint Backup, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con MindTickle, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Autotask Endpoint Backup abilitata all'accesso Single Sign-On
+* Sottoscrizione di MindTickle abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Autotask Endpoint Backup supporta l'accesso SSO avviato da **provider di identità**
+* MindTickle supporta l'accesso SSO avviato da **provider di servizi**
 
-## <a name="adding-autotask-endpoint-backup-from-the-gallery"></a>Aggiunta di Autotask Endpoint di Backup dalla raccolta
+* MindTickle supporta il provisioning utenti **JIT**
 
-Per configurare l'integrazione di Autotask Endpoint Backup in Azure AD, è necessario aggiungere Autotask Endpoint Backup dalla raccolta all'elenco di app SaaS gestite.
+## <a name="adding-mindtickle-from-the-gallery"></a>Aggiunta di MindTickle dalla raccolta
 
-**Per aggiungere Autotask Endpoint Backup dalla raccolta, seguire questa procedura:**
+Per configurare l'integrazione di MindTickle in Azure AD, è necessario aggiungere MindTickle dalla raccolta al proprio elenco di app SaaS gestite.
+
+**Per aggiungere MindTickle dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -64,31 +66,31 @@ Per configurare l'integrazione di Autotask Endpoint Backup in Azure AD, è neces
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Autotask Endpoint Backup**, selezionare **Autotask Endpoint Backup** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **MindTickle**, selezionare **MindTickle** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Autotask Endpoint Backup nell'elenco risultati](common/search-new-app.png)
+     ![MindTickle nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backup con un utente di test di nome **Britta Simon**.
-Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Autotask Endpoint Backup.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con MindTickle con un utente di test di nome **Britta Simon**.
+Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in MindTickle.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backup, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con MindTickle, è necessario completare i blocchi predefiniti seguenti.
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Autotask Endpoint Backup](#configure-autotask-endpoint-backup-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di MindTickle](#configure-mindtickle-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Autotask Endpoint Backup](#create-autotask-endpoint-backup-test-user)**: per avere una controparte di Britta Simon in Autotask Endpoint Backup collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di MindTickle](#create-mindtickle-test-user)**: per avere una controparte di Britta Simon in MindTickle collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backup, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con MindTickle, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Autotask Endpoint Backup** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **MindTickle** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -100,22 +102,30 @@ Per configurare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backu
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+4. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Autotask Endpoint Backup](common/idp-intiated.png)
+    a. Fare clic su **Carica il file di metadati**.
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+    ![Caricare file di metadati](common/upload-metadata.png)
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    ![Scegliere file di metadati](common/browse-upload-metadata.png)
+
+    c. Dopo il caricamento del file di metadati, il valore di **Identificatore** viene inserito automaticamente nella sezione **Configurazione SAML di base**:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di MindTickle](common/sp-identifier.png)
+
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.mindtickle.com`
+
+    > [!Note]
+    > Se il valore di **Identificatore** non viene inserito automaticamente, immetterlo manualmente in base ai propri requisiti. Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore contattare il [team di supporto di MindTickle](mailto:support@mindtickle.com).
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura Autotask Endpoint Backup** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura MindTickle** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -125,9 +135,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backu
 
     c. URL di chiusura sessione
 
-### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Configurare l'accesso Single Sign-On di Autotask Endpoint Backup
+### <a name="configure-mindtickle-single-sign-on"></a>Configurare l'accesso Single Sign-On di MindTickle
 
-Per configurare l'accesso Single Sign-On sul lato **Autotask Endpoint Backup**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **MindTickle**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di MindTickle](mailto:support@mindtickle.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -156,15 +166,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Autotask Endpoint Backup.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a MindTickle.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Autotask Endpoint Backup**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **MindTickle**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Autotask Endpoint Backup**.
+2. Nell'elenco delle applicazioni selezionare **MindTickle**.
 
-    ![Collegamento di Autotask Endpoint Backup nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di MindTickle nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -180,15 +190,15 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-autotask-endpoint-backup-test-user"></a>Creare un utente di test di Autotask Endpoint Backup
+### <a name="create-mindtickle-test-user"></a>Creare un utente di test di MindTickle
 
-In questa sezione viene creato un utente di nome Britta Simon in Autotask Endpoint Backup. Per aggiungere utenti nella piattaforma Autotask Endpoint Backup, rivolgersi al  [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome Britta Simon in MindTickle. MindTickle supporta il **provisioning utenti JIT**, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in MindTickle, ne viene creato uno nuovo dopo l'autenticazione.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro Autotask Endpoint Backup nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione Autotask Endpoint Backup per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro MindTickle nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione MindTickle per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -197,3 +207,4 @@ Facendo clic sul riquadro Autotask Endpoint Backup nel pannello di accesso si do
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813442"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Esercitazione: Integrazione di Azure Active Directory con Acadia
 
@@ -71,23 +71,23 @@ Per configurare l'integrazione di Acadia in Azure AD, è necessario aggiungere A
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con [Nome applicazione] usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in [Nome applicazione].
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Acadia con un utente di test di nome **Britta Simon**.
+Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Acadia.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applicazione], è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Acadia, è necessario completare i blocchi predefiniti seguenti.
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Acadia](#configure-acadia-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Acadia](#create-acadia-test-user)**: per avere una controparte di Britta Simon in Acadia collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Acadia, seguire questa procedura:
 
 1. Nella pagina di integrazione dell'applicazione **Acadia** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Acadia](https://www.systemsalliance.com/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > I valori per i passaggi 4 e 5 verranno forniti dal team di Acadia in un file di metadati che potrà essere importato facendo clic su **Carica file di metadati** nella sezione **Configurazione SAML di base**. Aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. È anche possibile fare riferimento ai modelli visualizzati nella sezione **Configurazione SAML di base** del portale di Azure per verificare che i valori dei metadati siano corretti. Se i valori forniti non sono corretti, contattare il [team di supporto clienti di Acadia](mailto:support@systemsalliance.com).
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -134,11 +134,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 ### <a name="configure-acadia-single-sign-on"></a>Configurare l'accesso Single Sign-On per Acadia
 
-Per configurare l'accesso Single Sign-On sul lato **Acadia**, è necessario inviare il file di **XML metadati** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Acadia](https://www.systemsalliance.com/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Acadia**, è necessario inviare il file di **XML metadati federazione** scaricato, l'**URL dei metadati di federazione dell'app** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Acadia](mailto:support@systemsalliance.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -161,7 +161,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Acadia.
 
