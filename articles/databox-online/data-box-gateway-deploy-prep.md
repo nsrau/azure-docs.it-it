@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452973"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091547"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway (anteprima)
 
@@ -42,7 +42,7 @@ Per distribuire il Data Box Gateway, vedere le esercitazioni seguenti nella sequ
 | **#** | **In questo passaggio** | **Usare questi documenti** |
 | --- | --- | --- | 
 | 1. |**[Preparare il portale di Azure per Data Box Gateway](data-box-gateway-deploy-prep.md)** |Creare e configurare la risorsa Data Box Gateway prima di effettuare il provisioning di un dispositivo virtuale Data Box Gateway. |
-| 2. |**[Effettuare il provisioning di Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Effettuare il provisioning di Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|Per Hyper-V, effettuare il provisioning e connettersi a un dispositivo virtuale Data Box Gateway su un sistema host che esegue Hyper-V in Windows Server 2016 o Windows Server 2012 R2. <br><br><br> Per VMware, effettuare il provisioning e connettersi a un dispositivo virtuale Data Box Gateway in un sistema host che esegue VMware ESXi 6.0 o 6.5.<br></br> |
+| 2. |**[Effettuare il provisioning di Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Effettuare il provisioning di Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|Per Hyper-V, effettuare il provisioning e connettersi a un dispositivo virtuale Data Box Gateway su un sistema host che esegue Hyper-V in Windows Server 2016 o Windows Server 2012 R2. <br><br><br> Per VMware, effettuare il provisioning e connettersi a un dispositivo virtuale Data Box Gateway in un sistema host che esegue VMware ESXi 6.0, 6.5 o 6.7.<br></br> |
 | 3. |**[Connettere, configurare e attivare Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Connettersi all'interfaccia utente Web locale, completare la configurazione del dispositivo e attivare il dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB.  |
 | 4. |**[Trasferire i dati con Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Aggiungere condivisioni, connettersi alle condivisioni tramite SMB o NFS. |
 
@@ -61,9 +61,9 @@ Prima di iniziare, verificare che:
 
 ### <a name="for-the-data-box-gateway-device"></a>Per il dispositivo Data Box Gateway
 
-Prima di distribuire un dispositivo virtuale, è necessario:
+Prima di distribuire un dispositivo virtuale, assicurarsi che:
 
-* Si abbia accesso a un sistema host che esegue Hyper-V in Windows Server 2012 R2 o versioni successive o VMware (ESXi 6.0 o 6.5) da poter usare per il provisioning di un dispositivo.
+* Sia possibile accedere a un sistema host che esegue Hyper-V in Windows Server 2012 R2 o versioni successive o VMware (ESXi 6.0, 6.5 o 6.7) utilizzabile per il provisioning di un dispositivo.
 * Il sistema host sia in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale Data Box:
   
   * Un minimo di 4 memorie centrali.
@@ -126,7 +126,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
 4. In Avvio rapido nel riquadro destro fare clic sul collegamento corrispondente all'immagine che si vuole scaricare. I file di immagine sono pari a circa 4,8 GB.
    
    * [VHDX per Hyper-V in Windows Server 2012 R2 e versioni successive](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK per VMWare ESXi 6.0 o 6.5](https://aka.ms/dbe-vmdk).
+   * [VMDK per VMWare ESXi 6.0, 6.5 o 6.7](https://aka.ms/dbe-vmdk).
 
 5. Scaricare e decomprimere il file in un'unità locale, prendendo nota della posizione del file decompresso.
 

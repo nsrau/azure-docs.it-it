@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191140"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463940"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Utilizzo dell'API di Language Integrated Query JavaScript con Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>API di query JavaScript in Azure Cosmos DB
 
 Oltre a eseguire query usando L'API SQL di Azure Cosmos DB, l'[SDK di Cosmos DB lato server](https://azure.github.io/azure-cosmosdb-js-server/) consente di eseguire query ottimizzate tramite un'interfaccia JavaScript. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 

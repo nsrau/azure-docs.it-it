@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55149273"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Avvio rapido: SDK di Ricerca entità Bing con Java
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Guida introduttiva: SDK di Ricerca entità Bing con Java
 
 L'SDK di Ricerca entità Bing assicura la funzionalità dell'API REST per query di entità e analisi dei risultati. 
 

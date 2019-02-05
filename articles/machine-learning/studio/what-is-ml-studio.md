@@ -10,18 +10,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264361"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469118"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Informazioni su Azure Machine Learning Studio
 Microsoft Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Machine Learning Studio pubblica i modelli come servizi Web che possono essere facilmente usati da applicazioni personalizzate o strumenti di Business Intelligence, ad esempio Excel.
@@ -39,10 +39,10 @@ Non sono necessarie operazioni di programmazione, è sufficiente collegare visiv
 
 > [!TIP]
 > Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+>
+>
 
-![Diagramma Azure ML Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.][ml-studio-overview]
+![Diagramma di Azure Machine Learning Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introduzione a Machine Learning Studio
 Quando si apre [Machine Learning Studio](https://studio.azureml.net) per la prima volta, viene visualizzata la pagina **Home**. Da qui è possibile visualizzare documentazione, video e webinar, nonché trovare altre risorse utili.
@@ -104,7 +104,7 @@ Un modulo è un algoritmo che è possibile applicare ai dati. Machine Learning S
 * [Linear Regression][linear-regression] (Regressione lineare): crea un modello di regressione lineare online basato su valori descent con sfumatura.
 * [Score Model][score-model] (Assegna un punteggio al modello): assegna un punteggio a un modello di classificazione sottoposto a training o di regressione.
 
-Quando si compila un esperimento, è possibile effettuare una selezione nell'elenco dei moduli disponibile a sinistra dell'area di disegno.  
+Quando si compila un esperimento, è possibile effettuare una selezione nell'elenco dei moduli disponibile a sinistra dell'area di disegno.
 
 Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo sono visualizzati nel riquadro **Properties** a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello.
 
@@ -162,7 +162,7 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 * **campione**: parte di un set di dati rappresentativa dell'intero. I campioni possono essere selezionati in modo casuale o in base a funzioni specifiche del set di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile ottenere informazioni di base sulle analisi predittive e sull'apprendimento automatico tramite un'[esercitazione dettagliata](create-experiment.md) e gli [esempi](sample-experiments.md).  
+È possibile ottenere informazioni di base sulle analisi predittive e sull'apprendimento automatico tramite un'[esercitazione dettagliata](create-experiment.md) e gli [esempi](sample-experiments.md).
 
 
 <!-- Module References -->

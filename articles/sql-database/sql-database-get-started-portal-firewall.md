@@ -1,5 +1,5 @@
 ---
-title: 'Portale di Azure: creare una regola del firewall per il database SQL | Microsoft Docs'
+title: 'Portale di Azure: Creare una regola del firewall per il database SQL | Microsoft Docs'
 description: Creare una regola del firewall a livello di server per il database SQL
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462257"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare una regola firewall a livello del server per il database SQL tramite il portale di Azure
 
@@ -25,7 +25,7 @@ Questa guida introduttiva illustra come creare una regola del firewall a livello
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido usa come punto di partenza le risorse create in [Creare un database SQLdi Azure nel portale di Azure](sql-database-get-started-portal.md).
+Questa guida introduttiva usa come punto di partenza le risorse create in [Creare un database SQLdi Azure nel portale di Azure](sql-database-get-started-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -43,7 +43,7 @@ Seguire questi passaggi per creare una regola del firewall a livello di server p
 
 1. Al termine della distribuzione del [database SQL di Azure necessario come prerequisito](#prerequisites), scegliere **Database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione.
 
-2. Copiare il nome completo del server da usare per connettersi al server e ai relativi database in altre guide di avvio rapido.
+2. Copiare il nome completo del server da usare per connettersi al server e ai relativi database in altre guide introduttive.
 
    ![Nome del server](./media/sql-database-get-started-portal/server-name.png)
 
@@ -57,7 +57,7 @@ Seguire questi passaggi per creare una regola del firewall a livello di server p
    > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionare **NO** in questa pagina per disabilitare tutti i servizi di Azure.
    >
 
-5. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+5. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 6. Chiudere la pagina **Impostazioni del firewall**.
 
@@ -65,8 +65,7 @@ Seguire questi passaggi per creare una regola del firewall a livello di server p
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Salvare queste risorse se si vuole passare a [Passaggi successivi](#next-steps) per ottenere informazioni su come eseguire la connessione e le query nel database usando alcuni metodi diversi. Se tuttavia si vogliono eliminare le risorse create in questa guida di avvio rapido, seguire questa procedura.
-
+Salvare queste risorse se si vuole passare a [Passaggi successivi](#next-steps) per ottenere informazioni su come eseguire la connessione e le query nel database usando alcuni metodi diversi. Se tuttavia si vogliono eliminare le risorse create in questa guida introduttiva, seguire questa procedura.
 
 1. Dal menu a sinistra nel portale di Azure scegliere **Gruppi di risorse** e quindi selezionare **myResourceGroup**.
 2. Nella pagina del gruppo di risorse selezionare **Elimina**, digitare **myResourceGroup** nella casella di testo e quindi scegliere **Elimina**.

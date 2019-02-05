@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre un testo, PHP - API Traduzione testuale'
+title: 'Guida introduttiva: Tradurre un testo, PHP - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con PHP.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55207225"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Avvio rapido: Tradurre un testo con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Tradurre un testo con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale.
 

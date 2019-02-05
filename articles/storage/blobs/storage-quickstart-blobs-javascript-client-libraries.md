@@ -9,13 +9,13 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711483"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245376"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Perché questo esempio di codice funzioni, è necessario fornire un valore stringa per *blobName*.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per eliminare le risorse create durante questa guida introduttiva, tornare al [portale di Azure](https://portal.azure.com) e selezionare l'account di archiviazione. Dopo averlo selezionato, l'account di archiviazione può essere eliminato passando a **Panoramica > Elimina account di archiviazione**.
+Per eliminare le risorse create durante questa guida introduttiva, tornare al [portale di Azure](https://portal.azure.com) e selezionare l'account di archiviazione. Dopo averlo selezionato, per eliminare l'account di archiviazione, passare a **Panoramica > Elimina account di archiviazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esplorare gli esempi per informazioni su come scaricare i BLOB e segnalare lo stato di avanzamento durante il caricamento dei file.

@@ -3,19 +3,19 @@ title: Team di sviluppo con Azure Dev Spaces usando .NET Core e Visual Studio Co
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 4357c3a2e13e0eda2eb1d8c0071a21ed21aa36ef
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c411a227c9cb277f6bf16df5085b1e674bd37176
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463906"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -74,7 +74,7 @@ L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla rich
 1. Nel progetto `webfrontend` impostare un punto di interruzione prima che invii una richiesta GET a `mywebapi/api/values`.
 1. Premere F5 nel progetto `webfrontend`.
 1. Richiamare l'app Web e scorrere il codice in entrambi i servizi.
-1. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi".
+1. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi."
 
 
 Ecco fatto! È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.

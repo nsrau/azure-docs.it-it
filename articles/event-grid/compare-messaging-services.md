@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469849"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297107"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
@@ -30,7 +30,7 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 È importante tenere presente la differenza tra servizi che recapitano un evento e servizi che recapitano un messaggio.
 
-### <a name="event"></a>Event
+### <a name="event"></a>Evento
 
 Un evento è una notifica leggera di una condizione o di una modifica di stato. L'autore dell'evento non ha aspettative su come viene gestito l'evento. Il consumer dell'evento decide come procedere con la notifica. Gli eventi possono essere unità separate o fare parte di una serie.
 
@@ -38,13 +38,13 @@ Gli eventi separati segnalano una modifica dello stato ed possibile intervenire.
 
 Gli eventi di una serie segnalano una condizione e sono analizzabili. Gli eventi sono ordinati nel tempo e intercorrelati. Il consumer ha bisogno della serie sequenziata di eventi per analizzare che cosa è accaduto.
 
-### <a name="message"></a>Message
+### <a name="message"></a>Messaggio
 
 I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. L'autore del messaggio ha un'aspettativa su come il consumer gestisce il messaggio. Esiste un contratto tra le due parti. L'autore, ad esempio, invia un messaggio con i dati non elaborati e prevede che il consumer crei un file da tali dati e al termine invii una risposta.
 
 ## <a name="comparison-of-services"></a>Confronto dei servizi
 
-| Service | Scopo | type | Quando usare le autorizzazioni |
+| Service | Scopo | Tipo | Quando usare le autorizzazioni |
 | ------- | ------- | ---- | ----------- |
 | Griglia di eventi | Programmazione reattiva | Distribuzione di eventi (separati) | Reazione alle modifiche di stato |
 | Hub eventi | Pipeline di Big Data | Streaming di eventi (serie) | Flusso dei dati di telemetria e distribuiti |
@@ -97,9 +97,10 @@ In altri casi, è possibile collegarli per formare una pipeline di eventi e dati
 ![Panoramica dei dati di flusso](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+Vedere gli articoli seguenti: 
 
-* Per altre informazioni sui servizi di messaggistica di Azure, vedere il post di blog [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data (Eventi, punti dati e messaggi: scelta del servizio di messaggistica di Azure appropriato per i dati)](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md).
-* Per iniziare a usare Griglia di eventi, vedere [Creare e instradare eventi personalizzati con Griglia di eventi di Azure](custom-event-quickstart.md).
-* Per iniziare a usare Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
-* Per iniziare a usare il bus di servizio, vedere [Creare uno spazio dei nomi del bus di servizio usando il portale di Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventi, punti dati e messaggi: scelta del servizio di messaggistica di Azure appropriato per i dati)
+- [Analogie e differenze tra le code di archiviazione e le code del bus di servizio](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Per iniziare a usare Griglia di eventi, vedere [Creare e instradare eventi personalizzati con Griglia di eventi di Azure](custom-event-quickstart.md).
+- Per iniziare a usare Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
+- Per iniziare a usare il bus di servizio, vedere [Creare uno spazio dei nomi del bus di servizio usando il portale di Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).

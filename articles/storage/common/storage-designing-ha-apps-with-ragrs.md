@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231364"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454944"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -24,12 +24,12 @@ Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione
 
 Questo articolo è incentrato sull'archiviazione con ridondanza geografica (GRS) e su quella con ridondanza geografica e accesso in lettura (RA-GRS). Con l'archiviazione con ridondanza geografica, vengono mantenute tre copie dei dati nell'area primaria selezionata durante la configurazione dell'account di archiviazione. Altre tre copie vengono mantenute in modo asincrono in un'area secondaria specificata da Azure. RA-GRS offre l'archiviazione con ridondanza geografica con accesso in lettura alla copia secondaria.
 
-Per sapere quali aree primarie sono associate a quali aree secondarie, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Per sapere quali aree primarie sono associate a quali aree secondarie, vedere [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Questo articolo include frammenti di codice e un collegamento a un esempio completo alla fine che è possibile scaricare ed eseguire.
 
 > [!NOTE]
-> Archiviazione di Azure ora supporta l'archiviazione con ridondanza della zona per la compilazione di applicazioni a disponibilità elevata. L'archiviazione con ridondanza della zona offre una soluzione semplice per le esigenze di ridondanza di molte applicazioni. L'archiviazione con ridondanza della zona assicura la protezione da guasti hardware o gravi emergenze che interessano un singolo data center. Per altre informazioni, vedere [Archiviazione con ridondanza della zona: applicazioni di Archiviazione Azure a disponibilità elevata](storage-redundancy-zrs.md).
+> Archiviazione di Azure ora supporta l'archiviazione con ridondanza della zona per la compilazione di applicazioni a disponibilità elevata. L'archiviazione con ridondanza della zona offre una soluzione semplice per le esigenze di ridondanza di molte applicazioni. L'archiviazione con ridondanza della zona assicura la protezione da guasti hardware o gravi emergenze che interessano un singolo data center. Per altre informazioni, vedere [Archiviazione con ridondanza della zona (ZRS): Applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Funzionalità principali dell'archiviazione con ridondanza geografica e accesso in lettura
 

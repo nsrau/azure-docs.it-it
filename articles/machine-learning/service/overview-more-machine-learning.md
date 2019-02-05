@@ -1,21 +1,20 @@
 ---
-title: Confrontare le opzioni di Machine Learning
-titleSuffix: Microsoft
-description: Confrontare la varietà di prodotti Microsoft per compilare, distribuire e gestire i propri modelli di Machine Learning. Decidere quali prodotti scegliere per la soluzione.
+title: Scegliere una tecnologia di Machine Learning in Microsoft
+description: Confrontare le opzioni disponibili per creare, distribuire e gestire i modelli di Machine Learning. Decidere quali prodotti Microsoft scegliere per la soluzione.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
-ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 1/30/2019
+ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389136"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451870"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Informazioni sui prodotti di machine learning forniti da Microsoft
 

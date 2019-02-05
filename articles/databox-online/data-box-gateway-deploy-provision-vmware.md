@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167155"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099159"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware (anteprima)
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione illustra come effettuare il provisioning di un Data Box Gateway in un sistema host che esegue VMware ESXi 6.0 o 6.5. 
+Questa esercitazione illustra come effettuare il provisioning di un Data Box Gateway in un sistema host che esegue VMware ESXi 6.0, 6.5 o 6.7. 
 
 È necessario disporre dei privilegi di amministratore per eseguire il provisioning e connettersi a un dispositivo virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ecco i prerequisiti per il provisioning di un dispositivo virtuale in un sistema host che esegue VMware ESXi 6.0 o 6.5.
+I prerequisiti per il provisioning di un dispositivo virtuale in un sistema host che esegue VMware ESXi 6.0, 6.5 o 6.7 sono i seguenti.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Per la risorsa Data Box Gateway
 
@@ -51,9 +51,9 @@ Prima di iniziare, verificare che:
 
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Per il dispositivo virtuale Data Box Gateway
 
-Prima di distribuire un dispositivo virtuale, è necessario:
+Prima di distribuire un dispositivo virtuale, assicurarsi che:
 
-* Si abbia accesso a un sistema host che esegue VMware (ESXi 6.0 o 6.5) da poter usare per effettuare il provisioning di un dispositivo.
+* Sia possibile accedere a un sistema host che VMware (ESXi 6.0, 6.5 o 6.7) utilizzabile per il provisioning di un dispositivo.
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
 
   * Un minimo di 4 memorie centrali.
@@ -73,7 +73,7 @@ Prima di iniziare:
 
 Per creare un dispositivo virtuale, è necessario quanto segue:
 
-* Accesso a un sistema host che esegue VMware ESXi Server 6.0 o 6.5. Un sistema host in grado di dedicare le risorse seguenti al dispositivo virtuale:
+* Accesso a un sistema host che esegue VMware ESXi Server 6.0, 6.5 o 6.7. Un sistema host in grado di dedicare le risorse seguenti al dispositivo virtuale:
  
   * Un minimo di 4 memorie centrali.
   * Almeno 8 GB di RAM. 
@@ -192,7 +192,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 8. Se il dispositivo è stato avviato in un ambiente non DHCP, verrà visualizzato il messaggio **Use the Set-HcsIPAddress cmdlet to configure the network** (Usare il cmdlet Set-HcsIPAddress per configurare la rete). 
+6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 8. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio: **Usare il cmdlet Set-HcsIPAddress per configurare la rete**. 
    
 7. Per configurare la rete, al prompt dei comandi usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 

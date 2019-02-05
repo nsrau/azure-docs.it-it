@@ -9,18 +9,18 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ca4c8c2d16e2cc44768785c26ffa070b59d5f8d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251386"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478016"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire servizi Web di Azure Machine Learning Studio che usano i moduli Import Data ed Export Data
 
@@ -44,9 +44,9 @@ Per leggere i dati dalla tabella SQL di Azure:
 5. Nel riquadro delle proprietà selezionare **Azure SQL Database** in the **Data Source** (Origine dati).
 6. Immettere le informazioni appropriate per il database nei campi **Database server name** (Nome server database), **Database name** (Nome database), **User name** (Nome utente) e **Password**.
 7. Immettere la query seguente nel campo Database query (Query database).
-   
+
      select [age],
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ Per leggere i dati dalla tabella SQL di Azure:
 Configurare quindi l'esperimento predittivo da cui distribuire il servizio Web.
 
 1. Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service [Recommended]** (Servizio Web predittivo - Scelta consigliata).
-2. Rimuovere i moduli *Web Service Input* e *Web Service Output modules* dall'esperimento predittivo. 
+2. Rimuovere i moduli *Web Service Input* e *Web Service Output modules* dall'esperimento predittivo.
 3. Digitare export nella casella di ricerca di componenti.
 4. Nell'elenco dei risultati aggiungere un modulo *Export Data* nell'area di disegno dell'esperimento.
-5. Connettere l'output del modulo *Score Model* (Modello di punteggio) e l'input del modulo *Export Data* (Esporta dati). 
+5. Connettere l'output del modulo *Score Model* (Modello di punteggio) e l'input del modulo *Export Data* (Esporta dati).
 6. Nel riquadro delle proprietà selezionare **Azure SQL Database** (Database SQL Azure) come destinazione dei dati.
 7. Immettere le informazioni appropriate per il database nei campi **Database server name** (Nome server database), **Database name** (Nome database), **Server user account name** (Nome account utente server) e **Server user account password** (Password account utente server).
 8. Nel campo **Comma separated list of columns to be saved** (Elenco di colonne da salvare delimitato da virgole) digitare Scored Labels.
 9. Nel campo **Data table name**(Nome tabella dati) digitare dbo.ScoredLabels. Se non esiste, la tabella viene creata quando viene eseguito l'esperimento o viene chiamato il servizio Web.
 10. Nel campo **Comma separated list of datatable columns** (Elenco di colonne di tabella di database delimitato da virgole) digitare ScoredLabels.
 
-Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per altre informazioni sui parametri del servizio Web, vedere [AzureML Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) su Cortana Intelligence and Machine Learning Blog.
+Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per altre informazioni sui parametri del servizio Web, vedere [la voce Web Service Parameters di Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) sul blog di Cortana Intelligence e Machine Learning.
 
 Per configurare i parametri del servizio Web per la query di importazione e la tabella di destinazione:
 
@@ -108,22 +108,22 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs e rimuovere tutti i riferimenti nell'archiviazione BLOB.
 8. Aggiornare il valore della variabile *apiKey* con la chiave API salvata in precedenza.
 9. Individuare la dichiarazione di richiesta e aggiornare i valori del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Eseguire l'applicazione. 
+10. Eseguire l'applicazione.
 
 Al termine dell'esecuzione verrà aggiunta una nuova tabella al database contenente i risultati di punteggio.
 
 ### <a name="deploy-a-new-web-service"></a>Distribuire un servizio Web nuovo
 
-> [!NOTE] 
-> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md).
 
 Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione per usare il servizio:
 
@@ -136,9 +136,9 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs.
 8. Aggiornare il valore della variabile *apiKey* con la **chiave primaria** presente nella sezione **Basic consumption info** (Informazioni di base sul consumo).
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Eseguire l'applicazione. 
+10. Eseguire l'applicazione.
 

@@ -3,19 +3,19 @@ title: Confrontare Collaborazione B2B e B2C di Azure Active Directory | Microsof
 description: Differenze tra Collaborazione B2B e B2C di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/15/2017
+ms.date: 01/30/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4ec9a891777cc8d33b1256a8eb68ea814563b8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471097"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Confrontare Collaborazione B2B e B2C di Azure Active Directory
 
@@ -32,7 +32,7 @@ Funzionalità di Collaborazione B2B |     Offerta autonoma di B2C di Azure AD
 -------- | --------
 Destinatari: organizzazioni che vogliono poter autenticare gli utenti di un'organizzazione partner, indipendentemente dal provider di identità. | Destinatari: invitare i clienti di app Web e per dispositivi mobili, sia individui, clienti istituzionali oppure organizzazioni, in Azure AD.
 Identità supportate: dipendenti con account aziendale o dell'istituto di istruzione, partner con account aziendale o dell'istituto di istruzione oppure qualsiasi indirizzo email. A breve sarà disponibile il supporto per la federazione diretta.  | Identità supportate: utenti consumer con account di applicazioni locali (qualsiasi indirizzo email o nome utente) o qualsiasi identità social supportata con federazione diretta.
-Directory degli utenti partner: gli utenti partner dell'organizzazione esterna sono gestiti nella stessa directory dei dipendenti ma annotati in modo speciale. Tali utenti possono essere gestiti in modo analogo ai dipendenti, possono essere aggiunti agli stessi gruppi e così via  | Directory delle entità degli utenti clienti: directory dell'applicazione. Le entità sono gestite separatamente dalla directory dei dipendenti e dall'eventuale directory dei partner dell'organizzazione.
+Gli utenti esterni vengono gestiti nella stessa directory dei dipendenti, ma con annotazioni speciali. Possono essere gestiti in modo analogo ai dipendenti, possono essere aggiunti agli stessi gruppi e così via  | Gli utenti esterni vengono gestiti nella directory dell'applicazione. Vengono gestiti separatamente rispetto alla directory di dipendenti e partner dell'organizzazione (se disponibile).
 La funzione Single Sign-On (SSO) per tutte le app connesse ad Azure AD è supportata. È possibile ad esempio concedere l'accesso a Office 365 oppure ad app locali e ad altre app SaaS, ad esempio Salesforce o Workday.  |  È supportato il SSO ad app di proprietà del cliente all'interno di tenant B2C di Azure AD. Non è supportato il SSO a Office 365 o ad altre app SaaS Microsoft e non Microsoft.
 Ciclo di vita per i partner: gestito dall'organizzazione host (o che manda l'invito).  | Ciclo di vita per i clienti: in modalità self-service o gestito dall'applicazione.
 Criteri di sicurezza e conformità: gestiti dall'organizzazione host (o che manda l'invito), ad esempio con [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access).  | Criteri di sicurezza e conformità: gestito dall'applicazione.

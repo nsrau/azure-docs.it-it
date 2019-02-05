@@ -55,7 +55,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
-[Clonazione ordine 3![](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Clonazione ordine 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminare un ordine
 

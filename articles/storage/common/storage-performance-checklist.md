@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231789"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460829"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -147,7 +147,7 @@ Un browser non consente in genere codice JavaScript in una pagina ospitata da un
 Entrambe le tecnologie possono aiutare a evitare carichi o colli di bottiglia non necessari nell'applicazione Web.  
 
 #### <a name="useful-resources"></a>Risorse utili
-Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md).  
+Per altre informazioni su SAS, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md).  
 
 Per altre informazioni sulla condivisione risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -178,7 +178,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.  
 
-Per altre informazioni, vedere il blog post [Servizi Web: connessioni simultanee](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Aumentare il numero minimo di thread di ThreadPool se si usa codice sincrono con attività asincrone
 Questo codice aumenta il numero minimo di thread del pool di thread:  
@@ -286,7 +286,7 @@ In questa sezione vengono elencate diverse impostazioni di configurazione rapide
 #### <a name="subheading25"></a>Usare JSON
 A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio tabelle supporta l'uso di JSON al posto del formato AtomPub basato su XML per il trasferimento dei dati della tabella. Ciò consente di ridurre le dimensioni del payload di una percentuale massima del 75% e può migliorare notevolmente le prestazioni dell'applicazione.
 
-Per altre informazioni, vedere il post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tabelle di Microsoft Azure: introduzione a JSON) e [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato di Payload per operazioni del servizio tabelle).
+Per altre informazioni, vedere il post [Tabelle di Microsoft Azure: introduzione a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e al [formato Payload per operazioni del servizio tabelle](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Disattivazione di Nagle
 L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). In Archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e di accodamento e, se possibile, dovrebbe essere disabilitato.  
@@ -303,8 +303,8 @@ La modalità con cui vengono rappresentati i dati e vengono eseguite query su di
 #### <a name="subheading27"></a>Tabelle e partizioni
 Le tabella sono divise in partizioni. Ogni entità archiviata in una partizione condivide la stessa chiave di partizione e dispone di una chiave di riga univoca che la identifica all'interno della partizione. Le partizioni offrono dei vantaggi ma introducono anche dei limiti di scalabilità.  
 
-* Benefici: È possibile aggiornare le entità nella stessa partizione in un'unica transazione batch atomica che contiene fino a 100 operazioni di archiviazione distinte (limite di 4 MB di dimensioni totali). Presupponendo lo stesso numero di entità da recuperare, è anche possibile eseguire query sui dati all'interno di una singola partizione in modo più efficiente rispetto ai dati distribuiti in più partizioni (tuttavia, leggere più avanti per ulteriori consigli sulle query sui dati nelle tabelle).
-* Limite di scalabilità: L'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.  
+* Vantaggi: è possibile aggiornare le entità nella stessa partizione in un'unica transazione batch atomica che contiene fino a 100 operazioni di archiviazione distinte (limite di 4 MB di dimensioni totali). Presupponendo lo stesso numero di entità da recuperare, è anche possibile eseguire query sui dati all'interno di una singola partizione in modo più efficiente rispetto ai dati distribuiti in più partizioni (tuttavia, leggere più avanti per ulteriori consigli sulle query sui dati nelle tabelle).
+* Limite di scalabilità: l'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.  
 
 Tenendo conto delle caratteristiche descritte di tabelle e partizioni, adottare i seguenti principi di progettazione:  
 
@@ -359,8 +359,8 @@ Le transazioni batch sono note come transazioni dei gruppi di entità (ETG, Enti
 ##### <a name="subheading36"></a>Upsert
 Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi di **Upsert**, entrambi più efficaci di una tradizionale operazione di **inserimento** e **aggiornamento**:  
 
-* **InsertOrMerge**: da usare quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
-* **InsertOrReplace**: da usare quando si vuole caricare un'entità completamente nuova, ma non si è certi se l'entità esista già. Va usato solo se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
+* **InsertOrMerge**: da usare quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
+* **InsertOrReplace**: da usare quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Va usato solo se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
 
 ##### <a name="subheading37"></a>Archiviazione di serie di dati in una singola entità
 A volte un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente: ad esempio, un'applicazione può tenere traccia dell'utilizzo della CPU nel tempo per tracciare un grafico in sequenza dei dati relativo alle ultime 24 ore. Un approccio prevede un'entità di tabella all'ora, in cui ogni entità rappresenta un'ora specifica e archivia l'utilizzo della CPU per quell'ora. Per tracciare questi dati, l'applicazione deve recuperare le entità che comprendono i dati delle ultime 24 ore.  
@@ -395,7 +395,7 @@ Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure]
 ### <a name="subheading44"></a>UpdateMessage
 È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Con l'operazione **UpdateMessage** , l'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.  
 
-Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenuto di un messaggio in coda](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Per altre informazioni, vedere l'articolo [Procedura: Modificare il contenuto di un messaggio in coda](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Architettura dell'applicazione
 Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:  

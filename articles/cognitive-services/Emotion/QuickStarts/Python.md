@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55211254"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Avvio rapido: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 
 > [!IMPORTANT]
 > L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 

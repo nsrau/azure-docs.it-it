@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55095695"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Avvio rapido: Configurare un'applicazione per l'esposizione di API Web (anteprima)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web (anteprima)
 
 È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
 

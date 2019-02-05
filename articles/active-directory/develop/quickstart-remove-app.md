@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55104413"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Avvio rapido: Rimuovere un'applicazione registrata con Microsoft Identity Platform (anteprima)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Guida introduttiva: Rimuovere un'applicazione registrata con Microsoft Identity Platform (anteprima)
 
 Gli sviluppatori aziendali e i provider SaaS (Software as a Service) che hanno registrato applicazioni con Microsoft Identity Platform potrebbero dover rimuovere la registrazione di un'applicazione.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: SDK di Ricerca entità Bing, Node'
+title: 'Guida introduttiva: SDK di Ricerca entità Bing, Node'
 titleSuffix: Azure Cognitive Services
 description: Configurazione per l'applicazione console Entity Search SDK con Node.
 services: cognitive-services

@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745075"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461747"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
@@ -32,7 +32,7 @@ Per completare questa esercitazione, sono necessari:
 
 * Una regola del firewall a livello di server configurata. Per altre informazioni, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal-firewall.md).
 
-#### <a name="install-the-latest-ssms"></a>Installare la versione di SSMS più recente
+## <a name="install-the-latest-ssms"></a>Installare la versione di SSMS più recente
 
 Prima di iniziare, assicurarsi di aver installato l'ultima versione di [SSMS][ssms-install-latest-84g]. 
 
@@ -45,7 +45,7 @@ Prima di iniziare, assicurarsi di aver installato l'ultima versione di [SSMS][ss
 In SMSS connettersi al database SQL di Azure. 
 
 > [!IMPORTANT]
-> Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Per connettersi a un server logico tramite un firewall aziendale, è necessario che nel firewall sia aperta tale porta.
+> Un server di Database SQL di Azure è in ascolto sulla porta 1433. Per connettersi a un server di database SQL protetto da un firewall aziendale, è necessario che nel firewall sia aperta tale porta.
 >
 
 1. Aprire SQL Server Management Studio. Viene visualizzata la finestra di dialogo **Connetti al server** .

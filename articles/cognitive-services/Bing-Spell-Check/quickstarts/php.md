@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Controllo ortografico Bing, PHP'
+title: 'Guida introduttiva: API Controllo ortografico Bing, PHP'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Controllo ortografico Bing.
 services: cognitive-services

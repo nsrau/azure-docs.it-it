@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Progetto Anteprima URL, JavaScript'
+title: 'Guida introduttiva: Progetto Anteprima URL, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Esempio di script per iniziare a usare rapidamente l'API Anteprima URL Bing con JavaScript.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55224882"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>Avvio rapido: URL Preview in JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Guida introduttiva: URL Preview in JavaScript 
 
 L'applicazione a pagina singola seguente usa JavaScript per creare un'anteprima URL per il sito SwiftKey: https://swiftkey.com/en. 
 

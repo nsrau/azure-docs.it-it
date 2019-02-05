@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944219"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452244"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con Azure Storage Explorer. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -34,8 +34,8 @@ Non è possibile usare Storage Explorer per creare nuove risorse. Ai fini di que
 Al primo avvio di Storage Explorer, viene visualizzata la finestra **Microsoft Azure Storage Explorer - Connetti**. Storage Explorer offre diversi modi per connettersi agli account di archiviazione. 
 
 - **Accedere con l'account Azure**: è possibile accedere usando le credenziali utente per la propria organizzazione o l'account Microsoft. 
-- **Connettersi a un account di archiviazione specifico usando una stringa di connessione o un token di firma di accesso condiviso**: una stringa di connessione è una speciale stringa contenente il nome e la chiave o il token di firma di accesso condiviso di un account di archiviazione. Con il token, Storage Explorer accede direttamente all'account di archiviazione, anziché visualizzare tutti gli account di archiviazione in un account Azure. Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di archiviazione di Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Connettersi a un account di archiviazione specifico con il nome e la chiave dell'account di archiviazione**: usare il nome e la chiave del proprio account di archiviazione per connettersi all'archivio di Azure.
+- **Connettersi a uno specifico account di archiviazione con una stringa di connessione o un token di firma di accesso condiviso**: la stringa di connessione è una stringa speciale che contiene il nome dell'account di archiviazione e la chiave/token di firma di accesso condiviso corrispondente. Con il token, Storage Explorer accede direttamente all'account di archiviazione, anziché visualizzare tutti gli account di archiviazione in un account Azure. Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di archiviazione di Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Connettersi a uno specifico account di archiviazione con un nome e una chiave dell'account di archiviazione**: usare il nome e la chiave dell'account di archiviazione per connettersi ad Archiviazione di Azure.
 
 Ai fini di questa guida introduttiva, accedere con l'account Azure. Selezionare **Add an Azure Account** (Aggiungi un account Azure) e quindi **Accedi**. Seguire le istruzioni per accedere all'account Azure.
 

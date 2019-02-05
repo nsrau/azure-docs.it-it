@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55093380"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 

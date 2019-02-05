@@ -102,7 +102,7 @@ Di seguito vengono descritte le procedure consigliate per la creazione di serviz
 Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un attacco Denial of Service destinato all'applicazione stessa è di fondamentale importanza. Sicurezza e privacy sono integrate direttamente nella piattaforma di Azure, a partire dal processo [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). SDL si rivolge alla sicurezza in ogni fase di sviluppo e assicura che Azure sia continuamente aggiornato per renderlo ancora più sicuro.
 
 **Procedura consigliata**: progettare le applicazioni con [scalabilità orizzontale](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.  
-**Dettagli**: Per Servizio app di Azure selezionare un [piano di servizio app](../app-service/overview-hosting-plans.md) che offra più istanze.
+**Dettagli**: Per [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) selezionare un [piano di servizio app](../app-service/overview-hosting-plans.md) che offra più istanze.
 
 Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](../cloud-services/cloud-services-choose-me.md).
 

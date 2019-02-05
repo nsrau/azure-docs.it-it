@@ -2,22 +2,22 @@
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Portale'
 description: Imparare rapidamente a eseguire un processo Batch con il portale di Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7daaf042d22ba4ac0369b732b586a3760d8cd51c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471216"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo batch con il portale di Azure
 
 Questa guida introduttiva illustra come usare il portale di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* di base nel pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 

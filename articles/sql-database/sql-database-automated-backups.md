@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035424"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477812"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -42,7 +42,7 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
+Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database nel server di database SQL. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
@@ -63,7 +63,7 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 
 #### <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
-Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e in istanza gestita). Per tutti i database SQL di Azure (database singoli, in pool e in istanza gestita) è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
+Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database autonomi, in pool e in istanza). Per tutti i database SQL di Azure (database autonomi, in pool e in istanza) è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se si riduce il periodo di conservazione corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
@@ -80,7 +80,7 @@ Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](s
 
 ### <a name="backups-for-long-term-retention"></a>Backup per la conservazione a lungo termine
 
-Il database SQL ospitato nel server logico offre la possibilità di configurare la conservazione a lungo termine (LTR) dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione.
+I database autonomi e in pool offrono la possibilità di configurare la conservazione a lungo termine (LTR) dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione.
 
 Come i backup di ripristino temporizzato, i backup di conservazione a lungo termine sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -111,7 +111,7 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 Per modificare il periodo di conservazione dei backup per il recupero temporizzato nel portale di Azure, passare all'oggetto server di cui si vuole modificare il periodo di conservazione all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server da modificare.
 
-#### <a name="change-pitr-for-a-logical-server"></a>Modificare il recupero temporizzato per un server logico
+#### <a name="change-pitr-for-a-sql-database-server"></a>Modificare il recupero temporizzato per un server di database SQL
 
 ![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 

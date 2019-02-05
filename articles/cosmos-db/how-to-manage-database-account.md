@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: d3ee6db382f848a029f3e0355abdfe5eecc80656
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1486ab3240036abedea2cbb3cbe93e5c061691d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035832"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467408"
 ---
-# <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gestire gli account di database in Azure Cosmos DB
+# <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 
 Questo articolo descrive come gestire gli account Azure Cosmos DB. Si apprenderà come configurare il multihoming, aggiungere o rimuovere un'area, configurare più aree di scrittura e configurare le priorità di failover. 
 

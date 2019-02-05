@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55213652"
 ---
-# <a name="quickstart-url-preview-with-python"></a>Avvio rapido: Anteprima URL con Python
+# <a name="quickstart-url-preview-with-python"></a>Guida introduttiva: Anteprima URL con Python
 
 L'esempio in Python seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 

@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157633"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471403"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -804,24 +804,19 @@ Dai questi due percorsi di errore possono essere generate due principali classi 
 Le sezioni seguenti indicano come risolvere problemi di archiviazione a livelli nel cloud e determinare se si tratta di un problema di archiviazione cloud o di un problema del server.
 
 <a id="monitor-tiering-activity"></a>**Come monitorare l'attività di suddivisione in livelli in un server**  
-Per monitorare l'attività di suddivisione in livelli in un server, usare l'evento ID 9002, 9003, 9016 e 9029 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
-
-- L'ID evento 9002 fornisce inoltre statistiche di ghosting per un endpoint server. Ad esempio, TotalGhostedFileCount, SpaceReclaimedMB e così via.
+Per monitorare l'attività di suddivisione in livelli in un server, usare gli ID evento 9003, 9016 e 9029 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
 
 - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio, Total Error Count, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
-
 - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio, percentuale di spazio disponibile, numero di file fantasma nella sessione, numero di file in cui non è stato possibile eseguire il ghosting e così via.
-
-- L'ID evento 9029 fornisce informazioni sulla sessione di ghosting. Ad esempio, numero di file che hanno eseguito un tentativo nella sessione, numero di file archiviati a livelli nella sessione, numero di file già archiviati a livelli e così via.
+- L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio, numero di file che hanno eseguito un tentativo nella sessione, numero di file archiviati a livelli nella sessione, numero di file già archiviati a livelli e così via.
 
 <a id="monitor-recall-activity"></a>**Come monitorare l'attività di richiamo in livelli in un server**  
-Per monitorare l'attività di richiamo in un server, usare l'evento ID 9005, 9006 e 9007 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi). Si noti che questi eventi vengono registrati ogni ora.
+Per monitorare l'attività di richiamo in un server, usare gli ID evento 9005, 9006, 9009 e 9059 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
 
 - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio, numero totale di file univoci a cui si ha avuto accesso, numero totale di file univoci con accessi non riusciti e così via.
-
 - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio, Totale richieste non riuscite, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
-
-- L'ID evento 9007 fornisce inoltre prestazioni di richiamo per un endpoint server. Ad esempio, TotalRecallIOSize, TotalRecallTimeTaken e così via.
+- L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed e così via.
+- L’ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio, ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Risolvere i problemi dei file che non è possibile archiviare a livelli**  
 Se non è possibile archiviare a livelli i file in File di Azure:
@@ -858,6 +853,9 @@ Per informazioni su come configurare la soluzione in modo che non legga i file o
 
 I richiami imprevisti possono verificarsi anche in altri scenari, ad esempio quando si visualizzano file in Esplora File. Se si apre una cartella contenente file archiviati a livelli nel cloud in Esplora File nel server, è possibile che si verifichino richiami non previsti. Questa situazione si verifica con ancora maggiore probabilità se nel server è abilitata una soluzione antivirus.
 
+> [!NOTE]
+>Usare l'ID evento 9059 nel registro eventi di telemetria per determinare quali applicazioni stanno causando i richiami. Questo evento fornisce la distribuzione di richiamo delle applicazioni per un endpoint server e viene registrato ogni ora.
+
 ## <a name="general-troubleshooting"></a>Risoluzione dei problemi generali
 Se si verificano problemi con Sincronizzazione file di Azure in un server, per prima cosa eseguire questi passaggi:
 1. Nel Visualizzatore eventi esaminare i dati di telemetria e i registri eventi operativi e diagnostici.
@@ -884,6 +882,7 @@ Se il problema persiste, eseguire lo strumento AFSDiag:
 6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i registri e i file di traccia.
 
 ## <a name="see-also"></a>Vedere anche 
+- [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)
 - [Domande frequenti su File di Azure](storage-files-faq.md)
 - [Risolvere i problemi di File di Azure in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Risolvere i problemi di File di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md)

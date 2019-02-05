@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215287"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900885"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
@@ -22,9 +22,9 @@ Questa esercitazione descrive le procedure per connettersi all'archiviazione BLO
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
+> * Prerequisiti
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
-> * Preparare per la spedizione
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -196,23 +196,22 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>Preparare per la spedizione
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+Il passaggio successivo consiste nel preparare il dispositivo per la spedizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
+> * Prerequisiti
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
-> * Preparare per la spedizione
+
 
 Passare all'esercitazione successiva per informazioni su come riconsegnare Data Box a Microsoft.
 

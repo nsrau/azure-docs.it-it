@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477330"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Effettuare il provisioning della velocità effettiva per un contenitore di Azure Cosmos DB
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva per un contenitore (raccolta, grafo, tabella) in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva per un singolo contenitore oppure [effettuare il provisioning per un database](how-to-provision-database-throughput.md) e condividere la velocità effettiva tra i contenitori all'interno del database. Il provisioning della velocità effettiva per un contenitore può essere effettuato tramite il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di COSMOS DB.
 

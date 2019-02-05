@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere una risposta dalla knowledge base in REST, Node.js - QnA Maker'
+title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Node.js - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa Guida introduttiva Node.js basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services

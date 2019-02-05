@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Progetto Anteprima URL, Java'
+title: 'Guida introduttiva: Progetto Anteprima URL, Java'
 titlesuffix: Azure Cognitive Services
 description: Esempio di script per iniziare a usare Progetto Anteprima URL con Java.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55209125"
 ---
-# <a name="quickstart-url-preview-with-java"></a>Avvio rapido: Anteprima URL con Java
+# <a name="quickstart-url-preview-with-java"></a>Guida introduttiva: Anteprima URL con Java
 
 L'esempio in Java seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 

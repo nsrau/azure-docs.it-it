@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Ricerca entità Bing'
+title: 'Guida introduttiva: API Ricerca entità Bing'
 description: Illustra come iniziare a usare l'API Ricerca entità Bing.
 services: cognitive-services
 author: swhite-msft

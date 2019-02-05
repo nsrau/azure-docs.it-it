@@ -8,19 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316889"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245287"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -86,7 +86,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim ed Emacs | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | S | N |
 | PowerBI Desktop | S | N |
 | SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure | S | S |
 | **Strumenti di gestione e spostamento dati** | | |
@@ -97,7 +97,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Driver BLOB FUSE](https://github.com/Azure/azure-storage-fuse) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy(Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Strumento di migrazione dei dati DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | S | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Gateway di gestione dati di Microsoft](https://msdn.microsoft.com/library/dn879362.aspx): spostare i dati tra posizione locale e cloud | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Gateway di gestione dati di Microsoft](https://msdn.microsoft.com/library/dn879362.aspx): Spostare dati tra origini locali e cloud | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilità della riga di comando Unix/Linux | S | S |
 | [Apache Drill](http://drill.apache.org) per l'esplorazione dei dati | S | S |
 | **Strumenti di Machine Learning** |||

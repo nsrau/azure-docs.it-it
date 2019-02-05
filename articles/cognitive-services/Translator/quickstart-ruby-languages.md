@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 02ebeae83464aa9770854fd06468b3731d6b8549
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 67f1a7b4a064aa46ef7d258dd72b1d686a797349
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645270"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458109"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Ruby)
 

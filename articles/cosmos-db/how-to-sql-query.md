@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452956"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459027"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Esempi di query SQL per eseguire query sui dati di Azure Cosmos DB
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
 Azure Cosmos DB supporta l'esecuzione di query sugli elementi mediante SQL (Structured Query Language) come linguaggio di query JSON per gli account API SQL. Durante la progettazione del linguaggio di query per Azure Cosmos DB, sono considerati i seguenti due obiettivi:
 

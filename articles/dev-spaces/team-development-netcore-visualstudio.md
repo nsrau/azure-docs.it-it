@@ -5,19 +5,19 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 0b0b80bace73798d64c198c31799fa62886f38e0
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ecacb7d3d4576b18eee3faf88c2a598d6acf94a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705362"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465368"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -77,7 +77,7 @@ L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla rich
 1. Fare clic sul collegamento **About** nella parte superiore della pagina per attivare il punto di interruzione nel progetto `webfrontend`. 
 1. Premere F10 per continuare. Il punto di interruzione nel progetto `mywebapi` viene attivato.
 1. Premere F5 per continuare e tornare al codice nel progetto `webfrontend`.
-1. Se si preme F5 ancora una volta la richiesta viene completata e si torna a una pagina nel browser. Nell'app Web, la pagina About contiene un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi".
+1. Se si preme F5 ancora una volta la richiesta viene completata e si torna a una pagina nel browser. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi."
 
 Ecco fatto! È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.
 

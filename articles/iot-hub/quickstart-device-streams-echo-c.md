@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 149d3e3515c8bbc10798ad26e58dcefbe830f9bc
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830734"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887955"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -82,7 +82,7 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -91,10 +91,10 @@ In Windows eseguire i comandi seguenti nel Prompt dei comandi per gli sviluppato
 ```
     # In Windows
     # For VS2015
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release

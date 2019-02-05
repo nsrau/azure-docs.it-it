@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358559"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900511"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box e verificare il caricamento dei dati in Azure
 
@@ -22,28 +22,37 @@ Questa esercitazione illustra come restituire Azure Data Box e verificare che i 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
+> * Prerequisiti
+> * Preparare per la spedizione
 > * Spedire il Data Box a Microsoft
 > * Verificare il caricamento dei dati in Azure
 > * Cancellare i dati dal Data Box
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
+Prima di iniziare, verificare che:
+
+- Sia stata completata l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md). 
+- I processi di copia siano stati completati. La preparazione per la spedizione non può essere eseguita se sono in corso processi di copia.
+
+## <a name="prepare-to-ship"></a>Preparare per la spedizione
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>Rispedire il Data Box
 
 1. Verificare che il dispositivo sia spento e i cavi scollegati. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-2. Se il dispositivo viene spedito negli Stati Uniti, assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta è danneggiata, è stata smarrita o non è visibile sul display E-ink, scaricarne una nuova dal portale di Azure e applicarla sul dispositivo. Passare a **Panoramica > Scarica etichetta di spedizione**. 
+2. Se il dispositivo viene spedito negli Stati Uniti, assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta è danneggiata, è stata smarrita o non è visibile sul display E-ink, passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo.
 
     Se il dispositivo viene spedito in Europa, l'etichetta di spedizione non viene visualizzata sullo schermo E-ink. L'etichetta indirizzo per la spedizione di ritorno è invece inserita all'interno dell'involucro trasparente sotto l'etichetta indirizzo di inoltro. Rimuovere l'etichetta indirizzo precedente e verificare che l'etichetta di spedizione sia chiaramente visibile.
     
-3. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro, chiamare l'UPS locale (numero verde specifico del paese) o consegnare il Data Box al più vicino punto di consegna.
+3. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro, chiamare l'UPS locale (numero verde specifico del paese) o consegnare il Data Box al punto di consegna più vicino.
 
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
 
 ## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
 
-Quando Microsoft riceve e analizza il dispositivo, lo stato dell'ordine diventa **Ricevuto**. Il dispositivo viene quindi sottoposto a una verifica fisica per rilevare eventuali danni o segni di manomissione. 
+Quando Microsoft riceve e analizza il dispositivo, lo stato dell'ordine diventa **Ricevuto**. Il dispositivo viene quindi sottoposto a una verifica fisica per rilevare eventuali danni o segni di manomissione.
 
 Al termine della verifica, il Data Box viene connesso alla rete nel data center di Azure. La copia dei dati viene avviata automaticamente. A seconda delle dimensioni dei dati, l'operazione di copia potrebbe richiedere da alcune ore a giorni per il completamento. È possibile monitorare lo stato di avanzamento del processo di copia nel portale.
 
@@ -65,6 +74,8 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
+> * Prerequisiti
+> * Preparare per la spedizione
 > * Spedire il Data Box a Microsoft
 > * Verificare il caricamento dei dati in Azure
 > * Cancellare i dati dal Data Box

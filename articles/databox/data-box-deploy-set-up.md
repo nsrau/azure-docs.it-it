@@ -1,19 +1,19 @@
 ---
-title: Configurare Azure Data Box| Microsoft Docs
+title: Configurare Azure Data Box | Microsoft Docs
 description: Informazioni su come cablare e connettersi ad Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391155"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902162"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Esercitazione: Cablare e connettersi ad Azure Data Box
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare che:
 5. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
     - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
-6. Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
+6. È necessario avere a disposizione una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
 7. Si disponga dei cavi seguenti per collegare il Data Box al computer host.
     - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con interfacce di rete DATA 1 e DATA 2). Data Box include schede Mellanox ConnectX®-3 Pro EN 10GBASE-T a due porte con interfaccia di rete PCI Express 3.0, quindi i cavi compatibili con questa interfaccia dovrebbero funzionare. Per i test interni, ad esempio, è stato usato un cavo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M.
     - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
@@ -50,7 +50,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 
 1. Ispezionare il dispositivo per accertare eventuali prove di manomissione o qualsiasi altro danno evidente. Se il dispositivo risulta manomesso o seriamente danneggiato, non procedere oltre. Contattare immediatamente il supporto tecnico Microsoft per valutare se il dispositivo funziona correttamente o è necessaria una spedizione sostitutiva.
 2. Trasportare il dispositivo nella posizione in cui si vuole accenderlo. Posizionare il dispositivo su una superficie piana. Il dispositivo può essere posizionato anche su uno scaffale standard.
-3. Collegare i cavi di alimentazione e di rete. Di seguito è illustrato il backplane di un dispositivo connesso per una configurazione comune. 
+3. Collegare i cavi di alimentazione e di rete. Di seguito è illustrato il backplane di un dispositivo connesso per una configurazione comune. A seconda dell'ambiente corrente, è possibile scegliere tra altre [opzioni di cablaggio](data-box-cable-options.md).
     
     ![Backplane cablato di un dispositivo Data Box](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Usare l'SDK di Ricerca Web Bing per C#"
+title: "Guida introduttiva: Usare l'SDK di Ricerca Web Bing per C#"
 titleSuffix: Azure Cognitive Services
 description: L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione C#. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 services: cognitive-services

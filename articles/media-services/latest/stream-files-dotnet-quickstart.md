@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612221"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162719"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Guida introduttiva: Eseguire lo streaming di file video - .NET
 
@@ -34,13 +34,10 @@ Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
-
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-
-## <a name="download-the-sample"></a>Scaricare l'esempio
+## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
 Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming usando il comando seguente:  
 
@@ -50,19 +47,19 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
 
 L'esempio è disponibile nella cartella [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
+Aprire [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute dall'[accesso alle API](access-api-cli-how-to.md).
+
 L'esempio esegue le azioni seguenti:
 
-1. Crea una trasformazione (in primo luogo, controlla se esiste la trasformazione specificata). 
-2. Crea un asset di output usato come output del processo di codifica.
-3. Crea l'input del processo basato su un URL HTTPS.
-4. Invia il processo di codifica usando l'input e l'output creati in precedenza.
+1. Crea una **trasformazione** (in primo luogo, controlla se esiste la trasformazione specificata). 
+2. Crea un **asset** di output usato come output del **processo** di codifica.
+3. Crea l'input del **processo** basato su un URL HTTPS.
+4. Invia il **processo** di codifica usando l'input e l'output creati in precedenza.
 5. Controlla lo stato del processo.
-6. Crea un oggetto StreamingLocator.
+6. Crea un **localizzatore di streaming**.
 7. Crea gli URL di streaming.
 
 Per una spiegazione delle operazioni eseguite da ogni funzione nell'esempio, esaminare il codice e i commenti in [questo file di origine](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 

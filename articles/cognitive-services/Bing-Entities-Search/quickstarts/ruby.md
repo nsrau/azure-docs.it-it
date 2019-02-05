@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Ricerca entità Bing, Ruby'
+title: 'Guida introduttiva: API Ricerca entità Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca entità Bing.
 services: cognitive-services

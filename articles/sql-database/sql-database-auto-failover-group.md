@@ -1,6 +1,6 @@
 ---
 title: Gruppi di failover - Database SQL di Azure | Microsoft Docs
-description: I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover automatico/coordinato di un gruppo di database in un server logico o tutti i database in un'istanza gestita.
+description: I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover automatico/coordinato di un gruppo di database in un server di database SQL o tutti i database in un'istanza gestita.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033809"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468700"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
-I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover di un gruppo di database in un server logico o tutti i database in un'istanza gestita a un'altra area (attualmente in anteprima pubblica per Istanza gestita). Usano la stessa tecnologia sottostante della [replica geografica attiva](sql-database-active-geo-replication.md). È possibile avviare manualmente il failover oppure delegarlo al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda opzione è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I server primario e secondario per i database nel gruppo di failover devono trovarsi nella stessa sottoscrizione. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
+I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover di un gruppo di database in un server di database SQL o tutti i database in un'istanza gestita a un'altra area (attualmente in anteprima pubblica per Istanza gestita). Usano la stessa tecnologia sottostante della [replica geografica attiva](sql-database-active-geo-replication.md). È possibile avviare manualmente il failover oppure delegarlo al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda opzione è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I server primario e secondario per i database nel gruppo di failover devono trovarsi nella stessa sottoscrizione. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
 
 > [!NOTE]
-> Se si usano database singoli o in pool in un server logico e si intende avere più database secondari nella stessa area geografica o in aree diverse, usare la [replica geografica attiva](sql-database-active-geo-replication.md).
+> Se si usano database singoli o in pool in un server di database SQL e si intende avere più database secondari nella stessa area geografica o in aree diverse, usare la [replica geografica attiva](sql-database-active-geo-replication.md).
 
 Se si usano gruppi di failover automatico con criteri di failover automatico, eventuali interruzioni che influiscono su uno o più database nel gruppo determinano un failover automatico. I gruppi di failover automatico forniscono anche endpoint di listener di sola lettura e di sola scrittura che rimangono invariati durante i failover. Se si usa l'attivazione di failover manuale o automatica, il failover trasforma tutti i database secondari nel gruppo in database primari. Dopo aver completato il failover del database, il record DNS viene automaticamente aggiornato per reindirizzare gli endpoint alla nuova area. Per i dati RPO e RTO specifici consultare la [panoramica della continuità aziendale](sql-database-business-continuity.md).
 
-Se si usano gruppi di failover automatico con criteri di failover automatico, eventuali interruzioni che influiscono sui database nel server logico o nell'istanza gestita determinano un failover automatico. È possibile gestire il gruppo di failover automatico mediante:
+Se si usano gruppi di failover automatico con criteri di failover automatico, eventuali interruzioni che influiscono sui database nel server di database SQL o nell'istanza gestita determinano un failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
 - Il[portale di Azure](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: gruppo di failover](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,27 +42,27 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Gruppo di failover**
 
-  Un gruppo di failover è un gruppo di database gestiti da un singolo server logico o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria.
+  Un gruppo di failover è un gruppo di database gestiti da un singolo server di database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria.
 
-  - **Server logici**
+  - **Server di database SQL**
 
-     Con i server logici è possibile inserire alcuni o tutti i database utente di un singolo server in un gruppo di failover. Un server logico supporta anche più gruppi di failover in un singolo server.
+     Con i server di database SQL è possibile inserire alcuni o tutti i database utente di un singolo server di database SQL in un gruppo di failover. Un server di database SQL supporta anche più gruppi di failover in un singolo server di database SQL.
 
   - **Istanze gestite**
   
-     Con le istanze gestite un gruppo di failover contiene tutti i database utente nell'istanza gestita e pertanto un'istanza gestita supporta solo un singolo gruppo di failover.
+     Con l'istanza gestita, un gruppo di failover contiene tutti i database utente nell'Istanza gestita e pertanto un'istanza gestita supporta solo un singolo gruppo di failover.
 
 - **Server/istanza primaria**
 
-  Il server logico o l'istanza gestita che ospita i database primari nel gruppo di failover.
+  Il server di database SQL o l'istanza gestita che ospita i database primari nel gruppo di failover.
 
 - **Server/istanza secondaria**
 
-  Il server logico o l'istanza gestita che ospita i database secondari nel gruppo di failover. Il server o l'istanza secondaria non può trovarsi nella stessa area del server o dell'istanza primaria.
+  Il server di database SQL o l'istanza gestita che ospita i database secondari nel gruppo di failover. Il server o l'istanza secondaria non può trovarsi nella stessa area del server o dell'istanza primaria.
 
-- **Aggiunta di database al gruppo di failover in un server logico**
+- **Aggiunta di database al gruppo di failover in un server di database SQL**
 
-  È possibile inserire alcuni database o database singoli all'interno di un pool elastico nello stesso server logico all'interno dello stesso gruppo di failover. Se si aggiunge un database singolo al gruppo di failover, viene creato automaticamente un database secondario usando la stessa edizione e la stessa dimensione dell'ambiente di calcolo. Se il database primario si trova in un pool elastico, il database secondario viene creato automaticamente nel pool elastico con lo stesso nome. Se si aggiunge un database che dispone già di un database secondario nel server secondario, tale replica geografica viene ereditata dal gruppo. Quando si aggiunge un database che dispone già di un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel server secondario.
+  È possibile inserire alcuni database o database singoli all'interno di un pool elastico nello stesso server di database SQL all'interno dello stesso gruppo di failover. Se si aggiunge un database singolo al gruppo di failover, viene creato automaticamente un database secondario usando la stessa edizione e la stessa dimensione dell'ambiente di calcolo. Se il database primario si trova in un pool elastico, il database secondario viene creato automaticamente nel pool elastico con lo stesso nome. Se si aggiunge un database che dispone già di un database secondario nel server secondario, tale replica geografica viene ereditata dal gruppo. Quando si aggiunge un database che dispone già di un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel server secondario.
   
 > [!IMPORTANT]
   > In un'istanza gestita vengono replicati tutti i database utente. Non è possibile selezionare un subset di database utente per la replica nel gruppo di failover.
@@ -71,9 +71,9 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   Un record CNAME DNS con formato che punta all'URL del database primario corrente. Consente alle applicazioni SQL di lettura/scrittura di riconnettersi al database primario in modo trasparente quando viene modificato il database primario dopo il failover.
 
-  - **Record CNAME DNS del server logico per listener di lettura/scrittura**
+  - **Record CNAME DNS del server di database SQL per listener di lettura/scrittura**
 
-     In un server logico il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `failover-group-name.database.windows.net`.
+     In un server di database SQL il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `failover-group-name.database.windows.net`.
 
   - **Record CNAME DNS dell'istanza gestita per listener di lettura/scrittura**
 
@@ -83,9 +83,9 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   Un record CNAME DNS che punta al listener di sola lettura che punta all'URL del database secondario. Consente alle applicazioni SQL di sola lettura di connettersi in modo trasparente al database secondario usando le regole di bilanciamento del carico specificate.
 
-  - **Record CNAME DNS del server logico per listener di sola lettura**
+  - **Record CNAME DNS del server di database SQL per listener di lettura/scrittura**
 
-     In un server logico il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `failover-group-name.secondary.database.windows.net`.
+     In un server di database SQL il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `failover-group-name.secondary.database.windows.net`.
 
   - **Record CNAME DNS dell'istanza gestita per listener di sola lettura**
 
@@ -128,7 +128,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedure consigliate per l'uso di gruppi di failover con database singoli e pool elastici
 
-Il gruppo di failover automatico deve essere configurato nel server logico primario e lo connetterà al server logico secondario in un'altra area di Azure.  I gruppi possono includere alcuni o tutti i database in questi server. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con più database e un gruppo di failover automatico.
+Il gruppo di failover automatico deve essere configurato nel server di database SQL primario e lo connetterà al server di database SQL secondario in un'altra area di Azure.  I gruppi possono includere alcuni o tutti i database in questi server. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con più database e un gruppo di failover automatico.
 
 ![failover automatico](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -331,7 +331,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database autonomi e in pool
 
 | API | DESCRIZIONE |
 | --- | --- |

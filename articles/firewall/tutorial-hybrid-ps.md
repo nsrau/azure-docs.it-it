@@ -1,19 +1,19 @@
 ---
 title: 'Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell'
-description: Questa esercitazione mostra come distribuire e configurare Firewall di Azure tramite il portale di Azure.
+description: Questa esercitazione mostra come distribuire e configurare Firewall di Azure tramite Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458226"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -61,6 +61,8 @@ Vedere la sezione [Creare route](#create-routes) in questa esercitazione per ved
 
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
+
+Per esaminare la documentazione di riferimento di Azure PowerShell correlata, vedere [Informazioni di riferimento su Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

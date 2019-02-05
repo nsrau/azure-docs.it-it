@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.component: common
-ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: b9524f7aff7ae9de37835985787b5d4d9c3cf9b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242977"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478237"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -45,7 +45,7 @@ Il processo è il seguente:
 4. Se il valore ETag corrente del BLOB è una versione diversa dall'ETag nell'intestazione condizionale **If-Match** , il servizio restituisce un errore 412 al client. Ciò indica al client che un altro processo ha aggiornato il BLOB rispetto a quando il client lo ha recuperato.
 5. Se il valore ETag corrente del BLOB è la stessa versione dell'Etag nell'intestazione condizionale **If-Match** nella richiesta, il servizio esegue l'operazione richiesta e aggiorna il valore Etag corrente del BLOB per indicare la creazione di una nuova versione.  
 
-Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempio semplice di come costruire una **If-Match AccessCondition** in base al valore ETag al quale viene effettuato l'accesso dalle proprietà di un BLOB precedentemente recuperato o inserito. Usa quindi l'oggetto **AccessCondition** quando aggiorna il BLOB: l'oggetto **AccessCondition** aggiunge l'intestazione **If-Match** alla richiesta. Se un altro processo ha aggiornato il BLOB, il servizio BLOB restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'intero esempio dalla pagina relativa alla [gestione della concorrenza con Archiviazione di Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempio semplice di come costruire una **If-Match AccessCondition** in base al valore ETag al quale viene effettuato l'accesso dalle proprietà di un BLOB precedentemente recuperato o inserito. Usa quindi l'oggetto **AccessCondition** quando aggiorna il BLOB: l'oggetto **AccessCondition** aggiunge l'intestazione **If-Match** alla richiesta. Se un altro processo ha aggiornato il BLOB, il servizio BLOB restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -126,7 +126,7 @@ Per bloccare un BLOB al fine di usarlo in modo esclusivo, è possibile acquisire
 
 I lease abilitano il supporto di strategie di sincronizzazione diverse, tra cui la scrittura esclusiva/la lettura condivisa, la scrittura esclusiva/la lettura esclusiva e la scrittura condivisa/la lettura esclusiva. In presenza di un lease il servizio di archiviazione applica scritture esclusive (operazioni Put, Set e Delete); tuttavia, garantire l'esclusività per le operazioni di lettura richiede allo sviluppatore di verificare che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease determinano letture condivise.  
 
-Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP 409 - Conflitto". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'intero esempio dalla pagina relativa alla [gestione della concorrenza con Archiviazione di Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP 409 - Conflitto". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -208,7 +208,7 @@ Per usare la concorrenza ottimistica e controllare se un altro processo ha modif
 
 Si noti che, a differenza del servizio BLOB, il servizio tabelle richiede che il client includa un'intestazione **If-Match** nelle richieste di aggiornamento. Tuttavia, è possibile forzare un aggiornamento condizionale (strategia della prevalenza dell'ultima scrittura) e ignorare i controlli della concorrenza se il client imposta l'intestazione **If-Match** sul carattere jolly (*) nella richiesta.  
 
-Il seguente frammento C# mostra un'entità del cliente precedentemente creata o recuperata con l'aggiornamento dell'indirizzo di posta elettronica. L'operazione iniziale di inserimento o recupero archivia il valore ETag nell'oggetto del cliente e, poiché l'esempio usa la stessa istanza di oggetto quando esegue l'operazione di sostituzione, invia automaticamente il valore ETag alla tabella, consentendo al servizio di verificare l'eventuale presenza di violazioni della concorrenza. Se un altro processo ha aggiornato l'entità nella tabella di archiviazione, il servizio restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita).  È possibile scaricare l'intero esempio dalla pagina relativa alla [gestione della concorrenza con Archiviazione di Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Il seguente frammento C# mostra un'entità del cliente precedentemente creata o recuperata con l'aggiornamento dell'indirizzo di posta elettronica. L'operazione iniziale di inserimento o recupero archivia il valore ETag nell'oggetto del cliente e, poiché l'esempio usa la stessa istanza di oggetto quando esegue l'operazione di sostituzione, invia automaticamente il valore ETag alla tabella, consentendo al servizio di verificare l'eventuale presenza di violazioni della concorrenza. Se un altro processo ha aggiornato l'entità nella tabella di archiviazione, il servizio restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita).  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -284,5 +284,5 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 * [Home page di Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introduzione ad Archiviazione di Azure](storage-introduction.md)
 * Introduzione all'archiviazione per [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [code](../storage-dotnet-how-to-use-queues.md) e [file](../storage-dotnet-how-to-use-files.md)
-* Architettura di archiviazione - [Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Architettura di archiviazione – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta)
 

@@ -3,7 +3,7 @@ title: Team di sviluppo con Azure Dev Spaces usando Java e Visual Studio Code | 
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
 manager: mmontwil
-ms.openlocfilehash: b1f05c176c6005a2fda8025b4645813013a30cb3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4019bc3eb1a0071abc330cb7fe6127eeca856cc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407179"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476367"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -70,7 +70,7 @@ L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla rich
 1. Nel progetto `webfrontend`, impostare un punto di interruzione appena prima che venga inviata una richiesta GET a `mywebapi`, sulla riga che inizia con `try`.
 1. Premere F5 nel progetto `webfrontend` (o riavviare il debugger se attualmente in esecuzione).
 1. Richiamare l'app Web e scorrere il codice in entrambi i servizi.
-1. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi".
+1. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi."
 
 Ecco fatto! È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.
 

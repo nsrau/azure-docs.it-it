@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55177135"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Avvio rapido: Usare l'SDK di Ricerca Web Bing per Node.js
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Node.js
 
 L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Node.js. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 

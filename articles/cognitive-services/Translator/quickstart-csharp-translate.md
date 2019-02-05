@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre un testo, C# - Traduzione testuale'
+title: 'Guida introduttiva: Tradurre un testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con C#.
 services: cognitive-services

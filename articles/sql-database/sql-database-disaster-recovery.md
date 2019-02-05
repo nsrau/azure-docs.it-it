@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605212"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474786"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -37,7 +37,7 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 
 Per completare correttamente il ripristino su un'altra area dati tramite i gruppi di failover o i backup con ridondanza geografica, è necessario preparare un server in un'altra interruzione del data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:
 
-- Identificare il server logico in un'altra area perché diventi il nuovo server primario. Per il ripristino geografico, questo è in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) a quella in cui si trova il database. Ciò consente di eliminare il costo del traffico aggiuntivo durante le operazioni di ripristino geografico.
+- Identificare il server di database SQL in un'altra area perché diventi il nuovo server primario. Per il ripristino geografico, questo è in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) a quella in cui si trova il database. Ciò consente di eliminare il costo del traffico aggiuntivo durante le operazioni di ripristino geografico.
 - Identificare e definire, facoltativamente, le regole del firewall a livello di server necessarie agli utenti per accedere al nuovo database primario.
 - Determinare come si desidera reindirizzare gli utenti al nuovo server primario, ad esempio tramite modifica delle stringhe di connessione o delle voci del DNS.
 - Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)

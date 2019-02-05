@@ -2,22 +2,22 @@
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Interfaccia della riga di comando'
 description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 75703b4b10bbf3864076952990df2e6c2a9ab28d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969649"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470961"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo Batch con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* nel pool. Ogni attività di esempio esegue un comando di base in uno dei nodi del pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
