@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658233"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694381"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -135,7 +135,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4481066 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Anche se Microsoft consiglia il più recente disponibile degli aggiornamenti rapidi, la versione minima richiesta per installare 1809 è 1.1808.5.110.
+- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4481066 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Anche se Microsoft consiglia l'Hotfix più recente disponibile, la versione minima richiesta per installare 1809 è 1.1808.5.110.
 
   > [!TIP]  
   > Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:

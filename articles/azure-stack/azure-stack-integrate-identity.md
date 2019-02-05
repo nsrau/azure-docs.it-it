@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 15beebb3ef6fda098c3f540f945fc3d6b836e517
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246248"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697963"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -306,7 +306,7 @@ Esistono molti scenari che richiedono l'uso di un nome dell'entità servizio (SP
 > [!Important]  
 > ADFS supporta solo le sessioni di accesso interattivo. Se è necessario un account di accesso interattivo per uno scenario automatizzato, è necessario usare un nome SPN.
 
-Per altre informazioni sulla creazione di un nome SPN, vedere [creare un'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Per altre informazioni sulla creazione di un nome SPN, vedere [creare un'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi

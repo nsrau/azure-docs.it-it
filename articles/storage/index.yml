@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8d7df9093a10d4646c64186fe37f40c98219384b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 09b5f1fbc76f78d2b44fadca19f66b4096416bc2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465693"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700962"
 documentType: LandingData
 title: Documentazione di Archiviazione di Azure
 metadata:
@@ -67,8 +67,8 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
     - title: Data Lake Storage Gen2
       values:
-      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal
-      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
       - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
       - href: 
       - href: 
@@ -143,7 +143,7 @@ sections:
     items:
     - title: Riga di comando
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Interfaccia della riga di comando di Azure</a></p>
-    - title: Lingue
+    - title: Languages
       html: <p><a href="/dotnet/api/overview/azure/storage/client?view=azure-dotnet">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
       html: <p><a href="/rest/api/storageservices">BLOB e API code, tabelle e file</a></p><p><a href="/rest/api/storagerp">API Provider delle risorse di archiviazione</a></p><p><a href="/rest/api/storageimportexport">API Servizio di importazione/esportazione</a></p>

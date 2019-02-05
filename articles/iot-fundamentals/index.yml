@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f18c25d6d7692d5a0adff7e1efc69b25cdb31a0d
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 678f18d04ba25b614f490170aa9c4ba36d94b9e0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069404"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694286"
 documentType: LandingData
 title: Nozioni fondamentali su Azure IoT
 metadata:
@@ -50,14 +50,14 @@ sections:
     - html: <a href="/azure/iot-dps">Servizi Device Provisioning in hub IoT</a>
     - html: <a href="/azure/azure-maps">Mappe di Azure</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
-    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT SDK per servizi</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks">IoT SDK per servizi</a>
   - type: paragraph
     text: Creare soluzioni con dispositivi IoT ed elaborazione perimetrale.
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/iot-edge">IoT Edge</a>
-    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">IoT SDK per dispositivi</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks">IoT SDK per dispositivi</a>
 - title: Esempi
   items:
   - type: paragraph
@@ -95,7 +95,7 @@ sections:
     items:
     - title: Riga di comando
       html: <p><a href="/cli/azure/iot">Interfaccia della riga di comando di Azure</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Estensione Azure IoT per l'interfaccia della riga di comando</a></p>
-    - title: Lingue
+    - title: Languages
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDK per .NET, C, Java, Node.js e Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/iothub">Hub IoT</a></p><p><a href="/rest/api/iot-dps">Servizio Device Provisioning in hub IoT</a></p><p><a href="/rest/api/maps-management/">Gestione mappe</a></p><p><a href="/rest/api/maps/">Mappe funzionali</a></p><p><a href="/rest/api/time-series-insights-management/">Gestione di Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
