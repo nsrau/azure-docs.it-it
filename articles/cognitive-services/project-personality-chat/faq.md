@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219057"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -28,7 +28,7 @@ Project Personality Chat consentirà di migliorare un bot con una breve conversa
 
 Selezionare l'utente tipo più appropriato tra quelli predefiniti disponibili. Attualmente, è possibile modificare le risposte nella libreria editoriale per adattarle alle proprie esigenze. In futuro, sarà possibile caricare un set di enunciati di esempio dalla personalità scelta e trovare la versione più vicina per l'utente tipo. Esistono anche modi per ripetere il training del modello e personalizzarlo.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>Questo servizio è alla base di agenti intelligenti esistenti, come Zo?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Questo servizio è alla base di agenti intelligenti esistenti, come Zo?
 
 I servizi alla base di Zo, Cortana e Project Personality Chat condividono alcune tecniche simili, ma sono stack diversi. In questo servizio sono state incorporate le conoscenze apprese dalle esperienze con Zo e Cortana.
 

@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413375"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213319"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
 
@@ -28,36 +28,36 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
 
   Codice | Linguaggio | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabo (Egitto), standard moderno | No | Yes | No
- ca-ES | Catalano (Spagna) | No | No | No
- da-DK | Danese (Danimarca) | No | No | No
- de-DE | Tedesco (Germania) | Yes | Sì | No
- en-AU | Inglese (Australia) | No | Yes | Yes
- en-CA | Inglese (Canada) | No | Yes | Yes
- en-GB | Inglese (Regno Unito) | No | Yes | Yes
+ ar-EG | Arabo (Egitto), standard moderno | No  | Yes | No 
+ ca-ES | Catalano (Spagna) | No  | No  | No 
+ da-DK | Danese (Danimarca) | No  | No  | No 
+ de-DE | Tedesco (Germania) | Yes | Sì | No 
+ en-AU | Inglese (Australia) | No  | Yes | Yes
+ en-CA | Inglese (Canada) | No  | Yes | Yes
+ en-GB | Inglese (Regno Unito) | No  | Yes | Yes
  en-IN | Inglese (India) | Yes | Sì | Yes
- en-NZ | Inglese (Nuova Zelanda) | No | Yes | Yes  
+ en-NZ | Inglese (Nuova Zelanda) | No  | Yes | Yes  
  en-US | Inglese (Stati Uniti) | Yes | Sì | Yes
- es-ES | Spagnolo (Spagna) | Yes | Sì | No
- es-MX | Spagnolo (Messico) | No | Yes | No
- fi-FI | Finlandese (Finlandia) | No | No | No
- fr-CA | Francese (Canada) | No | Yes | No
- fr-FR | Francese (Francia) | Yes | Sì | No
- hi-IN | Hindi (India) | No | Yes | No
- it-IT | Italiano (Italia) | Yes | Sì | No
- ja-JP | Giapponese (Giappone) | No | Yes | No
- ko-KR | Coreano (Corea) | No | Yes | No
- nb-NO | Norvegese (Bokmål) (Norvegia) | No | No | No
- nl-NL | Olandese (Paesi Bassi) | No | Yes | No
- pl-PL | Polacco (Polonia) | No | No | No
- pt-BR | Portoghese (Brasile) | Yes | Sì | No
- pt-PT | Portoghese (Portogallo) | No | Yes | No
- ru-RU | Russo (Russia) | Yes | Sì | No
- sv-SE | Svedese (Svezia) | No | No | No
- zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No
- zh-HK | Cinese (mandarino, tradizionale) | No | Yes | No
- zh-TW | Cinese (mandarino taiwanese) | No | Yes | No
- th-TH | Thailandese (Thailandia) | No | No | No
+ es-ES | Spagnolo (Spagna) | Yes | Sì | No 
+ es-MX | Spagnolo (Messico) | No  | Yes | No 
+ fi-FI | Finlandese (Finlandia) | No  | No  | No 
+ fr-CA | Francese (Canada) | No  | Yes | No 
+ fr-FR | Francese (Francia) | Yes | Sì | No 
+ hi-IN | Hindi (India) | No  | Yes | No 
+ it-IT | Italiano (Italia) | Yes | Sì | No 
+ ja-JP | Giapponese (Giappone) | No  | Yes | No 
+ ko-KR | Coreano (Corea) | No  | Yes | No 
+ nb-NO | Norvegese (Bokmål) (Norvegia) | No  | No  | No 
+ nl-NL | Olandese (Paesi Bassi) | No  | Yes | No 
+ pl-PL | Polacco (Polonia) | No  | No  | No 
+ pt-BR | Portoghese (Brasile) | Yes | Sì | No 
+ pt-PT | Portoghese (Portogallo) | No  | Yes | No 
+ ru-RU | Russo (Russia) | Yes | Sì | No 
+ sv-SE | Svedese (Svezia) | No  | No  | No 
+ zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No 
+ zh-HK | Cinese (mandarino, tradizionale) | No  | Yes | No 
+ zh-TW | Cinese (mandarino taiwanese) | No  | Yes | No 
+ th-TH | Thailandese (Thailandia) | No  | No  | No 
 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
@@ -79,6 +79,10 @@ Per un elenco completo delle voci neurali con informazioni sulla disponibilità 
 |--------|----------|---------|--------------------|
 | en-US | Inglese (Stati Uniti) | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| zh-CN | Cinese | Femmina | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) è disponibile solo tramite l'endpoint dell'Asia sud-orientale: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Voci standard
 

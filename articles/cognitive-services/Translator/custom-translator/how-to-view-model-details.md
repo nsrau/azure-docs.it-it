@@ -5,16 +5,16 @@ description: La scheda Models (Modelli) in qualsiasi progetto illustra i dettagl
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 80ee99fc4490f1fdc591093f357c8db55a97abb9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219112"
 ---
 # <a name="view-model-details"></a>Visualizzare i dettagli del modello
 
@@ -22,7 +22,7 @@ La scheda Models (Modelli) nel progetto illustra tutti i modelli del progetto. T
 
 Per ogni modello nel progetto, vengono visualizzati i dettagli del modello seguenti.
 
-1.  Nome del modello: illustra il nome di un modello specificato.
+1.  Nome del modello: indica il nome di un modello specificato.
 
 2.  Stato: indica lo stato di un modello specificato. I nuovi elementi sottoposti a training avranno lo stato Submitted (Inviato) fino a quando non vengono accettati. Lo stato verrà modificato in Data processing (Elaborazione dati) durante la valutazione del contenuto dei documenti da parte del servizio. Al termine della valutazione dei documenti lo stato verrà modificato in Running (In esecuzione) e sarà possibile visualizzare il numero di frasi che fanno parte del training, tra cui i set di ottimizzazione e test creati automaticamente. Di seguito è riportato un elenco, con relativa descrizione, degli stati del modello.
 
@@ -46,19 +46,19 @@ Per ogni modello nel progetto, vengono visualizzati i dettagli del modello segue
 
     - DeploymentFailed (Distribuzione non riuscita): specifica che la distribuzione del modello ha avuto esito negativo.
 
-    - MigratedDraft (Migrazione bozza completata): specifica che il modello è in stato di bozza dopo la migrazione da Hub a Custom Translator.
+    - MigratedDraft (Migrazione bozza completata): specifica che il modello è in stato di bozza dopo la migrazione da hub a traduttore personalizzato.
 
 4.  BLEU Score (Punteggio BLEU): visualizza il punteggio BLEU (Bilingual Evaluation Understudy) del modello, indicante la qualità del sistema di traduzione. Questo punteggio indica quanto le traduzioni effettuate dal sistema di traduzione risultante da questo training corrispondono alle frasi di riferimento nel set di dati di test. Il punteggio BLEU viene visualizzato se il training è stato completato correttamente. Se il training non è stato completo o ha avuto esito negativo, non verrà visualizzato alcun punteggio BLEU.
 
-5.  Training Sentence count (Conteggio frasi di training): illustra il numero totale delle frasi usate come set di training.
+5.  Training Sentence count (Conteggio frasi di training): indica il numero totale delle frasi usate come set di training.
 
-6.  Tuning Sentence count (Conteggio frasi di ottimizzazione): illustra il numero totale delle frasi usate come set di ottimizzazione.
+6.  Tuning Sentence count (Conteggio frasi di ottimizzazione): indica il numero totale delle frasi usate come set di ottimizzazione.
 
-7.  Testing Sentence count (Conteggio frasi di test): illustra il numero totale delle frasi usate come set di test.
+7.  Training Sentence count (Conteggio frasi di training): indica il numero totale delle frasi usate come set di testing.
 
-8.  Mono Sentence count (Conteggio frasi mono): illustra il numero totale delle frasi usate come set mono.
+8.  Mono Sentence count (Conteggio frasi mono): indica il numero totale delle frasi usate come set mono.
 
-9.  Pulsante Deploy (Distribuisci): per un modello correttamente sottoposto a training è disponibile il pulsante Deploy (Distribuisci), se non è ancora stato distribuito. Se un modello è stato distribuito, viene visualizzato un pulsante Undeploy (Annulla distribuzione).
+9.  Pulsante di azione Deploy (Distribuisci): per un modello correttamente sottoposto a training, è disponibile il pulsante "Deploy" (Distribuisci) se non è ancora stato distribuito. Se un modello è stato distribuito, viene visualizzato un pulsante Undeploy (Annulla distribuzione).
 
 10. Delete (Elimina): se si vuole eliminare il modello, è possibile usare questo pulsante. L'eliminazione di un modello non elimina alcun documento usato per la creazione di tale modello.
 
@@ -73,23 +73,23 @@ Dopo aver completato il training, è possibile esaminare i dettagli relativi al 
 
 La pagina del modello dispone di due schede: Training details (Dettagli training) e Test.
 
-1.  **Training Details (Dettagli training):** questa scheda illustra l'elenco dei documenti usati nel training:
+1.  **Training Details (Dettagli training):** questa scheda mostra l'elenco dei documenti usati nel training:
 
     -  Nome del documento: questo campo indica il nome del documento
 
-    -  Tipo di documento: questo campo indica se il documento è parallel o mono.
+    -  Tipo di documento: questo campo indica se il documento è parallelo o mono.
 
     -  Conteggio frasi nella lingua di origine: questo campo indica il numero delle frasi presenti nella lingua di origine.
 
     -  Conteggio frasi nella lingua di destinazione: questo campo indica il numero delle frasi presenti nella lingua di destinazione.
 
-    -  Aligned Sentences (Frasi allineate): questo campo indica il numero di frasi allineate da Custom Translator durante il processo di allineamento.
+    -  Aligned Sentences (Frasi allineate): questo campo indica il numero di frasi allineate dal traduttore personalizzato durante il processo di allineamento.
 
-    -  Used Sentences (Frasi usate): questo campo indica il numero di frasi usate da Custom Translator durante il training.
+    -  Used Sentences (Frasi usate): questo campo indica il numero di frasi usate dal traduttore personalizzato durante il training.
 
     ![Dettagli del training del modello](media/how-to/how-to-model-training-details.png)
 
-2.  **Test:** questa scheda illustra i dettagli del test per un training con esito positivo.
+2.  **Test:** questa scheda mostra i dettagli del test per un training con esito positivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un modello di analisi della valutazione titleSuffix: Descrizione di Azure Machine Learning Studio: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli per la pre-elaborazione del testo, N-grammi o servizi feature hashing services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Creare un modello di analisi della valutazione titleSuffix: Descrizione di Azure Machine Learning Studio: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli per la pre-elaborazione del testo, N-grammi o servizi di hashing delle funzionalità: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2018
 ---

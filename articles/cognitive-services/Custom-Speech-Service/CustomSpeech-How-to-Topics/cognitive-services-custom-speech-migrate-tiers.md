@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340461"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214567"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Eseguire la migrazione delle distribuzioni al nuovo modello tariffario
 
@@ -40,7 +40,7 @@ Per la migrazione al nuovo piano, eseguire queste operazioni:
 ## <a name="step-1-check-your-existing-deployment"></a>Passaggio 1: Controllare la distribuzione esistente
 Andare al [portale di Servizio di riconoscimento vocale personalizzato](http://cris.ai) e controllare le distribuzioni esistenti. Nell'esempio ci sono due distribuzioni. Una distribuzione è in esecuzione su un piano S0 e l'altra è in esecuzione su un piano S1. Le distribuzioni sono mostrate nella colonna **Opzioni di distribuzione** della tabella seguente:
 
-![La pagina delle distribuzioni](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
+![Pagina Distribuzioni](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
 ## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Passaggio 2: Scegliere il nuovo piano tariffario nel portale di Azure
 1. Aprire una nuova finestra del browser e accedere al [portale di Azure](http://ms.portal.azure.com/). 

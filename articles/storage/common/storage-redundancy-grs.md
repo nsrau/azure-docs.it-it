@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467068"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -34,9 +34,9 @@ Alcune considerazioni da ricordare quando si usa l'archiviazione con ridondanza 
 * Per suggerimenti su come progettare la disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura, vedere [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>Quali sono gli obiettivi RPO e RTO con l'archiviazione con ridondanza geografica?
-**Obiettivo del punto di ripristino (RPO)**: nel caso dell'archiviazione con ridondanza geografica e dell'archiviazione con ridondanza geografica e accesso in lettura, il servizio di archiviazione esegue la replica geografica asincrona dalla località primaria a quella secondaria. Nell'eventualità di una grave emergenza a livello locale nell'area primaria, Microsoft esegue un failover all'area secondaria. Se viene eseguito un failover, le modifiche recenti non ancora replicate geograficamente potrebbero andare perse. Il numero di minuti di potenziale perdita di dati è detto obiettivo del punto di ripristino e indica il punto nel tempo in cui è possibile recuperare i dati. L'obiettivo del punto di ripristino di Archiviazione di Azure è in genere inferiore a 15 minuti, anche se attualmente non è previsto alcun contratto di servizio sulla durata della replica geografica.
+**Obiettivo del punto di ripristino (RPO):** nel caso dell'archiviazione con ridondanza geografica e dell'archiviazione con ridondanza geografica e accesso in lettura, il servizio di archiviazione esegue la replica geografica asincrona dei dati dalla località primaria a quella secondaria. Nell'eventualità di una grave emergenza a livello locale nell'area primaria, Microsoft esegue un failover all'area secondaria. Se viene eseguito un failover, le modifiche recenti non ancora replicate geograficamente potrebbero andare perse. Il numero di minuti di potenziale perdita di dati è detto obiettivo del punto di ripristino e indica il punto nel tempo in cui è possibile recuperare i dati. L'obiettivo del punto di ripristino di Archiviazione di Azure è in genere inferiore a 15 minuti, anche se attualmente non è previsto alcun contratto di servizio sulla durata della replica geografica.
 
-**Obiettivo del tempo di ripristino:** l'obiettivo del tempo di ripristino è una misura del tempo necessario per eseguire il failover e riportare online l'account di archiviazione. Il tempo necessario per eseguire il failover include le azioni seguenti:
+**Obiettivo del tempo di ripristino (RTO):** l'obiettivo del tempo di ripristino è una misura del tempo necessario per eseguire il failover e riportare online l'account di archiviazione. Il tempo necessario per eseguire il failover include le azioni seguenti:
 
    * Tempo necessario a Microsoft per determinare se i dati possono essere recuperati nella località primaria o se è necessario un failover.
    * Tempo per eseguire il failover dell'account di archiviazione mediante modifica delle voci relative al DNS primario in modo che puntino alla località secondaria.
@@ -44,7 +44,7 @@ Alcune considerazioni da ricordare quando si usa l'archiviazione con ridondanza 
 Microsoft prende seriamente la responsabilità di salvaguardare i dati degli utenti. Se esiste la possibilità di recuperare i dati nell'area primaria, Microsoft ritarderà il failover e si concentrerà sul recupero dei dati. 
 
 ## <a name="paired-regions"></a>Aree abbinate 
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria associata viene determinata in base all'area primaria e non è possibile modificarla. Per informazioni aggiornate sulle aree supportate da Azure, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../../best-practices-availability-paired-regions.md).
+L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria associata viene determinata in base all'area primaria e non è possibile modificarla. Per informazioni aggiornate sulle aree supportate da Azure, vedere [Continuità aziendale e ripristino di emergenza: aree abbinate di Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="see-also"></a>Vedere anche 
 - [Replica di Archiviazione di Azure](storage-redundancy.md)

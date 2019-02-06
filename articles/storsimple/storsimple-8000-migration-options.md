@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242960"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456052"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opzioni di migrazione dei dati da un dispositivo StorSimple serie 5000-7000 
 
@@ -44,6 +44,8 @@ I clienti che usano StorSimple serie 5000-7000 dispongono delle opzioni seguenti
 - **Opzioni di terze parti**:
 
     - **Eseguire la migrazione a Panzura Freedom NAS**: i clienti di StorSimple 5000-7000 possono scegliere di eseguire la migrazione a Panzura Freedom NAS per mantenere i propri dati in Azure. Panzura Freedom offre una soluzione NAS che si estende a data center, uffici e cloud pubblici e privati. La soluzione supporta flussi di lavoro relativi a dati locali, ibridi e nel cloud per client NFS e SMB e client per dispositivi mobili. Questa migrazione è supportata da Panzura e per iniziare i clienti possono richiedere supporto per la migrazione dal [sito Web Panzura](https://panzura.com/storsimple-migration/).
+
+    - **Eseguire la migrazione a Cohesity** - Cohesity permette di eseguire la migrazione dei dati da StorSimple 5000-7000 alla piattaforma dati Cohesity in Azure. La piattaforma dati Cohesity è una soluzione sul Web software-defined che consente di consolidare file, backup, oggetti e macchine virtuali in un'unica soluzione nativa nel cloud. Dopo la migrazione alla piattaforma dati, è possibile gestire, proteggere ed eseguire il provisioning dei dati e delle app da cloud a core tramite un unico riquadro. Con Cohesity, iniziare con non più di tre nodi. Ulteriori informazioni sulla [migrazione alla piattaforma dati Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Migrazioni: domande frequenti
 

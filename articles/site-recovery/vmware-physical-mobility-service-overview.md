@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956517"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215011"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -64,7 +64,7 @@ Se nei computer da replicare è attivo e in esecuzione un software antivirus, as
 
 5. Viene avviato il processo di aggiornamento del servizio Mobility per ognuna delle macchine virtuali selezionate.
 
-## <a name="update-the-acount-used-for-push-installation-of-the-mobility-service"></a>Aggiornare l'account usato per l'installazione push del servizio Mobility
+## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Aggiornare l'account usato per l'installazione push del servizio Mobility
 
 Quando è stato distribuito Site Recovery, per consentire l'installazione push del servizio Mobility è stato specificato un account che il server di elaborazione di Site Recovery usa per accedere ai computer e installare il servizio quando è abilitata la replica per la macchina. Se si intende aggiornare le credenziali per questo account, seguire [queste istruzioni](vmware-azure-manage-configuration-server.md).
 

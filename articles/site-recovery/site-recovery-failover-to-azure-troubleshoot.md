@@ -1,26 +1,22 @@
 ---
 title: Risoluzione dei problemi di failover di Azure | Microsoft Docs
 description: Questo articolo descrive come risolvere gli errori comuni durante l'esecuzione del failover in Azure
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255092"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207497"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Risolvere gli errori durante il failover di una macchina virtuale in Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
 Durante il failover di una macchina virtuale in Azure è possibile che l'utente riceva uno dei seguenti errori. Per risolvere i problemi, usare i passaggi descritti per ogni condizione di errore.
 
@@ -48,7 +44,9 @@ Site Recovery non è riuscito a creare un'operazione di failover sulla macchina 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questa condizione potrebbe essersi verificata perché un'attività di idratazione interna non è riuscita per la macchina virtuale locale.
 
-Per visualizzare tutte le macchine in Azure, l'ambiente Azure richiede che alcuni driver siano in stato di esecuzione avvio e che servizi come DHCP siano nello stato di avvio automatico. Di conseguenza, l'attività di idratazione, al momento del failover, converte il tipo di **driver atapi, intelide, storflt, vmbus, e storvsc** in esecuzione avvio. Converte anche il tipo di avvio di alcuni servizi, ad esempio DHCP in avvio automatico. Questa attività può non essere eseguita correttamente a causa di problemi specifici nell'ambiente. Per modificare manualmente il tipo di avvio dei driver, seguire la procedura seguente:
+Per visualizzare tutte le macchine in Azure, l'ambiente Azure richiede che alcuni driver siano in stato di esecuzione avvio e che servizi come DHCP siano nello stato di avvio automatico. Di conseguenza, l'attività di idratazione, al momento del failover, converte il tipo di **driver atapi, intelide, storflt, vmbus, e storvsc** in esecuzione avvio. Converte anche il tipo di avvio di alcuni servizi, ad esempio DHCP in avvio automatico. Questa attività può non essere eseguita correttamente a causa di problemi specifici nell'ambiente. 
+
+Per modificare manualmente il tipo di avvio dei driver per il **sistema operativo guest Windows**, seguire la procedura seguente:
 
 1. [Scaricare](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) lo script no-hydration ed eseguirlo nel modo seguente. Questo script verifica se è necessario eseguire l'idratazione della macchina virtuale.
 

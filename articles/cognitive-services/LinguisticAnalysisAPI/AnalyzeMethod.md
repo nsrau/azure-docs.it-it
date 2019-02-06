@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239303"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208636"
 ---
 # <a name="analyze-method"></a>Metodo analyze
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME | type | Obbligatoria | DESCRIZIONE
+NOME | Type | Obbligatoria | DESCRIZIONE
 -----|-------|----------|------------
 **language**    | stringa | Yes | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
 **analyzerIds** | elenco di stringhe | Yes | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
@@ -50,7 +50,7 @@ Una matrice di output di analisi, uno per ogni attributo specificato nella richi
 
 I risultati sono simili ai seguenti:
 
-NOME | type | DESCRIZIONE
+NOME | Type | DESCRIZIONE
 -----|------|--------------
 analyzerId | stringa | GUID dell'analizzatore specificato
 risultato | object | risultato dell'analizzatore
@@ -59,7 +59,7 @@ Si noti che il tipo del risultato dipende dal tipo di analizzatore di input.
 
 ### <a name="tokens-response-json"></a>Risposta token (JSON)
 
-NOME | type | DESCRIZIONE
+NOME | Type | DESCRIZIONE
 -----|------|-------------
 risultato | elenco di oggetti frase | delimitatori di frase identificati all'interno del testo |
 result[x].Offset | int | offset di caratteri iniziale di ogni frase |

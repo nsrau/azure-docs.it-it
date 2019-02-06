@@ -1,22 +1,23 @@
 ---
-title: Metodo di rilevamento dell'API Traduzione testuale Microsoft | Microsoft Docs
-description: Usare il metodo di rilevamento dell'API Traduzione testuale Microsoft.
+title: Metodo Detect dell'API Traduzione testuale
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo Detect dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.subservice: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377524"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464994"
 ---
-# <a name="text-api-30-detect"></a>API Traduzione testuale 3.0: Rilevamento
+# <a name="translator-text-api-30-detect"></a>API Traduzione testuale 3.0: Detect
 
 Identifica la lingua di una parte del testo.
 
@@ -47,7 +48,7 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Un'intestazione_<br/>_dell'autorizzazione_</td>
+    <td>_Intestazione_<br/>_di autorizzazione_</td>
     <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -56,7 +57,7 @@ Le intestazioni della richiesta includono:
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>La lunghezza del corpo della richiesta.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -153,7 +154,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>403</td>
-    <td>La richiesta non è autorizzata. Controllare il messaggio di errore con i dettagli. Spesso questo codice indica che sono state usate tutte le traduzioni gratuite fornite con una sottoscrizione di prova.</td>
+    <td>La richiesta non è autorizzata. Controllare il messaggio di errore per i dettagli. Ciò spesso indica che tutte le traduzioni gratuite fornite con una sottoscrizione di prova sono state usate.</td>
   </tr>
   <tr>
     <td>429</td>

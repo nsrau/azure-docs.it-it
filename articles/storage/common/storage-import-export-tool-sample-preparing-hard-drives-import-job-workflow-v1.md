@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527289"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459046"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione
 In questo argomento viene illustrato il processo completo di preparazione delle unità per un processo di importazione.  
@@ -29,7 +29,7 @@ In questo esempio verranno importati i seguenti dati di un account di archiviazi
   
 Il processo importa questi dati nelle destinazioni seguenti nell'account di archiviazione:  
   
-|Sorgente|BLOB o directory virtuale di destinazione|  
+|Source (Sorgente)|BLOB o directory virtuale di destinazione|  
 |------------|-------------------------------------------|  
 |H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
@@ -67,11 +67,11 @@ Per questo esempio, dovrebbero essere sufficienti due dischi rigidi da 3 TB. Tut
   
 Inoltre, è possibile impostare i metadati seguenti per tutti i file:  
   
--   **UploadMethod:** servizio Importazione/Esportazione di Windows Azure  
+-   **UploadMethod:** Servizio Importazione/Esportazione di Windows Azure  
   
 -   **DataSetName:** SampleData  
   
--   **CreationDate:** 10/1/2013  
+-   **CreationDate:** 1/10/2013  
   
 Per impostare i metadati per i file importati, creare un file di testo, `c:\WAImportExport\SampleMetadata.txt`, con il contenuto seguente:  
   
@@ -169,4 +169,4 @@ Dopo aver completato le sessioni di copia, è possibile disconnettere le due uni
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
-* [Quick reference for frequently used commands](../storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
+* [Quick reference for frequently used commands](../storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 

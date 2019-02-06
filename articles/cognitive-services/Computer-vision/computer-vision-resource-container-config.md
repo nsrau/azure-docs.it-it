@@ -6,171 +6,142 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477635"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458653"
 ---
-# <a name="configure-recognize-text-containers"></a>Configurare i contenitori di riconoscimento del testo
+# <a name="configure-recognize-text-docker-containers"></a>Configurare i contenitori del Docker di riconoscimento del testo
 
-In Visione artificiale è disponibile il contenitore di riconoscimento del testo con un framework di configurazione comune, in modo che sia possibile configurare e gestire archiviazione, registrazione e telemetria, nonché le impostazioni di sicurezza per i contenitori.
+L'ambiente di runtime del contenitore **Riconoscimento del testo** si configura mediante gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+
+Le impostazioni del contenitore sono [gerarchiche](#hierarchical-settings) e possono essere impostate tramite [variabili di ambiente](#environment-variable-settings) o [argomenti della riga di comando](#command-line-argument-settings) di Docker.
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
-Le impostazioni di configurazione nel contenitore Visione artificiale sono gerarchiche e tutti i contenitori usano una gerarchia condivisa, basata sulla struttura di primo livello seguente:
+[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
-* [ApiKey](#apikey-configuration-setting)
-* [ApplicationInsights](#applicationinsights-configuration-settings)
-* [autenticazione](#authentication-configuration-settings)
-* [Fatturazione](#billing-configuration-setting)
-* [Eula](#eula-configuration-setting)
-* [Fluentd](#fluentd-configuration-settings)
-* [Impostazioni delle credenziali del proxy HTTP](#http-proxy-credentials-settings)
-* [registrazione](#logging-configuration-settings)
-* [Mounts](#mounts-configuration-settings)
-
-È possibile usare [variabili di ambiente](#configuration-settings-as-environment-variables) oppure [argomenti della riga di comando](#configuration-settings-as-command-line-arguments) per specificare le impostazioni di configurazione quando si crea un'istanza di un contenitore da contenitori di Visione artificiale.
-
-I valori della variabile di ambiente sostituiscono quelli degli argomenti della riga di comando, che a loro volta sostituiscono i valori predefiniti per l'immagine del contenitore. In altre parole, se si specificano valori diversi in una variabile di ambiente e in un argomento della riga di comando per la stessa impostazione di configurazione, ad esempio `Logging:Disk:LogLevel`, e in seguito si crea un'istanza di un contenitore, per il contenitore di cui è stata creata l'istanza viene usato il valore nella variabile di ambiente.
-
-### <a name="configuration-settings-as-environment-variables"></a>Impostazioni di configurazione come variabili di ambiente
-
-Per specificare le impostazioni di configurazione, è possibile usare la [sintassi delle variabili di ambiente ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider).
-
-Il contenitore legge le variabili di ambiente dell'utente quando viene creata un'istanza del contenitore. Se esiste una variabile di ambiente, il valore di tale variabile sostituisce il valore predefinito per l'impostazione di configurazione specificata. Il vantaggio dell'uso delle variabili di ambiente consiste nel fatto che più impostazioni di configurazione possono essere impostate prima di creare un'istanza dei contenitori e che più contenitori possono usare automaticamente lo stesso set di impostazioni di configurazione.
-
-I comandi seguenti usano ad esempio una variabile di ambiente per configurare il livello di registrazione della console in [LogLevel.Information](https://msdn.microsoft.com) e quindi creano un'istanza di un contenitore dall'immagine del contenitore di riconoscimento del testo. Il valore della variabile di ambiente sostituisce l'impostazione di configurazione predefinita.
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789
-  ```
-
-### <a name="configuration-settings-as-command-line-arguments"></a>Impostazioni di configurazione come argomenti della riga di comando
-
-È possibile usare la [sintassi degli argomenti della riga di comando ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) per specificare le impostazioni di configurazione.
-
-È possibile specificare le impostazioni di configurazione nel parametro `ARGS` facoltativo del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) usato per creare un'istanza di un contenitore da un'immagine di contenitore scaricata. Il vantaggio di usare gli argomenti della riga di comando consiste nel fatto che ogni contenitore può usare un set di impostazioni di configurazione diverso e personalizzato.
-
-I comandi seguenti consentono ad esempio di creare un'istanza di un contenitore a partire dall'immagine di contenitore di riconoscimento del testo e di configurare il livello di registrazione della console in LogLevel.Information, sostituendo le impostazioni di configurazione predefinite.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
-  ```
+> [!IMPORTANT]
+> Le impostazioni [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](computer-vision-how-to-install-containers.md#billing) (Fatturazione).
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-L'impostazione di configurazione `ApiKey` specifica la chiave di configurazione della risorsa Visione artificiale usata per tenere traccia delle informazioni di fatturazione per il contenitore. Per tale impostazione di configurazione, è necessario specificare un valore che deve essere una chiave di configurazione valida per la risorsa Visione artificiale indicata per l'impostazione di configurazione [`Billing`](#billing-configuration-setting).
+L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per ApiKey e il valore deve essere una chiave valida per la risorsa _Visione artificiale_ specificata per l'impostazione di configurazione [`Billing`](#billing-setting).
 
-> [!IMPORTANT]
-> Le impostazioni di configurazione [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) vengono usate insieme ed è necessario indicare valori validi per tutte le tre impostazioni. In caso contrario, il contenitore non si avvia. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](computer-vision-how-to-install-containers.md#billing) (Fatturazione).
+Questa impostazione è disponibile nelle posizioni seguenti:
 
-## <a name="applicationinsights-configuration-settings"></a>Impostazioni di configurazione di ApplicationInsights
+* Portale di Azure: Gestione risorse di **Visione artificiale**, in **Chiavi**
 
-Le impostazioni di configurazione della sezione `ApplicationInsights` consentono di aggiungere nel contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights). Application Insights offre funzionalità di monitoraggio avanzate del contenitore fino al livello di codice. È possibile monitorare con facilità la disponibilità, le prestazioni e l'utilizzo del contenitore. È anche possibile identificare e diagnosticare rapidamente gli errori nel contenitore senza attendere che vengano segnalati da un utente.
+## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
-La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `ApplicationInsights`.
-
-| NOME | Tipo di dati | DESCRIZIONE |
-|------|-----------|-------------|
-| `InstrumentationKey` | string | Chiave di strumentazione dell'istanza di Application Insights a cui vengono inviati i dati di telemetria per il contenitore. Per altre informazioni, vedere [Application Insights per ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
-
-## <a name="authentication-configuration-settings"></a>Impostazioni di configurazione di Authentication
-
-Le impostazioni di configurazione `Authentication` consentono di specificare le opzioni di sicurezza di Azure per il contenitore. Sebbene le impostazioni di configurazione di questa sezione siano disponibili, il contenitore di riconoscimento del testo non usa questa sezione.
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-L'impostazione di configurazione `Billing` specifica l'URI dell'endpoint della risorsa Visione artificiale in Azure usata per misurare i dati di fatturazione per il contenitore. Per tale impostazione di configurazione, è necessario specificare un valore che deve essere un URI dell'endpoint valido per una risorsa Visione artificiale in Azure.
+L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Visione artificiale_ in Azure usata per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per la risorsa _Visione artificiale_ in Azure.
 
-> [!IMPORTANT]
-> Le impostazioni di configurazione [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) vengono usate insieme ed è necessario indicare valori validi per tutte le tre impostazioni. In caso contrario, il contenitore non si avvia. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](computer-vision-how-to-install-containers.md#billing) (Fatturazione).
+Questa impostazione è disponibile nelle posizioni seguenti:
 
-## <a name="eula-configuration-setting"></a>Impostazione di configurazione Eula
+* Portale di Azure: Panoramica di **Visione artificiale**, con etichetta `Endpoint`
 
-L'impostazione di configurazione `Eula` indica che è stata accettata la licenza per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e tale valore deve essere impostato su `accept`.
+|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
+|--|------|-----------|-------------|
+|Yes| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
-> [!IMPORTANT]
-> Le impostazioni di configurazione [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](computer-vision-how-to-install-containers.md#billing) (Fatturazione).
+## <a name="eula-setting"></a>Impostazione Eula
 
-I contenitori di Servizi cognitivi sono concessi in licenza in base al [contratto](https://go.microsoft.com/fwlink/?linkid=2018657) che disciplina l'uso di Azure. Se non si dispone di tale contratto, si acconsente che l'uso di Azure sia disciplinato dal [Contratto di Sottoscrizione Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), in cui sono incluse le [condizioni per l'utilizzo dei Servizi Online](https://go.microsoft.com/fwlink/?linkid=2018760). Per le anteprime si accettano inoltre le [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Con l'uso del contenitore si acconsente a rispettare tali condizioni.
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-configuration-settings"></a>Impostazioni di configurazione di Fluentd
+## <a name="fluentd-settings"></a>Impostazioni Fluentd
 
-La sezione `Fluentd` consente di gestire le impostazioni di configurazione per [Fluentd](https://www.fluentd.org), un agente di raccolta dati open source per la registrazione unificata. Il contenitore Visione artificiale include un provider di registrazione Fluentd che consente al contenitore di scrivere log e, facoltativamente, dati delle metriche in un server di Fluentd.
-
-La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `Fluentd`.
-
-| NOME | Tipo di dati | DESCRIZIONE |
-|------|-----------|-------------|
-| `Host` | string | Indirizzo IP o nome host DNS del server Fluentd. |
-| `Port` | Integer | Porta del server Fluentd.<br/> Il valore predefinito è 24224. |
-| `HeartbeatMs` | Integer | Intervallo di heartbeat, espresso in millisecondi. Se prima della scadenza di questo intervallo è non stato inviato alcun traffico dell'evento, viene inviato un heartbeat al server Fluentd. Il valore predefinito è 60000 millisecondi (1 minuto). |
-| `SendBufferSize` | Integer | Spazio di buffer di rete, espresso in byte, allocato per le operazioni di invio. Il valore predefinito è 32768 byte (32 kilobyte). |
-| `TlsConnectionEstablishmentTimeoutMs` | Integer | Timeout, espresso in millisecondi, per stabilire una connessione SSL/TLS con il server Fluentd. Il valore predefinito è 10000 millisecondi (10 secondi).<br/> Se `UseTLS` è impostato su false, questo valore viene ignorato. |
-| `UseTLS` | Boolean | Indica se il contenitore deve usare SSL/TLS per comunicare con il server Fluentd. Il valore predefinito è False. |
-
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-configuration-settings"></a>Impostazioni di configurazione di Logging
+## <a name="logging-settings"></a>Impostazioni di registrazione
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-Le impostazioni di configurazione di `Logging` gestiscono il supporto di registrazione di ASP.NET Core per il contenitore. È possibile usare le stesse impostazioni e gli stessi valori di configurazione per il contenitore e per un'applicazione ASP.NET Core. I provider di registrazione seguenti sono supportati da contenitori di Visione artificiale:
+## <a name="mount-settings"></a>Impostazioni di montaggio
 
-* [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  Provider di registrazione `Console` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.
-* [Eseguire il debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  Provider di registrazione `Debug` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.
-* Disco  
-  Provider di registrazione JSON. Questo provider di registrazione scrive i dati di log nel montaggio di output.  
-  Il provider di registrazione `Disk` supporta le impostazioni di configurazione seguenti:  
+Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-  | NOME | Tipo di dati | DESCRIZIONE |
-  |------|-----------|-------------|
-  | `Format` | string | Formato di output dei file di log.<br/> **Nota:** per abilitare il provider di registrazione, questo valore deve essere impostato su `json`. Se questo valore viene specificato senza specificare anche un montaggio di output durante la creazione di un'istanza di un contenitore, si verifica un errore. |
-  | `MaxFileSize` | Integer | Dimensione massima, espressa in megabyte (MB), di un file di log. Quando la dimensione del file di log corrente corrisponde a questo valore o lo supera, il provider di registrazione avvia un nuovo file di log. Se viene specificato -1, la dimensione del file di log è limitata solo dalla dimensione massima del file del montaggio di output eventualmente presente. Il valore predefinito è 1. |
+I contenitori Visione artificiale non usano montaggi di input o di output per l'archiviazione di dati di servizio o di training. 
 
-Per altre informazioni sulla configurazione del supporto di registrazione di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
+La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](computer-vision-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-## <a name="mounts-configuration-settings"></a>Impostazioni di configurazione dei montaggi
+|Facoltativo| NOME | Tipo di dati | DESCRIZIONE |
+|-------|------|-----------|-------------|
+|Non consentito| `Input` | string | I contenitori di Visione artificiale non la usano.|
+|Facoltativo| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-I contenitori Docker offerti da Visione artificiale sono progettati per essere senza stato e non modificabili. In altre parole, i file creati all'interno di un contenitore vengono archiviati in un livello di contenitore con accesso in scrittura, permanente solo se il contenitore è in esecuzione e non è facilmente accessibile. Se tale contenitore è stato arrestato o rimosso, i file creati all'interno vengono eliminati definitivamente.
+## <a name="hierarchical-settings"></a>Impostazioni gerarchiche
 
-Tuttavia, dal momento che si tratta di contenitori Docker, è possibile usare le opzioni di archiviazione di Docker, ad esempio volumi e montaggi di associazione, per leggere e scrivere i dati permanenti all'esterno del contenitore, se quest'ultimo supporta tale funzionalità. Per altre informazioni su come specificare e gestire le opzioni di archiviazione di Docker, vedere [Manage data in Docker](https://docs.docker.com/storage/) (Gestire dati in Docker).
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
-> [!NOTE]
-> Per queste impostazioni di configurazione non è in genere necessario modificare i valori, che vengono invece usati come destinazione quando si specificano i montaggi di input e output per il contenitore. Per altre informazioni su come specificare i montaggi di input e output, vedere [Montaggi di input e output](#input-and-output-mounts).
+## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
 
-La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `Mounts`.
+Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](computer-vision-how-to-install-containers.md#stop-the-container).
 
-| NOME | Tipo di dati | DESCRIZIONE |
-|------|-----------|-------------|
-| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. |
-| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. |
+* **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
+* **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 
-### <a name="input-and-output-mounts"></a>Montaggi di input e output
+Sostituire {_nome_argomento_} con i propri valori:
 
-Per impostazione predefinita, ogni contenitore può supportare un *montaggio di input*, da cui il contenitore può leggere i dati, e un *montaggio di output*, in cui il contenitore può scrivere i dati. Non è necessario tuttavia che i contenitori supportino i montaggi di input o output e ogni contenitore può usare entrambi per scopi specifici, oltre alle opzioni di registrazione supportate dal contenitore Visione artificiale.
+| Placeholder | Valore | Formato o esempio |
+|-------------|-------|---|
+|{BILLING_KEY} | La chiave dell'endpoint della risorsa Visione artificiale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
-Il contenitore di riconoscimento del testo non supporta i montaggi di input e supporta facoltativamente i montaggi di output.
+> [!IMPORTANT]
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](computer-vision-how-to-install-containers.md#billing).
+> Il valore ApiKey è la **chiave** derivante dalla pagina delle chiavi della risorsa Visione artificiale di Azure. 
 
-È possibile specificare il montaggio di input oppure output tramite l'opzione `--mount` nel comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) usato per creare un'istanza di un contenitore da un'immagine di contenitore scaricata. Per impostazione predefinita, il montaggio di input usa `/input` come destinazione e il montaggio di output usa `/output` come destinazione. Ogni opzione di archiviazione di Docker disponibile per l'host del contenitore Docker può essere specificata nell'opzione `--mount`.
+## <a name="recognize-text-container-docker-examples"></a>Esempi di contenitore di riconoscimento del testo Docker
 
-Il comando seguente, ad esempio, definisce un montaggio di associazione Docker nella cartella `D:\Output` nel computer host come montaggio di output e quindi crea un'istanza di un contenitore dall'immagine del contenitore di riconoscimento del testo, salvando il file di log in formato JSON per il montaggio di output.
+Gli esempi Docker seguenti sono per il contenitore di riconoscimento del testo. 
+
+### <a name="basic-example"></a>Esempio di base 
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} 
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Esempio di registrazione con argomenti della riga di comando
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} \
+  Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Esempio di registrazione con variabile di ambiente
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY}
   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)
+* Vedere [Come installare ed eseguire i contenitori](computer-vision-how-to-install-containers.md)

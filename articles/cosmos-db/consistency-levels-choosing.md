@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: c4523b5028aae5de565e517fea61c62e29a4e7a3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044077"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468870"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>Scegliere il livello di coerenza ottimale per la propria applicazione
+# <a name="choose-the-right-consistency-level"></a>Scegliere il livello di coerenza appropriato 
 
 I database distribuiti che di basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio richiede che gli sviluppatori scelgano tra due modelli di coerenza estremi: la coerenza assoluta e la coerenza finale. Azure Cosmos DB consente agli sviluppatori di scegliere tra cinque modelli di coerenza ben definiti: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli prevede [compromessi in termini di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da un contratto di servizio completo. Le seguenti semplici osservazioni consentiranno all'utente di fare la scelta giusta in molti scenari comuni.
 

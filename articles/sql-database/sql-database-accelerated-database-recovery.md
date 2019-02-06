@@ -1,6 +1,6 @@
 ---
 title: Ripristino accelerato del database - Database SQL di Azure | Microsoft Docs
-description: Il database SQL di Azure include una nuova funzionalità che consente un ripristino rapido e coerente del database, un rollback di transazione istantaneo e un troncamento aggressivo del log per i singoli database, pool elastici e Azure SQL Data Warehouse.
+description: Il database SQL di Azure include una nuova funzionalità che consente un ripristino rapido e coerente del database, un rollback di transazione istantaneo e un troncamento aggressivo del log per i database singoli e i database in pool nel database SQL di Azure, e i database in Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600719"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475449"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Ripristino accelerato del database (anteprima)
 
-Il **ripristino accelerato del database (Accelerated Database Recovery, ADR)** è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, specialmente in presenza di transazioni a esecuzione prolungata, grazie alla riprogettazione del processo di ripristino del motore di database SQL. Questa funzionalità è attualmente disponibile per database singoli, pool elastici e Azure SQL Data Warehouse. I vantaggi principali del ripristino accelerato del database (ADR) sono:
+Il **ripristino accelerato del database (Accelerated Database Recovery, ADR)** è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, specialmente in presenza di transazioni a esecuzione prolungata, grazie alla riprogettazione del processo di ripristino del motore di database SQL. Il ripristino accelerato del database (ADR) è attualmente disponibile per i database singoli e i database in pool di database SQL di Azure e i database in Azure SQL Data Warehouse. I vantaggi principali del ripristino accelerato del database (ADR) sono:
 
 - **Ripristino rapido e coerente del database**
 
@@ -127,4 +127,4 @@ L'abilitazione del ripristino accelerato del database (ADR) è consigliata ai ti
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Per abilitare il ripristino accelerato del database (ADR) in fase di anteprima
 
-Durante il periodo di anteprima di questa funzionalità, inviare un messaggio di posta elettronica a [adr@microsoft.com](mailto:adr@microsoft.com) per altre informazioni e per provare a usare il ripristino accelerato del database (ADR). Nel messaggio di posta elettronica includere il nome del server logico (per singoli database, pool elastici e Azure Data Warehouse). Poiché si tratta di una funzionalità di anteprima, è consigliabile che il server di test non sia un server di produzione.
+Durante il periodo di anteprima di questa funzionalità, inviare un messaggio di posta elettronica a [adr@microsoft.com](mailto:adr@microsoft.com) per altre informazioni e per provare a usare il ripristino accelerato del database (ADR). Nell'e-mail, includere il nome del server di database SQL (per i database singoli e i database in pool nel database SQL, e i database nel Data Warehouse di Azure). Poiché si tratta di una funzionalità di anteprima, è consigliabile che il server di test non sia un server di produzione.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957692"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210132"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility in una replica di Azure
 
@@ -25,7 +25,7 @@ Azure Site Recovery ha una frequenza di rilascio mensile in cui vengono aggiunti
  
 ## <a name="how-does-automatic-update-work"></a>Come funziona l'aggiornamento automatico
 
-Quando si consente a Site Recovery di gestire gli aggiornamenti, viene distribuito un runbook globale (usato dai servizi di Azure) tramite un account di automazione che viene creato nella stessa sottoscrizione dell'insieme di credenziali. Un account di automazione viene usato per un insieme di credenziali specifico. Il runbook verifica per quali macchine virtuali in un insieme di credenziali sono attivi gli aggiornamenti automatici e avvia un aggiornamento dell'estensione del servizio Mobility se è disponibile una versione più recente. La pianificazione predefinita del runbook avviene ogni giorno alle 12:00 in base al fuso orario dell'area geografica della macchina virtuale replicata. Se necessario, è anche possibile modificare la pianificazione del runbook tramite l'account di automazione. 
+Quando si consente a Site Recovery di gestire gli aggiornamenti, viene distribuito un runbook globale (usato dai servizi di Azure) tramite un account di automazione che viene creato nella stessa sottoscrizione dell'insieme di credenziali. Un account di automazione viene usato per un insieme di credenziali specifico. Il runbook verifica per quali macchine virtuali in un insieme di credenziali sono attivi gli aggiornamenti automatici e avvia un aggiornamento dell'estensione del servizio Mobility se è disponibile una versione più recente. La pianificazione predefinita del runbook avviene ogni giorno alle 00.00 in base al fuso orario dell'area geografica della macchina virtuale replicata. Se necessario, è anche possibile modificare la pianificazione del runbook tramite l'account di automazione. 
 
 > [!NOTE]
 > Per abilitare gli aggiornamenti automatici non è necessario riavviare le macchine virtuali di Azure e la replica in corso non subisce alcun impatto.
@@ -53,7 +53,7 @@ Quando si abilita la replica di una macchina virtuale a partire [dalla visualizz
 1. Nell'insieme di credenziali passare a **Manage** (Gestisci) -> **Site Recovery Infrastructure** (Infrastruttura di Site Recovery)
 2. In **For Azure virtual Machines** (Per le macchine virtuali di Azure) -> **Extension Update Settings** (Impostazioni di aggiornamento dell'estensione), fare clic sul pulsante Attiva/Disattiva per scegliere se consentire ad *Azure Site Recovery di gestire gli aggiornamenti* o se *gestirli manualmente*. Fare clic su **Save**.
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Se si sceglie *Allow ASR to manage* (Consenti ad Azure Site Recovery di gestire), l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali corrispondente.

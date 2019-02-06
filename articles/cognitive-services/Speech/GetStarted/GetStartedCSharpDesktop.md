@@ -1,22 +1,25 @@
 ---
-title: Introduzione all'API Riconoscimento vocale Microsoft con la libreria desktop C# | Microsoft Docs
-description: Sviluppare applicazioni Windows di base che usano l'API Riconoscimento vocale Microsoft per convertire audio parlato in testo.
+title: Introduzione all'API Riconoscimento vocale Bing con la libreria desktop C# | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Sviluppare applicazioni Windows di base che usano l'API Riconoscimento vocale Bing per convertire audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373889"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219074"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>Introduzione all'API Riconoscimento vocale in C&#35; per .NET per dispositivi Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Questo articolo illustra come sviluppare un'applicazione Windows di base che usa l'API Riconoscimento vocale per convertire audio parlato in testo. L'uso della libreria client consente lo streaming in tempo reale, ossia quando l'applicazione client invia audio al servizio, in modo asincrono e simultaneo riceve risultati di riconoscimento parziali.
 
@@ -87,7 +90,7 @@ Usare file audio di esempio con questa applicazione di esempio. Trovare i file n
 
 ### <a name="recognition-events"></a>Eventi di riconoscimento
 
-* **Eventi con risultati parziali**: chiamati ogni volta che il Servizio di riconoscimento vocale esegue una stima su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
+* **Eventi con risultati parziali**: Questi eventi vengono chiamati ogni volta che il Servizio di riconoscimento vocale formula un'ipotesi su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
 * **Eventi con errore**: chiamati quando il servizio rileva un errore.
 * **Eventi con finalità**: chiamati nei client "WithIntent" (solo nella modalità ShortPhrase) dopo che il risultato finale di riconoscimento viene analizzato come finalità JSON strutturata.
 * **Eventi con risultato**:

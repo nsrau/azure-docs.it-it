@@ -1,20 +1,21 @@
 ---
-title: Migliorare il classificatore con il servizio Visione personalizzata - Servizi cognitivi di Azure | Microsoft Docs
-description: Informazioni su come migliorare la qualità del classificatore del servizio Visione personalizzata.
+title: Miglioramento del classificatore - Servizio visione artificiale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come migliorare la qualità del classificatore.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
-ms.topic: article
+ms.subservice: custom-vision
+ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: nolachar
-ms.openlocfilehash: 7c6cbd996d0c35b96fde78daf391bebb36feddce
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: pafarley
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209393"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -40,7 +41,7 @@ Tenere anche presente che è necessario assicurarsi che i dati siano bilanciati.
 
 Fornire immagini rappresentative di ciò che verrà inviato al classificatore durante l'uso normale. Ad esempio, se si sta eseguendo il training di un classificatore di "mele", questo potrebbe non risultare particolarmente accurato se si esegue il training solo di foto di mele in piatti e si effettuano stime su foto di mele sugli alberi. Includere una varietà di immagini per evitare valutazioni parziali del classificatore e ottenere una buona generalizzazione. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
 
-__Sfondo:__ fornire immagini dell'oggetto con diversi sfondi (vale a dire, frutta sul piatto rispetto a frutta nella borsa della spesa). Le foto in contesto sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
+__Sfondo:__ fornire immagini dell'oggetto con diversi sfondi (ovvero frutta sul piatto rispetto a frutta nella borsa della spesa). Le foto in contesto sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
 
 ![Immagine di esempi di sfondo](./media/getting-started-improving-your-classifier/background.png)
 

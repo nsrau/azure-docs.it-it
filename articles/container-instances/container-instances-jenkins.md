@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354190"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478192"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare Istanze di Azure Container come agente di compilazione Jenkins
 
@@ -27,27 +27,27 @@ Per altre informazioni su Istanze di Azure Container, vedere [Informazioni su Is
 2. Immettere le informazioni seguenti nel modulo **di base** e fare clic su **OK**.
 
    - **Nome**: immettere un nome per la distribuzione Jenkins.
-   - **Nome utente**: immettere un nome per l'utente amministratore della macchina virtuale Jenkins.
+   - **User name** (Nome utente): immettere un nome per l'utente amministratore della macchina virtuale Jenkins.
    - **Tipo di autenticazione**: si consiglia una chiave pubblica SSH per l'autenticazione. Se si seleziona questa opzione, incollare una chiave pubblica SSH da usare per accedere alla macchina virtuale Jenkins.
-   - **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-   - **Gruppo di risorse**: creare un gruppo di risorse o selezionarne uno esistente.
-   - **Posizione**: selezionare una posizione per il server Jenkins.
+   - **Sottoscrizione** Selezionare una sottoscrizione di Azure.
+   - **Gruppo di risorse**: Creare un gruppo di risorse o selezionarne uno esistente.
+   - **Località**: selezionare una località per il server Jenkins.
 
    ![Impostazioni di base per la distribuzione del portale Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. Nel modulo **Impostazioni aggiuntive** completare le impostazioni seguenti:
 
-   - **Dimensioni**: selezionare l'opzione appropriata per le dimensioni per la macchina virtuale Jenkins.
-   - **Tipo di disco della macchina virtuale**: specificare **HDD** (unità disco rigido) o **SSD** (Solid-State Drive) per il server Jenkins.
+   - **Dimensione**: selezionare l'opzione appropriata per le dimensioni della macchina virtuale Jenkins.
+   - **Tipo di disco VM**: specificare **HDD** (unità disco rigido) o **SSD** (Solid-State Drive) per il server Jenkins.
    - **Rete virtuale**: selezionare la freccia se si desidera modificare le impostazioni predefinite.
    - **Subnet**: selezionare la freccia, verificare le informazioni e quindi selezionare **OK**.
-   - **Indirizzo IP pubblico**: selezionare la freccia per assegnare un nome personalizzato all'indirizzo IP pubblico e configurare lo SKU e il metodo di assegnazione.
+   - **Indirizzo IP pubblico**: selezionare la freccia per assegnare un nome personalizzato all'indirizzo IP pubblico, configurare lo SKU e impostare il metodo di assegnazione.
    - **Etichetta del nome di dominio**: specificare un valore per creare un URL completo della macchina virtuale Jenkins.
-   - **Jenkins release type** (Tipo di versione Jenkins): selezionare il tipo di versione tra le opzioni **LTS**, **Weekly build** (Build settimanale) o **Azure Verified** (Verificata da Azure).
+   - **Tipo di versione Jenkins**: selezionare il tipo di versione desiderato tra le opzioni seguenti: **LTS**, **build settimanale** o **Azure Verified**.
 
    ![Impostazioni aggiuntive per la distribuzione del portale Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Per l'integrazione dell'entità servizio, selezionare **Auto(MSI)** per fare in modo che [identità gestite per risorse di Azure][managed-identities-azure-resources] creino automaticamente un'identità di autenticazione per l'istanza di Jenkins. Selezionare l'opzione **Manuale** per fornire le credenziali della propria entità servizio.
+4. Per l'integrazione dell'entità servizio, selezionare **Auto(MSI)** per fare [in modo che le identità gestite per risorse di Azure][managed-identities-azure-resources] creino automaticamente un'identità di autenticazione per l'istanza di Jenkins. Selezionare l'opzione **Manuale** per fornire le credenziali della propria entità servizio.
 
 5. Gli agenti cloud configurano una piattaforma basata sul cloud per i processi di compilazione di Jenkins. Ai fini di questo articolo selezionare un'**istanza di contenitore di Azure**. Con l'agente cloud delle istanze di contenitore di Azure, ogni processo di compilazione di Jenkins viene eseguito in un'istanza di contenitore.
 
@@ -138,4 +138,4 @@ Per altre informazioni su Jenkins in Azure, vedere [Azure e Jenkins][jenkins-azu
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

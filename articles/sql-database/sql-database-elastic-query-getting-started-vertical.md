@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/03/2018
-ms.openlocfilehash: c24fedcc2ab42825950ca6a93fc954d7e6d36b00
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864903"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464162"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 
@@ -33,7 +33,7 @@ L'autorizzazione ALTER ANY EXTERNAL DATA SOURCE è obbligatoria. Questa autorizz
 
 ## <a name="create-the-sample-databases"></a>Creare i database di esempio
 
-Per iniziare, creare due database, **Customers** e **Orders**, in server logici uguali o diversi.
+Per iniziare, creare due database, **Customers** e **Orders**, in server di database SQL uguali o diversi.
 
 Eseguire le query seguenti sul database **Orders** per creare la tabella **OrderInformation** e inserire i dati di esempio.
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086420"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217782"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Come gestire autori e collaboratori 
 
@@ -67,7 +67,12 @@ Se non accede a LUIS, l'amministratore del tenant può accedere al [consenso](ht
 
 ![Autorizzazione di Azure Active Directory dal sito Web dell'app](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Se l'amministratore del tenant vuole che solo determinati utenti usino LUIS, vedere il [blog sulle identità](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Se l'amministratore del tenant vuole che solo determinati utenti usino LUIS, sono due le soluzioni possibili:
+* Dare il "consenso amministratore" (consenso a tutti gli utenti di Azure AD), ma successivamente impostare su "Sì" l'opzione "Assegnazione utenti obbligatoria" nelle proprietà dell'applicazione aziendale e infine assegnare/aggiungere all'applicazione solo gli utenti desiderati. In questo modo l'amministratore dà comunque il "consenso amministratore" per l'applicazione, ma è possibile controllare gli utenti che possono accedervi.
+* Una seconda soluzione consiste nell'usare l'[API Graph di Azure AD](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) per dare il consenso per ogni utente specifico. 
+
+Altre informazioni sugli utenti di Azure Active Directory e sul consenso: 
+* [Limitare l'app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a un set di utenti
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Account utente con più indirizzi di posta elettronica per i collaboratori
 

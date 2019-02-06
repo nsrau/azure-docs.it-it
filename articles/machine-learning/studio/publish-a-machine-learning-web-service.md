@@ -1,6 +1,6 @@
 ---
-title: Distribuire un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e distribuirlo come servizio Web di Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Distribuire un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e distribuirlo come servizio Web di Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/06/2017
 ---

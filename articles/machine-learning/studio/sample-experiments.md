@@ -1,8 +1,21 @@
 ---
-title: Creare esperimenti di Machine Learning Studio a partire da esempi titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 05/01/2018
+title: Creare esperimenti di Machine Learning Studio a partire da esempi
+titleSuffix: Azure Machine Learning Studio
+description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/05/2018
+ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465521"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio da esempi funzionanti in Azure AI Gallery
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AI Gallery titleSuffix: Descrizione di Azure Machine Learning Studio: Condividere e scoprire risorse di analisi e altro in Azure AI Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Azure AI Gallery titleSuffix: Descrizione di Azure Machine Learning Studio: Condividere e scoprire risorse di analisi e altro in Azure AI Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/01/2019
 ---
@@ -9,28 +9,28 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heather
 **[Azure AI Gallery](http://gallery.cortanaintelligence.com)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Azure AI.
 Questo sito include diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
 
-## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Gallery?
+## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
 Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, incluse le seguenti:
 
-* **Esperimenti**: Gallery contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio, da veloci esperimenti di prova che illustrano una tecnica di Machine Learning specifica a soluzioni complete per la risoluzione di problemi di Machine Learning complessi.
+* **Esperimenti**: Gallery contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio, da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
 * **Raccolte**: una raccolta consente di raggruppare esperimenti, API e altre risorse di Gallery dedicati a un concetto o una soluzione specifici.
 * **Moduli personalizzati**: è possibile scaricare moduli personalizzati nell'area di lavoro di Studio per usarli nei esperimenti.
-* **Notebook di Jupyter**: i notebook di Jupyter includono codice, visualizzazioni di dati e documentazione in un'unica area di disegno interattiva. I notebook in Gallery offrono esercitazioni e spiegazioni dettagliate su tecniche e soluzioni avanzate di Machine Learning.
+* **Notebook di Jupyter**: i notebook di Jupyter includono codice, visualizzazioni di dati e documentazione in un'unica area di disegno interattiva. I notebook in Cortana Intelligence Gallery offrono esercitazioni e spiegazioni dettagliate su tecniche e soluzioni avanzate di apprendimento automatico.
 
 ## <a name="discover-and-contribute"></a>Scoprire e contribuire
 
 Tutti possono eseguire ricerche ed esplorare i diversi tipi di risorse proposti da Gallery con il contributo di Microsoft e della community che si occupa di data science.
 È possibile fare riferimento a tali risorse per scoprire altre informazioni e affrontare più facilmente i propri problemi di analisi dei dati.
 
-In Gallery si possono trovare con facilità le risorse pubblicate di recente o più popolari oppure è possibile eseguire ricerche in base a nome, tag, algoritmi e altri attributi.
-Fare clic su **Browse all** (Esplora tutto) nell'intestazione di Gallery, perfezionare la ricerca selezionando gli elementi nella parte sinistra della pagina e immettere i termini di ricerca nella parte superiore.
+In Cortana Intelligence Gallery si possono trovare con facilità le risorse pubblicate di recente o più popolari oppure è possibile eseguire ricerche in base a nome, tag, algoritmi e altri attributi.
+Fare clic su **Browse all** (Esplora tutto) nell'intestazione di Cortana Intelligence Gallery, perfezionare la ricerca selezionando gli elementi nella parte sinistra della pagina e immettere i termini di ricerca nella parte superiore.
 I contributi di uno specifico autore possono essere visualizzati facendo clic sul nome dell'autore in uno qualsiasi dei riquadri.
 Nella pagina di ogni risorsa è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda.
 È anche possibile condividere con amici o colleghi una risorsa di particolare interesse usando le funzionalità di condivisione di LinkedIn o Twitter oppure inviando un collegamento tramite posta elettronica.
 
-Quando si esegue l'accesso si diventa membri della community di Gallery. Questo permette di scaricare le risorse o di pubblicare i propri elementi di Gallery e consentire agli altri di trarre vantaggio dalle soluzioni scoperte.
+Quando si esegue l'accesso si diventa membri della community di Cortana Intelligence Gallery. Questo permette di scaricare le risorse o di pubblicare i propri elementi di Gallery e consentire agli altri di trarre vantaggio dalle soluzioni scoperte.
 
 È possibile scaricare **esperimenti**, **moduli personalizzati** e **notebook di Jupyter** da usare nello sviluppo di soluzioni personalizzate di analisi.
 È possibile contribuire con **esperimenti**, **esercitazioni** e **raccolte** pubblicandoli in Gallery.
@@ -124,7 +124,7 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 * Si può presupporre che il lettore disponga di esperienze precedenti nell'analisi scientifica dei dati, ma è comunque consigliabile usare un linguaggio semplice. Si consiglia di spiegare in dettaglio i vari elementi, se possibile.
 * È quindi opportuno fornire informazioni esaurienti e spiegazioni dettagliate per consentire a tutti di svolgere correttamente l'esperimento.
 * Gli elementi visivi possono essere utili per aiutare i lettori a interpretare e usare correttamente la documentazione dell'esperimento. Possono includere grafici e screenshot dei dati dell'esperimento.
-* Se si include un set di dati nell'esperimento, vale a dire se non si importa il set di dati tramite il modulo di importazione, questo farà parte dell'esperimento e verrà pubblicato in Gallery. Assicurarsi che il set di dati pubblicato disponga di termini di licenza che autorizzino la condivisione e il download da parte di qualunque utente. I contributi pubblicati in Gallery sono coperti dalle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/)di Azure.
+* Se si include un set di dati nell'esperimento, vale a dire se non si importa il set di dati tramite il modulo di importazione, questo farà parte dell'esperimento e verrà pubblicato in Gallery. Assicurarsi che il set di dati pubblicato disponga di termini di licenza che autorizzino la condivisione e il download da parte di qualunque utente. I contributi pubblicati in Cortana Intelligence Gallery sono coperti dalle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/)di Azure.
 
 ## <a name="contribute-tutorials-and-collections"></a>Contribuire con esercitazioni e raccolte
 
@@ -172,7 +172,7 @@ Le immagini inviate con il proprio contributo vengono usate per creare un riquad
 
 **Come viene impiegato il set di dati usato in un esperimento? Anche il set di dati viene pubblicato in Gallery?**
 
-Se il set di dati non è stato importato tramite il modulo di importazione dati ma fa parte dell'esperimento, viene pubblicato in Gallery contestualmente all'esperimento. Assicurarsi che il set di dati pubblicato con l'esperimento disponga dei termini di licenza appropriati. I termini di licenza devono consentire a chiunque di condividere e scaricare i dati. I contributi pubblicati in Gallery sono coperti dalle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/)di Azure.
+Se il set di dati non è stato importato tramite il modulo di importazione dati ma fa parte dell'esperimento, viene pubblicato in Gallery contestualmente all'esperimento. Assicurarsi che il set di dati pubblicato con l'esperimento disponga dei termini di licenza appropriati. I termini di licenza devono consentire a chiunque di condividere e scaricare i dati. I contributi pubblicati in Cortana Intelligence Gallery sono coperti dalle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/)di Azure.
 
 **Per la realizzazione di un esperimento ho usato le mie credenziali per estrarre i dati da Azure HDInsight o SQL Server tramite un modulo di importazione dati. È possibile pubblicare questo tipo di esperimento? Come posso essere certo che le mie credenziali non saranno condivise?**
 
@@ -188,4 +188,4 @@ La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Pe
 
 ![Commenti e suggerimenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[VAI A GALLERY >>](http://gallery.azure.ai)**
+**[VAI A CORTANA INTELLIGENCE GALLERY >>](http://gallery.azure.ai)**

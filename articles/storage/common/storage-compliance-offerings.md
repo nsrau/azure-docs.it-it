@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478135"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offerte per la conformità di Archiviazione di Azure
 
 Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certificazioni e attestazioni di qualsiasi provider di servizi cloud che consentono alle organizzazioni di soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti.
 
-È possibile trovare di seguito le offerte per la conformità in Archiviazione di Azure per verificare la regolamentazione del proprio servizio. Sono applicabili per le seguenti offerte di Archiviazione di Azure: BLOB, file, code, tabelle, dischi, archiviazione ad accesso sporadico e Archiviazione Premium.
+È possibile trovare di seguito le offerte per la conformità in Archiviazione di Azure per verificare la regolamentazione del proprio servizio. Sono applicabili alle offerte di Archiviazione di Azure seguenti: BLOB, file, code, tabelle, dischi, archiviazione ad accesso sporadico e Archiviazione Premium.
 
 ## <a name="global"></a>Globale
 

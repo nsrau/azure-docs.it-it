@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259649"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473596"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB usando Azure Storage Explorer
+# <a name="work-with-data-using-azure-storage-explorer"></a>Gestire i dati con Azure Storage Explorer
 
 L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. Attualmente Azure Storage Explorer supporta account Cosmos configurati per SQL, MongoDB, Graph e API Tabella.
 

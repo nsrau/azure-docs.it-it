@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: common
+ms.openlocfilehash: 62c6e24776c1d9a4e6a82eea557244bb390ebd00
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868345"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471488"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -25,19 +25,20 @@ L'archiviazione con ridondanza della zona è disponibile per BLOB in blocchi, BL
 
 L'archiviazione con ridondanza della zona è disponibile a livello generale nelle aree seguenti:
 
+- Asia sudorientale
+- Europa occidentale
+- Europa settentrionale
+- Francia centrale
+- Giappone orientale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
 - Stati Uniti centrali
-- Europa settentrionale
-- Europa occidentale
-- Francia centrale
-- Asia sud-orientale
 
 Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in aree di Azure aggiuntive. Fare riferimento regolarmente alla pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/) per informazioni sulle nuove aree.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Cosa accade quando una zona smette di essere disponibile?
-I dati sono ancora accessibili anche se una zona non è più disponibile. Microsoft consiglia di continuare a seguire le procedure per la gestione degli errori temporanei. Queste procedure includono l'implementazione di criteri di ripetizione dei tentativi con interruzione temporanea esponenziale.
+I dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Microsoft consiglia di continuare a seguire le procedure per la gestione degli errori temporanei. Queste procedure includono l'implementazione di criteri di ripetizione dei tentativi con interruzione temporanea esponenziale.
 
 Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se si accede ai dati prima che l'aggiornamento sia stato completato.
 

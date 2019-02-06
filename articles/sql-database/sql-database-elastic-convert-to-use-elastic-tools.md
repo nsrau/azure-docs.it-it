@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251594"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455593"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). 
@@ -98,7 +98,7 @@ Per usare questo modello di mapping, i valori dell'ID tenant devono essere a int
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Opzione 3: eseguire il mapping di tipo elenco in un database singolo
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping su un database singolo
 Per l'impostazione di questo modello è necessario anche creare una mappa di tipo elenco, come illustrato nel passaggio 2, opzione 1.
 
 ## <a name="step-3-prepare-individual-shards"></a>Passaggio 3: preparare le singole partizioni
@@ -111,7 +111,7 @@ Aggiungere ciascuna partizione (database) al gestore mappe partizioni. Ciò cons
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>Passaggio 4: aggiungere mapping
+## <a name="step-4-add-mappings"></a>Passaggio 4: aggiungere i mapping
 L'aggiunta di mapping dipende dal tipo di mappa partizioni creato. Se è stata creata una mappa di tipo elenco, aggiungere mapping di tipo elenco. Se è stata creata una mappa di tipo intervallo, aggiungere mapping di tipo intervallo.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Opzione 1: eseguire il mapping dei dati per il mapping di tipo elenco
@@ -138,7 +138,7 @@ Aggiungere il mapping di tipo intervallo per tutte le associazioni intervallo ID
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Passaggio 4, opzione 3: eseguire il mapping dei dati per più tenant su un database singolo
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Passaggio 4, opzione 3: eseguire il mapping dei dati per più tenant su un database singolo
 Per ogni tenant eseguire Add-ListMapping (opzione 1). 
 
 ## <a name="checking-the-mappings"></a>Verifica dei mapping

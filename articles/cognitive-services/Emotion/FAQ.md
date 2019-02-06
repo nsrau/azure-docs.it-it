@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238538"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208990"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Domande frequenti sull'API Emozioni
 
@@ -27,15 +27,15 @@ ms.locfileid: "48238538"
 
 -----
 
-**Domanda**: *Quali tipi di immagini ottengono i risultati migliori dall'API Emozioni?*
+**Domanda:** *Quali tipi di immagini ottengono i risultati migliori dall'API Emozioni?*
 
-**Risposta**: Per ottenere risultati ottimali, usare immagini del viso in posizione frontale e non nascosto. L'affidabilità diminuisce con immagini del viso parzialmente frontale e l'API Emozioni potrebbe non riconoscere le emozioni nelle immagini in cui il viso è ruotato di oltre 45 gradi.
+**Risposta:** Per ottenere risultati ottimali, usare immagini del viso in posizione frontale e non nascosto. L'affidabilità diminuisce con immagini del viso parzialmente frontale e l'API Emozioni potrebbe non riconoscere le emozioni nelle immagini in cui il viso è ruotato di oltre 45 gradi.
 
 -----
 
-**Domanda**: *Quante emozioni può identificate l'API Emozioni?*
+**Domanda:** *Quante emozioni può identificare l'API Emozioni?*
 
-**Risposta**: L'API Emozioni riconosce otto diverse emozioni universalmente riconosciute:
+**Risposta:** L'API Emozioni riconosce otto diverse emozioni universalmente riconosciute:
 * Felicità
 * Tristezza
 * Sorpresa
@@ -47,15 +47,15 @@ ms.locfileid: "48238538"
 
 -----
 
-**Domanda**: *Esiste un modo per passare all'API un video in diretta streaming e ricevere contemporaneamente il risultato?*
+**Domanda:** *Esiste un modo per passare all'API un video in diretta streaming e ricevere contemporaneamente il risultato?*
 
-**Risposta**: Usare l'API Emozioni basata su immagini e chiamarla su ogni frame o ignorare i frame per le prestazioni.  Sono disponibili esempi di analisi fotogramma per fotogramma di video.
+**Risposta:** Usare l'API Emozioni basata su immagini e chiamarla su ogni frame o ignorare i frame per le prestazioni.  Sono disponibili esempi di analisi fotogramma per fotogramma di video.
 
 -----
 
-**Domanda**: *Sto passando i dati immagine binari ma ricevo un errore "Immagine del viso non valida".**
+**Domanda:** *Si stanno passando i dati immagine binari, ma si riceve un errore "Immagine del viso non valida".**
 
-**Risposta**: Questo messaggio significa che l'algoritmo non è riuscito ad analizzare l'immagine.  
+**Risposta:** Questo messaggio significa che l'algoritmo non è riuscito ad analizzare l'immagine.  
 * I formati di immagine di input supportati includono JPEG, PNG, GIF (il primo frame), BMP
 * La dimensione del file di immagine selezionato deve essere minore di 4 MB
 * L'intervallo di dimensioni del volto rilevabili va da 36 x 36 a 4096 x 4096 pixel. I volti al di fuori di questo intervallo non vengono rilevati

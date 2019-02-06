@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215861"
 ---
 # <a name="bing-text-to-speech-api"></a>API Sintesi vocale Bing
 
@@ -214,9 +214,9 @@ en-IE | Maschio | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | Femmina | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | Femmina | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | Maschio | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-it-IT | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-it-IT | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-it-IT | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+en-US | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+en-US | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | Femmina | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | Femmina | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | Maschio | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"

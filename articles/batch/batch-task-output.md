@@ -2,7 +2,7 @@
 title: Rendere persistenti i risultati o i log da processi e attività completati in un archivio dati - Azure Batch | Microsoft Docs
 description: Informazioni su diverse opzioni per rendere persistenti i dati di output da attività e processi di Batch. È possibile rendere persistenti i dati in Archiviazione di Azure o in un altro archivio dati.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705719"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474345"
 ---
 # <a name="persist-job-and-task-output"></a>Rendere persistente l'output di processi e attività
 
@@ -77,7 +77,7 @@ Può essere utile implementare lo standard File Conventions quando si vuole usar
 
 Quando si progetta una soluzione Batch, è necessario considerare i fattori seguenti correlati agli output di processi e attività.
 
-- **Durata dei nodi di calcolo**: questi nodi sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. L'output da un'attività eseguita su un nodo è disponibile solo finché il nodo esiste e solo durante il periodo di conservazione dei file impostato per l'attività. Se un'attività genera output che potrebbe essere necessario dopo il completamento dell'attività, l'attività deve caricare i file di output in un archivio permanente, come Archiviazione di Azure.
+- **Durata dei nodi di calcolo**: i nodi di calcolo sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. L'output da un'attività eseguita su un nodo è disponibile solo finché il nodo esiste e solo durante il periodo di conservazione dei file impostato per l'attività. Se un'attività genera output che potrebbe essere necessario dopo il completamento dell'attività, l'attività deve caricare i file di output in un archivio permanente, come Archiviazione di Azure.
 
 - **Archiviazione dell'output**: Archiviazione di Azure è la soluzione consigliata come archivio dati per l'output delle attività, ma è possibile usare qualsiasi sistema di archiviazione permanente. La funzionalità di scrittura dell'output in Archiviazione di Azure è integrata nell'API del servizio Batch. Se si usa un'altra forma di archiviazione permanente, sarà necessario scrivere autonomamente la logica dell'applicazione per rendere persistente l'output delle attività.
 
