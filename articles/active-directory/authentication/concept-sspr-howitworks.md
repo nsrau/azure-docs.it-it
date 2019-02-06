@@ -3,19 +3,19 @@ title: Approfondimento sulle password self-service di Azure Active Directory
 description: Funzionamento della reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475178"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
 
@@ -84,7 +84,7 @@ Se un utente non ha registrato il numero minimo di metodi richiesti, viene visua
 
 #### <a name="mobile-app-and-sspr-preview"></a>App per dispositivi mobili e reimpostazione della password self-service (anteprima)
 
-Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, è necessario essere a conoscenza delle seguenti informazioni:
+Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, è necessario essere a conoscenza delle seguenti avvertenze:
 
 * Quando gli amministratori richiedono l'uso di un solo metodo per la reimpostazione di una password, il codice di verifica è l'unica opzione disponibile.
 * Quando gli amministratori richiedono l'uso di due metodi per la reimpostazione della password, gli utenti possono **usare** la notifica **OPPURE** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
@@ -119,7 +119,7 @@ Esempio:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Richiedere agli utenti di registrarsi all'accesso
 
-L'abilitazione di questa opzione richiede che un utente completi la registrazione di reimpostazione della password se effettua l'accesso a tutte le applicazioni con Azure AD. Sono incluse le applicazioni seguenti:
+L'abilitazione di questa opzione richiede che un utente completi la registrazione di reimpostazione della password se effettua l'accesso a tutte le applicazioni con Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
 
 * Office 365
 * Portale di Azure
@@ -132,7 +132,7 @@ Quando la richiesta di registrazione è disabilitata, gli utenti possono eseguir
 > [!NOTE]
 > Gli utenti possono chiudere il portale per la registrazione della reimpostazione della password selezionando **Annulla** o chiudendo la finestra. Ogni volta che gli utenti eseguono l'accesso verrà tuttavia visualizzata una richiesta di registrazione finché non viene completato il processo di registrazione.
 >
-> Questo processo non interromperà la connessione degli utenti che hanno già eseguito l'accesso.
+> Questa interruzione non interromperà la connessione degli utenti che hanno già eseguito l'accesso.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione
 
@@ -169,7 +169,7 @@ Questa pagina fornisce uno stato rapido del client di writeback locale. In base 
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Writeback delle password nella directory locale
 
-Questo controllo determina se il writeback delle password è abilitato per la directory corrente. Se il writeback è attivato, indica lo stato del servizio writeback locale. Ciò risulta utile se si intende disabilitare temporaneamente il writeback delle password senza dover riconfigurare Azure AD Connect.
+Questo controllo determina se il writeback delle password è abilitato per la directory corrente. Se il writeback è attivato, indica lo stato del servizio writeback locale. Questo controllo è utile se si intende disabilitare temporaneamente il writeback delle password senza dover riconfigurare Azure AD Connect.
 
 * Se l'opzione è impostata su **Sì**, il servizio writeback viene abilitato e gli utenti federati, con autenticazione pass-through e con sincronizzazione degli hash delle password possono reimpostare le password.
 * Se l'opzione è impostata su **No**, il servizio writeback viene disabilitato e gli utenti federati, con autenticazione pass-through e con sincronizzazione degli hash delle password non possono reimpostare le password.
@@ -180,6 +180,10 @@ Questo controllo stabilisce se gli utenti che visitano il portale per la reimpos
 
 * Se impostata su **Sì**, agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password.
 * Se impostata su **No**, gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.
+
+### <a name="on-premises-active-directory-password-filters"></a>Filtri della password di Active Directory locali
+
+Reimpostazione della password self-service di Azure AD esegue l'equivalente di una reimpostazione della password avviata dall'amministratore in Active Directory. Se si usa un filtro delle password di terze parti per applicare le regole di password personalizzate, ed è necessario che questo filtro delle password venga verificato durante la reimpostazione della password self-service di Azure AD, assicurarsi che la soluzione di filtro della password di terze parti sia configurata per essere applicata nello scenario di reimpostazione della password da parte dell'amministratore. [Protezione password di Azure AD per Windows Server Active Directory](concept-password-ban-bad-on-premises.md) è supportata per impostazione predefinita.
 
 ## <a name="password-reset-for-b2b-users"></a>Reimpostazione della password per utenti B2B
 

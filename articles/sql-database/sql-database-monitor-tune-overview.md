@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468326"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
-Database SQL di Azure è gestito automaticamente ed è un servizio di dati flessibile che consente di monitorare l'utilizzo, aggiungere o rimuovere facilmente risorse (CPU, memoria, I/O), trovare indicazioni per migliorare le prestazioni del database o lasciare che il database si adatti al carico di lavoro e ottimizzi automaticamente le prestazioni.
+Database SQL di Azure è un servizio di dati flessibile e gestito automaticamente che consente di monitorare l'utilizzo, aggiungere o rimuovere facilmente risorse (CPU, memoria, I/O), trovare indicazioni per migliorare le prestazioni del database o lasciare che il database si adatti al carico di lavoro e ottimizzi automaticamente le prestazioni.
 
 ## <a name="monitoring-database-performance"></a>Monitoraggio delle prestazioni del database
 
@@ -34,7 +34,7 @@ Per il monitoraggio e la risoluzione dei problemi di prestazioni del database so
 - Usare [Advisor per database SQL ](sql-database-advisor-portal.md) per visualizzare le indicazioni per creare e rimuovere indici, parametrizzare le query e correggere i problemi di schema.
 - Usare [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md) per il monitoraggio automatico delle prestazioni del database. Dopo aver rilevato un problema di prestazioni, viene generato un log di diagnostica con i dettagli e l'analisi della causa radice del problema. Quando possibile viene fornita un'indicazione di miglioramento delle prestazioni.
 - [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md) e consentire al database SQL di Azure di correggere automaticamente i problemi di prestazioni identificati.
-- Usare le [viste a gestione dinamica (DMV)](sql-database-monitoring-with-dmvs.md), gli [eventi estesi](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr) e [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per la risoluzione più dettagliata dei problemi di prestazioni.
+- Usare le [viste a gestione dinamica (DMV)](sql-database-monitoring-with-dmvs.md), gli [eventi estesi](sql-database-xevent-db-diff-from-svr.md) e [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per la risoluzione più dettagliata dei problemi di prestazioni.
 
 > [!TIP]
 > Vedere le [indicazioni relative alle prestazioni](sql-database-performance-guidance.md) per trovare le tecniche che è possibile usare per migliorare le prestazioni del database SQL di Azure dopo aver identificato il problema di prestazioni con uno o più metodi sopra elencati.
@@ -204,7 +204,7 @@ Come illustrato nel grafico precedente, le attese più comuni sono:
 
 Se alla fine non esistono elementi eseguibili che possono migliorare le prestazioni del database, è possibile modificare la quantità di risorse disponibili nel database SQL di Azure. È possibile assegnare più risorse modificando il [livello di servizio DTU](sql-database-service-tiers-dtu.md) di un database singolo o aumentare il numero di eDTU di un pool elastico in qualsiasi momento. In alternativa, se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) è possibile modificare il livello di servizio o aumentare le risorse allocate al database.
 
-1. Per i database singoli, è possibile [modificare i livelli di servizio](sql-database-service-tiers-dtu.md) o le [risorse di calcolo](sql-database-service-tiers-vcore.md) su richiesta per migliorare le prestazioni del database.
+1. Per i database singoli, è possibile [modificare i livelli di servizio](sql-database-single-database-scale.md) o le [risorse di calcolo](sql-database-single-database-scale.md) su richiesta per migliorare le prestazioni del database.
 2. Per più database, è consigliabile usare [pool elastici](sql-database-elastic-pool-guidance.md) per la scalabilità automatica delle risorse.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Ottimizzare ed eseguire il refactoring del codice del database o dell'applicazione

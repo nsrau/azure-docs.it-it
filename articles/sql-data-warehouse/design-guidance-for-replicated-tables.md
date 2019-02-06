@@ -1,21 +1,21 @@
 ---
 title: Linee guida di progettazione per tabelle replicate - Azure SQL Data Warehouse | Microsoft Docs
-description: Consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse.
+description: Consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: dfbfc61b9088535d6b50a9897b908572d88d6676
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302763"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465980"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
 Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
@@ -23,13 +23,13 @@ Questo articolo offre alcuni consigli per la progettazione di tabelle replicate 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
 
-Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
-- Quali sono le dimensioni della tabella?   
-- Quanto spesso viene aggiornata la tabella?   
-- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
+- Quali sono le dimensioni della tabella?   
+- Quanto spesso viene aggiornata la tabella?   
+- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
 
 ## <a name="what-is-a-replicated-table"></a>Che cos'è una tabella replicata?
 Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.
@@ -44,10 +44,9 @@ Provare a usare una tabella replicata nei casi seguenti:
 
 - La dimensione della tabella su disco è inferiore a 2 GB, indipendentemente dal numero di righe. Per individuare la dimensione di una tabella, usare il comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Quando si crea un join di tabelle non distribuite nella stessa colonna, ad esempio una tabella con distribuzione hash in una tabella round robin, è necessario lo spostamento dei dati per completare la query.  Se una delle tabelle ha dimensioni ridotte, provare una tabella replicata. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  L'operazione tipica di spostamento di dati che può essere eliminata usando una tabella replicata è BroadcastMoveOperation.  
- 
-Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
+  Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
-- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
+- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
 - Il data warehouse viene ridimensionato spesso. Il ridimensionamento di un data warehouse comporta la modifica del numero dei nodi di calcolo, che richiede una ricompilazione.
 - La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati per le colonne richieste. 
 
@@ -70,7 +69,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertire le tabelle round robin esistenti in tabelle replicate
-Se sono già presenti tabelle round robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri specificati in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
+Se sono già presenti tabelle round robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri specificati in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
 
 Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
 
@@ -103,7 +102,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Una tabella replicata non richiede lo spostamento dei dati per i join, perché l'intera tabella è già presente in ogni nodo di calcolo. Se viene eseguita una distribuzione round robin delle tabelle delle dimensioni, un join copia interamente la tabella delle dimensioni in ogni nodo di calcolo. Per spostare i dati, il piano di query contiene un'operazione chiamata BroadcastMoveOperation. Questo tipo di operazione di spostamento dei dati rallenta le prestazioni delle query e viene eliminato usando tabelle replicate. Per visualizzare i passaggi del piano di query, usare la vista del catalogo di sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
 Nella query seguente sullo schema AdventureWorks, ad esempio, la tabella ` FactInternetSales` è con distribuzione hash. Le tabelle `DimDate` e `DimSalesTerritory` sono tabelle delle dimensioni più piccole. Questa query restituisce le vendite totali in America del Nord per l'anno fiscale 2004:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -139,7 +138,7 @@ La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. A
 
 ### <a name="use-indexes-conservatively"></a>Usare gli indici con moderazione
 Alle tabelle replicate si applicano le procedure di indicizzazione standard. SQL Data Warehouse ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.  
- 
+ 
 ### <a name="batch-data-loads"></a>Caricare in batch i dati
 Quando si caricano dati in tabelle replicate, provare a ridurre al minimo le ricompilazioni eseguendo i caricamenti in batch. Eseguire tutti i caricamenti in batch prima di eseguire istruzioni di selezione.
 
@@ -168,23 +167,23 @@ Per garantire tempi di esecuzione di query coerenti, prendere in considerazione 
 
 Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) per elencare le tabelle replicate che sono state modificate, ma non ricompilate.
 
-```sql 
+```sql 
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Per attivare una ricompilazione, eseguire l'istruzione seguente in ogni tabella nell'output precedente. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Passaggi successivi 
 Per creare una tabella replicata, usare una di queste istruzioni:
 

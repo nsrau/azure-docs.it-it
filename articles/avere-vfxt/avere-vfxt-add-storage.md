@@ -4,29 +4,23 @@ description: Come aggiungere un sistema di archiviazione back-end ad Avere vFXT 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190849"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299453"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
-Questo passaggio configura il sistema di archiviazione back-end per il cluster vFXT.
+Questo passaggio consente di configurare il sistema di archiviazione back-end per un cluster vFXT.
 
 > [!TIP]
-> Se è stato usato lo script prototipo `create-cloudbacked-cluster` per creare un nuovo contenitore BLOB insieme al cluster Avere vFXT, quel contenitore è già configurato per l'uso e non occorre aggiungere risorse di archiviazione.
->
-> Tuttavia, se il nuovo contenitore Blob è stato crittografato con una chiave di crittografia predefinita, è necessario scaricare il file di ripristino della chiave dal cluster o sostituire la chiave predefinita con una nuova chiave prima di archiviare i dati. La chiave predefinita viene salvata solo nel cluster e non può essere recuperata se il cluster viene perso o non è più disponibile.
->
-> Dopo la connessione al pannello di controllo di Avere, fare clic sulla scheda **Impostazioni**, quindi scegliere **Archiviatore principale** > **Impostazioni di crittografia cloud**. Nella sezione **Archivio chiavi locale**, scegliere una delle opzioni seguenti: 
-> * Usare il pulsante **Scarica di nuovo file di ripristino** per ottenere il file di ripristino della chiave esistente. Il file di ripristino è crittografato con la password amministrativa del cluster. Assicurarsi di salvare il file in un percorso affidabile. 
-> * Seguire le istruzioni della sezione **Generare una nuova chiave principale** per creare una nuova chiave di crittografia controllata. Questa opzione consente di specificare una passphrase univoca e richiede il caricamento e il nuovo download del file di ripristino per convalidare la coppia file-passphrase.
+> Se è stato creato un nuovo contenitore BLOB di Azure insieme al cluster Avere vFXT, tale contenitore è già configurato per l'uso e non occorre aggiungere risorse di archiviazione.
 
-Seguire queste istruzioni se è stato usato lo script di prototipo `create-minimal-cluster` per il cluster o se si vuole aggiungere un altro sistema di archiviazione, hardware o basato sul cloud.
+Seguire queste istruzioni se è stato creato un nuovo contenitore BLOB con il cluster o se si vuole aggiungere un altro sistema di archiviazione, hardware o basato sul cloud.
 
 Le attività principali da eseguire sono due:
 
@@ -43,12 +37,11 @@ Questa procedura usa il pannello di controllo di Avere. Leggere [Accedere al clu
 Per aggiungere un core filer, sceglierne uno dei due tipi principali:
 
   * [Core filer NAS ](#nas-core-filer): descrive come aggiungere un core filer NAS 
-  * [Core filer cloud account di archiviazione di Azure](#azure-storage-account-cloud-core-filer): descrive come aggiungere un account di archiviazione di Azure come core filer cloud
+  * [Core filer cloud di Archiviazione di Azure](#azure-storage-cloud-core-filer): descrive come aggiungere un account di archiviazione di Azure come core filer cloud
 
 ### <a name="nas-core-filer"></a>Core filer NAS
 
-Un core filer NAS può essere un'appliance NetApp o Isilon locale oppure un endpoint NAS nel cloud.  
-Il sistema di archiviazione deve avere una connessione ad alta velocità affidabile al cluster Avere vFXT, ad esempio una connessione ExpressRoute (non VPN) da 1 Gbps, e deve fornire al cluster l'accesso radice alle esportazioni NAS usate.
+Un core filer NAS può essere un'appliance NetApp o Isilon locale oppure un endpoint NAS nel cloud. Il sistema di archiviazione deve avere una connessione ad alta velocità affidabile al cluster Avere vFXT, ad esempio una connessione ExpressRoute (non VPN) da 1 Gbps, e deve fornire al cluster l'accesso radice alle esportazioni NAS usate.
 
 Seguire questa procedura per aggiungere un core filer NAS:
 
@@ -79,7 +72,7 @@ A questo punto, passare a [Creare una giunzione](#create-a-junction).
 Per usare l'archivio BLOB di Azure come risorsa di archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
 
 > [!TIP] 
-> Lo script di esempio ``create-cloudbacked-cluster`` crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione di spazi dei nomi nell'ambito della creazione del cluster vFXT. Lo script di esempio ``create-minimal-cluster`` non crea un contenitore di archiviazione di Azure. Per evitare di dover creare e configurare un core filer di Archiviazione di Azure dopo la creazione del cluster, usare lo script ``create-cloudbacked-cluster`` per distribuire il cluster vFXT.
+> Se si sceglie di creare un contenitore BLOB nello stesso momento in cui si crea il cluster Avere vFXT, il modello di distribuzione o lo script crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione dello spazio dei nomi come parte della creazione del cluster vFXT. 
 
 L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attività:
 

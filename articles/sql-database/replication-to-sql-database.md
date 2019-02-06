@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467697"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
-La replica di SQL Server può essere configurata in database singoli e in pool su un [ server logico](sql-database-logical-servers.md) in Database SQL di Azure.  
+La replica di SQL Server può essere configurata in database singoli e in pool su un [ server di database SQL](sql-database-servers.md) in Database SQL di Azure.  
 
 ## <a name="supported-configurations"></a>**Configurazioni supportate:**
   
@@ -65,7 +65,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 1. Creare una pubblicazione di replica transazionale in un database di SQL Server locale.  
 2. Nell'istanza di SQL Server locale usare la **Creazione guidata nuova sottoscrizione** o istruzioni Transact-SQL per creare una sottoscrizione al database SQL di Azure.  
-3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con Istanza gestita di database SQL di Azure si può anche usare un backup di database per inizializzare il database sottoscrittore.
+3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con un database in istanza gestita, si può anche usare un backup di database per inizializzare il database sottoscrittore.
 
 ### <a name="data-migration-scenario"></a>Scenario di migrazione dei dati  
 
@@ -107,7 +107,7 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server logico del database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
+- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 

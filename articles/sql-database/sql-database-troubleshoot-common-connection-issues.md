@@ -11,21 +11,23 @@ author: dalechen
 ms.author: daleche
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600557"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464892"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Risoluzione dei problemi di connessione al database SQL di Azure
+
 Quando la connessione al database SQL di Azure non riesce, vengono visualizzati [messaggi di errore](sql-database-develop-error-messages.md). Questo articolo tratta un argomento centrale che aiuta l'utente a risolvere i problemi di connettività del database SQL di Azure. Presenta le [cause comuni](#cause) dei problemi di connessione, consiglia [uno strumento di risoluzione dei problemi](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) che aiuta a identificare il problema e fornisce i passaggi necessari per risolvere gli [errori temporanei](#troubleshoot-transient-errors) e gli [errori persistenti o non temporanei](#troubleshoot-persistent-errors). 
 
 In caso di problemi di connessione, provare i passaggi di risoluzione dei problemi descritti in questo articolo.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="cause"></a>Causa
+
 I problemi di connessione possono dipendere da una delle seguenti cause:
 
 * Impossibilità di applicare le procedure consigliate e delle linee guida di progettazione durante il processo di progettazione delle applicazioni.  Per iniziare, vedere [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md) .
@@ -41,6 +43,7 @@ I problemi di connessione al database SQL di Azure possono essere classificati a
 * [Errori non temporanei o permanenti (gli errori che si ripetono regolarmente)](#troubleshoot-persistent-errors)
 
 ## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Provare la procedura di risoluzione dei problemi di connettività del database SQL di Azure
+
 Se si verifica un errore di connessione specifico, provare [questo strumento](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)che consente di identificare rapidamente e risolvere il problema.
 
 ## <a name="troubleshoot-transient-errors"></a>Risolvere i problemi causati da errori temporanei
@@ -56,13 +59,13 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > 
 > 
 
-Questo errore si verifica quando il database di Azure viene spostato o riconfigurato e di conseguenza l'applicazione perde la connessione al database SQL. La riconfigurazione del database SQL avviene in seguito a eventi pianificati, ad esempio nel caso degli aggiornamenti software, o non pianificati, ad esempio per l'arresto anomalo di un processo o il bilanciamento del carico. La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata.
+Questo errore si verifica quando il database viene spostato (o riconfigurato) e l'applicazione dell'utente perde la connessione al database. Gli eventi di riconfigurazione del database avvengono in seguito a eventi pianificati (ad esempio nel caso degli aggiornamenti software) o non pianificati (ad esempio per l'arresto anomalo di un processo o per il bilanciamento del carico). La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passaggi per risolvere problemi di connettività temporanei
 
 1. Controllare nel [Dashboard dei servizi di Microsoft Azure](https://azure.microsoft.com/status) le eventuali interruzioni note che si sono verificate durante il periodo nel quale sono stati segnalati errori dall'applicazione.
 2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione. Per altre informazioni e per le strategie generali di ripetizione dei tentativi, vedere la sezione [Errori temporanei](sql-database-connectivity-issues.md) e le procedure consigliate e linee guida per la progettazione in [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md). Per informazioni dettagliate, vedere gli esempi di codice in: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) .
-3. Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere [Limiti delle risorse](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere [Limiti delle risorse](sql-database-resource-limits-database-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Se i problemi di connettività persistono oppure se l'applicazione rileva l'errore per più di 60 secondi o se vengono visualizzate più occorrenze dell'errore in un dato giorno, inoltrare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito [Supporto tecnico di Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Risolvere gli errori persistenti

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: rimman
-ms.openlocfilehash: 81c54d0540aa5af279a5a6d570784454026ff229
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 997a80ed1a8089c5255292f23bc5dacf8a6cb0e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042008"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452627"
 ---
-# <a name="pricing-model-of-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB 
 
 Il modello di determinazione dei prezzi di Azure Cosmos DB semplifica la gestione e la pianificazione dei costi. Con Azure Cosmos DB viene addebitato un costo per la velocità effettiva sottoposta a provisioning e per le risorse di archiviazione usate.
 

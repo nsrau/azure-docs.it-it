@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726032"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472015"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
 
 Database SQL di Azure consente di acquistare con facilità un motore di database PaaS completamente gestito che si adatta alle proprie esigenze di prestazioni e costi. A seconda del modello di distribuzione del Database SQL di Azure, è possibile selezionare il modello di acquisto adatto alle proprie esigenze:
+
 - [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) (scelta consigliata) che consente di scegliere la quantità esatta di capacità di archiviazione e di calcolo necessaria per il carico di lavoro.
 - [Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) in cui è possibile scegliere pacchetti di calcolo e archiviazione in bundle bilanciati per i carichi di lavoro comuni.
 
 Nei modelli di distribuzione del database SQL di Azure sono disponibili modelli di acquisto diversi:
-- I [server logici](sql-database-logical-servers.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono sia il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) che il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). All'interno di questo modello di acquisto, è possibile scegliere [database singoli](sql-database-single-databases-manage.md) oppure [pool elastici](sql-database-elastic-pool.md).
+
+- I [database singoli](sql-database-single-databases-manage.md) e i [pool elastici](sql-database-elastic-pool.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono sia il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) che il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). 
 - Le [istanze gestite](sql-database-managed-instance.md) nel database SQL di Azure offrono solo il [modello di acquisto basato sui vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -64,13 +66,13 @@ La DTU (unità di transazione di database) rappresenta una misura combinata di C
 
 ### <a name="database-transaction-units-dtus"></a>Unità di transazione di database (DTU)
 
-Per un singolo database SQL di Azure con dimensioni di calcolo specifiche all'interno di un [livello di servizio](sql-database-single-database-scale.md), Microsoft garantisce un certo livello di risorse per il database (a prescindere da qualsiasi altro database nel cloud di Azure), fornendo così un livello di prestazioni prevedibile. La quantità di risorse viene calcolata come numero di unità di transazione di database o DTU ed è una misura combinata delle risorse di calcolo, archiviazione e I/O. Il rapporto tra queste risorse è stato originariamente stabilito da un [carico di lavoro di benchmark OLTP](sql-database-benchmark-overview.md) progettato per essere rappresentativo dei carichi di lavoro OLTP reali. Quando il carico di lavoro supera la quantità di una di queste risorse, la velocità effettiva viene limitata, generando timeout e prestazioni più lente. Le risorse usate dal carico di lavoro non incidono sulle risorse disponibili per gli altri database SQL nel cloud di Azure e le risorse usate dagli altri carichi di lavoro non incidono sulle risorse disponibili per il database SQL.
+Per un singolo database con dimensioni di calcolo specifiche all'interno di un [livello di servizio](sql-database-single-database-scale.md), Microsoft garantisce un certo livello di risorse per il database (a prescindere da qualsiasi altro database nel cloud di Azure), fornendo così un livello di prestazioni prevedibile. La quantità di risorse viene calcolata come numero di unità di transazione di database o DTU ed è una misura combinata delle risorse di calcolo, archiviazione e I/O. Il rapporto tra queste risorse è stato originariamente stabilito da un [carico di lavoro di benchmark OLTP](sql-database-benchmark-overview.md) progettato per essere rappresentativo dei carichi di lavoro OLTP reali. Quando il carico di lavoro supera la quantità di una di queste risorse, la velocità effettiva viene limitata, generando timeout e prestazioni più lente. Le risorse usate dal carico di lavoro non incidono sulle risorse disponibili per gli altri database SQL nel cloud di Azure e le risorse usate dagli altri carichi di lavoro non incidono sulle risorse disponibili per il database SQL.
 
 ![rettangolo di selezione](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
 Le DTU sono particolarmente utili per comprendere la quantità relativa di risorse tra i database SQL di Azure a diverse dimensioni di calcolo e livelli di servizio. Ad esempio, raddoppiare le DTU aumentando le dimensioni di calcolo di un database equivale a raddoppiare il set di risorse disponibili per quel database. Ad esempio, un database Premium P11 con 1750 DTU fornisce 350 volte più potenza di calcolo DTU di un database Basic con 5 DTU.  
 
-Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro, usare [Informazioni dettagliate prestazioni query del database SQL di Azure](sql-database-query-performance.md) per:
+Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro, usare [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md) per:
 
 - Identificare le query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni. Una query con uso intensivo dell'I/O, ad esempio, può trarre vantaggio dall'uso di [tecniche di ottimizzazione in memoria](sql-database-in-memory.md) per usare in modo più efficiente la memoria disponibile per un livello di servizio e una dimensione di calcolo specifici.
 - Eseguire il drill-down dei dettagli di una query, visualizzarne il testo e la cronologia di utilizzo delle risorse.

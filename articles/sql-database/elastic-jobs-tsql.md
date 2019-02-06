@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449402"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458092"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Escludere un singolo database
+## <a name="exclude-an-individual-database"></a>Escludere un singolo database
 
-L'esempio seguente mostra come eseguire un processo in tutti i database in un server, ad eccezione del database denominato *MappingDB*.  
+L'esempio seguente mostra come eseguire un processo in tutti i database in un server di database SQL, ad eccezione del database denominato *MappingDB*.  
 Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Specifica se il membro del gruppo di destinazione deve essere incluso o escluso.
 Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico, tutti i database in una mappa partizioni o un singolo database. target_type è di tipo nvarchar(128), senza alcun valore predefinito. I valori validi per target_type sono "SqlServer", "SqlElasticPool", "SqlDatabase" o "SqlShardMap". 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-Nome del server logico. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del server di database SQL. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **@server_name =** ] 'server_name'  
-Nome del server logico da aggiungere al gruppo di destinazione specificato. È necessario specificare server_name se target_type è "SqlServer". server_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del server di database SQL da aggiungere al gruppo di destinazione specificato. È necessario specificare server_name se target_type è "SqlServer". server_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **@database_name =** ] 'database_name'  
 Nome del database da aggiungere al gruppo di destinazione specificato. È necessario specificare database_name se target_type è "SqlDatabase". database_name è di tipo nvarchar(128), senza alcun valore predefinito.
@@ -1051,7 +1051,7 @@ Numero di identificazione della destinazione assegnato al membro del gruppo di d
 Valori del codice restituito 0 (operazione completata) o 1 (operazione non riuscita)
 
 #### <a name="remarks"></a>Osservazioni
-Un processo viene eseguito in tutti i database in un server o un pool elastico al momento dell'esecuzione quando un server logico o un pool elastico è incluso nel gruppo di destinazione.
+Un processo viene eseguito in tutti i database singoli in un server di database SQL o un pool elastico al momento dell'esecuzione quando un server di database SQL o un pool elastico è incluso nel gruppo di destinazione.
 
 #### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
@@ -1229,7 +1229,7 @@ Mostra la cronologia di esecuzione dei processi.
 |**target_type**|   nvarchar(128)   |Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico o un database. I valori validi per target_type sono "SqlServer", "SqlElasticPool" o "SqlDatabase". NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_id**  |uniqueidentifier|  ID univoco del membro del gruppo di destinazione.  NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_group_name**  |nvarchar(128)  |Nome del gruppo di destinazione. NULL indica che si tratta dell'esecuzione del processo padre.
-|**target_server_name**|    nvarchar(256)|  Nome del server logico contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". NULL indica che si tratta dell'esecuzione del processo padre.
+|**target_server_name**|    nvarchar(256)|  Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_database_name**   |nvarchar(128)| Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase". NULL indica che si tratta dell'esecuzione del processo padre.
 
 
@@ -1332,7 +1332,7 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 |**refresh_credential_name**    |nvarchar(128)  |Nome delle credenziali con ambito database usate per la connessione al membro del gruppo di destinazione.|
 |**subscription_id**    |uniqueidentifier|  ID univoco della sottoscrizione.|
 |**resource_group_name**    |nvarchar(128)| Nome del gruppo di risorse in cui si trova il membro del gruppo di destinazione.|
-|**server_name**    |nvarchar(128)  |Nome del server logico contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". |
+|**server_name**    |nvarchar(128)  |Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". |
 |**database_name**  |nvarchar(128)  |Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase".|
 |**elastic_pool_name**  |nvarchar(128)| Nome del pool elastico contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlElasticPool".|
 |**shard_map_name** |nvarchar(128)| Nome della mappa partizioni contenuta nel gruppo di destinazione. Specificato solo quando target_type è "SqlShardMap".|

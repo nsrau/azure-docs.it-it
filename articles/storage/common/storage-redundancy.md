@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240971"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455508"
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -48,7 +48,7 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di
 Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure, vedere il [contratto di servizio di Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Archiviazione Premium supporta solo l'archiviazione con ridondanza locale. Per informazioni su Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md).
+> Archiviazione Premium supporta solo l'archiviazione con ridondanza locale. Per informazioni su Archiviazione Premium, vedere [Archiviazione Premium: Archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Modifica della strategia di replica
 È possibile modificare la strategia di replica dell'account di archiviazione tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una delle numerose [librerie client di Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
@@ -63,8 +63,8 @@ Se si passa da GRS a LRS non sono previsti costi aggiuntivi, ma i dati replicati
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per l'Archiviazione di Azure](storage-redundancy-lrs.md)
-- [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
+- [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
+- [Archiviazione con ridondanza della zona (ZRS): Applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
 - [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
 - [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)

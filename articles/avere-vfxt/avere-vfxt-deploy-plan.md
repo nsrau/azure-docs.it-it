@@ -4,14 +4,14 @@ description: Informazioni sulle attività di pianificazione da eseguire prima de
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669868"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298926"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
@@ -29,11 +29,14 @@ Valutare la posizione degli elementi della distribuzione di Avere vFXT per Azure
 
 Seguire queste linee guida per la pianificazione dell'infrastruttura di rete del sistema Avere vFXT:
 
-* Tutti gli elementi devono essere gestiti con una nuova sottoscrizione creata per la distribuzione di Avere vFXT. Questa strategia semplifica il monitoraggio dei costi e la pulizia e aiuta anche a partizionare le quote delle risorse. Poiché Avere vFXT viene usato con un numero elevato di client, l'isolamento dei client e del cluster in una sottoscrizione singola consente di proteggere altri carichi di lavoro critici dalla possibile limitazione delle risorse durante il provisioning dei client.
+* Tutti gli elementi devono essere gestiti con una nuova sottoscrizione creata per la distribuzione di Avere vFXT. I vantaggi includono: 
+  * Verifica semplificata dei costi: è possibile visualizzare e controllare tutti i costi relativi alle risorse, all'infrastruttura e ai calcoli in una sottoscrizione.
+  * Pulizia più semplice: è possibile rimuovere l'intera sottoscrizione al termine del progetto.
+  * Partizionamento pratico delle quote di risorse: è possibile proteggere altri carichi di lavoro critici da una possibile limitazione delle risorse quando si richiama l'elevato numero di client usati per il flusso di lavoro di elaborazione ad alte prestazioni. A tale scopo, isolare i client e il cluster Avere vFXT in un singola sottoscrizione.
 
 * Posizionare i sistemi di calcolo client vicino al cluster vFXT. L'archiviazione back-end può avere una posizione più remota.  
 
-* Per semplicità, posizionare il cluster vFXT e la macchina virtuale controller del cluster nella stessa rete virtuale e nello stesso gruppo di risorse. Devono usare anche lo stesso account di archiviazione. 
+* Per semplicità, posizionare il cluster vFXT e la macchina virtuale controller del cluster nella stessa rete virtuale e nello stesso gruppo di risorse. Devono usare anche lo stesso account di archiviazione. Il controller del cluster consente di creare il cluster e può essere usato anche per la gestione del cluster da riga di comando.  
 
 * Il cluster deve essere posizionato nella relativa subnet per evitare conflitti di indirizzi IP con i client o le risorse di calcolo. 
 
@@ -62,7 +65,7 @@ Le macchine virtuali che fungono da nodi del cluster determinano la velocità ef
 
 Ogni nodo vFXT sarà identico. Ciò significa che se si crea un cluster a tre nodi, si avranno tre macchine virtuali con tipo e dimensioni uguali. 
 
-| Tipo di istanza | vCPU | Memoria  | Archiviazione SSD locale  | Valore massimo per dischi di dati | Velocità effettiva del disco senza memorizzazione nella cache | Scheda di rete (conteggio) |
+| Tipo di istanza | vCPU | Memoria  | Archiviazione SSD locale  | Numero massimo di dischi dati | Velocità effettiva del disco senza memorizzazione nella cache | Scheda di rete (conteggio) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D16s_v3 | 16  | 64 GiB  | 128 GiB  | 32 | 25.600 operazioni di I/O al secondo <br/> 384 MBps | 8.000 MBps (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 operazioni di I/O al secondo <br/> 768 MBps | 16.000 MBps (8)  |
@@ -80,16 +83,46 @@ Assicurarsi che la sottoscrizione abbia la capacità necessaria per eseguire il 
 
 ## <a name="back-end-data-storage"></a>Archivio dati back-end
 
-Quando non è nella cache, il working set verrà archiviato in un nuovo contenitore BLOB o in un sistema di archiviazione hardware o cloud esistente?
+Specificare dove il cluster Avere vFXT deve archiviare i dati non presenti nella cache. Decidere se il working set verrà archiviato a lungo termine in un nuovo contenitore BLOB o in un sistema di archiviazione hardware o cloud esistente. 
 
-Se si vuole usare l'archiviazione BLOB di Azure per il back-end, è necessario creare un nuovo contenitore durante la creazione del cluster vFXT. Usare lo script di distribuzione ``create-cloud-backed-container`` e specificare l'account di archiviazione per il nuovo contenitore BLOB. In questo modo il nuovo contenitore viene creato e configurato ed è pronto per l'uso non appena è pronto il cluster. Per informazioni dettagliate, vedere [Creare i nodi e configurare il cluster](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster).
+Se si vuole usare l'archiviazione BLOB di Azure per il back-end, è necessario creare un nuovo contenitore durante la creazione del cluster vFXT. In questo modo il nuovo contenitore viene creato e configurato ed è pronto per l'uso non appena è pronto il cluster. 
+
+Per informazioni dettagliate, vedere [Creare Avere vFXT per Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure).
 
 > [!NOTE]
 > Come sistema di archiviazione principale per Avere vFXT è possibile usare solo contenitori di archiviazione BLOB vuoti. vFXT deve essere in grado di gestire il proprio archivio oggetti senza necessità di conservare i dati esistenti. 
 >
 > Vedere [Spostamento dei dati nel cluster vFXT](avere-vfxt-data-ingest.md) per informazioni su come copiare i dati nel nuovo contenitore del cluster in modo efficiente usando computer client e la cache Avere vFXT.
 
-Se si vuole usare un sistema di archiviazione locale esistente, aggiungerlo al cluster vFXT dopo la sua creazione. Lo script di distribuzione ``create-minimal-cluster`` crea un cluster vFXT senza archiviazione back-end. Vedere [Configurare l'archiviazione](avere-vfxt-add-storage.md) per istruzioni dettagliate sull'aggiunta di un sistema di archiviazione esistente al cluster Avere vFXT. 
+Se si vuole usare un sistema di archiviazione locale esistente, aggiungerlo al cluster vFXT dopo la sua creazione. Vedere [Configurare l'archiviazione](avere-vfxt-add-storage.md) per istruzioni dettagliate sull'aggiunta di un sistema di archiviazione esistente al cluster Avere vFXT.
+
+## <a name="cluster-access"></a>Accesso al cluster 
+
+Il cluster Avere vFXT per Azure si trova in una subnet privata e non ha un indirizzo IP pubblico. È necessario disporre di un metodo per l'accesso alla subnet privata per l'amministrazione del cluster e le connessioni client. 
+
+Le opzioni di accesso includono:
+
+* Host di collegamento: assegnare un indirizzo IP pubblico a una macchina virtuale separata all'interno della rete privata e usarlo per creare un tunnel SSL per i nodi del cluster. 
+
+  > [!TIP]
+  > Se si imposta un indirizzo IP pubblico nel controller del cluster, è possibile usarlo come host di collegamento. Per altre informazioni, vedere [Controller del cluster come host di collegamento](#cluster-controller-as-jump-host).
+
+* Rete privata virtuale (VPN): configurare una VPN da punto a sito o da sito a sito per la rete privata.
+
+* Azure ExpressRoute: configurare una connessione privata tramite un partner ExpressRoute. 
+
+Per informazioni dettagliate su queste opzioni, vedere la [documentazione di Rete virtuale di Azure sulle comunicazioni Internet](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
+
+### <a name="cluster-controller-as-jump-host"></a>Controller del cluster come host di collegamento
+
+Se si imposta un indirizzo IP pubblico nel controller del cluster, è possibile usarlo come host di collegamento per contattare il cluster Avere vFXT dall'esterno della subnet privata. Tuttavia, poiché il controller ha privilegi di accesso per la modifica dei nodi del cluster, si presenta un lieve rischio per la sicurezza.  
+
+Per migliorare la sicurezza con un indirizzo IP pubblico, usare un gruppo di sicurezza di rete per consentire l'accesso in ingresso solo tramite la porta 22.
+
+Quando si crea il cluster, è possibile scegliere se creare un indirizzo IP pubblico nel controller del cluster. 
+
+* Se si crea una nuova rete virtuale o una nuova subnet, al controller del cluster verrà assegnato un indirizzo IP pubblico.
+* Se si seleziona una rete virtuale e una subnet esistenti, il controller del cluster avrà solo indirizzi IP privati. 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Passaggio successivo: Informazioni sul processo di distribuzione
 

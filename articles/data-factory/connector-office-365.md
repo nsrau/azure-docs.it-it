@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024315"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297465"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiare dati da Office 365 in Azure tramite Data Factory (anteprima) 
 
@@ -42,9 +42,10 @@ Prima di copiare dati da Office 365 in Azure, è necessario completare i passagg
 - L'amministratore del tenant di Office 365 deve completare le azioni di onboarding come descritto in [questa pagina](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Creare e configurare un'applicazione Web di Azure AD in Azure Active Directory.  Per istruzioni, vedere [Creare un'applicazione Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Prendere nota dei valori seguenti che si useranno per definire il servizio collegato per Office 365:
-    - ID tenant.  Per istruzioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - ID tenant. Per istruzioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - ID applicazione e chiave di autenticazione.  Per istruzioni, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Aggiungere l'identità utente che effettua la richiesta di accesso ai dati come proprietario dell'applicazione Web di Azure AD (dall'applicazione Web di Azure AD > Impostazioni > Proprietari > Aggiungi proprietario).
+- Aggiungere l'identità utente che effettua la richiesta di accesso ai dati come proprietario dell'applicazione Web di Azure AD (dall'applicazione Web di Azure AD > Impostazioni > Proprietari > Aggiungi proprietario). 
+    - L'identità utente deve essere presente nell'organizzazione Office 365 da cui si ottengono i dati e non deve essere un utente guest.
 
 ## <a name="approving-new-data-access-requests"></a>Approvazione di nuove richieste di accesso ai dati
 
@@ -76,7 +77,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Office365** | Yes |
 | office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Yes |
@@ -110,13 +111,13 @@ Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Office 365.
 
 Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Yes |
 | tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets). | Yes |

@@ -11,24 +11,22 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037141"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451717"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
 
 La funzionalità di rilevamento delle minacce per il [database SQL di Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-Rilevamento delle minacce fa parte dell'offerta [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (Protezione avanzata dalle minacce SQL) (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale ATP SQL.
+Rilevamento delle minacce fa parte dell'offerta [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md) (ADS), un pacchetto unificato per le funzionalità avanzate di sicurezza SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
-
-Il servizio di rilevamento delle minacce ha un costo di $ 15 al mese per tutti i database per ogni server logico o istanza gestita, con i primi 30 giorni gratuiti.
 
 ## <a name="what-is-threat-detection"></a>Introduzione alla funzionalità di rilevamento delle minacce
 
@@ -69,7 +67,7 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Esplorare gli avvisi di rilevamento delle minacce per il database tramite il portale di Azure
 
-Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di SQL Advanced Threat Protection nel portale di Azure tiene traccia dello stato delle minacce attive.
+Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di Sicurezza dei dati avanzata di SQL nel portale di Azure tiene traccia dello stato delle minacce attive.
 
 Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database o nel data warehouse.
 
@@ -79,9 +77,9 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [rilevamento delle minacce nel database singolo](sql-database-threat-detection.md).
+- Altre informazioni sul [rilevamento delle minacce nei database autonomi e in pool](sql-database-threat-detection.md).
 - Altre informazioni sul [rilevamento delle minacce nell'istanza gestita](sql-database-managed-instance-threat-detection.md).
-- Per altre informazioni, vedere [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (Protezione avanzata dalle minacce SQL).
+- Altre informazioni sulla [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md).
 - Altre informazioni sul [controllo del database SQL di Azure](sql-database-auditing.md)
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Per altre informazioni sui prezzi, visitare la [pagina relativa ai prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).  

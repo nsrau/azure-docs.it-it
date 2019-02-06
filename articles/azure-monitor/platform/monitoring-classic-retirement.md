@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461978"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298966"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -36,9 +36,9 @@ La nuova funzionalità unificata di monitoraggio e avviso per Application Insigh
 - **Metriche personalizzate di Application Insights**, che permettono di definire e generare metriche personalizzate per il monitoraggio e gli avvisi. Per altre informazioni, vedere l'articolo sull'uso di [metriche personalizzate per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente)**, per l'invio di notifiche automatiche quasi in tempo reale se si verifica un incremento anomalo della frequenza di chiamate di dipendenze o richieste HTTP non riuscite nell'app Web. La funzionalità Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente) come parte del nuovo servizio Monitoraggio di Azure sarà disponibile a breve e questo documento verrà aggiornato con i collegamenti all'iterazione successiva, poiché il lancio è previsto nei prossimi mesi.
 
-## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Funzionalità unificata di metriche e avvisi per altre risorse di Azure
+## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Metriche e avvisi unificati per altre risorse di Azure
 
-Da marzo 2018, è disponibile la nuova generazione di avvisi e monitoraggio multidimensionale per le risorse di Azure. Ora la nuova piattaforma per le metriche e gli avvisi è più veloce e offre funzionalità quasi in tempo reale. È anche importante notare che gli avvisi della nuova piattaforma per le metriche offrono maggiore granularità, in quanto la nuova piattaforma include l'opzione delle dimensioni, grazie a cui è possibile sezionare e filtrare in base a una specifica combinazione di valori, condizione o operazione. Come tutti gli avvisi nel nuovo servizio Monitoraggio di Azure, i nuovi avvisi delle metriche offrono maggiore estendibilità grazie all'uso dei gruppi di azioni, che consentono di estendere le notifiche oltre la posta elettronica o i webhook, con la possibilità di scegliere anche SMS, funzionalità vocali, funzioni di Azure, runbook di automazione e altro ancora.
+Da marzo 2018, è disponibile la nuova generazione di avvisi e monitoraggio multidimensionale per le risorse di Azure. Ora la nuova piattaforma per le metriche e gli avvisi è più veloce e offre funzionalità quasi in tempo reale. È anche importante notare che gli avvisi della nuova piattaforma per le metriche offrono maggiore granularità, in quanto la nuova piattaforma include l'opzione delle dimensioni, grazie a cui è possibile sezionare e filtrare in base a una specifica combinazione di valori, condizione o operazione. Come tutti gli avvisi nel nuovo servizio Monitoraggio di Azure, i nuovi avvisi delle metriche offrono maggiore estendibilità grazie all'uso dei gruppi di azioni, che consentono di estendere le notifiche oltre la posta elettronica o i webhook, con la possibilità di scegliere anche SMS, funzionalità vocali, funzioni di Azure, runbook di automazione e altro ancora. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 Le nuove metriche per le risorse di Azure sono disponibili come:
 
 - **Metriche della piattaforma di Monitoraggio di Azure Standard**, che forniscono popolari metriche precompilate di diversi servizi e prodotti di Azure. Per altre informazioni, vedere l'articolo sulle [metriche supportate in Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) e quello sugli [avvisi delle metriche supportati in Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
@@ -60,6 +60,10 @@ Dopo questa data, in Monitoraggio di Azure:
 - il servizio classico di monitoraggio e avvisi verrà ritirato e non sarà più disponibile per la creazione di nuove regole di avviso
 - Le regole di avviso che continueranno a essere presenti nella sezione Avvisi (versione classica) dopo giugno 2019 potranno ancora essere eseguite e inviare notifiche, ma non saranno disponibili per la modifica.
 - A partire da luglio 2019, per eventuali regole di avviso presenti nella piattaforma classica di monitoraggio e avviso verrà eseguita automaticamente la migrazione da parte di Microsoft alla versione equivalente nella nuova piattaforma di Monitoraggio di Azure. Il processo avverrà in modo fluido, senza tempi di inattività e senza alcuna perdita nella copertura del monitoraggio per i clienti.
+- Le regole di avviso di cui è stata eseguita la migrazione nella nuova piattaforma di avvisi garantiranno la copertura di monitoraggio come prima, ma genereranno le notifiche con nuovi payload. Gli indirizzi di posta elettronica, gli endpoint di webhook o i collegamenti di app per la logica associati a regole di avviso classiche verranno mantenuti con la migrazione, ma potrebbero non funzionare correttamente perché il payload degli avvisi sarà diverso nella nuova piattaforma
+
+> [!IMPORTANT]
+> Monitoraggio di Microsoft Azure offrirà presto ai clienti lo strumento per la migrazione automatica delle regole di avviso classiche nella nuova piattaforma. È necessario eseguirlo obbligatoriamente per tutte le regole di avviso classiche ancora esistenti a partire da luglio 2019. I clienti dovranno assicurarsi che il payload delle regole di avviso classiche, dispendioso in termini di automazione, sia adattato in modo da gestire il nuovo payload da [Metriche e avvisi unificati in Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Metriche e avvisi unificati per altre risorse di Azure](#unified-metrics-and-alerts-for-other-azure-resources) dopo la migrazione delle regole di avviso classiche. 
 
 A breve verranno resi disponibili strumenti per consentire di eseguire volontariamente la migrazione degli avvisi dalla [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure ai nuovi avvisi di Azure. Tutte le regole configurate nella sezione Avvisi (versione classica) di cui viene eseguita la migrazione al nuovo servizio Monitoraggio di Azure rimarranno gratuite e non verranno addebitati costi. Le regole di avviso classiche di cui viene eseguita la migrazione non prevederanno inoltre costi per l'invio di notifiche tramite posta elettronica, webhook o app per la logica. L'uso dei nuovi tipi di azioni o notifiche (ad esempio SMS, chiamata vocale, integrazione di Gestione dei servizi IT e così via) potrà comportare un addebito in caso di aggiunta a un avviso nuovo o di cui è stata eseguita la migrazione. Per altre informazioni, vedere [Prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -70,7 +74,7 @@ Sono previsti inoltre addebiti per quanto indicato di seguito in base a quanto s
 - Tutti i test Web multitest eseguiti da Application Insights
 - Tutte le metriche personalizzate archiviate oltre le unità gratuite incluse in Monitoraggio di Azure
 
-Questo articolo verrà continuamente aggiornato con collegamenti e informazioni sulle nuove funzionalità di monitoraggio e avviso di Azure e sulla disponibilità di strumenti di supporto per l'adozione della nuova piattaforma di Monitoraggio di Azure.
+Questo articolo verrà continuamente aggiornato con collegamenti e informazioni sulle nuove funzionalità di monitoraggio e avviso di Azure e sulla disponibilità di strumenti di supporto per l'adozione della nuova piattaforma Monitoraggio di Azure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

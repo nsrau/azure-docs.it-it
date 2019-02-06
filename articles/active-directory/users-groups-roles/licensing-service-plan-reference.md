@@ -7,21 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321637"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297872"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
 
@@ -29,7 +27,7 @@ Quando si gestiscono le licenze nel [portale di Azure](https://portal.azure.com/
 
 - **Nome prodotto**: usato nei portali di gestione
 - **ID stringa**: usato dai cmdlet di PowerShell v 1.0 quando si eseguono operazioni sulle licenze
-- **ID Guid**: GUID usato da Azure AD Graph e Microsoft Graph
+- **GUID**: GUID usato da Azure AD Graph e Microsoft Graph
 - **Piani di servizio inclusi**: un elenco di piani di servizio all'interno del prodotto che corrispondono all'ID stringa e al GUID
 
 >[!NOTE]

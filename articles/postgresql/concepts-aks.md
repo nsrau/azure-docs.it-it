@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: ff8508db55b04d2c55158b5846325d0c13665048
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542748"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242621"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Connessione del servizio Azure Kubernetes e di Database di Azure per PostgreSQL
 
@@ -32,6 +32,14 @@ Da novembre 2018 il servizio Azure Kubernetes supporta la funzionalità di rete 
 6. Passare alla scheda**Rete** della macchina virtuale.
 7. Verificare che la **rete accelerata** sia abilitata.
 
+In alternativa, eseguire i due comandi seguenti tramite l'interfaccia della riga di comando di Azure:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+Come output verrà restituito il gruppo di risorse generato dal servizio Azure Kubernetes contenente l'interfaccia di rete. Prendere nota del nome "nodeResourceGroup" e usarlo nel comando successivo. **EnableAcceleratedNetworking** sarà true o false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) consente di effettuare il provisioning dei servizi di Azure direttamente da Kubernetes o Cloud Foundry. Si tratta di un'implementazione dell'[API di Open Service Broker](https://www.openservicebrokerapi.org/) per Azure.

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601577"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471668"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
@@ -54,9 +54,9 @@ Esistono comunque script utili per automatizzare la scalabilità per un singolo 
 
 Tutte le tre versioni di Database SQL di Azure offrono la capacità di ridimensionare in modo dinamico i database:
 
-- Nel [Database singolo di Azure SQL](sql-database-single-database-scale.md) è possibile usare sia i modelli [DTU](sql-database-dtu-resource-limits-single-databases.md) o [vCore](sql-database-vcore-resource-limits-single-databases.md) per definire la quantità massima di risorse che verranno assegnate a ogni database.
-- [Istanza gestita di Azure SQL](sql-database-managed-instance.md) usa la modalità [Vcore](sql-database-managed-instance.md#vcore-based-purchasing-model) e consente di definire il massimo di core CPU e il massimo della memoria allocata per l'istanza. Tutti i database all'interno dell'istanza condivideranno le risorse allocate per l'istanza.
-- [Pool elastici di SQL Azure](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
+- Con un [Database singolo](sql-database-single-database-scale.md) è possibile usare sia i modelli [DTU](sql-database-dtu-resource-limits-single-databases.md) o [vCore](sql-database-vcore-resource-limits-single-databases.md) per definire la quantità massima di risorse che verranno assegnate a ogni database.
+- Un'[Istanza gestita](sql-database-managed-instance.md) usa la modalità [vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e consente di definire il massimo di core CPU e il massimo della memoria allocata per l'istanza. Tutti i database all'interno dell'istanza condivideranno le risorse allocate per l'istanza.
+- I [pool elastici](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
 
 ## <a name="alternative-scale-methods"></a>Metodi alternativi di scalabilità
 

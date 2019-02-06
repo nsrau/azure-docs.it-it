@@ -2,18 +2,18 @@
 title: Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 description: Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234456"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298314"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 Questo articolo descrive come configurare un server di System Center 2012 R2 Data Protection Manager (DPM) per eseguire il backup di un server di Microsoft Exchange per Backup di Azure.  
@@ -111,7 +111,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 Per i punti di ripristino online sono disponibili cinque tipi:
 
 * **Ripristina nel percorso originale di Exchange Server:** i dati verranno ripristinati nel server di Exchange originale.
-* **Ripristina in un altro database in un Server di Exchange:** i dati verranno ripristinati in un altro database in un altro server di Exchange.
+* **Ripristina in un altro database in un server Exchange:** i dati verranno ripristinati in un altro database in un altro server di Exchange.
 * **Ripristina in un database di ripristino:** i dati verranno ripristinati in un database di ripristino di Exchange (RDB).
 * **Copia in una cartella di rete:** i dati verranno ripristinati in una cartella di rete.
 * **Copia su nastro:** se si ha una libreria di nastri o un'unità nastro autonoma collegata e configurata nel server DPM, il punto di ripristino verrà copiato su un nastro disponibile.

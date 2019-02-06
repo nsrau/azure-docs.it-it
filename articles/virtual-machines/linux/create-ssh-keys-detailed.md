@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965586"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297702"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una VM Linux di Azure 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una macchina virtuale Linux in Azure 
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare una macchina virtuale Linux in Azure che per impostazione predefinita usa le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le VM create con il portale di Azure, l'interfaccia della riga di comando di Azure, i modelli di Resource Manager o altri strumenti possono includere la chiave pubblica SSH come parte della distribuzione, configurando in questo modo l'autenticazione con chiave SSH per le connessioni SSH. 
 
 Questo articolo riporta informazioni e procedure dettagliate per creare e gestire una coppia di file della chiave pubblica e privata RSA SSH per le connessioni client SSH. Per i comandi rapidi, vedere [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](mac-create-ssh-keys.md).
@@ -32,13 +32,13 @@ Per altri modi in cui generare e usare le chiavi SSH in un computer Windows, ved
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
 ### <a name="private-key-passphrase"></a>Passphrase della chiave privata
-La chiave privata SSH deve essere protetta da una passphrase molto sicura. Questa passphrase serve solo per accedere al file della chiave SSH privata e *non è* la password dell'account utente. Quando si aggiunge una passphrase alla chiave SSH, la chiave privata viene crittografata con AES a 128 bit, in modo che sia inutilizzabile senza la passphrase per decrittografarla. Se un utente malintenzionato ruba una chiave privata priva di passphrase, può usarla per accedere ai server che hanno la chiave pubblica corrispondente. Se una chiave privata è protetta da passphrase, non può essere usata da utenti malintenzionati e rappresenta un livello di sicurezza aggiuntivo per l'infrastruttura in Azure.
+La chiave privata SSH deve essere protetta da una passphrase molto sicura. Questa passphrase serve solo per accedere al file della chiave SSH privata e *non è* la password dell'account utente. Quando si aggiunge una passphrase alla chiave SSH, la chiave privata viene crittografata con AES a 128 bit, in modo che sia inutilizzabile senza la passphrase per decrittografarla. Se un utente malintenzionato riesce a sottrarre una chiave privata priva di passphrase, può usarla per accedere ai server che hanno la chiave pubblica corrispondente. Se una chiave privata è protetta da passphrase, non può essere usata da utenti malintenzionati e rappresenta un livello di sicurezza aggiuntivo per l'infrastruttura in Azure.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="ssh-keys-use-and-benefits"></a>Uso e vantaggi delle chiavi SSH
 
-Quando si crea una VM di Azure specificando la chiave pubblica, Azure copia la chiave pubblica (nel formato `.pub`) nella cartella `~/.ssh/authorized_keys` nella VM. Le chiavi SSH in `~/.ssh/authorized_keys` vengono usate per fare in modo che il client trovi la chiave privata corrispondente in una connessione di accesso SSH. In una VM Linux di Azure che usa chiavi SSH per l'autenticazione, Azure configura il server SSHD per non consentire l'accesso con password, ma solo con le chiavi SSH. La creazione di una VM Linux in Azure con chiavi SSH consente di proteggere la distribuzione della VM e di evitare il passaggio tipico di post-distribuzione di disabilitare le password nel file `sshd_config`.
+Quando si crea una VM di Azure specificando la chiave pubblica, Azure copia la chiave pubblica (nel formato `.pub`) nella cartella `~/.ssh/authorized_keys` nella VM. Le chiavi SSH in `~/.ssh/authorized_keys` vengono usate per fare in modo che il client trovi la chiave privata corrispondente in una connessione SSH. In una macchina virtuale Linux di Azure che usa chiavi SSH per l'autenticazione, Azure configura il server SSHD in modo da non consentire l'accesso con password, ma solo con le chiavi SSH. La creazione di una VM Linux in Azure con chiavi SSH consente di proteggere la distribuzione della VM e di evitare il passaggio tipico di post-distribuzione di disabilitare le password nel file `sshd_config`.
 
 Se non si vogliono usare chiavi SSH, è possibile configurare la VM Linux in modo che usi l'autenticazione mediante password. Se la VM non è connessa a Internet, l'utilizzo di password può essere sufficiente. È comunque necessario gestire le password per ogni VM Linux e mantenere criteri e prassi di integrità per le password stesse, quali una lunghezza minima e l'aggiornamento periodico. L'uso delle chiavi SSH riduce la complessità di gestione delle credenziali individuali tra più VM.
 
@@ -126,7 +126,7 @@ ls -al ~/.ssh
 
 `Enter passphrase (empty for no passphrase):`
 
-È *vivamente* consigliabile aggiungere una passphrase alla chiave privata. Senza una passphrase che protegge il file della chiave, chiunque abbia il file può usarlo per accedere a qualsiasi server che ha la chiave pubblica corrispondente. L'aggiunta di una passphrase offre protezione nel caso in cui qualcuno riesca ad accedere al file della chiave privata, lasciando all'utente il tempo necessario per cambiare le chiavi.
+È *vivamente* consigliabile aggiungere una passphrase alla chiave privata. Senza una passphrase che protegga il file della chiave, chiunque abbia il file può usarlo per accedere a qualsiasi server che abbia la chiave pubblica corrispondente. L'aggiunta di una passphrase offre protezione nel caso in cui qualcuno riesca ad accedere al file della chiave privata, lasciando all'utente il tempo necessario per cambiare le chiavi.
 
 ## <a name="generate-keys-automatically-during-deployment"></a>Generare chiavi automaticamente durante la distribuzione
 
@@ -148,7 +148,7 @@ L'output è simile al seguente (con alcune modifiche):
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-Se si copiano e si incollano i contenuti del file della chiave pubblica nel portale di Azure o in un modello di Resource Manager, verificare di non introdurre spazi o interruzioni di riga aggiuntive. Ad esempio, se si usa macOS, è possibile eseguire il pipe del file della chiave pubblica, che per impostazione predefinita è `~/.ssh/id_rsa.pub`, a **pbcopy** per copiare i contenuti. Anche altri programmi Linux eseguono questa operazione, ad esempio **xclip**.
+Se si copiano e si incollano i contenuti del file della chiave pubblica nel portale di Azure o in un modello di Resource Manager, verificare di non introdurre spazi o interruzioni di riga aggiuntive. Se ad esempio si usa macOS, è possibile inviare tramite pipe il file della chiave pubblica, che per impostazione predefinita è `~/.ssh/id_rsa.pub`, a **pbcopy** per copiare i contenuti. Anche altri programmi Linux eseguono questa operazione, ad esempio `xclip`.
 
 Se si preferisce usare una chiave pubblica in un formato a più righe, è possibile generare una chiave RFC4716 formattata in un contenitore con estensione pem dalla chiave pubblica creata in precedenza.
 
@@ -168,7 +168,9 @@ Con la chiave pubblica distribuita nella VM di Azure e la chiave privata nel sis
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Se è stata specificata una passphrase durante la creazione della coppia di chiavi, immettere la passphrase quando viene richiesta durante il processo di accesso. Il server viene aggiunto alla cartella `~/.ssh/known_hosts` e non verrà chiesto di connettersi di nuovo finché la chiave pubblica nella VM di Azure non viene modificata o il nome server viene rimosso da `~/.ssh/known_hosts`.
+Se durante la creazione della coppia di chiavi è stata specificata una passphrase, immetterla quando viene richiesta durante la procedura di accesso. Il server viene aggiunto alla cartella `~/.ssh/known_hosts` e non verrà chiesto di connettersi di nuovo finché la chiave pubblica nella VM di Azure non viene modificata o il nome server viene rimosso da `~/.ssh/known_hosts`.
+
+Se la macchina virtuale usa i criteri di accesso JIT, è necessario richiedere l'accesso per connettersi alla macchina virtuale. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Usare ssh-agent per archiviare la passphrase della chiave privata
 
@@ -199,7 +201,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver
 
 Si può creare e configurare un file di configurazione SSH (`~/.ssh/config`) per velocizzare gli accessi e ottimizzare il comportamento del client SSH. 
 
-L'esempio seguente mostra una semplice configurazione che è possibile usare per accedere rapidamente come utente a una VM specifica usando la chiave privata SSH predefinita. 
+L'esempio seguente mostra una semplice configurazione che è possibile usare per accedere rapidamente come utente a una macchina virtuale specifica usando la chiave privata SSH predefinita. 
 
 ### <a name="create-the-file"></a>Creare il file
 
@@ -227,7 +229,7 @@ Host myvm
 
 È possibile aggiungere configurazioni per host aggiuntivi per consentire a ciascuno di usare la propria coppia di chiavi dedicata. Per altre opzioni di configurazione avanzate, vedere [File di configurazione SSH](https://www.ssh.com/ssh/config/).
 
-Con una coppia di chiavi SSH e un file config SSH configurato è ora possibile accedere alla VM Linux in modo rapido e sicuro. Quando si esegue il comando seguente, SSH individua e carica tutte le impostazioni dal blocco `Host myvm` nel file di configurazione SSH.
+Con una coppia di chiavi SSH e un file config SSH configurato, è ora possibile accedere alla macchina virtuale Linux in modo rapido e sicuro. Quando si esegue il comando seguente, SSH individua e carica tutte le impostazioni dal blocco `Host myvm` nel file di configurazione SSH.
 
 ```bash
 ssh myvm
@@ -237,7 +239,7 @@ La prima volta che si accede a un server usando una chiave SSH, il comando richi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chiave pubblica SSH. Le VM di Azure create con una chiave pubblica SSH come account di accesso sono più protette rispetto alle VM create con il metodo di accesso predefinito basato su password.
+Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chiave pubblica SSH. Le macchine virtuali di Azure create con una chiave pubblica SSH per l'accesso sono più protette rispetto alle macchine virtuali create con il metodo di accesso predefinito basato su password.
 
 * [Creare una macchina virtuale Linux con il portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

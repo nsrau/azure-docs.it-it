@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056336"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471148"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 
-In questa esercitazione si esamina uno scenario completo di ripristino di emergenza per un'applicazione SaaS multi-tenant la cui implementazione usa il modello di database per tenant. Per proteggere l'app in caso di interruzione, si usa la [_replica geografica_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) per creare repliche per i database di catalogo e tenant in un'area di ripristino alternativa. In caso di interruzione, è possibile effettuare rapidamente il failover a tali repliche per riprendere le normali operazioni aziendali. In caso di failover, i database nell'area originale diventano le repliche secondarie dei database nell'area di ripristino. Quando queste repliche ritornano online, si aggiornano automaticamente allo stato dei database nell'area di ripristino. Dopo che l'interruzione è stata risolta, si esegue il failback ai database nell'area di produzione originale.
+In questa esercitazione si esamina uno scenario completo di ripristino di emergenza per un'applicazione SaaS multi-tenant la cui implementazione usa il modello di database per tenant. Per proteggere l'app in caso di interruzione, si usa la [_replica geografica_](sql-database-geo-replication-overview.md) per creare repliche per i database di catalogo e tenant in un'area di ripristino alternativa. In caso di interruzione, è possibile effettuare rapidamente il failover a tali repliche per riprendere le normali operazioni aziendali. In caso di failover, i database nell'area originale diventano le repliche secondarie dei database nell'area di ripristino. Quando queste repliche ritornano online, si aggiornano automaticamente allo stato dei database nell'area di ripristino. Dopo che l'interruzione è stata risolta, si esegue il failback ai database nell'area di produzione originale.
 
 Questa esercitazione illustra il flusso di lavoro sia di failover che di failback. Si apprenderà come:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
 >* Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
@@ -53,9 +53,9 @@ Un piano di ripristino di emergenza basato sulla replica geografica è costituit
 Tutte le parti devono essere considerate attentamente, in particolare se si opera su larga scala. Nel complesso, il piano deve soddisfare alcuni obiettivi:
 
 * Configurazione
-    * Stabilire e mantenere un ambiente con un'immagine speculare nell'area di ripristino. Per creare pool elastici ed eseguire la replica di qualsiasi database singolo in questo ambiente di ripristino è necessario riservare capacità nell'area di ripristino. La manutenzione di questo ambiente include la replica dei nuovi database tenant quando ne viene effettuato il provisioning.  
+    * Stabilire e mantenere un ambiente con un'immagine speculare nell'area di ripristino. Per creare pool elastici ed eseguire la replica di qualsiasi database in questo ambiente di ripristino è necessario riservare capacità nell'area di ripristino. La manutenzione di questo ambiente include la replica dei nuovi database tenant quando ne viene effettuato il provisioning.  
 * Ripristino
-    * Nei casi in cui viene usato un ambiente di ripristino ridotto per ridurre al minimo i costi quotidiani, è necessario aumentare la capacità di pool e database singoli per consentire l'acquisizione della piena capacità operativa nell'area di ripristino.
+    * Nei casi in cui viene usato un ambiente di ripristino ridotto per ridurre al minimo i costi quotidiani, è necessario aumentare la capacità di pool e i database per consentire l'acquisizione della piena capacità operativa nell'area di ripristino
     * Abilitare il provisioning dei nuovi tenant nell'area di ripristino non appena possibile.  
     * Ottimizzare l'ambiente per il ripristino dei tenant in ordine di priorità.
     * Ottimizzare l'ambiente per portare i tenant online il più velocemente possibile eseguendo i passaggi in parallelo, dove possibile.
@@ -67,10 +67,10 @@ Tutte le parti devono essere considerate attentamente, in particolare se si oper
 In questa esercitazione questi obiettivi vengono soddisfatti usando le funzionalità del database SQL di Azure e della piattaforma Azure:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server di produzione e dei pool elastici nell'area di ripristino.
-* [Replica geografica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), per creare repliche secondarie asincrone di sola lettura per tutti i database. Durante un'interruzione, effettuare il failover nelle repliche nell'area di ripristino.  Dopo aver risolto l'interruzione, effettuare il failback nei database nell'area originale senza perdita di dati.
+* [Replica geografica](sql-database-geo-replication-overview.md), per creare repliche secondarie asincrone di sola lettura per tutti i database. Durante un'interruzione, effettuare il failover nelle repliche nell'area di ripristino.  Dopo aver risolto l'interruzione, effettuare il failback nei database nell'area originale senza perdita di dati.
 * [Operazioni di failover asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità dei tenant, per ridurre al minimo il tempo di failover per un numero elevato di database.
-* [Funzionalità di ripristino della gestione delle partizioni](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), per modificare le voci di database nel catalogo durante il ripristino e il ricollocamento. Queste funzionalità consentono all'app di connettersi ai database tenant indipendentemente dalla posizione senza dover riconfigurare l'app.
-* [Alias DNS di SQL Server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), per consentire un facile provisioning dei nuovi tenant indipendentemente dall'area in cui è in esecuzione l'app. Gli alias DNS vengono usati anche per consentire il processo di sincronizzazione del catalogo per la connessione al catalogo attivo indipendentemente dalla relativa posizione.
+* [Funzionalità di ripristino della gestione delle partizioni](sql-database-elastic-database-recovery-manager.md), per modificare le voci di database nel catalogo durante il ripristino e il ricollocamento. Queste funzionalità consentono all'app di connettersi ai database tenant indipendentemente dalla posizione senza dover riconfigurare l'app.
+* [Alias DNS di SQL Server](dns-alias-overview.md), per consentire un facile provisioning dei nuovi tenant indipendentemente dall'area in cui è in esecuzione l'app. Gli alias DNS vengono usati anche per consentire il processo di sincronizzazione del catalogo per la connessione al catalogo attivo indipendentemente dalla relativa posizione.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza 
 
@@ -126,7 +126,7 @@ Lasciare la finestra di PowerShell in esecuzione in background e continuare con 
 In questa attività si avvia un processo che consente di distribuire un'istanza di app duplicata e di replicare il catalogo e tutti i database tenant in un'area di ripristino.
 
 > [!Note]
-> Questa esercitazione aggiunge la protezione tramite replica geografica all'applicazione di esempio Wingtip Tickets. In uno scenario di produzione per un'applicazione che usa la replica geografica, per ogni tenant viene effettuato, fin dall'inizio, il provisioning di un database con replica geografica. Vedere [Progettazione di servizi a disponibilità elevata con database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Questa esercitazione aggiunge la protezione tramite replica geografica all'applicazione di esempio Wingtip Tickets. In uno scenario di produzione per un'applicazione che usa la replica geografica, per ogni tenant viene effettuato, fin dall'inizio, il provisioning di un database con replica geografica. Vedere [Progettazione di servizi a disponibilità elevata con database SQL di Azure](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. In *PowerShell ISE* aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e impostare i valori seguenti:
     * **$DemoScenario = 2**, per creare un ambiente di ripristino con immagine speculare e replicare i database di catalogo e tenant
@@ -135,12 +135,14 @@ In questa attività si avvia un processo che consente di distribuire un'istanza 
 ![Processo di sincronizzazione](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Esaminare il normale stato dell'applicazione
+
 A questo punto, l'applicazione è in esecuzione normalmente nell'area originale ed è protetta tramite replica geografica.  Nell'area di ripristino sono presenti repliche secondarie di sola lettura per tutti i database. 
+
 1. Nel portale di Azure esaminare i gruppi di risorse e osservare che è stato creato un gruppo di risorse con il suffisso -recovery nell'area di ripristino. 
 
-1. Esaminare le risorse nel gruppo di risorse di ripristino.  
+2. Esaminare le risorse nel gruppo di risorse di ripristino.  
 
-1. Fare clic sul database Contoso Concert Hall nel server _tenants1-dpt-&lt;utente&gt;-recovery_.  Fare clic su Replica geografica a sinistra. 
+3. Fare clic sul database Contoso Concert Hall nel server _tenants1-dpt-&lt;utente&gt;-recovery_.  Fare clic su Replica geografica a sinistra. 
 
     ![Collegamento per la replica geografica di Contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione
 > Per esplorare il codice per i processi di ripristino, esaminare gli script di PowerShell nella cartella ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs.
 
 ### <a name="review-the-application-state-during-recovery"></a>Esaminare lo stato dell'applicazione durante il ripristino
+
 Mentre l'endpoint applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Dopo il failover del catalogo nell'area del ripristino e dopo che tutti i tenant sono stati contrassegnati come offline, l'applicazione viene riportata online. Anche se l'applicazione è disponibile, ogni tenant appare offline nell'hub eventi fino a quando non viene effettuato il failover del relativo database. È importante progettare l'applicazione per gestire i database tenant offline.
 
 1. Immediatamente dopo il ripristino del database di catalogo, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
@@ -301,7 +304,7 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
 >* Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
@@ -313,4 +316,4 @@ Per altre informazioni sulle tecnologie che il database SQL di Azure offre per c
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Altre esercitazioni basate sull'applicazione SaaS Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Altre esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

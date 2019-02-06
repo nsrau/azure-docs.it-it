@@ -1,6 +1,6 @@
 ---
-title: "Risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning Studio" titleSuffix: Descrizione di Azure Machine Learning Studio: Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: "Risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning Studio" titleSuffix: Descrizione di Azure Machine Learning Studio: Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

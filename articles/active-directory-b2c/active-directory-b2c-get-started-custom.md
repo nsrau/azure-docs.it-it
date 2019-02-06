@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852304"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298739"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory (Azure AD) B2C. In questo articolo viene creato un criterio personalizzato che supporta l'iscrizione o l'accesso all'account locale tramite un indirizzo di posta elettronica e una password. Si prepara anche l'ambiente per l'aggiunta di provider di identità come Facebook o Azure Active Directory.
+I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory (Azure AD) B2C. In questo articolo viene creato un criterio personalizzato che supporta l'iscrizione o l'accesso all'account locale tramite un indirizzo di posta elettronica e una password. È inoltre necessario preparare l'ambiente per l'aggiunta di provider di identità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,9 +31,6 @@ In assenza di un tenant, è necessario [creare un tenant di Azure AD B2C](tutori
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant. 
-
-    ![Passare al tenant di Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
 
@@ -72,7 +69,7 @@ Azure AD B2C richiede di registrare due applicazioni che vengono usate per regis
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrare l'applicazione IdentityExperienceFramework
 
-1. Scegliere **All services** (Tutti i servizi) nell'angolo superiore sinistro del portale di Azure, cercare e selezionare **Azure Active Directory**, quindi selezionare **Registrazioni app**.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 2. Selezionare **Registrazione nuova applicazione**.
 3. Per **Nome** immettere `IdentityExperienceFramework`.
 4. Per **Tipo di applicazione** scegliere **App Web/API**.
@@ -105,8 +102,8 @@ I criteri personalizzati sono un set di file XML che devono essere caricati nel 
 Ogni pacchetto Starter contiene:
 
 - File di base. Alcune modifiche sono necessarie per la base.
-* Aprire il file di estensione.  Questo file è quello in cui viene eseguita la maggior parte delle modifiche di configurazione.
-* I file di relying party. File specifici delle attività, richiamati dall'applicazione.
+- Aprire il file di estensione.  Questo file è quello in cui viene eseguita la maggior parte delle modifiche di configurazione.
+- I file di relying party. File specifici delle attività, richiamati dall'applicazione.
 
 >[!NOTE]
 >Se l'editor XML supporta la convalida, convalidare i file rispetto allo schema XML TrustFrameworkPolicy_0.3.0.0.xsd che si trova nella directory radice del pacchetto Starter. La convalida dello schema XML identifica gli errori prima del caricamento.
@@ -117,17 +114,14 @@ Ogni pacchetto Starter contiene:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. Nella cartella SocialAndLocalAccounts modificare tutti file sostituendo `yourtenant.onmicrosoft.com` con il nome del tenant. Ad esempio: `contosoTenant.onmicrosoft.com`. Se occorre un editor XML, provare [Visual Studio Code](https://code.visualstudio.com/download), un editor multipiattaforma leggero.
+2. Nella cartella SocialAndLocalAccounts modificare tutti file sostituendo `yourtenant` con il nome del tenant. Ad esempio: `contosoTenant.onmicrosoft.com`. Se occorre un editor XML, provare [Visual Studio Code](https://code.visualstudio.com/download), un editor multipiattaforma leggero.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Aggiungere gli ID dell'applicazione al criterio personalizzato
 
 Aggiungere gli ID delle applicazioni al file delle estensioni *TrustFrameworkExtensions.xml*.
 
 1. Aprire il file *TrustFrameworkExtensions.xml* file e trovare l'elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Sostituire entrambe le istanze di `IdentityExperienceFrameworkAppId` con l'ID dell'applicazione del framework dell'esperienza di gestione delle identità creata in precedenza. Sostituire entrambe le istanze di `ProxyIdentityExperienceFrameworkAppId` con l'ID dell'applicazione proxy del framework dell'esperienza di gestione delle identità creata in precedenza. L'esempio seguente mostra il profilo tecnico **login-NonInteractive** dopo le modifiche:
-
-    ![ID delle applicazioni](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Sostituire entrambe le istanze di `IdentityExperienceFrameworkAppId` con l'ID dell'applicazione del framework dell'esperienza di gestione delle identità creata in precedenza. Sostituire entrambe le istanze di `ProxyIdentityExperienceFrameworkAppId` con l'ID dell'applicazione proxy del framework dell'esperienza di gestione delle identità creata in precedenza.
 3. Salvare il file delle estensioni.
 
 ## <a name="upload-the-policies"></a>Caricare i criteri

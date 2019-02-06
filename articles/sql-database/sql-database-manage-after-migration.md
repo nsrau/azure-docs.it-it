@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052718"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478475"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -83,7 +83,7 @@ Nel database SQL sono disponibili [due metodi di autenticazione](sql-database-co
 - [Autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 - Autenticazione in SQL
 
-L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/hybrid/how-to-connect-install-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server logico. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
+L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/hybrid/how-to-connect-install-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server di database SQL. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
 
 |**Se…**|**Database SQL/SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Esistono diverse tecniche a disposizione che è possibile usare per conseguire u
 
 #### <a name="firewall"></a>Firewall
 
-Un firewall impedisce l'accesso al server da un'entità esterna, consentendo solo a entità specifiche l'accesso al server logico. Per impostazione predefinita, vengono rifiutate tutte le connessioni e i database all'interno del server logico, ad eccezione delle connessioni in entrata da altri servizi di Azure. Con una regola firewall è possibile aprire l'accesso al server solo alle entità (ad esempio, un computer per sviluppatori) approvate, consentendo all'indirizzo IP del computer di attraversare il firewall. Consente anche di specificare un intervallo di indirizzi IP a cui si intende consentire l'accesso al server logico. È ad esempio possibile aggiungere in una sola volta gli indirizzi IP del computer per sviluppatori specificando un intervallo nella pagina Impostazioni del firewall.
+Un firewall impedisce l'accesso al server da un'entità esterna, consentendo solo a entità specifiche l'accesso al server di database SQL. Per impostazione predefinita, vengono rifiutate tutte le connessioni e i database all'interno del server di database SQL, a eccezione delle connessioni in entrata da altri servizi di Azure. Con una regola firewall è possibile aprire l'accesso al server solo alle entità (ad esempio, un computer per sviluppatori) approvate, consentendo all'indirizzo IP del computer di attraversare il firewall. Consente anche di specificare un intervallo di indirizzi IP a cui si intende consentire l'accesso al server di database SQL. È ad esempio possibile aggiungere in una sola volta gli indirizzi IP del computer per sviluppatori specificando un intervallo nella pagina Impostazioni del firewall.
 
 È possibile creare regole firewall a livello di server o database. Le regole firewall a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules) (Creare regole firewall nel database SQL).
 
@@ -240,7 +240,7 @@ Nel database SQL è possibile sfruttare le informazioni intelligenti della piatt
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-Il portale di Azure mostra l'uso di un database singolo selezionandolo e facendo clic sul grafico nel riquadro Panoramica. È possibile modificare il grafico per visualizzare varie metriche, tra cui percentuale di CPU, percentuale di DTU, percentuale I/O dei dati, percentuale di sessioni e percentuale delle dimensioni del database.
+Il portale di Azure mostra l'uso di un database selezionandolo e facendo clic sul grafico nel riquadro Panoramica. È possibile modificare il grafico per visualizzare varie metriche, tra cui percentuale di CPU, percentuale di DTU, percentuale I/O dei dati, percentuale di sessioni e percentuale delle dimensioni del database.
 
 ![Grafico di monitoraggio](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 #### <a name="dynamic-management-views"></a>DMV (Dynamic Management View)
 
-È possibile eseguire una query nella DMV [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) per restituire la cronologia delle statistiche sull'uso delle risorse dell'ultima ora e la vista del catalogo di sistema sys.resource_stats per restituire la cronologia degli ultimi 14 giorni.
+È possibile eseguire una query nella DMV [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) per restituire la cronologia delle statistiche sull'uso delle risorse dell'ultima ora e la vista del catalogo di sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per restituire la cronologia degli ultimi 14 giorni.
 
 #### <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query
 

@@ -4,54 +4,59 @@ description: Panoramica della distribuzione di Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: aa5737d67ea2c9cb8cc7c7098764ae67fc91137d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669818"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298535"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT per Azure - Panoramica della distribuzione
 
 Questo articolo offre una panoramica dei passaggi necessari per attivare un cluster Avere vFXT per Azure.
 
-La prima volta che si distribuisce un sistema Avere vFXT, si noterà che sono necessari più passaggi rispetto alla distribuzione della maggior parte degli altri strumenti di Azure. Facendosi una chiara idea del processo dall'inizio alla fine, sarà possibile determinare l'entità del lavoro necessario. Quando il sistema è in esecuzione, la sua capacità di accelerare le attività di calcolo basate sul cloud giustificherà il lavoro richiesto.
+È necessario eseguire diverse attività prima e dopo la creazione del cluster vFXT da Azure Marketplace. Facendosi una chiara idea del processo dall'inizio alla fine, sarà possibile determinare l'entità del lavoro necessario. 
 
 ## <a name="deployment-steps"></a>Passaggi di distribuzione
 
 Dopo aver eseguito la [pianificazione del sistema](avere-vfxt-deploy-plan.md), è possibile iniziare a creare il cluster Avere vFXT. 
 
-Iniziare creando un macchina virtuale controller del cluster, da usare per creare il cluster vFXT.
+Un modello di Azure Resource Manager in Azure Marketplace raccoglie le informazioni necessarie e distribuisce automaticamente l'intero cluster. 
 
 Quando il cluster vFXT è operativo, sarà necessario sapere come connettere i client e, se necessario, come spostare i dati nel nuovo contenitore di archiviazione BLOB.  
 
 Ecco una panoramica di tutti i passaggi.
 
-1. Configurazione dei prerequisiti 
+1. Configurare i prerequisiti 
 
    Prima di creare una macchina virtuale, è necessario creare una nuova sottoscrizione per il progetto Avere vFXT, configurare la proprietà della sottoscrizione, verificare le quote e richiedere un aumento, se necessario, oltre che accettare le condizioni per l'uso del software Avere vFXT. Per istruzioni dettagliate, vedere [Preparare la creazione di Avere vFXT](avere-vfxt-prereqs.md).
 
-1. Creare il controller del cluster
+1. Creare un ruolo di accesso per i nodi del cluster
 
-   Il *controller del cluster* è una semplice macchina virtuale che si trova nella stessa rete virtuale del cluster Avere vFXT. Il controller crea i nodi vFXT e forma il cluster, oltre a fornire un'interfaccia della riga di comando per gestire il cluster durante il suo ciclo di vita.
+   Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) per autorizzare le macchine virtuali del nodo del cluster a eseguire determinate attività. Ad esempio, i nodi del cluster devono essere in grado di assegnare o riassegnare gli indirizzi IP ad altri nodi del cluster. Prima di creare il cluster, è necessario definire un ruolo che fornisca le autorizzazioni adeguate.
 
-   Se si configura il controller con un indirizzo IP pubblico, può fungere anche da host di collegamento per la connessione al cluster dall'esterno della rete virtuale.
+   Per istruzioni, vedere [Creare il ruolo di accesso dei nodi del cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role).
 
-   Tutto il software necessario per creare il cluster vFXT e gestire i relativi nodi è preinstallato nel controller del cluster.
-
-   Per informazioni dettagliate, vedere [Creare la macchina virtuale controller del cluster](avere-vfxt-deploy.md#create-the-cluster-controller-vm).
-
-1. Creare un ruolo di runtime per i nodi del cluster 
-
-   Azure usa il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/) per autorizzare le macchine virtuali del nodo del cluster a eseguire determinate attività. Ad esempio, i nodi del cluster devono essere in grado di assegnare o riassegnare gli indirizzi IP ad altri nodi del cluster. Prima di creare il cluster, è necessario definire un ruolo che fornisca le autorizzazioni adeguate.
-
-   Il software preinstallato del controller del cluster include un ruolo prototipo che è possibile personalizzare. Per istruzioni, vedere [Creare il ruolo di accesso dei nodi del cluster](avere-vfxt-deploy.md#create-the-cluster-node-access-role).
+   Anche il controller del cluster usa un ruolo di accesso, ma è possibile accettare il ruolo predefinito, Proprietario, anziché crearne uno. Se si vuole creare un ruolo personalizzato per il controller del cluster, vedere [Ruolo di controllo degli accessi personalizzato](avere-vfxt-controller-role.md). 
 
 1. Creare il cluster Avere vFXT 
 
-   Nel controller modificare lo script di creazione del cluster appropriato ed eseguirlo per creare il cluster. In [Modificare lo script di distribuzione](avere-vfxt-deploy.md#edit-the-deployment-script) sono disponibili istruzioni dettagliate. 
+   Usare Azure Marketplace per creare il cluster Avere vFXT per Azure. Un modello raccoglie le informazioni necessarie ed esegue gli script per creare il prodotto finale.
+
+   La creazione del cluster richiede questi passaggi, che vengono tutti eseguiti dal modello del marketplace: 
+
+   * Creazione di una nuova infrastruttura di rete e di nuovi gruppi di risorse, se necessario
+   * Creazione di un *controller del cluster*  
+
+     Il controller del cluster è una semplice macchina virtuale che si trova nella stessa rete virtuale del cluster Avere vFXT e dispone del software necessario per creare e gestire il cluster. Il controller crea i nodi vFXT e forma il cluster, oltre a fornire un'interfaccia della riga di comando per gestire il cluster durante il suo ciclo di vita.
+
+     Se si configura il controller con un indirizzo IP pubblico, può fungere anche da host di collegamento per la connessione al cluster dall'esterno della rete virtuale.
+
+   * Creazione delle macchine virtuali del nodo del cluster
+   * Configurazione delle macchine virtuali del nodo del cluster come cluster
+   * Facoltativamente, creazione di un nuovo contenitore BLOB e configurazione di tale contenitore come risorsa di archiviazione back-end per il cluster
 
 1. Configurare il cluster 
 

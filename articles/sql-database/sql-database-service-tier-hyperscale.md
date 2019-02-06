@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872890"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476180"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB
 
 Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli di architettura usati nel database SQL di Azure:
+
 - Utilizzo generico/Standard 
 - Business critical/Premium
 - Hyperscale
@@ -40,7 +41,7 @@ Il livello di servizio con iperscalabilità nel database SQL di Azure è il live
 Il livello di servizio con iperscalabilità nel database SQL di Azure offre le seguenti funzionalità aggiuntive:
 
 - Supporto per database di dimensioni massime di 100 TB
-- Backup dei database quasi immediati (basati su snapshot di file archiviati nell'archivio BLOB di Azure) indipendentemente dalle dimensioni senza alcun impatto delle operazioni di I/O sulle risorse di calcolo
+- Backup dei database quasi immediati (basati su snapshot di file archiviati nell'archivio BLOB di Azure) indipendentemente dalle dimensioni senza alcun impatto delle operazioni di I/O sulle risorse di calcolo   
 - Ripristino dei database (basati su snapshot di file) in pochi minuti anziché in ore o giorni (non è un'operazione di dimensionamento dei dati)
 - Prestazioni complessive più elevate grazie alla maggiore velocità effettiva dei log e ai tempi di esecuzione di commit delle transazioni più veloci, indipendentemente dai volumi di dati
 - Rapida scalabilità orizzontale: è possibile effettuare il provisioning di uno o più nodi di sola lettura per l'offload del carico di lavoro di lettura e per l'uso come hot standby
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> La funzionalità [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) deve essere disattivata prima di convertire un database senza iperscalabilità in un database con iperscalabilità.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Connettersi a una replica scalabilità in lettura di un database con iperscalabilità
 
 Nei database con iperscalabilità l'argomento `ApplicationIntent` nella stringa di connessione fornita dal client indica se la connessione viene instradata alla replica in scrittura o a una replica secondaria di sola lettura. Se `ApplicationIntent` è impostato su `READONLY` e il database non ha una replica secondaria, la connessione viene indirizzata alla replica primaria con il comportamento predefinito `ReadWrite`.
@@ -153,17 +151,18 @@ Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica
 
 | Problema | DESCRIZIONE |
 | :---- | :--------- |
-| Il riquadro Gestisci backup per un server logico non mostra i database con iperscalabilità, che vengono filtrati da SQL Server  | Il livello di servizio con iperscalabilità gestisce i backup diversamente, pertanto le impostazioni di conservazione a lungo termine e conservazione dei backup temporizzata non sono valide. Di conseguenza i database con iperscalabilità non compaiono nel riquadro Gestisci backup. |
+| Il riquadro Gestisci backup per un server di database SQL non mostra i database con iperscalabilità, che vengono filtrati da SQL Server->  | Il livello di servizio con iperscalabilità gestisce i backup diversamente, pertanto le impostazioni di conservazione a lungo termine e conservazione dei backup temporizzata non sono valide. Di conseguenza i database con iperscalabilità non compaiono nel riquadro Gestisci backup. |
 | Ripristino temporizzato | Dopo la migrazione di un database nel livello di servizio con iperscalabilità, il ripristino in un tempo precedente alla migrazione non è supportato.|
 | Se le dimensioni di un database aumentano durante la migrazione a causa di un carico di lavoro inattivo, superando il limite di 1 TB per file, la migrazione non riesce. | Soluzioni: <br> - Se possibile, eseguire la migrazione del database in un momento in cui non è in esecuzione un carico di lavoro di aggiornamento.<br> - Riprovare a eseguire la migrazione, che riuscirà se durante il processo non viene superato il limite di 1 TB.|
 | Istanza gestita non è attualmente supportata | Attualmente non supportato |
 | La migrazione al livello di servizio con iperscalabilità è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a questo livello di servizio, non è possibile eseguirne la migrazione direttamente a un livello di servizio senza iperscalabilità. Attualmente l'unico modo per eseguire la migrazione di un database dal livello di servizio con iperscalabilità a un livello di servizio diverso consiste nell'esportarlo/importarlo usando un file BACPAC.|
-| La migrazione di database con oggetti in memoria non è attualmente supportata | Gli oggetti in memoria devono essere eliminati e ricreati come oggetti non in memoria prima di poter eseguire la migrazione di un database al livello di servizio con iperscalabilità.
+| La migrazione di database con oggetti in memoria non è attualmente supportata | Gli oggetti in memoria devono essere eliminati e ricreati come oggetti non in memoria prima di poter eseguire la migrazione di un database al livello di servizio con iperscalabilità.|
+| La modifica del rilevamento dei dati non è attualmente supportata. | Non sarà possibile usare la modifica del rilevamento dei dati per i database con iperscalabilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sull'iperscalabilità, vedere le [domande frequenti sull'iperscalabilità](sql-database-service-tier-hyperscale-faq.md).
 - Per informazioni sui livelli di servizio, vedere [Livelli di servizio](sql-database-service-tiers.md)
-- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
+- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Panoramica dei limiti delle risorse in un server di database SQL).
 - Per informazioni sui limiti del modello di acquisto per un database singolo, vedere [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](sql-database-vcore-resource-limits-single-databases.md).
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).

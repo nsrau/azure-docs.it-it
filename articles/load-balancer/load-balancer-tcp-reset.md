@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257296"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296920"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con TCP Reset per inattività (anteprima pubblica)
 
-È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento dell'applicazione più prevedibile per gli scenari con TCP Reset bidirezionali (pacchetto TCP RST) per ogni timeout di inattività configurabile.  Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.
+È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
 
 ![TCP Reset di Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Con l'API versione 2018-07-01, è possibile abilitare l'invio di TCP Reset bidir
 
 ## <a name="regions"></a> Disponibilità in base all'area geografica
 
-Questo parametro è attualmente attivo nelle aree seguenti.  Nelle aree non incluse in questo elenco, il parametro non ha effetto.
-
-| Region |
-|---|
-| Asia sudorientale |
-| Brasile meridionale |
-| Canada centrale |
-| Europa occidentale |
-| India centrale |
-| India occidentale |
-| Giappone occidentale |
-| Corea del Sud centrale |
-| Corea del Sud meridionale |
-| Regno Unito settentrionale |
-| Regno Unito meridionale 2 |
-| Stati Uniti orientali |
-| Stati Uniti orientali 2 |
-| Stati Uniti settentrionali |
-| Stati Uniti occidentali |
-
-Questa tabella verrà aggiornata con l'estensione dell'anteprima ad altre aree.  
+Disponibile in tutte le aree.
 
 ## <a name="limitations"></a>Limitazioni
 
-- [Disponibilità in base all'area geografica](#regions) limitata.
 - Non è possibile usare il portale per configurare o visualizzare TCP Reset.  Usare in alternativa i modelli, l'API REST, l'interfaccia della riga di comando di Azure 2.0 o PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi

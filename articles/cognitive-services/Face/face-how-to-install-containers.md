@@ -7,166 +7,154 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: face-api
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0ed7a007f4d39b36ecc9669d97379323b91a3a09
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477438"
 ---
 # <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
-
-La containerizzazione è un approccio alla distribuzione del software in cui un'applicazione o un servizio viene compresso come immagine del contenitore. La configurazione e le dipendenze dell'applicazione o del servizio sono incluse nell'immagine del contenitore. L'immagine del contenitore può quindi essere distribuita in un host contenitore senza alcuna variazione o con modifiche minime. I contenitori sono isolati fra loro e dal sistema operativo sottostante, con un footprint inferiore a quello di una macchina virtuale. È possibile creare istanze dei contenitori dalle immagini per attività a breve termine e rimuoverle quando non sono più necessarie.
 
 Viso offre un contenitore Linux standardizzato per Docker, denominato Viso, che rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche con previsioni basate sul computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure confrontare i visi in un database per verificare se esistano già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="preparation"></a>Operazioni preliminari
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di usare il contenitore Viso, è necessario soddisfare i prerequisiti seguenti:
+Prima di usare i contenitori API Viso, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Azure Kubernetes](../../aks/index.yml), in [Istanze di Azure Container](../../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](../../azure-stack/index.yml). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md) (Distribuzione di Kubernetes in Azure Stack).
+|Obbligatoria|Scopo|
+|--|--|
+|Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
+|Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
+|Risorsa di API Viso |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di _API Viso_ di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di API Viso nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
-
-**Familiarità con Registro Container Microsoft e Docker**: è opportuno avere una conoscenza di base dei concetti relativi a Registro Container Microsoft e Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.  
-
-Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
-
-### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
-
-Il contenitore Viso richiede un minimo di 1 core CPU (almeno 2,6 GHz) e 4 GB di memoria allocata, ma sono consigliabili almeno 2 core CPU e 6 GB di memoria allocata.
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
-È necessario innanzitutto completare e inviare il [modulo di richiesta di contenitori di visione di Servizi cognitivi](https://aka.ms/VisionContainersPreview) per richiedere l'accesso al contenitore Viso. Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo l'invio, il team di Servizi cognitivi di Azure esamina il modulo per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> È necessario usare un indirizzo di posta elettronica associato un account Microsoft o Azure Active Directory (Azure AD) nel modulo.
+### <a name="the-host-computer"></a>Computer host
 
-Se la richiesta viene approvata, si riceverà un messaggio di posta elettronica con istruzioni su come ottenere le credenziali e accedere al registro contenitori privato.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
-## <a name="create-a-face-resource-on-azure"></a>Creare una risorsa Viso in Azure
 
-È necessario creare una risorsa Viso in Azure se si intende usare il contenitore Viso. Dopo aver creato la risorsa, usare la chiave di sottoscrizione e l'URL dell'endpoint della risorsa per creare un'istanza del contenitore. Per altre informazioni sulla creazione di un'istanza del contenitore, vedere [Creare un'istanza di un contenitore da un'immagine del contenitore scaricata](#instantiate-a-container-from-a-downloaded-container-image).
+### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-Seguire i passaggi seguenti per creare e recuperare informazioni da una risorsa Viso:
+La tabella seguente indica il valore minimo e consigliato per CPU e memoria da allocare per ogni contenitore di API Viso.
 
-1. Creare una risorsa Viso nel portale di Azure.  
-   Per usare il contenitore Viso, è necessario creare innanzitutto una risorsa Viso corrispondente nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure](../cognitive-services-apis-create-account.md).
+| Contenitore | Minima | Consigliato |
+|-----------|---------|-------------|
+|Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |
 
-1. Ottenere l'URL dell'endpoint e la chiave di sottoscrizione per la risorsa di Azure.  
-   Una volta creata la risorsa di Azure, sarà necessario usare l'URL dell'endpoint e la chiave di sottoscrizione della risorsa per creare un'istanza del contenitore Viso corrispondente. È possibile copiare l'URL dell'endpoint e la chiave di sottoscrizione rispettivamente dalle pagine di Avvio rapido e Chiavi della risorsa Viso nel portale di Azure.
+Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 
-## <a name="log-in-to-the-private-container-registry"></a>Accedere al registro contenitori privato
+Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
-Esistono diversi modi per eseguire l'autenticazione con il registro contenitori privato per i contenitori di Servizi cognitivi, ma il metodo consigliato dalla riga di comando consiste nell'usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/).
+## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Usare il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/), come illustrato nell'esempio seguente, per accedere a `containerpreview.azurecr.io`, il registro contenitori privato per i contenitori di Servizi cognitivi. Sostituire *\<username\>* con il nome utente e *\<password\>* con la password specificata nelle credenziali ricevute dal team di Servizi cognitivi di Azure.
+Sono disponibili immagini del contenitore per l'API Viso. 
 
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
+| Contenitore | Repository |
+|-----------|------------|
+| Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
-Se le credenziali sono protette in un file di testo, è possibile concatenare il contenuto del file mediante il comando `cat` al comando `docker login`, come mostrato nell'esempio seguente. Sostituire *\<passwordFile\>* con il percorso e il nome del file di testo contenente la password e *\<username\>* con il nome utente specificato nelle credenziali.
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
-## <a name="download-container-images-from-the-private-container-registry"></a>Scaricare le immagini dei contenitori dal registro contenitori privato
-
-L'immagine del contenitore Viso è disponibile in un registro contenitori Docker privato, denominato `containerpreview.azurecr.io`, in Registro Azure Container. L'immagine del contenitore Viso deve essere scaricata dal repository per eseguire il contenitore in locale.
-
-Usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal repository. Per scaricare, ad esempio, l'immagine del contenitore Viso più recente dal repository, usare il comando seguente:
+### <a name="docker-pull-for-the-face-container"></a>Docker pull per il contenitore di Viso
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
-Per una descrizione completa dei tag disponibili per il contenitore Viso, vedere [Riconoscimento del testo](https://go.microsoft.com/fwlink/?linkid=2018655) nell'hub Docker.
+## <a name="how-to-use-the-container"></a>Come usare il contenitore
 
-> [!TIP]
-> È possibile usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per elencare le immagini dei contenitori scaricate. Ad esempio, il comando seguente visualizza l'ID, il repository e il tag di ogni immagine del contenitore scaricata, in formato tabella:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usare il contenitore.
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Creare un'istanza di un contenitore da un'immagine del contenitore scaricata
+1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie. Sono disponibili altri [esempi](./face-resource-container-config.md#example-docker-run-commands) del comando `docker run`. 
+1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per creare un'istanza di un contenitore da un'immagine del contenitore scaricata. Ad esempio, il comando seguente:
+## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-* Crea un'istanza di un contenitore da un'immagine del contenitore Viso
-* Alloca due core CPU e 6 GB di memoria
-* Espone la porta TCP 5000 e alloca un pseudo terminale (TTY) per il contenitore
-* Rimuove automaticamente il contenitore dopo la chiusura
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-```Docker
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
+| Placeholder | Valore |
+|-------------|-------|
+|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina delle chiavi di API Viso del portale di Azure.  |
+|{BILLING_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina della panoramica di API Viso del portale di Azure.|
+
+Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/ognitive-services-face \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
 ```
+
+Questo comando:
+
+* Esegue un contenitore di Viso dall'immagine del contenitore
+* Alloca un core CPU e 4 GB di memoria
+* Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore
+* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host. 
+
+Sono disponibili altri [esempi](./face-resource-container-config.md#example-docker-run-commands) del comando `docker run`. 
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per creare un'istanza del contenitore e avviarlo.  Per altre informazioni, vedere[Fatturazione](#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Una volta creata un'istanza, sarà possibile chiamare operazioni dal contenitore mediante l'URI dell'host del contenitore. L'URI dell'host seguente rappresenta ad esempio il contenitore Viso di cui è stata creata un'istanza nell'esempio precedente:
+## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
 
-```http
-http://localhost:5000/
-```
+Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-> [!TIP]
-> È possibile accedere alla [specifica OpenAPI](https://swagger.io/docs/specification/about/) (in precedenza nota come specifica Swagger), che descrive le operazioni supportate da un contenitore di cui è stata creata un'istanza, dall'URI relativo di `/swagger` per il contenitore. L'URI seguente consente ad esempio di accedere alla specifica OpenAPI per il contenitore Viso di cui è stata creata un'istanza nell'esempio precedente:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+Usare l'host, https://localhost:5000, per le API del contenitore.
 
-È possibile [chiamare le operazioni API REST](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage) disponibili nel contenitore o usare la [libreria client di Viso di Servizi cognitivi di Azure](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/) per chiamare le operazioni.  
-> [!IMPORTANT]
-> Se si intende usare la libreria client con il contenitore, è necessario disporre della libreria client di Viso di Servizi cognitivi di Azure 2.0 o versione successiva.
+## <a name="stop-the-container"></a>Arrestare il contenitore
 
-L'unica differenza tra la chiamata di un'operazione specifica dal contenitore o da un servizio corrispondente in Azure consiste nel fatto che si userà l'URI dell'host del contenitore, anziché l'URI dell'host di un'area di Azure. Se ad esempio si intende usare un'istanza di Viso in esecuzione nell'area di Azure Stati Uniti occidentali per rilevare i visi, chiamare l'operazione API REST seguente:
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-```http
-POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
-```
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si intende usare un contenitore Viso in esecuzione nel computer locale nella configurazione predefinita per rilevare i visi, chiamare l'operazione API REST seguente:
+Se si esegue il contenitore con un punto di [montaggio](./face-resource-container-config.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 
-```http
-POST http://localhost:5000/face/v1.0/detect
-```
+## <a name="containers-api-documentation"></a>Documentazione dell'API del contenitore
 
-### <a name="billing"></a>Fatturazione
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-Il contenitore Viso invia le informazioni di fatturazione ad Azure usando una risorsa Viso corrispondente nell'account di Azure. Le opzioni della riga di comando seguenti vengono usate dal contenitore Viso ai fini di fatturazione:
+## <a name="billing"></a>Fatturazione
+
+I contenitori di API Viso inviano le informazioni di fatturazione ad Azure usando una risorsa di _API Viso_ nell'account di Azure. 
+
+I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft. 
+
+Il comando `docker run` usa gli argomenti seguenti a scopo di fatturazione:
 
 | Opzione | DESCRIZIONE |
 |--------|-------------|
-| `ApiKey` | Chiave API della risorsa Viso usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa Viso di Azure sottoposta a provisioning specificata in `Billing`. |
-| `Billing` | Endpoint della risorsa Viso usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato sull'URI dell'endpoint di una risorsa Viso di Azure sottoposta a provisioning.|
+| `ApiKey` | Chiave API della risorsa _API Viso_ usata per tenere traccia delle informazioni di fatturazione. |
+| `Billing` | L'endpoint della risorsa _API Viso_ usata per tenere traccia delle informazioni di fatturazione.|
 | `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
 
 > [!IMPORTANT]
 > Tutte e tre le opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
 
-Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](face-resource-container-config.md).
+Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./face-resource-container-config.md).
 
 ## <a name="summary"></a>Summary
 
-In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Viso. In sintesi:
+Questo articolo ha illustrato i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di API Viso. In sintesi:
 
-* Viso fornisce un contenitore Linux per Docker, denominato Viso, per rilevare i visi o identificarli mediante un database di persone.
-* Le immagini dei contenitori vengono scaricate da un registro contenitori privato in Azure.
+* API Viso fornisce tre contenitori Linux per Docker, che incapsulano funzionalità di estrazione di frasi chiave, rilevamento della lingua e analisi del sentiment.
+* Le immagini dei contenitori vengono scaricate da Registro Container Microsoft in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori Viso specificando l'URI dell'host del contenitore.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di API Viso specificando l'URI dell'host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]

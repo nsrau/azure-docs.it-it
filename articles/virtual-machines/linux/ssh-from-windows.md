@@ -3,7 +3,7 @@ title: Usare le chiavi SSH con Windows per le VM Linux | Microsoft Docs
 description: Informazioni su come generare e usare chiavi SSH in un computer Windows per connettersi a una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407417"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298654"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Come usare le chiavi SSH con Windows in Azure
 
@@ -72,7 +72,7 @@ Per creare una coppia di chiavi SSH RSA con PuTTYgen:
 
 4. Spostare il puntatore del mouse nell'area vuota per generare casualità per la chiave.
 
-5. Dopo la generazione della chiave pubblica, è possibile facoltativamente immettere e confermare una passphrase. La passphrase sarà chiesta in fase di autenticazione per la macchina virtuale con la chiave SSH privata. Quando non si imposta una passphrase, se un utente ottiene la chiave privata potrà accedere a qualsiasi VM o servizio che usa tale chiave. Creare una passphrase è altamente consigliato. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
+5. Dopo la generazione della chiave pubblica, è possibile facoltativamente immettere e confermare una passphrase. La passphrase sarà chiesta in fase di autenticazione per la macchina virtuale con la chiave SSH privata. Senza una passphrase, se un utente ottiene la chiave privata, potrà accedere a qualsiasi macchina virtuale o servizio che usa tale chiave. Creare una passphrase è altamente consigliato. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
 
 6. La chiave pubblica è visualizzata nella parte superiore della finestra. È possibile copiare l'intera chiave pubblica e quindi incollarla nel portale di Azure o in un modello di Azure Resource Manager quando si crea una macchina virtuale Linux. È inoltre possibile selezionare **Salva chiave pubblica** per salvare una copia nel computer:
 
@@ -104,7 +104,9 @@ Con la chiave pubblica distribuita nella VM di Azure e la chiave privata nel sis
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Se è stata configurata una passphrase durante la creazione della coppia di chiavi, immettere la passphrase quando viene richiesta durante la procedura di accesso.
+Se durante la creazione della coppia di chiavi è stata configurata una passphrase, immetterla quando viene richiesta durante la procedura di accesso.
+
+Se la macchina virtuale usa i criteri di accesso JIT, è necessario richiedere l'accesso per connettersi alla macchina virtuale. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Connettersi con PuTTY
 

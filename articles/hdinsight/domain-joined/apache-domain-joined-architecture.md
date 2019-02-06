@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437589"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462430"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -55,9 +55,41 @@ Per altre informazioni, vedere [Configurare un cluster HDInsight con Enterprise 
 
 Se si dispone di un'istanza di Active Directory locale o di configurazioni più complesse di Active Directory per il dominio, è possibile sincronizzare le identità in Azure AD tramite Azure AD Connect. È quindi possibile abilitare Azure Active Directory Domain Services in tale tenant di Active Directory. 
 
-Poiché Kerberos si basa sugli hash delle password, sarà necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se si usa la federazione con Active Directory Federation Services (AD FS), è possibile configurare facoltativamente la sincronizzazione dell'hash delle password come backup in caso di errore dell'infrastruttura di AD FS. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Poiché Kerberos si basa sugli hash delle password, è necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Se si usa la federazione con Active Directory Federation Services (ADFS), è necessario abilitare la sincronizzazione degli hash delle password (per una configurazione consigliata, vedere [qui](https://youtu.be/qQruArbu2Ew)) che risulta utile anche con il ripristino di emergenza in caso di errore dell'infrastruttura ADFS e di perdita della protezione delle credenziali. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 L'utilizzo di Active Directory locale o Active Directory sulle sole macchine virtuali IaaS, senza Azure AD e Azure Active Directory Domain Services, non è una configurazione supportata per i cluster HDInsight con ESP.
+
+Se viene usata la federazione e gli hash delle password sono sincronizzati correttamente, ma si ricevono errori di autenticazione, verificare che l’autenticazione della password cloud dell’entità servizio powershell sia abilitata. In caso contrario, è necessario impostare un [criterio di individuazione area di autenticazione principale (HRD )](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant AAD. Per verificare e impostare il criterio HRD:
+
+ 1. Installare il modulo Azure PowerShell
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` usando le credenziali di un amministratore globale (amministratore tenant)
+
+ 3. Controllare se è già stata creata l'entità servizio "Microsoft Azure Powershell"
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. Se non esiste (ad esempio se ($powershellSPN -q $null)), creare l'entità servizio
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Creare e associare il criterio a questa entità servizio: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

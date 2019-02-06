@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cfc5779768ccd1efdc406da6b2701b52f2ab81cf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0768b856e38972b33384db004dc6a973d18d6f91
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121465"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475823"
 documentType: LandingData
 title: 'Database SQL di Azure: Database singolo'
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 12/01/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop-msft
 abstract:
   description: Il database SQL di Azure è un database relazionale distribuito come servizio (DBaaS) basato sull'ultima versione stabile del motore di database di Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, facile da usare e a prestazioni elevate che consente di creare nuove applicazioni, siti Web e microservizi nel linguaggio di programmazione preferito, senza dover gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.
@@ -43,9 +43,9 @@ sections:
       html: <p>I pool elastici di database SQL offrono una soluzione semplice e conveniente per la gestione e il ridimensionamento di più database con esigenze di utilizzo variabili e imprevedibili.</p>
       image:
         src: media/index/i_elasticpool.svg
-    - title: Server logico
-      href: /azure/sql-database/sql-database-logical-servers
-      html: <p>Un server logico è un punto di amministrazione centrale per la configurazione di sicurezza, ottimizzazione, criteri di backup e altre proprietà di configurazione in un set di database all'interno del server.</p>
+    - title: Server di database SQL
+      href: /azure/sql-database/sql-database-servers
+      html: <p>Un server di database SQL è un punto di amministrazione centrale per la configurazione di sicurezza, ottimizzazione, criteri di backup e altre proprietà di configurazione in un set di database singoli o in pool all'interno del server.</p>
       image:
         src: media/index/i_mi.svg
     - title: Livelli di prezzo e di servizio

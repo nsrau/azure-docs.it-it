@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188403"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299045"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,17 +23,20 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure     |   Yes      |    Yes      |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
-|Archiviazione BLOB di Azure*     |   Yes       |    No       |
-|Archiviazione tabelle di Azure*    |   Yes       |    No       |
-|Azure Cosmos DB*     |  Yes        |  No         |
-|Azure Data Lake Store*     |   Yes       |    No       |
-|Azure HDInsight (HDFS)*     |     Yes     |   No        |
-|Azure HDInsight Spark*     |   Yes       |   No        |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Yes       |    No       |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Yes       |    No       |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No         |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Yes       |    No       |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No        |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Yes       |   No        |
 ||||
 
-\* Solo modelli tabulari 1400.
+<a name="tab1400a">1</a> Solo modelli tabulari 1400 e superiori.   
+<a name="azsqlmanaged">2</a> Istanza gestita di database SQL di Azure è supportata. Poiché un'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario un gateway dati locale.   
+<a name="databricks">3</a> Azure Databricks con il connettore Spark non è attualmente supportato.
+
 
 **Provider**   
 I modelli in memoria e DirectQuery che si connettono alle origini dati di Azure usano il provider di dati .NET Framework per SQL Server.
@@ -57,31 +60,31 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |Origine dati  |  
 |---------|---------|
 |Database di Access     |  
-|Active Directory*     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Piattaforma di strumenti analitici     |  
-|Dynamics CRM*     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Cartella di lavoro di Excel     |  
-|Exchange*     |  
-|Cartella*     |
-|IBM Informix* (Beta) |
-|Documento JSON*     |  
-|Righe da file binario*     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Cartella<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
+|Documento JSON<sup>[1](#tab1400b)</sup>     |  
+|Righe da file binario<sup>[1](#tab1400b)</sup>     | 
 |MySQL Database     | 
-|Feed OData*     |  
+|Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   
-|Database PostgreSQL*    | 
-|Oggetti Salesforce* |  
-|Report Salesforce* |
-|SAP HANA*    |  
-|SAP Business Warehouse*    |  
-|SharePoint*     |   
+|Database PostgreSQL<sup>[1](#tab1400b)</sup>    | 
+|Oggetti Salesforce<sup>[1](#tab1400b)</sup> |  
+|Report Salesforce<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Database di Sybase     |  
-|Tabella XML*    |  
+|Tabella XML<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* Solo modelli tabulari 1400.
+<a name="tab1400b">1</a> Solo modelli tabulari 1400 e superiori.
 
 ## <a name="specifying-a-different-provider"></a>Specificare un provider diverso
 

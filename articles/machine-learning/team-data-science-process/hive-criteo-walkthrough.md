@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477217"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
@@ -33,14 +33,14 @@ Ogni record nel set di dati contiene 40 colonne:
 * le successive 13 colonne sono di tipo numerico
 * le ultime 26 colonne sono di tipo categorico
 
-Le colonne sono rese anonime e usano una serie di nomi enumerati: da "Col1" (per la colonna delle etichette) a "Col40" (per l'ultima colonna categorica).            
+Le colonne sono rese anonime e usano una serie di nomi enumerati: da "Col1" (per la colonna delle etichette) a "Col40" (per l'ultima colonna categorica).
 
 Di seguito è riportato un estratto delle prime 20 colonne di due osservazioni (righe) di questo set di dati:
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quelle categoriche. Di seguito viene descritto un metodo semplice per la gestione dei valori mancanti. Sono illustrati anche altri dettagli sui dati quando vengono archiviati nelle tabelle Hive.
 
@@ -50,7 +50,7 @@ Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quell
 Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 1. **Classificazione binaria**: stima se un utente ha fatto clic su un annuncio:
-   
+
    * Classe 0: Nessun clic
    * Classe 1: Fare clic su 
 2. **Regressione**: stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
@@ -62,10 +62,10 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): questo account di archiviazione viene usato per archiviare i dati in Archiviazione BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster di Azure HDInsight Hadoop per le attività di data science](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
-   
+
    * È necessario collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
    * È necessario abilitare l'accesso remoto al nodo head del cluster dopo la creazione. Ricordare le credenziali di accesso remoto specificate qui, che sono diverse da quelle specificate durante la creazione del cluster, perché sono necessarie per completare le procedure seguenti.
-3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): l'area di lavoro di Azure Machine Learning viene usata per la creazione di modelli di Machine Learning dopo l'esplorazione iniziale dei dati e il loro sottocampionamento nel cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning Studio](../studio/create-workspace.md): l'area di lavoro di Azure Machine Learning viene usata per la creazione di modelli di Machine Learning dopo l'esplorazione iniziale dei dati e il loro sottocampionamento nel cluster HDInsight.
 
 ## <a name="getdata"></a>Ottenere e utilizzare i dati da un'origine pubblica
 È possibile accedere al set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) facendo clic sul collegamento, accettando le condizioni per l'utilizzo e specificando un nome. Ecco uno snapshot di come appare:
@@ -74,10 +74,10 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 Fare clic su **Continue to Download** (Continuare per il download) per leggere altre informazioni sul set di dati e sulla relativa disponibilità.
 
-I dati si trovano in una posizione di [archiviazione BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure. 
+I dati si trovano in una posizione di [archiviazione BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
 
 1. I dati in questo archivio BLOB pubblico sono costituiti da tre sottocartelle di dati non compressi.
-   
+
    1. La sottocartella *raw/count/* contiene i primi 21 giorni di dati, da day\_00 a day\_20
    2. La sottocartella *raw/train/* è costituita da un singolo giorno di dati, day\_21
    3. La sottocartella *raw/test/* è costituita da due giorni di dati, day\_22 e day\_23
@@ -103,11 +103,11 @@ Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di coman
 
 > [!NOTE]
 > Al prompt della directory bin/ Hive eseguire tutti i comandi di Hive riportati in questa procedura dettagliata. In questo modo, eventuali problemi di percorso vengono risolti automaticamente. I termini "prompt della directory Hive", "prompt della directory bin/ Hive" e "riga di comando di Hadoop" possono essere usati in modo intercambiabile.
-> 
+>
 > [!NOTE]
 > Per eseguire qualsiasi query Hive, è sempre possibile usare i comandi seguenti:
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -158,13 +158,13 @@ Queste tabelle sono tutte esterne e, quindi, è possibile puntare semplicemente 
 **Esistono due modi per eseguire QUALSIASI query Hive:**
 
 1. **Tramite la riga di comando REPL Hive**: il primo modo consiste nell'eseguire un comando "hive" e copiare e incollare la query nella riga di comando REPL Hive. A tale scopo, eseguire l'operazione seguente:
-   
+
         cd %hive_home%\bin
         hive
-   
+
      A questo punto, tagliando e incollando la query nella riga di comando REPL questa viene eseguita.
 2. **Salvando le query in un file ed eseguendo il comando**: il secondo modo consiste nel salvare le query in un file con estensione hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), quindi eseguire il comando seguente per eseguire la query:
-   
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>Verificare la creazione del database e della tabella
@@ -294,7 +294,7 @@ Il risultato è il seguente:
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-La distribuzione dei percentili è in genere strettamente correlata alla distribuzione nell'istogramma di qualsiasi variabile numerica.         
+La distribuzione dei percentili è in genere strettamente correlata alla distribuzione nell'istogramma di qualsiasi variabile numerica.
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Trovare il numero di valori univoci per alcune colonne categoriche nel set di dati di training
 Continuando l'esplorazione dei dati viene ora trovato, per alcune colonne categoriche, il numero di valori univoci accettati. A questo scopo, viene visualizzato il contenuto di [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
@@ -455,11 +455,11 @@ Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Le
 
 > [!NOTE]
 > Eseguire questa operazione per entrambi i set di dati, di training e di test. Ricordare anche di usare il nome database e i nomi delle tabelle assegnati a questo scopo. I valori usati nella figura hanno puramente scopo illustrativo.**
-> 
-> 
+>
+>
 
 ### <a name="step2"></a> Passaggio 2: creare un semplice esperimento in Azure Machine Learning per stimare i clic o l'assenza di clic
-L'esperimento di Azure ML è simile al seguente:
+Il nostro esperimento di Azure Machine Learning Studio ha l'aspetto seguente:
 
 ![Esperimento di Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +481,9 @@ Per compilare funzioni di conteggio, si usa il modulo **Build Counting Transform
 ![Proprietà del modulo Build Counting Transform](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Proprietà del modulo Build Counting Transform](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Nella casella **Count columns** (Colonne conteggio) si immettono le colonne su cui eseguire i conteggi. Come indicato in precedenza, si tratta in genere di colonne categoriche con dimensionalità elevata. Tenere presente che il set di dati Criteo contiene 26 colonne categoriche: da Col15 a Col40. In questo caso vengono tenute tutte in considerazione e vengono assegnati gli indici (da 15 a 40 separati da virgole, come nella figura).
-> 
+>
 
 Per usare il modulo in modalità MapReduce, appropriata per i set di dati di grandi dimensioni, è necessario accedere a un cluster Hadoop HDInsight (quello usato per esplorare le funzionalità può essere usato anche a questo scopo) e alle relative credenziali. Le figure precedenti illustrano i valori inseriti. Sostituire i valori forniti a scopo illustrativo con quelli pertinenti al proprio caso d'uso.
 
@@ -588,8 +588,8 @@ Come passaggio iniziale, poiché la tabella di conteggio è grande, vengono pres
 
 > [!NOTE]
 > Per il formato dati di input, viene ora usato l'OUTPUT del modulo **Count Featurizer**. Una volta terminata l'esecuzione dell'esperimento, salvare l'output del modulo **Count Featurizer** come set di dati. Il set di dati viene usato per i dati di input nel servizio Web.
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Esperimento di assegnazione dei punteggi per la pubblicazione del servizio Web
 Per prima cosa, ne viene illustrato l'aspetto. La struttura essenziale è un modulo **Score Model** che accetta l'oggetto modello sottoposto a training e poche righe di dati di input generate nei passaggi precedenti usando il modulo **Count Featurizer**. Usare il modulo "Select Columns in Dataset" per ottenere le etichette con i punteggi e le probabilità di stima.

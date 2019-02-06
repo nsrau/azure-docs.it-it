@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido per il linguaggio di programmazione di R titleSuffix: Descrizione di Azure Machine Learning Studio: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Avvio rapido per il linguaggio di programmazione di R titleSuffix: Descrizione di Azure Machine Learning Studio: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
 ---

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232057"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243148"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -51,12 +51,12 @@ Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL so
 
 1. Disabilitare i repository non EUS:
     ```bash
-    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. Aggiungere i repository EUS:
     ```bash
-    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
 1. Bloccare la variabile releasever:
@@ -103,15 +103,10 @@ I nuovi server RHUI di Azure vengono distribuiti con [Gestione traffico di Azure
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Aggiornare il certificato client RHUI scaduto in una macchina virtuale
 
-Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL scaduto (il 21 novembre 2018). Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
+Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL ormai scaduto. Verrà visualizzato un errore simile al seguente: _"Il peer SSL ha rifiutato il certificato perché scaduto"_. Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
 
 ```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
-```
-
-Se la macchina virtuale RHEL è nel cloud del governo degli Stati Uniti, usare il comando seguente:
-```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
 In alternativa, anche l'esecuzione di `sudo yum update` aggiornerà il pacchetto del certificato client, nonostante gli errori di "certificato SSL scaduto" visualizzati per altri repository. Dopo l'aggiornamento dovrebbe essere ripristinata la normale connettività agli altri repository RHUI e sarà possibile eseguire `sudo yum update`.

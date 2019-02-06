@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259138"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459486"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
 In questa esercitazione vengono illustrati diversi scenari di gestione delle prestazioni chiave usati nelle applicazioni SaaS. Usando un generatore di carico per simulare l'attività in tutti i database tenant, vengono illustrate le funzionalità di monitoraggio e avviso predefinite del database SQL e dei pool elastici.
 
-L'app del database per tenant SaaS Wingtip Tickets usa un modello di dati a tenant singolo, in cui ogni sede di eventi, ovvero il tenant, ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool di database elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
+L'app del database per tenant SaaS Wingtip Tickets usa un modello di dati a tenant singolo, in cui ogni sede di eventi, ovvero il tenant, ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
 
 In questa esercitazione si apprenderà come:
 
@@ -42,7 +42,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduzione ai modelli di gestione delle prestazioni SaaS
 
-La gestione delle prestazioni dei database comprende la compilazione e l'analisi dei dati sulle prestazioni, quindi l'adozione delle misure appropriate adattando i parametri in modo da mantenere tempi di risposta accettabili per l'applicazione. Quando si ospitano più tenant, i pool di database elastici rappresentano una soluzione conveniente per fornire e gestire le risorse per un gruppo di database con carichi di lavoro imprevedibili. Con determinati modelli di carico di lavoro, anche solo due database S3 possono trarre vantaggio dalla gestione in un pool.
+La gestione delle prestazioni dei database comprende la compilazione e l'analisi dei dati sulle prestazioni, quindi l'adozione delle misure appropriate adattando i parametri in modo da mantenere tempi di risposta accettabili per l'applicazione. Quando si ospitano più tenant, i pool elastici rappresentano una soluzione conveniente per fornire e gestire le risorse per un gruppo di database con carichi di lavoro imprevedibili. Con determinati modelli di carico di lavoro, anche solo due database S3 possono trarre vantaggio dalla gestione in un pool.
 
 ![diagramma applicazioni](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ In alternativa al potenziamento del pool, è possibile creare un secondo pool e 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire il server **tenants1-dpt-&lt;UTENTE&gt;**.
 1. Fare clic su **+ Nuovo pool** per creare un pool nel server corrente.
-1. Nel modello **Pool di database elastici**:
+1. Nel modello **Pool elastici**:
 
     1. Impostare **Nome** su *Pool2*.
     1. Lasciare il piano tariffario **Pool Standard**.
@@ -189,7 +189,7 @@ Passare a **Pool2**, nel server *tenants1-dpt-\<utente\>*, per aprire il pool e 
 
 Si nota ora una riduzione dell'utilizzo delle risorse di *Pool1* e un carico simile per *Pool2*.
 
-## <a name="manage-performance-of-a-single-database"></a>Gestire le prestazioni di un database singolo
+## <a name="manage-performance-of-an-individual-database"></a>Gestire le prestazioni di un database singolo
 
 Se un singolo database in un pool è sottoposto a un carico elevato prolungato, a seconda della configurazione del pool, potrebbe tendenzialmente usare in modo predominante molte delle risorse nel pool con effetti sugli altri database. Se è probabile che questo tipo di attività continui per un certo tempo, è possibile spostare temporaneamente il database fuori dal pool. In questo modo il database può avere a disposizione le risorse aggiuntive necessarie ed essere isolato dagli altri database.
 
@@ -203,7 +203,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di database nel server *tenants1-dpt-\<user\>*. 
 1. Fare clic sul database **contosoconcerthall**.
-1. Fare clic sul pool in cui si trova **contosoconcerthall**. Individuare il pool nella sezione **Pool di database elastici**.
+1. Fare clic sul pool in cui si trova **contosoconcerthall**. Individuare il pool nella sezione **Pool elastici**.
 
 1. Esaminare il grafico **Monitoraggio pool elastico** e cercare il maggiore utilizzo di eDTU del pool. Dopo un paio di minuti, il carico elevato dovrebbe iniziare a comparire e il pool dovrebbe raggiungere velocemente l'utilizzo al 100%.
 2. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.

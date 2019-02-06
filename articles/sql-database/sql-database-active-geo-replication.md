@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602968"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468275"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Creare database secondari leggibili usando la replica geografica attiva
 
-La replica geografica attiva è una funzionalità del database SQL di Azure che consente di creare database secondari leggibili di singoli database in un server logico nello stesso data center o in uno diverso (area).
+La replica geografica attiva è una funzionalità del database SQL di Azure che consente di creare database secondari leggibili di singoli database in un server di database SQL nello stesso data center o in uno diverso (area).
 
 > [!NOTE]
-> La replica geografica attiva non è supportata da Istanza gestita.
+> La replica geografica attiva non è supportata dall'istanza gestita. Per il failover geografico di istanze gestite, usare [gruppi di failover automatico](sql-database-auto-failover-group.md).
 
 La replica geografica attiva è progettata come una soluzione di continuità aziendale che consente all'applicazione di eseguire un rapido ripristino di emergenza di singoli database in caso di emergenza a livello di area o di un guasto su larga scala. Se la replica geografica è abilitata, l'applicazione può avviare il failover in un database secondario in un'altra area di Azure. Sono supportati al massimo quattro database secondari nella stessa area o in aree geografiche diverse ed è possibile usare i database secondari anche per le query di accesso in sola lettura. Il failover deve essere avviato manualmente dall'utente o dall'applicazione. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica tramite la replica geografica attiva.
 
@@ -122,7 +122,7 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: gestire il failover di database singoli e in pool
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: gestire il failover di database autonomi e in pool
 
 > [!IMPORTANT]
 > Questi comandi Transact-SQL si applicano solo alla replica geografica attiva e non ai gruppi di failover. Di conseguenza potrebbero anche non applicarsi a istanze gestite, perché supportano solo i gruppi di failover.
@@ -132,13 +132,13 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare REMOVE SECONDARY ON SERVER per terminare la replica dei dati tra un database SQL e il database secondario specificato. |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Restituisce informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico del database SQL di Azure. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Restituisce informazioni su tutti i collegamenti di replica esistenti per ogni database nel server di database SQL di Azure. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Ottiene l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica per un database SQL specificato. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra lo stato per tutte le operazioni di database, incluso lo stato dei collegamenti di replica. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |fa sì che l'applicazione rimanga in attesa finché tutte le transazioni vengono replicate e riconosciute dal database secondario attivo. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: gestire il failover di database singoli e in pool
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: gestire il failover di database autonomi e in pool
 
 | Cmdlet | DESCRIZIONE |
 | --- | --- |
@@ -152,7 +152,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Per script di esempio, vedere [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) e [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gestire il failover di database singoli e in pool
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>API REST: gestire il failover di database autonomi e in pool
 
 | API | DESCRIZIONE |
 | --- | --- |

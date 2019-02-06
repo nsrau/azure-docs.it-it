@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389111"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457939"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Transazioni del database e controllo della concorrenza ottimistica
+# <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per gestire le modifiche simultanee ai dati. I database relazionali tradizionali come SQL Server consentono di scrivere la logica di business utilizzando stored procedure e/o trigger, inviarla al server per l'esecuzione direttamente nel motore di database. Con i tradizionali database relazionali, si devono affrontare due diversi linguaggi di programmazione: il linguaggio di programmazione dell'applicazione (non transazionale), ad esempio JavaScript, Python, C#, Java e così via e il linguaggio di programmazione transazionale (T-SQL) che viene eseguito in modo nativo dal database.
 

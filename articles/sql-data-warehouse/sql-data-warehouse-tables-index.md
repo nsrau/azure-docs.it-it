@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307729"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244692"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
 Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.

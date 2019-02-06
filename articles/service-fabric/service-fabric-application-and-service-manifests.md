@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653550"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465624"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -53,7 +53,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -96,7 +96,7 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 </Settings>
 ```
 
-**Resources**, ad esempio gli endpoint, usato dal servizio per essere dichiarate/modificate senza modificare il codice compilato.  È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio con **SecurityGroup** nel manifesto dell'applicazione.  Quando una risorsa dell'**endpoint** viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta.  Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
+Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric; una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
 
 
 <!--

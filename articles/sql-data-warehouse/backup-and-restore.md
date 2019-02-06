@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465174"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462342"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
@@ -73,7 +73,7 @@ I backup geografici sono attivi per impostazione predefinita. Se il data warehou
 
 
 ## <a name="backup-and-restore-costs"></a>Costi di backup e di ripristino
-Nella fattura di Azure è inclusa una voce per l'archiviazione e una voce per l'archiviazione con ripristino di emergenza. Il costo dell'archiviazione è il costo totale per l'archiviazione dei dati nell'area primaria insieme alle modifiche incrementali acquisite dagli snapshot. Per una spiegazione più dettagliata sull'acquisizione degli snapshot, fare riferimento a questa [documentazione](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
+Nella fattura di Azure è inclusa una voce per l'archiviazione e una voce per l'archiviazione con ripristino di emergenza. Il costo dell'archiviazione è il costo totale per l'archiviazione dei dati nell'area primaria insieme alle modifiche incrementali acquisite dagli snapshot. Per una spiegazione più dettagliata su come vengono addebitati gli snapshot, vedere [Understanding how Snapshots Accrue Charges (Informazioni sui costi aggiuntivi degli snapshot)](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
 
 Il costo totale per il data warehouse primario e i sette giorni di modifiche agli snapshot viene arrotondato al TB più vicino. Se ad esempio il data warehouse è 1,5 TB e gli snapshot usano 100 GB, verranno fatturati 2 TB di dati in base alle tariffe di Archiviazione Premium di Azure. 
 

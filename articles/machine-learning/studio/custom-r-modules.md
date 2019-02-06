@@ -1,5 +1,5 @@
 ---
-title: Definire i moduli R personalizzati titleSuffix: Descrizione di Azure Machine Learning Studio: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Definire i moduli R personalizzati titleSuffix: Descrizione di Azure Machine Learning Studio: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
@@ -270,7 +270,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
     
     * Numeric
-    * boolean
+    * Boolean
     * Categorical
     * string
     * Etichetta

@@ -1,6 +1,6 @@
 ---
 title: Data science per principianti titleSuffix: Descrizione di Azure Machine Learning Studio: La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con "The 5 Questions Data Science Answers" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

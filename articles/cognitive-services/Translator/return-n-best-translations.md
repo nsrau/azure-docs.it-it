@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646474"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464817"
 ---
 # <a name="how-to-return-n-best-translations"></a>Procedura per restituire le N migliori traduzioni
 
@@ -44,13 +44,13 @@ La firma è:
 | maxTranslations | **Obbligatorio** Int che rappresenta il numero massimo di traduzioni da restituire. |
 | options | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
 
-* Category: L'unica opzione supportata e impostazione predefinita è "general".
-* ContentType: L'unica opzione supportata e impostazione predefinita è "text/plain".
-* State: Stato dell'utente per mettere in correlazione richiesta e risposta. Verrà restituito lo stesso contenuto nella risposta.
+* Categoria: l'unica opzione supportata e impostazione predefinita è "general".
+* ContentType: l'unica opzione supportata e l'impostazione predefinita è "text/plain".
+* Stato: stato dell'utente per mettere in correlazione richiesta e risposta. Verrà restituito lo stesso contenuto nella risposta.
 * IncludeMultipleMTAlternatives: flag per determinare se restituire una o più alternative dal motore MT. Il valore predefinito è false e include una sola alternativa.
 
 ## <a name="ratings"></a>Classificazioni
-Le classificazioni vengono applicate come segue: la traduzione automatica migliore ha una classificazione pari a 5.
+Le classificazioni vengono applicate come segue: la miglior traduzione automatica ha una classificazione pari a 5.
 Le alternative di traduzione (N-migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
 
 ## <a name="number-of-alternatives"></a>Numero di alternative

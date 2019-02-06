@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbd1885dd529e4ccd38f2012d56865a2147f64d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842272"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297583"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilità di SAP HANA tra aree di Azure
 
@@ -39,10 +39,15 @@ Rete virtuale di Azure usa un intervallo di indirizzi IP diverso. Gli indirizzi 
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Semplice disponibilità tra due aree di Azure
 
-È possibile scegliere di non definire alcuna configurazione di disponibilità in una singola area, ma è ugualmente necessario che il carico di lavoro sia disponibile in caso di emergenza. Sistemi di questo tipo sono in genere i sistemi non di produzione. Anche se l'inattività del sistema per mezza giornata o addirittura per una giornata intera è sostenibile, non è possibile consentire che il sistema sia non disponibile per 48 ore e oltre. Per ridurre i costi dell'installazione, eseguire un altro sistema ancora meno importante nella macchina virtuale. L'altro sistema funge da destinazione. È anche possibile specificare dimensioni minori per la macchina virtuale nell'area secondaria e scegliere di non precaricare i dati. Poiché il failover è manuale e prevede un numero molto più elevato di passaggi per il failover dello stack completo dell'applicazione, il tempo aggiuntivo necessario per arrestare la macchina virtuale, ridimensionarla e quindi riavviarla è accettabile.
+È possibile scegliere di non definire alcuna configurazione di disponibilità in una singola area, ma è ugualmente necessario che il carico di lavoro sia disponibile in caso di emergenza. Casi tipici per questi scenari sono in genere rappresentati da sistemi non di produzione. Anche se l'inattività del sistema per mezza giornata o addirittura per una giornata intera è sostenibile, non è possibile consentire che il sistema sia non disponibile per 48 ore e oltre. Per ridurre i costi dell'installazione, eseguire un altro sistema ancora meno importante nella macchina virtuale. L'altro sistema funge da destinazione. È anche possibile specificare dimensioni minori per la macchina virtuale nell'area secondaria e scegliere di non precaricare i dati. Poiché il failover è manuale e prevede un numero molto più elevato di passaggi per il failover dello stack completo dell'applicazione, il tempo aggiuntivo necessario per arrestare la macchina virtuale, ridimensionarla e quindi riavviarla è accettabile.
 
-> [!NOTE]
-> Anche se non si usa il precaricamento dei dati nella destinazione della replica di sistema HANA, sono necessari almeno 64 GB di memoria. È anche necessaria una quantità di memoria sufficiente, oltre ai 64 GB, per conservare i dati rowstore nella memoria dell'istanza di destinazione.
+In uno scenario in cui la destinazione del ripristino di emergenza è condivisa con un sistema di controllo qualità in una macchina virtuale, è necessario tenere conto di queste considerazioni:
+
+- Per questo scenario sono disponibili due [modalità operative](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) con delta_datashipping e logreplay
+- Le due modalità hanno requisiti di memoria diversi senza precaricamento dei dati
+- Rispetto a logreplay, delta_datashipping può richiedere una quantità di memoria decisamente inferiore senza l'opzione di precaricamento. Vedere il capitolo 4.3 del documento SAP [How To Perform System Replication for SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf) (Come eseguire la replica di sistema per SAP HANA)
+- Il requisito di memoria della modalità operativa logreplay senza precaricamento non è deterministico e dipende dalle strutture columnstore caricate. In casi estremi può essere necessario il 50% della memoria dell'istanza primaria. La memoria per la modalità operativa logreplay è indipendente dal fatto che si sia scelto di avere il set precaricato di dati o meno.
+
 
 ![Diagramma di due macchine virtuali in due aree](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
@@ -63,10 +68,20 @@ In questi casi è possibile configurare quella che SAP definisce una [configuraz
 
 ![Diagramma di tre macchine virtuali in due aree](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-Questa configurazione fornisce un RPO=0, con RTO ridotto, entro l'area primaria. La configurazione fornisce anche un RPO accettabile se si verifica uno spostamento nella seconda area. I tempi di RTO nella seconda area dipendono dal fatto che si precarichino o meno i dati. Molti clienti usano la macchina virtuale nell'area secondaria per eseguire un sistema di test. In tale caso d'uso i dati non possono essere precaricati.
+SAP ha introdotto la [replica di sistema con più destinazioni](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) a partire da HANA 2.0 SPS3. La replica di sistema con più destinazioni offre alcuni vantaggi negli scenari di aggiornamento. Ad esempio, il sito di ripristino di emergenza (area 2) non è interessato quando il sito secondario a disponibilità elevata è inattivo per manutenzione o aggiornamenti. Altre informazioni sulla replica di sistema con più destinazioni HANA sono disponibili [qui](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Una possibile architettura con replica con più destinazioni può essere simile alla seguente:
 
-> [!NOTE]
-> Poiché si usa la modalità operativa **logreplay** per la replica di sistema HANA per il passaggio dal livello 1 al livello 2 (replica sincrona nell'area primaria), la replica tra il livello 2 e il livello 3 (replica nel sito secondario) non può essere eseguita in modalità operativa **delta_datashipping**. Per informazioni dettagliate sulle modalità operative e alcune restrizioni, vedere l'articolo di SAP [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) (Modalità operative per la replica di sistema di SAP HANA). 
+![Diagramma di tre macchine virtuali su due aree con più destinazioni](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Se l'organizzazione prevede requisiti di conformità per disponibilità elevata nella seconda area di Azure (ripristino di emergenza), l'architettura sarà simile alla seguente:
+
+![Diagramma di tre macchine virtuali su due aree con più destinazioni](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
+
+Con la modalità operativa logreplay, questa configurazione offre un RPO=0, con un basso RTO, all'interno dell'area primaria. La configurazione fornisce anche un RPO accettabile se si verifica uno spostamento nella seconda area. I tempi di RTO nella seconda area dipendono dal fatto che si precarichino o meno i dati. Molti clienti usano la macchina virtuale nell'area secondaria per eseguire un sistema di test. In tale caso d'uso i dati non possono essere precaricati.
+
+> [!IMPORTANT]
+> Le modalità operative tra i diversi livelli devono essere omogenee. **Non** è possibile usare la modalità operativa logreply tra il livello 1 e il livello 2 e delta_datashipping per fornire il livello 3. È consentito scegliere una sola delle due modalità operative che deve essere coerente per tutti i livelli. Poiché la modalità delta_datashipping non è adatta per ottenere un RPO=0, l'unica modalità operativa ragionevole per questa configurazione multilivello rimane logreplay. Per informazioni dettagliate sulle modalità operative e alcune restrizioni, vedere l'articolo di SAP [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) (Modalità operative per la replica di sistema di SAP HANA). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

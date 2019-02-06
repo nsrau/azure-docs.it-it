@@ -1,6 +1,6 @@
 ---
-title: Usare un servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Azure Machine Learning Studio semplifica la chiamata dei servizi Web direttamente da Excel senza dover di scrivere codice.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Usare un servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Azure Machine Learning Studio semplifica la chiamata dei servizi Web direttamente da Excel senza dover di scrivere codice.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 01/02/2018
 ---

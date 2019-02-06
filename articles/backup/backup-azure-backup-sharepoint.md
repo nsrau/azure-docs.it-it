@@ -2,18 +2,18 @@
 title: Protezione dei server DPM/Backup di Azure di una farm di SharePoint in Azure
 description: Questo articolo offre una panoramica sulla protezione del server DPM/Backup di Azure di una farm di SharePoint in Azure
 services: backup
-author: adigan
-manager: Nkolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 79b4962e1c37858fbd52d65aff56476e55ffa371
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946046"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296461"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Eseguire il backup di una farm di SharePoint in Azure
 Il backup di una farm di SharePoint in Azure si esegue tramite System Center Data Protection Manager (DPM) in modo analogo al backup delle altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. DPM offre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
@@ -23,7 +23,7 @@ Backup di Azure per DPM supporta gli scenari seguenti:
 
 | Carico di lavoro | Versione | Distribuzione di SharePoint | Tipo di distribuzione di DPM | DPM - System Center 2012 R2 | Protezione e ripristino |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint distribuito come un server fisico o macchina virtuale Hyper-V o VmWare <br> -------------- <br> SQL AlwaysOn |Server fisico o macchina virtuale Hyper-V in locale |Supporta backup in Azure dall'aggiornamento cumulativo 5 |Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint distribuito come un server fisico o macchina virtuale Hyper-V o VmWare <br> -------------- <br> SQL AlwaysOn |Server fisico o macchina virtuale Hyper-V in locale |Supporta backup in Azure dall'aggiornamento cumulativo 5 |Opzioni di protezione di ripristino di farm di SharePoint: farm di ripristino, database e file o elemento di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
 ## <a name="before-you-start"></a>Prima di iniziare
 È necessario verificare alcuni aspetti prima di eseguire il backup di una farm di SharePoint in Azure.
@@ -229,14 +229,14 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 5. A questo punto seguire i [passaggi di ripristino illustrati precedentemente in questo articolo](#restore-a-sharepoint-item-from-disk-using-dpm) per ripristinare il database del contenuto di SharePoint dal disco.
 
 ## <a name="faqs"></a>Domande frequenti
-D: quali versioni di DPM supportano SQL Server 2014 e SQL 2012 (SP2)?<br>
+D: Quali versioni di DPM supportano SQL Server 2014 e SQL 2012 (SP2)?<br>
 R: DPM 2012 R2 con aggiornamento cumulativo 4 supporta entrambi.
 
-D: è possibile ripristinare un elemento di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn (con protezione su disco)?<br>
+D: È possibile ripristinare un elemento di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn (con protezione su disco)?<br>
 R: Sì, l'elemento può essere ripristinato nel sito originale di SharePoint.
 
-D: è possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?<br>
-R: poiché i database di SharePoint sono configurati con SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza DPM non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
+D: È possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?<br>
+R: Poiché i database di SharePoint sono configurati in SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza DPM non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni su Protezione DPM di SharePoint, vedere [Serie di Video - Protezione DPM di SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

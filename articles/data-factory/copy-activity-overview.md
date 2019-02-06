@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014132"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296546"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -127,7 +127,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 ### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Yes |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Yes |
@@ -155,7 +155,10 @@ Fare clic per visualizzare l'elenco delle attività in questa esecuzione di pipe
 
 ![Monitorare le esecuzioni delle attività](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Fare clic sul collegamento "**Dettagli**" in **Azioni** per visualizzare i dettagli di esecuzione e le caratteristiche delle prestazioni dell'attività di copia. Vengono visualizzate informazioni quali il volume, le righe e i file di dati copiati dall'origine al sink, la velocità effettiva, i passaggi eseguiti (con la durata corrispondente) e le configurazioni usate per lo scenario di copia.
+Fare clic sul collegamento "**Dettagli**" in **Azioni** per visualizzare i dettagli di esecuzione e le caratteristiche delle prestazioni dell'attività di copia. Vengono visualizzate informazioni quali il volume, le righe e i file di dati copiati dall'origine al sink, la velocità effettiva, i passaggi eseguiti (con la durata corrispondente) e le configurazioni usate per lo scenario di copia. 
+
+>[!TIP]
+>Per alcuni scenari viene anche visualizzato "**Performance tuning tips**" (Suggerimenti per l'ottimizzazione delle prestazioni) nella parte superiore della pagina di monitoraggio dell'attività di copia, con l'indicazione del collo di bottiglia individuato e istruzioni su cosa modificare per aumentare la velocità effettiva dell'attività di copia. Vedere [qui](#performance-and-tuning) per un esempio con i dettagli.
 
 **Esempio: copia da Amazon S3 ad Azure Data Lake Store**
 ![Dettagli esecuzione attività di monitoraggio](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -178,9 +181,9 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative
 | rowsSkipped | Numero di righe incompatibili ignorate. È possibile abilitare la funzionalità impostando il valore "enableSkipIncompatibleRow" su True. | Valore Int64 (senza unità) |
 | throughput | Velocità di trasferimento dei dati | Numero a virgola mobile in **KB/s** |
 | copyDuration | Durata della copia | Valore Int32 in secondi |
-| sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | boolean |
-| redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | boolean |
-| hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | boolean |
+| sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | Boolean |
+| redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | Boolean |
+| hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | Boolean |
 | effectiveIntegrationRuntime | Mostra gli Integration Runtime usati per migliorare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32|
@@ -232,6 +235,14 @@ Per impostazione predefinita, l'attività di copia interrompe la copia dei dati 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
+
+In alcuni casi, quando si esegue un'attività di copia in Azure Data Factory, viene direttamente visualizzato "**Performance tuning tips**" (Suggerimenti per l'ottimizzazione delle prestazioni) nella parte superiore della [pagina di monitoraggio dell'attività di copia](#monitor-visually), come illustrato nell'esempio seguente. Il testo nel riquadro non solo indica un collo di bottiglia identificato per l'esecuzione della copia specificata, ma descrive anche gli elementi da modificare in modo da migliorare la velocità effettiva di copia. I suggerimenti per l'ottimizzazione delle prestazioni forniscono indicazioni utili, come ad esempio usare PolyBase per la copia dei dati in Azure SQL Data Warehouse, aumentare le unità UR di Azure Cosmos DB o DTU del database SQL di Azure se il collo di bottiglia dipende dalla risorsa nell'archivio dati, rimuovere la copia di gestione temporanea non necessaria e così via. Anche le regole di ottimizzazione delle prestazioni verranno gradualmente migliorate.
+
+**Esempio: copia nel database SQL di Azure con i suggerimenti per l'ottimizzazione delle prestazioni**
+
+In questo esempio, durante l'esecuzione della copia, Azure Data Factory nota che il database SQL di Azure sink raggiunge un utilizzo di DTU elevato che rallenta le operazioni di scrittura. Il suggerimento pertanto consiste nell'aumentare il livello di database SQL di Azure con altre unità DTU. 
+
+![Monitoraggio della copia con suggerimenti per l'ottimizzazione delle prestazioni](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copia incrementale 
 Data Factory supporta scenari per la copia incrementale di dati delta da un archivio dati di origine a un archivio dati di destinazione. Vedere [Esercitazione: Copiare dati in modo incrementale](tutorial-incremental-copy-overview.md). 
