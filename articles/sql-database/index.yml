@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457548"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752246"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 'Documentazione sul database SQL di Azure: esercitazioni e informazioni di riferimento sulle API'
+  title: Documentazione sul database SQL di Azure - Esercitazioni e informazioni di riferimento sulle API
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
@@ -22,7 +22,7 @@ metadata:
   ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
-  description: Il database SQL di Azure è un database relazionale gestito come servizio basato sulla versione stabile più recente del motore di database di Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.
+  description: Il database SQL di Azure è un database relazionale distribuito come servizio (DBaaS) generico basato sull'ultima versione stabile del motore di database di Microsoft SQL Server. Il database SQL è un database cloud sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.
   aside:
     image:
       alt: 
@@ -106,10 +106,10 @@ sections:
     rows:
     - title: Creare un database singolo
       values:
-      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-single-database-get-started
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
     - title: Creare un'istanza gestita
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
@@ -118,33 +118,10 @@ sections:
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Creare un pool elastico
       values:
-      - href: 
+      - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Ridimensionare un database singolo
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: Ridimensionare un pool elastico
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: Ridimensionare un'istanza gestita
-      values:
-      - href: 
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-      - href: 
-    - title: Configurare la rete di Azure per l'istanza gestita
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
@@ -152,6 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: Per iniziare a usare il <a href="/azure/sql-database/sql-database-quickstart-guide">database singleton</a> e <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Istanza gestita</a>, vedere le guide introduttive.
     - html: Creare e progettare lo schema di un nuovo database singolo con <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Eseguire la migrazione di un database esistente in Azure con <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Comando RESTORE per il database</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> o <a href="/azure/sql-database/sql-database-import">Importazione di un file BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteggere il database SQL</a>
@@ -190,7 +168,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
     - html: <a href="/azure/sql-database/sql-database-cli-samples">Interfaccia della riga di comando di Azure</a>
-- title: riferimento
+- title: Informazioni di riferimento
   items:
   - type: list
     style: cards

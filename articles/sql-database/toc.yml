@@ -10,19 +10,19 @@ items:
 - name: Guide introduttive
   items:
   - name: Guida introduttiva del database singolo
-    href: sql-database-quickstart-guide.md
+    href: sql-database-single-database-quickstart-guide.md
   - name: Guida introduttiva dell'istanza gestita
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items:
     - name: Database singolo
-      href: sql-database-get-started-portal.md
+      href: sql-database-single-database-get-started.md
     - name: Istanza gestita
       href: sql-database-managed-instance-get-started.md
   - name: Configurare
     items:
-    - name: Regole del firewall per il server di database
-      href: sql-database-get-started-portal-firewall.md
+    - name: Regole del firewall IP a livello di server
+      href: sql-database-server-level-firewall-rule.md
     - name: Connessione della macchina virtuale client a un'istanza gestita
       href: sql-database-managed-instance-configure-vm.md
     - name: Connessione da punto a sito a un'istanza gestita
@@ -97,6 +97,8 @@ items:
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md
 - name: Concetti
   items:
   - name: Modelli di acquisto
@@ -225,7 +227,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Introduzione al rilevamento delle minacce
         href: sql-database-threat-detection-overview.md
-    - name: Regole del firewall IP per il server di database
+    - name: Regole del firewall IP a livello di server
       items:
       - name: Creare e gestire
         href: sql-database-firewall-configure.md
@@ -539,7 +541,7 @@ items:
       href: dns-alias-overview.md
     - name: PowerShell per l'alias DNS
       href: dns-alias-powershell.md
-    - name: 'Porte: ADO.NET'
+    - name: Porte - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
     - name: C e C++
       href: sql-database-develop-cplusplus-simple.md
@@ -710,9 +712,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: fc900fc17f4dbd1ee1527fc8a84053408d83d98d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731292"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756734"

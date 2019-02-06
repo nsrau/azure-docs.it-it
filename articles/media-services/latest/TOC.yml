@@ -29,39 +29,37 @@ items:
     href: cli-samples.md
 - name: Concetti
   items:
-  - name: Eseguire la migrazione dalla versione 2 alla versione 3
-    href: migrate-from-v2-to-v3.md
-  - name: Entità
-    href: entities-overview.md
+  - name: Inserimento
     items:
-    - name: Filtri account e filtri asset
-      href: filters-dynamic-manifest-overview.md
     - name: Asset
       href: assets-concept.md
-    - name: Criteri di chiave simmetrica
-      href: content-key-policy-concept.md
-    - name: Eventi live e output live
-      href: live-events-outputs-concept.md
+  - name: Codificare
+    href: encoding-concept.md
+    items:
+    - name: Trasformazioni e processi
+      href: transforms-jobs-concept.md
+    - name: Formati di Media Encoder Standard
+      href: media-encoder-standard-formats.md
+    - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
+      href: autogen-bitrate-ladder.md
+  - name: Analizzare
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: Trasformazioni e processi
+      href: transforms-jobs-concept.md
+  - name: Flusso
+    items:
     - name: Endpoint di streaming
       href: streaming-endpoint-concept.md
     - name: Localizzatori di streaming
       href: streaming-locators-concept.md
     - name: Criteri di streaming
       href: streaming-policy-concept.md
-    - name: Trasformazioni e processi
-      href: transforms-jobs-concept.md
-  - name: Codifica del contenuto
-    href: encoding-concept.md
-    items:
-    - name: Formati di Media Encoder Standard
-      href: media-encoder-standard-formats.md
-    - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
-      href: autogen-bitrate-ladder.md
-  - name: Analisi del contenuto
-    href: analyzing-video-audio-files-concept.md
-  - name: Streaming di eventi live
+  - name: Streaming live
     href: live-streaming-overview.md
     items:
+    - name: Eventi live e output live
+      href: live-events-outputs-concept.md
     - name: Codificatori live consigliati
       href: recommended-on-premises-live-encoders.md
     - name: Utilizzo di un DVR cloud
@@ -72,13 +70,23 @@ items:
       href: live-event-states-billing.md
     - name: Latenza
       href: live-event-latency.md
-  - name: Monitoraggio
+  - name: Distribuzione
+    items:
+    - name: Filtri e manifesto dinamico
+      href: filters-dynamic-manifest-overview.md
+  - name: Monitorare
     items:
     - name: Griglia di eventi
       href: reacting-to-media-services-events.md
-  - name: Protezione del contenuto
+  - name: Proteggere
     href: content-protection-overview.md
     items:
+    - name: Criteri di chiave simmetrica
+      href: content-key-policy-concept.md
+    - name: Criteri di streaming
+      href: streaming-policy-concept.md
+    - name: Localizzatori di streaming
+      href: streaming-locators-concept.md
     - name: Sistema con più tecnologie DRM e controllo di accesso
       href: design-multi-drm-system-with-access-control.md
   - name: Riproduzione
@@ -89,6 +97,10 @@ items:
       href: limits-quotas-constraints.md
     - name: Account di archiviazione
       href: storage-account-concept.md
+  - name: Filtrare, ordinare e organizzare in pagine le entità
+    href: entities-overview.md
+  - name: Eseguire la migrazione dalla versione 2 alla versione 3
+    href: migrate-from-v2-to-v3.md
 - name: Guide alle procedure
   items:
   - name: Attività iniziali
@@ -141,7 +153,7 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -199,15 +211,17 @@ items:
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Note sulla versione
     href: release-notes.md
   - name: Domande frequenti
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0e748b32092ec9e27888c9fac039c27e6411b34a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cadf1d0b73c7d04b2748cb5fa60de7cca23beadc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693868"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744807"

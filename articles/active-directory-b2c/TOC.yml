@@ -19,11 +19,13 @@ items:
   items:
   - name: 1 - Creare un tenant B2C
     href: tutorial-create-tenant.md
-  - name: 2 - Registrare le applicazioni
+  - name: 2 - Registrare un'applicazione
     href: tutorial-register-applications.md
   - name: 3 - Creare i flussi utente
     href: tutorial-create-user-flows.md
-  - name: 4 - Personalizzare l'interfaccia utente
+  - name: Aggiunta di un provider di identità
+    href: tutorial-add-identity-providers.md
+  - name: Personalizzare l'interfaccia utente
     href: tutorial-customize-ui.md
   - name: Eseguire l'autenticazione degli account
     items:
@@ -75,7 +77,11 @@ items:
   items:
   - name: Accedere ai log di controllo
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Controllo dell'accesso in base all'età
+  - name: Aggiungere un'applicazione API Web
+    href: add-web-application.md
+  - name: Aggiungere un'applicazione client nativa
+    href: add-native-application.md
+  - name: Configurare il controllo dell'accesso in base all'età
     href: basic-age-gating.md
   - name: Configurare i token
     href: active-directory-b2c-token-session-sso.md
@@ -153,7 +159,7 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Tenere traccia del comportamento degli utenti
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: riferimento
+    - name: Informazioni di riferimento
       items:
       - name: Resolver di attestazioni
         href: claim-resolver-overview.md
@@ -280,7 +286,7 @@ items:
     href: b2clogin.md
   - name: Usare l'API Graph di Azure AD
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: riferimento
+  - name: Informazioni di riferimento
     items:
     - name: Esempi di codice
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
@@ -318,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240846"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751787"

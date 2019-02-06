@@ -66,12 +66,8 @@ items:
       href: classroom-labs/how-to-create-schedules.md
   - name: DevTest Labs
     items:
-    - name: Creare un lab
-      href: devtest-lab-create-lab.md
-    - name: Creare una VM nel lab
-      href: devtest-lab-create-first-vm.md
-    - name: Eliminare un lab o una VM in un lab
-      href: devtest-lab-delete-lab-vm.md
+    - name: Specificare il gruppo di risorse per le macchine virtuali del lab
+      href: resource-group-control.md
     - name: Impostare criteri per il lab
       href: devtest-lab-get-started-with-lab-policies.md
     - name: Archiviare segreti in Azure Key Vault
@@ -101,6 +97,10 @@ items:
           href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Usare le VM in un lab
       items:
+      - name: Creare un lab
+        href: devtest-lab-create-lab.md
+      - name: Eliminare un lab o una VM in un lab
+        href: devtest-lab-delete-lab-vm.md
       - name: Creare VM
         href: devtest-lab-add-vm.md
       - name: Creare e gestire macchine virtuali richiedibili
@@ -193,7 +193,7 @@ items:
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Creare o modificare lab tramite il modello di Resource Manager
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: CLI
     href: /cli/azure/lab
@@ -223,9 +223,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 1fc989f61f5c11e06e2651326e0e7e7f51092253
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 783aec352d79c56525751142e4e5e95697149dbc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496721"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747283"
