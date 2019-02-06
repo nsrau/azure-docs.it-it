@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278645"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170930"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -264,7 +264,7 @@ Il report deve contenere le informazioni relative all'origine del report sull'in
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Si connette a un endpoint di cluster di Service Fabric.
 
-In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili. Se si usa una directory di certificati della CA, è prima necessario eseguire il comando `c_rehash <directory>` OpenSSL per calcolare gli hash dei certificati e creare i collegamenti simbolici appropriati.
+In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili. Se si usa una directory di certificati della CA, è prima necessario eseguire il comando `c_rehash <directory>` di OpenSSL per calcolare gli hash dei certificati e creare i collegamenti simbolici appropriati.
 
 ### <a name="arguments"></a>Argomenti
 

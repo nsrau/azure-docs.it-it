@@ -8,17 +8,17 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7ffe4a087ae94d6c96019cc045d3d7ff071780d4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830007"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884963"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
 ## <a name="overview"></a>Panoramica
-I *flussi dispositivo* dell'hub IoT di Azure facilitano la creazione di tunnel TCP bidirezionali sicuri per un'ampia gamma di scenari di comunicazione da cloud a dispositivo. Un flusso di dispositivo viene filtrato da un *endpoint di streaming* dell'hub IoT che funge da proxy tra gli endpoint del servizio e del dispositivo. Questa configurazione è illustrata nel diagramma riportato di seguito, che è particolarmente utile quando i dispositivi sono protetti da un firewall di rete o si trovano all'interno di una rete privata. Di conseguenza, i flussi dispositivo dell'hub IoT rispondono alla necessità dei clienti di raggiungere i dispositivi IoT in modo adatto al firewall e senza la necessità di aprire ampiamente le porte del firewall di rete in ingresso o in uscita.
+I *flussi dispositivo* dell'hub IoT di Azure facilitano la creazione di tunnel TCP bidirezionali sicuri per un'ampia gamma di scenari di comunicazione da cloud a dispositivo. Un flusso di dispositivo viene filtrato da un *endpoint di streaming* dell'hub IoT che funge da proxy tra gli endpoint del servizio e del dispositivo. Questa configurazione, illustrata nel diagramma riportato di seguito, è particolarmente utile quando i dispositivi sono protetti da un firewall di rete o si trovano all'interno di una rete privata. Di conseguenza, i flussi dispositivo dell'hub IoT rispondono alla necessità dei clienti di raggiungere i dispositivi IoT in modo adatto al firewall e senza la necessità di aprire ampiamente le porte del firewall di rete in ingresso o in uscita.
 
 ![Testo alternativo](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "Panoramica dei flussi dispositivo dell'hub IoT")
 
@@ -33,14 +33,14 @@ I flussi dispositivo dell'hub IoT offrono i vantaggi seguenti:
 
 - **Crittografia:** per impostazione predefinita, i flussi dispositivo dell'hub IoT usano connessioni abilitate per TLS. Ciò garantisce che il traffico sia sempre crittografato indipendentemente dal fatto che l'applicazione usi o no la crittografia.
 
-- **Semplicità di connettività:** grazie all'uso dei flussi dispositivo non è necessaria una configurazione complessa di reti private virtuali per abilitare la connettività ai dispositivi IoT.
+- **Semplicità di connettività:** in molti casi, grazie all'uso dei flussi dispositivo non è necessaria una configurazione complessa di reti private virtuali per abilitare la connettività ai dispositivi IoT.
 
 - **Compatibilità con stack TCP/IP:** i flussi dispositivo dell'hub IoT possono supportare il traffico di applicazione TCP/IP. Ciò significa che una vasta gamma di protocolli proprietari e di protocolli basati su standard può sfruttare questa funzionalità.
 
-- **Semplicità d'uso in configurazioni di rete privata:** il servizio può raggiungere un dispositivo tramite il relativo ID dispositivo, anziché tramite l'indirizzo IP. Ciò è utile quando un dispositivo si trova all'interno di una rete privata e dispone di un indirizzo IP privato oppure quando l'indirizzo IP del dispositivo viene assegnato in modo dinamico e non è noto al lato servizio.
+- **Semplicità d'uso in configurazioni di rete privata:** il servizio può comunicare con un dispositivo tramite l'ID del dispositivo, anziché tramite l'indirizzo IP del dispositivo. Ciò è utile quando un dispositivo si trova all'interno di una rete privata e dispone di un indirizzo IP privato oppure quando l'indirizzo IP del dispositivo viene assegnato in modo dinamico e non è noto al lato servizio.
 
 ## <a name="device-stream-workflows"></a>Flussi di lavoro del flusso dispositivo
-Un flusso dispositivo viene avviato quando il servizio richiede la connessione a un dispositivo fornendo il relativo ID dispositivo. Questo flusso di lavoro è adatto al modello di comunicazione client/server, tra cui RDP e SSH in cui un utente vuole connettersi in remoto al server SSH o RDP in esecuzione nel dispositivo usando un programma client SSH o RDP.
+Un flusso dispositivo viene avviato quando il servizio richiede la connessione a un dispositivo fornendo il relativo ID dispositivo. Questo flusso di lavoro è adatto a un modello di comunicazione client/server, tra cui RDP e SSH in cui un utente vuole connettersi in remoto al server SSH o RDP in esecuzione nel dispositivo usando un programma client SSH o RDP.
 
 Il processo di creazione del flusso dispositivo comporta una negoziazione tra il dispositivo, il servizio e gli endpoint principali e di streaming dell'hub IoT. Mentre l'endpoint principale dell'hub IoT gestisce la creazione di un flusso dispositivo, l'endpoint di streaming gestisce i flussi di traffico tra il servizio e il dispositivo.
 
@@ -58,14 +58,14 @@ La creazione a livello di codice di un flusso dispositivo tramite SDK include i 
 
 4. Il dispositivo crea una connessione TCP in uscita sicura per l'endpoint di streaming tramite la porta 443 e consente di aggiornare la connessione a un WebSocket. L'URL dell'endpoint di streaming, così come le credenziali da usare per l'autenticazione, vengono entrambe fornite dall'hub IoT al dispositivo come parte della richiesta inviata nel passaggio 3.
 
-5. Il servizio riceve una notifica dell'accettazione del flusso da parte del dispositivo e procede alla creazione di un proprio WebSocket per l'endpoint di streaming. In modo analogo riceve le informazioni sull'URL dell'endpoint di streaming e sull'autenticazione dall'hub IoT.
+5. Il servizio riceve una notifica dell'accettazione del flusso da parte del dispositivo e procede alla creazione di un proprio client WebSocket per l'endpoint di streaming. In modo analogo riceve le informazioni sull'URL dell'endpoint di streaming e sull'autenticazione dall'hub IoT.
 
 Nel processo di handshake precedente:
 - Il processo di handshake deve essere completato entro 60 secondi (passaggi da 2 a 5); in caso contrario l'handshake avrà esito negativo con un timeout e il servizio verrà informato di conseguenza.
 
 - Dopo il completamento del flusso di creazione di flusso precedente, l'endpoint di streaming funge da proxy e trasferisce il traffico tra il servizio e il dispositivo tramite i rispettivi WebSocket.
 
-- Il dispositivo e il servizio necessitano entrambi di connettività in uscita per l'endpoint principale dell'hub IoT, così come per l'endpoint di streaming tramite la porta 443. L'URL di questi endpoint è disponibile nella scheda Panoramica del portale dell'hub IoT.
+- Il dispositivo e il servizio necessitano entrambi di connettività in uscita per l'endpoint principale dell'hub IoT, così come per l'endpoint di streaming tramite la porta 443. L'URL di questi endpoint è disponibile nella scheda *Panoramica* del portale dell'hub IoT.
 
 - Le garanzie di affidabilità e ordinamento di un flusso stabilito sono paragonabili a TCP.
 
@@ -82,6 +82,17 @@ Sia il lato dispositivo che il lato servizio di un flusso dispositivo devono ess
 In alternativa, è possibile recuperare le informazioni sugli endpoint usando l'interfaccia della riga di comando di Azure nella sezione delle proprietà dell'hub, in particolare chiavi `property.hostname` e `property.deviceStreams`.
 
 ```azurecli-interactive
+az iot hub show --name <YourIoTHubName>
+```
+
+## <a name="whitelist-device-streaming-endpoints"></a>Endpoint di streaming del dispositivo facenti parte dell'elenco elementi consentiti
+
+Come accennato [precedentemente](#Overview), il dispositivo crea una connessione in uscita all'endpoint di streaming dell'hub IoT durante il processo di avvio dei flussi dispositivo. I firewall nel dispositivo o nella relativa rete devono consentire la connettività in uscita al gateway di streaming tramite la porta 443 (la comunicazione avviene su una connessione WebSocket crittografata con TLS).
+
+Il nome host dell'endpoint di streaming del dispositivo è reperibile nel portale dell'hub IoT nella scheda Panoramica. ![Testo alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Endpoint di flusso dispositivo")
+
+In alternativa, è possibile trovare queste informazioni tramite l'interfaccia della riga di comando di Azure:
+```cmd/sh
 az iot hub show --name <YourIoTHubName>
 ```
 
@@ -105,64 +116,65 @@ Seguire i passaggi seguenti per configurare Azure Log Analytics per le attività
     <p>
 Come illustrato di seguito, l'identità del dispositivo di destinazione e il risultato dell'operazione sono disponibili anche nei log.
     ![Testo alternativo](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "Accedere ai log di flusso dispositivo")
-    
 
-## <a name="whitelist-device-streaming-endpoints"></a>Endpoint di streaming del dispositivo facenti parte dell'elenco elementi consentiti
 
-Come accennato [precedentemente](#Overview), il dispositivo crea una connessione in uscita all'endpoint di streaming dell'hub IoT durante il processo di avvio dei flussi dispositivo. I firewall nel dispositivo o nella relativa rete devono consentire la connettività in uscita al gateway di streaming tramite la porta 443 (si tratta di una connessione WebSocket che viene crittografata con TLS).
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
-Il nome host dell'endpoint di streaming del dispositivo è reperibile nel portale dell'hub IoT nella scheda Panoramica. ![Testo alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Endpoint di flusso dispositivo")
+Durante l'anteprima pubblica, i flussi dispositivo dell'hub IoT sono disponibili nelle aree Stati Uniti centrali e Stati Uniti centrali EUAP. Assicurarsi quindi che l'hub venga creato in una di queste aree. 
 
-In alternativa, è possibile trovare queste informazioni tramite l'interfaccia della riga di comando di Azure:
-```cmd/sh
-az iot hub show --name tcpstreaming-preview
-```
 
 ## <a name="sdk-availability"></a>Disponibilità di SDK
+
 I due lati di ogni flusso (lato servizio e lato dispositivo) usano l'SDK dell'hub IoT per stabilire il tunnel. Durante l'anteprima pubblica, i clienti possono scegliere i linguaggi SDK seguenti:
 - i linguaggi SDK C e C# supportano i flussi dispositivo sul lato dispositivo.
 
 - L'SDK C# e Node.js supportano i flussi dispositivo sul lato servizio.
 
+
 ## <a name="iot-hub-device-stream-samples"></a>Esempi di flusso dispositivo di hub IoT
-Sono stati inclusi due esempi per illustrare l'uso dei flussi dispositivo da parte delle applicazioni. L'esempio*echo* illustra l'uso a livello programmatico dei flussi dispositivo (chiamando i flussi dell'API SDK). L'esempio *proxy locale* illustra l'uso della funzionalità SDK per effettuare il tunneling del traffico di applicazioni commerciali (ad esempio SSH, RDP o Web) tramite i flussi dispositivo.
+
+Sono stati pubblicati due [esempi di avvio rapido](/azure/iot-hub) per illustrare l'uso dei flussi dispositivo da parte delle applicazioni.
+* L'esempio *echo* illustra l'uso a livello programmatico dei flussi dispositivo (chiamando direttamente i flussi dell'API SDK).
+* L'esempio *proxy locale* illustra il tunneling del traffico di applicazioni client/server commerciali (ad esempio SSH, RDP o Web) tramite i flussi dispositivo.
+
+Questi esempi sono descritti in modo dettagliato nelle sezioni seguenti.
 
 ### <a name="echo-sample"></a>Esempio echo
-L'esempio echo illustra l'uso a livello di codice dei flussi dispositivo per inviare e ricevere byte tra le applicazioni di servizio e di dispositivo. Usare i collegamenti seguenti per accedere alle guide introduttive (è possibile usare programmi di servizio e di dispositivo in linguaggi diversi, ad esempio il programma di dispositivo C può funzionare con il programma di servizio C#):
+L'esempio echo illustra l'uso a livello di codice dei flussi dispositivo per inviare e ricevere byte tra le applicazioni di servizio e di dispositivo. Usare i collegamenti seguenti per accedere alle guide di avvio rapido. È possibile usare programmi di servizio e di dispositivo in linguaggi diversi, ad esempio il programma di dispositivo C può funzionare con il programma di servizio C#.
 
 | SDK    | Programma di servizio                                          | Programma di dispositivo                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
 | C#     | [Collegamento](quickstart-device-streams-echo-csharp.md) | [Collegamento](quickstart-device-streams-echo-csharp.md) |
-| NodeJS | [Collegamento](quickstart-device-streams-echo-nodejs.md) | -                                                        |
+| Node.js | [Collegamento](quickstart-device-streams-echo-nodejs.md) | -                                                        |
 | C      | -                                                        | [Collegamento](quickstart-device-streams-echo-c.md)      |
 
 ### <a name="local-proxy-sample-for-ssh-or-rdp"></a>Esempio relativo al proxy locale (per SSH o RDP)
 L'esempio relativo al proxy locale illustra un modo per abilitare il tunneling del traffico di un'applicazione esistente che prevede la comunicazione tra un programma client e un programma server. Questa configurazione funziona per protocolli client/server come SSH e RDP, in cui il lato servizio funge da client (eseguendo programmi client RDP o SSH) e il lato dispositivo funge da server (eseguendo programmi server RDP o daemon SSH). 
 
-Questa sezione descrive l'uso di flussi dispositivo per abilitare gli scenari SSH in un dispositivo tramite flussi dispositivo (nel caso di RDP o di altri protocolli client/server la procedura è simile usando la porta corrispondente del protocollo).
+Questa sezione descrive l'uso di flussi dispositivo per abilitare l'utente per SSH in un dispositivo tramite flussi dispositivo (nel caso di RDP o di altre applicazioni client/server la procedura è simile usando la porta corrispondente del protocollo).
 
-La configurazione si basa su due programmi di*proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il*proxy locale per servizi*. I proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#Device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando la programmazione di socket client/server normale.
+La configurazione si basa su due programmi di*proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il*proxy locale per servizi*. I programmi proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando normali socket client/server.
 
 ![Testo alternativo](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png "Configurazione del proxy di flusso dispositivo per SSH/RDP")
 
 1. L'utente esegue il proxy locale per servizi per avviare un flusso dispositivo nel dispositivo.
 
-2. Il dispositivo accetta l'avvio di flusso e viene stabilito il tunnel per l'endpoint di streaming dell'hub IoT (come illustrato in precedenza).
+2. Il proxy locale per dispositivi accetta la richiesta di avvio del flusso e viene stabilito il tunnel per l'endpoint di streaming dell'hub IoT (come illustrato in precedenza).
 
 3. Il proxy locale per dispositivi si connette all'endpoint di daemon SSH in ascolto dalla porta 22 nel dispositivo.
 
-4. Il proxy locale per servizi è in ascolto da una porta designata in attesa di nuove connessioni SSH da parte dell'utente (la porta 2222 usata nell'esempio è una porta arbitraria). L'utente punta il client SSH alla porta del proxy locale per servizi in localhost.
+4. Il proxy locale per servizi è in ascolto da una porta designata in attesa di nuove connessioni SSH da parte dell'utente (nell'esempio viene usata la porta 2222, ma il proxy può essere configurato per qualsiasi altra porta disponibile). L'utente punta il client SSH alla porta del proxy locale per servizi in localhost.
 
 ### <a name="notes"></a>Note
-- I passaggi precedenti guidano nel completamento di un tunnel end-to-end tra il client SSH (sul lato destro) e il daemon SSH (sul lato sinistro). 
+- I passaggi precedenti guidano nel completamento di un tunnel end-to-end tra il client SSH (sul lato destro) e il daemon SSH (sul lato sinistro). Parte di questa connettività end-to-end prevede l'invio di traffico all'hub IoT tramite un flusso dispositivo.
 
 - Nella figura le frecce indicano la direzione in cui vengono stabilite le connessioni tra gli endpoint. In particolare, si noti che non vi è nessuna connessione in ingresso che si dirige verso il dispositivo (questo viene spesso bloccato da un firewall).
 
-- La scelta di usare la porta `2222` nel proxy locale per servizi è una scelta arbitraria. Il proxy può essere configurato per usare qualsiasi altra porta disponibile.
+- La scelta di usare la porta 2222 nel proxy locale per servizi è una scelta arbitraria. Il proxy può essere configurato per usare qualsiasi altra porta disponibile.
 
-- In questo caso la scelta della porta `22` dipende dal protocollo ed è specifica per SSH. Nel caso di RDP, è necessario usare la porta `3389`. Questa può essere configurata nei programmi di esempio forniti.
+- In questo caso, la scelta della porta 22 dipende dal protocollo ed è specifica per SSH. Nel caso di RDP, è necessario usare la porta 3389. Questa può essere configurata nei programmi di esempio forniti.
 
-Consultare i collegamenti seguenti per istruzioni su come eseguire i programmi di proxy locali nel linguaggio di propria scelta. Similmente all'esempio echo, è possibile eseguire proxy locali per dispositivi e per servizi in linguaggi diversi, dato che sono pienamente interoperativi.
+Consultare i collegamenti seguenti per istruzioni su come eseguire i programmi di proxy locali nel linguaggio di propria scelta. Analogamente all'[esempio echo](#echo-sample), è possibile eseguire programmi proxy locali per dispositivi e per servizi in linguaggi diversi, poiché sono pienamente interoperativi.
 
 | SDK    | Proxy locale per servizi                                       | Proxy locale per dispositivi                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|

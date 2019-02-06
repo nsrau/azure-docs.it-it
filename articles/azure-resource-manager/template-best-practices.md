@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd54ae2c82d3baf716784c39951c5cad7ec364b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730722"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077940"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -82,7 +82,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Usare `allowedValues` solo in casi limitati. Usarlo solo quando è necessario assicurarsi che alcuni valori non vengano inclusi nelle opzioni consentite. Se si usa `allowedValues` troppo diffusamente, si potrebbero bloccare le distribuzioni valide non tenendo aggiornato l'elenco.
 
-* Quando il nome di un parametro nel modello corrisponde a un parametro nel comando di distribuzione di PowerShell, Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
+* Quando il nome di un parametro nel modello corrisponde a un parametro nel comando di distribuzione di PowerShell, Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Raccomandazioni sulla sicurezza per i parametri
 

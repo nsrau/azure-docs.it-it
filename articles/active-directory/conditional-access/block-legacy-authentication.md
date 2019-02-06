@@ -7,22 +7,22 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: ''
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451307"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076844"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l’autenticazione legacy per Azure AD con accesso condizionale   
 
@@ -120,6 +120,15 @@ Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 È possibile selezionare tutti i controlli di concessione disponibili per l'altra condizione dei client; tuttavia, l'esperienza dell’utente finale è sempre la stessa, l'accesso è bloccato.
 
 È possibile configurare tutte le altre condizioni accanto alla condizione degli altri client.
+Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Configurazione di criteri non supportata](./media/block-legacy-authentication/06.png)
 
 
 

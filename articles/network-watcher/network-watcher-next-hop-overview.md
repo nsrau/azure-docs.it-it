@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391267"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096892"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Usare l'hop successivo per diagnosticare problemi di routing di una macchina virtuale
 
@@ -42,4 +42,4 @@ Per altre informazioni sui tipi di hop successivo, vedere [panoramica del routin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare l'hop successivo per diagnosticare problemi di routing di rete VM, vedere l'argomento relativo a [come diagnosticare un problema di routing di rete di una macchina virtuale](diagnose-vm-network-routing-problem.md).
+Per informazioni su come usare l'hop successivo per diagnosticare problemi di routing di rete VM, vedere Diagnosticare un problema di routing di rete di una macchina virtuale tramite [portale di Azure](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md) o [interfaccia della riga di comando di Azure](diagnose-vm-network-routing-problem-cli.md).

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728041"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912034"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
@@ -124,8 +124,8 @@ Utilizzare questa proprietà con i **filtri asset**. Non è consigliabile impost
 |---|---|
 |**endTimestamp**|Il limite di tempo finale assoluto. È adatto per i video on demand (VoD). Per la presentazione live, viene automaticamente ignorato e applicato al termine della presentazione, quando il flusso diventa VoD.<br/><br/>Il valore rappresenta un punto finale assoluto del flusso. Viene arrotondato all'inizio GOP successivo più vicino.<br/><br/>Utilizzare StartTimestamp ed EndTimestamp per tagliare la playlist (manifesto). Ad esempio, se StartTimestamp = 40000000 ed EndTimestamp = 100000000, verrà generata una playlist che contiene elementi multimediali tra StartTimestamp ed EndTimestamp. Se un frammento attraversa il limite, l'intero frammento verrà incluso nel manifesto.<br/><br/>Vedere anche la seguente definizione di **forceEndTimestamp**.|
 |**forceEndTimestamp**|Si applica ai filtri live.<br/><br/>**forceEndTimestamp** è un valore booleano che indica se **endTimestamp** è stato impostato su un valore valido o meno. <br/><br/>Se il valore è **true**, il valore **endTimestamp** deve essere specificato. Se non è specificato, viene restituita una richiesta non valida.<br/><br/>Se, ad esempio, si vuole definire un filtro che inizia in corrispondenza di 5 minuti nel video di input e viene mantenuto fino alla fine del flusso, bisogna impostare **forceEndTimestamp** su false e omettere l'impostazione **endTimestamp**.|
-|**liveBackoffDuration**|Si applica solo a contenuti live. La proprietà viene utilizzata per definire la posizione della riproduzione live. Con questa regola, è possibile ritardare la posizione di riproduzione live e creare un buffer lato server per i lettori. LiveBackoffDuration dipende dalla posizione live. La durata massima di backoff live è di 60 secondi.|
-|**presentationWindowDuration**|Si applica ai contenuti live. Usare **presentationWindowDuration** per applicare una finestra temporale scorrevole alla playlist. Ad esempio, impostare presentationWindowDuration = 1200000000 per applicare una finestra temporale scorrevole di due minuti. Nella playlist verranno inclusi i contenuti multimediali che rientrano nei 2 minuti dell’arco live. Se un frammento attraversa il limite, l'intero frammento verrà incluso nella playlist. La durata minima della finestra di presentazione è di 120 secondi.|
+|**liveBackoffDuration**|Si applica solo a contenuti live. La proprietà viene utilizzata per definire la posizione della riproduzione live. Con questa regola, è possibile ritardare la posizione di riproduzione live e creare un buffer lato server per i lettori. LiveBackoffDuration dipende dalla posizione live. La durata massima di backoff live è di 300 secondi.|
+|**presentationWindowDuration**|Si applica ai contenuti live. Usare **presentationWindowDuration** per applicare una finestra temporale scorrevole alla playlist. Ad esempio, impostare presentationWindowDuration = 1200000000 per applicare una finestra temporale scorrevole di due minuti. Nella playlist verranno inclusi i contenuti multimediali che rientrano nei 2 minuti dell’arco live. Se un frammento attraversa il limite, l'intero frammento verrà incluso nella playlist. La durata minima della finestra di presentazione è di 60 secondi.|
 |**startTimestamp**|Si applica ai flussi live o VoD. Il valore rappresenta un punto iniziale assoluto del flusso. Viene arrotondato all'inizio GOP successivo più vicino.<br/><br/>Utilizzare **startTimestamp** e **endTimestamp** per tagliare la playlist (manifesto). Ad esempio, se startTimestamp = 40000000 ed endTimestamp = 100000000, verrà generata una playlist che contiene elementi multimediali tra StartTimestamp ed EndTimestamp. Se un frammento attraversa il limite, l'intero frammento verrà incluso nel manifesto.|
 |**timescale**|Si applica ai flussi live o VoD. La scala cronologica usata dai timestamp e dalle durate specificate in precedenza. La scala cronologica predefinita è 10000000. È possibile usare una scala cronologica diversa. Il valore predefinito è 10000000 HNS (centinaia di nanosecondi).|
 

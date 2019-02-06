@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468336"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294724"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori docker di Language Understanding 
+# <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
-L'ambiente di runtime del contenitore Language Understanding (LUIS) si configura mediante gli argomenti del comando `docker run`. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le [impostazioni di montaggio](#mount-settings) di input e le impostazioni di fatturazione. 
+L'ambiente di runtime del contenitore **Language Understanding** (LUIS) viene configurato tramite gli argomenti del comando `docker run`. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le [impostazioni di montaggio](#mount-settings) di input e le impostazioni di fatturazione. 
 
 Le impostazioni del contenitore sono [gerarchiche](#hierarchical-settings) e possono essere impostate tramite [variabili di ambiente](#environment-variable-settings) o [argomenti della riga di comando](#command-line-argument-settings) di Docker.
 
@@ -32,11 +32,11 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |--|--|--|
 |Yes|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Yes|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Yes|[Billing](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
 |No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No |[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |Yes|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
@@ -124,7 +124,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 |{BILLING_ENDPOINT} | Il valore dell'endpoint billing (fatturazione) è disponibile nella pagina della panoramica di Language Understanding del portale di Azure.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Billing](luis-container-howto.md#billing).
 > Il valore ApiKey è la **chiave** della pagina delle chiavi ed endpoint nel portale di LUIS ed è anche disponibile nella pagina delle chiavi di Azure Language Understanding Resource. 
 
 ### <a name="basic-example"></a>Esempio di base

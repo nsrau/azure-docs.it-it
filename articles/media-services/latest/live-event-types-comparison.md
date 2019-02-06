@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725933"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153964"
 ---
-# <a name="liveevent-types-comparison"></a>Confronto tra tipi di LiveEvent
+# <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
-In Servizi multimediali di Azure, un [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: codifica live e pass-through. 
+In Servizi multimediali di Azure, un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: codifica live e pass-through. 
 
 ## <a name="types-comparison"></a>Confronto tra tipi 
 
-La tabella seguente mette a confronto le funzionalità dei due tipi di LiveEvent.
+La tabella seguente mette a confronto le funzionalità dei due tipi di eventi live.
 
-| Funzionalità | LiveEvent pass-through | LiveEvent standard |
+| Funzionalità | Evento live pass-through | Evento live standard |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Yes |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
@@ -50,10 +50,10 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di LiveEvent
 | Supporto per l'inserimento di slate|No |No |
 | Supporto per annunci pubblicitari tramite API| No |No |
 | Supporto per annunci pubblicitari tramite messaggi in banda SCTE-35|Yes|Yes|
-| Possibilità di recuperare brevi fasi di stallo in feed di contributo|Yes|No (senza dati di input, il LiveEvent avvierà lo slate dopo 6 secondi)|
+| Possibilità di recuperare brevi fasi di stallo in feed di contributo|Yes|No (senza dati di input, l'evento live avvierà lo slate dopo almeno 6 secondi)|
 | Supporto per GOP di input non uniformi|Yes|No - La durate GOP dell’input deve essere fissa|
 | Supporto per input con frequenza dei fotogrammi variabile|Yes|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il feed di contributo non può però diminuire la frequenza dei fotogrammi (ad esempio a 15 fotogrammi/sec).|
-| Arresto automatico del LiveEvent in caso di perdita del feed di input|No |Dopo 12 ore, se nessun LiveOutput è in esecuzione|
+| Arresto automatico dell'evento live in caso di perdita del feed di input|No |Dopo 12 ore, se nessun LiveOutput è in esecuzione|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

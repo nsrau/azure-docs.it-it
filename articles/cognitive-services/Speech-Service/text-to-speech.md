@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343208"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251555"
 ---
 # <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
 
@@ -37,6 +37,9 @@ Gli scenari in cui viene adottata la sintesi vocale includono:
 ## <a name="voice-support"></a>Supporto vocale
 
 Il servizio di **sintesi vocale** di Microsoft offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare questi "caratteri voce" standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama l'API REST del servizio. Per altre informazioni sulle lingue, le impostazioni locali e le voci supportate, vedere [Supporto per le lingue](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> I costi variano per voci standard, personalizzate e neurali. Per altre informazioni, vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Voci neurali
 

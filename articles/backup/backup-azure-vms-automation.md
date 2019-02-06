@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424523"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300592"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Usare PowerShell per il backup e il ripristino di macchine virtuali
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Ripristinare i dischi gestiti
 
 > [!NOTE]
-> Se la macchina virtuale sottoposta a backup dispone di dischi gestiti e si desidera ripristinarli come dischi gestiti, Microsoft ha introdotto la funzionalità da Azure PowerShell v 6.7.0. in poi
+> Se la macchina virtuale sottoposta a backup include dischi gestiti e si vuole ripristinarli come dischi gestiti, Microsoft ha introdotto questa funzionalità dal modulo RM 6.7.0 di Azure PowerShell in poi
 >
 >
 
-Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti.
+Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. 
+
+> [!NOTE]
+> È consigliabile usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti poiché consente di ottenere miglioramenti significativi in termini di prestazioni. Inoltre, a partire dal modulo AZ 1.0 di Azure PowerShell, questo parametro è obbligatorio in caso di ripristino con dischi gestiti
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055404"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102686"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sostituzione dell'API di avvio del nodo e dell'API di arresto del nodo con l'API di transizione del nodo
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Come funzionano le API di avvio del nodo e di arresto del nodo?
 
-L'API di avvio del nodo (gestita: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) arresta un nodo di Service Fabric.  Un nodo di Service Fabric è un processo, non una VM o macchina; la VM o la macchina sarà comunque in esecuzione.  Nel resto del documento, "nodo" indica il nodo di Service Fabric.  L'arresto di un nodo inserisce il nodo in uno stato *arrestato*, in cui non è un membro del cluster e non può ospitare servizi, simulando in questo modo un nodo *inattivo*.  Questa condizione è utile per l'inserimento di errori nel sistema per testare l'applicazione.  L'API di avvio del nodo (gestita: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) inverte l'API di arresto del nodo riportando il nodo a uno stato normale.
+L'API di arresto del nodo (gestito: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) arresta un nodo di Service Fabric.  Un nodo di Service Fabric è un processo, non una VM o macchina; la VM o la macchina sarà comunque in esecuzione.  Nel resto del documento, "nodo" indica il nodo di Service Fabric.  L'arresto di un nodo inserisce il nodo in uno stato *arrestato*, in cui non è un membro del cluster e non può ospitare servizi, simulando in questo modo un nodo *inattivo*.  Questa condizione è utile per l'inserimento di errori nel sistema per testare l'applicazione.  L'API di avvio del nodo (gestito: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) inverte l'API di arresto del nodo, riportando il nodo a uno stato normale.
 
 ## <a name="why-are-we-replacing-these"></a>Perché si sta procedendo alla relativa sostituzione?
 
@@ -42,10 +42,10 @@ Questi problemi sono stati risolti in un nuovo set di API.  La nuova API di tran
 
 **Utilizzo**
 
-Se l'API di transizione del nodo non genera un'eccezione quando viene richiamata, il sistema ha accettato l'operazione asincrona e la eseguirà.  Una chiamata eseguita correttamente non implica che l'operazione sia stata completata.  Per ottenere informazioni sullo stato corrente dell'operazione, chiamare l'API di avanzamento della transizione del nodo (gestito: [GetNodeTransitionProgressAsync()][gntp]) con il GUID usato per chiamare l'API di transizione di nodo per questa operazione.  L'API di avanzamento della transizione del nodo restituisce un oggetto NodeTransitionProgress.  La proprietà State dell'oggetto specifica lo stato corrente dell'operazione.  Se lo stato è "In esecuzione", l'operazione è in corso.  Se lo stato è completato, l'operazione è stata completata senza errori.  Se lo stato indica un errore, si è verificato un problema in fase di esecuzione.  La proprietà Exception della proprietà Result indicherà il problema riscontrato.  Vedere https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate per altre informazioni sulla proprietà State e la sezione "Esempio di utilizzo" riportata di seguito per esempi di codice.
+Se l'API di transizione del nodo non genera un'eccezione quando viene richiamata, il sistema ha accettato l'operazione asincrona e la eseguirà.  Una chiamata eseguita correttamente non implica che l'operazione sia stata completata.  Per ottenere informazioni sullo stato corrente dell'operazione, chiamare l'API di avanzamento della transizione nodo (gestito: [GetNodeTransitionProgressAsync()][gntp]) con il GUID usato al momento della chiamata dell'API di transizione del nodo per questa operazione.  L'API di avanzamento della transizione del nodo restituisce un oggetto NodeTransitionProgress.  La proprietà State dell'oggetto specifica lo stato corrente dell'operazione.  Se lo stato è "In esecuzione", l'operazione è in corso.  Se lo stato è completato, l'operazione è stata completata senza errori.  Se lo stato indica un errore, si è verificato un problema in fase di esecuzione.  La proprietà Exception della proprietà Result indicherà il problema riscontrato.  Vedere https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate per altre informazioni sulla proprietà State e la sezione "Esempio di utilizzo" riportata di seguito per esempi di codice.
 
 
-**Differenze tra un nodo arrestato e un nodo inattivo** Se un nodo è stato *arrestato* usando l'API di transizione del nodo, l'output di una query del nodo (gestito: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indicherà il valore true della proprietà *IsStopped* per questo nodo.  Si noti che questo valore è diverso dal valore della proprietà *NodeStatus* che indicherà lo stato *inattivo*.  Se la proprietà *NodeStatus* ha il valore *inattivo*, ma *IsStopped* è falso, il nodo non è stato arrestato usando l'API di transizione del nodo ed è *inattivo* per un altro motivo.  Se il valore della proprietà *IsStopped* è true e la proprietà *NodeStatus* indica lo stato *inattivo*, il nodo è stato arrestato usando l'API di transizione del nodo.
+**Differenza tra un nodo arrestato e un nodo inattivo** Se un nodo è stato *arrestato* tramite l'API di transizione del nodo, l'output di una query al nodo (gestito: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indica che il valore della proprietà *IsStopped* del nodo corrisponde a true.  Si noti che questo valore è diverso dal valore della proprietà *NodeStatus* che indicherà lo stato *inattivo*.  Se la proprietà *NodeStatus* ha il valore *inattivo*, ma *IsStopped* è falso, il nodo non è stato arrestato usando l'API di transizione del nodo ed è *inattivo* per un altro motivo.  Se il valore della proprietà *IsStopped* è true e la proprietà *NodeStatus* indica lo stato *inattivo*, il nodo è stato arrestato usando l'API di transizione del nodo.
 
 L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristina il funzionamento come membro normale del cluster.  L'output dell'API di query del nodo indicherà *IsStopped* come falso e *NodeStatus* indicherà un valore diverso da Inattivo, ad esempio, Attivo.
 
@@ -159,7 +159,7 @@ L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristin
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristin
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

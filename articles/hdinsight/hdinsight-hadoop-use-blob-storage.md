@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/28/2019
+ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051969"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295764"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -35,7 +35,7 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 | Utilizzo generico v1   | BLOB               | Standard                    | N/D                    |
 | Archiviazione BLOB         | BLOB               | Standard                    | Hot, Cool, Archive*    |
 
-Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
 
 La condivisione di un contenitore BLOB come file system predefinito tra più cluster non è supportata.
  
@@ -63,8 +63,7 @@ Di seguito sono riportate alcune considerazioni sull'uso di un account di Archiv
   
   > [!NOTE]  
   > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB disponibili al suo interno, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Gestire l'accesso a contenitori e Blob</a>.
-  > 
-  > 
+
 * **Contenitori privati negli account di archiviazione NON connessi a un cluster:** non è possibile accedere ai BLOB nei contenitori a meno che non sia stato definito l'account di archiviazione quando sono stati inviati i processi WebHCat. Questo concetto verrà spiegato più avanti nell'articolo.
 
 Gli account di archiviazione definiti durante il processo di creazione, con le rispettive chiavi, sono archiviati in %HADOOP_HOME%/conf/core-site.xml nei nodi del cluster. Il comportamento predefinito di HDInsight consiste nell'usare gli account di archiviazione definiti nel file core-site.xml. È possibile modificare questa impostazione usando [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
@@ -102,7 +101,7 @@ Il contenitore BLOB predefinito archivia informazioni specifiche del cluster com
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 Durante la creazione di un cluster HDInsight dal portale, sono disponibili le opzioni per indicare i dettagli dell'account di archiviazione, come mostrato di seguito. È inoltre possibile specificare se si vuole associare un account di archiviazione aggiuntivo al cluster e, in tal caso, se sceglierlo da Data Lake Storage o da un altro BLOB del servizio di archiviazione di Azure.
 
-![Origine dati della creazione di HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![Origine dati della creazione di HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
@@ -184,7 +183,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 > [!NOTE]  
 > Nei cluster HDInsight versione 2.1 e 1.6 il nome del file è <i>hadoop-examples.jar</i>.
 
-&lt;path&gt; è il nome del percorso HDFS del file o della directory. Poiché i contenitori in Archiviazione di Azure sono semplicemente archivi chiave-valore, non esiste un vero file system gerarchico. Un carattere barra ( / ) all'interno di una chiave BLOB viene interpretato come un separatore di directory. Ad esempio, il nome BLOB di *hadoop-mapreduce-examples.jar* è:
+&lt;path&gt; è il nome del percorso HDFS del file o della directory. Poiché i contenitori in Archiviazione di Azure sono archivi chiave-valore, non esiste un vero file system gerarchico. Un carattere barra ( / ) all'interno di una chiave BLOB viene interpretato come un separatore di directory. Ad esempio, il nome BLOB di *hadoop-mapreduce-examples.jar* è:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
@@ -338,6 +337,7 @@ Per altre informazioni, vedere:
 * [Usare Apache Hive con HDInsight][hdinsight-use-hive]
 * [Usare Apache Pig con HDInsight][hdinsight-use-pig]
 * [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight][hdinsight-use-sas]
+* [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs
@@ -347,7 +347,7 @@ Per altre informazioni, vedere:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

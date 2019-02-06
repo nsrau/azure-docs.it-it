@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427934"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155307"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -143,9 +143,6 @@ L'applicazione e gli script di installazione possono essere scaricati dal [colle
 
 L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://aka.ms/POA/POA.sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> La versione più recente (v1.3.0) di Patch Orchestration Application presenta un problema noto quando è in esecuzione in Windows Server 2012. Se si esegue Windows Server 2012, è necessario scaricare la versione 1.2.2 dell'applicazione [qui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Collegamento a SFPkg [qui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>Configurare l'app
 
 Il comportamento di Patch Orchestration App può essere configurato per soddisfare le esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile fornire i parametri dell'applicazione specificando `ApplicationParameter` ai cmdlet `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`.
@@ -156,7 +153,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).<br> Fare riferimento alla sezione delle [domande frequenti](#frequently-asked-questions) su come scegliere i migliori criteri per il cluster.
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: 1024)               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
 | WUQuery               | stringa<br>(Valore predefinito: "IsInstalled=0")                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | Boolean <br> (valore predefinito: true)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
 | WUOperationTimeOutInMinutes | int <br>(Valore predefinito: 90)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | int <br> (Valore predefinito: 5)                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
 | WURescheduleTimeInMinutes | int <br>(Valore predefinito: 30) | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
@@ -295,7 +292,7 @@ A seconda dei criteri impostati per l'applicazione, durante un'operazione di app
 
 Al termine dell'installazione di Windows Update, i nodi vengono abilitati di nuovo dopo il riavvio.
 
-Nell'esempio seguente, il cluster è passato temporaneamente a uno stato di errore perché i due nodi sono stati resi inattivi e il criterio MaxPercentageUnhealthNodes è stato violato. L'errore è temporaneo fino a quando l'operazione di aggiornamento è in corso.
+Nell'esempio seguente il cluster è passato temporaneamente a uno stato di errore perché due nodi erano inattivi e il criterio MaxPercentageUnhealthNodes è stato violato. L'errore è temporaneo fino a quando l'operazione di aggiornamento è in corso.
 
 ![Immagine del cluster non integro](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ D: **Quanto tempo occorre per applicare patch a un intero cluster?**
 R. Il tempo necessario per applicare patch a un intero cluster dipende dai fattori seguenti:
 
 - Tempo necessario per applicare patch a un nodo.
-- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio:  se l'applicazione di patch a un nodo richiede circa 1 ora, per applicare patch a un cluster di 20 nodi (dello stesso tipo) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi:
+- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio:  si supponga che l'applicazione di patch a un nodo richieda circa 1 ora, e si debbano applicare patch a un cluster di 20 nodi (dello stesso tipo) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi.
     - Sono necessarie circa 20 ore per applicare patch all'intero cluster, se il criterio è `NodeWise`
     - Sono necessarie 5 ore se il criterio è `UpgradeDomainWise`
 - Caricamento del cluster - ogni operazione di installazione di patch richiede la rilocazione del carico di lavoro dei clienti in altri nodi disponibili nel cluster. Un nodo in fase di patch può essere in stato di [disabilitazione](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante l'operazione. Se il cluster è in prossimità di picchi di carico, il processo di disabilitazione richiederà più tempo. Di conseguenza il processo complessivo dell'applicazione di patch in tali condizioni potrebbe risultare lento.
@@ -411,3 +408,8 @@ Un amministratore deve intervenire e stabilire perché l'applicazione o il clust
 - L'impostazione di InstallWindowsOSOnlyUpdates su false consente di installare tutti gli aggiornamenti disponibili.
 - Modifica della logica per disabilitare gli aggiornamenti automatici. Questa correzione risolve un bug che impediva la disabilitazione degli aggiornamenti automatici nei sistemi Server 2016 e versioni successive.
 - Parametrizzazione del vincolo di posizionamento per entrambi i microservizi di POA per casi d'uso avanzati.
+
+### <a name="version-131"></a>Versione 1.3.1
+- Correzione della regressione per cui POA 1.3.0 non funziona in Windows Server 2012 R2 o versione precedente a causa di un errore durante la disabilitazione degli aggiornamenti automatici. 
+- Correzione di un bug per cui la configurazione di InstallWindowsOSOnlyUpdates risulta sempre true.
+- Modifica del valore predefinito di InstallWindowsOSOnlyUpdates su False.

@@ -1,27 +1,25 @@
 ---
-title: Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con gruppi in Azure Active Directory | Microsoft Docs
-description: Descrive il processo consigliato per la migrazione degli utenti tra licenze dei prodotti diverse (Office 365 Enterprise E1 ed E3) usando la gestione delle licenze basate su gruppo
+title: Come eseguire la migrazione degli utenti a licenze di prodotti con gruppi - Azure Active Directory | Microsoft Docs
+description: Descrive la procedura consigliata per la migrazione degli utenti di un gruppo a licenze di prodotti diverse (Office 365 Enterprise E1 ed E3) usando la gestione delle licenze basate su gruppo
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: ea6159f487b35192e0e2137662a664a2796843c0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389469"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294574"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Come eseguire in modo sicuro la migrazione degli utenti tra le licenze dei prodotti usando la gestione delle licenze basate su gruppo
 
@@ -177,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrare gli utenti tra prodotti con piani di servizio in conflitto
-L'obiettivo della migrazione consiste nell'usare licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio: Office 365 Enterprise E1) a una *licenza di destinazione* (in questo esempio: Office 365 Enterprise E3). I due prodotti in questo scenario contengono piani di servizio in conflitto, pertanto sarà necessario trovare una soluzione alternativa per migrare gli utenti. Per altre informazioni sui conflitti, vedere [Risoluzione dei problemi relativi a un gruppo di licenze in Active Directory. Piani di servizio in conflitto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
+L'obiettivo della migrazione consiste nell'usare licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio: Office 365 Enterprise E1) a una *licenza di destinazione* (in questo esempio: Office 365 Enterprise E3). I due prodotti in questo scenario contengono piani di servizio in conflitto, pertanto sarà necessario trovare una soluzione alternativa per migrare gli utenti. Per altre informazioni sui conflitti, vedere [Risoluzione dei problemi relativi a un gruppo di licenze in Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Piani di servizio in conflitto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
 
 1.  Gli utenti sono membri di un gruppo di origine ed ereditano la *licenza di origine* da questo gruppo.
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 6c6fe0a720795c67a7062f5a5971c699472fca07
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: deb7cf8368c5830bd575c617adf857448cfe2e48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Esercitazione: Integrazione di Azure Active Directory con mindWireless
 
@@ -189,7 +189,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-mindwireless-test-user"></a>Creare un utente di test di mindWireless
 
-In questa sezione viene creato un utente di nome Britta Simon in mindWireless. Collaborare con il [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com) per aggiungere gli utenti nella piattaforma mindWireless. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in mindWireless. Collaborare con il  [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com)  per aggiungere gli utenti alla piattaforma mindWireless. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -226,7 +226,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro mindWireless nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione mindWireless.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

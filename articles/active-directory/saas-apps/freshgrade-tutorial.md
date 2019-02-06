@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c6439b31d2f8c95e0dc1526b92f21aee2966f12f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Esercitazione: Integrazione di Azure Active Directory con FreshGrade
 
@@ -127,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di FreshGrade](mailTo:support@freshgrade.com).
 
-1. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+1. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app**  e incollarlo nel Blocco note.
     
     ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      

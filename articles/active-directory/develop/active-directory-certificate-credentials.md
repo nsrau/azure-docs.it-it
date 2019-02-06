@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578671"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076316"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -45,7 +45,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie di [t
 
 | Parametro |  Osservazioni |
 | --- | --- |
-| `aud` | Destinatari: deve essere **https://login.microsoftonline.com/*id_tenant*/oauth2/token** |
+| `aud` | Audience: Deve essere **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data di scadenza: la data di scadenza del token. L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|
 | `iss` | Autorità di certificazione: deve essere il parametro client_id (ID applicazione del servizio client) |
 | `jti` | GUID: l'ID token JWT |

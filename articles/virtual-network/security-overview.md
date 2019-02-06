@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bbfb070a66bdae415d357542459ee88fd8b1865f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159061"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104416"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -58,7 +58,7 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
  Nella definizione delle regole di sicurezza possono essere usati i tag di servizio seguenti. I nomi variano leggermente a seconda del [modello di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** per la versione classica): Questo tag include lo spazio indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi indirizzi locali connessi e le reti virtuali [con peering](virtual-network-peering-overview.md) o una rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** per la versione classica): Questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md##azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** per la versione classica): Questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola.
 * **Internet** (Resource Manager) (**INTERNET** per la versione classica): Questo tag identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica. L'intervallo degli indirizzi include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (solo Resource Manager): Questo tag identifica lo spazio indirizzi IP per Azure che include tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=41653). Se si specifica *AzureCloud* come valore, verrà consentito o impedito il traffico verso gli indirizzi pubblici di Azure. Se si vuole consentire l'accesso ad AzureCloud solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad AzureCloud di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Azurecloud.EastUS* come tag di servizio. 
 * **AzureTrafficManager** (solo Resource Manager): Questo tag identifica lo spazio indirizzi IP per gli indirizzi IP probe di Gestione traffico di Azure. Per altre informazioni sugli IP probe di Gestione traffico, consultare [Domande frequenti su Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
@@ -95,19 +95,19 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|CONSENTI|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|CONSENTI|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tutti|Nega|
 
@@ -115,19 +115,19 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | CONSENTI |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | CONSENTI |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tutti | Nega |
 
@@ -147,7 +147,7 @@ Nell'immagine precedente, *NIC1* e *NIC2* sono membri del gruppo di sicurezza de
 
 Questa regola è necessaria per consentire il traffico da Internet verso i server Web. Dato che il traffico in ingresso da Internet viene negato dalla regola di sicurezza predefinita [DenyAllInbound](#denyallinbound), non sono necessarie regole aggiuntive per i gruppi di sicurezza delle applicazioni *AsgLogic* o *AsgDb*.
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | CONSENTI |
 
@@ -155,7 +155,7 @@ Questa regola è necessaria per consentire il traffico da Internet verso i serve
 
 Dato che la regola di sicurezza predefinita [AllowVNetInBound](#allowvnetinbound) consente tutte le comunicazioni tra le risorse nella stessa rete virtuale, questa regola è necessaria per negare il traffico da tutte le risorse.
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Tutti | Nega |
 
@@ -163,7 +163,7 @@ Dato che la regola di sicurezza predefinita [AllowVNetInBound](#allowvnetinbound
 
 Questa regola consente il traffico dal gruppo di sicurezza delle applicazioni *AsgLogic* al gruppo di sicurezza delle applicazioni *AsgDb*. La priorità di questa regola è superiore a quella della regola *Deny-Database-All*. Di conseguenza, questa regola viene elaborata prima della regola *Deny-Database-All*, quindi il traffico dal gruppo di sicurezza delle applicazioni *AsgLogic* è consentito, mentre tutto il resto del traffico è bloccato.
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | CONSENTI |
 

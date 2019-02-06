@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359637"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104556"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming
 
-In Servizi multimediali di Azure un'entità [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da una risorsa video on demand associata all'account di Servizi multimediali. Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Nell'account è possibile creare altri endpoint di streaming. Per avviare lo streaming di video, è necessario avviare l'endpoint di streaming da cui si desidera trasmettere il video. 
+In Servizi multimediali di Azure un'entità [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio **endpoint di streaming** può essere costituito da un flusso live o da una risorsa video on demand associata all'account di Servizi multimediali. Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Nell'account è possibile creare altri endpoint di streaming. 
+
+> [!NOTE]
+> Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video. 
 
 ## <a name="naming-convention"></a>Convenzione di denominazione
 
@@ -34,7 +37,7 @@ Sono disponibili due tipi di entità **StreamingEndpoint**: **Standard** e **Pre
 
 La tabella seguente descrive i tipi:  
 
-|type|Unità di scala|DESCRIZIONE|
+|Type|Unità di scala|DESCRIZIONE|
 |--------|--------|--------|  
 |**Endpoint di streaming Standard** (scelta consigliata)|0|Il tipo **Standard** rappresenta la scelta consigliata per tutti gli scenari di streaming e per qualsiasi numero di destinatari. Il tipo **Standard** consente la scalabilità automatica della larghezza di banda in uscita. <br/>Per i clienti con requisiti più complessi, Servizi multimediali mette a disposizione endpoint di streaming di tipo **Premium**, scalabili orizzontalmente qualora il numero dei destinatari Internet sia più ampio. Se si prevedono un vasto pubblico e utenti simultanei, contattare Microsoft all'indirizzo amsstreaming@microsoft.com per valutare la necessità di passare al tipo **Premium**. |
 |**Endpoint di streaming Premium**|>0|Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per passare al tipo **Premium** è necessario regolare il valore `scaleUnits`. Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium**, ogni unità abilitata fornisce all'applicazione una capacità di larghezza di banda aggiuntiva. |

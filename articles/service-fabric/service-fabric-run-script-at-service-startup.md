@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210495"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098613"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Eseguire uno script di avvio del servizio come account utente o di sistema locale
-Prima dell'avvio del file eseguibile di un servizio di Service Fabric può essere necessario eseguire alcune operazioni di configurazione o di installazione,  ad esempio la configurazione delle variabili di ambiente. Nel manifesto del servizio è possibile specificare di eseguire uno script prima dell'avvio dell'eseguibile del servizio stesso. La configurazione di criteri RunAs per il punto di ingresso dell'installazione del servizio consente di modificare l'account di esecuzione dell'eseguibile di installazione.  Un punto di ingresso dell'installazione separato consente di eseguire una configurazione con privilegi elevati per un breve periodo di tempo, in modo che non sia necessario eseguire con privilegi elevati il file eseguibile dell'host del servizio per periodi di tempo prolungati.
+Prima dell'avvio del file eseguibile di un servizio di Service Fabric può essere necessario eseguire alcune operazioni di configurazione o di installazione,  ad esempio la configurazione delle variabili di ambiente. Nel manifesto del servizio è possibile specificare di eseguire uno script prima dell'avvio dell'eseguibile del servizio stesso. La configurazione di criteri RunAs per il punto di ingresso dell'installazione del servizio consente di modificare l'account di esecuzione dell'eseguibile di installazione.  Un punto di ingresso dell'installazione separato consente di eseguire una configurazione con privilegi elevati per un breve periodo di tempo, in modo che non sia necessario eseguire con privilegi elevati il file eseguibile dell'host servizio per periodi di tempo prolungati.
 
 Il punto di ingresso dell'installazione, (**SetupEntryPoint** nel [manifesto del servizio](service-fabric-application-and-service-manifests.md)), è un punto di ingresso con privilegi che per impostazione predefinita viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService*) prima di qualsiasi altro punto di ingresso. L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. L'eseguibile **EntryPoint** viene eseguito dopo la conclusione dell'eseguibile **SetupEntryPoint**. Il processo risultante viene monitorato e riavviato ed inizia di nuovo con **SetupEntryPoint**, se termina o si arresta in modo anomalo. 
 

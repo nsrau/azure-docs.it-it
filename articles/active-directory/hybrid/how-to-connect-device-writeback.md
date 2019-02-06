@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: db11ddc275b1e47b728cdc0f9b7d9bf6b6aa9652
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412819"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189528"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Abilitazione del writeback dei dispositivi
 > [!NOTE]
@@ -89,7 +89,7 @@ Se la casella di controllo per il writeback dei dispositivi non è ancora abilit
 
 Attività iniziali:
 
-* Assicurarsi che almeno una foresta disponga di Windows Server 2012 R2. Il tipo di oggetto del dispositivo deve essere presente.
+* Aggiornare al livello Windows 2012 R2 lo schema della foresta in cui si trovano i dispositivi in modo che siano presenti l'oggetto dispositivo e gli attributi associati.
 * Se l'installazione guidata è già in esecuzione, non verranno rilevate tutte le modifiche. In questo caso, completare l'installazione guidata ed eseguirla nuovamente.
 * Assicurarsi che l'account specificato nello script di inizializzazione sia effettivamente l'utente corretto usato da Active Directory Connector. A questo scopo, seguire questa procedura:
   * Avviare **Servizio di sincronizzazione**dal menu Start.

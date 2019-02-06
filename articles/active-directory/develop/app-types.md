@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816345"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093122"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
 
@@ -33,11 +33,11 @@ Il diagramma seguente illustra questi scenari e tipi di applicazioni, oltre che 
 
 Azure AD supporta i cinque scenari di applicazione principali descritti di seguito:
 
-- **[Applicazione a pagina singola](single-page-application.md)**: un'utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
+- **[Applicazione a pagina singola](single-page-application.md)**: un utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
 - **[Da Web browser ad applicazione Web](web-app.md)**: un utente deve accedere a un'applicazione Web protetta da Azure AD.
 - **[Da applicazione nativa ad API Web](native-app.md)**: un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere le risorse da un'API Web protetta da Azure AD.
 - **[Da applicazione Web ad API Web](web-api.md)**: un'applicazione Web deve ottenere le risorse da un'API Web protetta da Azure AD.
-- **[Da daemon o applicazione server ad API Web](service-to-service.md)**: un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
+- **[Da applicazione server o daemon ad API Web](service-to-service.md)**: un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
 
 Fare clic sui collegamenti per ottenere altre informazioni su ogni tipo di app e comprendere gli scenari generali prima di iniziare a usare il codice. È possibile ottenere anche informazioni sulle differenze che è necessario conoscere quando si scrive un'app specifica che funziona con l'endpoint v1.0 o v2.0.
 

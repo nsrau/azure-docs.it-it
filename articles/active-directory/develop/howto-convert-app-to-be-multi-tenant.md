@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425344"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097045"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -59,7 +59,7 @@ In un'applicazione single-tenant le richieste di accesso vengono inviate all'end
 
 Con un'applicazione multi-tenant, l'applicazione non determina in anticipo il tenant di provienienza dell'utente, pertanto non è possibile inviare richieste all'endpoint del tenant. Al contrario, le richieste vengono inviate a un endpoint che esegue il multiplexing tra tutti i tenant di Azure Active Directory: `https://login.microsoftonline.com/common`
 
-Quando Azure AD riceve una richiesta sull'endpoint /common, consente l'accesso dell'utente e quindi individua il tenant di provenienza dell'utente. L'endpoint /common funziona con tutti i protocolli di autenticazione supportati da Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
+Quando Azure AD riceve una richiesta sull'endpoint /common, consente l'accesso dell'utente e quindi individua il tenant di provenienza dell'utente. L'endpoint /common funziona con tutti i protocolli di autenticazione supportati da Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
 
 La risposta di accesso all'applicazione di accesso contiene un token che rappresenta l'utente. Il valore dell'autorità di certificazione nel token indica a un'applicazione il tenant di provenienza dell'utente. Quando l'endpoint /common restituisce una risposta, il valore dell'autorità di certificazione nel token corrisponde al tenant dell'utente. 
 

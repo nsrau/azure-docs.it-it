@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437774"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Esercitazione: Integrazione di Azure Active Directory con Riskware
 
@@ -111,17 +111,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
     | Environment| Modello URL|
     |--|--|
-    | Test di accettazione utente|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | Test di accettazione utente|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL:
     | Environment| Modello URL|
     |--|--|
-    | Test di accettazione utente| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` |
+    | Test di accettazione utente| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -167,7 +167,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     g. Nella casella di testo **nome del tag identità XML** scrivere l'attributo che contiene l'identificatore univoco nella risposta SAML come NameID.
 
-    h. Aprire nel Blocco note il **metadati Xml** scaricato dal portale di Azure, copiarne il certificato dal file di metadati e quindi incollarlo nella casella di testo **Certificato**
+    h. Aprire nel Blocco note il  **metadati Xml**  scaricato dal portale di Azure, copiarne il certificato dal file di metadati e quindi incollarlo nella casella di testo **Certificato**
 
     i. Nella casella di testo **URL consumer**, incollare il valore di **URL di risposta**, che si ottiene dal team di supporto.
 
@@ -297,7 +297,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Riskware nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Riskware.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

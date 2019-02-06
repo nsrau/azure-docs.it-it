@@ -5,16 +5,16 @@ description: Come creare un progetto in Custom Translator
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 4e5ac4386af55855c5240f89557feafd4a93adfb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626903"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218105"
 ---
 # <a name="create-a-project"></a>Creare un progetto
 
@@ -30,9 +30,9 @@ La creazione del progetto è il primo passaggio per la creazione di un modello.
 
 2.  Immettere i dettagli seguenti relativi al progetto nella finestra di dialogo:
 
-    a.  Project Name (Nome del progetto) - obbligatorio: assegnare al progetto un nome univoco e significativo. Non è necessario citare le lingue all'interno del titolo.
+    a.  Project name (Nome progetto) - obbligatorio: assegnare al progetto un nome univoco e significativo. Non è necessario citare le lingue all'interno del titolo.
 
-    b.  Description (Descrizione): una breve descrizione sul progetto. Questa descrizione non influisce sul comportamento di Custom Translator o sul sistema personalizzato risultante, ma consente di distinguere i diversi progetti.
+    b.  Descrizione: una breve descrizione del progetto. Questa descrizione non influisce sul comportamento di Custom Translator o sul sistema personalizzato risultante, ma consente di distinguere i diversi progetti.
 
     c.  Language pair (Coppia di lingue) - obbligatorio: selezionare la lingua di origine e di destinazione per la traduzione.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020888"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301272"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -241,7 +241,17 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
 
 1. **Stabilire una baseline**. Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. Raccogliere i dettagli dell'esecuzione e le caratteristiche relative alle prestazioni usando il [monitoraggio dell'attività di copia](copy-activity-overview.md#monitoring).
 
-2. **Diagnosticare e ottimizzare le prestazioni**. Se le prestazioni osservate non soddisfano le aspettative, è necessario identificare gli eventuali colli di bottiglia e quindi ottimizzare le prestazioni per rimuovere o ridurre l'effetto dei colli di bottiglia. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo articolo, ma di seguito sono riportate alcune considerazioni comuni:
+2. **Diagnosticare e ottimizzare le prestazioni**. Se le prestazioni osservate non soddisfano le aspettative, è necessario identificare gli eventuali colli di bottiglia e quindi ottimizzare le prestazioni per rimuovere o ridurre l'effetto dei colli di bottiglia. 
+
+    In alcuni casi, quando si esegue un'attività di copia in file di definizione dell'applicazione (ADF), verrà direttamente visualizzato "**Performance tuning tips**" (Suggerimenti per l'ottimizzazione delle prestazioni) in cima alla [pagina Copy activity monitoring](copy-activity-overview.md#monitor-visually) (Monitoraggio attività di copia) come illustrato nell'esempio seguente. Non solo indica un collo di bottiglia identificato per l'esecuzione della copia specificata, ma descrive anche gli elementi da modificare in modo da migliorare la velocità effettiva di copia. I suggerimenti per l'ottimizzazione delle prestazioni forniscono attualmente indicazioni come ad esempio di usare PolyBase per copiare dati in Azure SQL Data Warehouse, per aumentare le unità UR di Azure Cosmos DB o DTU del database SQL di Azure se il collo di bottiglia dipende dalla risorsa nell'archivio dati in modo da rimuovere la copia di gestione temporanea non necessaria e così via. Anche le regole di ottimizzazione delle prestazioni verranno gradualmente migliorate.
+
+    **Esempio: copia nel database SQL di Azure con i suggerimenti per l'ottimizzazione delle prestazioni**
+
+    In questo esempio, durante l'esecuzione della copia, il file di definizione dell'applicazione (ADF) avvisa che il sink del database SQL di Azure raggiunge un utilizzo DTU elevato che rallenta le operazioni di scrittura, pertanto il suggerimento consiste nell'aumentare il livello di database SQL di Azure con altre quote DTU. 
+
+    ![Monitoraggio della copia con suggerimenti per l'ottimizzazione delle prestazioni](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Si riportano inoltre le considerazioni comuni seguenti. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo articolo.
 
    * Funzionalità per le prestazioni:
      * [Copia parallela](#parallel-copy)

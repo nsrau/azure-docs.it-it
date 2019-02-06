@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 9d4b664c9b1fc0deb10794a5f0b29c2b600d19e2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17ea8545855cd926a393e9e40d3eccaabd6dba53
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712664"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886527"
 ---
-# <a name="azure-app-service-app-cloning-using-powershell"></a>Clonazione di un'app di Servizio app di Azure con PowerShell
+# <a name="azure-app-service-app-cloning-using-powershell"></a>Clonazione di app del servizio app di Azure con PowerShell
 Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stata aggiunta una nuova opzione a `New-AzureRMWebApp` che consente di clonare il contenuto di un'app di Servizio app esistente in una nuova app presente in un'area diversa o nella stessa area. In questo modo, i clienti possono distribuire una serie di app in aree diverse in modo semplice e rapido.
 
-La clonazione di app è attualmente supportata solo per i piani di Servizio app Premium. La nuova funzionalità usa le stesse limitazioni della funzionalità di backup di Servizio app. Vedere [Eseguire il backup di un'app in Servizio app di Azure](manage-backup.md).
+La clonazione di app è attualmente supportata solo per i piani di servizio app Premium. La nuova funzionalità usa le stesse limitazioni della funzionalità di backup di Servizio app. Vedere [Eseguire il backup di un'app in Servizio app di Azure](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonazione di un'app esistente
 Scenario: si vuole clonare il contenuto di un'app esistente nell'area Stati Uniti centro-meridionali in una nuova app nell'area Stati Uniti centro-settentrionali. Questa operazione può essere eseguita con la versione Azure Resource Manager del cmdlet PowerShell per creare una nuova app con l'opzione `-SourceWebApp`.
@@ -36,7 +36,7 @@ Conoscendo il nome del gruppo di risorse che include l'app di origine, è possib
 $srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Per creare un nuovo piano di Servizio app, è possibile usare il comando `New-AzureRmAppServicePlan`, come nell'esempio seguente:
+Per creare un nuovo piano di servizio app, è possibile usare il comando `New-AzureRmAppServicePlan` come nell'esempio seguente:
 
 ```PowerShell
 New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
@@ -60,7 +60,7 @@ Per clonare un'app esistente nella stessa area, è necessario creare un nuovo gr
 $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
-## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonazione di un'app esistente in un ambiente di Servizio app
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonazione di un'app esistente in un ambiente del servizio App
 Scenario: si vuole clonare il contenuto di un'app esistente nell'area Stati Uniti centro-meridionali in una nuova app in un ambiente del servizio app esistente.
 
 Conoscendo il nome del gruppo di risorse che include l'app di origine, è possibile usare il comando PowerShell seguente per ottenere informazioni sull'app di origine, denominata in questo caso `source-webapp`:
@@ -116,7 +116,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest
 ```
 
 ## <a name="current-restrictions"></a>Restrizioni attuali
-Questa funzionalità è attualmente disponibile in anteprima e nuove capacità verranno aggiunte in futuro. Di seguito sono riportate le limitazioni note relative alla versione corrente della funzionalità di clonazione delle app:
+Di seguito sono riportate le limitazioni note della funzionalità di clonazione delle app:
 
 * Le impostazioni di ridimensionamento automatico non vengono clonate.
 * Le impostazioni di pianificazione del backup non vengono clonate.

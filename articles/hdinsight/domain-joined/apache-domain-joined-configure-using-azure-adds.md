@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188947"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158818"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services
 
@@ -28,7 +28,11 @@ Questo articolo illustra come configurare un cluster HDInsight con ESP usando Az
 ## <a name="enable-azure-ad-ds"></a>Abilitare Azure AD DS
 
 > [!NOTE]  
-> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, disabilitare l'autenticazione a più fattori (MFA) solo per gli utenti che dovranno accedere al cluster. Se l'archiviazione del cluster viene eseguita in Archiviazione BLOB di Azure (WASB), non disabilitare MFA.
+> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, disabilitare l'autenticazione a più fattori (MFA) solo per gli utenti che dovranno accedere al cluster usando le autenticazioni Kerberos di base. È possibile usare gli [IP attendibili](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o l'[accesso condizionale](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) per disabilitare l'autenticazione a più fattori per utenti specifici SOLO quando accedono all'intervallo di indirizzi IP della rete virtuale del cluster HDInsight. Se si usa l'accesso condizionale, assicurarsi che l'endpoint di servizio AD sia abilitato nella rete virtuale di HDInsight.
+>
+>Se l'archiviazione del cluster viene eseguita in Archiviazione BLOB di Azure (WASB), non disabilitare MFA.
+
+
 
 L'abilitazione di Azure Active Directory Domain Services è un prerequisito per la creazione di un cluster HDInsight con ESP. Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jeedes
-ms.openlocfilehash: bbeae2cadde3e64f17b20eafabaf5e2dbf5a5cc6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa20e4544fcd78330c0daa15b9aa058ba80af2d5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044073"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Captivate Prime
 
@@ -156,11 +156,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
   
 ### <a name="create-an-adobe-captivate-prime-test-user"></a>Creare un utente di test di Adobe Captivate Prime
 
-In questa sezione viene creato un utente di nome Britta Simon in Adobe Captivate Prime. Collaborare con il [team di supporto di Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) per aggiungere gli utenti nella piattaforma Adobe Captivate Prime. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in Adobe Captivate Prime. Collaborare con il  [team di supporto di Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) per aggiungere gli utenti alla piattaforma Adobe Captivate Prime. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -197,7 +197,7 @@ In questa sezione viene concesso a Britta Simon l'accesso ad Adobe Captivate Pri
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Adobe Captivate Prime nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Adobe Captivate Prime.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

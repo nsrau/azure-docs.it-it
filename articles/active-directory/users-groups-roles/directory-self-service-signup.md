@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394681"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195818"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 Questo articolo descrive il processo di iscrizione self-service e come supportarlo in Azure Active Directory (Azure AD). Se si intende sostituire un nome di dominio da un tenant di Azure AD non gestito, vedere [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Sostituire una directory non gestita come amministratore).
@@ -32,7 +32,7 @@ Questo articolo descrive il processo di iscrizione self-service e come supportar
 
 ## <a name="terms-and-definitions"></a>Termini e definizioni
 * **Iscrizione self-service**: si tratta del metodo in base al quale un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure AD in base al dominio di posta elettronica.
-* **Directory di Azure AD non gestita**: si tratta della directory in cui viene creata tale identità. È una directory priva di un amministratore globale.
+* **Directory di Azure non gestita**: si tratta della directory in cui viene creata tale identità. È una directory priva di un amministratore globale.
 * **Utente verificato per la posta elettronica**: si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Come controllare le impostazioni di self-service?
@@ -63,9 +63,9 @@ Le iscrizioni di prova a Flow e PowerApps non sono controllate dall'impostazione
 ### <a name="how-do-the-controls-work-together"></a>Come operano congiuntamente i controlli?
 Questi due parametri possono essere usati insieme per definire un controllo più preciso sull'iscrizione self-service. Ad esempio, il comando seguente consentirà agli utenti di eseguire l'iscrizione self-service, ma solo se tali utenti dispongono già di un account in Azure AD (in altre parole, gli utenti, per i quali sarebbe necessario che venisse creato prima un account di posta elettronica verificato, non possono eseguire l'iscrizione self-service):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 Il diagramma di flusso seguente illustra le diverse combinazioni di questi parametri e le condizioni risultanti per la directory e l'iscrizione self-service.
 

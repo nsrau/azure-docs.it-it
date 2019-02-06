@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536152"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095096"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Advanced Threat Protection per Database di Azure per PostgreSQL
 
@@ -22,6 +22,9 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 > [!NOTE]
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree seguenti di cloud sovrano e Azure per enti pubblici: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
 >
+
+> [!NOTE]
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per PostgreSQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -55,7 +58,7 @@ Advanced Threat Protection integra i suoi avvisi con il [Centro sicurezza di Azu
 
 Fare clic su **Avvisi di sicurezza** sotto **PROTEZIONE DALLE MINACCE** per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
 
-  ![Threat protectoin asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Centro sicurezza di protezione dalle minacce](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

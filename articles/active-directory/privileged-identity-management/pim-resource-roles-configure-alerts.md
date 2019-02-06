@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43342063"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196839"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM
-Azure Privileged Identity Management (PIM) per le risorse di Azure genera avvisi nel caso di attività sospette o non sicure nell'ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
+Privileged Identity Management (PIM) per le risorse di Azure genera avvisi in presenza di attività sospette o non sicure nell'ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
 
 ![Pagina degli avvisi](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
@@ -32,7 +32,7 @@ Selezionare un avviso per visualizzare un report che elenca gli utenti o i ruoli
 ![Report degli avvisi](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Avvisi
-| Avviso | Gravità | Trigger | Raccomandazione |
+| Avviso | Gravità | Trigger | Recommendation |
 | --- | --- | --- | --- |
 | **Troppi proprietari assegnati a una risorsa** |Media |Troppi utenti hanno il ruolo di proprietario. |Controllare gli utenti nell'elenco e riassegnarne alcuni a ruoli con privilegi meno elevati. |
 | **Troppi proprietari permanenti assegnati a una risorsa** |Media |Troppi utenti sono assegnati in modo permanente a un ruolo. |Controllare gli utenti nell'elenco e riassegnarne alcuni per richiedere l'attivazione per l'uso dei ruoli. |
@@ -40,8 +40,8 @@ Selezionare un avviso per visualizzare un report che elenca gli utenti o i ruoli
 
 
 ### <a name="severity"></a>Gravità
-* **Elevata**: richiede un'azione immediata a causa di una violazione dei criteri. 
-* **Media**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
+* **Alta**: richiede un'azione immediata a causa di una violazione dei criteri. 
+* **Medium**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
 * **Bassa**: non richiede un'azione immediata ma suggerisce una modifica dei criteri.
 
 ## <a name="configure-security-alert-settings"></a>Configurare le impostazioni degli avvisi di sicurezza

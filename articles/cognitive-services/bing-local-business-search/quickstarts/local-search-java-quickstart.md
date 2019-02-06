@@ -6,20 +6,20 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307109"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148457"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Avvio rapido: Inviare una query all'API di ricerca di attività locali Bing mediante Java
 
-Seguire questa Guida introduttiva per inviare richieste all'API Bing Local Business Search, che è un servizio cognitivo di Azure. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
+Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
 
 Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
 
@@ -35,7 +35,7 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API dalla
 
 Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "hotel a Bellevue".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>Eseguire l'applicazione completa
 
@@ -58,7 +58,7 @@ L'API Bing Local Business Search restituisce i risultati dal motore di ricerca B
 4. Sostituire il valore subscriptionKey con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,7 +162,7 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)

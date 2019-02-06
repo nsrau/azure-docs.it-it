@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847544"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904370"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
@@ -41,9 +41,9 @@ Nell'elenco a discesa**Run** (Esegui) nel dashboard del progetto è possibile se
 
 ![Elenco a discesa di livello di calcolo nel dashboard del progetto](media/project-compute-tier-list.png)
 
-È possibile aggirare queste limitazioni usando un'altra macchina virtuale per cui è stato effettuato il provisioning in una sottoscrizione di Azure. È inoltre necessario installare Jupyter su tale macchina virtuale. Le immagini di Data Science Virtual Machine rappresentano un'ottima scelta perché includono Jupyter per impostazione predefinita.
+È possibile aggirare queste limitazioni usando un'altra macchina virtuale per cui è stato effettuato il provisioning in una sottoscrizione di Azure. È necessario installare ed eseguire JupyterHub in tale macchina virtuale. Le immagini di Data Science Virtual Machine (con qualsiasi sistema operativo) rappresentano un'ottima scelta perché includono JupyterHub per impostazione predefinita.
 
-È possibile connettersi a qualsiasi macchina virtuale di Azure configurata opportunamente usando l'opzione **Direct Compute** (Calcolo diretto) nell'elenco a discesa. Se si seleziona questa opzione viene richiesto un nome (da visualizzare nell'elenco), l'indirizzo IP e la porta della macchina virtuale (in genere 8000 è la porta predefinita da cui JupyterHub è in ascolto) e le credenziali della macchina virtuale:
+Dopo aver configurato opportunamente una macchina virtuale di Azure, selezionare l'opzione **Direct Compute** (Calcolo diretto) nell'elenco a discesa, che richiede un nome (da visualizzare nell'elenco), l'indirizzo IP, la porta (in genere 8000, la porta predefinita dalla quale JupyterHub è in ascolto) e le credenziali della macchina virtuale:
 
 ![Richiesta di raccolta informazioni sul server per l'opzione di calcolo diretto](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Se le condizioni seguenti vengono soddisfatte, l'elenco a discesa mostra anche l
 
 - Si è connessi ad Azure Notebooks con un account che usa Azure Active Directory (AAD), ad esempio un account aziendale.
 - L'account è connesso a una sottoscrizione di Azure.
-- Si dispone di una o più macchine virtuali in tale sottoscrizione, con almeno accesso in lettura, che usano Data Science Virtual Machine per l'immagine di Linux (Ubuntu).
+- Si dispone di una o più macchine virtuali in tale sottoscrizione, con almeno l'accesso in lettura, che usano Data Science Virtual Machine per l'immagine di Linux (Ubuntu).
 
 ![Istanze di Data Science Virtual Machine nell'elenco a discesa nel dashboard del progetto](media/project-compute-tier-dsvm.png)
 
 Quando si seleziona un'istanza di DSVM, Azure Notebooks può richiedere le credenziali specifiche del computer usate durante la creazione della macchina virtuale.
 
-Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). È *necessario* usare l'immagine della **macchina virtuale data science per Linux (Ubuntu)** perché Azure Notebooks non visualizza DSVM che usano le immagini di Windows o CentOS.
+Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Usare l'immagine **Data Science Virtual Machine per Linux (Ubuntu)** se si vuole visualizzare DSVM nell'elenco a discesa in Azure Notebooks.  Se per altri motivi, è necessario usare l'immagine Windows o CentOS, è possibile usare l'opzione **Direct Compute** (Calcolo diretto) per connettersi manualmente a DSVM.
 
 ## <a name="edit-project-metadata"></a>Modificare i metadati del progetto
 

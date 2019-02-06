@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168414"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
 Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](service-fabric-guest-executables-introduction.md), è possibile scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal nuovo modello di progetto.
@@ -143,7 +143,7 @@ L’elemento CodePackage specifica il percorso (e la versione) del codice del se
 
 L'elemento `Name` consente di specificare il nome della directory nel pacchetto dell'applicazione che contiene il codice del servizio. `CodePackage` include anche l'attributo `version`, Questo consente di specificare la versione del codice e potenzialmente di aggiornare il codice del servizio mediante l'infrastruttura Application Lifecycle Management di Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Facoltativo: aggiornare SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Facoltativo: Aggiornare SetupEntryPoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -302,4 +302,4 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 * [Esempio per la creazione del pacchetto e la distribuzione di un file guest eseguibile ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), con un collegamento alla versione preliminare dello strumento per la creazione di pacchetti
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
-* [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

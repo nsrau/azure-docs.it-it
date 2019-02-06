@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987442"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101139"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Desktop .NET (WPF)
 
@@ -64,7 +64,7 @@ Per consentire all'app di ottenere i token, registrare l'app nel tenant di Azure
 6. Dopo avere completato la registrazione, AAD assegnerà all'app un ID app univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
 7. Nella pagina **Impostazioni** scegliere **Autorizzazioni necessarie** e quindi scegliere **Aggiungi**. Selezionare **Microsoft Graph** come API e in **Autorizzazioni delegate** aggiungere l'autorizzazione **Lettura dati directory**. L'impostazione di questa autorizzazione consente all'applicazione di cercare utenti nell'API Graph.
 
-## <a name="step-2-install-and-configure-adal"></a>Passaggio 2. Installare e configurare ADAL
+## <a name="step-2-install-and-configure-adal"></a>Passaggio 2: Installare e configurare ADAL
 
 Ora che si dispone di un'applicazione in Azure AD, è possibile installare ADAL e scrivere il codice relativo all'identità. Affinché ADAL possa comunicare con Azure AD, è necessario fornirle alcune informazioni sulla registrazione dell'app.
 
@@ -80,7 +80,7 @@ Ora che si dispone di un'applicazione in Azure AD, è possibile installare ADAL 
   * `ida:ClientId` è l'ID client dell'applicazione copiato dal portale.
   * `ida:RedirectUri` è l'URL di reindirizzamento registrato nel portale.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 3. Usare ADAL per ottenere i token da Azure AD
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 3: Usare ADAL per ottenere i token da Azure AD
 
 Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un token di accesso, deve solo chiamare `authContext.AcquireTokenAsync(...)` e ADAL fa il resto.
 

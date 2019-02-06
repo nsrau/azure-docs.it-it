@@ -4,19 +4,19 @@ description: Informazioni su come eseguire il backup e il ripristino delle crede
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 56ea48accea135f79e4c8984238002f2eec5167b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821703"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167411"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 
@@ -39,11 +39,11 @@ Prima di poter eseguire il backup delle proprie credenziali, è necessario avare
 La richiesta di effettuare l'accesso a entrambi gli account insieme offre una maggiore sicurezza per le informazioni del backup.
 
 **Per attivare il backup di iCloud**
--   Nel dispositivo iOS selezionare **Impostazioni**, selezionare **Backup** e quindi attivare **Backup automatico**.
+-   Nel dispositivo iOS selezionare **Impostazioni**, selezionare **Backup** e quindi attivare il **backup iCloud**.
 
     Viene eseguito il backup delle credenziali dell'account nell'account iCloud.
 
-    ![Schermata delle impostazioni di iOS, che mostra la posizione delle impostazioni per il backup automatico](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![Schermata delle impostazioni di iOS, che mostra la posizione delle impostazioni per il backup iCloud](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Ripristinare le credenziali dell'account nel nuovo dispositivo
 È possibile ripristinare le credenziali dell'account dal proprio account iCloud, usando lo stesso account di ripristino di Microsoft configurato quando è stato eseguito il backup delle informazioni.
@@ -101,7 +101,6 @@ Dopo aver eseguito il backup e il ripristino delle credenziali dell'account nel 
 
 ## <a name="related-topics"></a>Argomenti correlati
 - [Introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md)  
-
 - [Domande frequenti sull'app Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

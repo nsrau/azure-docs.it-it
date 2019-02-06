@@ -7,21 +7,21 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: curtand
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448126"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300235"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -50,15 +50,15 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
 * Impostazioni del browser Microsoft Edge: Preferiti di Microsoft Edge,Elenco di lettura e altre impostazioni
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Sincronizzare le impostazioni](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 La sincronizzazione del gruppo di impostazioni del browser Microsoft Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Microsoft Edge.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 Per Windows 10 versione 1803 o successiva, la sincronizzazione dei gruppi di impostazioni di Internet Explorer (preferiti, URL digitati) può essere abilitata o disabilitata dagli utenti finali tramite l'opzione del menu Impostazioni di Internet Explorer. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Impostazioni](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Dettagli relativi alle impostazioni di Windows
 Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa riferimento alle impostazioni che possono essere disabilitate da Impostazioni > Account > Sincronizza le impostazioni > Altre impostazioni di Windows. 

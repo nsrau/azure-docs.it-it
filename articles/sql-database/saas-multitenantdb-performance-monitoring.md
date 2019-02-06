@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830006"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458126"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -161,7 +161,7 @@ Se si è già effettuato il provisioning di un nuovo tenant in un database auton
 
 Lo script effettuerà il provisioning del tenant in un database separato, registrerà il database e il tenant nel catalogo e quindi aprirà la pagina degli eventi del tenant nel browser. Aggiornare la pagina Events Hub (Hub eventi). Si noterà che "Salix Salsa" è stato aggiunto come sede di eventi.
 
-## <a name="manage-performance-of-a-single-database"></a>Gestire le prestazioni di un database singolo
+## <a name="manage-performance-of-an-individual-database"></a>Gestire le prestazioni di un database singolo
 
 Se un tenant singolo all'interno di un database multi-tenant è sottoposto a un carico elevato per un tempo prolungato, potrebbe tendenzialmente usare in modo predominante le risorse del database con effetti sugli altri tenant presenti nello stesso database. Se si prevede che questa attività continui per un certo tempo, è possibile spostare temporaneamente il tenant fuori dal database o in un database autonomo a tenant singolo. In questo modo, il tenant può avere a disposizione le risorse aggiuntive necessarie ed essere completamente isolato dagli altri tenant.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823081"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300439"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -20,7 +20,7 @@ Si configura un server di configurazione locale quando si usa il servizio [Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-La tabella riepiloga i prerequisiti per la distribuzione del server di configurazione locale.
+La tabella riepiloga i prerequisiti per la distribuzione del computer server di configurazione locale.
 
 | **Componente** | **Requisito** |
 | --- |---|
@@ -106,7 +106,7 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| type | DESCRIZIONE| Valori|
+|Nome parametro| Type | DESCRIZIONE| Valori|
 |-|-|-|-|
 | /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
@@ -128,7 +128,7 @@ Eseguire il file di installazione come segue:
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Creare il file di input per MYSQLCredsFilePath
 
 Il parametro MySQLCredsFilePath usa un file come input. Creare il file usando il formato seguente e passarlo come parametro MySQLCredsFilePath di input.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Creare il file di input per ProxySettingsFilePath
 Il parametro ProxySettingsFilePath prende un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ ProxyPassword="Password"
 5. Specificare i dettagli del nuovo proxy e fare clic sul pulsante **Register** (Registra).
 6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 7. Eseguire il comando seguente:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ ProxyPassword="Password"
   6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
   7. Eseguire il comando seguente
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ ProxyPassword="Password"
 6. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
 7. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 8. Eseguire il comando seguente
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ Per aggiornare il server, seguire questa procedura:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Configurare ora il contesto dell'insieme di credenziali
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

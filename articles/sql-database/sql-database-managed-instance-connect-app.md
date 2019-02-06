@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ac0513e2298877c63bb25c26de32834c07a55474
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514962"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294149"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -92,7 +92,7 @@ Questo scenario è illustrato nel diagramma seguente:
 
 Per la risoluzione dei problemi di connettività, verificare quanto segue:
 - Se non si riesce a eseguire la connessione a Istanza gestita da una macchina virtuale Azure all'interno della stessa VNet ma con subnet diversa, verificare se si dispone di un gruppo di sicurezza di rete impostato sulla subnet VM che potrebbe bloccare l'accesso. Inoltre, è necessario aprire la connessione in uscita sulla porta SQL 1433 e sulle porte nell'intervallo 11000-12000, poiché sono necessarie per la connessione tramite reindirizzamento all'interno del confine di Azure. 
-- Assicurarsi che la propagazione BGP sia impostata su **Abilitata** per la tabella di route associata alla VNet.
+- Assicurarsi che la propagazione BGP sia impostata su **Abilitata** per la tabella di route associata alla rete virtuale.
 - Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 
    ![Numeri in ingresso/in uscita](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
@@ -135,7 +135,7 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
 Se si desidera connettersi all'istanza gestita, è consigliabili usare le versioni minime di strumenti e driver seguenti:
 
-| Driver/strumento | Version |
+| Driver/strumento | Versione |
 | --- | --- |
 |.NET Framework | 4.6.1 (o .NET Core) | 
 |Driver ODBC    | v17 |

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816756"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104236"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -59,7 +59,7 @@ Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macch
 **Passaggio 1: [Rimuovere il blocco dal gruppo di risorse dei punti di ripristino](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passaggio 2: [ Pulire la raccolta di punti di ripristino](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Il servizio Backup non dispone delle autorizzazioni sufficienti per accedere all'insieme di credenziali delle chiavi per il backup di macchine virtuali crittografate.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Il servizio Backup non dispone delle autorizzazioni sufficienti per accedere all'insieme di credenziali delle chiavi per il backup di macchine virtuali crittografate
 
 **Codice errore**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Messaggio di errore**: Il servizio Backup non dispone delle autorizzazioni sufficienti per Accedere a Key Vault per il backup di macchine virtuali crittografate. <br>
@@ -105,7 +105,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
 **Messaggio di errore**: Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB. <br>
 
-L'operazione di backup potrebbe non riuscire quando si esegue il backup di macchine virtuali con dimensioni del disco superiori a 1023 GB, poiché l'insieme di credenziali non viene aggiornato a Ripristino istantaneo. L'aggiornamento a Ripristino istantaneo fornirà supporto fino a 4TB, vedere questo [articolo](backup-instant-restore-capability.md).  
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di macchine virtuali con dimensioni del disco superiori a 1023 GB, poiché l'insieme di credenziali non viene aggiornato a Ripristino istantaneo. L'aggiornamento a Ripristino istantaneo fornirà supporto fino a 4TB, vedere questo [articolo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Dopo l'aggiornamento, saranno necessarie fino a due ore prima che la sottoscrizione possa usufruire di questa funzionalità. Prevedere un buffer sufficiente prima di ripetere l'operazione.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: Currently Azure Backup does not support Standard SSD disks (Attualmente Backup di Azure non supporta i dischi SSD Standard)
 
@@ -114,7 +114,7 @@ L'operazione di backup potrebbe non riuscire quando si esegue il backup di macch
 
 Attualmente Backup di Azure supporta i dischi SSD Standard solo per gli insiemi di credenziali che vengono aggiornati a [Ripristino istantaneo](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 
 **Codice errore**: UserErrorBackupOperationInProgress <br>
 **Messaggio di errore**: Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup<br>
@@ -132,7 +132,6 @@ La recente operazione di backup ha avuto esito negativo poiché è presente e in
 4. Ripetere l'operazione di backup.
 
 Se l'operazione di backup pianificata sta impiegando più tempo del previsto, causando conflitti con la configurazione del backup successivo, rivedere [Procedure consigliate](backup-azure-vms-introduction.md#best-practices), [Prestazioni del backup](backup-azure-vms-introduction.md#backup-performance) e [Considerazioni sul ripristino](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni

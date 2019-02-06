@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852389"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296172"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -128,6 +128,12 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 
 ---
 
+**D: Perché gli utenti riscontrano problemi con i dispositivi aggiunti ad Azure AD dopo aver modificato il proprio UPN?**
+
+**R:** Attualmente, non viene ancora offerto il supporto completo delle modifiche degli UPN sui dispositivi aggiunti ad Azure AD. Dopo la modifica dell'UPN, quindi, l'autenticazione degli utenti ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. Per risolvere il problema, gli utenti devono accedere a Windows tramite il riquadro "Altro utente" specificando il nuovo UPN. Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
+
+---
+
 **D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa da tali dispositivi?**
 
 **R:** Per la distribuzione delle stampanti per i dispositivi aggiunti ad Azure AD, vedere [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication (Distribuire stampa di cloud ibrido su server Windows con autenticazione preliminare)](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
@@ -170,7 +176,7 @@ Questo comportamento non è applicabile ad altri utenti che accedono al disposit
 
 **D: Perché viene visualizzata una finestra di dialogo di *errore* quando si tenta di aggiungere il PC ad Azure AD?**
 
-**R:** La finestra di errore viene visualizzata quando si registra Azure Active Directory con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R:** La finestra di errore viene visualizzata quando si registra Azure Active Directory con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
 
 ---
 
@@ -179,6 +185,19 @@ Questo comportamento non è applicabile ad altri utenti che accedono al disposit
 **R:** È probabile che l'utente abbia effettuato l'accesso al dispositivo tramite l'account amministratore predefinito locale. Creare un account locale diverso prima di usare l'aggiunta ad Azure Active Directory per completare la configurazione. 
 
 ---
+
+**D: quali sono i certificati MS-Organization-P2P-Access presenti sui dispositivi Windows 10?**
+
+**R:** I certificati MS-Organization-P2P-Access vengono rilasciati da Azure AD sia sui dispositivi aggiunti ad Azure AD che su quelli aggiunti ad Azure AD ibrido. Tali certificati vengono usati per abilitare l'attendibilità tra i dispositivi nello stesso tenant per scenari di desktop remoti. Un certificato viene rilasciato al dispositivo e un altro viene rilasciato all'utente. Il certificato del dispositivo è presente in `Local Computer\Personal\Certificates` ed è valido per un giorno. Tale certificato viene rinnovato (generando un nuovo certificato) se il dispositivo è ancora attivo in Azure AD. Il certificato utente è presente in `Current User\Personal\Certificates` e anch'esso è valido per un giorno, ma viene rilasciato su richiesta quando un utente tenta di eseguire una sessione di accesso da remoto a un altro dispositivo aggiunto ad Azure AD. Non viene rinnovato alla scadenza. Entrambi questi certificati vengono emessi usando il certificato MS-Organization-P2P-Access presente in `Local Computer\AAD Token Issuer\Certificates`. Tale certificato è emesso da Azure AD durante la registrazione del dispositivo. 
+
+---
+
+**D: Perché vengono visualizzati più certificati scaduti emessi da MS-Organization-P2P-Access nei dispositivi Windows 10? Come è possibile eliminarli?**
+
+**R:** Si è verificato un problema in Windows 10, versione 1709 e precedenti, in cui i certificati MS-Organization-P2P-Access scaduti sono rimasti presenti nell'archivio del computer a causa di problemi di crittografia. Gli utenti possono riscontrare problemi con la connettività di rete se si usano client VPN (ad esempio Cisco AnyConnect) che non possono gestire il numero elevato di certificati scaduti. Questo problema è stato risolto nella versione 1803 di Windows 10 nella quale vengono eliminati automaticamente i certificati MS-Organization-P2P-Access scaduti. È possibile risolvere questo problema aggiornando i dispositivi alla versione 1803 di Windows 10. Se non si è in grado di aggiornare, è possibile eliminare questi certificati senza effetti negativi.  
+
+---
+
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD ibrido
 
@@ -196,7 +215,15 @@ Questo comportamento non è applicabile ad altri utenti che accedono al disposit
 
 Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di registrato in Azure AD. Il dispositivo è quindi considerato aggiunto ad Azure AD ibrido per ogni processo di autenticazione e di valutazione di accesso condizionale. È possibile eliminare in modo sicuro il record di dispositivo registrato in Azure AD dal portale di Azure AD. Informazioni su come [evitare o eliminare il doppio stato nel computer Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**D: Perché gli utenti riscontrano problemi con i dispositivi aggiunti ad Azure AD ibrido di Windows 10 dopo aver modificato il proprio UPN?**
+
+**R:** Attualmente, non viene ancora offerto il supporto completo delle modifiche degli UPN sui dispositivi aggiunti ad Azure AD ibrido. Dopo aver modificato il proprio UPN, gli utenti potranno accedere al dispositivo e alle applicazioni locali, ma l'autenticazione ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. Per risolvere il problema, è necessario separare il dispositivo da Azure AD (eseguire "dsregcmd /leave" con privilegi elevati) e aggiungerlo di nuovo (operazione eseguita automaticamente). Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Domande frequenti sulla registrazione in Azure AD
 
@@ -217,15 +244,3 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 - Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
 
----
-
-
-**D: quali sono i certificati MS-Organization-P2P-Access presenti sui dispositivi Windows 10?**
-
-**R:** I certificati MS-Organization-P2P-Access vengono rilasciati da Azure AD sia sui dispositivi aggiunti ad Azure AD che su quelli aggiunti ad Azure AD ibrido. Tali certificati vengono usati per abilitare l'attendibilità tra i dispositivi nello stesso tenant per scenari di desktop remoti. Un certificato viene rilasciato al dispositivo e un altro viene rilasciato all'utente. Il certificato del dispositivo è presente in `Local Computer\Personal\Certificates` ed è valido per un giorno. Tale certificato viene rinnovato (generando un nuovo certificato) se il dispositivo è ancora attivo in Azure AD. Il certificato utente è presente in `Current User\Personal\Certificates` e anch'esso è valido per un giorno, ma viene rilasciato su richiesta quando un utente tenta di eseguire una sessione di accesso da remoto a un altro dispositivo aggiunto ad Azure AD. Non viene rinnovato alla scadenza. Entrambi questi certificati vengono emessi usando il certificato MS-Organization-P2P-Access presente in `Local Computer\AAD Token Issuer\Certificates`. Tale certificato è emesso da Azure AD durante la registrazione del dispositivo. 
-
----
-
-**D: Perché vengono visualizzati più certificati scaduti emessi da MS-Organization-P2P-Access nei dispositivi Windows 10? Come è possibile eliminarli?**
-
-**R:** Si è verificato un problema in Windows 10, versione 1709 e precedenti, in cui i certificati MS-Organization-P2P-Access scaduti sono rimasti presenti nell'archivio del computer a causa di problemi di crittografia. Gli utenti possono riscontrare problemi con la connettività di rete se si usano client VPN (ad esempio Cisco AnyConnect) che non possono gestire il numero elevato di certificati scaduti. Questo problema è stato risolto nella versione 1803 di Windows 10 nella quale vengono eliminati automaticamente i certificati MS-Organization-P2P-Access scaduti. È possibile risolvere questo problema aggiornando i dispositivi alla versione 1803 di Windows 10. Se non si è in grado di aggiornare, è possibile eliminare questi certificati senza effetti negativi.  

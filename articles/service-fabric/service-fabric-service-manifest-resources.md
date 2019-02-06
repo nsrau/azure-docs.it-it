@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985982"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156659"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -78,7 +78,7 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -198,7 +198,7 @@ Durante la distribuzione dell'applicazione è possibile trasmettere questi valor
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
+Note: se i valori specificati per ApplicationParameters sono vuoti, si torna al valore predefinito presente in ServiceManifest per l'EndPointName corrispondente.
 
 Ad esempio: 
 

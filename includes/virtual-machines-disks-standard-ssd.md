@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572300"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906320"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks SSD Standard per carichi di lavoro delle macchine virtuali di Azure
 
@@ -26,7 +26,7 @@ Le unità SSD Standard supportano tutte le operazioni del modello di distribuzio
 
 **Macchine virtuali**: le unità SSD Standard possono essere usate con tutte le macchine virtuali di Azure, inclusi i tipi che non supportano i dischi Premium. Se ad esempio si usa una macchina virtuale della serie A, N o DS, o di qualsiasi altra serie di macchine virtuali di Azure, è possibile usare unità SSD Standard con tale macchina virtuale. Con l'introduzione delle unità SSD Standard, si consente la transizione di una vasta gamma di carichi di lavoro che in precedenza usavano dischi basati su unità HDD a dischi basati su unità SSD che garantiranno prestazioni coerenti, maggiore disponibilità, migliore latenza e un'esperienza di qualità complessivamente superiore.
 
-**Durabilità e disponibilità elevate**: le unità SSD Standard sono basate sulla stessa piattaforma Dischi di Azure, che offre in modo coerente durabilità e disponibilità elevate per i dischi. I dischi di Azure sono stati progettati in modo da garantire una disponibilità del 99,999%. Come tutti i dischi gestiti, le unità SSD Standard offrono archiviazione con ridondanza locale. Grazie a questo tipo di archiviazione, la piattaforma gestisce più repliche dei dati per ogni disco e offre in modo coerente una durabilità di livello aziendale per i dischi IaaS, con una percentuale di frequenza di errori annua pari a zero, ovvero la migliore del settore.
+**Elevati livelli di durabilità e disponibilità**: le unità SSD Standard sono basate sulla stessa piattaforma Dischi di Azure, che offre in modo coerente durabilità e disponibilità elevate per i dischi. I dischi di Azure sono stati progettati in modo da garantire una disponibilità del 99,999%. Come tutti i dischi gestiti, le unità SSD Standard offrono archiviazione con ridondanza locale. Grazie a questo tipo di archiviazione, la piattaforma gestisce più repliche dei dati per ogni disco e offre in modo coerente una durabilità di livello aziendale per i dischi IaaS, con una percentuale di frequenza di errori annua pari a zero, ovvero la migliore del settore.
 
 **Snapshot**: come tutti i dischi gestiti, anche le unità SSD Standard supportano la creazione di snapshot. Il tipo di snapshot può essere Standard (HDD) o Premium (SSD). Per un risparmio sui costi, si consiglia il tipo di snapshot Standard (HDD) per tutti i tipi di dischi di Azure. Quando infatti si crea un disco gestito da uno snapshot, è sempre possibile scegliere un livello superiore, ad esempio SSD Standard o SSD Premium.
 
@@ -36,6 +36,8 @@ La tabella seguente contiene le dimensioni dei dischi attualmente offerte per i 
 
 |Tipo di disco SSD Standard  |Dimensione disco  |Operazioni di I/O al secondo per disco  |Velocità effettiva per disco  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |Fino a 120         |Fino a 25 MiB al secondo         |
+|E6     |64 GiB         |Fino a 240         |Fino a 50 MiB al secondo         |
 |E10     |128 GiB         |Fino a 500         |Fino a 60 MiB al secondo         |
 |E15     |256 GiB         |Fino a 500         |Fino a 60 MiB al secondo         |
 |E20     |512 GiB         |Fino a 500         |Fino a 60 MiB al secondo         |
@@ -61,11 +63,11 @@ Quando si usano le unità SSD Standard, tenere conto delle considerazioni seguen
 - Trasferimenti di dati in uscita
 - Transazioni
 
-**Dimensioni dei dischi gestiti**: la fatturazione dei dischi gestiti è basata sulle dimensioni di cui è stato effettuato il provisioning. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere la tabella Obiettivi di scalabilità e prestazioni nella sezione precedente. Ogni disco è associato a una delle dimensioni supportate di cui è stato effettuato il provisioning e la fatturazione viene eseguita di conseguenza. Se ad esempio è stato effettuato il provisioning di un'unità SSD Standard da 200 GiB, tale unità viene associata all'offerta relativa alle dimensioni dei dischi E15 (256 GiB). La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Se ad esempio è stato effettuato il provisioning di un disco E10 e lo si è eliminato dopo 20 ore, verranno fatturate 20 ore per l'offerta E10, indipendentemente dalla quantità di dati effettivamente scritti sul disco.
+**Dimensioni dei dischi gestiti**: la fatturazione dei dischi gestiti è basata sulla dimensione di cui è stato effettuato il provisioning. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere la tabella Obiettivi di scalabilità e prestazioni nella sezione precedente. Ogni disco è associato a una delle dimensioni supportate di cui è stato effettuato il provisioning e la fatturazione viene eseguita di conseguenza. Se ad esempio è stato effettuato il provisioning di un'unità SSD Standard da 200 GiB, tale unità viene associata all'offerta relativa alle dimensioni dei dischi E15 (256 GiB). La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Se ad esempio è stato effettuato il provisioning di un disco E10 e lo si è eliminato dopo 20 ore, verranno fatturate 20 ore per l'offerta E10, indipendentemente dalla quantità di dati effettivamente scritti sul disco.
 
 **Snapshot**: gli snapshot dei dischi gestiti vengono fatturati in base alla capacità usata dagli snapshot, alla destinazione e all'origine, se presenti. Per altre informazioni sugli snapshot, vedere [Snapshot dei dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
+**Trasferimenti di dati in uscita**: [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai datacenter di Azure) vengono fatturati in base all'utilizzo di larghezza di banda.
 
 **Transazioni**: analogamente alle unità HDD Standard, anche le transazioni su unità SSD Standard sono soggette a fatturazione. Le transazioni includono le operazioni di lettura e scrittura sul disco. Le dimensioni dell'unità di I/O usata per il calcolo delle transazioni come unità SSD Standard sono di 256 KiB. Le dimensioni di I/O superiori vengono calcolate come più unità di I/O da 256 KiB.
 

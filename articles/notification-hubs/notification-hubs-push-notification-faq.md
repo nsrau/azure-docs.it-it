@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478587"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888159"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push con Hub di notifica di Azure: Domande frequenti
 
@@ -194,7 +194,7 @@ Vi sarà un periodo di tempo in cui i dispositivi con app non aperte non ricever
 
 ### <a name="is-there-audit-log-capability"></a>È disponibile una funzionalità di log di controllo?
 
-Tutte le operazioni di gestione di Hub di notifica passano ai log delle operazioni, esposti nel [portale di Azure].
+Sì. Tutte le operazioni di gestione di Hub di notifica aggiornano il log attività di Azure, esposto nel [portale di Azure]. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Tuttavia, il log attività non include operazioni di lettura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974365"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888567"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -88,7 +88,7 @@ Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, 
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No  |
@@ -414,21 +414,25 @@ Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la
 }
 ```
 
-> [!IMPORTANT]
-> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenere presente quanto segue:
 
 * I tipi di dati complessi non sono supportati (MAP, LIST).
 * Spazi vuoti nel nome della colonna non sono supportati.
 * Il file Parquet dispone delle opzioni relative alla compressione seguenti: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file Parquet in uno di questi formati compressi tranne LZO. Per leggere i dati, usa il codec di compressione dei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
+> [!IMPORTANT]
+> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
+
+Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*. 
+
+- **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
+
 ### <a name="data-type-mapping-for-parquet-files"></a>Mapping dei tipi di dati per i file Parquet
 
 | Tipo di dati provvisori di Data Factory | Tipo Parquet primitivo | Tipo Parquet originale (deserializzazione) | Tipo Parquet originale (serializzazione) |
 |:--- |:--- |:--- |:--- |
-| boolean | boolean | N/D | N/D |
+| Boolean | Boolean | N/D | N/D |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -441,8 +445,8 @@ Tenere presente quanto segue:
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
 | string | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/D | N/D |
-| Intervallo di tempo | Int96 | N/D | N/D |
+| DateTime | Int96 | N/D | N/D |
+| TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
 | Guid | Binary | Utf8 | Utf8 |
@@ -460,21 +464,25 @@ Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprie
 }
 ```
 
-> [!IMPORTANT]
-> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenere presente quanto segue:
 
 * I tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION).
 * Spazi vuoti nel nome della colonna non sono supportati.
 * Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
+> [!IMPORTANT]
+> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
+
+Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*. 
+
+- **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
+
 ### <a name="data-type-mapping-for-orc-files"></a>Mapping dei tipi di dati per i file ORC
 
 | Tipo di dati provvisori di Data Factory | Tipi ORC |
 |:--- |:--- |
-| boolean | boolean |
+| Boolean | Boolean |
 | SByte | Byte |
 | Byte | Breve |
 | Int16 | Breve |
@@ -487,9 +495,9 @@ Tenere presente quanto segue:
 | Double | Double |
 | Decimal | Decimal |
 | string | string |
-| Datetime | Timestamp |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
-| Intervallo di tempo | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binary |
 | Guid | string |
 | Char | Char(1) |

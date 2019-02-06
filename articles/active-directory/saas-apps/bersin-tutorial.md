@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc9d229-69fb-4ab5-b6c3-5f3d790ea13e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeedes
-ms.openlocfilehash: aee4ec6ee504565fc83f89e6e09a54664e1369c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 154b1f5537be1541bf66b116165c25c19418a4ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441895"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Esercitazione: Integrazione di Azure Active Directory con Bersin
 
@@ -129,7 +129,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **Bersin**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Bersin](mailto:USBersinServiceClient@deloitte.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -165,7 +165,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-bersin-test-user"></a>Creare un utente di test di Bersin
 
-In questa sezione viene creato un utente di nome Britta Simon in Bersin. Rivolgersi al [team di supporto di Bersin](mailto:USBersinServiceClient@deloitte.com) per aggiungere gli utenti nella piattaforma Bersin o il dominio che deve essere incluso nell'elenco elementi consentiti nella piattaforma Bersin. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma Bersin. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Bersin. Collaborare con il  [team di supporto di Bersin](mailto:USBersinServiceClient@deloitte.com) per aggiungere gli utenti alla piattaforma Bersin o il dominio che deve essere incluso nell'elenco elementi consentiti nella piattaforma Bersin. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma Bersin. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Bersin nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Bersin.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

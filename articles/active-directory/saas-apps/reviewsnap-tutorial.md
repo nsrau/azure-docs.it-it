@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c66985c7a1d9084ab2a264b1ba799b1fdfa3b0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 421031713a8c0677670a13d8190aec7c0113043a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Esercitazione: Integrazione di Azure Active Directory con Reviewsnap
 
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-reviewsnap-test-user"></a>Creare un utente test Reviewsnap
 
-In questa sezione viene creato un utente chiamato Britta Simon in Reviewsnap. Collaborare con il [team di supporto di Reviewsnap](mailto:support@reviewsnap.com) per aggiungere gli utenti alla piattaforma Reviewsnap. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
+In questa sezione viene creato un utente chiamato Britta Simon in Reviewsnap. Collaborare con il  [team di supporto di Reviewsnap](mailto:support@reviewsnap.com) per aggiungere gli utenti alla piattaforma Reviewsnap. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -207,7 +207,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Reviewsnap nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Reviewsnap.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

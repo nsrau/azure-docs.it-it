@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 775c9b155f080c8996a7680514cb2fb004a4e3fb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212528"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152254"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa **i** , costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -57,8 +57,8 @@ Una volta definita la progettazione dei report sull'integrità, è possibile inv
 ## <a name="health-client"></a>Client di integrità
 I report sull'integrità vengono inviati all'archivio integrità tramite un client di integrità, che risiede nel client Fabric. Il client di integrità può essere configurato con le impostazioni seguenti:
 
-* **HealthReportSendInterval**: ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato all'archivio integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Impostazione predefinita: 30 secondi.
-* **HealthReportRetrySendInterval**: intervallo dopo il quale il client di integrità invia nuovamente i report sull'integrità accumulati all'archivio integrità. Impostazione predefinita: 30 secondi.
+* **HealthReportSendInterval**: ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato all'archivio integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Predefinito: 30 secondi.
+* **HealthReportRetrySendInterval**: intervallo dopo il quale il client di integrità invia nuovamente i report sull'integrità accumulati all'archivio integrità. Predefinito: 30 secondi.
 * **HealthOperationTimeout**: periodo di timeout per un messaggio di report inviato all'archivio integrità. In caso di timeout di un messaggio scade, il client di integrità riprova a inviarlo finché l'archivio integrità non conferma che i report sono stati elaborati. Valore predefinito: due minuti.
 
 > [!NOTE]

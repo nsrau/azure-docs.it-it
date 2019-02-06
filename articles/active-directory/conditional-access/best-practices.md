@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452837"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078951"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -47,14 +47,32 @@ Affinché il criterio funzioni, è necessario configurare quanto segue:
 
 |Cosa           | Come                                  | Motivo|
 |:--            | :--                                  | :-- |
-|**App cloud** |È necessario selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti potranno accedere alle app cloud.|
-| **Utenti e gruppi** | È necessario selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
-| **Controlli di accesso** | È necessario selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte.|
+|**App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti potranno accedere alle app cloud.|
+| **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
+| **Controlli di accesso** | Selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte.|
 
 
 
 
 ## <a name="what-you-should-know"></a>Informazioni utili
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Come vengono configurati i criteri di accesso condizionale
+
+Quando si accede a un'app cloud, può essere applicato più di un criterio di accesso condizionale. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se ad esempio un criterio richiede MFA e il secondo richiede un dispositivo conforme, è necessario eseguire l'autenticazione MFA e usare un dispositivo conforme. 
+
+Tutti i criteri vengono applicati in due fasi:
+
+- Nella **prima** fase vengono valutati tutti i criteri e vengono raccolti tutti i controlli di accesso non soddisfatti. 
+
+- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, si viene bloccati e non viene richiesto di soddisfare gli altri controlli dei criteri. Se non si viene bloccati da nessuno dei criteri, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
+
+    ![Ordine](./media/best-practices/06.png)
+    
+    Poi vengono i provider MFA e le condizioni per l'utilizzo.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?
 
@@ -70,7 +88,7 @@ Se è necessario configurare una condizione relativa alla località applicata a 
 
 Se non si riesce ad accedere al portale di Azure AD a causa di un'impostazione errata in un criterio di accesso condizionale:
 
-- Verificare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare il criterio che impedisce l'accesso. 
+- Controllare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare il criterio che impedisce l'accesso. 
 
 - Se nessun amministratore dell'organizzazione può aggiornare il criterio, è necessario inviare una richiesta di supporto. Il supporto tecnico Microsoft può esaminare e aggiornare i criteri di accesso condizionale che impediscono l'accesso.
 
@@ -122,13 +140,13 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 Come primo passaggio, è consigliabile valutare il criterio con lo [strumento per l'analisi di simulazione](what-if-tool.md).
 
-Quando si è pronti a distribuire un nuovo criterio nel proprio ambiente, è consigliabile procedere per fasi:
+Quando i nuovi criteri sono pronti per l'ambiente, distribuirli in più fasi:
 
 1. Applicare un criterio a un set ridotto di utenti e verificare che abbia il comportamento previsto. 
 
-2.  Quando si espande un criterio per includere un maggior numero di utenti, continuare a escludere tutti gli amministratori dal criterio. In questo modo, gli amministratori potranno comunque accedere e aggiornare il criterio, se è necessaria una modifica.
+2.  Quando si espande un criterio per includere altri utenti, continuare a escludere tutti gli amministratori dal criterio per assicurarsi che abbiano ancora accesso e possano aggiornare un criterio se è necessaria una modifica.
 
-3. Applicare un criterio a tutti gli utenti solo se realmente necessario. 
+3. Applicare un criterio a tutti gli utenti solo se necessario. 
 
 Come procedura consigliata, creare un account utente che sia:
 
@@ -154,4 +172,7 @@ Per altre informazioni, vedere [Migrare i criteri classici nel portale di Azure]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
+Per informazioni su:
+
+- Come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
+- Come pianificare i criteri di accesso condizionale, vedere [Come pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md).

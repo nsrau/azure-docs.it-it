@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124036"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098664"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
-Questo scenario descrive come è possibile estendere un'app per la logica per supportare al meglio la gestione delle eccezioni. Si tratta di un caso d'uso reale che risponde alla domanda "Le app per la logica di Azure supportano la gestione di errori ed eccezioni?".
+Questo scenario descrive come è possibile estendere un'app per la logica per supportare al meglio la gestione delle eccezioni. È stato usato un caso d'uso reale per rispondere alla domanda: "App per la logica di Azure supporta la gestione degli errori e delle eccezioni?"
 
 > [!NOTE]
 > Lo schema corrente delle app per la logica di Azure offre un modello standard per le risposte alle azioni, che include le risposte per gli errori e la convalida interna restituite da un'app per le API.
@@ -57,7 +57,7 @@ Dato che si prevede di registrare il record proveniente da Dynamics CRM Online, 
 
 Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Passaggi
@@ -402,7 +402,7 @@ La soluzione ha aggiunto funzionalità con [Azure Cosmos DB](https://azure.micro
 Per consultare gli errori, è possibile creare un'app Web MVC per visualizzare i record di errore da Cosmos DB. Nella versione corrente sono incluse operazioni di tipo **Elenco**, **Dettagli**, **Modifica** ed **Elimina**.
 
 > [!NOTE]
-> Con l'operazione di modifica, Cosmos DB sostituisce l'intero documento. I record contenuti nelle visualizzazioni **elenco** e **dettagli** sono solo esempi. Non si tratta di record effettivi di appuntamenti dei pazienti.
+> Operazione di modifica: Cosmos DB sostituisce l'intero documento. I record contenuti nelle visualizzazioni **elenco** e **dettagli** sono solo esempi. Non si tratta di record effettivi di appuntamenti dei pazienti.
 
 Questi sono esempi dei dettagli dell'app MVC creati con l'approccio precedentemente descritto.
 

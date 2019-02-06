@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 443ecdeab057c863763501e5da7d36e9fb6a4eea
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084789"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223137"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 Elenco completo dei limiti di QnA Maker.
@@ -27,7 +27,9 @@ Elenco completo dei limiti di QnA Maker.
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Numero massimo di knowledge base pubblicate consentite (indici massimi -- 1 (riservato al test)|2|14|49|199|199|2999|
+|Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
+
+ Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice, `testkb`, viene usato per tutti gli articoli della knowledge base per la creazione e il testing. 
 
 ## <a name="extraction-limits"></a>Limiti di estrazione
 * Numero massimo di file che possono essere estratti e dimensione massima dei file: vedere [Prezzi di QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -64,3 +66,11 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 * Numero massimo di domande alternative aggiunte o eliminate: 100
 * Numero massimo di campi di metadati aggiunti o eliminati: 10
 * Numero massimo di URL che è possibile aggiornare: 5
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su quando e come modificare i livelli di servizio:
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): quando è necessario inserire altre domande e risposte nella knowledge base, oltre il livello corrente, aggiornare il piano tariffario del servizio QnA Maker.
+* [Ricerca](how-to/upgrade-qnamaker-service.md#upgrade-app-service): quando la knowledge base deve gestire più richieste dall'applicazione client, aggiornare il piano tariffario del servizio app.
+* [Servizio app](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): quando si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio Ricerca di Azure.

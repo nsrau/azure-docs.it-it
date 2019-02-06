@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180212"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visualizzare la cronologia dei controlli per i ruoli della directory di Azure AD in PIM
 È possibile usare la cronologia dei controlli di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni in un determinato periodo di tempo per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nel tenant, inclusi amministratore, utente finale e attività di sincronizzazione, è possibile usare i [report di accesso e utilizzo di Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruo
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare la cronologia dei controlli per i ruoli delle risorse di Azure in PIM](pim-resource-roles-use-the-audit-log.md)
+- [Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM](azure-pim-resource-rbac.md)

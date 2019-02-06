@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/18/2019
+ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838617"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217174"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -35,11 +35,12 @@ Con l'autenticazione di Azure AD è possibile gestire centralmente le identità 
 - Può eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 - L'autenticazione di Azure SD usa gli utenti di un database indipendente per autenticare le identità a livello di database.
 - Azure AD supporta l'autenticazione basata su token per le applicazioni che si connettono a database SQL.
-- L'autenticazione di Azure AD supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.  
-- Azure AD supporta le connessioni da SQL Server Management Studio che utilizzano l'autenticazione universale di Active Directory, che include l'MFA (Multi-Factor Authentication).  L'MFA include funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. Per altre informazioni [Supporto di SQL Server Management Studio (SSMS) per l'autenticazione MFA di Azure AD con il database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
+- L'autenticazione di Azure AD supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.
+- Azure AD supporta le connessioni da SQL Server Management Studio che utilizzano l'autenticazione universale di Active Directory, che include l'MFA (Multi-Factor Authentication).  L'MFA include funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. Per altre informazioni [Supporto di SQL Server Management Studio (SSMS) per l'autenticazione MFA di Azure AD con il database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- Azure AD supporta connessioni analoghe da SQL Server Data Tools (SSDT) che usano l'autenticazione interattiva di Active Directory. Per altre informazioni, vedere [Supporto di Azure Active Directory in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
 > [!NOTE]  
-> La connessione a SQL Server in esecuzione su una macchina virtuale di Azure non è supportata con un account Azure Active Directory. Usare un account Active Directory di dominio.  
+> La connessione a SQL Server in esecuzione in una VM di Azure non è supportata con un account Azure Active Directory. Usare un account Active Directory di dominio.  
 
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure Active Directory.
 
@@ -77,22 +78,40 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
 
 ## <a name="azure-ad-features-and-limitations"></a>Funzionalità e limitazioni di Azure AD
 
-È possibile eseguire il provisioning dei membri di Azure AD seguenti nel server di Azure SQL o in SQL Data Warehouse:
+- È possibile eseguire il provisioning dei membri di Azure AD seguenti nel server di Azure SQL o in SQL Data Warehouse:
 
-- Membri nativi: un membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-- Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
-- Membri importati da altre istanze di Azure AD che sono membri nativi o del dominio federato.
-- Gruppi di Active Directory creati come gruppi di sicurezza.
+  - Membri nativi: un membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+  - Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Membri importati da altre istanze di Azure AD che sono membri nativi o del dominio federato.
+  - Gruppi di Active Directory creati come gruppi di sicurezza.
 
-Gli utenti e gli account di accesso di Azure AD sono supportati come funzionalità di anteprima per [Istanza gestita](sql-database-managed-instance.md)
+- Gli utenti di Azure AD che fanno parte di un gruppo con il ruolo del server `db_owner` non possono usare la sintassi **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** nel database SQL di Azure e in Azure SQL Data Warehouse. Verrà visualizzato l'errore seguente:
 
-Queste funzioni di sistema restituiscono valori NULL quando vengono eseguite nell'ambito di entità di sicurezza di Azure AD:
+    `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-- `SUSER_ID()`
-- `SUSER_NAME(<admin ID>)`
-- `SUSER_SNAME(<admin SID>)`
-- `SUSER_ID(<admin name>)`
-- `SUSER_SID(<admin name>)`
+    Assegnare il ruolo `db_owner` direttamente all'utente di Azure AD per mitigare il problema **CREATE DATABASE SCOPED CREDENTIAL**.
+
+- Queste funzioni di sistema restituiscono valori NULL quando vengono eseguite nell'ambito di entità di sicurezza di Azure AD:
+
+  - `SUSER_ID()`
+  - `SUSER_NAME(<admin ID>)`
+  - `SUSER_SNAME(<admin SID>)`
+  - `SUSER_ID(<admin name>)`
+  - `SUSER_SID(<admin name>)`
+
+### <a name="manage-instances"></a>Gestire le istanze
+
+- Gli utenti e gli account di accesso di Azure AD sono supportati come funzionalità di anteprima per [Istanze gestite](sql-database-managed-instance.md).
+- In [Istanze gestite](sql-database-managed-instance.md) non è supportata l'impostazione di account di accesso di Azure AD di cui è stato eseguito il mapping a un gruppo di Azure AD come proprietario del database.
+    - Un'estensione di questo scenario si verifica quando un gruppo viene aggiunto come parte del ruolo del server `dbcreator`; in questo caso, gli utenti del gruppo possono connettersi a Istanza gestita e creare nuovi database, ma non possono accedere al database. Il nuovo proprietario del database, infatti, è SA e non l'utente di Azure AD. Questo problema non si verifica se al ruolo del server `dbcreator` si aggiunge il singolo utente.
+- È supportata l'esecuzione di processi e operazioni di gestione dell'agente SQL per gli account di accesso di Azure AD.
+- Operazioni di backup e ripristino del database possono essere eseguite dagli account di accesso di Azure AD.
+- È supportato il controllo di tutte le istruzioni relative agli eventi di autenticazione e agli account di accesso di Azure AD.
+- È supportata la connessione amministrativa dedicata per gli account di accesso di Azure AD membri del ruolo del server sysadmin.
+    - È supportata tramite l'utilità SQLCMD e SQL Server Management Studio.
+- Sono supportati i trigger di accesso per gli eventi di accesso provenienti dagli account di accesso di Azure AD.
+- Usando l'account di accesso di Azure AD è possibile configurare Service Broker e la posta elettronica del database.
+
 
 ## <a name="connecting-using-azure-ad-identities"></a>Connettersi usando le identità di Azure AD
 
@@ -102,15 +121,23 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Con un nome di entità e una password di Azure AD
 - Con l'autenticazione del token dell'applicazione
 
+Per gli account di accesso di Azure AD (**versione di anteprima pubblica**) sono supportati i metodi di autenticazione seguenti:
+
+- Password di Azure Active Directory
+- Autenticazione integrata di Azure Active Directory
+- Autenticazione universale di Azure Active Directory con MFA
+- Autenticazione interattiva di Azure Active Directory
+
+
 ### <a name="additional-considerations"></a>Ulteriori considerazioni
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure AD dedicato come amministratore.   
-- È possibile configurare un solo amministratore di Azure AD (utente o gruppo) per un server di database SQL di Azure, per Istanza gestita o per Azure SQL Data Warehouse in qualsiasi momento.
+- È possibile configurare un solo amministratore di Azure AD, utente o gruppo, per un server di database SQL di Azure o Azure SQL Data Warehouse in qualsiasi momento.
+  - L'aggiunta di account di accesso di Azure AD per Istanze gestite (**versione di anteprima pubblica**) offre la possibilità di creare più account di accesso di Azure AD che possono essere aggiunti al ruolo `sysadmin`.
 - Un solo amministratore di Azure AD per SQL Server può connettersi inizialmente al server di database SQL di Azure, a Istanza gestita o ad Azure SQL Data Warehouse usando un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure AD successivi.   
 - È consigliabile impostare il timeout di connessione su 30 secondi.   
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni del livello dati (DAC e BACPAC) possono usare l'autenticazione di Azure AD.   
-- [ODBC versione 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supporta l'autenticazione di Azure Active Directory, tuttavia `bcp.exe` non può connettersi mediante l'autenticazione di Azure Active Directory perché usa un provider ODBC meno recente.   
-- `sqlcmd` supporta l'autenticazione di Azure Active Directory iniziando con la versione 13.1 disponibile in [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+- A partire dalla versione 15.0.1, l'[utilità sqlcmd](/sql/tools/sqlcmd-utility) e l'[utilità bcp](/sql/tools/bcp-utility) supportano l'autenticazione interattiva di Active Directory con MFA.
 - SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Gli utenti di Azure AD non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 per server SQL](https://www.microsoft.com/download/details.aspx?id=11774) supporta l'autenticazione di Azure AD. Vedere anche l'argomento su come [impostare le proprietà della connessione](https://msdn.microsoft.com/library/ms378988.aspx).   
 - PolyBase non può eseguire l'autenticazione di Azure AD.   
@@ -120,10 +147,12 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure o con Azure SQL Data Warehouse, vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md).
+- Per un'esercitazione sull'uso degli account di accesso di Azure AD con Istanze gestite, vedere [Account di accesso di Azure AD con Istanze gestite](sql-database-managed-instance-aad-security-tutorial.md)
 - Per una panoramica dell'accesso e del controllo nel database SQL, vedere l'articolo relativo al [controllo dell'accesso al database SQL](sql-database-control-access.md).
 - Per una panoramica degli account di accesso, degli utenti e dei ruoli del database nel database SQL, vedere l'articolo relativo ad [account di accesso, utenti e ruoli del database](sql-database-manage-logins.md).
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
+- Per la sintassi sulla creazione di account di accesso di Azure AD per Istanze gestite, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

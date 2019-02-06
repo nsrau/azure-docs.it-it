@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807874"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904455"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -35,7 +35,7 @@ Il servizio app offre funzionalità diagnostiche per la registrazione di informa
 È possibile abilitare o disabilitare i seguenti tipi di log:
 
 * **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
-* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile se si sta tentando di aumentare le prestazioni del sito oppure isolare la causa della restituzione di uno specifico errore HTTP.
+* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP.
 * **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
@@ -45,7 +45,7 @@ La diagnostica applicazioni consente di acquisire le informazioni prodotte da un
 
 È possibile recuperare i log in runtime per facilitare la risoluzione dei problemi. Per altre informazioni, vedere [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-Il servizio app registra anche le informazioni di distribuzione dei log quando si pubblicano contenuti in un'app. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
+Il servizio app registra anche le informazioni di distribuzione dei log quando si pubblicano contenuti in un'app. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si usa uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
 
 ## <a name="enablediag"></a>Come abilitare la diagnostica
 Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), passare alla pagina dell'app e fare clic su **Impostazioni > Log di diagnostica**.
@@ -53,12 +53,16 @@ Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), p
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte dei log](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Livello**. Questa impostazione consente di filtrare le informazioni acquisite classificandole come **messaggi informativi**, **avvisi** o **errori**. Impostando il filtro su **Dettagliato** è possibile registrare tutte le informazioni generate dall'applicazione.
+Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Livello**. La tabella seguente elenca le categorie dei log incluse in ogni livello:
 
-> [!NOTE]
-> Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
->
->
+| Level| Categorie di log incluse |
+|-|-|
+|**Disabilitato** | Nessuna |
+|**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
+|**Warning** | Avviso, Errore, Errore critico|
+|**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
+|**Dettagliato** | Analisi, Debug, Informazioni, Avviso, Errore, Errore critico (tutte le categorie) |
+|-|-|
 
 Per il **registro applicazioni** è possibile attivare l'opzione del file system temporaneamente per scopi di debug. Questa opzione si disattiva automaticamente dopo 12 ore. È anche possibile attivare l'opzione di archiviazione BLOB per selezionare un contenitore BLOB in cui scrivere i log.
 

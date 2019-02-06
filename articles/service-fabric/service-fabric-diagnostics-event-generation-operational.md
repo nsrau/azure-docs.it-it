@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727359"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102053"
 ---
 # <a name="list-of-service-fabric-events"></a>Elenco degli eventi di Service Fabric 
 
@@ -108,7 +108,7 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 
 **Eventi relativi al ciclo di vita dei contenitori** 
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | Un contenitore è stato avviato | Hosting | Informazioni | 1 |
 | 23075 | ContainerDeactivated | Un contenitore è stato arrestato | Hosting | Informazioni | 1 |
@@ -124,21 +124,21 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi dei report sull'integrità del cluster**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | È disponibile un nuovo report sull'integrità del cluster | HM | Informazioni | 1 |
 | 54437 | ClusterHealthReportExpired | Un report esistente sull'integrità del cluster è scaduto | HM | Informazioni | 1 |
 
 **Eventi dei report sull'integrità dei nodi**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | È disponibile un nuovo report sull'integrità dei nodi | HM | Informazioni | 1 |
 | 54432 | NodeHealthReportExpired | Un report esistente sull'integrità dei nodi è scaduto | HM | Informazioni | 1 |
 
 **Eventi dei report sull'integrità delle applicazioni**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | È stato creato un nuovo report sull'integrità delle applicazioni. È valido per le applicazioni non distribuite | HM | Informazioni | 1 |
 | 54426 | DeployedApplicationNewHealthReport | È stato creato un nuovo report sull'integrità delle applicazioni distribuite | HM | Informazioni | 1 |
@@ -149,21 +149,21 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi dei report sull'integrità dei servizi**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | È stato creato un nuovo report sull'integrità dei servizi | HM | Informazioni | 1 |
 | 54433 | ServiceHealthReportExpired | Un report esistente sull'integrità dei servizi è scaduto | HM | Informazioni | 1 |
 
 **Eventi dei report sull'integrità delle partizioni**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | È stato creato un nuovo report sull'integrità delle partizioni | HM | Informazioni | 1 |
 | 54431 | PartitionHealthReportExpired | Un report esistente sull'integrità delle partizioni è scaduto | HM | Informazioni | 1 |
 
 **Eventi dei report sull'integrità delle repliche**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | È stato creato un report sull'integrità delle repliche con stato | HM | Informazioni | 1 |
 | 54430 | StatelessInstanceNewHealthReport | È stato creato un nuovo report sull'integrità delle istanze senza stato | HM | Informazioni | 1 |
@@ -174,28 +174,28 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi di sessioni di chaos testing**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | È stata avviata una sessione di chaos testing | Testabilità | Informazioni | 1 |
 | 50023 | ChaosStopped | È stata arrestata una sessione di chaos testing | Testabilità | Informazioni | 1 |
 
 **Eventi dei nodi relativi a Chaos**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | È stato pianificato il riavvio di un nodo nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
 | 50087 | ChaosNodeRestartCompleted | Il riavvio di un nodo è stato completato nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
 
 **Eventi delle applicazioni relativi a Chaos**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | È stato pianificato il riavvio di un pacchetto di codice durante una sessione di chaos testing | Testabilità | Informazioni | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Il riavvio di un pacchetto di codice è stato completato durante una sessione di chaos testing | Testabilità | Informazioni | 1 |
 
 **Eventi delle partizioni relativi a Chaos**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | È stato pianificato lo spostamento di una partizione primaria nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | È stato pianificato lo spostamento di una partizione secondaria nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
@@ -203,7 +203,7 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi delle repliche relativi a Chaos**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | È stato pianificato il riavvio di una replica nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | È stata pianificata la rimozione di una replica nell'ambito di una sessione di chaos testing | Testabilità | Informazioni | 1 |
@@ -213,7 +213,7 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi di correlazione**
 
-| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Version |
+| EventId | NOME | DESCRIZIONE |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | È stata rilevata una correlazione | Testabilità | Informazioni | 1 |
 

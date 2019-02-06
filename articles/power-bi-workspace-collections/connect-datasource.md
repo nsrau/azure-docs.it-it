@@ -2,26 +2,20 @@
 title: Connessione a un'origine dati nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come connettersi a un'origine dati nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409857"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104695"
 ---
 # <a name="connect-to-a-data-source"></a>Connettersi a un'origine dati
 

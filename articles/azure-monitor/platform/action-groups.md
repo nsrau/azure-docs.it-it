@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432558"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252218"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
-Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente.
+Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
 
 Quando viene configurata un'azione per l'invio di una notifica a un utente tramite posta elettronica o SMS, l'utente riceverà un messaggio di conferma che indica che è stato aggiunto al gruppo di azioni.
 
@@ -88,15 +88,18 @@ Un gruppo di azioni può contenere fino a 1000 azioni di posta elettronica. Vede
 **Voce**: un gruppo di azioni può contenere fino a 10 azioni di tipo Voce.</dd>
 Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md).</dd>
 
-**Webhook**: un gruppo di azioni può contenere un massimo di 10 azioni di tipo Webhook. Logica di ripetizione dei tentativi: il periodo di timeout per una risposta è 10 secondi. Verrà eseguito un massimo di 2 nuovi tentativi di chiamata webhook quando vengono restituiti i codici di stato HTTP seguenti: 408, 429, 503, 504 o l'endpoint HTTP non risponde. La prima ripetizione del tentativo avviene dopo 10 secondi. La seconda e ultima ripetizione avviene dopo 100 secondi.
+**Webhook**: un gruppo di azioni può contenere un massimo di 10 azioni di tipo Webhook.
+Logica di ripetizione dei tentativi: il periodo di timeout per una risposta è 10 secondi. Verrà eseguito un massimo di 2 nuovi tentativi di chiamata webhook quando vengono restituiti i codici di stato HTTP seguenti: 408, 429, 503, 504 o l'endpoint HTTP non risponde. La prima ripetizione del tentativo avviene dopo 10 secondi, la seconda dopo 100 secondi. Dopo due errori, l'endpoint non verrà chiamato da alcun gruppo di azione per 30 minuti.
 
 Intervalli di indirizzi IP di origine
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Per ricevere aggiornamenti sulle modifiche apportate a questi indirizzi IP, è consigliabile configurare un [avviso di Integrità dei servizi](./../../azure-monitor/platform/service-notifications.md) che consente di monitorare l'eventuale presenza di notifiche informative sul servizio Gruppi di azioni.
 

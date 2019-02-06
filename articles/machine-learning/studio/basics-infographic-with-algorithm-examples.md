@@ -1,8 +1,21 @@
 ---
-title: Esempi di algoritmi titleSuffix: Descrizione di Azure Machine Learning Studio: Una panoramica di facile comprensione delle nozioni fondamentali di Machine Learning che include esempi di algoritmi. L'infografica scaricabile tratta molte domande di Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 18/12/2017
+title: Esempi di algoritmi
+titleSuffix: Azure Machine Learning Studio
+description: Una panoramica di facile comprensione delle nozioni fondamentali di Machine Learning che include esempi di algoritmi. L'infografica scaricabile tratta molte domande di Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295577"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi
 Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere altre informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning. Algoritmi di esempio aiutano i principianti di Machine Learning a capire gli algoritmi usare e lo scopo per cui usarli.

@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/25/2019
+ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382780"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478254"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
@@ -26,9 +26,11 @@ Il database SQL di Azure è un servizio dati gestito automaticamente che esegue 
 L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
 
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
+
 A livello di server è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
 
 ### <a name="azure-portal"></a>Portale di Azure
+
 Per abilitare l'ottimizzazione automatica nel **server** logico del database SQL di Azure, passare al server nel portale di Azure e quindi selezionare **Ottimizzazione automatica** nel menu.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
@@ -44,7 +46,6 @@ Le opzioni di ottimizzazione automatica in un server vengono applicate a tutti i
 ### <a name="rest-api"></a>API REST
 
 Per altre informazioni sull'uso dell'API REST per abilitare l'ottimizzazione automatica in un server, vedere i [metodi HTTP UPDATE e GET per l'ottimizzazione automatica di SQL Server](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
-
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Abilitare l'ottimizzazione automatica per un database singolo
 
@@ -74,27 +75,28 @@ Per altre informazioni sull'uso dell'API REST per abilitare l'ottimizzazione aut
 
 Per abilitare l'ottimizzazione automatica per un singolo database con Transact-SQL, connettersi al database ed eseguire la query seguente:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
+```
+
 L'impostazione dell'ottimizzazione automatica su AUTO verrà applicata alle impostazioni predefinite di Azure. Se viene impostata su INHERIT, la configurazione dell'ottimizzazione automatica verrà ereditata dal server padre. Se si sceglie CUSTOM, l'ottimizzazione automatica dovrà essere configurata manualmente.
 
 Per configurare le singole opzioni di ottimizzazione automatica con Transact-SQL, connettersi al database ed eseguire la query seguente:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
+```
+
 Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di qualsiasi impostazione ereditata dal database e abilitare l'opzione di ottimizzazione specifica. Se viene impostata su OFF, verrà eseguito l'override di qualsiasi impostazione ereditata dal database, ma l'opzione di ottimizzazione specifica verrà disabilitata. L'opzione di ottimizzazione automatica impostata su DEFAULT fa sì che la configurazione verrà ereditata dall'impostazione dell'ottimizzazione automatica a livello di database.  
 
 > [!IMPORTANT]
 > In caso di [replica geografica attiva](sql-database-auto-failover-group.md), l'ottimizzazione automatica deve essere configurata solo nel database primario. Le azioni di ottimizzazione applicate automaticamente, ad esempio la creazione o l'eliminazione dell'indice, verranno replicate automaticamente nel database secondario di sola lettura. Se si tenta di abilitare l'ottimizzazione automatica tramite T-SQL nel database secondario di sola lettura, si verificherà un errore perché una configurazione di ottimizzazione diversa per il database secondario di sola lettura non è supportata.
 >
 
-Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione automatica, vedere [Opzioni ALTER DATABASE SET (Transact-SQL) per server logico database SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione automatica, vedere [Opzioni ALTER DATABASE SET (Transact-SQL) per server di database SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Disabilitazione da parte del sistema
+
 L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questo caso, l'opzione di ottimizzazione viene disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
@@ -102,6 +104,7 @@ L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a
 Vedere la guida [Notifiche tramite posta elettronica per l'ottimizzazione automatica](sql-database-automatic-tuning-email-notifications.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) per altre informazioni sull'ottimizzazione automatica e sull'utilità di questa funzione per il miglioramento delle prestazioni.
 * Vedere le [Raccomandazioni per le prestazioni](sql-database-advisor.md) per una panoramica delle raccomandazioni per le prestazioni per il database SQL di Azure.
 * Vedere l'articolo [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) per informazioni sull'analisi dell'impatto sulle prestazioni delle query principali.

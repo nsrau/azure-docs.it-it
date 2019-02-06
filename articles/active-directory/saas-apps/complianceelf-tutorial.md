@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042861"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 
@@ -106,22 +106,22 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Finestra di dialogo Single Sign-On](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. Nella sezione **URL e dominio Compliance ELF** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+3. Nella sezione **URL e dominio Compliance ELF** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da  **IDP** :
 
     ![Informazioni sull'accesso Single Sign-On di URL e dominio Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     Nella casella di testo **Identificatore** digitare un URL come indicato di seguito: `https://sso.cordium.com`
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+4. Selezionare  **Mostra impostazioni URL avanzate**  e seguire questa procedura per configurare l'applicazione in modalità avviata da  **SP** :
 
     ![Accesso Single Sign-On di URL e dominio Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.complianceelf.com`
+    Nella casella di testo  **URL di accesso** , digitare un'URL utilizzando il modello seguente: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Compliance ELF](mailto:support@complianceelf.com).
 
-5. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+5. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app**  e incollarlo nel Blocco note.
     
     ![Configure Single Sign-On](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -161,7 +161,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
   
 ### <a name="create-a-compliance-elf-test-user"></a>Creare un utente di test di Compliance ELF
 
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Compliance ELF nel pannello di accesso, si accederà automaticamente all'applicazione Compliance ELF.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

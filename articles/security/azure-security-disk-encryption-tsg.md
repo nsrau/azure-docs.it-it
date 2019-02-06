@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468394"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -33,7 +33,23 @@ Questo errore può verificarsi quando viene eseguito un tentativo di crittografi
 - Montaggio ricorsivo delle unità dati nella directory /mnt/ o l'una nell'altra (ad esempio, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Altri [prerequisiti](azure-security-disk-encryption-prerequisites.md) di Crittografia dischi di Azure per Linux non sono soddisfatti.
 
-## <a name="unable-to-encrypt"></a>Impossibile eseguire la crittografia
+## <a name="bkmk_Ubuntu14"></a> Aggiornare il kernel predefinito per Ubuntu 14.04 LTS
+
+L'immagine di Ubuntu 14.04 LTS viene fornita con la versione del kernel predefinito 4.4. Questa versione del kernel presenta un problema noto che consiste in un errore di memoria insufficiente killer, che termina in modo errato il comando dd durante il processo di crittografia del sistema operativo. Questo bug è stato risolto nel più recente kernel Linux ottimizzato di Azure. Per evitare tale errore, prima di abilitare la crittografia sull'immagine, aggiornare il [kernel ottimizzato 4.15 di Azure](https://packages.ubuntu.com/trusty/linux-azure) oppure usare i comandi seguenti in un secondo momento:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Dopo aver riavviato la macchina virtuale nel nuovo kernel, la nuova versione del kernel può essere confermata tramite:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Impossibile crittografare i dischi Linux
 
 In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS disk encryption started" e SSH è disabilitato. Il processo di crittografia in un'immagine di galleria della raccolta può richiedere da 3 a 16 ore. Se vengono aggiunti dischi dati di dimensioni da più TB, il processo può richiedere giorni.
 
@@ -71,7 +87,7 @@ Quando la connettività è limitata da un firewall, da un requisito del proxy o 
 Tutte le impostazioni dei gruppi di sicurezza di rete devono consentire all'endpoint di soddisfare i [prerequisiti](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) di configurazione di rete documentati per la crittografia dei dischi.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault protetto da firewall
-La macchina virtuale deve poter accedere all'insieme di credenziali delle chiavi. Vedere il materiale sussidiario sull'accesso a un insieme di credenziali delle chiavi protetto da firewall e gestito dal team di [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+Quando la crittografia è in corso con le [credenziali di Azure AD](azure-security-disk-encryption-prerequisites-aad.md), alla macchina virtuale di destinazione deve essere concesso l'accesso agli endpoint di autenticazione di Azure AD, oltre agli endpoint del Key Vault.  Per altre informazioni, consultare il materiale sussidiario sull'accesso a un insieme di credenziali delle chiavi protetto da firewall e gestito dal team di [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
 La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) che usa un indirizzo IP noto e non instradabile (`169.254.169.254`) accessibile solo dall'interno della macchina virtuale.

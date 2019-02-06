@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404663"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147946"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ ms.locfileid: "54404663"
 
 [Integrità risorse di Azure](../articles/service-health/resource-health-overview.md) aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.
 
-## <a name="logs"></a>Log
+## <a name="azure-activity-log"></a>Azure Activity Log
 
 Il [log attività di Azure](../articles/azure-monitor/platform/activity-logs-overview.md) è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il log include una gamma di dati, dai dati operativi di Azure Resource Manager agli aggiornamenti sugli eventi di integrità dei servizi. È possibile fare clic su Log attività nel portale di Azure per visualizzare il log per la macchina virtuale.
 
@@ -64,11 +64,13 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) è un servizio che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics e registra la macchina virtuale in un'area di lavoro di Log Analytics esistente.
+- [Monitoraggio di Azure](../articles/azure-monitor/overview.md) è un servizio che effettua il monitoraggio degli ambienti cloud e locali per consentire la gestione della disponibilità e delle prestazioni. Offre una soluzione completa per la raccolta, l'analisi e l'esecuzione di operazioni sui dati di telemetria dal cloud e dagli ambienti locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o in una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics per raccogliere i dati di log e archiviarli in un'area di lavoro di Log Analytics.
 
-    Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log e metriche consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
+    Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) permette di monitorare la macchina virtuale e le risorse associate in relazione alla rete in cui si trovano. È possibile installare l'estensione dell'agente Network Watcher in una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-nwa.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- [Monitoraggio di Azure per le macchine virtuali](../articles/azure-monitor/insights/vminsights-overview.md) monitora le macchine virtuali di Azure su larga scala analizzando le prestazioni e l'integrità delle macchine virtuali Windows e Linux, inclusi i relativi processi e le dipendenze interconnesse ad altre risorse e processi esterni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Eseguire i passaggi inclusi in [Monitorare una macchina virtuale Windows con Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) o [Monitorare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).

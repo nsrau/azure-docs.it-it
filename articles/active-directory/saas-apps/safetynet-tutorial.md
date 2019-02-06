@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con SafetyNet | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SafetyNet | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SafetyNet.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 7756e943d25a02b3ec3e5a9150bb5eec8485eda7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4fb21f96c682775b4f7360abcdac7b64c78f76d9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421533"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158282"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Esercitazione: integrazione di Azure Active Directory con SafetyNet
+# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Esercitazione: Integrazione di Azure Active Directory con SafetyNet
 
 Questa esercitazione descrive come integrare SafetyNet con Azure Active Directory, ovvero Azure AD.
 
@@ -121,7 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SafetyNet](mailto:dev@predictivesolutions.com).
 
-1. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+1. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
 
     ![Collegamento di download del certificato](./media/safetynet-tutorial/tutorial_safetynet_certificate.png)
 
@@ -165,7 +165,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-safetynet-test-user"></a>Creare un utente di test SafetyNet
 
-In questa sezione viene creato un utente chiamato Britta Simon in SafetyNet. Collaborare con il [team di supporto di SafetyNet](mailto:dev@predictivesolutions.com) per aggiungere gli utenti alla piattaforma SafetyNet. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
+In questa sezione viene creato un utente chiamato Britta Simon in SafetyNet. Collaborare con il  [team di supporto di SafetyNet](mailto:dev@predictivesolutions.com) per aggiungere gli utenti alla piattaforma SafetyNet. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro SafetyNet nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione SafetyNet.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

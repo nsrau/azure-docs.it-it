@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
+ms.subservice: report-monitor
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818184"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186536"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -43,34 +43,36 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione directory|Aggiungere un'unità amministrativa|
-|Gestione directory|Aggiungere un membro all'unità amministrativa|
-|Gestione directory|Eliminare un'unità amministrativa|
-|Gestione directory|Rimuovere un membro da un'unità amministrativa|
-|Gestione directory|Aggiornare un'unità amministrativa|
-|Gestione directory|Administration|
-|User Management|Operazione sulla directory|
-|User Management|Esportazione|
-|User Management|Importa|
-|User Management|Altri|
-|User Management|Elaborare il deposito|
-|User Management|Azione della regola di sincronizzazione|
-|User Management|Aggiunta di un'applicazione|
-|User Management|Eliminare applicazione|
-|User Management|Aggiornare l'applicazione|
-|User Management|Aggiornare la modalità di accesso Single Sign-On dell'applicazione|
-|User Management|Automated Password Rollover (Rollover automatizzato delle password)|
-|User Management|Aggiungere autorizzazioni applicazione V2|
-|User Management|Creare un'applicazione V1|
-|User Management|Creare un'applicazione V2|
-|User Management|Eliminare un'applicazione V1|
-|User Management|Eliminare un'applicazione V2|
-|User Management|Eliminare le concessioni di autorizzazione per l'applicazione V2|
-|User Management|Ottenere applicazioni V1 e V2|
-|User Management|Ottenere applicazione V1|
-|User Management|Ottenere applicazioni V1|
-|User Management|Ottenere applicazione V2|
-|User Management|Ottenere applicazioni V2|
+|Verifiche di accesso|Verifica di accesso terminata|
+|Verifiche di accesso|Aggiungere un responsabile approvazione all'approvazione delle richieste|
+|Verifiche di accesso|Aggiungere un revisore alla verifica di accesso|
+|Verifiche di accesso|Applicare la verifica di accesso|
+|Verifiche di accesso|Creare una verifica di accesso|
+|Verifiche di accesso|Creare un programma|
+|Verifiche di accesso|Creare un'approvazione richiesta|
+|Verifiche di accesso|Eliminare la verifica di accesso|
+|Verifiche di accesso|Eliminare un programma|
+|Verifiche di accesso|Creare un collegamento al controllo del programma|
+|Verifiche di accesso|Eseguire l'onboarding alle verifiche di accesso di Azure AD|
+|Verifiche di accesso|Rimuovere un revisore dalla verifica di accesso|
+|Verifiche di accesso|Richiedere l'arresto della verifica|
+|Verifiche di accesso|Richiedere il risultato dell'applicazione della verifica|
+|Verifiche di accesso|Verificare l'appartenenza al ruolo di controllo degli accessi in base al ruolo|
+|Verifiche di accesso|Verificare l'assegnazione di app|
+|Verifiche di accesso|Verificare l'appartenenza a gruppi|
+|Verifiche di accesso|Verificare la richiesta di approvazione richiesta|
+|Verifiche di accesso|Eliminare il collegamento al controllo del programma|
+|Verifiche di accesso|Aggiornare la verifica di accesso|
+|Verifiche di accesso|Aggiornare lo stato dell'onboarding delle verifiche di accesso di Azure AD|
+|Verifiche di accesso|Aggiornare le impostazioni per le notifiche tramite posta elettronica delle verifiche di accesso|
+|Verifiche di accesso|Aggiornare l'impostazione di conteggio ricorrenze delle verifiche di accesso|
+|Verifiche di accesso|Aggiornare l'impostazione di durata in giorni delle ricorrenze delle verifiche di accesso|
+|Verifiche di accesso|Aggiornare l'impostazione del tipo End delle ricorrenze delle verifiche di accesso|
+|Verifiche di accesso|Aggiornare l'impostazione del tipo delle ricorrenze delle verifiche di accesso|
+|Verifiche di accesso|Aggiornare le impostazioni per i promemoria delle verifiche dell'accesso|
+|Verifiche di accesso|Aggiornare un programma|
+|Verifiche di accesso|Aggiornare un'approvazione richiesta|
+|Verifiche di accesso|Utente disabilitato|
 
 ## <a name="account-provisioning"></a>Provisioning degli account
 
@@ -526,23 +528,27 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione dei ruoli|Aggiornare le impostazioni per i promemoria delle verifiche dell'accesso|
-|Gestione dei ruoli|Aggiornare un'approvazione richiesta|
-|Gestione dei ruoli|Aggiungere un'assegnazione di ruolo app a un utente|
-|Gestione dei ruoli|Add user|
-|Gestione dei ruoli|Aggiungere dettagli dell'app telefonica per l'autenticazione avanzata degli utenti|
-|Gestione dei ruoli|Modifica licenza utente|
-|Gestione dei ruoli|Modifica password utente|
-|Gestione dei ruoli|Convertire un utente federato in utente gestito|
-|Gestione dei ruoli|Creare una password applicazione per un utente|
-|Gestione dei ruoli|Eliminare una password applicazione per un utente|
-|Gestione dei ruoli|Eliminare un utente|
-|Gestione dei ruoli|Disabilitare l'account|
-|Gestione dei ruoli|Abilitare l'autenticazione avanzata|
-|Gestione dei ruoli|Eliminare definitivamente un utente|
-|Gestione dei ruoli|Rimuovere un'assegnazione di ruolo app da un utente|
-|Gestione dei ruoli|Rimuovere dettagli dell'app telefonica per l'autenticazione avanzata degli utenti|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Aggiunto|
+|PIM|AddedOutsidePIM|
+|PIM|Assegnare|
+|PIM|DismissAlert|
+|PIM|Elevare|
+|PIM|ReactivateAlert|
+|PIM|Rimosso|
+|PIM|RemovedOutsidePIM|
+|PIM|Richiedere l'arresto della verifica|
+|PIM|Modifiche alle impostazioni dei ruoli|
+|PIM|ScanAlertsNow|
+|PIM|Iscrizione|
+|PIM|Annullare l'assegnazione|
+|PIM|Annullare elevazione|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Gestione di gruppi self-service
@@ -580,13 +586,16 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione dei criteri|Modificare la password (self-service)|
-|Gestione dei criteri|Reimpostare la password (amministratore)|
-|Gestione dei criteri|Reimpostare la password (self-service)|
-|Gestione dei criteri|Stato dell'attività di reimpostazione delle password self-service|
-|Gestione dei criteri|Stato dell'attività di reimpostazione delle password self-service|
-|Gestione dei criteri|Sbloccare l'account utente (self-service)|
-|Gestione dei criteri|Utente registrato per la reimpostazione della password self-service|
+|Condizioni per l'utilizzo|Accettare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Creare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Rifiutare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Eliminare il consenso|
+|Condizioni per l'utilizzo|Eliminare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Modificare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Scadenza delle condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Eliminare definitivamente le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Pubblicare le condizioni per l'utilizzo|
+|Condizioni per l'utilizzo|Annullare la pubblicazione delle condizioni per l'utilizzo|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

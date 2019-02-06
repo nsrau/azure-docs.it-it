@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853817"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300405"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: Valutare i carichi di lavoro locali per la migrazione in Azure
 
@@ -121,7 +121,7 @@ Contoso e gli altri utenti devono soddisfare i prerequisiti seguenti per la valu
 - Un'istanza del server vCenter locale che esegue la versione 6.5, 6.0 o 5.5.
 - Account di sola lettura nel server vCenter o autorizzazioni per crearne uno.
 - Autorizzazioni per creare una macchina virtuale nell'istanza del server vCenter con un modello OVA.
-- Almeno un host ESXi che esegue la versione 5.0 o successiva.
+- Almeno un host ESXi che esegue la versione 5.5 o successiva.
 - Almeno due VM VMware locali, in una delle quali viene eseguito un database di SQL Server.
 - Autorizzazioni per installare gli agenti di Azure Migrate in ogni macchina virtuale.
 - Connettività diretta a Internet delle VM.  
@@ -287,13 +287,7 @@ Prima di distribuire la macchina virtuale, Contoso verifica che il file OVA sia 
     **Esempio**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. L'hash generato deve corrispondere a queste impostazioni (versione 1.0.9.15):
-
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+3. Il valore hash generato deve corrispondere ai valori hash elencati [qui](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
 ### <a name="create-the-collector-appliance"></a>Creare l'appliance dell'agente di raccolta
 

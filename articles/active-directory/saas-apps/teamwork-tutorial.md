@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6be2c9a17e719fb53ab257af77605c49ffea9e86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7775c8ae92ebf6015f12bdebf0934752a5240f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Esercitazione: Integrazione di Azure Active Directory con Teamwork.com
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-teamworkcom-test-user"></a>Creare un utente test di Teamwork.com
 
-In questa sezione viene creato un utente di nome Britta Simon in Teamwork.com. Lavorare con il [team di supporto di Teamwork.com](mailto:support@teamwork.com) per aggiungere gli utenti nella piattaforma Teamwork.com. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Teamwork.com. Collaborare con il  [team di supporto di Teamwork.com](mailto:support@teamwork.com)  per aggiungere gli utenti alla piattaforma Teamwork.com. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -203,7 +203,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Teamwork.com nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Teamwork.com.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 426f89437b91bf32efc7d4887c92ebe9cd729b5b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792850"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166289"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -91,8 +91,7 @@ Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-c
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire le app.
 
-* [Creare la prima applicazione Infrastruttura di servizi in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-* [Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale](service-fabric-get-started-with-a-local-cluster.md)
+* [Informazioni su come creare, distribuire e gestire le applicazioni](service-fabric-tutorial-create-dotnet-app.md)
 * [Informazioni sui modelli di programmazione: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 * [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421067"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Esercitazione: Integrazione di Azure Active Directory con XaitPorter
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-xaitporter-test-user"></a>Creare un utente test di XaitPorter
 
-In questa sezione viene creato un utente di nome Britta Simon in XaitPorter. Collaborare con il [team di supporto clienti di XaitPorter](https://www.xait.com/support/) per aggiungere gli utenti nella piattaforma XaitPorter. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in XaitPorter. Collaborare con il  [team di supporto clienti di XaitPorter](https://www.xait.com/support/)  per aggiungere gli utenti alla piattaforma XaitPorter. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -220,7 +220,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Facendo clic sul riquadro XaitPorter nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione XaitPorter.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

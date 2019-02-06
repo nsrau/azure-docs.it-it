@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653510"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901786"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -128,6 +128,10 @@ Le aree delle funzionalità di registrazione diagnostica e traccia che non sono 
 Le app hanno accesso in sola lettura alla maggior parte del Registro di sistema della macchina virtuale sulla quale sono in esecuzione. In pratica, questo significa che le chiavi del Registro di sistema che consentono l'accesso in sola lettura al gruppo di utenti locali sono accessibili tramite app. Un'area del Registro di sistema che non è attualmente supportata per l'accesso in lettura o scrittura è l'hive HKEY\_CURRENT\_USER.
 
 L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista dell'app, l'accesso in scrittura al Registro di sistema nell'ambiente Azure non deve mai essere considerato affidabile poiché le app sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'app è la struttura della directory dei contenuti per app archiviata nelle condivisioni UNC del servizio app. 
+
+## <a name="remote-desktop-access"></a>Accesso tramite Desktop remoto
+
+Il servizio app non fornisce l'accesso tramite Desktop remoto alle istanze della macchina virtuale.
 
 ## <a name="more-information"></a>Altre informazioni
 

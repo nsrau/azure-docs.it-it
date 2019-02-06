@@ -1,6 +1,6 @@
 ---
-title: Valutare le prestazioni dei modelli titleSuffix: Descrizione di Azure Machine Learning Studio: Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Valutare le prestazioni dei modelli titleSuffix: Descrizione di Azure Machine Learning Studio: Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

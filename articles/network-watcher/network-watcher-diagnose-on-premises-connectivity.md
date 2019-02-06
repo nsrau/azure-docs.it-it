@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374203"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099397"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -36,7 +36,7 @@ Si vuole configurare una connessione da sito a sito tra Azure e la rete locale t
 1. Connessione da sito a sito basata su route, ovvero [connessione tra il Gateway VPN e il router locale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configurazione di FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+È possibile trovare indicazioni passo passo dettagliate per una configurazione da sito a sito visitando la pagina [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 Uno dei passaggi critici consiste nella configurazione dei parametri di comunicazione IPsec perché qualsiasi errore di configurazione comporta la perdita di connettività tra la rete locale e Azure. I gateway VPN di Azure sono attualmente configurati per supportare i parametri IPsec seguenti per la fase 1. Come indicato in precedenza, non è possibile modificare queste impostazioni.  Come si può notare nella tabella seguente, gli algoritmi di crittografia supportati dal gateway VPN di Azure sono AES256, AES128 e 3DES.
 
@@ -80,7 +80,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
+| NoFault | Non viene rilevato alcun errore. |Yes|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
 | PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No |
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No  |
@@ -88,26 +88,26 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No |
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
 | NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No |
-| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Sì|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
+| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Yes|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
+| NoFault | Non viene rilevato alcun errore. |Yes|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
 | PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No |
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No  |
 | VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
 | ConnectionEntityNotFound | La configurazione della connessione non è presente. | No  |
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No |
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
-| ConnectionMarkedStandy | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
-| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | Yes|
+| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

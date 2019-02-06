@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104863"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075466"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -43,6 +43,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
 
+###### <a name="january-24-2019"></a>**24 gennaio 2019**
+È stata rilasciata la famiglia 6 di sistemi operativi guest (Windows Server 2019).
+
 ###### <a name="january-7-2019"></a>**7 gennaio 2019**
 È stato rilasciato il sistema operativo guest di dicembre.
 
@@ -65,6 +68,21 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 È stato rilasciato il sistema operativo guest di giugno.
 
 ## <a name="releases"></a>Rilasci
+
+## <a name="family-6-releases"></a>Versioni della famiglia 6
+**Windows Server 2019**
+
+Versione .NET Framework installata: 3.5, 4.7.2
+
+> [!NOTE]
+> Windows Azure SDK per .NET - 3.0 può essere scaricato [qui][Windows Azure SDK].
+>
+
+| Stringa di configurazione | Data di rilascio | Data di disabilitazione |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 gennaio 2019 |Post 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 gennaio 2019 |Post 6.3 |
+
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
 **Windows Server 2016**
 
@@ -137,6 +155,7 @@ Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano c
 
 | Famiglia del sistema operativo guest | Versioni SDK compatibili |
 | --- | --- |
+| 6 |Versione 2.9.6+ |
 | 5 |Versione 2.9.5.1+ |
 | 4 |Versione 2.1+ |
 | 3 |Versione 1.8+ |
@@ -205,3 +224,4 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

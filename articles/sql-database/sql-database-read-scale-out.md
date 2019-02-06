@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389405"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461645"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)
 
@@ -76,7 +76,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>Abilitare e disabilitare la scalabilità in lettura
 
-La scalabilità in lettura è abilitata per impostazione predefinita nel livello Business Critical di [Istanza gestita](sql-database-managed-instance.md). Deve essere abilitata in modo esplicito nei livelli Premium e Business Critical del [database disponibile nel server logico](sql-database-logical-servers.md). I metodi per l'abilitazione e la disabilitazione della scalabilità in lettura sono illustrati di seguito.
+La scalabilità in lettura è abilitata per impostazione predefinita nel livello Business Critical di [Istanza gestita](sql-database-managed-instance.md). Deve essere abilitata in modo esplicito nei livelli Premium e Business Critical del [database disponibile nel server di database SQL](sql-database-servers.md). I metodi per l'abilitazione e la disabilitazione della scalabilità in lettura sono illustrati di seguito.
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Abilitare e disabilitare la scalabilità in lettura
 

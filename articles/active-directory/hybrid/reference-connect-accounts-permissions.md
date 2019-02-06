@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478604"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169604"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -136,7 +136,7 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
 | writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
 | Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](how-to-connect-device-writeback.md). |
-| Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo per i **gruppi di Office 365** sincronizzati.  Per altre informazioni, vedere [Writeback dei gruppi](how-to-connect-preview.md#group-writeback).|
+| Writeback dei gruppi |Consente il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange.  Per altre informazioni, vedere [Writeback dei gruppi](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Aggiornamento
 Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è necessario avere le autorizzazioni seguenti:

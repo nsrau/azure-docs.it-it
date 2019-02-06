@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 98a39c52f206f19d3330695fd05f9a96c0bf4d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 54a1f4a8ef0ec4381374585df57dc62490337190
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443351"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Esercitazione: Integrazione di Azure Active Directory con Supermood
 
@@ -203,7 +203,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 In questa sezione viene creato un utente di nome Britta Simon in Supermood. Supermood supporta il provisioning just-in-time, abilitato per impostazione predefinita per gli utenti i cui messaggi di posta elettronica appartengono ai domini aggiunti durante la configurazione finale di Supermood. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Supermood viene creato un nuovo utente, se questo non esiste ancora.
 
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Supermood](mailto:hello@supermood.fr).
+>Per creare un utente manualmente, contattare il  [team di supporto di Supermood](mailto:hello@supermood.fr).
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
@@ -241,7 +241,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Supermood nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Supermood.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

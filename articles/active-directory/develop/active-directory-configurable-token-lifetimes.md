@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069506"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912715"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
@@ -85,8 +85,6 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor<sup>3</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 
 * <sup>1</sup> La durata esplicita massima che è possibile impostare per questi attributi è 365 giorni.
-* <sup>2</sup> Se **MaxAgeSessionSingleFactor** non è impostato, questo valore assume il valore di **MaxAgeSingleFactor**. Se nessuno dei due parametri è impostato, la proprietà assume il valore predefinito, vale a dire fino alla revoca.
-* <sup>3</sup> Se **MaxAgeSessionMultiFactor** non è impostato, questo valore assume il valore di **MaxAgeMultiFactor**. Se nessuno dei due parametri è impostato, la proprietà assume il valore predefinito, vale a dire fino alla revoca.
 
 ### <a name="exceptions"></a>Eccezioni
 | Proprietà | Impatto | Predefinito |
@@ -143,36 +141,36 @@ Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[Time
 ### <a name="refresh-token-max-inactive-time"></a>Tempo inattività massimo token di aggiornamento
 **Stringa:** MaxInactiveTime
 
-**Impatto:** token di aggiornamento
+**Impatto:** Token di aggiornamento
 
-**Riepilogo:** questo tipo di criteri controlla dopo quanto tempo dall'emissione un token di aggiornamento non potrà più essere usato da un client per il recupero di una nuova coppia di token di accesso/aggiornamento quando tenterà di accedere alla risorsa. Dal momento che quando viene usato un token di aggiornamento ne viene in genere restituito uno nuovo, questi criteri impediscono l'accesso se il client prova ad accedere a qualsiasi risorsa con il token di aggiornamento corrente durante il periodo di tempo specificato.
+**Riepilogo:** questo tipo di criteri controlla dopo quanto tempo dall'emissione un token di aggiornamento non potrà più essere usato da un client per il recupero di una nuova coppia di token di accesso/aggiornamento quando proverà ad accedere alla risorsa. Dal momento che quando viene usato un token di aggiornamento ne viene in genere restituito uno nuovo, questi criteri impediscono l'accesso se il client prova ad accedere a qualsiasi risorsa con il token di aggiornamento corrente durante il periodo di tempo specificato.
 
 Questi criteri impongono agli utenti che non hanno svolto attività sul client nel tempo specificato di eseguire di nuovo l'autenticazione per recuperare un nuovo token di aggiornamento.
 
 La proprietà Tempo inattività massimo token di aggiornamento deve essere impostata su un valore inferiore rispetto alle proprietà Validità massima token a fattore singolo e Validità massima token di aggiornamento a più fattori.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Validità massima token di aggiornamento a fattore singolo
-**String:** MaxAgeSingleFactor
+**Stringa:** MaxAgeSingleFactor
 
-**Impatto:** token di aggiornamento
+**Impatto:** Token di aggiornamento
 
 **Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. Questo purché il token di aggiornamento corrente non venga revocato e non rimanga inutilizzato oltre il tempo di inattività. A questo punto, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di aggiornamento.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore minore o uguale a quello della proprietà Validità massima token di aggiornamento a più fattori.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Validità massima token di aggiornamento a più fattori
-**Strings:** MaxAgeMultiFactor
+**Stringa:** MaxAgeMultiFactor
 
-**Impatto:** token di aggiornamento
+**Impatto:** Token di aggiornamento
 
 **Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. Questo purché il token di aggiornamento corrente non venga revocato e non rimanga inutilizzato oltre il tempo di inattività. A questo punto, gli utenti devono eseguire di nuovo l'autenticazione per ricevere un nuovo token di aggiornamento.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore maggiore o uguale a quello della proprietà Validità massima token di aggiornamento a fattore singolo.
 
 ### <a name="single-factor-session-token-max-age"></a>Validità massima token di sessione a fattore singolo
-**Stringa** MaxAgeSessionSingleFactor
+**Stringa:** MaxAgeSessionSingleFactor
 
-**Impatto:** token di sessione (permanenti e non permanenti)
+**Impatto:** Token di sessione (permanenti e non permanenti)
 
 **Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. Questo purché il token di sessione corrente non venga revocato e non sia scaduto. Dopo il periodo di tempo specificato, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di sessione.
 
@@ -181,7 +179,7 @@ Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più
 ### <a name="multi-factor-session-token-max-age"></a>Validità massima token di sessione a più fattori
 **Stringa:** MaxAgeSessionMultiFactor
 
-**Impatto:** token di sessione (permanenti e non permanenti)
+**Impatto:** Token di sessione (permanenti e non permanenti)
 
 **Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. Questo purché il token di sessione corrente non venga revocato e non sia scaduto. Dopo il periodo di tempo specificato, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di sessione.
 
@@ -219,7 +217,7 @@ Per iniziare, seguire questa procedura:
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Esempio: gestire i criteri predefiniti di un'organizzazione
+### <a name="example-manage-an-organizations-default-policy"></a>Esempio: Gestire i criteri predefiniti di un'organizzazione
 In questo esempio vengono creati criteri che permettono agli utenti di eseguire l'accesso con una frequenza minore nell'intera organizzazione. A tale scopo, vengono creati criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati a tutta l'organizzazione. Tali criteri vengono applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri.
 
 1. Creare i criteri per la durata dei token.
@@ -256,7 +254,7 @@ In questo esempio vengono creati criteri che permettono agli utenti di eseguire 
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>Esempio: creare criteri per l'accesso Web
+### <a name="example-create-a-policy-for-web-sign-in"></a>Esempio: Creare criteri per l'accesso Web
 
 In questo esempio vengono creati i criteri in base ai quali viene richiesto agli utenti di eseguire più spesso l'autenticazione nell'app Web. Questi criteri consentono di impostare la durata dei token di accesso/ID e la validità massima di un token di sessione a più fattori per l'entità servizio dell'app Web.
 
@@ -287,7 +285,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
         ```
 
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Esempio: creare criteri per un'app nativa che chiama un'API Web
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Esempio: Creare criteri per un'app nativa che chiama un'API Web
 In questo esempio vengono creati i criteri in base ai quali viene richiesto agli utenti di eseguire l'autenticazione con minore frequenza. Questi criteri prolungano anche l'intervallo di tempo di inattività dell'utente prima che sia necessario rieseguire l'autenticazione. I criteri vengono applicati all'API web. Quando l'app nativa richiede l'API Web come risorsa, vengono applicati questi criteri.
 
 1. Creare i criteri per la durata dei token.
@@ -313,7 +311,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
         ```
 
 
-### <a name="example-manage-an-advanced-policy"></a>Esempio: gestire criteri avanzati
+### <a name="example-manage-an-advanced-policy"></a>Esempio: Gestire criteri avanzati
 In questo esempio vengono creati alcuni criteri per illustrare il funzionamento del sistema di priorità. Viene illustrato anche come gestire più criteri applicati a vari oggetti.
 
 1. Creare i criteri per la durata dei token.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310250"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151091"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
@@ -63,7 +63,7 @@ Le implementazioni di `ICommunicationListener` per Kestrel e HttpSys nei pacchet
 
 Entrambi i listener di comunicazione forniscono un costruttore che accetta gli argomenti seguenti:
  - **`ServiceContext serviceContext`**: oggetto `ServiceContext` che contiene informazioni sul servizio in esecuzione.
- - **`string endpointName`**: nome di una configurazione `Endpoint` in ServiceManifest.xml. È principalmente qui che i due listener di comunicazione differiscono: HttpSys **richiede** una configurazione `Endpoint` che non è invece necessaria per Kestrel.
+ - **`string endpointName`**: nome di una configurazione `Endpoint` in ServiceManifest.xml. La differenza principale tra i due listener di comunicazione è questa: HttpSys **richiede** una configurazione `Endpoint`, mentre Kestrel non la richiede.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: espressione lambda implementata in cui viene creato e restituito un elemento `IWebHost`. È così possibile configurare `IWebHost` come si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL che viene generato automaticamente a seconda delle opzioni di integrazione di Service Fabric usate e della configurazione `Endpoint` specificata. L'URL può quindi essere modificato o usato così com'è per avviare il server Web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware di integrazione di Service Fabric

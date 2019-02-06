@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986543"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097062"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -359,7 +359,7 @@ Nella casella **Informazioni sul token** vengono visualizzate anche informazioni
 |---------|---------|---------|
 |**Nome** |Nome e cognome dell'utente|Nome e cognome dell'utente.|
 |**Nome utente** |<span>user@domain.com</span> |Il nome utente che identifica l'utente.|
-|**Token Expires** (Scadenza token) |Datetime |Data e ora in cui scade il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
+|**Token Expires** (Scadenza token) |DateTime |Data e ora in cui scade il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
 |**Token di accesso** |string |Stringa di token inviata alle richieste HTTP che necessitano di un'*Intestazione dell'autorizzazione*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Visualizzare gli elementi nel token di accesso (facoltativo)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162861"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300473"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accedere al cluster vFXT
 
@@ -25,7 +25,7 @@ Poiché il cluster vFXT si trova all'interno di una rete virtuale privata, è ne
 > [!NOTE] 
 > In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se per l'accesso alla rete virtuale si usa una VPN o ExpressRoute, passare a [Connettersi al pannello di controllo di Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).  
+Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se si è usata una password anziché una chiave pubblica, verrà chiesto di immetterla al momento della connessione. 
 
 ## <a name="ssh-tunnel-with-a-linux-host"></a>Tunnel SSH con un host Linux
 
@@ -41,7 +41,7 @@ Esempio:
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-L'autenticazione avviene automaticamente se si è usata la chiave SSH pubblica per creare il cluster e la chiave corrispondente è installata nel sistema client.
+L'autenticazione avviene automaticamente se si è usata la chiave SSH pubblica per creare il cluster e la chiave corrispondente è installata nel sistema client. Se si è usata una password, il sistema chiederà di specificarla.
 
 ## <a name="ssh-tunnel-with-a-windows-host"></a>Tunnel SSH con un host Windows
 
@@ -63,7 +63,7 @@ Nel pannello **Configuration** (Configurazione):
 
 ![Screenshot dell'applicazione Putty che mostra dove fare clic per aggiungere un tunnel](media/avere-vfxt-ptty-numbered.png)
 
-L'autenticazione avviene automaticamente se si è usata la chiave SSH pubblica per creare il cluster e la chiave corrispondente è installata nel sistema client.
+L'autenticazione avviene automaticamente se si è usata la chiave SSH pubblica per creare il cluster e la chiave corrispondente è installata nel sistema client. Se si è usata una password, il sistema chiederà di specificarla.
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>Connettersi al pannello di controllo di Avere in un browser
 
@@ -77,7 +77,7 @@ Questo passaggio usa un Web browser per connettersi all'utilità di configurazio
 
 A seconda del browser, potrebbe essere necessario fare clic su **Avanzate** e verificare che sia sicuro procedere alla pagina.
 
-Immettere il nome utente `admin` e la password specificata in fase di creazione del cluster.
+Immettere il nome utente `admin` e la password amministrativa specificata in fase di creazione del cluster.
 
 ![Screenshot della finestra di accesso di Avere popolata con il nome utente "admin" e una password](media/avere-vfxt-gui-login.png)
 

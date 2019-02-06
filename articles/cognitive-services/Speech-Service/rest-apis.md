@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413686"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247443"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
@@ -33,7 +33,7 @@ Ogni richiesta all'API REST del riconoscimento vocale o della sintesi vocale ric
 
 | Intestazione dell'autorizzazione supportata | Riconoscimento vocale | Sintesi vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Yes | No |
+| Ocp-Apim-Subscription-Key | Yes | No  |
 | Authorization: Bearer | Yes | Yes |
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio: 
@@ -258,7 +258,7 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
@@ -268,7 +268,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| Descrizione | Obbligatoria / Facoltativa |
+|Intestazione| DESCRIZIONE | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
@@ -307,7 +307,7 @@ Expect: 100-continue
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
 |------------------|-------------|-----------------|
 | 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
@@ -362,7 +362,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
-| Parametro | Descrizione  |
+| Parametro | DESCRIZIONE  |
 |-----------|--------------|
 |`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
 |`DisplayText`|Il testo riconosciuto dopo maiuscole/minuscole, punteggiatura, normalizzazione del testo inversa (conversione del testo parlato in forme più brevi, ad esempio 200 per "duecento" o "Dr. Rossi" per "Dottor Rossi") e la maschera per le espressioni volgari. Presente solo con esito positivo.|
@@ -371,7 +371,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Stato | Descrizione |
+| Stato | DESCRIZIONE |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -386,7 +386,7 @@ Il formato `detailed` include gli stessi dati del formato `simple`, insieme a `N
 
 Ogni oggetto nell'elenco `NBest` include:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |-----------|-------------|
 | `Confidence` | Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa) |
 | `Lexical` | Il formato lessicale del testo riconosciuto: le parole effettive riconosciute. |
@@ -440,11 +440,14 @@ L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali s
 * Per un elenco completo delle voci, vedere [Supporto per le lingue](language-support.md#text-to-speech).
 * Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#text-to-speech).
 
+> [!IMPORTANT]
+> I costi variano per voci standard, personalizzate e neurali. Per altre informazioni, vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ### <a name="request-headers"></a>Intestazioni della richiesta
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-| Intestazione | Descrizione | Obbligatoria / Facoltativa |
+| Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per ulteriori informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
 | `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
@@ -498,7 +501,7 @@ Authorization: Bearer [Base64 access_token]
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |

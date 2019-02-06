@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827942"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102123"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -153,8 +153,20 @@ L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione
 Questo problema può verificarsi a causa di un problema con l'installazione di VMware PowerCLI. Seguire la procedura seguente per risolvere il problema:
 
 1. Se non si usa la versione più recente dell'appliance dell'agente di raccolta, [eseguire l'aggiornamento dell'agente di raccolta alla versione più recente](https://aka.ms/migrate/col/checkforupdates) e verificare che il problema si sia risolto.
-2. Se si dispone già della versione più recente dell'agente di raccolta, installare manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verificare che il problema sia risolto.
-3. Se le operazioni precedenti non risolvono il problema, passare alla cartella C:\Program Files\ProfilerService e rimuovere i file VMware.dll e VimService65.dll presenti nella cartella e quindi riavviare il servizio "Agente di raccolta di Azure Migrate" in Service Manager di Windows (Aprire "Esegui" e digitare "Services.msc" per aprire Service Manager di Windows).
+2. Se si ha già la versione più recente dell'agente di raccolta, seguire i passaggi illustrati di seguito per eseguire un'installazione pulita di PowerCLI:
+
+   a. Chiudere il Web browser nell'appliance.
+
+   b. Arrestare il servizio "Agente di raccolta di Azure Migrate" passando allo strumento di gestione dei servizi di Windows (aprire il prompt "Esegui" e digitare services.msc per visualizzare lo strumento di gestione dei servizi di Windows). Fare clic con il pulsante destro del mouse sul servizio Agente di raccolta di Azure Migrate a fare clic su Arresta.
+
+   c. Eliminare tutte le cartelle che iniziano con "VMware" dalle posizioni seguenti: C:\Programmi\WindowsPowerShell\Modules  
+        C:\Programmi (x86)\WindowsPowerShell\Modules
+
+   d. Riavviare il servizio "Agente di raccolta di Azure Migrate" nello strumento di gestione dei servizi di Windows (aprire il prompt "Esegui" e digitare services.msc per visualizzare lo strumento di gestione dei servizi di Windows). Fare clic con il pulsante destro del mouse sul servizio Agente di raccolta di Azure Migrate a fare clic su Avvia.
+   
+   e. Fare doppio clic sul collegamento sul desktop "Esegui agente di raccolta" per avviare l'applicazione agente di raccolta. L'applicazione agente di raccolta dovrebbe scaricare e installare automaticamente la versione richiesta per PowerCLI.
+
+3. Se ciò non risolve il problema, installare manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e controllare se il problema è stato risolto.
 
 ### <a name="error-unabletoconnecttoserver"></a>Errore UnableToConnectToServer
 
@@ -210,7 +222,7 @@ L'elenco dei sistemi operativi Windows supportati dal Dependency Agent è reperi
 L'elenco dei sistemi operativi Linux supportati dal Dependency Agent è reperibile [qui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Non riesco a visualizzare le dipendenze in Azure Migrate per più di un'ora.
-Azure Migrate consente di visualizzare le dipendenze per la durata di un'ora. Azure Migrate tuttavia consente di tornare a una determinata data nella cronologia al massimo nel mese precedente. Il tempo massimo per cui possibile visualizzare le dipendenze è un'ora. Ad esempio, è possibile usare la funzionalità di durata nella mappa delle dipendenze per visualizzare le dipendenze di ieri ma possono essere visualizzate solo per un'ora.
+Azure Migrate consente di visualizzare le dipendenze per la durata di un'ora. Azure Migrate tuttavia consente di tornare a una determinata data nella cronologia al massimo nel mese precedente. Il tempo massimo per cui possibile visualizzare le dipendenze è un'ora. Ad esempio, è possibile usare la funzionalità di durata nella mappa delle dipendenze per visualizzare le dipendenze di ieri ma possono essere visualizzate solo per un'ora. È tuttavia possibile usare Log Analytics per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) per periodi di tempo più lunghi.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Non riesco a visualizzare le dipendenze per i gruppi con più di 10 macchine virtuali.
 È possibile [visualizzare le dipendenze per i gruppi](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) che hanno fino a 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile dividere il gruppo in gruppi più piccoli e visualizzarne le dipendenze.

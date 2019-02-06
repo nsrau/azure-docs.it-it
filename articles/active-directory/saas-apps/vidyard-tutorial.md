@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bed7df23-6e13-4e7c-b4cc-53ed4804664d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 871942db15d6a3cff45584e33b2191e21d2281a0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 683cdc43c8d671c14142d0770cd2594ad862b7ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426456"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Esercitazione: Integrazione di Azure Active Directory con Vidyard
 
@@ -215,7 +215,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Vidyard. Vidyard supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante il tentativo di accesso a Vidyard viene creato un nuovo utente, se questo non esiste già.
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Vidyard](mailto:support@vidyard.com).
+>Per creare un utente manualmente, contattare il  [team di supporto di Vidyard](mailto:support@vidyard.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -252,7 +252,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Vidyard nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Vidyard.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

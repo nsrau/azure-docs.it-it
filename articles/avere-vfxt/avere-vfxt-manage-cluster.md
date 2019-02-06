@@ -4,20 +4,20 @@ description: 'Come gestire il cluster Avere: aggiungere o rimuovere nodi, riavvi
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189610"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300184"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
 Dopo aver creato il cluster, potrebbe essere necessario aggiungere nodi del cluster oppure interromperlo o riavviarlo. Quando un progetto è concluso, è inoltre necessario sapere come interrompere e rimuovere il cluster in modo definitivo. 
 
-A seconda dell'attività di gestione del cluster, potrebbe essere necessario usare il pannello di controllo di Avere, lo script di creazione del cluster vfxt.py o il portale di Azure per eseguire le operazioni richieste. 
+A seconda dell'attività di gestione del cluster, per l'esecuzione può essere necessario usare il pannello di controllo di Avere, lo script per la creazione del cluster dalla riga di comando di vfxt.py o il portale di Azure. 
 
 Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attività. 
 
@@ -71,7 +71,11 @@ La pagina delle impostazioni **System Maintenance** (Manutenzione del sistema) i
 
 Quando è in corso l'arresto di un cluster, per prima cosa vengono pubblicati messaggi di stato nella scheda **Dashboard**. Dopo qualche istante, la sessione del pannello di controllo di Avere smetterà di rispondere, il che significa che il cluster è stato arrestato.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Gestire il cluster con vfxt.py 
+## <a name="manage-the-cluster-with-vfxtpy"></a>Gestire il cluster con vfxt.py
+
+vfxt.py è uno strumento da riga di comando per la gestione e la creazione di cluster. 
+
+vfxt.py è preinstallato nella macchina virtuale controller del cluster. Se si vuole installarlo in un altro sistema, vedere la documentazione all'indirizzo <https://github.com/Azure/AvereSDK>.
 
 Lo script vfxt.py può essere usato per queste attività di gestione del cluster:
 
@@ -80,8 +84,6 @@ Lo script vfxt.py può essere usato per queste attività di gestione del cluster
 * Eliminare definitivamente un cluster
 
 Analogamente al pannello di controllo di Avere, le operazioni vfxt.py tentano di verificare che i dati modificati siano archiviati in modo permanente nell'archiviazione back-end prima dell'arresto o dell'eliminazione definitiva del cluster o di un nodo. Ciò lo rende un'opzione più sicura rispetto al portale di Avere.
-
-vfxt.py è preinstallato nella macchina virtuale controller del cluster. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 La guida completa all'utilizzo di vfxt.py è disponibile in GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md) (Gestione del cluster nel cloud con vfxt.py)
 

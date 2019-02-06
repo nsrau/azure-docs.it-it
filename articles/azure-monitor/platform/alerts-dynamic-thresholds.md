@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449011"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097810"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
 
@@ -21,7 +21,7 @@ La funzionalità Avviso metrica con rilevamento di soglie dinamiche sfrutta la t
 
 Una volta creata, una regola di avviso viene attivata solo quando la metrica monitorata non si comporta come previsto, in base alle relative soglie personalizzate.
 
-Il feedback degli utenti è bene accetto ed è possibile inviarlo all'indirizzo azurealertsfeedback@microsoft.com.
+Il feedback degli utenti è bene accetto ed è possibile inviarlo all'indirizzo <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Perché e quando è consigliabile usare condizioni di tipo dinamico?
 
@@ -37,7 +37,7 @@ Gli avvisi con soglie dinamiche possono essere configurati tramite la funzionali
 
 ## <a name="how-are-the-thresholds-calculated"></a>Come vengono calcolate le soglie?
 
-Una soglia dinamica apprende costantemente i dati della serie di metriche e prova a modellarli usando un set di algoritmi e metodi. Rileva modelli nei dati, ad esempio la ricorrenza (su base oraria, giornaliera o settimanale), ed è in grado di gestire le metriche non significative (come la memoria o la CPU del computer) e quelle con bassa dispersione (come la percentuale di disponibilità ed errore).
+Le soglie dinamiche apprendono costantemente i dati della serie di metriche e provano a modellarli usando un set di algoritmi e metodi. Rileva modelli nei dati, ad esempio la ricorrenza (su base oraria, giornaliera o settimanale), ed è in grado di gestire le metriche non significative (come la memoria o la CPU del computer) e quelle con bassa dispersione (come la percentuale di disponibilità ed errore).
 
 Le soglie vengono selezionate in modo che un'eventuale deviazione da queste indichi un'anomalia nel comportamento delle metriche.
 
@@ -80,3 +80,80 @@ La risposta è probabilmente negativa. Le soglie dinamiche sono utili per rileva
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quanti dati vengono usati per visualizzare in anteprima le soglie e quindi calcolarle?
 
 Le soglie visualizzate nel grafico, prima della creazione di una regola di avviso per la metrica, vengono calcolate in base agli ultimi 10 giorni di dati cronologici. Una volta creata una regola di avviso, le soglie dinamiche acquisiranno altri dati cronologici disponibili e apprenderanno continuamente dai nuovi dati per raggiungere un maggiore livello di accuratezza.
+
+## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
+
+Le soglie dinamiche possono essere applicate a qualsiasi piattaforma o metrica personalizzata in Monitoraggio di Azure e sono state ottimizzate per le comuni metriche delle applicazioni e delle infrastrutture.
+Di seguito sono illustrate le procedure consigliate per configurare gli avvisi per alcune di queste metriche usando le soglie dinamiche.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Soglie dinamiche per le metriche relative alle percentuali di CPU delle macchine virtuali
+
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Monitoraggio**. La vista Monitoraggio consolida tutte le impostazioni e i dati di monitoraggio in una vista.
+
+2. Fare clic su **Avvisi** e su **+Nuova regola di avviso**.
+
+    > [!TIP]
+    > Anche la maggior parte dei pannelli di risorse include la voce **Avvisi** nel menu delle risorse, in **Monitoraggio**: è possibile creare avvisi anche qui.
+
+3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione su cui si vuole impostare una regola di avviso. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa "Macchine virtuali"** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
+
+4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
+
+5. Selezionare **"Percentuale CPU"**.
+
+6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
+
+7. Verrà visualizzato un grafico per la metrica per le ultime 6 ore. Definire i parametri dell'avviso:
+    1. **Tipo di condizione**: scegliere l'opzione "Dinamica".
+    1. **Sensibilità**: scegliere la sensibilità media/bassa per ridurre la frequenza degli avvisi.
+    1. **Operatore**: scegliere "Maggiore di" a meno che il comportamento non rappresenti l'utilizzo dell'applicazione.
+    1. **Frequenza**: valutare l'opportunità di abbassarla in base all'impatto aziendale dell'avviso.
+    1. **Periodi con errori** (opzione avanzata): la finestra di tempo da considerare deve essere di almeno 15 minuti. Se ad esempio il periodo viene impostato su cinque minuti, i periodi con errori devono essere almeno tre.
+
+8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
+
+9. Fare clic su **Done**.
+
+10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
+
+11. Aggiungere un gruppo di azioni per l'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
+
+12. Fare clic su **Fine** per salvare la regola di avviso per la metrica.
+
+> [!NOTE]
+> Le regole di avviso per le metriche create mediante il portale vengono generate nello stesso gruppo di risorse della risorsa di destinazione.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Soglie dinamiche per il tempo di esecuzione delle richieste HTTP di Application Insights
+
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Monitoraggio**. La vista Monitoraggio consolida tutte le impostazioni e i dati di monitoraggio in una vista.
+
+2. Fare clic su **Avvisi** e su **+Nuova regola di avviso**.
+
+    > [!TIP]
+    > Anche la maggior parte dei pannelli di risorse include la voce **Avvisi** nel menu delle risorse, in **Monitoraggio**: è possibile creare avvisi anche qui.
+
+3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione su cui si vuole impostare una regola di avviso. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa "Application Insights"** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
+
+4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
+
+5. Selezionare il **"tempo di esecuzione delle richieste HTTP"**.
+
+6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
+
+7. Verrà visualizzato un grafico per la metrica per le ultime 6 ore. Definire i parametri dell'avviso:
+    1. **Tipo di condizione**: scegliere l'opzione "Dinamica".
+    1. **Operatore**: scegliere "Maggiore di" per ridurre gli avvisi generati in caso di miglioramento della durata.
+    1. **Frequenza**: valutare l'opportunità di abbassarla in base all'impatto aziendale dell'avviso.
+
+8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
+
+9. Fare clic su **Done**.
+
+10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
+
+11. Aggiungere un gruppo di azioni per l'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
+
+12. Fare clic su **Fine** per salvare la regola di avviso per la metrica.
+
+> [!NOTE]
+> Le regole di avviso per le metriche create mediante il portale vengono generate nello stesso gruppo di risorse della risorsa di destinazione.

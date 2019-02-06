@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422746"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094377"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -181,7 +181,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth 2.0: uso dei token di connessione - RFC 6750). |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |
 | expires_in |Il periodo di validità del token di accesso (in secondi). |
 | expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
@@ -263,8 +263,8 @@ Una richiesta da servizio a servizio per un'asserzione SAML contiene i parametri
 
 La risposta contiene un token SAML con codifica UTF8 e Base64url.
 
-- **SubjectConfirmationData per un'asserzione SAML che ha origine da una chiamata OBO**: se l'applicazione di destinazione richiede un valore del destinatario in **SubjectConfirmationData**, nella configurazione dell'applicazione risorsa deve essere impostato come URL di risposta non con caratteri jolly.
-- **Il nodo SubjectConfirmationData** non può contenere un attributo **InResponseTo** poiché non fa parte di una risposta SAML. L'applicazione che riceve il token SAML deve essere in grado di accettare l'asserzione SAML senza un attributo **InResponseTo**.
+- **SubjectConfirmationData per un'asserzione SAML che ha origine da una chiamata OBO**: se l'applicazione di destinazione richiede un valore del destinatario in **SubjectConfirmationData**, nella configurazione dell'applicazione della risorsa deve essere impostato come URL di risposta senza caratteri jolly.
+- **Nodo SubjectConfirmationData**: Il nodo non può contenere un attributo **InResponseTo** perché non fa parte di una risposta SAML. L'applicazione che riceve il token SAML deve essere in grado di accettare l'asserzione SAML senza un attributo **InResponseTo**.
 
 - **Consenso**: per ricevere un token SAML che contiene i dati utente in un flusso OAuth, è necessario aver autorizzato il consenso. Per informazioni sulle autorizzazioni e su come ottenere il consenso dell'amministratore, vedere [Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
@@ -272,7 +272,7 @@ La risposta contiene un token SAML con codifica UTF8 e Base64url.
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei token di connessione - RFC 6750). |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |
 | expires_in |Il periodo di validità del token di accesso (in secondi). |
 | expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
@@ -285,9 +285,9 @@ La risposta contiene un token SAML con codifica UTF8 e Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - risorsa: `https://api.contoso.com`
-- access_token: \<asserzione SAML\>
+- access_token: \<Asserzione SAML\>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: \<Token di aggiornamento\>
+- refresh_token: \<token di aggiornamento\>
 
 ## <a name="client-limitations"></a>Limitazioni client
 

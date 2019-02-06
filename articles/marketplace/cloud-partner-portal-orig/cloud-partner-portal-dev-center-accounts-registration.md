@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254469"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168244"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 ====================================
@@ -106,7 +106,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
    ![Selezionare un paese o un'area geografica](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Paesi di origine della vendita": per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati riportati nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
+    >Paesi di origine della vendita: per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati riportati nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
 
 5. Selezionare **Società** come "Tipo di account" e quindi selezionare **Avanti**.
 
@@ -181,7 +181,8 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
     - Selezionare **Avanti**.
 4.  Immettere i dettagli fiscali e quindi selezionare **Avanti**.
 
->[AVVERTENZA!] Non sarà possibile effettuare il push delle offerte commerciali in produzione senza fornire le informazioni fiscali e del conto bancario nell'account Microsoft Developer Center.
+>[!WARNING]
+>Non sarà possibile effettuare il push delle offerte commerciali in produzione senza fornire le informazioni fiscali e del conto bancario nell'account Microsoft Developer Center.
 
 ### <a name="developer-center-registration-issues"></a>Problemi di registrazione in Developer Center
 

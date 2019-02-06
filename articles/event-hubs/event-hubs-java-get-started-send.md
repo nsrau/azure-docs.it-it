@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4da89e0f99832c429091e0a028fafd8943df811a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091289"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300116"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Inviare eventi a Hub eventi di Azure usando Java
 
@@ -35,19 +35,19 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
 Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md).
 
-Ottenere il valore della chiave di accesso dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Si userà la chiave di accesso nel codice scritto più avanti in questa esercitazione. Il nome della chiave predefinita è **RootManageSharedAccessKey**.
+Ottenere il valore della chiave di accesso dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Si userà la chiave di accesso nel codice scritto più avanti in questa esercitazione. Il nome della chiave predefinita è: **RootManageSharedAccessKey**.
 
 Continuare ora con i passaggi seguenti dell'esercitazione.
 
 ## <a name="add-reference-to-azure-event-hubs-library"></a>Aggiungere il riferimento alla libreria di Hub eventi di Azure
 
-La libreria client Java per Hub eventi è disponibile per l'uso in progetti Maven dal [repository centrale di Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Per fare riferimento a questa libreria, è possibile usare questa dichiarazione di dipendenza all'interno del file di progetto di Maven. La versione corrente è 1.0.2:    
+La libreria client Java per Hub eventi è disponibile per l'uso in progetti Maven dal [repository centrale di Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Per fare riferimento a questa libreria è possibile usare questa dichiarazione di dipendenza all'interno del file di progetto di Maven:
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.0</version>
 </dependency>
 ```
 
@@ -57,11 +57,9 @@ Per un autore di eventi semplice, importare il pacchetto *com.microsoft.azure.ev
 
 ## <a name="write-code-to-send-messages-to-the-event-hub"></a>Scrivere codice per inviare messaggi all'hub eventi
 
-Per l'esempio seguente, creare prima un nuovo progetto Maven per un'applicazione console/shell nell'ambiente di sviluppo Java preferito. Denominare la classe `SimpleSend`:     
+Per l'esempio seguente, creare prima un nuovo progetto Maven per un'applicazione console/shell nell'ambiente di sviluppo Java preferito. Aggiungere una classe denominata `SimpleSend` e includere il codice seguente nella classe:
 
 ```java
-package com.microsoft.azure.eventhubs.samples.send;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
@@ -74,7 +72,7 @@ import java.nio.charset.Charset;
 import java.time.Instant;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class SimpleSend {
 
@@ -91,11 +89,11 @@ public class SimpleSend {
 Usare la classe ConnectionStringBuilder per costruire un valore di stringa di connessione da passare all'istanza del client di Hub eventi. Sostituire i segnaposto con i valori ottenuti durante la creazione dello spazio dei nomi e dell'hub eventi:
 
 ```java
-final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-        .setNamespaceName("Your Event Hubs namespace name")
-        .setEventHubName("Your event hub")
-        .setSasKeyName("Your policy name")
-        .setSasKey("Your primary SAS key");
+        final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+                .setNamespaceName("speventhubns") 
+                .setEventHubName("speventhub")
+                .setSasKeyName("RootManageSharedAccessKey")
+                .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
 ```
 
 ### <a name="send-events"></a>Inviare eventi
@@ -103,15 +101,40 @@ final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
 Creare un evento singolare trasformando una stringa nella relativa codifica UTF-8. Creare quindi una nuova istanza del client di Hub eventi dalla stringa di connessione e inviare il messaggio:   
 
 ```java 
-String payload = "Message " + Integer.toString(i);
-byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
-EventData sendEvent = EventData.create(payloadBytes);
+        final Gson gson = new GsonBuilder().create();
 
-final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-ehClient.sendSync(sendEvent);
-    
-// close the client at the end of your program
-ehClient.closeSync();
+        // The Executor handles all asynchronous tasks and this is passed to the EventHubClient instance.
+        // This enables the user to segregate their thread pool based on the work load.
+        // This pool can then be shared across multiple EventHubClient instances.
+        // The following sample uses a single thread executor, as there is only one EventHubClient instance,
+        // handling different flavors of ingestion to Event Hubs here.
+        final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
+
+        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // It is always a best practice to reuse these instances. The following sample shows this.
+        final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
+
+
+        try {
+            for (int i = 0; i < 10; i++) {
+
+                String payload = "Message " + Integer.toString(i);
+                byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+                EventData sendEvent = EventData.create(payloadBytes);
+
+                // Send - not tied to any partition
+                // Event Hubs service will round-robin the events across all Event Hubs partitions.
+                // This is the recommended & most reliable way to send to Event Hubs.
+                ehClient.sendSync(sendEvent);
+            }
+
+            System.out.println(Instant.now() + ": Send Complete...");
+            System.out.println("Press Enter to stop.");
+            System.in.read();
+        } finally {
+            ehClient.closeSync();
+            executorService.shutdown();
+        }
 
 ``` 
 

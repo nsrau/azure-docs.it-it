@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262218"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297141"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -19,7 +19,7 @@ Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descri
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **VMware**: Le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0, 6.5 o 6.7. È inoltre necessario disporre di un unico host ESXi versione 5.0 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
+- **VMware**: Le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0, 6.5 o 6.7. È inoltre necessario un host ESXi versione 5.5 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
 - **Account vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova.
 - **Impostazioni delle statistiche**: questo requisito è applicabile solo al modello di [individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) (ora deprecato). Per il modello di individuazione una tantum, le impostazioni delle statistiche del server vCenter devono essere impostate sul livello 3 prima di iniziare la distribuzione. Il livello delle statistiche deve essere impostato su 3 per ogni intervallo di raccolta giornaliero, settimanale e mensile. Se si imposta un livello inferiore a 3 per uno dei tre intervalli di raccolta, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. I consigli relativi alle dimensioni si baseranno quindi sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.

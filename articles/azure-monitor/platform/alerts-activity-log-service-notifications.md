@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583732"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092219"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
 ## <a name="overview"></a>Panoramica
@@ -37,7 +37,7 @@ Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di 
 
 Per informazioni su come configurare gli avvisi di notifica sull'integrità del servizio usando i modelli Azure Resource Manager, vedere [Modelli di Resource Manager](alerts-activity-log.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Creare un avviso per una notifica sull'integrità del servizio per un nuovo gruppo di azione usando il portale di Azure
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Avviso e nuovo gruppo di azioni usando il portale di Azure
 1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
 
     ![Il servizio "Integrità del servizio"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Informazioni su come [configurare le notifiche di webhook per i sistemi di gesti
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Creare un avviso per una notifica sull'integrità del servizio per un gruppo di azione esistente usando il portale di Azure
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avviso con un gruppo di azioni esistente usando il portale di Azure
 
 1. Seguire i passaggi da 1 a 7 nella sezione precedente per creare una notifica sull'integrità del servizio. 
 
@@ -96,7 +96,7 @@ Informazioni su come [configurare le notifiche di webhook per i sistemi di gesti
 
 Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Creare un avviso per una notifica sull'integrità del servizio per un nuovo gruppo di azione usando i modelli di Azure Resource Manager
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Avviso e nuovo gruppo di azioni usando i modelli di Azure Resource Manager
 
 Di seguito è riportato un esempio che crea un gruppo di azioni con una destinazione del messaggio di posta elettronica e abilita tutte le notifiche sull'integrità del servizio per la sottoscrizione di destinazione.
 

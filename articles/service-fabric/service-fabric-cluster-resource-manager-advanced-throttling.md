@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c86655b650464f1debadab35fdd82611d17ad81
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205128"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092340"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitazione del Cluster Resource Manager di Service Fabric
 Anche se Cluster Resource Manager è stato configurato correttamente, il cluster può essere interrotto. Ad esempio potrebbero verificarsi errori simultanei di nodi e di domini di errore. Che cosa succederebbe se ciò si verificasse durante un aggiornamento? Cluster Resource Manager tenta sempre di correggere tutti gli elementi, usando le risorse del cluster nel tentativo di riorganizzare e correggere il cluster. Le limitazioni contribuiscono a creare una barriera in modo che il cluster possa impiegare risorse per stabilizzarsi: vengono ripristinati i nodi, vengono riparate le partizioni di rete e vengono distribuiti i bit corretti.

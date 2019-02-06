@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967524"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097930"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guida introduttiva: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Avvio rapido: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -43,7 +43,7 @@ Per le app Xamarin che devono accedere a risorse protette, in Azure AD è dispon
 
 Quando si è pronti, attenersi alle procedure descritte nelle quattro sezioni seguenti.
 
-## <a name="step-1-set-up-your-xamarin-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo Xamarin
+## <a name="step-1-set-up-your-xamarin-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo Xamarin.
 
 Dal momento che questa esercitazione include progetti per iOS, Android e Windows, sono necessari sia Visual Studio che Xamarin. Per creare l'ambiente necessario, seguire la procedura riportata in [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) in MSDN. Le istruzioni includono informazioni relative a Xamarin che è possibile leggere in attesa del completamento delle installazioni.
 
@@ -66,7 +66,7 @@ Per consentire all'app di ottenere i token, sarà prima necessario registrarla n
 
 ## <a name="step-3-install-and-configure-adal"></a>Passaggio 3: Installare e configurare ADAL
 
-Ora che è disponibile un'app in Azure AD, è possibile installare ADAL e scrivere il codice relativo all'identità. Per abilitare ADAL alla comunicazione con Azure AD, fornire alcune informazioni sulla registrazione dell'app.
+Ora che si dispone di un'app in Azure AD, è possibile installare ADAL e scrivere il codice relativo all'identità. Per abilitare ADAL alla comunicazione con Azure AD, fornire alcune informazioni sulla registrazione dell'app.
 
 1. Aggiungere ADAL al progetto DirectorySearcher usando la console di Gestione pacchetti.
 
@@ -98,7 +98,7 @@ Ora che è disponibile un'app in Azure AD, è possibile installare ADAL e scrive
   * Il *clientId* è l'ID client dell'app. Lo si copia dal portale.
   * *returnUri* è l'URI di reindirizzamento immesso nel portale, ad esempio http://DirectorySearcher).
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 4: Usare ADAL per ottenere token da Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 4: Usare ADAL per ottenere i token da Azure AD
 
 Quasi tutta la logica di autenticazione dell'app si basa su `DirectorySearcher.SearchByAlias(...)`. Nei progetti specifici delle piattaforme è sufficiente passare un parametro contestuale alla libreria di classi portabile di `DirectorySearcher`.
 

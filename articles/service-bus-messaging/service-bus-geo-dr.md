@@ -9,22 +9,27 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848003"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095617"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
-In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il bus di servizio di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico*, quindi, è una funzionalità importante per qualsiasi azienda. Il bus di servizio di Azure supporta il ripristino di emergenza geografico a livello di spazio dei nomi.
 
 La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per lo SKU Premium del bus di servizio. 
 
+>[!NOTE]
+> Questa funzionalità assicura solo che i metadati (code, argomenti, sottoscrizioni e filtri) vengano copiati dallo spazio dei nomi primario a quello secondario, se sono abbinati.
+
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
-È importante notare la distinzione tra "interruzioni" ed "emergenze". Un'*interruzione* è l'indisponibilità temporanea del bus di servizio di Azure e può interessare alcuni componenti del servizio, ad esempio un archivio di messaggistica, oppure l'intero data center. Dopo la risoluzione del problema, tuttavia, il bus di servizio torna di nuovo disponibile. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un'interruzione può essere provocata ad esempio da un'interruzione dell'alimentazione nel data center. Alcune interruzioni sono solo brevi perdite di connessione dovute a problemi di rete o temporanei. 
+È importante notare la distinzione tra "interruzioni" ed "emergenze". 
+
+Un'*interruzione* è l'indisponibilità temporanea del bus di servizio di Azure e può interessare alcuni componenti del servizio, ad esempio un archivio di messaggistica, oppure l'intero data center. Dopo la risoluzione del problema, tuttavia, il bus di servizio torna di nuovo disponibile. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un'interruzione può essere provocata ad esempio da un'interruzione dell'alimentazione nel data center. Alcune interruzioni sono solo brevi perdite di connessione dovute a problemi di rete o temporanei. 
 
 Il termine *emergenza* indica la perdita permanente o a lungo termine di un cluster del bus di servizio, un'area di Azure o un data center. L'area o il data center potrebbe o meno tornare di nuovo disponibile oppure potrebbe rimanere inattivo per ore o giorni. Un'emergenza può essere causata, ad esempio, da un incendio, un'inondazione o un terremoto. Una situazione di emergenza che diventa permanente potrebbe causare la perdita di alcuni messaggi, eventi o altri dati. Tuttavia, nella maggior parte dei casi non dovrebbe esserci perdita di dati e i messaggi possono essere ripristinati dopo aver eseguito il backup del data center.
 
@@ -36,33 +41,47 @@ La funzionalità di ripristino di emergenza implementa il ripristino di emergenz
 
 In questo articolo viene usata la terminologia seguente:
 
--  *Alias*: nome per una configurazione di ripristino di emergenza impostata. L'alias fornisce una singola stringa di connessione FQDN (nome di dominio completo) stabile. Le applicazioni usano questa stringa di connessione alias per connettersi a uno spazio dei nomi. 
+-  *Alias*: nome per una configurazione di ripristino di emergenza impostata. L'alias fornisce una singola stringa di connessione FQDN (nome di dominio completo) stabile. Le applicazioni usano questa stringa di connessione alias per connettersi a uno spazio dei nomi. L'uso di un alias garantisce che la stringa di connessione rimanga invariata quando viene attivato il failover.
 
 -  *Spazio dei nomi primario/secondario*: spazi dei nomi corrispondenti all'alias. Lo spazio dei nomi primario è "attivo" e riceve i messaggi (può essere uno spazio dei nomi esistente o nuovo). Lo spazio dei nomi secondario è "passivo" e non riceve i messaggi. I metadati vengono sincronizzati tra entrambi gli spazi dei nomi, quindi entrambi possono facilmente accettare messaggi senza modifiche al codice dell'applicazione o alla stringa di connessione. Per fare in modo che solo lo spazio dei nomi attivo riceva i messaggi, è necessario usare l'alias. 
 
--  *Metadati*: entità come code, argomenti e sottoscrizioni e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi non vengono replicati. 
+-  *Metadati*: entità come code, argomenti e sottoscrizioni e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi non vengono replicati.
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
-## <a name="setup-and-failover-flow"></a>Configurazione e flusso del failover
+## <a name="setup"></a>Configurazione
 
-La sezione seguente è una panoramica del processo di failover e illustra come configurare il failover iniziale. 
+Di seguito viene fornita una panoramica della procedura di configurazione dell'associazione tra gli spazi dei nomi.
 
 ![1][]
 
-### <a name="setup"></a>Configurazione
+Il processo di configurazione si articola nelle fasi seguenti:
 
-È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto molto spesso i failover devono essere eseguiti in sincronizzazione con il sottosistema o l'infrastruttura rimanente.
+1. Effettuare il provisioning di uno spazio dei nomi Premium ***primario*** del bus di servizio.
 
-### <a name="example"></a>Esempio
+2. Effettuare il provisioning di uno spazio dei nomi Premium ***secondario*** del bus di servizio in un'area *diversa da quella in cui è stato eseguito il provisioning dello spazio dei nomi primario*. In questo modo è possibile attivare l'isolamento dei guasti tra aree di data center diverse.
 
-In un esempio di questo scenario, si consideri una soluzione POS che genera messaggi o eventi. Il bus di servizio passa gli eventi a una soluzione di mapping o riformattazione, che quindi inoltra i dati mappati a un altro sistema per un'ulteriore elaborazione. A questo punto, tutti questi sistemi possono essere ospitati nella stessa area di Azure. La decisione relativa a quando eseguire il failover o di quale parte del sistema dipende dal flusso di dati nell'infrastruttura. 
+3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
 
-È possibile automatizzare il failover con sistemi di monitoraggio o con soluzioni di monitoraggio personalizzate. Tale automazione, tuttavia, richiede pianificazione e lavoro aggiuntivi che esulano dall'ambito di questo articolo.
+4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
 
-### <a name="failover-flow"></a>Flusso del failover
+5. [Facoltativo] Aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover.
 
-Se si avvia il failover, sono necessari due passaggi:
+## <a name="failover-flow"></a>Flusso del failover
+
+Un failover viene attivato manualmente dal cliente (sia in modo esplicito con un comando o tramite la logica di business di proprietà del client che attiva il comando) e mai da Azure. In questo modo viene concessa al cliente la proprietà completa e la visibilità per la risoluzione di interruzioni sulla rete backbone di Azure.
+
+![4][]
+
+In seguito all'attivazione del failover:
+
+1. La stringa di connessione ***alias*** viene aggiornata in modo che faccia riferimento allo spazio dei nomi Premium secondario.
+
+2. I client (mittenti e destinatari) si connettono automaticamente allo spazio dei nomi secondario.
+
+3. L'associazione esistente tra lo spazio dei nomi Premium primario e quello secondario viene interrotta.
+
+Dopo aver avviato il failover:
 
 1. È necessario poter eseguire di nuovo il failover nel caso in cui si verifichi un'altra interruzione. Configurare quindi un altro spazio dei nomi passivo e aggiornare l'associazione. 
 
@@ -70,6 +89,8 @@ Se si avvia il failover, sono necessari due passaggi:
 
 > [!NOTE]
 > È supportata solo la semantica di inoltro in caso di errore. In questo scenario, si esegue il failover e quindi si esegue di nuovo l'associazione con un nuovo spazio dei nomi. Il failback, ad esempio in un cluster SQL, non è supportato. 
+
+È possibile automatizzare il failover con sistemi di monitoraggio o con soluzioni di monitoraggio personalizzate. Tale automazione, tuttavia, richiede pianificazione e lavoro aggiuntivi che esulano dall'ambito di questo articolo.
 
 ![2][]
 
@@ -95,20 +116,20 @@ Gli [esempi su GitHub](https://github.com/Azure/azure-service-bus/tree/master/sa
 
 Tenere presente le considerazioni seguenti per questa versione:
 
-1. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
- 
+1. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover.
+
 2. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i nuovi messaggi pianificati e i nuovi duplicati funzioneranno. 
 
-3. È necessario [provare a effettuare](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) il failover di un'infrastruttura distribuita complessa almeno una volta. 
+3. È necessario [provare a effettuare](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) il failover di un'infrastruttura distribuita complessa almeno una volta.
 
-4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità. Anche le sottoscrizioni e le regole contano come entità. 
+4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità. Anche le sottoscrizioni e le regole contano come entità.
 
-## <a name="availability-zones-preview"></a>Zone di disponibilità (anteprima)
+## <a name="availability-zones"></a>Zone di disponibilità
 
-Lo SKU Premium del bus di servizio supporta anche le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno di un'area di Azure. 
+Lo SKU Premium del bus di servizio supporta anche le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno di un'area di Azure.
 
 > [!NOTE]
-> L'anteprima delle zone di disponibilità è supportata solo nelle aree **Stati Uniti centrali**, **Stati Uniti orientali 2** e **Francia centrale**.
+> Il supporto per le zone di disponibilità per il bus di servizio di Azure Premium è disponibile solo nelle [aree di Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) in cui sono presenti le zone di disponibilità.
 
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Il bus di servizio non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
 
@@ -127,6 +148,7 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli artic
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [API REST](/rest/api/servicebus/) 
 
-[1]: ./media/service-bus-geo-dr/geo1.png
+[1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png
 [3]: ./media/service-bus-geo-dr/az.png
+[4]: ./media/service-bus-geo-dr/geodr_failover_alias_update.png

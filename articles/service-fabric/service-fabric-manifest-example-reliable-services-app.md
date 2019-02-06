@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096634"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171457"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per Reliable Services
 Di seguito sono riportati esempi dei manifesti dell'applicazione e del servizio per un'applicazione di Service Fabric con un front-end Web ASP.NET Core e un back-end con stato. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nella [guida introduttiva su .NET per Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -198,7 +198,7 @@ Per altre informazioni sugli elementi XML specifici, vedere [Elementi del manife
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ Per altre informazioni sugli elementi XML specifici, vedere [Elementi del manife
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -399,10 +399,12 @@ Nome dell'eseguibile.  Ad esempio, "MySetup.bat" o "MyServiceHost.exe". Per altr
  Per altre informazioni, vedere [Elemento Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (valore predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>Elemento ConsoleRedirection
-Avvertenza Non usare il reindirizzamento della console in un'applicazione di produzione, ma solo per attività di sviluppo e debug in locale. Reindirizza l'output della console dallo script di avvio a un file di output nella cartella dell'applicazione denominata "log" nel nodo del cluster in cui viene distribuita ed eseguita l'applicazione. Per altre informazioni, vedere [Elemento ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> Non usare il reindirizzamento della console in un'applicazione di produzione, ma solo per attività di sviluppo e debug in locale. Reindirizza l'output della console dallo script di avvio a un file di output nella cartella dell'applicazione denominata "log" nel nodo del cluster in cui viene distribuita ed eseguita l'applicazione. Per altre informazioni, vedere [Elemento ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>Elemento EntryPoint
 L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione prolungata. La presenza di un punto di ingresso di configurazione separato consente di evitare di dover eseguire l'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da EntryPoint viene eseguito dopo che SetupEntryPoint termina correttamente. Il processo risultante viene monitorato e riavviato (iniziando di nuovo con SetupEntryPoint) se termina o si arresta in modo anomalo. Per altre informazioni, vedere [Elemento EntryPoint](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -447,7 +449,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
 Nome dell'eseguibile.  Ad esempio, "MySetup.bat" o "MyServiceHost.exe". Per altre informazioni, vedere [Elemento Program](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (valore predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Dichiara una cartella, denominata dall'attributo Name in PackageRoot, che contiene un file Settings.xml. Questo file contiene sezioni di impostazioni di coppie chiave-valore che possono essere lette dal processo in fase di esecuzione. Se durante un aggiornamento viene modificata solo la versione del pacchetto di configurazione, il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Per altre informazioni, vedere [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

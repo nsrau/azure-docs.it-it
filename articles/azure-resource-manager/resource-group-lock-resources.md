@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c1081200954d74ae5bcebd02f4abeb7d493a82a5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 20810c3b32274129ce82f4efeca9efb31016189c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102772"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079760"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste 
 
@@ -105,8 +105,8 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
-New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+New-AzResourceGroup -Name sitegroup -Location southcentralus
+New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
@@ -117,43 +117,43 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## <a name="powershell"></a>PowerShell
-Per bloccare le risorse distribuite con Azure PowerShell, usare il comando [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock).
+Per bloccare le risorse distribuite con Azure PowerShell, usare il comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
 Per bloccare una risorsa, specificare il nome, il tipo e il gruppo di risorse della risorsa.
 
 ```azurepowershell-interactive
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Per bloccare un gruppo di risorse, specificare il nome del gruppo di risorse.
 
 ```azurepowershell-interactive
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Per ottenere informazioni su un blocco, usare [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Per ottenere tutti i blocchi nella sottoscrizione, usare:
+Per ottenere informazioni su un blocco, usare [Get-AzureRmResourceLock](/powershell/module/az.resources/get-azresourcelock). Per ottenere tutti i blocchi nella sottoscrizione, usare:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceLock
+Get-AzResourceLock
 ```
 
 Per ottenere tutti i blocchi per una risorsa, usare:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Per ottenere tutti i blocchi per un gruppo di risorse, usare:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
+Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 Per eliminare un blocco, usare:
 
 ```azurepowershell-interactive
-$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
-Remove-AzureRmResourceLock -LockId $lockId
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

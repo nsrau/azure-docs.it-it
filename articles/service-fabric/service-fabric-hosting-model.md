@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348481"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172375"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modello di hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica dei modelli di hosting delle applicazioni offerti da Azure Service Fabric e descrive le differenze tra i modelli **Shared Process** (Processo condiviso) ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host servizio.
@@ -160,15 +160,15 @@ Ora si supponga di creare un'applicazione, **fabric:/SpecialApp**. In **fabric:/
 - Servizio **fabric:/SpecialApp/ServiceA** di tipo "MyServiceTypeA", con due partizioni, **P1** e **P2**, e tre repliche per partizione.
 - Servizio **fabric:/SpecialApp/ServiceB** di tipo "MyServiceTypeB", con due partizioni, **P3** e **P4**, e tre repliche per partizione.
 
-In un determinato nodo entrambi i servizi hanno due repliche ognuno. Poiché per creare i servizi è stato usato il modello Exclusive Process (Processo esclusivo), Service Fabric attiva una nuova copia di "MyServicePackage" per ogni replica. Ogni attivazione di "MultiTypeServicePackge" avvia una copia di "MyCodePackageA" e "MyCodePackageB". Tuttavia, solo uno tra "MyCodePackageA" e "MyCodePackageB" ospita la replica per la quale è stato attivato "MultiTypeServicePackge". Il diagramma seguente mostra la visualizzazione del nodo:
+In un determinato nodo entrambi i servizi hanno due repliche ognuno. Poiché per creare i servizi è stato usato il modello Exclusive Process (Processo esclusivo), Service Fabric attiva una nuova copia di "MyServicePackage" per ogni replica. Ogni attivazione di "MultiTypeServicePackage" avvia una copia di "MyCodePackageA" e "MyCodePackageB". Tuttavia, solo uno tra "MyCodePackageA" e "MyCodePackageB" ospita la replica per la quale è stato attivato "MultiTypeServicePackage". Il diagramma seguente mostra la visualizzazione del nodo:
 
 
 ![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-five]
 
 
-Nell'attivazione di "MultiTypeServicePackge" per la replica della partizione **P1** del servizio **fabric:/SpecialApp/ServiceA**, "MyCodePackageA" ospita la replica. "MyCodePackageB" è in esecuzione. Analogamente, nell'attivazione di "MultiTypeServicePackge" per la replica della partizione **P3** del servizio **fabric:/SpecialApp/ServiceB**, "MyCodePackageB" ospita la replica. "MyCodePackageA" è in esecuzione. Di conseguenza, maggiore è il numero di *CodePackage* (che registrano *ServiceType* differenti) per *ServicePackage*, più elevato è l'utilizzo ridondante delle risorse. 
+Nell'attivazione di "MultiTypeServicePackage" per la replica della partizione **P1** del servizio **fabric:/SpecialApp/ServiceA**, "MyCodePackageA" ospita la replica. "MyCodePackageB" è in esecuzione. Analogamente, nell'attivazione di "MultiTypeServicePackage" per la replica della partizione **P3** del servizio **fabric:/SpecialApp/ServiceB**, "MyCodePackageB" ospita la replica. "MyCodePackageA" è in esecuzione. Di conseguenza, maggiore è il numero di *CodePackage* (che registrano *ServiceType* differenti) per *ServicePackage*, più elevato è l'utilizzo ridondante delle risorse. 
  
- Se tuttavia si creano i servizi **fabric:/SpecialApp/ServiceA** e **fabric:/SpecialApp/ServiceB** con il modello Shared Process (Processo condiviso), Service Fabric attiva soltanto una copia di "MultiTypeServicePackge" per l'applicazione **fabric:/SpecialApp**. "MyCodePackageA" ospita tutte le repliche per il servizio **fabric:/SpecialApp/ServiceA**. "MyCodePackageB" ospita tutte le repliche per il servizio **fabric:/SpecialApp/ServiceB**. Il diagramma seguente mostra la visualizzazione del nodo in questa impostazione: 
+ Se tuttavia si creano i servizi **fabric:/SpecialApp/ServiceA** e **fabric:/SpecialApp/ServiceB** con il modello Shared Process (Processo condiviso), Service Fabric attiva soltanto una copia di "MultiTypeServicePackage" per l'applicazione **fabric:/SpecialApp**. "MyCodePackageA" ospita tutte le repliche per il servizio **fabric:/SpecialApp/ServiceA**. "MyCodePackageB" ospita tutte le repliche per il servizio **fabric:/SpecialApp/ServiceB**. Il diagramma seguente mostra la visualizzazione del nodo in questa impostazione: 
 
 
 ![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-six]

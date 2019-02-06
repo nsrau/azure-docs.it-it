@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103690"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094242"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -40,13 +40,13 @@ Se non specificato diversamente, gli esempi in questo articolo si riferiscono al
 
 ### <a name="v2"></a>Versione 2.x
 
-La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux).
+La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). È prima di tutto necessario installare .NET Core 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 I passaggi seguenti usano npm per installare gli strumenti di base in Windows. È anche possibile usare [Chocolatey](https://chocolatey.org/). Per altre informazioni, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installare [.NET Core 2.1 per Windows](https://www.microsoft.com/net/download/windows).
+1. Installare [.NET Core 2.x SDK per Windows](https://www.microsoft.com/net/download/windows).
 
 2. Installare [Node.js], che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
 
@@ -60,7 +60,7 @@ I passaggi seguenti usano npm per installare gli strumenti di base in Windows. �
 
 I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS.
 
-1. Installare [.NET Core 2.1 per macOS](https://www.microsoft.com/net/download/macos).
+1. Installare [.NET Core 2.x SDK per macOS](https://www.microsoft.com/net/download/macos).
 
 2. Installare [Homebrew](https://brew.sh/), se non è già installato.
 
@@ -75,7 +75,7 @@ I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS
 
 La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli strumenti di base nella distribuzione Ubuntu/Debian Linux. Per altre distribuzioni Linux, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installare [.NET Core 2.1 per Linux](https://www.microsoft.com/net/download/linux).
+1. Installare [.NET Core 2.x SDK per Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registrare il codice Product Key di Microsoft come attendibile:
 
@@ -91,7 +91,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     sudo apt-get update
     ```
 
-    | Distribuzione Linux | Version |
+    | Distribuzione Linux | Versione |
     | --------------- | ----------- |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
@@ -371,7 +371,7 @@ Per passare dati di test all'endpoint di amministrazione di una funzione, è nec
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 Il valore `<trigger_input>` contiene dati nel formato previsto dalla funzione. L'esempio cURL seguente è una richiesta POST per una funzione `QueueTriggerJS`. In questo caso l'input è una stringa che equivale al messaggio previsto nella coda.
 

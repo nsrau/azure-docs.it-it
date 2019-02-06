@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246685"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094428"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
 
@@ -24,7 +24,7 @@ Le **raccolte di aree di lavoro di Power BI** consentono di integrare i report d
 > [!IMPORTANT]
 > Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Prima di continuare, è consigliabile salvare le risorse seguenti in quanto semplificano l'integrazione dei report di Power BI nell'app di esempio e nelle app personalizzate.
+Prima di continuare, è consigliabile salvare le risorse seguenti, che risulteranno utili durante l'integrazione dei report di Power BI sia nell'app di esempio e che nelle app personalizzate.
 
 * [App Web di esempio per l'area di lavoro](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informazioni di riferimento sull'API delle raccolte di aree di lavoro di Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -71,7 +71,7 @@ A questo punto il report di Power BI in formato PBIX è stato importato nell'**a
 L'app Web di esempio è un'applicazione di esempio che esegue il rendering dei report importati nell'**area di lavoro**. Di seguito viene spiegato come configurare l'app Web di esempio.
 
 1. Nella soluzione **PowerBI Embedded** in Visual Studio fare clic con il pulsante destro del mouse sull'applicazione Web **EmbedSample** e scegliere **Imposta come progetto di avvio**.
-2. In **web.config**, nell'applicazione Web **EmbedSample** modificare il nome **appSettings**: **AccessKey**, **WorkspaceCollection** e **WorkspaceId**.
+2. In **web. config**, nell'applicazione Web **EmbedSample** modificare **appSettings**: **AccessKey**, il nome **WorkspaceCollection** e **WorkspaceId**.
 
     ```
     <appSettings>
@@ -93,7 +93,7 @@ Dopo aver selezionato un report, l'applicazione Web **EmbedSample** sarà simile
 
 ## <a name="explore-the-sample-code"></a>Esplorare il codice di esempio
 
-L'esempio di **raccolte di aree di lavoro di Power BI** è un'app Web che illustra come integrare report di **Power BI** nella propria app. Usa un modello di progettazione MVC (Model-View-Controller) per illustrare le procedure consigliate. Questa sezione evidenzia parti del codice di esempio che è possibile esplorare nella soluzione di applicazione Web di **PowerBI Embedded**. Il modello MVC separa la modellazione del dominio, la presentazione e le azioni in base all'input dell'utente in tre classi distinte, ovvero modellazione, visualizzazione e controller. Per altre informazioni sul modello MVC, vedere [Learn About ASP.NET](http://www.asp.net/mvc) (Informazioni su ASP.NET).
+L'esempio di **raccolte di aree di lavoro di Power BI** è un'app Web che illustra come integrare report di **Power BI** nella propria app. Usa un modello di progettazione MVC (Model-View-Controller) per illustrare le procedure consigliate. Questa sezione evidenzia parti del codice di esempio che è possibile esplorare nella soluzione di applicazione Web di **PowerBI Embedded**. Il modello MVC separa la modellazione del dominio, la presentazione e le azioni in base all'input dell'utente in tre classi distinte: modellazione, visualizzazione e controller. Per altre informazioni sul modello MVC, vedere [Learn About ASP.NET](http://www.asp.net/mvc) (Informazioni su ASP.NET).
 
 Il codice di esempio delle **raccolte di aree di lavoro di Power BI** è suddiviso come indicato di seguito. Ogni sezione contiene il nome del file nella soluzione PowerBI-embedded.sln in modo che sia possibile trovare facilmente il codice nell'esempio.
 
@@ -104,7 +104,7 @@ Il codice di esempio delle **raccolte di aree di lavoro di Power BI** è suddivi
 
 L'esempio è composto da **ReportsViewModel** e **ReportViewModel**.
 
-**ReportsViewModel.cs**: rappresenta i report di Power BI.
+**ReportsViewModel.cs**: rappresenta report di Power BI.
 
     public class ReportsViewModel
     {
@@ -128,7 +128,7 @@ La stringa di connessione deve essere nel formato seguente:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-L'uso di attributi comuni di server e database ha esito negativo. Ad esempio: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+L'uso di attributi comuni di server e database ha esito negativo. Ad esempio:  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Visualizza
 
@@ -155,7 +155,7 @@ L'uso di attributi comuni di server e database ha esito negativo. Ad esempio: Se
         </div>
     </div>
 
-Report.cshtml: imposta **Model.AccessToken** e l'espressione Lambda per **PowerBIReportFor**.
+Report.cshtml: imposta **Model.AccessToken** e l'espressione lambda per **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -228,7 +228,7 @@ Dopo aver creato un **report**, usare un **iFrame** per incorporare il **report*
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

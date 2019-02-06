@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358586"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096671"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse
 Eclipse è uno degli ambienti di sviluppo integrato (IDE) più diffusi per sviluppatori Java. Questo articolo illustra come configurare l'ambiente di sviluppo Eclipse per l'uso con Azure Service Fabric. Spiega come installare il plug-in Service Fabric, creare un'applicazione di Service Fabric e distribuire l'applicazione nel cluster di Service Fabric locale o remoto in Eclipse. 
@@ -211,7 +211,7 @@ Selezionando l'opzione **Aggiorna automaticamente le versioni di applicazioni e 
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Aggiornare l'applicazione Java di Service Fabric
 
-In uno scenario di aggiornamento è stato ad esempio creato il progetto **App1** usando il plug-in Service Fabric in Eclipse. Il progetto è stato distribuito con il plug-in per creare un'applicazione denominata **fabric:/App1Application**. Il tipo di applicazione è **App1AppicationType** e la versione dell'applicazione è 1.0. Ora si vuole aggiornare l'applicazione senza interromperne la disponibilità.
+In uno scenario di aggiornamento è stato ad esempio creato il progetto **App1** usando il plug-in Service Fabric in Eclipse. Il progetto è stato distribuito con il plug-in per creare un'applicazione denominata **fabric:/App1Application**. Il tipo di applicazione è **App1ApplicationType** e la versione dell'applicazione è 1.0. Ora si vuole aggiornare l'applicazione senza interromperne la disponibilità.
 
 Apportare prima le eventuali modifiche necessarie all'applicazione, quindi ricompilare il servizio modificato. Aggiornare il file manifesto del servizio modificato (ServiceManifest.xml) con le versioni aggiornate del servizio e anche del codice, della configurazione o dei dati, a seconda delle esigenze. Modificare anche il manifesto dell'applicazione (ApplicationManifest.xml) con il numero di versione aggiornato per l'applicazione e il servizio modificato.  
 
@@ -230,7 +230,7 @@ Le librerie Java di Service Fabric sono state recentemente spostate da Service F
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per i passaggi per la creazione di un'applicazione Reliable Services Java e la sua distribuzione in locale e in Azure, vedere [Guida introduttiva: Distribuire un'applicazione Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
+- Per i passaggi per la creazione di un'applicazione Reliable Services Java e la distribuzione di questa in locale e in Azure, vedere [Guida introduttiva: Distribuire un'applicazione Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
 - Per informazioni su come eseguire il debug di un'applicazione Java nel cluster locale, vedere [Eseguire il debug di un servizio Java in Eclipse](./service-fabric-debugging-your-application-java.md).
 - Per informazioni su come eseguire operazioni di monitoraggio e diagnostica per le applicazioni di Service Fabric, vedere [Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

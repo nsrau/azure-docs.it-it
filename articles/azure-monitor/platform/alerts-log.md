@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472283"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104444"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure  
 
@@ -72,6 +72,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
     ![opzione aggrega in base a](media/alerts-log/aggregate-on.png)
 
 1.  *Avvisi relativi ai log*: Con la visualizzazione impostata, è possibile selezionare **Logica avvisi** dalle opzioni visualizzate: Condizione, Aggregazione e infine Soglia. Specificare l'ora in cui valutare la condizione specificata nella logica tramite l'opzione **Periodo**. Specificare la frequenza con cui l'avviso deve essere eseguito selezionando **Frequenza**.
+
 Gli **avvisi del log** possono basarsi su:
    - *Numero di record*: viene creato un avviso se il numero di record restituiti dalla query è maggiore o minore del valore specificato.
    - *Misura della metrica*: viene creato un avviso se ogni *valore di aggregazione* nei risultati supera il valore di soglia specificato ed è *raggruppato* in base al valore scelto. Il numero di violazioni per un avviso è il numero di volte in cui viene superata la soglia nel periodo di tempo scelto. È possibile specificare le violazioni totali per qualsiasi combinazione di violazioni nei set di risultati o le violazioni consecutive necessarie che devono verificarsi in campioni consecutivi. Per altre informazioni, vedere [Avvisi del log e relativi tipi](../../azure-monitor/platform/alerts-unified-log.md).
@@ -108,7 +109,7 @@ Gli **avvisi del log** possono basarsi su:
     Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
 Gli utenti possono anche finalizzare le query di analisi nella [pagina Log Analytics nel portale di Azure](../../azure-monitor/log-query/portals.md#log-analytics-page
-) e quindi eseguirne il push per creare un avviso tramite il pulsante "Imposta avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
+) e quindi eseguirne il push per creare un avviso tramite il pulsante "Nuova regola di avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
 
  ![Log Analytics - Imposta avviso](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -125,35 +126,31 @@ Gli utenti possono anche finalizzare le query di analisi nella [pagina Log Analy
     ![gestione delle regole di avviso](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestione degli avvisi del log tramite il modello di risorsa di Azure
-Attualmente gli avvisi del log possono essere creati usando due diversi modelli di risorse, secondo la piattaforma di analisi su cui si deve basare l'avviso (ovvero) Log Analytics o Application Insights.
 
-Pertanto, la sezione seguente fornisce dettagli sull'uso del modello di risorsa per gli avvisi del log per ogni piattaforma di analisi.
+Gli avvisi dei log in Monitoraggio di Azure sono associati al tipo di risorsa `Microsoft.Insights/scheduledQueryRules/`. Per altre informazioni su questo tipo di risorsa, vedere il [riferimento all'API per regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Gli avvisi dei log per Application Insights o Log Analytics possono essere creati usando l'[API Regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-### <a name="azure-resource-template-for-log-analytics"></a>Modello di risorsa di Azure per Log Analytics
-Gli avvisi del log di Log Analytics vengono creati da regole di avviso che eseguono una ricerca salvata a intervalli regolari. Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni. 
-
-Il modello di risorsa per la ricerca salvata di Log Analytics e gli avvisi di Log Analytics sono disponibili nella sezione Log Analytics della documentazione. Per altre informazioni, vedere [Aggiunta di avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) che include esempi illustrativi e dettagli sullo schema.
-
-### <a name="azure-resource-template-for-application-insights"></a>Modello di risorse di Azure per Application Insights
-L'avviso del log per le risorse di Application Insights ha il tipo `Microsoft.Insights/scheduledQueryRules/`. Per altre informazioni su questo tipo di risorsa, vedere il [riferimento all'API per regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+> [!NOTE]
+> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
 La struttura riportata di seguito per la [creazione di regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) si basa su modello di risorse e un set di dati di esempio come variabili.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -161,17 +158,24 @@ La struttura riportata di seguito per la [creazione di regole di query pianifica
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Classification"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -180,28 +184,36 @@ La struttura riportata di seguito per la [creazione di regole di query pianifica
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -212,34 +224,28 @@ La struttura riportata di seguito per la [creazione di regole di query pianifica
 > [!IMPORTANT]
 > Il campo di tag con il collegamento nascosto alla risorsa di destinazione è obbligatorio se si usa la chiamata API per le [regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) o il modello di risorse. 
 
-Per usare il JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
-
+Per usare il codice JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gestione degli avvisi del log tramite PowerShell, CLI o API
-Attualmente gli avvisi del log possono essere creati usando due diverse API conformi a Resource Manager, secondo la piattaforma di analisi su cui si deve basare l'avviso (ovvero) Log Analytics o Application Insights.
 
-Pertanto, la sezione seguente fornisce dettagli sull'uso dell'API tramite Powershell o CLI per gli avvisi del log per ogni piattaforma di analisi.
+L'API Regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
 
-### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI o API per Log Analytics
-L'API REST degli avvisi di Log Analytics è RESTful ed è accessibile tramite l'API REST di Azure Resource Manager. L'API è quindi accessibile da una riga di comando di PowerShell. Offre i risultati della ricerca in formato JSON per poter essere usati in molti modi diversi a livello di codice.
+> [!NOTE]
+> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
-In [Creare e gestire regole di avviso in Log Analytics con l'API REST](../../azure-monitor/platform/api-alerts.md) sono disponibili esempi per accedere all'API da Powershell.
 
-### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI o API per Application Insights
-L'[API delle regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
-
-Di seguito viene illustrato l'utilizzo tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella [sezione Modello di risorsa](#azure-resource-template-for-application-insights):
+Gli avvisi dei log non hanno attualmente comandi di PowerShell o dell'interfaccia della riga di comando dedicati, ma, come illustrato di seguito, possono essere usati tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella [sezione Modello di risorsa](#azure-resource-template-for-application-insights):
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella [sezione Modello di risorsa](#azure-resource-template-for-application-insights):
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 a indicare la creazione della nuova regola di avviso. Se invece è stata modificata una regola di avviso esistente, sarà restituito il valore 200.
-
-
   
 ## <a name="next-steps"></a>Passaggi successivi
 

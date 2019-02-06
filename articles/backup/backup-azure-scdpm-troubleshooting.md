@@ -2,18 +2,18 @@
 title: Risolvere i problemi relativi a System Center Data Protection Manager con Backup di Azure
 description: Risolvere i problemi in System Center Data Protection Manager.
 services: backup
-author: adigan
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/24/2017
-ms.author: adigan
-ms.openlocfilehash: d3776df8184523999433059e95bc72e1d3abb1c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606444"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293996"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi relativi a System Center Data Protection Manager
 
@@ -42,7 +42,7 @@ Per risolvere il problema, eseguire le azioni seguenti:
 - Verificare che il disco sia integro e che vi sia spazio sufficiente per la replica.
 - Assicurarsi che non vengano eseguiti contemporaneamente processi di backup duplicati.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Errore: Creazione del punto di ripristino online non riuscita
+## <a name="error-online-recovery-point-creation-failed"></a>Errore: Impossibile creare il punto di ripristino online
 
 Per risolvere il problema, eseguire le azioni seguenti:
 - Accertarsi di usare l'ultima versione dell'agente di Backup di Azure.

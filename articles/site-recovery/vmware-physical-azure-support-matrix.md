@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b790cbf6c3c9ec04dfdbf0299e337d32e54e9708
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413414"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299761"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -71,11 +71,12 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da
 
 **Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
+14.04 LTS | [9.22][9.22 UR] | Da 3.13.0-24 generica a 3.13.0-164 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1036 Azure |
 14.04 LTS | [9.21][9.21 UR] | Da 3.13.0-24 generica a 3.13.0-163 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1035 Azure |
 14.04 LTS | [9.20][9.20 UR] | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-138 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1025 Azure |
 14.04 LTS | [9.19][9.19 UR] | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-131 generica |
-14.04 LTS | [9.18][9.18 UR] | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-130 generica |
 |||
+16.04 LTS | [9.22][9.22 UR] | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-43 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1036 Azure|
 16.04 LTS | [9.21][9.21 UR] | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-42 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1035 Azure|
 16.04 LTS | [9.20][9.20 UR] | Da 4.4.0-21 generica a 4.4.0-138 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-38 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1025 Azure|
 16.04 LTS | [9.19][9.19 UR] | Da 4.4.0-21 generica a 4.4.0-131 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-30 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1019 Azure|
@@ -131,10 +132,10 @@ Aggiunta del disco alla macchina virtuale replicata | Disabilitare la replica pe
 Gruppo NIC della rete host | Supportato per le macchine virtuali VMware. <br/><br/>Non supportato per la replica di computer fisici.
 VLAN rete host | Sì.
 IPv4 rete host | Sì.
-IPv6 rete host | No.
-Gruppo NIC della rete guest/server | No.
+IPv6 rete host |  No.
+Gruppo NIC della rete guest/server |  No.
 IPv4 rete guest/server | Sì.
-IPv6 rete guest/server | No.
+IPv6 rete guest/server |  No.
 IP statico (Windows) rete guest/server | Sì.
 IP statico (Linux) rete guest/server | Sì. <br/><br/>Le VM sono configurate per l'uso di DHCP in caso di failback.
 Più schede di interfaccia rete guest/server | Sì.
@@ -144,41 +145,41 @@ Più schede di interfaccia rete guest/server | Sì.
 
 **Componente** | **Supportato**
 --- | ---
-Azure ExpressRoute | Sì
-ILB | Sì
-ELB | Sì
-Gestione traffico di Azure | Sì
-Più NIC | Sì
-Indirizzo IP riservato | Sì
-IPv4 | Sì
-Conservazione indirizzo IP di origine | Sì
-Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì
-Rete accelerata | No
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Gestione traffico di Azure | Yes
+Più NIC | Yes
+Indirizzo IP riservato | Yes
+IPv4 | Yes
+Conservazione indirizzo IP di origine | Yes
+Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Yes
+Rete accelerata | No 
 
 ## <a name="storage"></a>Archiviazione
 **Componente** | **Supportato**
 --- | ---
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base <br/><br/>I dischi dati possono essere dinamici
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Sì
+Host SAN (iSCSI/FC) | Yes
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
-VMDK guest/server | Sì
+VMDK guest/server | Yes
 EFI/UEFI guest/server| Parziale (migrazione ad Azure per Windows Server 2012 e versioni successive) <br/><br/> Vedere la nota alla fine della tabella
-Disco cluster condiviso guest/server | No
-Disco crittografato guest/server | No
-NFS guest/server | No
-SMB 3.0 guest/server | No
-RDM guest/server | Sì<br/><br/> N/D per server fisici
-Disco guest/server > 1 TB | Sì<br/><br/>Fino a 4095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Sì
-Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Sì
-Guest/server - Spazi di archiviazione | No
-Disco di aggiunta/rimozione a caldo guest/server | No
-Guest/server - esclusione disco | Sì
-Percorsi multipli (MPIO) guest/server | No
+Disco cluster condiviso guest/server | No 
+Disco crittografato guest/server | No 
+NFS guest/server | No 
+SMB 3.0 guest/server | No 
+RDM guest/server | Yes<br/><br/> N/D per server fisici
+Disco guest/server > 1 TB | Yes<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Yes
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Yes
+Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
+Guest/server - Spazi di archiviazione | No 
+Disco di aggiunta/rimozione a caldo guest/server | No 
+Guest/server - esclusione disco | Yes
+Percorsi multipli (MPIO) guest/server | No 
 
 > [!NOTE]
 > È possibile eseguire la migrazione in Azure di macchine virtuali VMware con avvio UEFI che eseguono Windows Server 2012 o versioni successive. Si applicano le restrizioni seguenti:
@@ -191,25 +192,25 @@ Percorsi multipli (MPIO) guest/server | No
 
 **Componente** | **Supportato**
 --- | ---
-Archiviazione con ridondanza locale | Sì
-Archiviazione con ridondanza geografica | Sì
-Archiviazione con ridondanza geografica e accesso in lettura | Sì
-Archiviazione ad accesso sporadico | No
-Archiviazione ad accesso frequente| No
-BLOB in blocchi | No
-Crittografia per dati inattivi (servizio di archiviazione di Azure)| Sì
-Archiviazione Premium | Sì
-Servizio di importazione/esportazione | No
-Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No
-Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No
+Archiviazione con ridondanza locale | Yes
+Archiviazione con ridondanza geografica | Yes
+Archiviazione con ridondanza geografica e accesso in lettura | Yes
+Archiviazione ad accesso sporadico | No 
+Archiviazione ad accesso frequente| No 
+BLOB in blocchi | No 
+Crittografia per dati inattivi (servizio di archiviazione di Azure)| Yes
+Archiviazione Premium | Yes
+Servizio di importazione/esportazione | No 
+Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No 
+Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No 
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
 **Funzionalità** | **Supportato**
 --- | ---
-Set di disponibilità | Sì
-HUB | Sì
-Dischi gestiti | Sì
+Set di disponibilità | Yes
+HUB | Yes
+Dischi gestiti | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
@@ -219,10 +220,10 @@ Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti per
 --- | --- | ---
 Sistema operativo guest | Verificare i [sistemi operativi supportati](#replicated-machines) per le macchine replicate. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.
-Dimensioni disco del sistema operativo | Fino a 2048 GB. | Il controllo ha esito negativo se non supportato.
+Dimensioni disco del sistema operativo | Fino a 2.048 GB. | Il controllo ha esito negativo se non supportato.
 Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se non supportato.
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
-Dimensioni del disco dati | Fino a 4095 GB | Il controllo ha esito negativo se non supportato.
+Dimensioni del disco dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
@@ -234,15 +235,15 @@ Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e tra
 
 **Azione** | **Supportato**
 --- | ---
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Scaricare i componenti più recenti di Azure Site Recovery
 
 **Nome** | **Descrizione** | **Istruzioni per il download della versione più recente**
 --- | --- | --- | --- | ---
-Server di configurazione | Coordina le comunicazioni tra server VMware locali e Azure  <br/><br/> Installato su server VMware locali | Fare clic [qui](vmware-azure-deploy-configuration-server.md) per una nuova installazione. Fare clic [qui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) per aggiornare i componenti esistenti alla versione più recente.
+Server di configurazione | Coordina le comunicazioni tra server VMware locali e Azure  <br/><br/>  Installato su server VMware locali | Fare clic [qui](vmware-azure-deploy-configuration-server.md) per una nuova installazione. Fare clic [qui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) per aggiornare i componenti esistenti alla versione più recente.
 Server di elaborazione|Installato per impostazione predefinita nel server di configurazione. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure. Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.| Fare clic [qui](vmware-azure-set-up-process-server-scale.md) per una nuova installazione. Fare clic [qui](vmware-azure-manage-process-server.md#upgrade-a-process-server) per aggiornare i componenti esistenti alla versione più recente.
 Servizio Mobility | Coordina la replica fra server VMware locali/server fisici e sito Azure/secondario<br/><br/> Installato in server fisici o in macchine virtuali VMware da replicare | Fare clic [qui](vmware-azure-install-mobility-service.md) per una nuova installazione. Fare clic [qui](vmware-physical-mobility-service-overview.md#update-the-mobility-service) per aggiornare i componenti esistenti alla versione più recente.
 
@@ -252,6 +253,7 @@ Fare clic [qui](https://aka.ms/ASR_latest_release_notes) per informazioni sulle 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni su come](tutorial-prepare-azure.md) preparare Azure per il ripristino di emergenza delle macchine virtuali VMware.
 
+[9.22 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.21 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.20 UR]: https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery
 [9.19 UR]: https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30

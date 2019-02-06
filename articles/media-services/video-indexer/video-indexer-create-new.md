@@ -1,5 +1,5 @@
 ---
-title: Creare informazioni dettagliate video da video esistenti
+title: Creare informazioni dettagliate video da video esistenti - Azure
 titlesuffix: Azure Media Services
 description: Questo argomento illustra come creare e pubblicare informazioni dettagliate basate su file video esistenti.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 7ba3fab514729b7b5645254fa9d34dd42b6718d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292008"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197552"
 ---
-# <a name="tutorial-create-highlights-from-existing-videos"></a>Esercitazione: Creare informazioni dettagliate da video esistenti
+# <a name="create-highlights-from-existing-videos"></a>Creare informazioni dettagliate da video esistenti
 
 Questo argomento illustra come creare e pubblicare informazioni dettagliate basate sui video di altri utenti.
 

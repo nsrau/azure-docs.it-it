@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306741"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462546"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
 
@@ -31,7 +31,7 @@ R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di confo
 
 D: È possibile connettersi a PowerBI?
 
-R. Sì. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
+R.  Sì. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
 
 D: Quali sono i limiti di capacità di SQL Data Warehouse?
 
@@ -80,23 +80,23 @@ R. Sì. La maggior parte delle funzionalità REST che può essere usata con il D
 
 D: Quali driver client sono supportati?
 
-R. Il supporto dei driver per DW è reperibile nella pagina delle[stringhe di connessione]
+R. Il supporto dei driver per DW è reperibile nella pagina delle[Stringhe di connessione]
 
-D: Quali formati di file sono supportati da PolyBase con SQL Data Warehouse?
+D: D: Quali formati di file sono supportati da PolyBase con SQL Data Warehouse?
 
-R: Orc, RC, Parquet e testo delimitato semplice
+R: R: Orc, RC, Parquet e testo delimitato semplice
 
-D: A cosa è possibile collegarsi da SQL Data Warehouse usando PolyBase? 
+D: D: A cosa è possibile connettersi da SQL DW usando PolyBase? 
 
-R: [Archivio Data Lake di Azure] e [BLOB di archiviazione di Azure]
+R: [Azure Data Lake Store] e [BLOB di archiviazione di Azure]
 
 D: È possibile impostare il calcolo per la connessione al BLOB del servizio di archiviazione di Azure o ad ADLS? 
 
 R: No, PolyBase di SQL DW interagisce solo con i componenti di archiviazione. 
 
-D: È possibile connettersi ad HDI?
+D: È possibile connettersi all'HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
+R: HDI può usare sia ADLS sia WASB a livello di Hadoop Distributed File System. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Overview].
@@ -112,7 +112,7 @@ Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Ov
 [limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
 [tipi di dati]: ./sql-data-warehouse-tables-data-types.md
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Archivio Data Lake di Azure]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Richiesta di funzionalità per progetti di database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx

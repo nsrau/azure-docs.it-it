@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: ff4ccdf28be9d28798fff0e9f66bbb2c860166b7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a300826db512a813282eea71d2e898f0221a977
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424541"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077744"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
 
@@ -33,17 +33,22 @@ Verificare di avere installato e configurato il [modulo di Azure PowerShell](/po
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabella delle immagini Windows usate comunemente
+
+Questa tabella illustra un subset degli SKU disponibili per le offerte e i server di pubblicazione indicati.
+
 | Editore | Offerta | Sku |
 |:--- |:--- |:--- |:--- |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2008 R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2017-WS2016 |Enterprise |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
 | MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Esplorare le immagini
@@ -76,14 +81,14 @@ Quindi, per uno SKU selezionato, eseguire [Get-AzureRMVMImage](/powershell/modul
     $offerName="<offer>"
     Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
     ```
-    
+
 4. Specificare il nome dello SKU scelto e ottenere la versione dell'immagine:
 
     ```powershell
     $skuName="<SKU>"
     Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
-    
+
 Dall'output del comando `Get-AzureRMVMImage` è possibile selezionare un'immagine di versione per distribuire una nuova macchina virtuale.
 
 L'esempio seguente illustra la sequenza completa di comandi e i relativi output:
@@ -99,16 +104,21 @@ Output parziale:
 PublisherName
 -------------
 ...
-a10networks
-aiscaler-cache-control-ddos-and-url-rewriting-
-alertlogic
-AlertLogic.Extension
-Barracuda.Azure.ConnectivityAgent
-barracudanetworks
-basho
-boxless
-bssw
-Canonical
+abiquo
+accedian
+accellion
+accessdata-group
+accops
+Acronis
+Acronis.Backup
+actian-corp
+actian_matrix
+actifio
+activeeon
+adgs
+advantech
+advantech-webaccess
+advantys
 ...
 ```
 
@@ -136,7 +146,7 @@ $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Output:
+Output parziale:
 
 ```
 Skus
@@ -153,12 +163,17 @@ Skus
 2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
 2016-Datacenter-with-RDSH
+2019-Datacenter
+2019-Datacenter-Core
+2019-Datacenter-Core-smalldisk
+2019-Datacenter-Core-with-Containers
+...
 ```
 
-Quindi, per lo SKU *2016-Datacenter*:
+Per lo SKU *2019-Datacenter*, quindi:
 
 ```powershell
-$skuName="2016-Datacenter"
+$skuName="2019-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
@@ -175,22 +190,21 @@ Per visualizzare informazioni sul piano di acquisto di un'immagine, eseguire il 
 Ad esempio, l'immagine di *Windows Server 2016 Datacenter* non ha condizioni aggiuntive, quindi l'informazione relativa a `PurchasePlan` è `null`:
 
 ```powershell
-$version = "2016.127.20170406"
+$version = "2019.0.20190115"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Output:
 
 ```
-Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/
-                   Versions/2016.127.20170406
+Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
 Location         : westus
 PublisherName    : MicrosoftWindowsServer
 Offer            : WindowsServer
-Skus             : 2016-Datacenter
-Version          : 2016.127.20170406
+Skus             : 2019-Datacenter
+Version          : 2019.0.20190115
 FilterExpression :
-Name             : 2016.127.20170406
+Name             : 2019.0.20190115
 OSDiskImage      : {
                      "operatingSystem": "Windows"
                    }
@@ -202,21 +216,20 @@ DataDiskImages   : []
 L'esempio seguente mostra un comando analogo per l'immagine *Data Science Virtual Machine - Windows 2016*, che ha le proprietà `PurchasePlan` seguenti: `name`, `product` e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```powershell
-Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
+Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "19.01.14"
 ```
 
 Output:
 
 ```
-Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMIma
-                   ge/Offers/windows-data-science-vm/Skus/windows2016/Versions/0.2.02
+Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
 Location         : westus
 PublisherName    : microsoft-ads
 Offer            : windows-data-science-vm
 Skus             : windows2016
-Version          : 0.2.02
+Version          : 19.01.14
 FilterExpression :
-Name             : 0.2.02
+Name             : 19.01.14
 OSDiskImage      : {
                      "operatingSystem": "Windows"
                    }
@@ -243,12 +256,11 @@ Output:
 Publisher         : microsoft-ads
 Product           : windows-data-science-vm
 Plan              : windows2016
-LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DV
-                    M%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
+LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DVM%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
 PrivacyPolicyLink : https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx
 Signature         : 2UMWH6PHSAIM4U22HXPXW25AL2NHUJ7Y7GRV27EBL6SUIDURGMYG6IIDO3P47FFIBBDFHZHSQTR7PNK6VIIRYJRQ3WXSE6BTNUNENXA
 Accepted          : False
-Signdate          : 2/23/2018 7:43:00 PM
+Signdate          : 1/25/2019 7:43:00 PM
 ```
 
 Usare il cmdlet [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) per accettare o rifiutare le condizioni. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Assicurarsi di usare tutte lettere minuscole nei valori dei parametri. 
@@ -302,7 +314,7 @@ $offerName = "windows-data-science-vm"
 
 $skuName = "windows2016"
 
-$version = "0.2.02"
+$version = "19.01.14"
 
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
@@ -310,6 +322,7 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName
 Passare quindi la configurazione della macchina virtuale e gli oggetti di configurazione di rete al cmdlet `New-AzureRmVM`.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per creare rapidamente una macchina virtuale con il cmdlet `New-AzureRmVM` usando le informazioni di base sull'immagine, vedere [Creare una macchina virtuale Windows con PowerShell](quick-create-powershell.md).
 
 Vedere un esempio di script di PowerShell per [creare una macchina virtuale completamente configurata](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).

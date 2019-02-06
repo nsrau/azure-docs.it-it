@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438236"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888142"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
-Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./tutorial-dashboards.md) è disponibile alla fine dell'articolo.
+Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
 
 ## <a name="administrative"></a>Administrative
 Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Administrative. Questa categoria include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
@@ -768,7 +768,7 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mapping allo schema di log di diagnostica
 
-Quando si esegue lo streaming del log attività di Azure a un account di archiviazione o a uno spazio dei nomi di Hub eventi, i dati seguono lo [schema di log di diagnostica di Azure](./tutorial-dashboards.md). Di seguito è riportato il mapping delle proprietà dallo schema riportato sopra allo schema di log di diagnostica:
+Quando si esegue lo streaming del log attività di Azure a un account di archiviazione o a uno spazio dei nomi di Hub eventi, i dati seguono lo [schema di log di diagnostica di Azure](./diagnostic-logs-schema.md). Di seguito è riportato il mapping delle proprietà dallo schema riportato sopra allo schema di log di diagnostica:
 
 | Proprietà dello schema di log di diagnostica | Proprietà dello schema API REST del log attività | Note |
 | --- | --- | --- |

@@ -3,23 +3,23 @@ title: Configurare identità gestite per le risorse di Azure in un set di scalab
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite un modello di Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
-ms.openlocfilehash: 6498079950310e52fcb16172a34b9848e6a98e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 6fff8890a32cd6c3f0aeb506425964edcc841c5e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429022"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193472"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure tramite un modello
 
@@ -173,7 +173,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
 > [!Note]
 > Per creare un'identità gestita assegnata dall'utente usando un modello di Azure Resource Manager, vedere [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virutal-machine-scale-set"></a>Associare l'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Associare l'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali
 
 1. Nell'elemento `resources` aggiungere la voce seguente per associare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità gestita assegnata dall'utente che è stata creata.
    

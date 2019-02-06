@@ -14,29 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580145"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103310"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
-GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
+GRUB (GRand Unified Bootloader) è probabilmente la prima funzionalità che viene visualizzata quando si avvia una macchina virtuale. Poiché viene visualizzata prima dell'avvio del sistema operativo, non è accessibile tramite SSH. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
 
 La modalità utente singolo è un ambiente minimo con funzionalità minime. Può essere utile per analizzare i problemi relativi all'avvio, al file system o alla rete. In questa modalità è infatti possibile che vengano eseguiti meno servizi in background e che, a seconda del livello di esecuzione, non venga nemmeno montato automaticamente un file system.
 
-La modalità utente singolo è utile anche nelle situazioni in cui la macchina virtuale può essere configurata solo in modo da accettare chiavi SSH per l'accesso. In questo caso, è possibile usare la modalità utente singolo per creare un account con autenticazione della password.
+La modalità utente singolo è utile anche nelle situazioni in cui la macchina virtuale può essere configurata solo in modo da accettare chiavi SSH per l'accesso. In questo caso, è possibile usare la modalità utente singolo per creare un account con autenticazione della password. Si noti che il servizio console seriale consente l'accesso alla console seriale di una macchina virtuale solo agli utenti con accesso a livello di collaboratore o superiore.
 
-Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Questa operazione può essere eseguita con la console seriale della macchina virtuale.
+Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Di seguito sono fornite istruzioni dettagliate per l'accesso a GRUB. È in genere possibile usare il pulsante di riavvio all'interno della console seriale della macchina virtuale per riavviare quest'ultima e visualizzare GRUB, se la macchina virtuale è stata configurata a questo scopo.
+
+![Pulsante di riavvio della console seriale Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## <a name="general-grub-access"></a>Informazioni generali sull'accesso a GRUB
 Per accedere a GRUB, è necessario riavviare la macchina virtuale mantenendo aperto il pannello della console seriale. Per mostrare GRUB alcune distribuzioni richiedono l'input da tastiera, mentre altre distribuzioni mostrano GRUB automaticamente per alcuni secondi e consentono l'input da tastiera dell'utente per annullare il timeout.
 
 È opportuno verificare che GRUB sia abilitato nella macchina virtuale per poter essere in grado di accedere alla modalità utente singolo. A seconda del tipo di distribuzione, potrebbero essere necessarie alcune operazioni di configurazione per assicurarsi che GRUB sia abilitato. Informazioni specifiche per le distribuzioni sono disponibili di seguito e in [questo collegamento](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
-### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Riavviare la macchina virtuale per accedere a GRUB nella console seriale
-Per riavviare la macchina virtuale con il pannello della console seriale aperto è possibile usare il comando `'b'` di [SysRq](./serial-console-nmi-sysrq.md), se quest'ultimo è abilitato, oppure fare clic sul pulsante per il riavvio nel pannello di panoramica. Per riavviare senza chiudere il pannello della console seriale, aprire la macchina virtuale in una nuova scheda del browser. Per informazioni sul comportamento di GRUB al riavvio, seguire le istruzioni specifiche per le distribuzioni riportate di seguito.
+### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Riavviare la macchina virtuale per accedere a GRUB nella console seriale
+È possibile riavviare la macchina virtuale all'interno della console seriale passando al pulsante di alimentazione e facendo clic su "Restart VM" (Riavvia VM). La macchina virtuale verrà riavviata e nel portale di Azure verrà visualizzata la notifica del riavvio.
+Il riavvio della macchina virtuale può essere eseguito anche con il comando SysRq `'b'`, se [SysRq](./serial-console-nmi-sysrq.md) è abilitato. Per informazioni sul comportamento di GRUB al riavvio, seguire le istruzioni specifiche per le distribuzioni riportate di seguito.
+
+![Riavvio della console seriale Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Informazioni generali sull'accesso alla modalità utente singolo
 L'accesso manuale alla modalità utente singolo può essere necessario nelle situazioni in cui non è stato configurato un account con autenticazione della password. Per attivare manualmente la modalità utente singolo è necessario modificare la configurazione di GRUB. Al termine di questa operazione, vedere [Usare la modalità utente singolo per reimpostare o aggiungere una password](#-Use-Single-User-Mode-to-reset-or-add-a-password) per altre istruzioni.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436008"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206970"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -27,15 +27,15 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 
 
 ## <a name="pre-requisites-for-production"></a>Prerequisiti per la produzione
-1. Le [Procedure consigliate per Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sono: 
+1. Le [procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sono: 
 * Usare certificati X.509
 * Configurare criteri di sicurezza
 * Configurare l'autenticazione SSL per Azure Service Fabric
 * Usare l'isolamento e la sicurezza di rete con Azure Service Fabric
 * Configurare Azure Key Vault per la sicurezza
-* Assegnare utenti ai ruoli
+* Microsoft.Network/loadBalancersAssegnare utenti ai ruoli
 * Implementare la configurazione di sicurezza di Reliable Actors, se si usa il modello di programmazione di Actors
-2. Per i cluster con più di 20 core o 10 nodi, creare un tipo di nodo primario dedicato per i servizi di sistema. Aggiungere [vincoli di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) per riservare il tipo di nodo primario ai servizi di sistema. 
+2. Per i cluster con più di 20 core o 10 nodi, creare un tipo di nodo primario dedicato per i servizi di sistema. Aggiungere [vincoli di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) per riservare il tipo di nodo primario ai servizi di sistema.
 3. Per il tipo di nodo primario usare uno SKU D2v2 o superiore. È consigliabile scegliere uno SKU con capacità del disco rigido di almeno 50 GB.
 4. I cluster di produzione devono essere [sicuri](service-fabric-cluster-security.md). Per un esempio di configurazione di un cluster sicuro, vedere questo [modello di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Usare nomi comuni per i certificati ed evitare i certificati autofirmati.
 5. Applicare [vincoli di risorse a contenitori e servizi](service-fabric-resource-governance.md) per evitare che utilizzino più del 75% delle risorse dei nodi. 
@@ -61,8 +61,8 @@ Se si usa il modello di programmazione Reliable Actors o Reliable Services di Se
 22. Aggiornare le applicazioni durante la fase di sviluppo locale per verificare che il codice del servizio rispetti il token di annullamento nel metodo `RunAsync` e chiuda i listener di comunicazione personalizzati.
 23. Evitare gli [inconvenienti comuni](service-fabric-work-with-reliable-collections.md) che si verificano durante l'uso delle raccolte Reliable Collections.
 24. Monitorare i contatori delle prestazioni della memoria CLR .NET durante l'esecuzione dei test di carico e verificare la presenza di frequenze elevate di Garbage Collection o l'aumento delle dimensioni degli heap con eccessivo tempo di esecuzione.
-25. Mantenere copie di backup offline di [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) e testare il processo di ripristino. 
-
+25. Mantenere copie di backup offline di [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) e testare il processo di ripristino.
+26. Il numero di istanze di macchina virtuale di tipo nodo primario deve idealmente essere uguale al valore minimo per il livello di affidabilità dei cluster. Le condizioni che rendono appropriato il superamento temporaneo del valore minimo del livello sono: ridimensionamento verticale dello SKU del set di scalabilità di macchine virtuali dei nodi di tipo primario.
 
 ## <a name="optional-best-practices"></a>Procedure consigliate facoltative
 

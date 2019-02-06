@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432763"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104376"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console seriale per macchine virtuali per Windows
 
@@ -136,6 +136,13 @@ Le chiavi di funzione sono abilitate per essere usate per la console seriale nel
 
 ### <a name="use-wsl-in-serial-console"></a>Usare WSL nella console seriale
 Windows Subsystem for Linux (WSL) è stato abilitato per Windows Server 2019 e versioni successive ed è quindi possibile abilitare WSL per l'utilizzo nella console seriale se si esegue Windows Server 2019 o versione successiva. Questa possibilità potrebbe essere particolarmente utile per gli utenti che hanno familiarità anche con i comandi Linux. Per istruzioni su come abilitare WSL per Windows Server, vedere la [Guida all'installazione](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Riavviare la macchina virtuale Windows all'interno della console seriale
+È possibile riavviare la macchina virtuale all'interno della console seriale passando al pulsante di alimentazione e facendo clic su "Restart VM" (Riavvia VM). La macchina virtuale verrà riavviata e nel portale di Azure verrà visualizzata la notifica del riavvio.
+
+Ciò è utile nelle situazioni in cui è necessario accedere al menu di avvio della macchina virtuale senza uscire dall'esperienza della console seriale.
+
+![Riavvio della console seriale Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Disabilitare la console seriale
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.

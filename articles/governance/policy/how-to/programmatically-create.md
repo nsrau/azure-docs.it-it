@@ -4,17 +4,17 @@ description: Questo articolo illustra la creazione a livello di codice e la gest
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847051"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101788"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
@@ -201,17 +201,34 @@ Per creare una definizione dei criteri, usare la procedura seguente:
   }
   ```
 
+   Per altre informazioni sulla creazione di una definizione dei criteri, vedere [Struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
+
 1. Per creare una definizione dei criteri, eseguire il comando seguente:
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   Il comando crea una definizione di criteri denominata _Audit Storage Accounts Open to Public Networks_.
+   Per altre informazioni sui parametri aggiuntivi che è possibile usare, vedere [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+
+   Se chiamato senza parametri per la posizione, `az policy definition creation` salva per impostazione predefinita la definizione dei criteri nella sottoscrizione selezionata del contesto di sessioni. Per salvare la definizione in una posizione diversa, usare i parametri seguenti:
+
+   - **--subscription** - Salva in una sottoscrizione diversa. Richiede un valore _GUID_ per l'ID sottoscrizione o un valore _string_ per il nome della sottoscrizione.
+   - **--management-group** - Salva in un gruppo di gestione. Richiede un valore _stringa_.
+
 1. Usare questo comando per creare un'assegnazione di criteri. Sostituire le informazioni di esempio incluse nei simboli &lt;&gt; con i valori desiderati.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   Il parametro **--scope** in `az policy assignment create` funziona con gruppo di gestione, sottoscrizione, gruppo di risorse o un'unica risorsa. Il parametro usa un percorso di risorsa completo. Il modello per **--scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione. `{rType}` può essere sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
+
+   - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Gruppo di risorse - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Sottoscrizione - `/subscriptions/{subID}`
+   - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 È possibile ottenere l'ID definizione dei criteri usando PowerShell con il comando seguente:
 

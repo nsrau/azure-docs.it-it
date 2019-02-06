@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339519"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296122"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
 
@@ -37,6 +37,15 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 
 Usare le informazioni nelle tabelle seguenti per risolvere i problemi e gli errori rilevati durante il backup di SQL Server in Azure.
+
+## <a name="alerts"></a>Avvisi
+
+### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
+
+| Gravità | DESCRIZIONE | Possibili cause | Azione consigliata |
+|---|---|---|---|
+| Avviso | Impostazioni correnti per questo database non supportano una determinata tipologia di tipi di backup presenti nei criteri associati. | <li>**Master DB**: solo un'operazione di backup completo del database può essere eseguita sul database master; né il backup **differenziale** né il backup del **log** delle transazioni sono possibili. </li> <li>Qualsiasi database nel **modello di recupero con registrazione minima** non consente l'esecuzione del backup del **log** delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato o il processo di backup avrà esito negativo per il backup ad hoc.
+
 
 ## <a name="backup-failures"></a>Errori di backup
 

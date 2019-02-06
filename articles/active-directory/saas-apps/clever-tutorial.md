@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Clever | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Clever | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Clever.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 483d03fcc72e0a93111d10b0221164459de27d12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e65f0cb3ef30fb5b001acdb72481c1c3b55ca058
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431862"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Esercitazione: Integrazione di Azure Active Directory con Clever
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/).
 
-1. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+1. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app**  e incollarlo nel Blocco note.
     
     ![Configure Single Sign-On](./media/clever-tutorial/tutorial_metadataurl.png)
 
@@ -214,7 +214,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Per consentire agli utenti di Azure AD di accedere a Clever, è necessario effettuarne il provisioning in Clever.
 
-Nel caso di Clever, collaborare con il [team di supporto clienti di Clever](https://clever.com/about/contact/) per aggiungere gli utenti nella piattaforma Clever. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+Nel caso di Clever, collaborare con il  [team di supporto clienti di Clever](https://clever.com/about/contact/)  per aggiungere gli utenti alla piattaforma Clever. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente di Clever per effettuare il provisioning degli account utente di Azure AD.
@@ -254,7 +254,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Clever nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Clever.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

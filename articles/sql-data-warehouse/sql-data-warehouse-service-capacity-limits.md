@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686603"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250559"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limiti di capacità di SQL Data Warehouse
 Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
@@ -35,7 +35,7 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 |:--- |:--- |:--- |
 | Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Seconda generazione: 240 TB per rowstore e archiviazione illimitata per le tabelle columnstore |
 | Tabella |Dimensioni massime |60 TB compressi su disco |
-| Tabella |Tabelle per database | 100.000 |
+| Tabella |Tabelle per database | 100,000 |
 | Tabella |Colonne per tabella |1024 colonne |
 | Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX. |
 | Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare le **colonne a lunghezza variabile** all'esterno delle righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per altre informazioni, vedere [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -69,20 +69,20 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 | SELECT |Colonne per JOIN |1024 colonne<br/><br/>Nel JOIN non è mai possibile avere più di 1024 colonne. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
 | SELECT |Byte per le colonne GROUP BY. |8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte. |
 | SELECT |Byte per le colonne ORDER BY |8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte. |
-| Identificatori per istruzione |Numero di identificatori di riferimento |65.535<br/><br/>SQL Data Warehouse limita il numero di identificatori che possono essere contenuti in una singola espressione di una query. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite di servizi di espressione](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Identificatori per istruzione |Numero di identificatori di riferimento |65.535<br/><br/>SQL Data Warehouse limita il numero di identificatori che possono essere contenuti in una singola espressione di una query. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Valori letterali stringa | Numero di valori letterali stringa in un'istruzione | 20.000 <br/><br/>SQL Data Warehouse limita il numero di costanti stringa in una singola espressione di una query. Il superamento di questo numero genera un errore 8632 di SQL Server.|
 
 ## <a name="metadata"></a>Metadata
 | Vista di sistema | Righe massime |
 |:--- |:--- |
-| sys.dm_pdw_component_health_alerts |10.000 |
+| sys.dm_pdw_component_health_alerts |10,000 |
 | sys.dm_pdw_dms_cores |100 |
 | sys.dm_pdw_dms_workers |Numero totale di ruoli di lavoro DMS per le 1000 richieste SQL più recenti. |
-| sys.dm_pdw_errors |10.000 |
-| sys.dm_pdw_exec_requests |10.000 |
-| sys.dm_pdw_exec_sessions |10.000 |
+| sys.dm_pdw_errors |10,000 |
+| sys.dm_pdw_exec_requests |10,000 |
+| sys.dm_pdw_exec_sessions |10,000 |
 | sys.dm_pdw_request_steps |Numero totale di passaggi per le 1000 richieste SQL più recenti archiviate in sys.dm_pdw_exec_requests. |
-| sys.dm_pdw_os_event_logs |10.000 |
+| sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |Le 1000 richieste SQL più recenti archiviate in sys.dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Passaggi successivi

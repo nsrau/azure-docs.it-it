@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039888"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Esercitazione: Integrazione di Azure Active Directory con dmarcian
 
@@ -157,15 +157,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Autenticazione ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Nella sezione **Add dmarcian to your Identity Provider** (Aggiungi dmarcian al provider di identità) fare clic su **COPIA** per copiare l'**URL del servizio consumer di asserzione** per l'istanza e incollarlo nella casella di testo **URL di risposta** nella sezione **URL e dominio di dmarcian** nel portale di Azure.
+    * Nella sezione **Add dmarcian to your Identity Provider** (Aggiungi dmarcian al provider di identità) fare clic su **COPIA** per copiare l'**URL del servizio consumer di asserzione** per l'istanza e incollarlo nella casella di testo  **URL di risposta** nella **sezione URL e dominio di dmarcian** nel portale di Azure.
 
-    * Nella sezione **Add dmarcian to your Identity Provider** (Aggiungi dmarcian al provider di identità) fare clic su **COPIA** per copiare l'**ID entità** per l'istanza e incollarlo nella casella di testo **Identificatore** nella sezione **URL e dominio di dmarcian** nel portale di Azure.
+    * Nella sezione **Add dmarcian to your Identity Provider** (Aggiungi dmarcian al provider di identità) fare clic su **COPIA** per copiare l'**ID entità** per l'istanza e incollarlo nella casella di testo  **Identificatore** nella **sezione URL e dominio di dmarcian** nel portale di Azure.
 
     * Nella sezione **Set up Authentication** (Configura autenticazione), nella casella di testo **Metadati provider di identità**, incollare l'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
     * Nella sezione **Set up Authentication** (Configura autenticazione) incollare l'URL `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` nella casella di testo **Attribute Statements** (Istruzioni attributi).
 
-    * Nella sezione **Set up Login URL** (Configura URL accesso) copiare l'**URL di accesso** per l'istanza e incollarlo nella casella di testo **URL di accesso** nella sezione **URL e dominio di dmarcian** del portale di Azure.
+    * Nella sezione **Set up Login URL** (Configura URL accesso) copiare l'**URL di accesso** per l'istanza e incollarlo nella casella di testo **URL di accesso** nella **sezione URL e dominio di dmarcian** del portale di Azure.
 
         > [!Note]
         > È possibile modificare l'**URL di accesso** in base all'organizzazione.
@@ -265,7 +265,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro dmarcian nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione dmarcian.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

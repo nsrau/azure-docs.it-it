@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227995"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076435"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -44,39 +44,35 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 
-4. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
+4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)**.
    
     ![Menu Formula](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. Nel pannello **Formule** selezionare **+ Aggiungi**.
+5. Nella pagina **Formule** selezionare **+ Aggiungi**.
    
     ![Aggiungere una formula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Nel pannello **Scegli una base** selezionare la base (immagine personalizzata, immagine Marketplace o formula) da cui si desidera creare la formula.
+6. Nella pagina **Scegli una base** selezionare la base (immagine personalizzata, immagine Marketplace o formula) da cui si vuole creare la formula.
    
     ![Elenco base](./media/devtest-lab-create-formulas/base-list.png)
 
-7. Specificare i valori seguenti nel pannello **Crea formula** :
+7. Nella scheda **Impostazioni di base** della pagina **Crea formula** specificare i valori seguenti:
    
     * **Nome formula** : immettere un nome per la formula. Questo valore verrà visualizzato nell'elenco delle immagini di base quando si crea una macchina virtuale. Il nome viene convalidato durante la digitazione e, se non è valido, un messaggio indicherà i requisiti per un nome valido.
-    * **Descrizione** : immettere una descrizione significativa per la formula. Questo valore è disponibile dal menu di scelta rapida della formula quando si crea una macchina virtuale.
     * **Nome utente** - Immettere un nome utente a cui siano concessi i privilegi di amministratore.
     * **Password** : immettere o scegliere dall'elenco a discesa un valore associato al segreto (password) che si desidera usare per l'utente specificato. Per informazioni sul salvataggio dei segreti in un insieme di credenziali delle chiavi e sull'uso durante la creazione delle risorse di lab, vedere [Archiviare segreti in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-    * **Virtual machine disk type** (Tipo di disco della macchina virtuale) - Specificare l'unità disco rigido o l'unità SSD per indicare quale tipo di disco di archiviazione sia consentito per le macchine virtuali il cui provisioning è stato effettuato usando questa immagine di base.
-    * **Dimensioni macchina virtuale** - Selezionare uno degli elementi predefiniti che specificano le memorie centrali del processore, le dimensioni della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare. 
-    * **Elementi** - Selezionare questa opzione per aprire il pannello **Aggiungi elementi** nel quale è possibile selezionare e configurare gli elementi da aggiungere all'immagine di base. Per altre informazioni sugli elementi, vedere [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md) (Creare elementi personalizzati per la macchina virtuale di Azure DevTest Labs).
-    * **Impostazioni avanzate** - Selezionare questa opzione per aprire il pannello **Avanzate** in cui è possibile configurare le impostazioni seguenti:
-        * **Rete virtuale** : specificare la rete virtuale desiderata.
-        * **Subnet** : specificare la subnet desiderata.    
-        * **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
-        * **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nel pannello del lab.     
-    * **Immagine** : questo campo visualizza il nome dell'immagine di base selezionata nel pannello precedente. 
-     
-       ![Crea formula](./media/devtest-lab-create-formulas/create-formula.png)
+    * **Dimensioni macchina virtuale**: selezionare **Modifica dimensioni** per modificare le dimensioni della macchina virtuale. 
+    * **Artefatti**: selezionare la pagina **Aggiungi o rimuovi artefatti** in cui è possibile selezionare e configurare gli artefatti da aggiungere all'immagine di base. Per altre informazioni sugli elementi, vedere [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md) (Creare elementi personalizzati per la macchina virtuale di Azure DevTest Labs).
+8. Passare alla scheda **Impostazioni avanzate** e specificare i valori seguenti:
+    - **Rete virtuale**: per cambiare la rete virtuale, selezionare **Cambia rete virtuale**. 
+    - **Subnet**: per cambiare la subnet, selezionare **Cambia subnet**. 
+    - **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
+    - **Data e ora scadenza**: specificare la data e l'ora di scadenza della macchina virtuale in modo che venga eliminata automaticamente. 
+    - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.     
+    - **Number of claimable instances** (Numero di istanze richiedibili): specificare il numero di istanze richiedibili che si intende creare. 
+8. Selezionare **Invia** per creare la formula.
 
-8. Selezionare **Crea** per creare la formula.
-
-9. Dopo essere stata creata, la formula viene visualizzata nell'elenco del pannello **Formule**.
+9. Dopo essere stata creata, la formula viene visualizzata nell'elenco della pagina **Formule**.
 
 ### <a name="create-a-formula-from-a-vm"></a>Creare una formula da una VM
 La procedura seguente consente di creare una formula basata su una macchina virtuale già esistente. 
@@ -89,15 +85,15 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
-4. Nel pannello **Panoramica** del lab selezionare la VM dalla quale creare la formula.
+4. Nella pagina **Panoramica** del lab selezionare la macchina virtuale dalla quale creare la formula.
    
     ![Macchine virtuali di lab](./media/devtest-lab-create-formulas/my-vms.png)
-5. Nel pannello della VM selezionare **Crea formula (base riutilizzabile)**.
+5. Nella pagina della macchina virtuale selezionare **Crea formula (base riutilizzabile)**.
    
     ![Crea formula](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. Nel pannello **Crea formula** compilare i campi **Name** (Nome) e **Description** (Descrizione) della nuova formula.
+6. Nella pagina **Crea formula** compilare i campi **Nome** e **Descrizione** della nuova formula.
    
-    ![Pannello Crea formula](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![Pagina Crea formula](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. Fare clic su **OK** per creare la formula.
 
 ## <a name="modify-a-formula"></a>Modificare una formula
@@ -106,11 +102,11 @@ Per modificare una formula, seguire questa procedura:
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
-4. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
+4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)**.
    
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Nel pannello **Formule lab** selezionare la formula che si vuole modificare.
-6. Apportare le modifiche nel pannello **Update formula** (Aggiorna formula) e selezionare **Update** (Aggiorna).
+5. Nella pagina **Formule lab** selezionare la formula che si vuole modificare.
+6. Nella pagina **Aggiorna formula** apportare le modifiche desiderate e selezionare **Aggiorna**.
 
 ## <a name="delete-a-formula"></a>Eliminare una formula
 Per eliminare una formula, seguire questa procedura:
@@ -118,10 +114,10 @@ Per eliminare una formula, seguire questa procedura:
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
-4. Nel pannello **Settings** (Impostazioni) del lab selezionare **Formulas** (Formule).
+4. Nella pagina **Impostazioni** del lab selezionare **Formule**.
    
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Nel pannello **Formule lab** selezionare i puntini di sospensione a destra della formula da eliminare.
+5. Nella pagina **Formule lab** selezionare i puntini di sospensione a destra della formula da eliminare.
    
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. Selezionare **Elimina**dal menu di scelta rapida della formula.

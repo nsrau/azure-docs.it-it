@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a24281f2b01b53ddb165d15bca4d8d43c26c5c05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159850"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
@@ -30,7 +30,8 @@ I prerequisiti seguenti sono necessari per passare dall'uso di AD FS all'uso del
 
 ### <a name="update-azure-ad-connect"></a>Aggiornare Azure AD Connect
 
-Per completare i passaggi necessari per eseguire la migrazione all'uso della sincronizzazione degli hash delle password, è necessario [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 o versione successiva. Azure AD Connect 1.1.819.0 contiene modifiche significative alla modalità di conversione delle informazioni di accesso. Il tempo complessivo per la migrazione da AD FS all'autenticazione cloud, che in precedenza poteva richiedere anche ore, è ridotto ad alcuni minuti.
+Come requisito minimo, per eseguire i passaggi per la migrazione alla sincronizzazione dell'hash delle password, è necessario disporre di [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Questa versione contiene modifiche significative alla modalità di conversione delle informazioni di accesso e riduce a minuti il tempo complessivo per la migrazione dalla federazione all'autenticazione cloud, che in precedenza poteva richiedere anche ore.
+
 
 > [!IMPORTANT]
 > In documenti, strumenti e blog non aggiornati potrebbe essere indicato che la conversione degli utenti è obbligatoria quando si convertono i domini dall'identità federata all'identità gestita. La *conversione degli utenti* non è più obbligatoria. Microsoft sta aggiornando la documentazione e gli strumenti in base a questa modifica.
@@ -58,7 +59,7 @@ Per sincronizzare gli hash delle password, l'account del servizio Active Directo
 
    > [!NOTE]
    > Al momento, se Azure AD Connect è stato originariamente usato per configurare AD FS, non è possibile evitare l'annullamento della federazione di tutti i domini nel tenant quando si imposta la sincronizzazione degli hash delle password come metodo di accesso utente. ‎
-* **Azure AD Connect con PowerShell**. È possibile usare questo metodo solo se AD FS non è stato originariamente configurato usando Azure AD Connect. Per questa opzione, è comunque necessario modificare il metodo di accesso dell'utente tramite la procedura guidata di Azure AD Connect. La differenza principale con questa opzione è che la procedura guidata non esegue automaticamente il cmdlet **Set-MsolDomainAuthentication**. Con questa opzione, si ha pieno controllo su quali domini vengono convertiti e in quale ordine.
+* **Azure AD Connect con PowerShell**. È possibile usare questo metodo solo se AD FS non è stato originariamente configurato tramite Azure AD Connect. Per questa opzione, è comunque necessario modificare il metodo di accesso utente tramite la procedura guidata di Azure AD Connect. La differenza principale di questa opzione è che la procedura guidata non esegue automaticamente il cmdlet **Set-MsolDomainAuthentication**. Con questa opzione, si ha pieno controllo su quali domini vengono convertiti e in quale ordine.
 
 Per comprendere quale metodo è preferibile usare, completare i passaggi nelle sezioni seguenti.
 
@@ -67,10 +68,10 @@ Per comprendere quale metodo è preferibile usare, completare i passaggi nelle s
 Per verificare le impostazioni di accesso utente correnti:
 
 1. Accedere al [portale di Azure AD](https://aad.portal.azure.com/) usando un account amministratore globale.
-2. Nella sezione **Accesso utente** verificare le impostazioni seguenti:
+2. Nella sezione **Accesso utente** verificare le impostazioni di questi campi:
    * **Federazione** deve essere impostato su **Abilitata**.
    * **Accesso Single Sign-On facile** deve essere impostato su **Disabilitato**.
-   * **Autenticazione pass-through** viene impostato su **Disabilitata**.
+   * **Autenticazione pass-through** deve essere impostato su **Disabilitato**.
 
    ![Screenshot delle impostazioni nella sezione Accesso utente di Azure AD Connect](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
@@ -117,7 +118,7 @@ Per altre informazioni, vedere questi articoli:
 
 #### <a name="back-up-federation-settings"></a>Eseguire il backup delle impostazioni di federazione
 
-Anche se non è possibile apportare modifiche ad altre relying party nella farm AD FS durante i processi descritti in questo articolo, è consigliabile avere una copia di backup valida corrente della farm AD FS per un eventuale ripristino. È possibile creare un backup valido corrente usando lo [strumento di ripristino rapido di AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) fornito gratuitamente da Microsoft. È possibile usare lo strumento per eseguire il backup di AD FS e per ripristinare una farm esistente o crearne una nuova.
+Anche se non è possibile apportare modifiche ad altre relying party nella farm AD FS durante i processi descritti in questo articolo, è consigliabile avere una copia di backup valida corrente della farm AD FS per un eventuale ripristino. È possibile creare un backup valido corrente usando lo [strumento di ripristino rapido di AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) fornito gratuitamente da Microsoft. Questo strumento può essere usato per eseguire il backup di AD FS e per ripristinare una farm esistente o crearne una nuova.
 
 Se si sceglie di non usare lo strumento di ripristino rapido di AD FS, è necessario almeno esportare il trust della relying party Piattaforma delle identità di Microsoft Office 365 e le eventuali regole personalizzate per le attestazioni aggiunte. È possibile esportare il trust della relying party e le regole associate per le attestazioni usando l'esempio di PowerShell seguente:
 
@@ -127,7 +128,7 @@ Se si sceglie di non usare lo strumento di ripristino rapido di AD FS, è necess
 
 ## <a name="deployment-considerations-and-using-ad-fs"></a>Considerazioni relative alla distribuzione e all'uso di AD FS
 
-Questa sezione descrive le considerazioni sulla distribuzione e i dettagli sull'uso di AD FS.
+Questa sezione include considerazioni sulla distribuzione e dettagli sull'uso di AD FS.
 
 ### <a name="current-ad-fs-use"></a>Uso di AD FS corrente
 
@@ -136,9 +137,9 @@ Prima di poter procedere alla conversione dell'identità da federata a gestita, 
 | Se | Allora |
 |-|-|
 | Si prevede di continuare a usare AD FS con altre applicazioni (diverse da Azure AD e Office 365). | Dopo la conversione dei domini, si useranno sia AD FS che Azure AD. Considerare l'esperienza utente. È possibile che in alcuni scenari gli utenti debbano eseguire due volte l'autenticazione: una per accedere ad Azure AD (dove un utente ottiene l'accesso Single Sign-On ad altre applicazioni, come Office 365) e l'altra per le applicazioni ancora associate ad AD FS come trust della relying party. |
-| L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js (ad esempio, se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome dell'entità utente (UPN) o l'organizzazione visualizza informazioni personalizzate distintive dell'azienda). Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
+| L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
 | Si usa AD FS per bloccare le versioni precedenti dei client di autenticazione.| Considerare la possibilità di sostituire i controlli di AD FS che bloccano le versioni precedenti dei client di autenticazione usando una combinazione di [controlli di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso client di Exchange Online](http://aka.ms/EXOCAR). |
-| Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. È tuttavia possibile usare il servizio Azure Multi-Factor Authentication per l'autenticazione a più fattori dopo aver convertito il dominio.<br /><br /> Se gli utenti attualmente non usano Azure Multi-Factor Authentication, è necessario un passaggio di registrazione utente una sola volta. È necessario preparare e comunicare agli utenti la registrazione pianificata. |
+| Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. È tuttavia possibile usare il servizio Azure Multi-Factor Authentication per l'autenticazione a più fattori dopo aver convertito il dominio.<br /><br /> Se gli utenti attualmente non usano Azure Multi-Factor Authentication, è necessario un unico passaggio di registrazione utente. È necessario eseguire le opportune operazioni preliminari e comunicare agli utenti la registrazione pianificata. |
 | Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Valutare l'opportunità di sostituire i criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e le [regole di accesso client di Exchange Online](http://aka.ms/EXOCAR) equivalenti di Azure AD.|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizzazioni di AD FS comuni
@@ -161,7 +162,7 @@ Quando si aggiunge un dispositivo ad Azure AD, è possibile creare regole di acc
 
 Per assicurarsi che la funzionalità di aggiunta a un ambiente ibrido continui a funzionare per eventuali dispositivi aggiunti al dominio dopo che i domini sono stati convertiti alla sincronizzazione dell'hash delle password, per i client Windows 10, è necessario usare Azure AD Connect per sincronizzare con Azure AD gli account computer di Active Directory. 
 
-Per gli account computer di Windows 8 e Windows 7, la funzionalità di aggiunta a un ambiente ibrido usa l'accesso Single Sign-On facile per registrare il computer in Azure AD. Non è necessario sincronizzazione gli account computer di Windows 8 e Windows 7 come si fa per i dispositivi Windows 10. È tuttavia necessario distribuire un file workplacejoin.exe aggiornato (tramite un file con estensione msi) nei client Windows 8 e Windows 7 in modo che possano registrarsi usando l'accesso Single Sign-On facile. [Scaricare il file con estensione msi](https://www.microsoft.com/download/details.aspx?id=53554).
+Per gli account computer di Windows 8 e Windows 7, la funzionalità di aggiunta a un ambiente ibrido usa l'accesso Single Sign-On facile per registrare il computer in Azure AD. Non è necessario sincronizzare gli account computer di Windows 8 e Windows 7 come si fa per i dispositivi Windows 10. È tuttavia necessario distribuire un file workplacejoin.exe aggiornato (tramite un file con estensione msi) nei client Windows 8 e Windows 7 in modo che possano registrarsi usando l'accesso Single Sign-On facile. [Scaricare il file con estensione msi](https://www.microsoft.com/download/details.aspx?id=53554).
 
 Per altre informazioni, vedere [Configurare i dispositivi aggiunti ad Azure AD ibrido](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
@@ -180,22 +181,22 @@ Completare le attività descritte in questa sezione per pianificare la distribuz
 
 ### <a name="plan-the-maintenance-window"></a>Pianificare l'intervallo di manutenzione
 
-Anche se il processo di conversione dei domini è relativamente rapido, Azure AD potrebbe continuare a inviare alcune richieste di autenticazione ai server AD FS per un periodo massimo di quattro ore dopo il completamento della conversione. Durante questo periodo di quattro ore e a seconda delle varie cache sul lato del servizio, Azure AD potrebbe non accettare queste autenticazioni. Gli utenti potrebbero ricevere un errore. L'utente può comunque eseguire l'autenticazione con ADFS, ma Azure AD non accetta più il token rilasciato dell'utente perché tale trust di federazione è stato rimosso.
+Anche se il processo di conversione dei domini è relativamente rapido, Azure AD potrebbe continuare a inviare alcune richieste di autenticazione ai server di AD FS per un periodo massimo di quattro ore dopo il completamento della conversione. Durante questo periodo di quattro ore, e a seconda delle varie cache sul lato del servizio, è possibile che Azure AD non accetti queste autenticazioni e che venga restituito un errore. L'utente può ancora eseguire l'autenticazione con AD FS, ma Azure AD non accetta più il token rilasciato dell'utente perché tale trust di federazione è stato rimosso.
 
-Sono interessati solo gli utenti che accedono ai servizi tramite un Web browser durante questo intervallo successivo alla conversione prima che venga cancellata la cache sul lato del servizio. Non si prevede che siano interessati i client legacy (Exchange ActiveSync, Outlook 2010 o 2013) perché Exchange Online conserva una cache delle credenziali per un determinato periodo di tempo. La cache viene usata per autenticare di nuovo l'utente senza avvisare. L'utente non dovrà tornare ad AD FS. Le credenziali archiviate nel dispositivo per questi client vengono usate per autenticarli di nuovo senza avvisare dopo che il contenuto di questa cache viene cancellato. Non è previsto che gli utenti ricevano richieste di password come risultato del processo di conversione del dominio. 
+Questo problema interessa solo gli utenti che accedono ai servizi tramite un Web browser durante l'intervallo successivo alla conversione prima che venga cancellata la cache sul lato del servizio. I client legacy (Exchange ActiveSync, Outlook 2010 o 2013) non dovrebbero essere interessati perché Exchange Online conserva una cache delle credenziali per un determinato periodo di tempo. La cache viene usata per autenticare di nuovo l'utente senza avvisare. L'utente non deve tornare ad AD FS. Le credenziali archiviate nel dispositivo per questi client vengono usate per autenticarli di nuovo senza avvisare dopo che il contenuto di questa cache viene cancellato. Non è previsto che gli utenti ricevano richieste di password come risultato del processo di conversione dei domini. 
 
-I client di autenticazione moderni (Office 2016 e Office 2013, iOS e app Android) usano un token di aggiornamento valido per ottenere nuovi token per l'accesso continuo alle risorse invece di tornare ad AD FS. Questi client non sono soggetti a richieste di password risultanti dal processo di conversione del dominio. I client continueranno a funzionare senza alcuna configurazione aggiuntiva.
+I client di autenticazione moderni (Office 2016 e Office 2013, iOS e app Android) usano un token di aggiornamento valido per ottenere nuovi token per l'accesso continuo alle risorse invece di tornare ad AD FS. Questi client non sono soggetti a richieste di password risultanti dal processo di conversione dei domini. I client continueranno a funzionare senza alcuna configurazione aggiuntiva.
 
 > [!IMPORTANT]
 > Non arrestare l'ambiente di AD FS né rimuovere il trust della relying party Office 365 finché non si è verificato che tutti gli utenti possano essere autenticati usando il processo di autenticazione cloud.
 
 ### <a name="plan-for-rollback"></a>Pianificare per il rollback
 
-Se si riscontra un problema importante che non è possibile risolvere rapidamente, è possibile decidere di eseguire il rollback della soluzione alla federazione. È importante pianificare le operazioni da eseguire se la distribuzione non viene implementata come previsto. Se la conversione del dominio o degli utenti non riesce durante la distribuzione oppure se si deve eseguire il rollback alla federazione, è necessario comprendere in che modo attenuare le eventuali interruzioni del servizio e ridurre l'effetto sugli utenti.
+Se si riscontra un problema importante che non può essere risolto rapidamente, è possibile decidere di eseguire il ripristino della soluzione alla federazione. È importante pianificare le operazioni da eseguire se la distribuzione non viene implementata come previsto. Se la conversione del dominio o degli utenti non riesce durante la distribuzione oppure se si deve eseguire il ripristino alla federazione, è necessario comprendere in che modo attenuare le eventuali interruzioni del servizio e ridurre l'effetto sugli utenti.
 
-#### <a name="to-roll-back"></a>Per eseguire il rollback
+#### <a name="to-roll-back"></a>Per eseguire il ripristino dello stato precedente
 
-Per pianificare il rollback, vedere la documentazione relativa alla progettazione e alla distribuzione della federazione per i dettagli della specifica distribuzione. Il processo deve includere queste attività:
+Per pianificare il ripristino dello stato precedente, vedere la documentazione relativa alla progettazione e alla distribuzione della federazione per i dettagli della specifica distribuzione. Il processo deve includere queste attività:
 
 * Conversione dei domini gestiti in domini federati tramite il cmdlet **Convert-MSOLDomainToFederated**.
 * Se necessario, configurazione di altre regole per le attestazioni.
@@ -214,7 +215,7 @@ Includere gli elementi seguenti nella strategia di comunicazione:
    * Comunicazioni live, dei dirigenti o di altro tipo.
 * Designare chi personalizzerà e invierà le comunicazioni e quando questo dovrà avvenire.
 
-## <a name="implement-your-solution"></a>Implementare la tua soluzione
+## <a name="implement-your-solution"></a>Implementare la soluzione
 
 Ora che la soluzione è stata pianificata, è possibile implementarla. L'implementazione include quanto segue:
 
@@ -473,4 +474,4 @@ Per altre informazioni, vedere [Come è possibile rinnovare la chiave di decritt
 
 * Per informazioni, vedere [Concetti relativi alla progettazione per Azure AD Connect](plan-connect-design-concepts.md).
 * Scegliere l'[autenticazione appropriata](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
-* Informazioni sulle [topologie supportate](plan-connect-design-concepts.md) sono disponibili qui.
+* Vedere le informazioni sulle [topologie supportate](plan-connect-design-concepts.md).

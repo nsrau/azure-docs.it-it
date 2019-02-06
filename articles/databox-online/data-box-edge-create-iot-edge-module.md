@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465890"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094105"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Data Box Edge (Anteprima)
 
@@ -97,8 +97,8 @@ La procedura seguente consente di creare un progetto di modulo di IoT Edge basat
 Creare un modello di soluzione C# che è possibile personalizzare con il proprio codice.
 
 1. In Visual Studio Code selezionare **Visualizza > Riquadro comandi** per aprire il riquadro comandi di VS Code.
-2. Nel riquadro comandi immettere ed eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
-3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione:
+2. Nel riquadro comandi immettere ed eseguire il comando **Azure: Accedere** e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
+3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione:
 
     1. Selezionare la cartella in cui si vuole creare la soluzione.
     2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
@@ -143,7 +143,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > Prendere nota di `InputFolderPath` e `OutputFolderPath`. Sarà necessario specificare questi percorsi quando si distribuisce il modulo.

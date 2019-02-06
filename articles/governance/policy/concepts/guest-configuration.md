@@ -4,17 +4,17 @@ description: Informazioni su come Criteri di Azure usa la configurazione guest p
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856401"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295169"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -63,6 +63,16 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 | Windows|[Microsoft DSC (Desired State Configuration)](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
 
+### <a name="validation-frequency"></a>Frequenza di convalida
+
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti.
+Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti.
+Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest.
+Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer.
+In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager.
+Una valutazione on demand di Criteri recupera il valore più recente dal provider di risorse di configurazione guest,
+ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
+
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
@@ -90,7 +100,7 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
-Ogni controllo eseguito dalla configurazione guest richiede due definizioni di criteri, **DeployIfNotExists** e **AuditIfNotExists**. **DeployIfNotExists** viene usato per preparare la macchina virtuale con l'agente di configurazione guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
+Ogni controllo eseguito dalla configurazione guest richiede due definizioni di criteri, **DeployIfNotExists** e **Audit**. **DeployIfNotExists** viene usato per preparare la macchina virtuale con l'agente di configurazione guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
@@ -99,14 +109,14 @@ La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elemen
   - Installazione della versione più recente dell'estensione **Microsoft.GuestConfiguration**
   - Installazione degli [strumenti di convalida](#validation-tools) e delle dipendenze, se necessario
 
-Una volta che **DeployIfNotExists** è conforme, la definizione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione della configurazione assegnata è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
+Una volta che **DeployIfNotExists** è conforme, la definizione dei criteri **Audit** usa gli strumenti di convalida locali per determinare se l'assegnazione della configurazione assegnata è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Per ogni definizione di configurazione guest devono esistere entrambe le definizioni dei criteri **DeployIfNotExists** e **AuditIfNotExists**.
+> Per ogni definizione di configurazione guest devono esistere entrambe le definizioni dei criteri **DeployIfNotExists** e **Audit**.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **Audit** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

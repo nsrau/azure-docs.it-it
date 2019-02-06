@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438083"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098460"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console seriale per macchine virtuali per Linux
 
@@ -89,7 +89,7 @@ Regole del firewall non corrette | Accedere alla console seriale e correggere gl
 Danneggiamento/Controllo del file system | Accedere alla console seriale e recuperare il file system.
 Problemi di configurazione SSH/RDP | Accedere alla console seriale e modificare le impostazioni.
 Sistema di blocco della rete| Accedere alla console seriale dal portale di Azure per gestire il sistema.
-Interazione con bootloader | Accedere a GRUB dalla console seriale. Per altre informazioni, vedere [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).
+Interazione con bootloader | Riavviare la macchina virtuale all'interno del pannello della console seriale per accedere a GRUB nella VM Linux. Per altre informazioni, vedere [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Disabilitare la console seriale
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.

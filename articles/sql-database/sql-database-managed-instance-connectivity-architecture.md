@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536050"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245668"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Architettura della connettività di Istanza gestita di database SQL di Azure
 
@@ -68,7 +68,7 @@ Verrà ora esaminata in modo più approfondito l'architettura della connettivit�
 
 ![Diagramma dell'architettura della connettività del cluster virtuale](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-I client si connettono a Istanza gestita usando il nome host con formato `<mi_name>.<dns_zone>.database.windows.net`. Questo nome host viene risolto in un indirizzo IP privato, anche se è registrato nella zona DNS pubblica ed è risolvibile pubblicamente. Il valore `zone-id` viene generato automaticamente quando viene creato il cluster. Se un nuovo cluster ospita un'istanza gestita secondaria, ne condivide la zona con il cluster principale. Per altre informazioni, vedere [Auto-failover groups](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets) (Gruppi di failover automatico).
+I client si connettono a Istanza gestita usando il nome host con formato `<mi_name>.<dns_zone>.database.windows.net`. Questo nome host viene risolto in un indirizzo IP privato, anche se è registrato nella zona DNS pubblica ed è risolvibile pubblicamente. Il valore `zone-id` viene generato automaticamente quando viene creato il cluster. Se un nuovo cluster ospita un'istanza gestita secondaria, ne condivide l'ID zona con il cluster principale. Per altre informazioni, vedere [Auto-failover groups](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets) (Gruppi di failover automatico).
 
 L'indirizzo IP privato appartiene al servizio di bilanciamento del carico interno di Istanza gestita che indirizza il traffico al gateway di Istanza gestita. Poiché potenzialmente potrebbero venire eseguite più istanze gestite nello stesso cluster, il gateway usa il nome host di Istanza gestita per reindirizzare il traffico al servizio del motore SQL corretto.
 
@@ -98,7 +98,7 @@ Quando le connessioni vengono avviate dall'interno di Istanza gestita (backup, l
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie 
 
-| NOME       |Porta                        |Protocollo|Sorgente           |Destination|Azione|
+| NOME       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |Qualsiasi        |CONSENTI |
@@ -106,11 +106,14 @@ Quando le connessioni vengono avviate dall'interno di Istanza gestita (backup, l
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie 
 
-| NOME       |Porta          |Protocollo|Sorgente           |Destination|Azione|
+| NOME       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
+|management  |80, 443, 12000|TCP     |Qualsiasi              |Internet   |CONSENTI |
 |mi_subnet   |Qualsiasi           |Qualsiasi     |Qualsiasi              |MI SUBNET  |CONSENTI |
 
+  > [!Note]
+  > MI SUBNET fa riferimento all'intervallo di indirizzi IP della subnet nel formato 10.x.x.x/y. Questa informazione è reperibile nel portale di Azure (tramite le proprietà della subnet).
+  
   > [!Note]
   > Anche se le regole di sicurezza in ingresso obbligatorie consentono il traffico da _qualsiasi_ origine sulle porte 9000, 9003, 1438, 1440 e 1452, tali porte sono protette dal firewall incorporato. Questo [articolo](sql-database-managed-instance-find-management-endpoint-ip-address.md) illustra come è possibile individuare l'indirizzo IP degli endpoint di gestione e verificare le regole del firewall. 
   

@@ -1,5 +1,5 @@
 ---
-title: Come integrare i log di Azure Active Directory con Splunk tramite Monitoraggio di Azure (anteprima) | Microsoft Docs
+title: Trasmettere i log di Azure Active Directory a Splunk tramite Monitoraggio di Azure (anteprima) | Microsoft Docs
 description: Informazioni su come integrare i log di Azure Active Directory con Splunk tramite Monitoraggio di Azure (anteprima)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d12d220b7c648fed8fd2f0229b57a29fc775ff5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7bc687d339a3089b8285078f7ad23c172452c5dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809871"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183442"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Integrare i log di Azure AD con Splunk tramite Monitoraggio di Azure (anteprima)
 

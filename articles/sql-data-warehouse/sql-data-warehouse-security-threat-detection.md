@@ -2,20 +2,20 @@
 title: Rilevamento delle minacce - Azure SQL Data Warehouse | Microsoft Docs
 description: Configurare la funzionalità di rilevamento delle minacce ed esplorare eventi sospetti in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300935"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295418"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Funzionalità di rilevamento delle minacce in Azure SQL Data Warehouse
 Configurare la funzionalità di rilevamento delle minacce ed esplorare eventi sospetti in Azure SQL Data Warehouse.
@@ -44,7 +44,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Esaminare le attività anomale di data warehouse quando viene rilevato un evento sospetto
 1. Si riceverà una notifica tramite posta elettronica al rilevamento di attività di database anomale. <br/>
-   Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server e l'ora dell'evento. Verranno anche fornite informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
+    Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server e l'ora dell'evento. Verranno anche fornite informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
    
     ![Riquadro di spostamento](media/sql-data-warehouse-security-threat-detection/4_td_email.png)
 2. Nel messaggio di posta elettronica fare clic sul collegamento relativo al **log di controllo SQL di Azure** che avvierà il portale di Azure  visualizzando i record di controllo pertinenti intorno all'ora dell'evento sospetto.

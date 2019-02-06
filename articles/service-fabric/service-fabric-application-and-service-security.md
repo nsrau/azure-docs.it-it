@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207911"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097909"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
 Un'architettura di microservizi può apportare [numerosi vantaggi](service-fabric-overview-microservices.md). Gestire la sicurezza dei microservizi, tuttavia, richiede procedure complesse, diverse da quelle necessarie per gestire la sicurezza delle tradizionali applicazioni monolitiche. 
@@ -46,7 +46,7 @@ L'[autorizzazione di ASP.NET Core](/dotnet/standard/microservices-architecture/s
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Limitare e proteggere l'accesso con un gateway API
 Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. Un [gateway API](/azure/architecture/microservices/gateway) si trova tra i client e i servizi e costituisce il punto di ingresso per tutti i servizi forniti dall'applicazione. e funge da proxy inverso, indirizzando le richieste dai client ai servizi. Può anche eseguire varie attività trasversali come l'autenticazione e l'autorizzazione, la terminazione SSL e la limitazione della frequenza. Se non si distribuisce un gateway, i client devono inviare le richieste direttamente ai servizi front-end.
 
-In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'[applicazione ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), o un altro servizio progettato per l'ingresso del traffico, ad esempio [Træfik](https://docs.traefik.io/), [Hub eventi](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) o [Gestione API di Azure](https://docs.microsoft.com/azure/api-management).
+In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'[applicazione ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), o un altro servizio progettati per l'ingresso del traffico, ad esempio [Traefik](https://docs.traefik.io/), [Hub eventi](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) o [Gestione API di Azure](https://docs.microsoft.com/azure/api-management).
 
 Gestione API si integra direttamente in Service Fabric, consentendo di pubblicare API con un ampio set di regole di routing nei servizi Service Fabric back-end.  Consente inoltre di proteggere l'accesso ai servizi back-end, impedire attacchi DoS con la limitazione o verificare chiavi API, token JWT, certificati e altre credenziali. Per altre informazioni, vedere [Panoramica di Service Fabric con Gestione API di Azure](service-fabric-api-management-overview.md).
 

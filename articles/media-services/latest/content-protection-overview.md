@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828257"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911949"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -60,7 +60,9 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
     Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
 
-    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser appropriato per testare i vari DRM: Chrome, Opera o Firefox per Widevine, Microsoft Edge o Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
+    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. 
+    
+    È necessario scegliere il browser appropriato per testare i vari DRM: Chrome, Opera o Firefox per Widevine, Microsoft Edge o Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
 
 3. Secure Token Service (STS) che rilascia JSON Web Token (JWT) come token di accesso per l'accesso alle risorse back-end. È possibile usare i servizi di distribuzione di licenze di AMS come risorsa di back-end. Un STS deve definire gli elementi seguenti:
 
@@ -69,7 +71,7 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
   * Verifica simmetrica o asimmetrica per la verifica della firma
   * Supporto del rollover della chiave, se necessario
 
-    È possibile usare [questo strumento STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) per testare STS, che supporta tutti e 3 i tipi di chiave di verifica: simmetrico, asimmetrico o AAD con rollover della chiave. 
+    È possibile usare [questo strumento del ](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) per testare il servizio token di sicurezza, che supporta tutti e 3 i tipi di chiave di verifica: simmetrica, asimmetrica o Azure AD con rollover della chiave. 
 
 > [!NOTE]
 > È altamente consigliabile concentrarsi ed eseguire un test completo su ogni parte, come descritto in precedenza, prima di procedere alla parte successiva. Per testare il sistema di "protezione del contenuto", usare gli strumenti specificati nell'elenco precedente.  

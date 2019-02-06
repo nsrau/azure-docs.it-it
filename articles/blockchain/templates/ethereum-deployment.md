@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260534"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098339"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modello di soluzione Ethereum Proof-of-Work Consortium
 
 Il modello di soluzione Ethereum Proof-of-Work Consortium è stato progettato per rendere più facile e veloce la distribuzione e la configurazione di una rete Ethereum di consorzio multi-membro con conoscenze minime su Azure ed Ethereum.
 
-Con un numero limitato di input utente e una distribuzione tramite un singolo clic attraverso il portale Azure, ogni membro può eseguire il provisioning del proprio footprint di rete, utilizzando i servizi di calcolo, di networking e di storage di Microsoft Azure in tutto il mondo. Il footprint di rete di ogni membro è costituito da un insieme di nodi di transazione con carico bilanciato con cui un'applicazione o un utente può interagire per inviare transazioni, un insieme di nodi di mining per registrare le transazioni e un gateway VPN. Un successivo passaggio di connessione consente di collegare i gateway per creare una rete blockchain multi-membro completamente configurata.
+Con un modello di Azure Resource Manager, ogni membro può effettuare il provisioning del footprint della rete, usando i servizi di calcolo, di rete e di archiviazione di Microsoft Azure. Il footprint di rete di ogni membro è costituito da un set di nodi di transazione con carico bilanciato con cui un'applicazione o un utente interagisce per inviare transazioni, un set di nodi di mining per registrare le transazioni e un gateway VPN. Dopo la distribuzione, si connettono i gateway per creare una rete blockchain multimembro completamente configurata.
 
 ## <a name="about-blockchain"></a>Informazioni sulle blockchain
 
@@ -35,7 +35,7 @@ Un membro del consorzio può eseguire il provisioning di un massimo di cinque re
 
 Tutti i nodi hanno una versione stabile del client Go Ethereum (Geth) e sono configurati per essere nodi di mining. Se non è stato fornito un blocco originario personalizzato, tutti i nodi utilizzano lo stesso indirizzo Ethereum e la stessa coppia di chiavi protetta da password dell'account Ethereum. La passphrase Ethereum fornita viene utilizzata per generare l'account predefinito (coinbase) per ogni nodo di mining. Come nodi di minig, raccolgono i corrispettivi che vengono aggiunti a questo account.
 
-Il numero di nodi di mining per membro del consorzio dipende dalla dimensione complessiva della rete desiderata e dalla quantità di potenza hash dedicata a ciascun membro. Più grande è la rete, più nodi devono essere compromessi per ottenere un vantaggio sleale. Il modello supporta fino a 15 nodi di mining per regione di cui è stato eseguito il provisioning utilizzando il set di scalabilità di macchine virtuali.
+Il numero di nodi di mining per membro del consorzio dipende dalla dimensione complessiva della rete desiderata e dalla quantità di potenza hash dedicata a ciascun membro. Con reti più grandi è necessario compromettere più nodi per ottenere un vantaggio competitivo. Il modello supporta fino a 15 nodi di mining per regione di cui è stato eseguito il provisioning utilizzando il set di scalabilità di macchine virtuali.
 
 ### <a name="transaction-node-details"></a>Dettagli nodo di transazione
 
@@ -45,7 +45,7 @@ I nodi di transazione sono a carico bilanciato e hanno una disponibilità impost
 
 ### <a name="log-analytics-details"></a>Dettagli di Log Analytics
 
-Ogni distribuzione crea anche una nuova istanza di Log Analytics o può aggiungersi a un'istanza esistente. Ciò consente il monitoraggio di varie metriche delle prestazioni di ogni macchina virtuale che compone la rete distribuita.
+Ogni distribuzione crea anche una nuova istanza di Log Analytics o può aggiungersi a un'istanza esistente. Log Analytics consente il monitoraggio di varie metriche delle prestazioni di ogni macchina virtuale che compone la rete distribuita.
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -88,11 +88,9 @@ Sottoscrizione| La sottoscrizione sul quale eseguire la distribuzione della rete
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio.||ND
 Località| La regione di Azure per gruppo di risorse. ||ND
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-Il pannello di Operations Management Suite (OMS) consente di configurare una risorsa OMS per la rete. OMS raccoglierà e visualizzerà metriche e log utili dalla rete, fornendo la possibilità di controllare rapidamente lo stato della rete o i problemi di debug. La libera offerta di OMS non riuscirà correttamente una volta raggiunta la capacità.
+Operations Management Suite (OMS) consente di configurare una risorsa OMS per la rete. OMS raccoglierà e visualizzerà metriche e log utili dalla rete, fornendo la possibilità di controllare rapidamente lo stato della rete o i problemi di debug. La libera offerta di OMS non riuscirà correttamente una volta raggiunta la capacità.
 
 ![Creazione di una nuova OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,18 +141,18 @@ Nome parametro |DESCRIZIONE |Valori consentiti|Valori predefiniti
 ID ConsortiumMember|L'ID associato a ogni membro che partecipa alla rete di consorzio che consente di configurare spazi di indirizzi IP per evitare conflitti. <br /><br />L'ID membro deve essere univoco per tutte le organizzazioni della stessa rete. È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni.<br /><br />Prendere nota del valore di questo parametro in quanto è necessario condividerlo con gli altri membri aggiunti.|0-255
 ID di rete Ethereum|L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. Sebbene l'accesso alla rete sia limitato per i nodi di mining, si consiglia comunque di utilizzarne un gran numero per evitare collisioni.|5 - 999,999,999| 10101010
 Blocco originale personalizzato|Possibilità di generare automaticamente un blocco originale o di fornirne uno personalizzato.|Sì/No| No 
-Password dell'account Ethereum (blocco originale personalizzato = no)|La password dell'amministratore utilizzata per proteggere l'account Ethereum importato in ogni nodo. La password deve contenere i caratteri seguenti: un carattere maiuscolo, un carattere minuscolo e un numero.|12 o più caratteri|ND
-Passphrase chiave privata Ethereum (blocco originale personalizzato = no)|La passphrase utilizzata per generare la chiave privata ECC associata all'account Ethereum predefinito che viene generato. Non è necessario inserire esplicitamente una chiave privata pregenerata.<br /><br />Considerare una passphrase con sufficiente casualità per garantire una valida chiave privata e nessuna sovrapposizione con altri membri del consorzio. La passphrase deve contenere almeno i caratteri seguenti: un carattere maiuscolo, un carattere minuscolo e un numero.<br /><br />Nota: se due membri utilizzano la stessa passphrase, gli account generati saranno gli stessi. La stessa passphrase è utile se una singola organizzazione sta tentando la distribuzione in diverse regioni e desidera condividere un singolo account (coin base) in tutti i nodi.|12 o più caratteri|ND
+Password dell'account Ethereum (blocco originale personalizzato = no)|La password dell'amministratore utilizzata per proteggere l'account Ethereum importato in ogni nodo. La password deve contenere: un carattere maiuscolo, un carattere minuscolo e un numero.|12 o più caratteri|ND
+Passphrase chiave privata Ethereum (blocco originale personalizzato = no)|La passphrase utilizzata per generare la chiave privata ECC associata all'account Ethereum predefinito che viene generato. Non è necessario inserire esplicitamente una chiave privata pregenerata.<br /><br />Considerare una passphrase con sufficiente casualità per garantire una valida chiave privata e nessuna sovrapposizione con altri membri del consorzio. La passphrase deve contenere almeno: un carattere maiuscolo, un carattere minuscolo e un numero.<br /><br />Nota: se due membri utilizzano la stessa passphrase, gli account generati saranno gli stessi. La stessa passphrase è utile se una singola organizzazione sta tentando la distribuzione in diverse regioni e desidera condividere un singolo account (coin base) in tutti i nodi.|12 o più caratteri|ND
 Blocco originale (blocco originale personalizzato = sì)|Stringa JSON che rappresenta il blocco originale personalizzato. Maggiori dettagli sul formato del blocco originale sono disponibili qui, sotto Reti personalizzate.<br /><br />Un account Ethereum viene comunque creato quando si fornisce un blocco originale personalizzato. Considerare la possibilità di specificare un account Ethereum prefinanziato nel blocco originale per non aspettare l'attività di mining.|JSON valido |ND
 Chiave condivisa per la connessione|Una chiave condivisa per la connessione tra i gateway VNET.| 12 o più caratteri|ND
 URL di dati di consorzio|L'URL che indica i dati relativi alla configurazione del consorzio forniti dalla distribuzione di un altro membro. <br /><br />Queste informazioni sono fornite da un membro già connesso che ha una distribuzione client. Se è stato distribuito il resto della rete, l'URL è l'output di distribuzione del modello, denominato CONSORTIUM-DATA.||ND
-Gateway VNet a cui connettersi|Il percorso della risorsa del gateway VNet a cui connettersi.<br />Queste informazioni sono fornite da un membro già connesso che ha una distribuzione client. Se è stato distribuito il resto della rete, l'URL è nell'output di distribuzione del modello, denominato CONSORTIUM_MEMBER_GATEWAY_ID. Nota: è necessario usare l'URL dei dati del consorzio e la risorsa del gateway VNet dello stesso membro.||ND
+Gateway VNet a cui connettersi|Il percorso della risorsa del gateway VNet a cui connettersi.<br />Queste informazioni sono fornite da un membro già connesso che ha una distribuzione client. Se è stato distribuito il resto della rete, l'URL è nell'output di distribuzione del modello, denominato CONSORTIUM_MEMBER_GATEWAY_ID. Note: è necessario usare l'URL dei dati del consorzio e la risorsa del gateway VNet dello stesso membro.||ND
 Registrar degli endpoint di informazioni peer|Endpoint di informazioni peer fornito dalla distribuzione di un altro membro|Endpoint valido del primo membro del consorzio|ND
 Registrar della chiave di informazioni peer|Chiave primaria di informazioni peer fornito dalla distribuzione di un altro membro|Chiave primaria valida del primo membro del consorzio|ND
 
 ### <a name="summary"></a>Summary
 
-Fare clic su tramite il pannello di riepilogo per analizzare l'input specificato e per eseguire la convalida pre-distribuzione di base.
+Fare clic sul riepilogo per analizzare l'input specificato e per eseguire la convalida pre-distribuzione di base.
 
 ![Summary](./media/ethereum-deployment/summary.png)
 
@@ -264,7 +262,7 @@ Infine, eseguire la funzione con l'input appropriato:
 - **MyGatewayResourceId:** percorso della risorsa del gateway. Questo è il parametro dell'output di distribuzione del modello denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId:** percorso della risorsa del gateway del membro aggiunto. Questo è fornito dal membro aggiunto ed è il parametro di output di distribuzione del modello anche denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName:** nome per identificare la specifica connessione al gateway.
-- **SharedKey:** segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
+- **Chiave condivisa:** segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <percorso di risorsa del gateway del membro aggiunto> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -277,8 +275,8 @@ Eseguire lo script con l'input appropriato:
 - **MyGatewayResourceId:** percorso della risorsa del gateway. Questo è il parametro dell'output di distribuzione del modello denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId:** percorso della risorsa del gateway del membro aggiunto. Questo è fornito dal membro associato ed è il parametro di distribuzione del modello della loro distribuzione anche chiamato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName:** nome per identificare la specifica connessione al gateway.
-- **SharedKey:** segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
-- **Location:** area di Azure in cui viene distribuita la risorsa del gateway.
+- **Chiave condivisa:** segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
+- **Località:** area di Azure in cui viene distribuita la risorsa del gateway.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

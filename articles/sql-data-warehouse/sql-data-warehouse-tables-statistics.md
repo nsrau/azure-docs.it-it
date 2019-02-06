@@ -1,27 +1,27 @@
 ---
-title: Creazione e aggiornamento delle statistiche in Azure SQL Data Warehouse | Documentazione Microsoft
+title: Creazione e aggiornamento delle statistiche in Azure SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query su tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307463"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299555"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Creazione e aggiornamento delle statistiche nelle tabelle di Azure SQL Data Warehouse.
 Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
 
 ## <a name="why-use-statistics"></a>Perché usare le statistiche?
-Più informazioni sui dati sono a disposizione di Azure SQL Data Warehouse, più rapidamente può eseguire query. La raccolta di statistiche sui dati e il relativo caricamento in SQL Data Warehouse sono fra le operazioni piu importanti per ottimizzare le query. Questo è dovuto al fatto che Query Optimizer di SQL Data Warehouse si basa sul costo. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. Ad esempio, se Query Optimizer stima che il filtro per una particolare data nella query restituirà una riga, può scegliere un piano diverso rispetto a quando stima che la data selezionata restituirà 1 milione di righe.
+Più informazioni sui dati sono a disposizione di Azure SQL Data Warehouse, più rapidamente può eseguire query. La raccolta di statistiche sui dati e il relativo caricamento in SQL Data Warehouse sono fra le operazioni più importanti per ottimizzare le query. Questo è dovuto al fatto che Query Optimizer di SQL Data Warehouse si basa sul costo. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. Ad esempio, se Query Optimizer stima che il filtro per una particolare data nella query restituirà una riga, può scegliere un piano diverso rispetto a quando stima che la data selezionata restituirà 1 milione di righe.
 
 ## <a name="automatic-creation-of-statistics"></a>Creazione automatica di statistiche
 Quando l'opzione per la creazione automatica delle statistiche AUTO_CREATE_STATISTICS è attiva, SQL Data Warehouse analizza le query utente in ingresso in cui vengono create statistiche a colonna singola per le colonne con statistiche mancanti. Query Optimizer crea statistiche su colonne singole nel predicato della query o nella condizione di join per migliorare le stime di cardinalità del piano di query. Per impostazione predefinita, la creazione automatica di statistiche è attiva.
@@ -38,7 +38,7 @@ Nel caso in cui l'opzione AUTO_CREATE_STATISTICS non sia configurata, è consigl
 ALTER DATABASE <yourdatawarehousename> 
 SET AUTO_CREATE_STATISTICS ON
 ```
-Le istruzioni seguenti attivano la creazione automatica delle statistiche: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE ed EXPLAIN quando contengono un join o viene rilevata la presenza di un predicato. 
+Le istruzioni seguenti attivano la creazione automatica di statistiche: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE ed EXPLAIN quando contengono un join o viene rilevata la presenza di un predicato. 
 
 > [!NOTE]
 > L'opzione di creazione automatica di statistiche non crea statistiche in tabelle temporanee o esterne.
@@ -67,7 +67,7 @@ Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle st
 
 |||
 |-|-|
-| **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: giornaliera <br></br> Dopo il caricamento o la trasformazione dei dati |
+| **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: Giornaliera <br></br> Dopo il caricamento o la trasformazione dei dati |
 | **Campionamento** |  Inferiore a 1 miliardo di righe, usare il campionamento predefinito (20%) <br></br> Con più di 1 miliardo di righe, sono considerate ottimali le statistiche in un intervallo del 2% |
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
@@ -337,7 +337,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Per creare statistiche campionate su tutte le colonne 
 
-## <a name="examples-update-statistics"></a>Esempi: aggiornare le statistiche
+## <a name="examples-update-statistics"></a>Esempi: Aggiornare le statistiche
 Per aggiornare le statistiche, è possibile eseguire le operazioni seguenti:
 
 - Aggiornare un oggetto statistiche. Specificare il nome dell'oggetto statistiche che si desidera aggiornare.
@@ -416,7 +416,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

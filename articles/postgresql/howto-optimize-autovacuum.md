@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539790"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103395"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Ottimizzazione di processi autovacuum nel Database di Azure per il server PostgreSQL 
 Questo articolo descrive come ottimizzare efficacemente i processi autovacuum nel Database di Azure per PostgreSQL.

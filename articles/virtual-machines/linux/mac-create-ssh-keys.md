@@ -13,67 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e3d86d776f44c47a33bf075cf7f2140a3940e5e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928455"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300201"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
+
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Questo articolo illustra come generare rapidamente e usare una coppia di file di chiavi pubblica e privata per le macchine virtuali Linux. È possibile completare questa procedura con Azure Cloud Shell, un host Linux o macOS, il sottosistema Windows per Linux, e altri strumenti che supportano OpenSSH. 
 
-Per altri scenari ed esempi, vedere la [procedura dettagliata per creare coppie di chiavi SSH](create-ssh-keys-detailed.md).
+> [!NOTE]
+> Per impostazione predefinita, le macchine virtuali create con le chiavi SSH vengono configurate con le password disabilitate, aumentando considerevolmente la difficoltà degli attacchi basati su forza bruta per scoprire le password. 
+
+Per altri scenari ed esempi, vedere [Procedura dettagliata per creare coppie di chiavi SSH](create-ssh-keys-detailed.md).
 
 Per altri modi in cui generare e usare le chiavi SSH in un computer Windows, vedere [Come usare le chiavi SSH con Windows in Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
-Usare il comando `ssh-keygen` per creare file di chiavi SSH pubblica e privata, che per impostazione predefinita si trovano nella directory `~/.ssh`. È possibile specificare un percorso diverso e una passphrase aggiuntiva, ovvero una password per accedere al file di chiave privata, quando richiesto. Se nel percorso corrente è presente una coppia di chiavi SSH, questi file vengono sovrascritti.
+
+Usare il comando `ssh-keygen` per generare i file di chiave pubblica e privata SSH. Per impostazione predefinita, questi file vengono creati nella directory ~/.ssh. È possibile specificare un percorso diverso e una password facoltativa (*passphrase*) per accedere al file di chiave privata. Se nel percorso specificato è presente una coppia di chiavi SSH con lo stesso nome, questi file vengono sovrascritti.
+
+Il comando seguente crea una coppia di chiavi SSH usando la crittografia RSA e una lunghezza in bit pari a 2048:
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Se si usa l'[interfaccia della riga di comando di Azure 2.0](/cli/azure) per creare la VM, facoltativamente è possibile creare i file della chiave SSH pubblica e privata eseguendo il comando [az vm create](/cli/azure/vm#az_vm_create) con l'opzione `--generate-ssh-keys`. Le chiavi vengono archiviate nella directory ~/.ssh. Si noti che questa opzione di comando non implica la sovrascrittura delle chiavi se sono già presenti in tale percorso.
+Se si usa l'[interfaccia della riga di comando di Azure](/cli/azure) per creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create), facoltativamente è possibile creare i file della chiave SSH pubblica e privata usando con l'opzione `--generate-ssh-keys`. I file delle chiavi vengono archiviati nella directory ~/.ssh se non diversamente specificato con l'opzione `--ssh-dest-key-path`. L'opzione `--generate-ssh-keys` non sovrascriverà i file delle chiavi esistenti, ma restituirà un errore. Nel comando seguente sostituire *VMname* e *RGname* con i propri valori:
 
-## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Fornire la chiave SSH pubblica quando si distribuisce una VM
-Per creare una VM Linux che utilizza le chiavi SSH per l'autenticazione, specificare la chiave SSH pubblica quando si crea la macchina virtuale tramite il portale di Azure, l'interfaccia della riga di comando, modelli di Resource Manager o altri metodi:
+```azurecli
+az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+```
+
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornire una chiave SSH pubblica quando si distribuisce una macchina virtuale
+
+Per creare una macchina virtuale Linux che usa le chiavi SSH per l'autenticazione, specificare la chiave SSH pubblica quando si crea la macchina virtuale tramite il portale di Azure, l'interfaccia della riga di comando di Azure, i modelli di Azure Resource Manager o altri metodi:
 
 * [Creare una macchina virtuale Linux con il portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux usando un modello di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Se non si ha familiarità con il formato della chiave SSH pubblica, è possibile visualizzare la chiave pubblica eseguendo `cat` come segue, sostituendo `~/.ssh/id_rsa.pub` con il proprio percorso del file della chiave pubblica:
+Se non si ha familiarità con il formato di una chiave pubblica SSH, è possibile visualizzare la chiave pubblica con il comando `cat` seguente, sostituendo `~/.ssh/id_rsa.pub` con il percorso e il nome del proprio file di chiave pubblica, se necessario:
 
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
-Se si copiano e si incollano i contenuti del file di chiave pubblica da usare nel portale di Azure o in un modello di Resource Manager, verificare di non copiare spazi aggiuntivi. Ad esempio, se si usa macOS, è possibile eseguire il pipe del file della chiave pubblica, che per impostazione predefinita è `~/.ssh/id_rsa.pub`, a **pbcopy** per copiare i contenuti. Anche altri programmi Linux eseguono questa operazione, ad esempio **xclip**.
+Un valore di chiave pubblica tipico è simile all'esempio seguente:
 
-Per impostazione predefinita, la chiave pubblica che si inserisce nella VM Linux in Azure viene archiviata in `~/.ssh/id_rsa.pub`, a meno che il percorso non sia stato modificato in fase di creazione. Se si usa l'[interfaccia della riga di comando di Azure 2.0](/cli/azure) per creare la macchina virtuale con una chiave pubblica esistente, specificare il valore o il percorso della chiave pubblica eseguendo il comando [az vm create](/cli/azure/vm#az_vm_create) con l'opzione `--ssh-key-value`. 
+```
+ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
+```
 
-## <a name="ssh-to-your-vm"></a>Stabilire una connessione SSH alla VM
-Con la chiave pubblica distribuita nella VM di Azure e la chiave privata nel sistema locale, stabilire una connessione SSH alla VM usando l'indirizzo IP o il nome DNS della VM. Sostituire *azureuser* e *myvm.westus.cloudapp.azure.com* nel comando seguente con il nome utente dell'amministratore e il nome di dominio completo (o indirizzo IP):
+Se si copiano e si incollano i contenuti del file di chiave pubblica da usare nel portale di Azure o in un modello di Resource Manager, verificare di non copiare spazi finali. Per copiare una chiave pubblica in macOS, è possibile inviare tramite pipe il file della chiave pubblica a **pbcopy**. Analogamente in Linux è possibile inviare tramite pipe il file della chiave pubblica a programmi come **xclip**.
+
+Per impostazione predefinita, la chiave pubblica che si inserisce nella macchina virtuale Linux in Azure viene archiviata in ~/.ssh/id_rsa.pub, a meno che non sia stato specificato un percorso diverso in fase di creazione della coppia di chiavi. Per usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure) per creare la macchina virtuale con una chiave pubblica esistente, specificare il valore e, facoltativamente, il percorso della chiave pubblica usando il comando [az vm create](/cli/azure/vm#az-vm-create) con l'opzione `--ssh-key-value`. Nel comando seguente sostituire *VMname*, *RGname* e *keyFile* con i propri valori:
+
+```azurecli
+az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
+```
+
+## <a name="ssh-into-your-vm"></a>Usare SSH per connettersi alla macchina virtuale
+
+Con la chiave pubblica distribuita nella macchina virtuale di Azure e la chiave privata nel sistema locale, stabilire una connessione SSH alla macchina virtuale usando l'indirizzo IP o il nome DNS della macchina virtuale. Nel comando seguente sostituire *azureuser* e *myvm.westus.cloudapp.azure.com* con il nome utente dell'amministratore e il nome di dominio completo (o indirizzo IP):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Se è stata specificata una passphrase durante la creazione della coppia di chiavi, immettere la passphrase quando viene richiesta durante il processo di accesso. Il server viene aggiunto alla cartella `~/.ssh/known_hosts` e non verrà chiesto di connettersi di nuovo finché la chiave pubblica nella VM di Azure non viene modificata o il nome server viene rimosso da `~/.ssh/known_hosts`.
+Se è stata specificata una passphrase durante la creazione della coppia di chiavi, immettere tale passphrase quando viene richiesta durante il processo di accesso. La macchina virtuale viene aggiunta al file ~/.ssh/known_hosts e non verrà chiesto di connettersi di nuovo finché la chiave pubblica nella macchina virtuale di Azure non viene modificata o il nome server viene rimosso da ~/.ssh/known_hosts.
 
-Per impostazione predefinita, le VM create con le chiavi SSH vengono configurate con le password disabilitate, per rendere i tentativi di attacco basati su forza bruta per scoprire le password molto più costosi e quindi difficili. 
+Se la macchina virtuale usa i criteri di accesso JIT, è necessario richiedere l'accesso per connettersi alla macchina virtuale. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato la creazione di una coppia di chiavi SSH semplice per un utilizzo rapido. 
+* Per altre informazioni sull'uso di coppie di chiavi SSH, vedere [Procedura dettagliata per creare e gestire coppie di chiavi SSH](create-ssh-keys-detailed.md).
 
-* Se si necessita di ulteriore assistenza relativa al funzionamento della coppia di chiavi SSH, vedere [Procedura dettagliata per creare e gestire coppie di chiavi SSH](create-ssh-keys-detailed.md).
-
-* In caso di problemi con le connessioni SSH a una VM di Azure, vedere [Risolvere i problemi di connessione SSH a una macchina virtuale Linux di Azure](troubleshoot-ssh-connection.md).
-
-
+* In caso di difficoltà con le connessioni SSH alle macchine virtuali di Azure, vedere [Risolvere i problemi di connessione SSH a una macchina virtuale Linux di Azure](troubleshoot-ssh-connection.md).

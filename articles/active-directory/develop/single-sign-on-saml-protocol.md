@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424884"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098749"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -49,7 +49,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Version | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
+| Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
 | IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
@@ -165,7 +165,7 @@ Ad esempio, una risposta con elemento Issuer può avere un aspetto simile al seg
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>Status
+### <a name="status"></a>Stato
 
 L'elemento `Status` indica l'esito positivo o negativo dell'accesso. Include l'elemento `StatusCode` che contiene un codice o un set di codici annidati che rappresentano lo stato della richiesta. Include anche l'elemento `StatusMessage` che contiene i messaggi di errore personalizzati generati durante il processo di accesso.
 

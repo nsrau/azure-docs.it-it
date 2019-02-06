@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ae6c27091dd2938ec7410e78ae12dbe20509029
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 12a9602ecd61da5dc497790ecca6d8d6f874252e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167736"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184292"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -35,7 +35,7 @@ Un amministratore IT potrebbe usare l'[accesso condizionale di Azure AD](../cond
 
 Come ulteriore esempio, si potrebbero usare [località denominate](../conditional-access/location-condition.md) nell'accesso condizionale per configurare un set di paesi e aree geografiche da cui non si vuole consentire agli utenti di accedere ai loro tenant.
 
-![Località denominate](./media/conditional-access-exclusion/named-locations.png)
+![Posizioni specifiche](./media/conditional-access-exclusion/named-locations.png)
 
 In alcuni casi, tuttavia, gli utenti potrebbero avere un motivo legittimo per eseguire l'accesso da questi paesi bloccati. Ad esempio, potrebbero essere in viaggio in uno di questi paesi per motivi di lavoro o personali. In questo esempio, i criteri di accesso condizionale per bloccare questi paesi potrebbero avere un gruppo di sicurezza cloud dedicato per gli utenti esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
 
@@ -117,7 +117,7 @@ Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso 
 
     ![Creare una verifica di accesso](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2: Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2 Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
 
 Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso per gli utenti che usano l'autenticazione legacy e versioni precedenti del client. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 

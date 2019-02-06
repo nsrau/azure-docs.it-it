@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354196"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082198"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -45,7 +45,7 @@ La struttura di livello superiore per una definizione di pipeline è la seguente
 
 Nella tabella seguente vengono descritte le proprietà all'interno della definizione JSON della pipeline:
 
-| Proprietà | DESCRIZIONE | Obbligatoria
+| Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 | name | Nome della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Yes |
 | description |Testo descrittivo per lo scopo dell'attività o della pipeline | No  |
@@ -103,10 +103,10 @@ I criteri influiscono sul comportamento in fase di esecuzione di un'attività, i
 | Concorrenza |Integer <br/><br/>Valore massimo: 10 |1 |Numero di esecuzioni simultanee dell'attività.<br/><br/>Determina il numero di esecuzioni di attività parallele che possono verificarsi in sezioni diverse. Ad esempio, se un'attività deve passare attraverso grandi set di dati disponibili, con un valore di concorrenza maggiore che consente di velocizzare l'elaborazione dei dati. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina l'ordine delle sezioni di dati che vengono elaborate.<br/><br/>Ad esempio nel caso in cui si abbiano 2 sezioni, una alle 16.00 e l'altra alle 17.00, ed entrambe siano in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, viene elaborata per prima la sezione delle 17:00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione delle 16:00. |
 | retry |Integer<br/><br/>Valore massimo: 10 |0 |Numero di tentativi prima che l'elaborazione dei dati per la sezione sia contrassegnata come errore. L'esecuzione dell’attività per una sezione di dati viene ritentata fino al numero di tentativi specificato. Il tentativo viene eseguito appena possibile dopo l'errore. |
-| timeout |Intervallo di tempo |00:00:00 |Timeout per l'attività. Esempio: 00:10:00 (implica un timeout di 10 minuti)<br/><br/>Se un valore non è specificato o è 0, il timeout è infinito.<br/><br/>Se il tempo di elaborazione dei dati in una sezione supera il valore di timeout, viene annullato e il sistema prova a ripetere l'elaborazione. Il numero di tentativi dipende dalla proprietà retry. Quando si verifica il timeout, lo stato viene impostato su TimedOut. |
-| delay |Intervallo di tempo |00:00:00 |Specificare il ritardo prima che abbia inizio l'elaborazione dei dati della sezione.<br/><br/>L'esecuzione dell'attività per una sezione di dati viene avviata non appena il ritardo supera il tempo di esecuzione previsto.<br/><br/>Esempio: 00:10:00 (implica un ritardo di 10 minuti) |
+| timeout |TimeSpan |00:00:00 |Timeout per l'attività. Esempio: 00:10:00 (implica un timeout di 10 minuti)<br/><br/>Se un valore non è specificato o è 0, il timeout è infinito.<br/><br/>Se il tempo di elaborazione dei dati in una sezione supera il valore di timeout, viene annullato e il sistema prova a ripetere l'elaborazione. Il numero di tentativi dipende dalla proprietà retry. Quando si verifica il timeout, lo stato viene impostato su TimedOut. |
+| delay |TimeSpan |00:00:00 |Specificare il ritardo prima che abbia inizio l'elaborazione dei dati della sezione.<br/><br/>L'esecuzione dell'attività per una sezione di dati viene avviata non appena il ritardo supera il tempo di esecuzione previsto.<br/><br/>Esempio: 00:10:00 (implica un ritardo di 10 minuti) |
 | longRetry |Integer<br/><br/>Valore massimo: 10 |1 |Numero di tentativi estesi prima che l'esecuzione della sezione dia esito negativo.<br/><br/>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se si specificano sia Retry che longRetry, ogni tentativo longRetry include tentativi Retry e il numero massimo di tentativi corrisponde a Retry * longRetry.<br/><br/>Ad esempio, se si hanno le seguenti impostazioni nel criterio attività:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>si presume che la sezione da eseguire sia solo una, con stato Waiting, e che l'esecuzione dell'attività abbia ogni volta esito negativo. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i 3 tentativi sulla sezione, lo stato sarà LongRetry.<br/><br/>Dopo un'ora (vale a dire il valore di longRetryInteval), verrà eseguita un'altra serie di 3 tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Quindi, sono stati eseguiti 6 tentativi.<br/><br/>Se un'esecuzione ha esito positivo, lo stato della sezione sarà Ready e non saranno ripetuti altri tentativi.<br/><br/>longRetry può essere usato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l'ambiente complessivo in cui si verifica l'elaborazione dei dati è debole. In tali casi, l'esecuzione di tentativi consecutivi potrebbe non essere utile, mentre l'applicazione di un intervallo consente di ottenere il risultato voluto.<br/><br/>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati comportano altri problemi sistemici. |
-| longRetryInterval |Intervallo di tempo |00:00:00 |Il ritardo tra tentativi longRetry |
+| longRetryInterval |TimeSpan |00:00:00 |Il ritardo tra tentativi longRetry |
 
 ### <a name="typeproperties-section"></a>sezione typeProperties
 La sezione typeProperties è diversa per ogni tipo di attività. Le attività di trasformazione dispongono delle sole proprietà del tipo. Vedere la sezione [Attività di trasformazione dei dati](#data-transformation-activities) in questo articolo per esempi JSON che definiscono le attività di trasformazione in una pipeline.
@@ -243,7 +243,7 @@ La struttura di livello superiore per una definizione di servizio collegato è l
 
 Nella tabella seguente vengono descritte le proprietà all'interno della definizione JSON dell'attività:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | name | Nome del servizio collegato. | Yes |
 | proprietà - tipo | Tipo di servizio collegato. Ad esempio:  Archiviazione di Azure, database SQL di Azure. |
@@ -282,7 +282,7 @@ Un set di dati in Azure Data Factory viene definito come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Yes |ND |
 | type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio: AzureBlob o AzureSqlTable. Vedere la sezione [Archivi dati](#data-stores) per tutti gli archivi dati e i tipi di set di dati supportati da Data Factory. |
@@ -294,7 +294,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 Ogni colonna della sezione **struttura** contiene le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name |Nome della colonna. |Yes |
 | type |Tipo di dati della colonna.  |No  |
@@ -314,7 +314,7 @@ structure:
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione **availability**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Yes |ND |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b>: se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Yes |ND |
@@ -411,7 +411,7 @@ Sono disponibili due tipi di servizi collegati: servizio collegato di Archiviazi
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Per collegare un account di Archiviazione di Azure a una data factory tramite la **chiave dell'account**, creare un servizio collegato di Archiviazione di Azure. Per definire un servizio collegato di Archiviazione di Azure, impostare il **tipo** di servizio collegato su **AzureStorage**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Yes |
 
@@ -432,7 +432,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 #### <a name="azure-storage-sas-linked-service"></a>Servizio collegato di firma di accesso condiviso Archiviazione di Azure
 Il servizio collegato di firma di accesso condiviso Archiviazione di Azure consente di collegare un account di Archiviazione di Azure a Data factory di Azure tramite una firma di accesso condiviso. Offre a Data factory un accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche (BLOB/contenitore) nella risorsa di archiviazione. Per collegare un account di Archiviazione di Azure a una data factory tramite la firma di accesso condiviso, creare un servizio collegato di firma di accesso condiviso Archiviazione di Azure. Per definire un Servizio collegato di firma di accesso condiviso Archiviazione di Azure, impostare il **tipo** del servizio collegato su **AzureStorageSas**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella. |Yes |
 
@@ -455,7 +455,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione B
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati BLOB di Azure, impostare il **tipo** del set di dati su **AzureBlob**. Specificare quindi le proprietà seguenti specifiche del BLOB di Azure nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Yes |
 | fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
@@ -588,7 +588,7 @@ Per altre informazioni, vedere [Connettore BLOB di Azure](data-factory-azure-blo
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Azure Data Lake Store, impostare il tipo di servizio collegato su **AzureDataLakeStore** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Yes |
 | dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. Ha il formato seguente: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Yes |
@@ -597,7 +597,7 @@ Per definire un servizio collegato di Azure Data Lake Store, impostare il tipo d
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì (per l'autenticazione di un'entità servizio) |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. | Sì (per l'autenticazione di un'entità servizio) |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì (per l'autenticazione di un'entità servizio) |
-| autorizzazione | Fare clic sul pulsante **Autorizza** nell'**editor di Data Factory** e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì (per l'autenticazione basata su credenziali utente)|
+| authorization | Fare clic sul pulsante **Autorizza** nell'**editor di Data Factory** e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì (per l'autenticazione basata su credenziali utente)|
 | sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì (per l'autenticazione basata su credenziali utente) |
 
 #### <a name="example-using-service-principal-authentication"></a>Esempio: uso dell'autenticazione basata su entità servizio
@@ -638,7 +638,7 @@ Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-a
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati Azure Data Lake Store, impostare il **tipo** del set di dati **AzureDataLakeStore**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | folderPath |Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. |Yes |
 | fileName |Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul file specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i file in folderPath per il set di dati di input.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
@@ -934,7 +934,7 @@ Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-fact
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. |Yes |
 
@@ -956,7 +956,7 @@ Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati del Database SQL di Azure, impostare il **tipo** di set di dati su **AzureSqlTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o vista nell'istanza di database SQL di Azure a cui fa riferimento il servizio collegato. |Yes |
 
@@ -1105,7 +1105,7 @@ Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Azure SQL Data Warehouse, impostare il **tipo** di servizio collegato su **AzureSqlDW**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Yes |
 
@@ -1130,7 +1130,7 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Azure SQL Data Warehouse, impostare il **tipo** di set di dati su **AzureSqlDWTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o della visualizzazione nell'istanza del database SQL Data Warehouse di Azure a cui fa riferimento il servizio collegato. |Yes |
 
@@ -1284,7 +1284,7 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Ricerca di Azure, impostare il **tipo** di servizio collegato su **AzureSearch** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | URL | URL del servizio Ricerca di Azure. | Yes |
 | key | Chiave amministratore del servizio Ricerca di Azure. | Yes |
@@ -1309,7 +1309,7 @@ Per altre informazioni, vedere [Connettore Ricerca di Azure](data-factory-azure-
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Ricerca di Azure, impostare il **tipo** di set di dati su **AzureSearchIndex** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Yes |
 | indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
@@ -1396,7 +1396,7 @@ Sono disponibili due tipi di servizi collegati: servizio collegato di Archiviazi
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Per collegare un account di Archiviazione di Azure a una data factory tramite la **chiave dell'account**, creare un servizio collegato di Archiviazione di Azure. Per definire un servizio collegato di Archiviazione di Azure, impostare il **tipo** di servizio collegato su **AzureStorage**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorage** |Yes |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Yes |
@@ -1418,7 +1418,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 #### <a name="azure-storage-sas-linked-service"></a>Servizio collegato di firma di accesso condiviso Archiviazione di Azure
 Il servizio collegato di firma di accesso condiviso Archiviazione di Azure consente di collegare un account di Archiviazione di Azure a Data factory di Azure tramite una firma di accesso condiviso. Offre a Data factory un accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche (BLOB/contenitore) nella risorsa di archiviazione. Per collegare un account di Archiviazione di Azure a una data factory tramite la firma di accesso condiviso, creare un servizio collegato di firma di accesso condiviso Archiviazione di Azure. Per definire un Servizio collegato di firma di accesso condiviso Archiviazione di Azure, impostare il **tipo** del servizio collegato su **AzureStorageSas**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorageSas** |Yes |
 | sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella. |Yes |
@@ -1442,7 +1442,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Archiviazione tabelle di Azure, impostare il **tipo** di set di dati su **AzureTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database di tabelle di Azure a cui fa riferimento il servizio collegato. |Sì. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 
@@ -1590,7 +1590,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Amazon Redshift, impostare il **tipo** di servizio collegato su **AmazonRedshift** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Indirizzo IP o nome host del server Amazon Redshift. |Yes |
 | port |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (valore predefinito: 5439) |
@@ -1621,7 +1621,7 @@ Per altre informazioni, vedere [Connettore Amazon Redshift](#data-factory-amazon
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di AmazonRedshift, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -1702,7 +1702,7 @@ Per altre informazioni, vedere [Connettore Amazon Redshift](#data-factory-amazon
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di IBM DB2, impostare il **tipo** di servizio collegato su **OnPremisesDB2** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server DB2. |Yes |
 | database |Nome del database DB2. |Yes |
@@ -1735,7 +1735,7 @@ Per altre informazioni, vedere [Connettore IBM DB2](#data-factory-onprem-db2-con
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di DB2, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database DB2 a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata)
 
@@ -1818,7 +1818,7 @@ Per altre informazioni, vedere [Connettore IBM DB2](#data-factory-onprem-db2-con
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di MySQL, impostare il **tipo** di servizio collegato su **OnPremisesMySql** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server MySQL. |Yes |
 | database |Nome del database MySQL. |Yes |
@@ -1853,7 +1853,7 @@ Per altre informazioni, vedere [Connettore MySQL](data-factory-onprem-mysql-conn
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di MySQL, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -1940,7 +1940,7 @@ Per altre informazioni, vedere [Connettore MySQL](data-factory-onprem-mysql-conn
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Oracle, impostare il **tipo** di servizio collegato su **OnPremisesOracle** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | driverType | Specificare il driver da usare per copiare i dati da/verso il database Oracle. I valori consentiti sono **Microsoft** o **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere la sezione [Versione e installazione supportate](#supported-versions-and-installation). | No  |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Yes |
@@ -1966,7 +1966,7 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Oracle, impostare il **tipo** di set di dati su **OracleTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Oracle a cui fa riferimento il servizio collegato. |No, se **oracleReaderQuery** di **OracleSource** è specificato |
 
@@ -2109,7 +2109,7 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di PostgreSQL, impostare il **tipo** di servizio collegato su **OnPremisesPostgreSql** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server PostgreSQL. |Yes |
 | database |Nome del database PostgreSQL. |Yes |
@@ -2143,7 +2143,7 @@ Per altre informazioni, vedere [Connettore PostgreSQL](data-factory-onprem-postg
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di PostgreSQL, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database PostgreSQL a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -2450,7 +2450,7 @@ Per altre informazioni, vedere [Connettore SAP HANA](data-factory-sap-hana-conne
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SQL Server.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesSqlServer**. |Yes |
 | connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |Yes |
@@ -2503,7 +2503,7 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di SQL Server, impostare il **tipo** di set di dati su **SqlServerTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o vista nell'istanza del database di SQL Server a cui fa riferimento il servizio collegato. |Yes |
 
@@ -2667,7 +2667,7 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Sybase, impostare il **tipo** di servizio collegato su **OnPremisesSybase** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server Sybase. |Yes |
 | database |Nome del database Sybase. |Yes |
@@ -2701,7 +2701,7 @@ Per altre informazioni, vedere [Connettore Sybase](data-factory-onprem-sybase-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Sybase, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -2787,7 +2787,7 @@ Per altre informazioni, vedere [Connettore Sybase](data-factory-onprem-sybase-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Teradata, impostare il **tipo** di servizio collegato su **OnPremisesTeradata** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server Teradata. |Yes |
 | authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
@@ -2901,7 +2901,7 @@ Per altre informazioni, vedere [Connettore Teradata](data-factory-onprem-teradat
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Cassandra, impostare il **tipo** di servizio collegato su **OnPremisesCassandra** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Yes |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (valore predefinito: 9042) |
@@ -2935,7 +2935,7 @@ Per altre informazioni, vedere [Connettore Cassandra](data-factory-onprem-cassan
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Cassandra, impostare il **tipo** di set di dati su **Table**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
 | tableName |Nome della tabella in un database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
@@ -3028,7 +3028,7 @@ Per altre informazioni, vedere [Connettore Cassandra](data-factory-onprem-cassan
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di MongoDB, impostare il **tipo** di servizio collegato su **OnPremisesMongoDB** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Indirizzo IP o nome host del server MongoDB. |Yes |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo (valore predefinito: 27017) |
@@ -3066,7 +3066,7 @@ Per altre informazioni, vedere [Connettore MongoDB](data-factory-on-premises-mon
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati MongoDB, impostare il **tipo** del set di dati su **DbCollection**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | collectionName |Nome della raccolta nel database MongoDB. |Yes |
 
@@ -3313,7 +3313,7 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 ### <a name="linked-service"></a>Servizio collegato
 È possibile collegare un file system locale a una data factory di Azure con il servizio collegato del **file server locale**. La tabella seguente include le descrizioni degli elementi JSON specifici del servizio collegato del file server locale.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Yes |
 | host |Specifica il percorso radice della cartella da copiare. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) . |Yes |
@@ -3367,7 +3367,7 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di File System, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Specifica il percorso secondario della cartella. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Yes |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
@@ -3546,7 +3546,7 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di FTP, impostare il **tipo** di servizio collegato su **FtpServer** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | host |Nome o indirizzo IP del server FTP |Yes |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione |Yes |Di base, anonimo |
@@ -3632,7 +3632,7 @@ Per altre informazioni, vedere [Connettore FTP](data-factory-ftp-connector.md#li
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di FTP, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Yes
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
@@ -3724,7 +3724,7 @@ Per altre informazioni, vedere [Connettore FTP](data-factory-ftp-connector.md#co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di HDFS, impostare il **tipo** di servizio collegato su **Hdfs** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **Hdfs** |Yes |
 | Url |URL di HDFS |Yes |
@@ -3774,7 +3774,7 @@ Per altre informazioni, vedere [Connettore HDFS](#data-factory-hdfs-connector.md
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di HDFS, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso della cartella. Esempio: `myfolder`<br/><br/>Usare il carattere di escape "\" per i caratteri speciali nella stringa. Ad esempio: per cartella\sottocartella specificare cartella\\\\sottocartella e per d:\cartellaesempio specificare l'unità d:\\\\cartellaesempio.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Yes |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
@@ -3860,7 +3860,7 @@ Per altre informazioni, vedere [Connettore HDFS](#data-factory-hdfs-connector.md
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di SFTP, impostare il **tipo** di servizio collegato su **Sftp** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- | --- |
 | host | Nome o indirizzo IP del server SFTP. |Yes |
 | port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è: 21 |No  |
@@ -3874,7 +3874,7 @@ Per definire un servizio collegato di SFTP, impostare il **tipo** di servizio co
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- | --- |
 | username | Utente che ha accesso al server SFTP. |Yes |
 | password | Password per l'utente (nome utente). | Yes |
@@ -3923,7 +3923,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `SshPublicKey` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- | --- |
 | username |Utente che ha accesso al server SFTP |Yes |
 | privateKeyPath | Specificare un percorso assoluto al file di chiave privato a cui il gateway può accedere. | Specificare `privateKeyPath` o `privateKeyContent`. <br><br> Applicare solo se si copiano i dati da un server SFTP locale. |
@@ -3974,7 +3974,7 @@ Per altre informazioni, vedere [Connettore SFTP](data-factory-sftp-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di SFTP, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Yes |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
@@ -4067,7 +4067,7 @@ Per altre informazioni, vedere [Connettore SFTP](data-factory-sftp-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di HTTP, impostare il **tipo** di servizio collegato su **Http** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | URL | URL di base al server Web | Yes |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono i seguenti: **Anonymous**, **Basic**, **Digest**, **Windows** o **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Yes |
@@ -4078,7 +4078,7 @@ Per definire un servizio collegato di HTTP, impostare il **tipo** di servizio co
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Esempio: Usando l'autenticazione Basic, Digest o Windows
 Impostare `authenticationType` come `Basic`, `Digest`, o `Windows` e specificare le proprietà seguenti oltre a quelle generiche del connettore HTTP illustrate in precedenza:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | username | Nome utente per accedere all'endpoint HTTP. | Yes |
 | password | Password per l'utente (nome utente). | Yes |
@@ -4102,7 +4102,7 @@ Impostare `authenticationType` come `Basic`, `Digest`, o `Windows` e specificare
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `ClientCertificate` e specificare le proprietà seguenti oltre a quelle generiche del connettore HTTP introdotte in precedenza:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | embeddedCertData | Contenuto con codifica Base 64 dei dati binari del file di scambio di informazioni personali (PFX, Personal Information Exchange). | Specificare `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Applicare solo se si copiano i dati da un'origine HTTP locale. | Specificare `embeddedCertData` o `certThumbprint`. |
@@ -4155,7 +4155,7 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di HTTP, impostare il **tipo** di set di dati su **Http**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [unzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md), ad esempio: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | No  |
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. |  No. Il valore predefinito è `GET`. |
@@ -4211,7 +4211,7 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="http-source-in-copy-activity"></a>Origine HTTP nell'attività di copia
 Se si copiano dati da un'origine HTTP, impostare il **tipo di origine** dell'attività di copia su **HttpSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. |  No. Valore predefinito: 00:01:40 |
 
@@ -4265,7 +4265,7 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di OData, impostare il **tipo** di servizio collegato su **OData** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | URL |URL del servizio OData. |Yes |
 | authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Yes |
@@ -4345,7 +4345,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di OData, impostare il **tipo** di set di dati su **ODataResource**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | path |Percorso della risorsa OData |No  |
 
@@ -4435,7 +4435,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di ODBC, impostare il **tipo** di servizio collegato su **OnPremisesOdbc** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |La parte delle credenziali non di accesso della stringa di connessione e una credenziale crittografata facoltativa. Vedere gli esempi nelle sezioni seguenti. |Yes |
 | credential |La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |No  |
@@ -4500,7 +4500,7 @@ Per altre informazioni, vedere [Connettore ODBC](data-factory-odbc-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di ODBC, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'archivio dati ODBC. |Yes |
 
@@ -4589,7 +4589,7 @@ Per altre informazioni, vedere [Connettore ODBC](data-factory-odbc-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Salesforce, impostare il **tipo** di servizio collegato su **Salesforce** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore predefinito è "https://login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No  |
 | username |Specificare un nome utente per l'account utente. |Sì |
@@ -4617,7 +4617,7 @@ Per altre informazioni, vedere [Connettore Salesforce](data-factory-salesforce-c
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Salesforce, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella in Salesforce. |No, se è specificata una **query** di **RelationalSource** |
 
@@ -4712,7 +4712,7 @@ Per altre informazioni, vedere [Connettore Salesforce](data-factory-salesforce-c
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato Web, impostare il **tipo** di servizio collegato su **Web** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | Url |URL dell'origine Web |Yes |
 | authenticationType |Anonimo. |Yes |
@@ -4739,7 +4739,7 @@ Per altre informazioni, vedere [Connettore Tabella Web](data-factory-web-table-c
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati Web, impostare il **tipo** di set di dati su **WebTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Yes |
 | path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
@@ -4832,7 +4832,7 @@ Il servizio Data factory di Azure può creare automaticamente un cluster HDInsig
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure per un servizio collegato HDInsight su richiesta.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsightOnDemand**. |Yes |
 | clusterSize |Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard_D3. |Yes |
@@ -4870,7 +4870,7 @@ Per altre informazioni, vedere l'articolo relativo ai [servizi collegati di calc
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato HDInsight di Azure.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsight**. |Yes |
 | clusterUri |L'URI del cluster HDInsight. |Yes |
@@ -4903,7 +4903,7 @@ Per le versioni dei cluster di HDInsight, vedere le [versioni supportate di HDIn
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato Azure Batch.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **AzureBatch**. |Yes |
 | accountName |Nome dell'account Azure Batch. |Yes |
@@ -4935,9 +4935,9 @@ Creare un servizio collegato di Azure Machine Learning per registrare un endpoin
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato Azure Machine Learning.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **AzureML**. |Yes |
+| Type |La proprietà type deve essere impostata su: **AzureML**. |Yes |
 | mlEndpoint |L’URL del batch punteggio. |Yes |
 | apiKey |Modello dell'area di lavoro pubblicato di API. |Yes |
 
@@ -4963,9 +4963,9 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di un servizio collegato Azure Data Lake Analytics.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Yes |
+| Type |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Yes |
 | accountName |Nome dell'account di Azure Data Lake Analytics. |Yes |
 | dataLakeAnalyticsUri |URI di Azure Data Lake Analytics. |No  |
 | autorizzazione |Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. |Yes |
@@ -5000,7 +5000,7 @@ Si crea un servizio collegato di Azure SQL e lo si utilizza con l’ [Attività 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. |Yes |
 
@@ -5026,7 +5026,7 @@ Si crea un servizio collegato di Azure SQL Data Warehouse e lo si usa con l' [at
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Azure SQL Data Warehouse, impostare il **tipo** di servizio collegato su **AzureSqlDW**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Yes |
 
@@ -5054,7 +5054,7 @@ Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di sto
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SQL Server.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesSqlServer**. |Yes |
 | connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |Yes |
@@ -5123,7 +5123,7 @@ Attività | DESCRIZIONE
 ## <a name="hdinsight-hive-activity"></a>Attività Hive di HDInsight
 In una definizione JSON di attività Hive è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightHive**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando si imposta il tipo di attività HDInsightHive vengono le proprietà seguenti sono supportate nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | script |Specificare lo script Hive inline |No  |
 | script path |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
@@ -5169,7 +5169,7 @@ Per altre informazioni, vedere [Attività Hive](data-factory-hive-activity.md).
 ## <a name="hdinsight-pig-activity"></a>Attività Pig di HDInsight
 In una definizione JSON di attività Pig è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightPig**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightPig, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | script |Specificare lo script Pig inline |No  |
 | script path |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
@@ -5221,7 +5221,7 @@ Per altre informazioni, vedere [Attività Pig](#data-factory-pig-activity.md).
 ## <a name="hdinsight-mapreduce-activity"></a>Attività MapReduce di HDInsight
 In una definizione JSON di attività MapReduce è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightMapReduce**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightMapReduce, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | jarLinkedService | Nome del servizio collegato di Archiviazione di Azure che contiene il file JAR. | Yes |
 | jarFilePath | Percorso del file JAR nell'archiviazione di Azure. | Yes |
@@ -5343,7 +5343,7 @@ Per altre informazioni, vedere l'argomento relativo all'[attività Hadoop Stream
 ## <a name="hdinsight-spark-activity"></a>Attività Spark di HDInsight
 In una definizione JSON di attività Spark è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightSpark**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightSpark, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | rootPath | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. | Yes |
 | entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Yes |
@@ -5387,7 +5387,7 @@ Tenere presente quanto segue:
 - La proprietà **type** è impostata su **HDInsightSpark**.
 - Il **rootPath** è impostato su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB di Azure e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB di Azure è quello associato al cluster Spark. È possibile caricare il file in un archivio di Azure diverso. In tal caso, creare un servizio collegato Archiviazione di Azure per collegare l'account di archiviazione alla data factory. Quindi, specificare il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService**. Vedere [Proprietà dell'attività Spark](#spark-activity-properties) per informazioni dettagliate su questa e altre proprietà supportate dall'attività Spark.
 - La proprietà **entryFilePath** è impostata su **test.py**, ovvero il file python.
-- La proprietà **getDebugInfo** è impostata su **Sempre** e indica che i file di log vengono sempre generati (con esito positivo o negativo).  
+- La proprietà **getDebugInfo** è impostata su **Sempre** e indica che i file di log vengono sempre generati (con esito positivo o negativo).
 
     > [!IMPORTANT]
     > Non è consigliabile impostare questa proprietà su Sempre in un ambiente di produzione a meno che non si stia tentando di risolvere un problema.
@@ -5396,13 +5396,13 @@ Tenere presente quanto segue:
 Per altre informazioni sull'attività, vedere l'argomento relativo all'[attività Spark](data-factory-spark.md).
 
 ## <a name="machine-learning-batch-execution-activity"></a>Attività di esecuzione batch di Machine Learning
-In una definizione JSON di attività di esecuzione batch di Machine Learning è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È necessario creare innanzitutto un servizio collegato di Azure Machine Learning e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+In una definizione JSON di Attività di esecuzione batch di Azure Machine Learning Studio è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È necessario creare innanzitutto un servizio collegato di Azure Machine Learning e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-Proprietà | DESCRIZIONE | Obbligatoria
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
-webServiceInput | Il set di dati da passare come input del servizio Web di Azure Machine Learning. Questo set di dati deve essere incluso anche nella sezione inputs dell'attività. |Usare webServiceInput o webServiceInputs. |
-webServiceInputs | I set di dati specifici da passare come input del servizio Web di Azure Machine Learning. Se il servizio Web accetta più input, usare la proprietà webServiceInputs invece di webServiceInput. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività. | Usare webServiceInput o webServiceInputs. |
-webServiceOutputs | I set di dati assegnati come output del servizio Web Azure Machine Learning. Il servizio Web restituisce i dati di output in questo set di dati. | Yes |
+webServiceInput | Il set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Questo set di dati deve essere incluso anche nella sezione inputs dell'attività. |Usare webServiceInput o webServiceInputs. |
+webServiceInputs | Specificare i set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Se il servizio Web accetta più input, usare la proprietà webServiceInputs invece di webServiceInput. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività. | Usare webServiceInput o webServiceInputs. |
+webServiceOutputs | I set di dati assegnati come output del servizio Web di Azure Machine Learning Studio. Il servizio Web restituisce i dati di output in questo set di dati. | Yes |
 globalParameters | Specificare i valori dei parametri del servizio Web in questa sezione. | No  |
 
 ### <a name="json-example"></a>Esempio di JSON
@@ -5452,15 +5452,15 @@ Nell'esempio JSON, il servizio Web di Azure Machine Learning distribuito usa un 
 > Possono essere passati come parametri per il servizio Web solo input e output dell'attività AzureMLBatchExecution. Nel precedente snippet JSON, ad esempio, MLSqlInput è un input per l'attività AzureMLBatchExecution e viene passato come input al servizio Web tramite il parametro webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Attività della risorsa di aggiornamento di Machine Learning
-In una definizione JSON di attività della risorsa di aggiornamento di Machine Learning è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È necessario creare innanzitutto un servizio collegato di Azure Machine Learning e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+In una definizione JSON di attività della risorsa di aggiornamento di Azure Machine Learning Studio è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È necessario creare innanzitutto un servizio collegato di Azure Machine Learning e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-Proprietà | DESCRIZIONE | Obbligatoria
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 trainedModelName | Nome del modello sottoposto nuovamente a training. | Yes |
 trainedModelDatasetName | Set di dati che punta al file iLearner restituito dall'operazione di ripetizione del training. | Yes |
 
 ### <a name="json-example"></a>Esempio di JSON
-La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
+La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure Machine Learning Studio accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
 
 ```json
@@ -5521,7 +5521,7 @@ La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResourc
 ## <a name="data-lake-analytics-u-sql-activity"></a>Attività U-SQL di Data Lake Analytics
 In una definizione JSON di attività U-SQL è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **DataLakeAnalyticsU-SQL**. È necessario creare innanzitutto un servizio collegato di Azure Data Lake Analytics e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su DataLakeAnalyticsU-SQL, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | scriptPath |Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. |No (se si usa uno script) |
 | scriptLinkedService |Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory |No (se si usa uno script) |
@@ -5594,7 +5594,7 @@ In una definizione JSON di attività stored procedure è possibile specificare l
 
 Quando il tipo di attività è impostato su SqlServerStoredProcedure, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. |Yes |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No  |
@@ -5634,7 +5634,7 @@ Per altre informazioni, vedere [Attività stored procedure](data-factory-stored-
 ## <a name="net-custom-activity"></a>Attività personalizzata .NET
 In una definizione JSON di attività personalizzata .NET è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **DotNetActivity**. È necessario creare un servizio collegato Azure HDInsight o Azure Batch e specificare il nome del servizio collegato come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su DotNetActivity, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | AssemblyName | Nome dell'assembly. In questo esempio è: **MyDotnetActivity.dll**. | Yes |
 | EntryPoint |Nome della classe che implementa l'interfaccia IDotNetActivity. In questo esempio è: **MyDotNetActivityNS.MyDotNetActivity** dove MyDotNetActivityNS è lo spazio dei nomi e MyDotNetActivity è la classe.  | Yes |

@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242229"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166170"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -91,45 +91,45 @@ I criteri di conservazione vengono configurati tramite il Centro sicurezza e con
 Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di PowerShell per configurare le impostazioni di scadenza per i gruppi di Office 365 nel tenant:
 
 1. Installare il modulo di anteprima PowerShell v2.0 (2.0.0.137) e accedere al prompt di PowerShell:
-  ````
+  ```
   Install-Module -Name AzureADPreview
   connect-azuread 
-  ````
-2. Configurare le impostazioni di scadenza New-AzureADMSGroupLifecyclePolicy. Questo cmdlet imposta la durata di tutti i gruppi di Office 365 del tenant su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietari verranno inviate a emailaddress@contoso.com.
+  ```
+2. Configurare le impostazioni di scadenza New-AzureADMSGroupLifecyclePolicy:  Questo cmdlet imposta la durata di tutti i gruppi di Office 365 del tenant su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietari verranno inviate a emailaddress@contoso.com.
   
-  ````
+  ```
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
-  ````
-3. Recuperare i criteri esistenti Get-AzureADMSGroupLifecyclePolicy. Questo cmdlet recupera le impostazioni di scadenza correnti dei gruppi di Office 365 che sono state configurate. Questo esempio contiene gli elementi seguenti:
+  ```
+3. Recuperare il criterio Get-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet recupera le impostazioni di scadenza dei gruppi di Office 365 correnti configurate. Questo esempio contiene gli elementi seguenti:
   * ID dei criteri 
   * Durata di tutti i gruppi di Office 365 del tenant impostata su 365 giorni
   * Notifiche di rinnovo per i gruppi di Office 365 senza proprietari che verranno inviate a emailaddress@contoso.com
   
-  ````
+  ```
   Get-AzureADMSGroupLifecyclePolicy
   
   ID                                    GroupLifetimeInDays ManagedGroupTypes AlternateNotificationEmails
   --                                    ------------------- ----------------- ---------------------------
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
-  ```` 
+  ``` 
    
-4. Aggiornare i criteri esistenti Set-AzureADMSGroupLifecyclePolicy. Questo cmdlet consente di aggiornare un criterio esistente. Nell'esempio seguente la durata del gruppo nei criteri esistenti viene modificata da 365 giorni a 180 giorni. 
+4. Aggiornare il criterio Set-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet viene usato per aggiornare un criterio esistente. Nell'esempio seguente la durata del gruppo nei criteri esistenti viene modificata da 365 giorni a 180 giorni. 
   
-  ````
+  ```
   Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
-  ````
+  ```
   
-5. Aggiungere gruppi specifici al criterio Add-AzureADMSLifecyclePolicyGroup. Questo cmdlet aggiunge un gruppo ai criteri del ciclo di vita. Ad esempio: 
+5. Aggiungere gruppi specifici al criterio Add-AzureADMSLifecyclePolicyGroup: Questo cmdlet aggiunge un gruppo di criteri di ciclo di vita. Ad esempio: 
   
-  ````
+  ```
   Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
-  ````
+  ```
   
-6. Rimuovere il criterio esistente Remove-AzureADMSGroupLifecyclePolicy. Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID di tali criteri. Verrà così disabilitata la scadenza per i gruppi di Office 365. 
+6. Rimuovere il criterio Remove-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID del criterio. Verrà così disabilitata la scadenza per i gruppi di Office 365. 
   
-  ````
+  ```
   Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
-  ````
+  ```
   
 I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 

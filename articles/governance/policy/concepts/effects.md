@@ -4,17 +4,17 @@ description: La definizione di Criteri di Azure ha diversi effetti che determina
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310845"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912510"
 ---
 # <a name="understand-policy-effects"></a>Informazioni sugli effetti di Criteri
 
@@ -25,7 +25,7 @@ Attualmente sono disponibili sei effetti supportati in una definizione dei crite
 - Append
 - Audit
 - AuditIfNotExists
-- Deny
+- Nega
 - DeployIfNotExists
 - Disabled
 
@@ -72,7 +72,7 @@ Esempio 1: coppia **campo/valore** singola per accodare un tag.
 }
 ```
 
-Esempio 2: due coppie **campo/valore** per accodare un set di tag.
+Esempio 2 due coppie **campo/valore** per accodare un set di tag.
 
 ```json
 "then": {
@@ -104,7 +104,7 @@ Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>Nega
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -257,6 +257,11 @@ La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottopropr
   - Ad esempio, può essere usato per convalidare che la risorsa padre (nella condizione **if**) sia nello stesso percorso della risorsa della risorsa correlata corrispondente.
 - **roleDefinitionIds** [required]
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (facoltativo)
+  - I valori consentiti sono _Subscription_ e _ResourceGroup_.
+  - Imposta il tipo di distribuzione da eseguire. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
+  - Una proprietà _location_ deve essere specificata in _Deployment_ quando si usano distribuzioni a livello di sottoscrizione.
+  - L'impostazione predefinita è _ResourceGroup_.
 - **Deployment** [obbligatorio]
   - Questa proprietà deve contenere la distribuzione di modelli completa passata all'API PUT `Microsoft.Resources/deployments`. Per altre informazioni, vedere l'[API REST per le distribuzioni](/rest/api/resources/deployments).
 

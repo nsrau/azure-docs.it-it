@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845646"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210421"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorare e risolvere i problemi di Azure Site Recovery
 
@@ -149,7 +149,7 @@ Monitorare i processi come indicato di seguito:
     ![Visualizzazione dell'elenco Elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Nella pagina **Elementi replicati** è possibile visualizzare e filtrare le informazioni. Dal menu Azione nella parte superiore è possibile eseguire azioni per una determinata macchina, ad esempio l'esecuzione un failover di test o la visualizzazione di errori specifici.
-3.  Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio per l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
+3.  Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
 4. Fare clic su **Filtro** per visualizzare le informazioni in base a parametri specifici, ad esempio l'integrità della replica o criteri di replica specifici.
 5. Fare clic con il pulsante destro del mouse su una macchina per avviare operazioni come il failover di test o per visualizzare i dettagli degli specifici errori.
 6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono:

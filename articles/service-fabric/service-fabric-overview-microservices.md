@@ -1,5 +1,5 @@
 ---
-title: Introduzione ai microservizi in Azure | Microsoft Docs
+title: Introduzione ai microservizi in Azure | Documentazione Microsoft
 description: Panoramica dell'importanza di compilare applicazioni cloud con un approccio basato su microservizi per lo sviluppo di applicazioni moderne e descrizione dell'uso di Azure Service Fabric come piattaforma per raggiungere questo obiettivo.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613682"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102817"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Perché usare un approccio ai microservizi per la compilazione di applicazioni
 
@@ -37,7 +37,7 @@ Per altre informazioni sull'approccio di Azure ai microservizi, leggere [Microse
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Approccio alla progettazione monolitico o con microservizi
 
-Le applicazioni si evolvono con il trascorrere del tempo. Le applicazioni che hanno maggior successo si evolvono diventando utili per le persone. Le applicazioni che invece non hanno successo non si evolvono e alla fine vengono deprecate. La domanda è: quanto si sa attualmente dei propri requisiti e come si svilupperanno in futuro? Si supponga, ad esempio, di dover realizzare un'applicazione per la creazione di report per un reparto. Si ha la certezza che l'applicazione agisce esclusivamente all'interno dell'ambito aziendale e che i report hanno una durata breve. L'approccio scelto sarà diverso, ad esempio, rispetto alla creazione di un servizio per la distribuzione di contenuti video a decine di milioni di clienti.
+Le applicazioni si evolvono con il trascorrere del tempo. Le applicazioni che hanno maggior successo si evolvono diventando utili per le persone. Le applicazioni che invece non hanno successo non si evolvono e alla fine vengono deprecate. La domanda è: Quanto si conoscono i requisiti attuali e come si svilupperanno in futuro? Si supponga, ad esempio, di dover realizzare un'applicazione per la creazione di report per un reparto. Si ha la certezza che l'applicazione agisce esclusivamente all'interno dell'ambito aziendale e che i report hanno una durata breve. L'approccio scelto sarà diverso, ad esempio, rispetto alla creazione di un servizio per la distribuzione di contenuti video a decine di milioni di clienti.
 
 In alcuni casi, il rilascio di un modello di verifica può essere il fattore determinante, sapendo che l'applicazione può essere riprogettata in un secondo momento. C'è poco senso nella sovraprogettazione di qualcosa che non verrà mai usato. È il solito compromesso della progettazione. D'altra parte, quando le aziende discutono della creazione per il cloud, l'aspettativa diventa crescita e utilizzo. Il problema è che la crescita e la scalabilità sono imprevedibili. Si vorrebbe poter creare prototipi velocemente, ma allo stesso tempo sapere di essere sulla strada giusta per gestire il successo futuro. Questo è l'approccio di avvio snello: compilare, misurare, apprendere e ripetere.
 
@@ -147,9 +147,9 @@ Azure Service Fabric è nato in seguito alla transizione operata da Microsoft da
 
 Service Fabric consente di creare applicazioni che usano un approccio basato sui microservizi offrendo:
 
-* Una piattaforma con servizi di sistema per distribuire, aggiornare e trovare servizi, rilevare e riavviare i servizi con problemi, inoltrare messaggi, gestire lo stato e monitorare l'integrità.
-* La possibilità di distribuire applicazioni eseguite in contenitori o sotto forma di processi. Service Fabric è una struttura per la gestione di contenitori e processi.
-* API di programmazione produttive che facilitano la compilazione di applicazioni come microservizi: [ASP.NET Core, Reliable Actors e Reliable Services](service-fabric-choose-framework.md). Ad esempio, è possibile ottenere informazioni su integrità e diagnostica o sfruttare la disponibilità elevata predefinita.
+* Piattaforma con servizi di sistema per distribuire, aggiornare e trovare servizi, rilevare e riavviare i servizi con problemi, inoltrare messaggi, gestire lo stato e monitorare l'integrità.
+* Possibilità di distribuire applicazioni eseguite in contenitori o sotto forma di processi. Service Fabric è una struttura per la gestione di contenitori e processi.
+* API di programmazione produttiva che consentono di compilare applicazioni come microservizi: [ASP.NET Core, Reliable Actors e Reliable Services](service-fabric-choose-framework.md). Ad esempio, è possibile ottenere informazioni su integrità e diagnostica o sfruttare la disponibilità elevata predefinita.
 
 ***Service Fabric è indipendente dalla modalità di compilazione del servizio, quindi è possibile usare qualsiasi tecnologia. Tuttavia offre API di programmazione predefinite che facilitano la compilazione dei microservizi.***
 
@@ -181,7 +181,7 @@ Per molte organizzazioni il processo termina qui. I vantaggi dei contenitori son
 È l'aggiunta di nuovi servizi al codice esistente nei contenitori. Se si prevede di scrivere nuovo codice, è consigliabile orientarsi gradualmente verso i microservizi. Questo approccio può corrispondere all'aggiunta di un nuovo endpoint API REST o di nuova logica di business. In questo modo è possibile iniziare a creare nuovi microservizi e acquisire pratica con lo sviluppo e la distribuzione.
 
 **Innovazione**  
-Un approccio basato su microservizi è in grado di gestire eventuali cambiamenti nelle esigenze aziendali. In questa fase, è necessario determinare se frazionare l'app monolitica in servizi o adottare un approccio innovativo. Ad esempio, è possibile che un database usato come coda del flusso di lavoro diventi un collo di bottiglia a livello di elaborazione. Se il numero di richieste del flusso di lavoro aumenta, è necessario suddividere in scala il carico di lavoro. Nel caso di questo componente dell'applicazione che non supporta la ripartizione in scala o che necessita di aggiornamenti più frequenti, adottare un approccio innovativo e ripartire il carico tra più microservizi.
+Un approccio basato su microservizi è in grado di gestire eventuali cambiamenti nelle esigenze aziendali. In questa fase, è necessario determinare se frazionare l'app monolitica in servizi o adottare un approccio innovativo. Ad esempio, è possibile che un database usato come coda del flusso di lavoro diventi un collo di bottiglia a livello di elaborazione. Se il numero di richieste del flusso di lavoro aumenta è necessario suddividere in scala il carico di lavoro. Nel caso di questo componente dell'applicazione che non supporta la ripartizione in scala o che necessita di aggiornamenti più frequenti, adottare un approccio innovativo e ripartire il carico tra più microservizi.
 
 **Trasformazione in microservizi**  
 In questa fase, l'applicazione è totalmente composta da (o scomposta in) microservizi. Per raggiungere questo punto è stata portata a termine l'adozione dei microservizi. È possibile iniziare da questa fase, ma una scelta di questo tipo senza il supporto di una piattaforma per microservizi rappresenta un investimento significativo. 
@@ -197,7 +197,7 @@ L'obiettivo di Service Fabric è ridurre le complessità della compilazione di a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica della terminologia di Service Fabric](service-fabric-technical-overview.md)
-* [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni con tecnologia cloud)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

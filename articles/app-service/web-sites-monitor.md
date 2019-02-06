@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247260"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913161"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).
@@ -73,9 +73,15 @@ Le metriche disponibili per un'app sono:
 | --- | --- |
 | **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, espresso in millisecondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
+| **Connessioni** | Numero di socket associati esistenti nella sandbox (w3wp.exe e i processi figlio).  Un socket associato viene creato chiamando le API bind()/connect() e permane finché non viene chiuso con CloseHandle()/closesocket(). |
 | **Tempo CPU** | Quantità di CPU utilizzata dall'app, espressa in secondi. Per altre informazioni su questa metrica, vedere [Tempo CPU e percentuale CPU](#cpu-time-vs-cpu-percentage). |
+| **Assembly attuali** | Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione. |
 | **Dati in entrata** | Larghezza di banda in entrata utilizzata dall'app, espressa in MiB. |
 | **Dati in uscita** | Larghezza di banda in uscita utilizzata dall'app, espressa in MiB. |
+| **Garbage Collection di generazione 0** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
+| **Garbage Collection di generazione 1** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
+| **Garbage Collection di generazione 2** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|
+| **Numero di handle** | Numero totale di handle attualmente aperti dal processo dell'app.|
 | **Http 2xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 200 e < 300. |
 | **Http 3xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 300 e < 400. |
 | **Http 401** | Numero di richieste che hanno restituito un codice di stato HTTP 401. |
@@ -84,8 +90,20 @@ Le metriche disponibili per un'app sono:
 | **Http 406** | Numero di richieste che hanno restituito un codice di stato HTTP 406. |
 | **Http 4xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 400 e < 500. |
 | **Errori server HTTP** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 500 e < 600. |
+| **I/O - Altri byte al secondo** | Frequenza con cui il processo dell'app rilascia byte alle operazioni di I/O che non coinvolgono i dati, ad esempio le operazioni di controllo.|
+| **I/O - Altre operazioni al secondo** | Frequenza con cui il processo dell'app rilascia operazioni di I/O diverse dalle operazioni di lettura o di scrittura.|
+| **I/O - Byte in lettura al secondo** | Frequenza con cui il processo dell'app legge i byte dalle operazioni di I/O.|
+| **I/O - Operazioni di lettura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di lettura.|
+| **I/O - Byte in scrittura al secondo** | Frequenza con cui il processo dell'app scrive i byte nelle operazioni di I/O.|
+| **I/O - Operazioni di scrittura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di scrittura.|
 | **Working set della memoria** | Quantità di memoria corrente usata dall'app, espressa in MiB. |
+| **Byte privati** | I byte privati sono la dimensione corrente, in byte, della memoria allocata dal processo dell'app, che non può essere condivisa con altri processi.|
 | **Richieste** | Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito. |
+| **Richieste nella coda dell'applicazione** | Numero di richieste nella coda di richieste dell'applicazione.|
+| **Conteggio thread** | Numero di thread attualmente attivi nel processo dell'app.|
+| **Totale di domini app** | Numero corrente di domini dell'applicazione caricati in questa applicazione.|
+| **Totale di domini app scaricati** | Numero totale di domini dell'applicazione scaricati dall'avvio dell'applicazione.|
+
 
 Le metriche disponibili per un piano di servizio app sono:
 

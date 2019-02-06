@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463032"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251980"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -57,6 +57,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Esplora dati di Azure
+* Database di Azure per MariaDB
 * Database di Azure per MySQL
 * Database di Azure per PostgreSQL
 * Azure DevOps: le organizzazioni di Azure DevOps con gli acquisti di estensione non Microsoft devono [annullare gli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima di spostare l'account tra le sottoscrizioni.
@@ -99,7 +100,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
-* Insieme di credenziali di Servizi di ripristino: registrare la sottoscrizione per l'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima privata](#recovery-services-limitations).
 * Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -176,7 +177,7 @@ Per spostare le macchine virtuali configurate con Backup di Azure, usare la solu
 * Individuare la località della macchina virtuale.
 * Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1`, ad esempio AzureBackupRG_westus2_1
 * Nel portale di Azure selezionare quindi l'opzione "Mostra tipi nascosti"
-* In PowerShell usare il cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* In PowerShell usare il cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
 * Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Trovare la risorsa di tipo `Microsoft.Compute/restorePointCollections` con modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
@@ -307,7 +308,7 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ### <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
 
- Per spostare un insieme di credenziali di Servizi di ripristino, registrare la sottoscrizione per l'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Per spostare un insieme di credenziali di Servizi di ripristino, è necessario registrarsi in un'anteprima privata. Per provare, scrivere a AskAzureBackupTeam@microsoft.com.
 
 Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS.
 
@@ -336,13 +337,15 @@ Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prim
 
 Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
+1. Le sottoscrizioni di origine e di destinazione devono essere attive. In caso di problemi durante l'abilitazione di un account precedentemente disabilitato, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
+
 1. Le sottoscrizioni di origine e di destinazione devono trovarsi nello stesso [tenant di Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
   Per Azure PowerShell usare:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Per l'interfaccia della riga di comando di Azure usare:
@@ -362,14 +365,14 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
   In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Per registrare un provider di risorse, usare:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Nell'interfaccia della riga di comando di Azure, per ottenere lo stato della registrazione usare i comandi seguenti:
@@ -473,12 +476,12 @@ Al completamento dell'operazione si riceverà la notifica del risultato.
 
 ### <a name="by-using-azure-powershell"></a>Usando Azure PowerShell
 
-Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse.
+Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzResource](/powershell/module/az.resources/move-azresource). L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro `DestinationSubscriptionId`.

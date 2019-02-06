@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230234"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295358"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -101,9 +101,9 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 **Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.  È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione. È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva'. Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
 
-**Causa**: Oracle client SDK non è installato nel computer in cui è in esecuzione il gateway dati locale.  
+**Causa**: Oracle client SDK non è installato nel computer su cui è in esecuzione il gateway dati locale.  
 
 **Risoluzione**: scaricare e installare Oracle client SDK nello stesso computer del gateway dati locale.
 
@@ -115,7 +115,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 #### <a name="currently-not-supported"></a>Attualmente non supportati
 
-* Viste e stored procedure 
+* Visualizzazioni 
 * Tabelle con chiavi composte
 * Tipi di oggetti annidati nelle tabelle
  

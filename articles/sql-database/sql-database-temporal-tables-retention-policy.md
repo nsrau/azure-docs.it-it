@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a6fc5f353eceab5ac02895e110aec6e11ddc5d0c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159100"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101902"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.
@@ -26,26 +26,26 @@ Il periodo di conservazione della cronologia temporale può essere configurato a
 
 Dopo aver definito i criteri di conservazione, il database SQL di Azure avvia una verifica periodica per controllare se sono presenti righe di cronologia idonee alla pulizia automatica dei dati. L'identificazione delle righe corrispondenti e la loro rimozione della tabella di cronologia si verificano in modo trasparente, nell'attività in background pianificata ed eseguita dal sistema. Le condizioni di età per le righe della tabella della cronologia vengono controllate in base alla colonna che rappresenta la fine del periodo SYSTEM_TIME. Se, ad esempio, il periodo di conservazione definito è di sei mesi, le righe della tabella idonee per la pulizia soddisfano la condizione seguente:
 
-````
+```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
-````
+```
 
 L'esempio precedente presuppone che la colonna **ValidTo** corrisponda alla fine del periodo SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Come si configurano i criteri di conservazione?
 Prima di configurare criteri di conservazione per una tabella temporale, innanzitutto è necessario controllare se la conservazione della cronologia temporale è abilitata *a livello di database*.
 
-````
+```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
-````
+```
 
 Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-recovery-using-backups.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 > [!IMPORTANT]
 > È possibile configurare la conservazione per le tabelle temporali anche se **is_temporal_history_retention_enabled** è impostato su OFF. Tuttavia in questo caso la pulizia automatica delle righe obsolete non verrà attivata.
@@ -54,7 +54,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 I criteri di conservazione vengono configurati durante la creazione di una tabella specificando il valore per il parametro HISTORY_RETENTION_PERIOD:
 
-````
+```
 CREATE TABLE dbo.WebsiteUserInfo
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED
@@ -72,16 +72,16 @@ CREATE TABLE dbo.WebsiteUserInfo
         HISTORY_RETENTION_PERIOD = 6 MONTHS
      )
  );
-````
+```
 
 Il database SQL di Azure consente di specificare il periodo di conservazione tramite unità di tempo diverse: DAYS, WEEKS, MONTHS e YEARS. Se HISTORY_RETENTION_PERIOD viene omesso, viene usata la conservazione INFINITE. È inoltre possibile usare esplicitamente la parola chiave INFINITE.
 
 In alcuni scenari, è possibile configurare la conservazione dopo la creazione della tabella o per modificare un valore configurato in precedenza. In questo caso usare l'istruzione ALTER TABLE:
 
-````
+```
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
-````
+```
 
 > [!IMPORTANT]
 > Con l'impostazione di SYSTEM_VERSIONING su OFF il valore relativo al periodo di conservazione *non viene mantenuto*. Con l'impostazione di SYSTEM_VERSIONING su ON senza specificare esplicitamente HISTORY_RETENTION_PERIOD si ottiene come risultato un periodo di conservazione INFINITE.
@@ -90,7 +90,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 
 Per esaminare lo stato corrente del criterio di conservazione, usare la seguente query che unisce il flag di abilitazione della conservazione temporale a livello di database con i periodi di conservazione per le singole tabelle:
 
-````
+```
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
 T1.name as TemporalTableName,  SCHEMA_NAME(T2.schema_id) AS HistoryTableSchema,
@@ -101,7 +101,7 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases
 where name = DB_NAME()) AS DB
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
-````
+```
 
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>In che modo vengono eliminate le righe obsolete dal database SQL?
@@ -127,7 +127,7 @@ La pulizia dell'indice columnstore in cluster funziona in modo ottimale se vengo
 
 Evitare la ricompilazione dell'indice columnstore in cluster nella tabella di cronologia con il periodo di conservazione definito, perché può cambiare l'ordine nei gruppi di righe imposti naturalmente dall'operazione di controllo delle versioni di sistema. Se è necessario ricompilare l'indice columnstore in cluster della tabella di cronologia, crearne uno nuovo al posto dell'indice B-tree conforme, mantenendo l'ordinamento in gruppi di righe necessario per la pulizia dei dati regolare. Lo stesso approccio deve essere adottato se si crea una tabella temporale con la tabella di cronologia esistente che dispone di un indice di colonna in cluster senza ordine dei dati garantito:
 
-````
+```
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
 WITH (DROP_EXISTING = ON);
@@ -135,13 +135,13 @@ GO
 /*Re-create clustered columnstore index*/
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
-````
+```
 
 Quando viene configurato il periodo di conservazione definito per la tabella di cronologia con l'indice columnstore in cluster, non è possibile creare indici B-tree non in cluster aggiuntivi nella tabella:
 
-````
+```
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
-````
+```
 
 Un tentativo di eseguire l'istruzione sopra indicata avrà esito negativo con l'errore seguente:
 
@@ -152,9 +152,9 @@ Tutte le query sulla tabella temporale consentono di escludere automaticamente t
 
 Nell'immagine seguente viene illustrato il piano di query per una query semplice:
 
-````
+```
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
-````
+```
 
 Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore Clustered Index Scan nella tabella di cronologia (evidenziata). Questo esempio presuppone che il periodo di conservazione di un MONTH sia stato impostato nella tabella WebsiteUserInfo.
 
@@ -173,10 +173,10 @@ Si supponga che per una tabella temporale sia specificato il periodo di conserva
 
 Se si desidera attivare la pulizia della conservazione temporale, eseguire l'istruzione Transact-SQL seguente dopo il ripristino temporizzato:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come usare le tabelle temporali nelle applicazioni, consultare [Introduzione alle tabelle temporali nel database SQL di Azure](sql-database-temporal-tables.md).

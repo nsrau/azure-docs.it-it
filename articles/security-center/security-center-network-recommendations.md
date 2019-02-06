@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3bb8d4796d23b84f815d28efa45af619efe19af3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c44e000a60e4391faf38cb275f35ec512e19aea3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338234"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101686"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -128,7 +128,7 @@ Il terzo livello contiene le macchine virtuali, che è simile a quello descritta
 
 ## <a name="network-recommendations"></a>Indicazioni per la rete
 
-|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
 |----|----|----|----|
 |Machine|40|Abilita i gruppi di sicurezza di rete sulle macchine virtuali|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.|
 |Subnet|35|Abilita i gruppi di sicurezza di rete nelle subnet |Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.|

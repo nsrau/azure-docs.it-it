@@ -3,19 +3,19 @@ title: Password escluse in modo dinamico in Azure AD
 description: Escludere le password vulnerabili dall'ambiente con le password escluse in modo dinamico di Azure AD
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 916ef921bf2ad183e3fb74c640ccfa7049559a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421437"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295866"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -28,7 +28,7 @@ Leader del settore suggeriscono di non usare la stessa password in più posizion
 
 ## <a name="global-banned-password-list"></a>Elenco globale di password escluse
 
-Microsoft cerca sempre di anticipare le mosse dei criminali informatici. Il team di Azure AD Identity Protection è pertanto continuamente alla ricerca di password usate comunemente e compromesse. Queste password ritenute troppo comuni vengono quindi bloccate attraverso un elenco globale di password escluse. I criminali informatici usano strategie simili negli attacchi, quindi Microsoft non rende disponibile il contenuto di questo elenco pubblicamente. Queste password vulnerabili vengono bloccate prima di diventare una minaccia reale per i clienti Microsoft. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+Microsoft cerca sempre di anticipare le mosse dei criminali informatici. Il team di Azure AD Identity Protection è pertanto continuamente alla ricerca di password usate comunemente e compromesse. Queste password ritenute troppo comuni vengono quindi bloccate attraverso un elenco globale di password escluse. I criminali informatici usano strategie simili negli attacchi, quindi Microsoft non rende disponibile il contenuto di questo elenco pubblicamente. Queste password vulnerabili vengono bloccate prima di diventare una minaccia reale per i clienti Microsoft. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
 ## <a name="preview-custom-banned-password-list"></a>Anteprima: Elenco password personalizzate escluse
 
@@ -42,15 +42,69 @@ L'elenco personalizzato di password escluse e la possibilità di abilitare l'int
 
 La protezione degli account solo cloud è utile, ma molte organizzazioni gestiscono scenari ibridi, incluso Windows Server Active Directory locale. È possibile installare gli agenti di protezione password di Azure AD per Windows Server Active Directory (anteprima) in locale per estendere gli elenchi di password escluse all'infrastruttura esistente. In questo caso, utenti e amministratori che modificano, impostano o reimpostano le password in locale devono rispettare gli stessi criteri password degli utenti solo cloud.
 
-## <a name="how-does-the-banned-password-list-work"></a>Modalità di funzionamento dell'elenco di password escluse
+## <a name="how-are-passwords-evaluated"></a>Come vengono valutate le password
 
-L'elenco di password escluse consente di trovare la corrispondenza con le password presenti nell'elenco convertendo la stringa in lettere minuscole ed eseguendo un confronto con le password escluse note in una distanza di edit pari a 1 con corrispondenza fuzzy.
+Ogni volta che un utente modifica o reimposta la password, viene verificata la complessità della nuova password confrontandola rispetto all'elenco globale e all'elenco personalizzato di password escluse (se configurati).
 
-Esempio: Il termine password è stato bloccato per un'organizzazione
-   - Un utente cerca di impostare la password "P@ssword" che viene convertita in "p@ssword" e bloccata in quanto variante di password.
-   - Un amministratore cerca di impostare una password utente su "Password123!" che viene convertita in "password123!" e bloccata in quanto variante di password.
+Anche se la password di un utente contiene una password esclusa, è possibile che venga comunque accettata se la password complessiva è sufficientemente complessa. Per una password appena configurata sono previsti i passaggi seguenti per valutarne il livello di complessità generale e determinare se può essere accettata o meno.
 
-Ogni volta che un utente reimposta o modifica la password di Azure AD, viene applicato questo processo, per verificare che la password non sia presente nell'elenco di password escluse. Questo controllo è incluso negli scenari ibridi che usano la reimpostazione della password self-service, la sincronizzazione dell'hash delle password e l'autenticazione pass-through.
+### <a name="step-1-normalization"></a>Passaggio 1: Normalizzazione
+
+Per prima cosa, una nuova password viene sottoposta a un processo di normalizzazione, in cui viene eseguito il mapping di un piccolo set di password escluse a un set più ampio di password potenzialmente vulnerabili.
+
+La normalizzazione si articola in due parti.  Nella prima fase, tutte le lettere maiuscole vengono convertite in lettere minuscole,  mentre nella seconda viene eseguita la sostituzione dei caratteri, ad esempio:  
+
+| Lettera originale  | Lettera sostituita |
+| --- | --- |
+| '0'  | 'o' |
+| '1'  | 'l' |
+| '$'  | 's' |
+| '@'  | 'a' |
+
+Esempio: si supponga che la password "blank" sia compresa tra le password escluse e che un utente tenti di modificarla in "Bl@nK". Anche se "Bl@nk" non è espressamente vietata, il processo di normalizzazione converte questa password in "blank", ovvero in una password esclusa.
+
+### <a name="step-2-check-if-password-is-considered-banned"></a>Passaggio 2: Verifica che la password non sia considerata esclusa
+
+#### <a name="fuzzy-matching-behavior"></a>Comportamento della corrispondenza fuzzy
+
+Sulla password normalizzata viene applicata la corrispondenza fuzzy per verificare che non contenga una password presente nell'elenco globale o nell'elenco personalizzato di password escluse. Il processo di corrispondenza è basato su una distanza di edit di un (1) confronto.  
+
+Esempio: si supponga che la password "abcdef" sia compresa tra le password escluse e che un utente tenti di modificarla in una delle password seguenti:
+
+'abcdeg'    * (ultimo carattere modificato da 'f' a 'g')* 'abcdefg'   * '(g' aggiunto alla fine)* 'abcde'     * ('f' finale eliminata)*
+
+Nessuna delle password precedenti corrisponde esattamente alla password esclusa "abcdef", ma poiché si trovano tutte a un distanza di edit di 1 rispetto al token escluso 'abcdef', sono tutte considerate come una corrispondenza di "abcdef".
+
+#### <a name="substring-matching-on-specific-terms"></a>Corrispondenza delle sottostringhe (su termini specifici)
+
+Sulla password normalizzata viene applicata la corrispondenza delle sottostringhe per verificare il nome e il cognome dell'utente e il nome del tenant (la corrispondenza del nome del tenant non viene applicata quando si convalida una password in un controller di dominio di Active Directory).
+
+Esempio: si supponga che un utente di nome John Doe voglia reimpostare la password su "J0hn123fb". Dopo la normalizzazione, la password diventerebbe "john123fb". La corrispondenza delle sottostringhe rileva che la password contiene il nome dell'utente "John". Anche se "J0hn123fb" non è contenuto in modo specifico negli elenchi delle password escluse, la corrispondenza delle sottostringhe ha identificato il termine "John" nella password, che viene quindi rifiutata.
+
+#### <a name="score-calculation"></a>Calcolo del punteggio
+
+Il passaggio successivo consiste nell'identificare le eventuali istanze di password escluse presenti nella nuova password normalizzata dell'utente. Quindi:
+
+1. A ogni password vietata presente nella password di un utente viene assegnato un punto,
+2. così come a ogni carattere univoco rimanente.
+3. Una password deve contenere almeno 5 punti per poter essere accettata.
+
+Nei due esempi successivi, si supponga che Contoso usi la protezione delle password di Azure AD e che "contoso" si trovi nell'elenco personalizzato. Si supponga inoltre che nell'elenco globale sia presente "blank".
+
+Esempio: un utente modifica la password in "C0ntos0Blank12"
+
+Dopo la normalizzazione, la password diventa "contosoblank12". Il processo di corrispondenza rileva che la password contiene due password escluse: contoso e blank. Alla password viene quindi assegnato un punteggio:
+
+[contoso] + [blank] = [1] + [2] = 4 punti. Il punteggio della password è inferiore a 5 punti e la password viene quindi rifiutata.
+
+Esempio: un utente modifica la password in "ContoS0Bl@nkf9!".
+
+Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di corrispondenza rileva che la password contiene due password escluse: contoso e blank. Alla password viene quindi assegnato un punteggio:
+
+[contoso] + [blank] + [f] + [9] + [!] = 5 punti. Il punteggio della password è pari a 5 punti e la password viene quindi accettata.
+
+   > [!IMPORTANT]
+   > L'algoritmo delle password escluse e l'elenco globale possono cambiare in qualsiasi momento in Azure, in base ai processi di ricerca e di analisi di sicurezza in corso. Per il servizio agente del controller di dominio locale, gli algoritmi aggiornati vengono applicati solo dopo aver reinstallato il software dell'agente del controller di dominio.
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 

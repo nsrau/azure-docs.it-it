@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365663"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Esercitazione: Integrazione di Azure Active Directory con più account di Amazon Web Service (AWS)
 
@@ -118,7 +118,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![image](./media/aws-multi-accounts-tutorial/B1_B2_Select_SSO.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare il Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![image](./media/aws-multi-accounts-tutorial/b1_b2_saml_sso.png)
 
@@ -158,7 +158,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     f. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
 
     ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
@@ -206,9 +206,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Selezionare **Allow programmatic and AWS Management Console access** (Consenti accesso a livello di codice e tramite AWS Management Console).
   
-    d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
+    d. Fare clic su **Avanti: Permissions** (Avanti: Autorizzazioni).
 
-16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) non è necessario associare alcun criterio. Fare clic su **Next: Review** (Avanti: Riepilogo).  
+16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) non è necessario associare alcun criterio. Fare clic su **Avanti: Review** (Avanti: Rivedi).  
 
     ![Configurare criteri dell'accesso Single Sign-On][33]
 
@@ -352,7 +352,7 @@ Quando si fa clic sul riquadro Amazon Web Service (AWS) nel riquadro di accesso,
 
 ![Configurare l'aggiunta del Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

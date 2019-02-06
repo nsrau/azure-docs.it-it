@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 1/23/2019
+ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462421"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903758"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
-La funzionalità relativa alle repliche in lettura (anteprima pubblica) consente di replicare i dati da Database di Azure per MySQL (master) in un massimo di cinque server di sola lettura (repliche) nella stessa area di Azure. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
+> [!IMPORTANT]
+> La funzionalità di replica in lettura è in anteprima pubblica.
+
+La funzionalità di replica in lettura consente di replicare i dati da server Database di Azure per MySQL (master) in un massimo di cinque server di sola lettura (repliche) nella stessa area di Azure. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 Le repliche create in Database di Azure per MySQL sono nuovi server che possono essere gestiti nello stesso modo dei server MySQL normali/autonomi. Per ogni replica di lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese. 
 

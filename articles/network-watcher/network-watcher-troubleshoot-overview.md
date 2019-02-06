@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779261"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099780"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -51,7 +51,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Sì|
+| NoFault | Nessun errore rilevato |Yes|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
 | PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No |
 | UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No  |
@@ -59,26 +59,26 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No |
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
 | NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No |
-| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
+| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Yes|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Sì|
+| NoFault | Nessun errore rilevato |Yes|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
 | PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No |
 | UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No  |
 | VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
 | ConnectionEntityNotFound | Configurazione della connessione non presente | No  |
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No |
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
-| ConnectionMarkedStandy | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
-| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
+| Authentication | Mancata corrispondenza della chiave precondivisa | Yes|
+| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
 
 ## <a name="supported-gateway-types"></a>Tipi di gateway supportati
 
@@ -107,7 +107,7 @@ I file di log della risoluzione dei problemi delle risorse vengono archiviati in
 > [!NOTE]
 > In alcuni casi, solo un sottoinsieme di file di log viene scritto nella risorsa di archiviazione.
 
-Per istruzioni sul download di file dall'account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](http://storageexplorer.com/).
+Per istruzioni sul download di file dall'account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

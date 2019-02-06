@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823488"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881870"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Creare una pipeline CI/CD per IoT Edge con Azure DevOps Projects (Anteprima)
 
@@ -73,7 +73,7 @@ DevOps Projects ha creato un repository Git per il progetto in Azure Repos. In q
 
 1. Per passare al repository creato per il progetto, selezionare **Repository** nel menu del dashboard del progetto.  
 
-   ![Visualizzare i repository generati in Azure Repos](./media/how-to-devops-project/view-repositories.png)
+   ![Visualizzare il repository generato in Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
 2. I passaggi seguenti descrivono come usare il Web browser per apportare modifiche al codice. Se si preferisce clonare il repository in locale, selezionare **Clona** nella parte superiore destra della finestra. Usare l'URL fornito per clonare il repository Git in Visual Studio Code o nel proprio strumento di sviluppo preferito. 
 

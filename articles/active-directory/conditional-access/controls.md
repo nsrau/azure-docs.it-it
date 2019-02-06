@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4e6912d13b4192b1f938acf5a9808221f5aa42f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452514"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077659"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?
 
@@ -71,9 +71,15 @@ L'uso dell'autenticazione a più fattori assicura la protezione delle risorse ne
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da [dispositivi gestiti](require-managed-devices.md). Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo gestito. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi [registrati](../devices/overview.md) ad Azure Active Directory e contrassegnati come conformi da Intune (per qualsiasi sistema operativo per dispositivo) o dal sistema MDM di terze parti per dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati.
+È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso solo alle app cloud selezionate da [dispositivi gestiti](require-managed-devices.md). Una delle opzioni disponibili per limitare l'accesso ai dispositivi gestiti consiste nel richiedere che un dispositivo sia contrassegnato come conforme. Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o dal sistema MDM di terze parti per i dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati. 
 
-Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](require-managed-devices.md).
+Il dispositivo deve essere registrato in Azure AD prima che possa essere contrassegnato come conforme. Per registrare un dispositivo, sono disponibili tre opzioni: 
+
+- [Dispositivi registrati in Azure AD](../devices/overview.md#azure-ad-registered-devices)
+- [Dispositivi aggiunti ad Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Dispositivi aggiunti ad Azure AD ibrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Per altre informazioni, vedere [Come richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo aggiunto all'identità ibrida di Azure AD
 

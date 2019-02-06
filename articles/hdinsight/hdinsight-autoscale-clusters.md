@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare automaticamente i cluster Azure HDInsight
+title: Ridimensionare automaticamente i cluster Azure HDInsight (Anteprima)
 description: Usare la funzionalità di scalabilità automatica di HDInsight per ridimensionare i cluster automaticamente
 services: hdinsight
 author: hrasheed-msft
@@ -9,33 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 043c83e2039d87b1650ba17f770ce16a2ad2c13d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475679"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster Azure HDInsight (Anteprima)
 
 La funzionalità di scalabilità automatica di Azure HDInsight aumenta o diminuisce automaticamente il numero di nodi del ruolo di lavoro in un cluster in base al carico in un intervallo predefinito. Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La funzionalità di scalabilità automatica monitora quindi i requisiti in termini di risorse del carico di analisi e aumenta o diminuisce il numero di nodi del ruolo di lavoro di conseguenza. Per l'uso di questa funzionalità non sono previsti costi aggiuntivi.
 
 ## <a name="getting-started"></a>Introduzione
 
-### <a name="create-cluster-with-azure-portal"></a>Creare il cluster con il portale di Azure
+### <a name="create-a-cluster-with-the-azure-portal"></a>Creare un cluster dal portale di Azure
 
 > [!Note]
 > La funzionalità di scalabilità automatica è attualmente supportata solo per i cluster Hive, MapReduce e Spark di Azure HDInsight versione 3.6.
 
-Seguire i passaggi illustrati in [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md) e al passaggio 5, **Dimensioni del cluster**, selezionare **Scalabilità automatica del nodo del ruolo di lavoro (anteprima)** come illustrato di seguito. 
+Per abilitare la funzionalità di scalabilità automatica, attenersi alla procedura seguente come parte del normale processo di creazione del cluster:
 
-![Abilitare l'opzione Scalabilità automatica del nodo del ruolo di lavoro](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+1. Selezionare **Custom (size, settings, apps)** (Impostazioni personalizzate (dimensione, impostazioni, app)) invece di **Quick create** (Creazione rapida).
+2. Nella **Impostazioni personalizzate** eseguire il passaggio 5 (**Cluster size**), dimensioni del cluster, e controllare la casella di controllo **Worker node autoscale** (Scalabilità automatica del nodo del ruolo di lavoro).
+3. Immettere i valori desiderati per:  
 
-La selezione di questa opzione consente di specificare:
+    * Il numero iniziale di nodi del ruolo di lavoro (**Number of Worker nodes**).  
+    * Il numero minimo (**Minimum**) di nodi del ruolo di lavoro.  
+    * Il numero massimo (**Maximum**) di nodi del ruolo di lavoro.  
 
-* Il numero iniziale di nodi del ruolo di lavoro
-* Il numero minimo di nodi del ruolo di lavoro
-* Il numero massimo di nodi del ruolo di lavoro
+![Abilitare l'opzione Scalabilità automatica del nodo del ruolo di lavoro](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 Il numero iniziale di nodi del ruolo di lavoro deve essere compreso tra il numero minimo e il numero massimo inclusi. Questo valore definisce le dimensioni iniziali del cluster al momento della creazione. Il numero minimo di nodi del ruolo di lavoro deve essere maggiore di zero.
 
@@ -43,12 +45,14 @@ Dopo aver scelto il tipo di macchina virtuale per ogni tipo di nodo, sarà possi
 
 La sottoscrizione in uso ha una quota di capacità per ogni area. Il numero totale di core dei nodi head combinato con il numero massimo di nodi del ruolo di lavoro non può superare la quota di capacità. Questa quota tuttavia è un limite flessibile, in quanto è sempre possibile creare un ticket di supporto per aumentarla facilmente.
 
-> [!Note]
+> [!Note]  
 > Se si supera il limite di quota core totale, si riceve un messaggio di errore che informa che il numero massimo di nodi è superiore ai core disponibili nell'area e invita a scegliere un'altra area o a contattare il supporto per aumentare la quota.
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Creare il cluster con un modello di Resource Manager
+Per altre informazioni sulla creazione del cluster HDInsight tramite il portale di Azure, vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Quando si crea un cluster HDInsight con un modello di Resource Manager, è necessario aggiungere le impostazioni seguenti nella sezione "computeProfile" "workernode":
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Creare un cluster con un modello di Resource Manager
+
+Per creare un cluster HDInsight con un modello Azure Resource Manager, aggiungere un `autoscale` nodo alla sezione `computeProfile` > `workernode` con le proprietà `minInstanceCount` e `maxInstanceCount` come illustrato nel frammento di codice json seguente.
 
 ```json
 {                            
@@ -72,7 +76,9 @@ Quando si crea un cluster HDInsight con un modello di Resource Manager, è neces
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Abilitare e disabilitare la scalabilità automatica per un cluster in esecuzione
+Per altre informazioni sulla creazione di cluster con modelli di Resource Manager, vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Abilitare e disabilitare la scalabilità automatica per un cluster in esecuzione
 
 L'abilitazione della scalabilità automatica per un cluster in esecuzione non è supportata in anteprima privata. Deve essere abilitata durante la creazione del cluster.
 
@@ -80,7 +86,7 @@ La disabilitazione della scalabilità automatica o la modifica delle sue imposta
 
 ## <a name="monitoring"></a>Monitoraggio
 
-È possibile visualizzare la cronologia degli aumenti e delle riduzioni delle dimensioni del cluster come parte delle metriche del cluster. È possibile elencare tutte le azioni di ridimensionamento del giorno o della settimana precedente o di un periodo di tempo più lungo.
+È possibile visualizzare la cronologia degli aumenti e delle riduzioni delle dimensioni del cluster come parte delle metriche del cluster. È possibile anche elencare tutte le azioni di ridimensionamento del giorno o della settimana precedente o di un periodo di tempo più lungo.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -104,7 +110,7 @@ Quando vengono rilevate le condizioni seguenti, la funzionalità di scalabilità
 * Il totale CPU in sospeso è maggiore del totale CPU disponibile per più di 1 minuto.
 * Il totale memoria in sospeso è maggiore del totale memoria disponibile per più di 1 minuto.
 
-Viene calcolato che sono necessari N nuovi nodi del ruolo di lavoro per soddisfare gli attuali requisiti di CPU e memoria e quindi viene inviata una richiesta di aumento delle dimensioni nella misura di N nuovi nodi del ruolo di lavoro.
+Si calcola che è necessario un determinato numero di nuovi nodi del ruolo di lavoro per soddisfare gli attuali requisiti di CPU e memoria e, a questo fine, viene inviata una richiesta di aumento che consente di aggiungere il numero di nuovi nodi del ruolo di lavoro.
 
 ### <a name="cluster-scale-down"></a>Riduzione delle dimensioni del cluster
 
@@ -113,7 +119,7 @@ Quando vengono rilevate le condizioni seguenti, la funzionalità di scalabilità
 * Il totale CPU in sospeso è minore del totale CPU disponibile per più di 10 minuti.
 * Il totale memoria in sospeso è minore del totale memoria disponibile per più di 10 minuti.
 
-In base al numero di contenitori di master applicazioni per nodo e agli attuali requisiti di CPU e memoria, la funzionalità di scalabilità automatica invia una richiesta di rimozione di N nodi, specificando quali sono i potenziali candidati per la rimozione. Per impostazione predefinita, vengono rimossi due nodi in un ciclo.
+In base al numero di contenitori antimalware per nodo e agli attuali requisiti di CPU e memoria, la funzionalità di scalabilità automatica invia una richiesta di rimozione di un determinato numero di nodi, specificando quali sono i potenziali candidati per la rimozione. Per impostazione predefinita, vengono rimossi due nodi in un ciclo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334194"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102431"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
 
@@ -90,7 +90,7 @@ Nel file di personalizzazione ogni versione del sistema operativo supportata ha 
 >
 >
 
-Quando si modifica il file di personalizzazione, è possibile modificare una regola o tutte. Ogni set di regole include una sezione *rules* suddivisa in tre categorie: Registro di sistema, criteri di controllo e criteri di sicurezza, come illustrato qui:
+Quando si modifica il file di personalizzazione, è possibile modificare una regola o tutte. Ogni set di regole include una sezione *rules* suddivisa in tre categorie: registro di sistema, criteri di controllo e criteri di sicurezza, come illustrato qui:
 
 ![Tre categorie del set di regole](media/security-center-customize-os-security-config/rules-section.png)
 
@@ -121,7 +121,7 @@ Per un elenco di altri potenziali errori, vedere [Codici di errore](#error-codes
 Le tre sezioni seguenti contengono esempi delle regole precedenti. Gli attributi *expectedValue* e *state* non possono essere modificati.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Le tre sezioni seguenti contengono esempi delle regole precedenti. Gli attributi
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Le tre sezioni seguenti contengono esempi delle regole precedenti. Gli attributi
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -202,7 +202,7 @@ Le nuove regole personalizzate sono contrassegnate con una nuova origine persona
 
 -   **Severity**: selezionare Unknown, Critical, Warning o Informational.
 
--   **analyzeOperation**: deve essere *Equals*.
+-   **analyzeOperation**: Deve essere *Equals*.
 
 -   **auditPolicyId**: deve essere un GUID valido.
 
@@ -216,7 +216,7 @@ Le nuove regole personalizzate sono contrassegnate con una nuova origine persona
 Esempio di nuova regola personalizzata:
 
 **Registro di sistema**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Esempio di nuova regola personalizzata:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Esempio di nuova regola personalizzata:
     }
 ```
 **Criteri di sicurezza**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Esempio di nuova regola personalizzata:
    }
 ```
 **Criteri di controllo**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Tutti i potenziali errori sono elencati nella tabella seguente:
 
 | **Error (Errore) (Error (Errore)e)**                                | **Descrizione**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | La proprietà *schemaVersion* non è valida o è vuota. Il valore deve essere impostato su *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | La proprietà *schemaVersion* non è valida o è vuota. Il valore deve essere impostato su *{0}*.                                                         |
 | BaselineInvalidStringError               | La proprietà *{0}* non può contenere *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | L'elenco di regole di configurazione di base contiene una regola con il valore *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | L'ID CCE *{0}* non è univoca.                                                                                                                  |

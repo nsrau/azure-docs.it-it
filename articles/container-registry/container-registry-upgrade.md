@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969108"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228356"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Aggiornamento del registro contenitori classico
 
@@ -52,7 +52,7 @@ Durante il processo di conversione, tutte le operazioni di `docker push` vengono
 
 Non eliminare o modificare i contenuti dell'account di archiviazione di backup del registro classico durante il processo di conversione. Questa operazione può causare il danneggiamento delle immagini di contenitori.
 
-Al termine della migrazione, l'account di archiviazione nella sottoscrizione inizialmente usato come backup del registro classico non viene più usato da ACR. Dopo aver verificato che la migrazione ha avuto esito positivo, prendere in considerazione l'eliminazione dell'account di archiviazione per ridurre i costi.
+Al termine della migrazione, l'account di archiviazione nella sottoscrizione usato inizialmente a supporto del registro classico non viene più usato da Registro Azure Container. Dopo aver verificato che la migrazione ha avuto esito positivo, prendere in considerazione l'eliminazione dell'account di archiviazione per ridurre i costi.
 
 >[!IMPORTANT]
 > L'aggiornamento dalla versione classica a uno degli SKU gestiti è un **processo unidirezionale**. Dopo aver convertito un registro classico in uno di base, standard o premium, non è possibile ripristinare la versione classica. È tuttavia possibile, passare liberamente a uno degli SKU gestiti con una capacità sufficiente per il registro.

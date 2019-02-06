@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: cbd8374e055d1bb9781990f70ed42ae5d5a5ad9b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c211c2bb9dc07e705679b5d4079b85de9d72d8c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634844"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100462"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Ridimensionamento dei cluster di Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -37,7 +37,7 @@ I cluster autonomi consentono di distribuire un cluster Service Fabric locale o 
 È possibile che con la rimozione di nodi vengano avviati più aggiornamenti in sequenza. Alcuni nodi sono contrassegnati con il tag `IsSeedNode=”true”` e possono essere identificati mediante query nel manifesto del cluster usando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La rimozione di tali nodi può richiedere più tempo perché comporta lo spostamento dei nodi di inizializzazione. Il cluster deve mantenere almeno tre nodi di tipo primario.
 
 > [!WARNING]
-> È opportuno evitare di ridurre il numero di nodi al di sotto della [dimensione del cluster del livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster). Ciò interferisce con la possibilità che i servizi di sistema di Service Fabric vengano replicati all'interno del cluster e può destabilizzare o addirittura causare l'eliminazione definitiva del cluster.
+> È opportuno evitare di ridurre il numero di nodi al di sotto della [dimensione del cluster del livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster). Ciò interferisce con la replica dei servizi di sistema di Service Fabric all'interno del cluster e può destabilizzare o addirittura causare l'eliminazione definitiva del cluster.
 >
 
 Quando si ridimensiona un cluster autonomo, tenere presenti le linee guida seguenti:

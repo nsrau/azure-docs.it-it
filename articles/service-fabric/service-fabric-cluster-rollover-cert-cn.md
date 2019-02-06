@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205145"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192967"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Eseguire manualmente il rollover del certificato di un cluster di Service Fabric
-Quando il certificato di un cluster di Service Fabric è vicino alla scadenza, è necessario aggiornarlo.  Il rollover dei certificati è semplice se il cluster è stato [impostato per usare i certificati in base al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (invece dell'identificazione personale).  Ottenere un nuovo certificato da un'autorità di certificazione con una nuova data di scadenza.  I certificati autofirmati, inclusi quelli generati quando si distribuisce un cluster di Service Fabric nel portale di Azure, non sono supportati.  Il nuovo certificato deve avere lo stesso nome comune del certificato precedente. 
+Quando il certificato di un cluster di Service Fabric è vicino alla scadenza, è necessario aggiornarlo.  Il rollover dei certificati è semplice se il cluster è stato [impostato per usare i certificati in base al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (invece dell'identificazione personale).  Ottenere un nuovo certificato da un'autorità di certificazione con una nuova data di scadenza.  I certificati autofirmati non sono supportati per i cluster di Service Fabric di produzione, per includere certificati generati durante il flusso di lavoro di creazione del cluster del portale di Azure. Il nuovo certificato deve avere lo stesso nome comune del certificato precedente. 
 
-Lo script seguente carica un nuovo certificato per un insieme di credenziali delle chiavi e quindi lo installa nel set di scalabilità di macchine virtuali.  Il cluster di Service Fabric utilizzerà automaticamente il certificato con la data di scadenza più recente.
+Un cluster di Service Fabric usa automaticamente il certificato dichiarato con la data di scadenza più distante nel futuro, se nell'host sono installati più certificati convalidati. Una procedura consigliata consiste nell'usare un modello di Resource Manager per eseguire il provisioning delle risorse di Azure. Per gli ambienti non di produzione è possibile usare lo script seguente per caricare un nuovo certificato in un insieme di credenziali delle chiavi e quindi installarlo nel set di scalabilità di macchine virtuali: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -78,6 +78,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
+
+>[!NOTE]
+> I segreti del set di scalabilità di macchine virtuali non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
 
 Altre informazioni sono disponibili in:
 * Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439069"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883773"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -45,7 +45,7 @@ Il log attività contiene diverse categorie di dati. Per informazioni dettagliat
 * **Ridimensionamento automatico**: questa categoria contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio del tipo di evento visualizzato in questa categoria è "Autoscale scale up action failed". Con il ridimensionamento automatico è possibile aumentare o ridurre automaticamente il numero di istanze in un tipo di risorsa supportato in base all'ora del giorno e/o ai dati di caricamento (metrica) usando un'impostazione di ridimensionamento automatico. Quando vengono soddisfatte le condizioni per aumentare o ridurre le prestazioni, gli eventi di avvio riusciti o quelli non riusciti vengono registrati in questa categoria.
 * **Raccomandazione**: questa categoria contiene gli eventi di raccomandazione di Azure Advisor.
 * **Sicurezza**: questa categoria contiene il record degli avvisi generati dal Centro sicurezza di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Suspicious double extension file executed".
-* **Criteri**: questa categoria non contiene eventi, è riservata per utilizzi futuri. 
+* **Criteri**: questa categoria include i record di tutte le operazioni relative ad azioni effetto eseguite da Criteri di Azure. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi Audit e Deny. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa.
 
 ## <a name="event-schema-per-category"></a>Schema di eventi per categoria
 [Vedere questo articolo per comprendere lo schema di eventi del log attività per categoria.](../../azure-monitor/platform/activity-log-schema.md)
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| NOME |Yes |Nome del profilo di log. |
+| Name |Yes |Nome del profilo di log. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |

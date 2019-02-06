@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215231"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194288"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -46,7 +46,7 @@ Le entità di integrità corrispondono alle entità di Service Fabric. Ad esempi
 Le entità e la gerarchia di integrità consentono di eseguire in modo efficace la creazione di report, il debug e il monitoraggio del cluster e delle applicazioni. Il modello di integrità offre un'accurata rappresentazione *granulare* dell'integrità dei numerosi elementi mobili all'interno del cluster.
 
 ![Entità di integrità.][1]
-Le entità di integrità, organizzate in una gerarchia basata su relazioni padre-figlio.
+ Le entità di integrità, organizzate in una gerarchia basata su relazioni padre-figlio.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -76,7 +76,7 @@ Service Fabric usa tre stati di integrità per indicare se un'entità è integra
 I possibili [stati di integrità](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) sono:
 
 * **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
-* **Avviso**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
+* **Warning**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
 * **Error**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
 * **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager**, **ClusterManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità non presente nell'archivio integrità, il risultato unito ha uno stato di integrità sconosciuto. Un'entità non è nell'archivio perché non sono ancora stati elaborati i report sull'integrità o è stata eseguita la pulizia dell'entità dopo l'eliminazione.
 

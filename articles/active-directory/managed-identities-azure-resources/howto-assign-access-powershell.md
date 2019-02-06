@@ -3,23 +3,23 @@ title: Come assegnare a un'identità gestita l'accesso a una risorsa di Azure tr
 description: Istruzioni dettagliate su come assegnare a un'identità gestita in una risorsa l'accesso a un'altra risorsa tramite PowerShell.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: daveba
-ms.openlocfilehash: 72e05af92e88dc04f470d8be9a65347672777556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 765276ce179c0d9858a39a62adc5ea0e96ae79ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427662"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188780"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite PowerShell
 
@@ -27,26 +27,28 @@ ms.locfileid: "54427662"
 
 Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibile concedere all'identità gestita l'accesso a un'altra risorsa, proprio come per qualsiasi entità di sicurezza. Questo esempio mostra come assegnare a un'identità gestita di una macchina virtuale di Azure l'accesso a un account di archiviazione di Azure tramite PowerShell.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Installare [la versione più recente di Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM), se non è già installata.
+- Installare [la versione più recente di Azure PowerShell](/powershell/azure/install-az-ps), se non è già installata.
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo per assegnare a un'identità gestita l'accesso a un'altra risorsa
 
 Dopo aver abilitato l'identità gestita in una risorsa di Azure, [ad esempio una macchina virtuale di Azure](qs-configure-powershell-windows-vm.md):
 
-1. Accedere ad Azure tramite il cmdlet `Connect-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure in cui è stata configurata l'identità gestita:
+1. Accedere ad Azure tramite il cmdlet `Connect-AzAccount`. Usare un account associato alla sottoscrizione di Azure in cui è stata configurata l'identità gestita:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
-2. In questo esempio, viene concesso l'accesso alla macchina virtuale di Azure in un account di archiviazione. Prima di tutto viene usato il comando [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) per ottenere l'entità servizio per la macchina virtuale denominata `myVM`, che è stata creata quando è stata abilitata l'identità gestita. Viene quindi usato [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) per concedere alla macchina virtuale l'accesso in **Lettura** a un account di archiviazione denominato `myStorageAcct`:
+2. In questo esempio, viene concesso l'accesso alla macchina virtuale di Azure in un account di archiviazione. Prima di tutto viene usato il comando [Get-AzVM](/powershell/module/az.compute/get-azvm) per ottenere l'entità servizio per la macchina virtuale denominata `myVM`, che è stata creata quando è stata abilitata l'identità gestita. Viene quindi usato [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere alla macchina virtuale l'accesso in **Lettura** a un account di archiviazione denominato `myStorageAcct`:
 
     ```powershell
-    $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-    New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
+    $spID = (Get-Az -ResourceGroupName myRG -Name myVM).identity.principalid
+    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

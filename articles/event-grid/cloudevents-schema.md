@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755088"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079869"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usare lo schema CloudEvents con Griglia di eventi
 
@@ -21,7 +21,7 @@ Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di
 
 CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo degli eventi basati sul cloud. Questo schema consente strumenti uniformi, modi standard per il routing e la gestione degli eventi e modi universali per la deserializzazione dello schema di eventi esterni. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
 
-CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Compute Foundation](https://www.cncf.io/). È attualmente disponibile come versione 0.1.
+CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 0.1.
 
 Questo articolo descrive come usare lo schema CloudEvents con Griglia di eventi.
 
@@ -60,7 +60,7 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 
 In CloudEvents v0.1 sono disponibili le proprietà seguenti:
 
-| CloudEvents        | type     | Valore JSON di esempio             | DESCRIZIONE                                                        | Mapping di Griglia di eventi
+| CloudEvents        | Type     | Valore JSON di esempio             | DESCRIZIONE                                                        | Mapping di Griglia di eventi
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | string   | "com.example.someevent"          | Tipo di occorrenza che si è verificata                                   | eventType
 | eventTypeVersion   | string   | "1.0"                            | Versione di eventType (facoltativa)                            | dataVersion

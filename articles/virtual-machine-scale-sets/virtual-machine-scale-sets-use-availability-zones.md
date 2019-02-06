@@ -3,7 +3,7 @@ title: Creare un set di scalabilità di Azure che usa le zone di disponibilità 
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano le zone di disponibilità per aumentare la ridondanza in caso di interruzioni
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: zarhoads
-ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468875"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886238"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -215,7 +215,7 @@ Per creare un set di scalabilità con ridondanza della zona, specificare più va
 }
 ```
 
-Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
+Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": {"name": "Standard"} "* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Per un esempio completo di un set di scalabilità con ridondanza della zona e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

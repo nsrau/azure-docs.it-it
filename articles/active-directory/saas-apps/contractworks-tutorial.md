@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427742"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Esercitazione: Integrazione di Azure Active Directory con ContractWorks
 
@@ -141,7 +141,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Ok**
 
-1. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+1. Nella sezione  **Certificato di firma SAML**  fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app**  e incollarlo nel Blocco note.
     
     ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-contractworks-test-user"></a>Creare un utente di test per ContractWorks
 
-In questa sezione viene creato un utente di nome Britta Simon in ContractWorks. Collaborare con il [team di supporto di ContractWorks](mailto:support@contractworks.com) per aggiungere utenti nella piattaforma ContractWorks. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in ContractWorks. Collaborare con il  [team di supporto di ContractWorks](mailto:support@contractworks.com)  per aggiungere gli utenti alla piattaforma ContractWorks. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -222,7 +222,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ContractWorks nel pannello di accesso, viene automaticamente eseguito l'accesso all'applicazione ContractWorks.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

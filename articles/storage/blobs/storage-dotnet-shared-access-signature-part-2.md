@@ -8,15 +8,15 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240699"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244913"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con l'archiviazione BLOB
 
 [parte 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. La parte 2 illustra come generare e poi usare le firme di accesso condiviso con l'archiviazione BLOB. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli esempi inclusi in questa esercitazione:
 

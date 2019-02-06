@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636676"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903503"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
 
@@ -33,7 +33,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di Azure AD
 > [!NOTE]
 > È necessario completare i passaggi seguenti prima di creare il cluster. Poiché per gli script sono previsti nomi ed endpoint dei cluster, i valori devono essere pianificati e non quelli già creati.
 
-1. [Scaricare gli script][sf-aad-ps-script-download] nel computer.
+1. [Scaricare gli script](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) nel computer.
 2. Fare clic con il pulsante destro del mouse sul file ZIP, scegliere **Proprietà**, selezionare la casella di controllo **Sblocca** e quindi fare clic su **Applica**.
 3. Estrarre il file con estensione zip.
 4. Eseguire `SetupApplications.ps1` e indicare i parametri TenantId, ClusterName e WebApplicationReplyUrl. Ad esempio: 
@@ -108,7 +108,7 @@ All'utente non è assegnato un ruolo nell'applicazione cluster Azure AD. Di cons
 #### <a name="solution"></a>Soluzione
 Seguire le istruzioni per la configurazione di Azure AD e assegnare i ruoli utente. È anche consigliabile attivare "Assegnazione utente obbligatoria per l'accesso all'app", come in `SetupApplications.ps1`.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connessione a PowerShell non riesce con un errore: "Le credenziali specificate non sono valide"
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connessione a PowerShell ha esito negativo con un errore: "Le credenziali specificate non sono valide"
 #### <a name="problem"></a>Problema
 Quando si usa PowerShell per connettersi al cluster con la modalità di sicurezza "AzureActiveDirectory", eseguito l'accesso ad Azure AD, la connessione ha esito negativo con un errore: "Le credenziali specificate non sono valide".
 
@@ -117,7 +117,7 @@ Questa soluzione è identica a quella precedente.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer restituisce un errore durante l'accesso: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando si prova a eseguire l'accesso ad Azure AD in Service Fabric Explorer, la pagina restituisce l'errore AADSTS50011, che indica che l'&lt;URL&gt; dell'indirizzo di risposta non corrisponde agli indirizzi configurati per l'applicazione: &lt;GUID&gt;.
+Quando si tenta di accedere ad Azure AD in Service Fabric Explorer, la pagina restituisce un errore: "AADSTS50011: L'indirizzo per la risposta &lt;url&gt; non corrisponde agli indirizzi per le risposte configurati per l'applicazione: &lt;guid&gt;."
 
 ![Indirizzo di risposta di SFX non corrispondente][sfx-reply-address-not-match]
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469740"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912783"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -119,9 +119,9 @@ Per superare questi limiti nell'elaborazione normale o per eseguire test di cari
 
 | NOME | Limite | Note |
 |------|-------|-------|
-| FTP | 50 MB | Per superare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
-| SFTP | 50 MB | Per superare questo limite, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) oppure vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
-| SFTP-SSH | 1 GB | Questo connettore gestisce fino a 1 GB, tuttavia trasferisce i dati in parti da 50 MB e non da 1 GB. | 
+| FTP | 50 MB | Per superare questo limite solo per le azioni, vedere [Gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: la suddivisione in blocchi non si applica ai trigger. Alcuni connettori e API, inoltre, potrebbero non supportare la suddivisione in blocchi o anche il limite predefinito. | 
+| SFTP | 50 MB | Per superare questo limite solo per le azioni, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) oppure vedere [Gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: la suddivisione in blocchi non si applica ai trigger. Alcuni connettori e API, inoltre, potrebbero non supportare la suddivisione in blocchi o anche il limite predefinito. | 
+| SFTP-SSH | 1 GB | Questo connettore gestisce fino a 1 GB, tuttavia trasferisce i dati in parti da 50 MB e non da 1 GB. Per superare questo limite solo per le azioni, vedere [Gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: la suddivisione in blocchi non si applica ai trigger. | 
 |||| 
 
 <a name="request-limits"></a>

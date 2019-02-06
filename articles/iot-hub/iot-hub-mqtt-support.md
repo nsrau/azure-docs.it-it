@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052037"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913573"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -198,29 +198,27 @@ Un dispositivo effettua la sottoscrizione a `$iothub/twin/res/#` per ricevere le
 
 Request ID può essere qualsiasi valore valido per il valore della proprietà di un messaggio, come descritto nella [Guida per gli sviluppatori sulla messaggistica dell'hub IoT][lnk-messaging], e lo stato viene convalidato come valore intero.
 
-Il corpo della risposta contiene la sezione delle proprietà del dispositivo gemello. Il frammento di codice seguente mostra il corpo della voce del registro delle identità limitato al membro "properties", ad esempio:
+Il corpo della risposta contiene la sezione delle proprietà del dispositivo gemello, come illustrato nell'esempio di risposta seguente:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
 
 I possibili codici di stato sono i seguenti:
 
-|Status | DESCRIZIONE |
+|Stato | DESCRIZIONE |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Operazione riuscita (non viene restituito alcun contenuto) |
 | 429 | Numero eccessivo di richieste (limitazione), come descritto in [Limitazione dell'hub IoT][lnk-quotas] |
 | 5** | Errori server |
 
@@ -249,7 +247,7 @@ Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi
 
 I possibili codici di stato sono i seguenti:
 
-|Status | DESCRIZIONE |
+|Stato | DESCRIZIONE |
 | ----- | ----------- |
 | 200 | Success |
 | 400 | Richiesta non valida. JSON non valido |

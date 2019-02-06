@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201075"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217680"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra i passaggi per eseguire il backup e il ripristino di macchine virtuali tramite Backup di Azure. L'articolo contiene anche informazioni sugli scenari supportati, sui prerequisiti e sui passaggi per la risoluzione dei problemi per i casi di errore.
@@ -138,7 +138,7 @@ Per ripristinare una macchina virtuale crittografata, ripristinare prima i disch
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 | Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
-|Backup | Il servizio Backup non dispone delle autorizzazioni sufficienti per Accedere a Key Vault per il backup di macchine virtuali crittografate. | Al servizio Backup devono essere concesse queste autorizzazioni seguendo la [procedura descritta nella sezione precedente](#provide-permissions-to-azure-backup). Oppure è possibile seguire la procedura PowerShell descritta nella sezione "Abilitare la protezione" dell'articolo [Usare PowerShell per il backup e il ripristino di macchine virtuali](backup-azure-vms-automation.md#enable-protection). |  
-| Restore |Non è possibile ripristinare questa macchina virtuale crittografata perché il Key Vault associato alla macchina non esiste. |Creare un Key Vault come descritto in [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md). Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
-| Restore |Non è possibile ripristinare questa macchina virtuale crittografata perché la chiave e il segreto associati non esistono. |Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
-| Restore |Il servizio Backup non dispone dell'autorizzazione per accedere alle risorse nella sottoscrizione dell'utente. |Come accennato in precedenza, ripristinare prima i dischi seguendo la procedura descritta nella sezione "Ripristinare i dischi di cui è stato eseguito il backup" in [Scegliere una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Usare quindi PowerShell per [creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+|Backup | Codice errore: UserErrorKeyVaultPermissionsNotConfigured<br><br>Messaggio di errore: Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate. | Al servizio Backup devono essere concesse queste autorizzazioni seguendo la [procedura descritta nella sezione precedente](#provide-permissions-to-azure-backup). Oppure è possibile seguire la procedura PowerShell descritta nella sezione "Abilitare la protezione" dell'articolo [Usare PowerShell per il backup e il ripristino di macchine virtuali](backup-azure-vms-automation.md#enable-protection). |  
+| Restore | Non è possibile ripristinare questa macchina virtuale crittografata perché il Key Vault associato alla macchina non esiste. |Creare un Key Vault come descritto in [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md). Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
+| Restore | Codice errore: UserErrorKeyVaultKeyDoesNotExist<br><br> Messaggio di errore: non è possibile ripristinare questa macchina virtuale crittografata perché la chiave associata alla macchina in questione non esiste. |Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
+| Restore | Codice errore: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Messaggio di errore: Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Come accennato in precedenza, ripristinare prima i dischi seguendo la procedura descritta nella sezione "Ripristinare i dischi di cui è stato eseguito il backup" in [Scegliere una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Usare quindi PowerShell per [creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

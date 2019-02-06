@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155069"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
@@ -83,7 +83,7 @@ In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Depa
 
    [Leggere questa sezione](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) per ulteriori informazioni su come usare i log di controllo per analizzare le modifiche apportate dalle licenze basate sui gruppi.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: controllare i problemi relativi alle licenze e risolverli
 
 1. Passare ad **Azure Active Directory** > **Utenti e gruppi** > **Tutti i gruppi**, quindi trovare il gruppo **HR Department** a cui sono state assegnate le licenze.
 2. Nel riquadro del gruppo **Reparto Risorse umane** selezionare **Licenze**. La notifica nella parte superiore del riquadro indica che ci sono 10 utenti per cui non è stato possibile assegnare le licenze. Facendo clic su di essa viene aperto un elenco di tutti gli utenti che presentano un errore di licenza per questo gruppo.

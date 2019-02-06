@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3467b823e6c91d34ebd48c7f8bc29558a79c59e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3009cb42ac477b18d45ab5968d6f5793ce1cd36c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229547"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Esercitazione: integrazione di Azure Active Directory con moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Esercitazione: Integrazione di Azure Active Directory con moconavi
 
 Questa esercitazione descrive come integrare moconavi con Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L'integrazione di moconavi con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con moconavi, sono necessari gli elementi seguenti:
 
@@ -158,11 +158,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-moconavi-test-user"></a>Creare un utente di test di moconavi
 
-In questa sezione viene creato un utente di nome Britta Simon in moconavi. Collaborare con il [team di supporto di moconavi](mailto:support@recomot.co.jp) per aggiungere gli utenti alla piattaforma moconavi. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in moconavi. Collaborare con il  [team di supporto di moconavi](mailto:support@recomot.co.jp)  per aggiungere gli utenti alla piattaforma moconavi. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

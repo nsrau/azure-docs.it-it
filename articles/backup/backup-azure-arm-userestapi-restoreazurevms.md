@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289498"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100201"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -37,7 +37,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un
 
 ### <a name="responses"></a>Risposte
 
-|NOME  |type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ Se è necessario personalizzare la creazione di una macchina virtuale dai dati d
 
 L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` e `{protectedItemName}` sono come creati [qui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` è "Azure" e `{recoveryPointId}` è il campo `{name}` del punto di ripristino indicato [in precedenza](#example-response).
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
 
-|NOME  |type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli,
 
 Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di un disco.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,7 +163,7 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Risposta
 
@@ -171,7 +171,7 @@ L'attivazione di un disco di ripristino è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
@@ -243,7 +243,7 @@ Al termine del processo con esecuzione prolungata, i dischi e la configurazione 
 
 Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di una macchina virtuale.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
       }
     }
 }
-````
+```
 
 La risposta deve essere gestita nello stesso modo [descritto in precedenza per il ripristino dei dischi](#response).
 

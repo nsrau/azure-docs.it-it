@@ -1,5 +1,5 @@
 ---
-title: Come collegare una sottoscrizione di Azure a Azure Active Directory B2C | Microsoft Docs
+title: Come collegare una sottoscrizione di Azure - Azure Active Directory B2C | Microsoft Docs
 description: Guida dettagliata all'abilitazione della fatturazione per tenant Azure AD B2C in una sottoscrizione di Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853188"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196175"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure AD B2C
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Collegare una sottoscrizione di Azure a un tenant di Azure Active Directory B2C
 
 > [!IMPORTANT]
-> Le informazioni più aggiornate sulla fatturazione e i prezzi per l'utilizzo di Azure AD B2C sono disponibili nella pagina seguente: [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Per le informazioni più aggiornate su fatturazione e prezzi per l'utilizzo di Azure Active Directory (Azure AD) B2C, vedere [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 I costi per l'utilizzo di Azure AD B2C vengono addebitati a una sottoscrizione di Azure. Quando viene creato un tenant di Azure AD B2C, l'amministratore del tenant deve collegarlo in modo esplicito a una sottoscrizione di Azure. Questo articolo illustra i passaggi da eseguire.
 
 > [!NOTE]
 > È possibile usare una sottoscrizione collegata a un tenant di Azure AD B2C solo per la fatturazione dei costi di utilizzo di Azure AD B2C o di altre risorse di Azure, tra cui le risorse di Azure AD B2C.  La sottoscrizione non può essere usata per aggiungere altri servizi basati su licenza di Azure o licenze di Office 365 nel tenant di Azure AD B2C.
 
- Questo collegamento alla sottoscrizione viene realizzato mediante la creazione di una "risorsa" di Azure AD B2C nella sottoscrizione di Azure di destinazione. È possibile creare molte "risorse" di Azure AD B2C all'interno di una singola sottoscrizione, insieme ad altre risorse di Azure, ad esempio macchine virtuali, archivi dati, app per la logica e così via. È possibile visualizzare tutte le risorse nella sottoscrizione passando al tenant di Azure AD cui è associata la sottoscrizione.
+Questo collegamento alla sottoscrizione viene realizzato mediante la creazione di una "risorsa" di Azure AD B2C nella sottoscrizione di Azure di destinazione. È possibile creare molte "risorse" di Azure AD B2C all'interno di una singola sottoscrizione, insieme ad altre risorse di Azure, ad esempio macchine virtuali, archivi dati, app per la logica e così via. È possibile visualizzare tutte le risorse nella sottoscrizione passando al tenant di Azure AD cui è associata la sottoscrizione.
+
+Le sottoscrizioni di Azure Cloud Solution Provider (CSP) sono supportate in Azure AD B2C. La funzionalità è disponibile tramite le API o il portale di Azure per Azure AD B2C e per tutte le risorse di Azure. Gli amministratori delle sottoscrizioni CSP possono collegare, spostare ed eliminare le relazioni con Azure AD B2C esattamente come per tutte le risorse di Azure. La gestione di Azure AD B2C tramite il controllo degli accessi in base al ruolo non è influenzata dall'associazione tra il tenant di Azure AD B2C e una sottoscrizione di Azure CSP. Per ottenere il controllo degli accessi in base al ruolo, usare i ruoli di base del tenant, non i ruoli basati su sottoscrizioni.
 
 Per continuare, è necessaria una sottoscrizione di Azure valida.
 
@@ -81,10 +83,6 @@ Dopo aver creato una risorsa di Azure AD B2C nella sottoscrizione di Azure, verr
 ![Impostazioni della risorsa B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Problemi noti
-
-### <a name="csp-subscriptions"></a>Sottoscrizioni CSP
-
-Attualmente un tenant di Azure AD B2C **non può** essere collegato a sottoscrizioni CSP.
 
 ### <a name="self-imposed-restrictions"></a>Restrizioni imposte personalmente
 

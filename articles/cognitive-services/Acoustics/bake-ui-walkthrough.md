@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169757"
 ---
 # <a name="bake-acoustics"></a>Effettuare il bake dell'acustica
 
@@ -255,10 +255,10 @@ Installare e configurare Docker nel computer che elaborerà la simulazione:
 
 Sono quattro i file di dati creati da questo plug-in in punti diversi. Solo uno di essi è necessario in fase di esecuzione, quindi gli altri tre sono all'interno di cartelle denominate "Editor" in modo che non vengano compilati nel progetto.
 
-* **Assets/Editor/[NomeScena]\_AcousticsParameters.asset**: questo file archivia i dati immessi nei campi dell'interfaccia utente di acustica. Il percorso e il nome di questo file non possono essere modificati. In questo file sono archiviati altri valori che interessano il bake, ma sono per utenti avanzati e non devono essere modificati.
+* **Assets/Editor/[NomeScena]\_AcousticsParameters.asset**: in questo file vengono archiviati i dati immessi nei campi nell'interfaccia utente di Acoustics. Il percorso e il nome di questo file non possono essere modificati. In questo file sono archiviati altri valori che interessano il bake, ma sono per utenti avanzati e non devono essere modificati.
 * **Assets/AcousticsData/Acoustics\_[NomeScena].ace.bytes**: questo file viene creato durante la simulazione del bake e contiene i dati di ricerca usati dal runtime per eseguire il rendering dell'acustica della scena. Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
-* **Assets/AcousticsData/Editor/Acoustics_[NomeScena].vox**: questo file archivia la geometria dell'acustica voxelizzata e le proprietà dei materiali. Il calcolo viene eseguito usando il pulsante **Calculate...** (Calcola) nella scheda Probes (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
-* **Assets/AcousticsData/Editor/Acoustics\_[NomeScena]\_config.xml**: questo file archivia i parametri calcolati usando il pulsante **Calculate...** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
+* **Assets/AcousticsData/Editor/Acoustics_[NomeScena].vox**: questo file contiene la geometria di acustica voxelizzata e le proprietà del materiale. Il calcolo viene eseguito usando il pulsante **Calculate...** (Calcola) nella scheda Probes (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
+* **Assets/AcousticsData/Editor/Acoustics\_[NomeScena]\_config.xml**: questo file contiene i parametri calcolati usando il pulsante **Calculate** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
 
 Prestare attenzione a non eliminare il file *.ace.bytes scaricato dal bake. Questo file non è ripristinabile se non effettuando di nuovo il bake della scena.
 

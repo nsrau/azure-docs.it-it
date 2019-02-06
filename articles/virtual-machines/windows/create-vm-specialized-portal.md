@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091250"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163450"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
 
@@ -28,6 +28,8 @@ Esistono diversi modi per creare una macchina virtuale in Azure:
 - Se si ha già un disco rigido virtuale da usare o si vuole copiare il disco rigido virtuale da una macchina virtuale esistente, è possibile creare una nuova macchina virtuale *collegando* il disco rigido virtuale alla nuova macchina virtuale come disco del sistema operativo. 
 
 - È possibile creare una nuova macchina virtuale dal disco rigido virtuale di una macchina virtuale che è stata eliminata. Se ad esempio è presente una macchina virtuale di Azure che non funziona correttamente, è possibile eliminarla e usare il disco rigido virtuale per crearne una nuova. È possibile riutilizzare lo stesso disco rigido virtuale o crearne una copia creando uno snapshot e quindi creando un nuovo disco gestito dallo snapshot. La creazione di uno snapshot, anche se richiede qualche passaggio in più, mantiene il disco rigido virtuale originale e fornisce un fallback.
+
+- Scegliere una macchina virtuale classica e usare il disco rigido virtuale per creare una nuova macchina virtuale che usa il modello di distribuzione di Resource Manager e i dischi gestiti. Per ottenere risultati ottimali, **arrestare** la macchina virtuale classica nel portale di Azure prima di creare lo snapshot.
  
 - È possibile creare una macchina virtuale di Azure da un disco rigido virtuale locale caricandolo e collegandolo a una nuova macchina virtuale. Per caricare il disco rigido virtuale in un account di archiviazione, si usa PowerShell o un altro strumento e quindi si crea un disco gestito dal disco rigido virtuale. Per altre informazioni, vedere [Caricare un disco rigido virtuale specializzato](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

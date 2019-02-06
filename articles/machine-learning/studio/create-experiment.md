@@ -1,6 +1,6 @@
 ---
-title: Esperimento semplice titleSuffix: Descrizione di Azure Machine Learning Studio: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+title: Esperimento semplice titleSuffix: Descrizione di Azure Machine Learning Studio: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
 ---

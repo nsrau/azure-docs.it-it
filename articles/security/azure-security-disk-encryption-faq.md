@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815229"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096845"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -42,8 +42,8 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 
 | Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
+| Ubuntu | 16.04| Disco del sistema operativo e dati |
+| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
 | RHEL | 7.5 | Disco del sistema operativo e dati* |
 | RHEL | 7.4 | Disco del sistema operativo e dati* |
 | RHEL | 7.3 | Disco del sistema operativo e dati* |
@@ -59,12 +59,10 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | CentOS | 6.7 | Disco dati |
 | CentOS | 6.6 | Disco dati |
 | CentOS | 6,5 | Disco dati |
-| openSUSE | 13.2 | Disco dati |
-| SLES | 12 SP1 | Disco dati |
-| SLES | Priorità: 12-SP1 | Disco dati |
-| SLES | HPC 12 | Disco dati |
-| SLES | Priorità: 11-SP4 | Disco dati |
-| SLES | 11 SP4 | Disco dati |
+| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Disco dati |
+| SLES | SUSE:SLES-Priority:12-SP4:latest | Disco dati |
+| SLES | SUSE:SLES-HPC:12-SP3:latest | Disco dati |
+| SLES | SUSE:SLES-Priority:12-SP3:latest | Disco dati |
 
 
 *__La nuova implementazione di Crittografia dischi di Azure è supportata per il disco dati e il sistema operativo RHEL per le immagini RHEL7 con pagamento a consumo. Crittografia dischi di Azure non è attualmente supportata per le immagini RHEL di tipo BYOS (Bring-Your-Own-Subscription). È anche possibile vedere l'articolo [Crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md) per altre informazioni.__

@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210336"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
 
@@ -72,7 +72,7 @@ Di seguito vengono indicate le operazioni da eseguire.
 
 1. Configurare due account:
 
-    - Se si replicano macchine virtuali VMware, è necessario un account per Site Recovery per accedere agli host vCenter SErver o vSphere ESXi per individuare automaticamente le macchine virtuali.
+    - Se si replicano macchine virtuali VMware, è necessario un account per Site Recovery per accedere a server vCenter o a host vSphere ESXi e individuare automaticamente le macchine virtuali.
     - È necessario un account per installare l'agente del servizio Mobility di Site Recovery in ogni computer fisico oppure in ogni macchina virtuale da replicare.
 
 2. Verificare la compatibilità dell'infrastruttura VMware, se non è già stato fatto in precedenza.

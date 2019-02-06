@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259965"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095520"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -36,7 +36,7 @@ Un criterio di sicurezza definisce la configurazione specifica dei carichi di la
 
 I criteri di sicurezza determinano i suggerimenti per la sicurezza ottenuti nel Centro sicurezza di Azure. È possibile monitorare la conformità a tali criteri per identificare potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere l'elenco di [criteri di sicurezza predefiniti](security-center-policy-definitions.md).
 
-Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livelli Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. 
+Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livello Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. 
 
 
 ### <a name="management-groups"></a>Gruppi di gestione
@@ -121,7 +121,7 @@ Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abi
 Negli esempi seguenti sostituire queste variabili:
 
 - **{scope}**: immettere il nome del gruppo di gestione o la sottoscrizione a cui si applicano i criteri.
-- **{poicyAssignmentName}**: immettere il [nome dell'assegnazione di criteri rilevante](#policy-names).
+- **{policyAssignmentName}**: immettere il [nome dell'assegnazione di criteri pertinente](#policy-names).
 - **{name}**: immettere il proprio nome o il nome dell'amministratore che ha approvato la modifica dei criteri.
 
 Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integrata in una sottoscrizione oppure in un gruppo di gestione:
@@ -212,7 +212,7 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Configurazioni di sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Monitora server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
 |Crittografia del disco |Monitora i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
-|Valutazione della vulnerabilità |Monitora le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssesmentMonitoringEffect|
+|Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
 |Web application firewall |Monitora le applicazioni Web non protette nel Centro sicurezza di Azure |webApplicationFirewallMonitoringEffect |
 |Firewall di nuova generazione |Monitora gli endpoint rete non protetti nel Centro sicurezza di Azure| |
 

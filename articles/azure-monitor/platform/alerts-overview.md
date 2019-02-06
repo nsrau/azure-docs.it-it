@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156412"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -23,7 +23,7 @@ Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come ini
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
-Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-overview.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
+Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-classic.overview.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
 
 ## <a name="overview"></a>Panoramica
 
@@ -62,6 +62,13 @@ Gli attributi chiave di una regola di avviso sono:
 - Eventi del log attività
 - Integrità della piattaforma Azure sottostante
 - Test per la disponibilità del sito Web
+
+Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi erano disponibili funzionalità di gestione degli avvisi separate. Nel corso del tempo, Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di gestione degli avvisi. Il consolidamento è ancora in corso. Alcune funzionalità di invio avvisi di conseguenza non sono ancora integrate nel nuovo sistema di avvisi.  
+
+| **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
+|-------------|----------------|-------------|
+| Service Health | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 ## <a name="manage-alerts"></a>Gestisci avvisi
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso con lo stato impostato su *Nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
@@ -124,14 +131,7 @@ Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'o
 
 Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
-Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../../azure-monitor/overview.md). La tabella seguente fornisce un elenco dei tipi di regole di avviso disponibili in Azure. Indica anche quali avvisi sono attualmente supportati e in quale esperienza degli avvisi.
-
-Nelle versioni precedenti dei servizi Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi le funzionalità di invio degli avvisi sono separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso. Alcune funzionalità di invio avvisi di conseguenza non sono ancora integrate nel nuovo sistema di avvisi.  
-
-| **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
-|-------------|----------------|-------------|
-| Service Health | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../../azure-monitor/overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Pagina Tutti gli avvisi 

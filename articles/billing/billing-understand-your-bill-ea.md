@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584469"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902704"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Informazioni sulla fattura per i clienti di Azure con Contratto Enterprise
 
@@ -31,7 +31,7 @@ Il credito della propria organizzazione include l'impegno monetario. L'impegno m
 
 Si ricevono una o più fatture quando si verifica quanto segue:
 
-- **Eccedenza del servizio**: gli addebiti per l'uso della propria organizzazione superano il saldo del credito.
+- **Eccedenza del servizio**: gli addebiti per l'utilizzo della propria organizzazione superano il saldo del credito.
 - **Addebiti fatturati separatamente**: i servizi usati dall'organizzazione non sono coperti dal credito. Si riceve una fattura per i servizi seguenti indipendentemente dal saldo del credito:
     - Canonical
     - Citrix XenApp Essentials
@@ -44,7 +44,7 @@ Si ricevono una o più fatture quando si verifica quanto segue:
     - Visual Studio Enterprise (annuale)
     - Visual Studio Professional (mensile)
     - Visual Studio Professional (annuale)
-- **Gli addebiti di Marketplace**: l'acquisto e l'uso di Microsoft Azure Marketplace non sono coperti dal credito della propria organizzazione e vengono fatturati separatamente. L'Amministratore dell'organizzazione ha la facoltà di abilitare e disabilitare gli acquisti su Marketplace per la propria organizzazione nell'Enterprise Portal. 
+- **Addebiti per Azure Marketplace**: gli acquisti e l'utilizzo di Azure Marketplace non sono coperti dal credito della propria organizzazione e vengono fatturati separatamente. L'Amministratore dell'organizzazione ha la facoltà di abilitare e disabilitare gli acquisti su Marketplace per la propria organizzazione nell'Enterprise Portal. 
 
 Se durante il periodo di fatturazione vengono fatturati separatamente sia l'eccedenza di servizio sia gli addebiti, si riceve un'unica fattura che include entrambi i tipi di addebiti. Gli addebiti di Marketplace vengono sempre fatturati separatamente.
 
@@ -90,6 +90,6 @@ Confrontare il totale di Azure Marketplace in **Report** > **Riepilogo uso** nel
 
      ![Screenshot che mostra l'opzione di download sotto gli addebiti di Marketplace.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattare Microsoft.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

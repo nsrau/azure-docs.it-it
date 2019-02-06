@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164555"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Panoramica del ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Analogamente ai servizi senza stato, gli eventi del ciclo di vita durante l'arre
 3. Dopo il completamento di `StatefulServiceBase.OnCloseAsync()`, l'oggetto servizio viene eliminato.
 
 ## <a name="stateful-service-primary-swaps"></a>Scambi della replica primaria di un servizio con stato
-Quando un servizio con stato è in esecuzione, solo per le repliche primarie di tali servizi con stato i listener di comunicazione vengono aperti e il metodo **RunAsync** viene chiamato. Le repliche secondarie vengono costruite, ma non ricevono altre chiamate. Quando un servizio con stato è in esecuzione, la replica primaria può cambiare. Che cosa significa questo in termini di eventi del ciclo di vita che una replica può vedere? Il comportamento che la replica con stato vede dipende dal fatto che la replica venga abbassata o alzata di livello durante lo scambio.
+Quando un servizio con stato è in esecuzione, solo per le repliche primarie di tali servizi con stato i listener di comunicazione vengono aperti e il metodo **RunAsync** viene chiamato. Le repliche secondarie vengono costruite, ma non ricevono altre chiamate. Quando un servizio con stato è in esecuzione, la replica che in quel momento rappresenta la replica primaria può cambiare a seguito dell'ottimizzazione del bilanciamento degli errori o del cluster. Che cosa significa questo in termini di eventi del ciclo di vita che una replica può vedere? Il comportamento che la replica con stato vede dipende dal fatto che la replica venga abbassata o alzata di livello durante lo scambio.
 
 ### <a name="for-the-primary-thats-demoted"></a>Per la replica primaria abbassata di livello
 Per la replica primaria abbassata di livello, Service Fabric richiede che questa replica interrompa l'elaborazione dei messaggi e qualsiasi attività in background che sta eseguendo. Di conseguenza, questo passaggio è simile a quando il servizio viene arrestato. Una differenza è che il servizio non viene eliminato o chiuso, in quanto rimane come secondario. Vengono chiamate le API seguenti:

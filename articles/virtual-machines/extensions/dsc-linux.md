@@ -1,10 +1,10 @@
 ---
-title: Estensione DSC di Azure per Linux | Microsoft Docs
+title: Estensione DSC di Azure per Linux
 description: Installa pacchetti OMI e DSC che consentono la configurazione di una macchina virtuale Linux di Azure tramite Desired State Configuration.
 services: virtual-machines-linux
 documentationcenter: ''
-author: balukambala
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: roiyz
-ms.openlocfilehash: 4a057b88d8d511965d694aaf4494f79bba88e47a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.author: robreed
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412648"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888992"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -42,7 +42,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
 L'estensione DSC per Linux supporta tutti i [sistemi operativi supportati dall'estensione](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) ad eccezione di:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | CentOS Linux | 6.5 e versioni successive |
 | Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
@@ -54,7 +54,7 @@ L'estensione DSC per Linux supporta tutti i [sistemi operativi supportati dall'e
  
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-L'estensione DSCForLinux richiede che la macchina virtuale di destinazione sia connessa a Internet. Per l'estensione Register, ad esempio, è necessaria la connettività al servizio di automazione. Per altre azioni, ad esempio Push, Pull o Install, è necessaria la connettività al servizio di archiviazione di Azure/github. Dipende dalle impostazioni specificate dal cliente.
+L'estensione DSCForLinux richiede che la macchina virtuale di destinazione sia connessa a Internet. Per l'estensione Register, ad esempio, è necessaria la connettività al servizio di automazione. Per altre azioni, ad esempio Push, Pull o Install, è necessaria la connettività al servizio di archiviazione di Azure/GitHub. Dipende dalle impostazioni specificate dal cliente.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -64,11 +64,11 @@ Di seguito sono riportati tutti i parametri della configurazione pubblica suppor
 
 * `FileUri`: (facoltativo, stringa) URI del file MOF/file meta.MOF/file di risorse personalizzato con estensione zip.
 * `ResourceName`: (facoltativo, stringa) nome del modulo di risorse personalizzato
-* `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. I valori validi sono Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
+* `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. Valori validi: Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
 * `NodeConfigurationName`: (facoltativo, stringa) nome di una configurazione del nodo da applicare.
 * `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC tenta di ottenere la configurazione dal server di pull. 
        Se la configurazione nel server di pull è diversa da quella corrente nel nodo di destinazione, viene copiata nell'archivio di elementi in sospeso e applicata.
-* `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC verifica che la configurazione si trovi nello stato desiderato.
 
 > [!NOTE]
@@ -424,8 +424,8 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Codice di errore: 51 rappresenta una distribuzione non supportata o un'azione dell'estensione non supportata.
-In alcuni casi, l'estensione DSC per Linux non riesce a installare OMI quando nel computer è già presente una versione più recente di OMI. [Risposta di errore: (000003)Downgrade not allowed] (Downgrade non consentito)
+Codice errore: 51 rappresenta una distribuzione non supportata o un'azione dell'estensione non supportata.
+In alcuni casi, l'estensione DSC per Linux non riesce a installare OMI quando nel computer è già presente una versione più recente di OMI. [risposta di errore: (000003)Downgrade not allowed (Downgrade non consentito)]
 
 
 

@@ -6,20 +6,28 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 40ad849525ab0afb36754012f735a52f6b5d520d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121992"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297362"
 ---
 # <a name="face-api-release-notes"></a>Note sulla versione dell'API Viso
 
 Questo articolo si riferisce al servizio API Viso versione 1.0.
+
+### <a name="release-changes-in-january-2019"></a>Modifiche alla versione di gennaio 2019
+
+* Aggiunta della funzionalità Snapshot per supportare la migrazione dei dati tra le sottoscrizioni: [Snapshot](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/face/snapshot).
+
+### <a name="release-changes-in-october-2018"></a>Modifiche alla versione di ottobre 2018
+
+* Perfezionata la descrizione per `status`, `createdDateTime`, `lastActionDateTime` e `lastSuccessfulTrainingDateTime` in [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5) e [LargeFaceList - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
 
 ### <a name="release-changes-in-may-2018"></a>Modifiche alla versione di maggio 2018
 
@@ -29,7 +37,7 @@ Questo articolo si riferisce al servizio API Viso versione 1.0.
 
 ### <a name="release-changes-in-march-2018"></a>Modifiche alla versione di marzo 2018
 
-* È stato aggiunto il contenitore Million-Scale: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Maggiori dettagli sono descritti in [Come usare la funzionalità su larga scala](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* Aggiunta del contenitore Million-Scale: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Maggiori dettagli sono descritti in [Come usare la funzionalità su larga scala](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
 * Il parametro [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` è stato aumentato da [1, 5] a [1, 100] e il valore predefinito è stato impostato su 10.
 

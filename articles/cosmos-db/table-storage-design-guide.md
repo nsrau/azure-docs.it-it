@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331963"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913598"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 
@@ -252,7 +252,7 @@ Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca 
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordinamento dei dati nel servizio tabelle
 
-I risultati della query restituiti dal servizio tabelle sono ordinati in ordine ascendente per **PartitionKey** e quindi **RowKey**.
+I risultati della query restituiti dal servizio tabelle sono disposti in ordine crescente per **PartitionKey** e poi per **RowKey**.
 
 > [!NOTE]
 > I risultati della query restituiti dall'API Tabella di Azure in Azure Cosmso DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).

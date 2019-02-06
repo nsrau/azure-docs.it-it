@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157174"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245834"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
@@ -180,10 +180,10 @@ Viene ora esaminato un modello di foresta casuale. Le foreste casuali permettono
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Distribuire un modello in Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (Azure ML) è un servizio cloud che semplifica la compilazione e la distribuzione di modelli di analisi predittiva. Una funzionalità interessante di Azure ML è la possibilità di pubblicare qualsiasi funzione R come servizio Web. Il pacchetto R di Azure ML permette di eseguire la distribuzione direttamente dalla sessione di R nella macchina virtuale per l'analisi scientifica dei dati.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Distribuire un modello in Azure Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) è un servizio cloud che semplifica la creazione e la distribuzione di modelli di analisi predittiva. Una funzionalità interessante di Azure Machine Learning Studio è la possibilità di pubblicare qualsiasi funzione R come servizio Web. Il pacchetto R di Azure Machine Learning Studio consente di eseguire la distribuzione direttamente dalla sessione R della Data Science Virtual Machine.
 
-Per distribuire il codice dell'albero delle decisioni della sezione precedente, occorre eseguire l'accesso ad Azure Machine Learning Studio. A tale scopo sono necessari l'ID dell'area di lavoro e un token di autorizzazione. Per trovare questi valori e usarli per inizializzare le variabili di Azure ML, procedere come segue:
+Per distribuire il codice dell'albero delle decisioni della sezione precedente, occorre eseguire l'accesso ad Azure Machine Learning Studio. A tale scopo sono necessari l'ID dell'area di lavoro e un token di autorizzazione. Per trovare questi valori e usarli per inizializzare le variabili di Azure Machine Learning, procedere come segue:
 
 Selezionare **SETTINGS** (Impostazioni) dal menu a sinistra. Prendere nota del valore **WORKSPACE ID**(ID area di lavoro). ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Per lo sviluppo tramite Python, nella DSVM sono installate le distribuzioni Anac
 Leggere una parte del set di dati spambase e classificare i messaggi di posta elettronica con macchine a vettori di supporto in scikit-learn:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

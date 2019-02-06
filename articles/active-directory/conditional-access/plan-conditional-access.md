@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450508"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081025"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
 
@@ -32,7 +32,7 @@ Se sono richieste funzionalità aggiuntive, può anche essere necessario ottener
 
 Esistono due tipi di criteri di accesso condizionale: di base e standard. I [criteri di base](baseline-protection.md) sono criteri di accesso condizionale predefiniti. L'obiettivo di questi criteri è assicurarsi di disporre almeno del livello di base della sicurezza abilitato. Criteri di base. I criteri di base sono disponibili in tutte le edizioni di Azure AD e forniscono solo opzioni di personalizzazione limitate. Se uno scenario richiede una maggiore flessibilità, disabilitare i criteri di base e implementare i requisiti in criteri standard personalizzati.
 
-Nei criteri di accesso condizionale standard è possibile personalizzare tutte le impostazioni in modo da soddisfare i requisiti aziendali. I criteri standard richiedono una licenza di Azure AD Premium P1.
+Nei criteri di accesso condizionale standard è possibile personalizzare tutte le impostazioni per poter soddisfare i requisiti aziendali. I criteri standard richiedono una licenza di Azure AD Premium P1.
 
 
 
@@ -54,9 +54,9 @@ Per creare i criteri di accesso condizionale per l'organizzazione, usare il mode
 
 |Quando accade *questo*:|Fare *questo*:|
 |-|-|
-|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>-Condizione di 2 (ad esempio, rischio di accesso)|Bloccare l'accesso all'applicazione|
-|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>-Condizione di 2 (ad esempio, rischio di accesso)|Concedere l'accesso con (E):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
-|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>-Condizione di 2 (ad esempio, rischio di accesso)|Concedere l'accesso con (O):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
+|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Bloccare l'accesso all'applicazione|
+|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (E):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
+|Viene eseguito un tentativo di accesso:<br>A un'app cloud*<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (O):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
 
 Come minimo, **quando accade questo** definisce l'entità di sicurezza (**chi**) che tenta di accedere a un'app cloud (**cosa**). Se necessario, è anche possibile includere **come** viene eseguito un tentativo di accesso. Nell'accesso condizionale, gli elementi che definiscono chi, cosa e come sono noti come condizioni. Per altre informazioni, vedere [Quali sono le condizioni dell'accesso condizionale di Azure Active Directory?](conditions.md) 
 
@@ -76,22 +76,36 @@ A questo punto si può stabilire uno standard di denominazione per i criteri. Lo
 - Cloud a cui si applica
 - Risposta
 - A chi si applica
-- Quando si applica 
+- Quando si applica (se applicabile)
  
 ![Standard di denominazione](./media/plan-conditional-access/11.png)
 
-
+Mentre un nome descrittivo consente di avere una panoramica dell'implementazione dell'accesso condizionale, il numero di sequenza è utile se è necessario fare riferimento a un criterio in una conversazione. Se ad esempio si parla al telefono con un altro amministratore, è possibile chiedergli di aprire il criterio EM063 per risolvere un problema.
 
 
 
 Ad esempio, il nome seguente indica che il criterio richiede l'autenticazione a più fattori per gli utenti di marketing su reti esterne che usano l'app Dynamics CRP:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-Oltre ai criteri attivi, è opportuno implementare anche criteri disabilitati che agiscano come [controlli di accesso resilienti secondari in scenari di emergenza/interruzione dei servizi](../authentication/concept-resilient-controls.md). Lo standard di denominazione dovrebbe includere anche questo scopo, per renderne più semplice l'abilitazione durante un'interruzione dei servizi. Ad esempio: 
+Oltre ai criteri attivi, è consigliabile implementare anche criteri disabilitati che agiscano come [controlli di accesso resilienti secondari in scenari di emergenza/interruzione dei servizi](../authentication/concept-resilient-controls.md). Lo standard di denominazione per i criteri di emergenza deve includere alcuni altri elementi: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` all'inizio in modo che il nome si distingua dagli altri criteri.
+
+- Il nome dell'interruzione a cui deve essere applicato.
+
+- Un numero di sequenza di ordinamento per consentire all'amministratore di sapere in che ordine devono essere abilitati i criteri. 
+
+
+Il nome seguente, ad esempio, indica che questo criterio è il primo di quattro che si consiglia di abilitare in caso di interruzione dell'autenticazione MFA:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Pianificare i criteri
@@ -214,7 +228,7 @@ Ora che sono stati configurati i criteri di accesso condizionale, è possibile s
 
 Eseguire i test case in base al piano di test. In questo passaggio viene eseguito un test completo di ogni criterio per gli utenti di test, per verificare che il loro comportamento sia quello previsto. Usare gli scenari creati in precedenza per eseguire ogni test.
 
-È importante assicurarsi di testare i criteri di esclusione di un criterio. Ad esempio, è possibile escludere un utente o gruppo da un criterio che richiede l'autenticazione MFA. È pertanto necessario testare se agli utenti esclusi viene richiesta l'autenticazione MFA, perché la combinazione di altri criteri potrebbe richiedere l'autenticazione MFA per questi stessi utenti.
+È importante assicurarsi di testare i criteri di esclusione di un criterio. È ad esempio possibile escludere un utente o gruppo da un criterio che richiede l'autenticazione MFA. È pertanto necessario testare se agli utenti esclusi viene richiesta l'autenticazione MFA, perché la combinazione di altri criteri potrebbe richiedere l'autenticazione MFA per questi stessi utenti.
 
 
 ### <a name="cleanup"></a>Pulizia
@@ -232,7 +246,7 @@ La procedura di pulizia comprende i passaggi seguenti:
 
 ## <a name="move-to-production"></a>Passare in produzione
 
-Quando si è pronti a distribuire un nuovo criterio nel proprio ambiente, è consigliabile procedere per fasi:
+Quando i nuovi criteri sono pronti per l'ambiente, distribuirli in più fasi:
 
 - Dare comunicazione delle modifiche agli utenti finali.
 

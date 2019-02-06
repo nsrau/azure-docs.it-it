@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/21/2018
-ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196651"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 Le tabelle temporali sono una nuova funzionalità di programmabilità del database SQL di Azure che consente di monitorare e analizzare la cronologia completa delle modifiche ai dati, senza dover scrivere codice personalizzato. Le tabelle temporali mantengono i dati strettamente correlati al contesto temporale, in modo che i fatti archiviati possano essere interpretati come validi solo entro il periodo specifico. Questa proprietà delle tabelle temporali consente di eseguire un'analisi efficace basata sul tempo e di ottenere informazioni accurate dall'evoluzione dei dati.
@@ -50,7 +50,7 @@ In SSDT scegliere il modello "Tabella temporale (con controllo delle versioni di
 
 Per creare una tabella temporale è anche possibile specificare direttamente le istruzioni Transact-SQL, come illustrato nell'esempio seguente. Si noti che gli elementi obbligatori di ogni tabella temporale sono la definizione PERIOD e la clausola SYSTEM_VERSIONING con un riferimento a un'altra tabella utente in cui vengono archiviate le versioni delle righe della cronologia:
 
-````
+```
 CREATE TABLE WebsiteUserInfo 
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED 
@@ -61,7 +61,7 @@ CREATE TABLE WebsiteUserInfo
   , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
  )  
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
-````
+```
 
 Quando si crea una tabella temporale con controllo delle versioni di sistema, viene creata automaticamente la tabella della cronologia associata con la configurazione predefinita. La tabella della cronologia predefinita contiene un indice albero B cluster nelle colonne periodo (end, start) con la compressione di pagina abilitata. Questa configurazione è ottimale per la maggior parte degli scenari in cui vengono usate le tabelle temporali, soprattutto per il [controllo dei dati](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
@@ -73,11 +73,11 @@ In questo caso specifico, l'obiettivo è eseguire l'analisi delle tendenze basat
 
 Lo script seguente mostra come modificare l'indice predefinito nella tabella della cronologia nel columnstore cluster:
 
-````
+```
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 In Esplora oggetti le tabelle temporali sono rappresentate con un'icona specifica per facilitarne l'identificazione, mentre la relativa tabella della cronologia viene visualizzata come nodo figlio.
 
@@ -86,7 +86,7 @@ In Esplora oggetti le tabelle temporali sono rappresentate con un'icona specific
 ### <a name="alter-existing-table-to-temporal"></a>Rendere temporale una tabella esistente
 In uno scenario alternativo, la tabella WebsiteUserInfo esiste già ma non è stata progettata per mantenere una cronologia delle modifiche. In questo caso, è possibile estendere semplicemente la tabella esistente rendendola temporale, come illustrato nell'esempio seguente:
 
-````
+```
 ALTER TABLE WebsiteUserInfo 
 ADD 
     ValidFrom datetime2 (0) GENERATED ALWAYS AS ROW START HIDDEN  
@@ -102,17 +102,17 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 ## <a name="step-2-run-your-workload-regularly"></a>Passaggio 2: Eseguire regolarmente il carico di lavoro
 Il vantaggio principale delle tabelle temporali è che non è necessario modificare il sito Web in alcun modo per eseguire il rilevamento delle modifiche. Dopo la creazione, le tabelle temporali mantengono in modo trasparente le versioni precedenti delle righe ogni volta che si apportano modifiche ai dati. 
 
 Per poter sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, è sufficiente aggiornare la colonna **PagesVisited** ogni volta che l'utente termina la sessione sul sito Web:
 
-````
+```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
-````
+```
 
 È importante notare che la query di aggiornamento non deve necessariamente conoscere l'ora esatta in cui si è verificata l'operazione effettiva né come verranno mantenuti i dati cronologici per analisi future. Entrambi gli aspetti vengono gestiti automaticamente dal database SQL di Azure. Il diagramma seguente illustra come vengono generati i dati di cronologia a ogni aggiornamento.
 
@@ -123,17 +123,17 @@ Quando il controllo delle versioni di sistema temporale è abilitato, per l'anal
 
 Per visualizzare i primi 10 utenti ordinati in base al numero di pagine Web visitate nell'ora precedente, eseguire questa query:
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
-````
+```
 
 È possibile modificare facilmente questa query per analizzare le visite ai siti di un giorno prima, un mese prima o in qualsiasi momento nel passato.
 
 Per eseguire analisi statistiche di base per il giorno precedente, usare questo esempio:
 
-````
+```
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
 DECLARE @aDayAgo datetime2 = DATEADD(DAY, -1, SYSUTCDATETIME());
 
@@ -143,17 +143,17 @@ STDEV (PagesVisited) as StDevViistedPages
 FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
-````
+```
 
 Per cercare le attività di un utente specifico entro un periodo di tempo, usare la clausola CONTAINED IN:
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 DECLARE @twoHoursAgo datetime2 = DATEADD(HOUR, -2, SYSUTCDATETIME());
 SELECT * FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
-````
+```
 
 La visualizzazione grafica risulta particolarmente utile per le query temporali, perché permette di visualizzare tendenze e modelli d'uso in modo molto semplice e intuitivo:
 
@@ -162,27 +162,27 @@ La visualizzazione grafica risulta particolarmente utile per le query temporali,
 ## <a name="evolving-table-schema"></a>Evoluzione dello schema di tabella
 In genere, è necessario modificare lo schema di tabella temporale durante lo sviluppo di app. A tale scopo, è sufficiente eseguire normali istruzioni ALTER TABLE e il database SQL di Azure propagherà in modo appropriato le modifiche alla tabella della cronologia. Lo script seguente mostra come aggiungere altri attributi per il rilevamento:
 
-````
+```
 /*Add new column for tracking source IP address*/
 ALTER TABLE dbo.WebsiteUserInfo 
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
-````
+```
 
 Analogamente, è possibile modificare la definizione di colonna mentre il carico di lavoro è attivo:
 
-````
+```
 /*Increase the length of name column*/
 ALTER TABLE dbo.WebsiteUserInfo 
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
-````
+```
 
 Infine, è possibile rimuovere una colonna non più necessaria.
 
-````
+```
 /*Drop unnecessary column */
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
-````
+```
 
 In alternativa, usare la versione più recente di [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) per modificare lo schema di tabella temporale durante la connessione al database (modalità online) o nell'ambito del progetto di database (modalità offline).
 
@@ -194,5 +194,5 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sulle tabelle temporali, vedere la [documentazione MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-Visitare Channel 9 per ascoltare un [vero caso di successo di implementazione temporale](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale dal vivo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

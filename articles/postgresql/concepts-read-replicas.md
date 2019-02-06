@@ -5,15 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466075"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903996"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Repliche in lettura in Database di Azure per PostgreSQL
+
+> [!IMPORTANT]
+> La funzionalità di replica in lettura è in anteprima pubblica.
+
 La funzionalità relativa alle repliche in lettura consente di replicare i dati da Database di Azure per PostgreSQL (master) in un massimo di cinque server di sola lettura (repliche in lettura) nella stessa area di Azure. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
 
 Le repliche sono nuovi server che possono essere gestiti in modo analogo ai server di Database di Azure per PostgreSQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, rispettivamente in vCore e in GB/mese.

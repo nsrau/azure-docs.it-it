@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104731"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098579"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -38,7 +38,7 @@ Questo articolo illustra come configurare un'estensione di Monitoraggio prestazi
 Gli agenti di monitoraggio sono installati su più server, sia in locale che in Azure. Gli agenti comunicano tra loro, ma non inviano dati, inviano pacchetti di handshake TCP. La comunicazione tra gli agenti consente ad Azure di eseguire il mapping della topologia di rete e del percorso che il traffico potrebbe prendere.
 
 1. Creare un'area di lavoro di Monitoraggio prestazioni rete. La procedura corrisponde a quella adottata per creare un'area di lavoro di Log Analytics.
-2. Installare e configurare gli agenti software: 
+2. Installare e configurare gli agenti software. Se si vuole solo monitorare Peering Microsoft, non è necessario installare e configurare gli agenti software. 
     * Installare agenti di monitoraggio sui server locali e sulle macchine virtuali di Azure (per il peering privato).
     * Configurare le impostazioni nei server degli agenti di monitoraggio per consentire agli agenti di monitoraggio di comunicare (aprire le porte del firewall, ecc.).
 3. Configurare regole del gruppo di sicurezza di rete per consentire all'agente di monitoraggio installato nelle VM di Azure di comunicare con gli agenti di monitoraggio locali.

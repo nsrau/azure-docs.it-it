@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064832"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104644"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
 
@@ -229,7 +229,7 @@ La richiesta di ripristino procede nell'ordine seguente:
     ```
     
 3. **Operazione riuscita**, **Operazione non riuscita** o **Timeout**: un ripristino richiesto può essere completato in uno degli stati seguenti. Il significato e la risposta di ogni stato sono riportati di seguito:
-    - **Operazione riuscita**: lo stato _Operazione riuscita_ indica che lo stato della partizione è stato ripristinato. La partizione indica gli stati _RestoreEpoch_ e _RestordLSN_ oltre all'orario in formato UTC.
+    - **Operazione riuscita**: lo stato _Operazione riuscita_ indica che lo stato della partizione è stato ripristinato. La partizione indica gli stati _RestoredEpoch_ e _RestoredLSN_, oltre all'ora in formato UTC.
 
         ```
         RestoreState  : Success

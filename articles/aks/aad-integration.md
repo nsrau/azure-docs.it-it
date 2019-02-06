@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437607"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081246"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Questo documento illustra la distribuzione di tutti i prerequisiti necessari per
 
 Si applicano le limitazioni seguenti:
 
-- I cluster servizio Azure Kubernetes non abilitati RBAC esistenti non possono essere attualmente aggiornati per usare un ruolo RBAC.
+- Azure AD può essere abilitato solo quando si crea un nuovo cluster abilitato per il controllo degli accessi in base al ruolo. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
 - Gli utenti *Guest* di Azure AD, se si usa, ad esempio, un account di accesso federato da una directory diversa, non sono supportati.
 
 ## <a name="authentication-details"></a>Dettagli di autenticazione

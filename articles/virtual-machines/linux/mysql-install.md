@@ -3,7 +3,7 @@ title: Configurare MySQL su una macchina virtuale Linux in Azure| Documentazione
 description: Informazioni su come installare lo stack MySQL in una macchina virtuale Linux (Ubuntu o famiglia Red Hat OS) in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469572"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888431"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Come installare MySQL in Azure
 In questo articolo verrà illustrato come installare e configurare MySQL in una macchina virtuale Azure che esegue Linux.
@@ -42,7 +42,7 @@ In questo articolo, come esempio, per installare MySQL5.6 verrà utilizzato il p
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Come installare MySQL5.6 in Ubuntu
 Di seguito si utilizzerà una VM Linux con Ubuntu da Azure.
 
-* Passaggio 1: Installare lo switch MySQL Server 5.6 per l’utente `root`:
+* Passaggio 1: Installare il server MySQL 5.6   Passare all'utente `root`:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -86,7 +86,7 @@ Di seguito si utilizzerà una VM Linux con Ubuntu da Azure.
 ### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Come installare MySQL nella famiglia di sistemi operativi Redhat, come CentOS oppure Oracle Linux
 In questo caso si utilizzerà la VM Linux con CentOS oppure Oracle Linux.
 
-* Passaggio 1: Aggiungere lo switch del repository Yum MySQL all’utente `root`:
+* Passaggio 1: Aggiungere il repository MySQL Yum   Passare all'utente `root`:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -112,7 +112,7 @@ In questo caso si utilizzerà la VM Linux con CentOS oppure Oracle Linux.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Passaggio 3: Installare MySQL dal repository MySQL:
+* Passaggio 3: Installare MySQL dal repository MySQL   Installare MySQL:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   
@@ -143,7 +143,7 @@ In questo caso si utilizzerà la VM Linux con CentOS oppure Oracle Linux.
 ### <a name="how-to-install-mysql-on-suse-linux"></a>Come installare MySQL in Suse Linux
 In questa circostanza si utilizzerà una VM Linux con OpenSUSE.
 
-* Passaggio 1: Scaricare e installare MySQL Server
+* Passaggio 1: Scaricare e installare il server MySQL
   
     Passare all’utente `root` mediante il comando seguente:  
   

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e11c97ecb33c1b1a37891a521c0375b39ad8a956
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52b89fd830d18c595e29549432514fd60bbc6df9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439919"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Esercitazione: Integrazione di Azure Active Directory con Montage Online
 
@@ -171,7 +171,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-montage-online-test-user"></a>Creare un utente di test di Montage Online
 
-In questa sezione viene creato un utente di nome Britta Simon in Montage Online. Collaborare con il [team di supporto di Montage Online](https://www.montage.co.nz/contact-us/) per aggiungere gli utenti alla piattaforma Montage Online. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in Montage Online. Collaborare con il  [team di supporto di Montage Online](https://www.montage.co.nz/contact-us/) per aggiungere gli utenti alla piattaforma Montage Online. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -208,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Montage Online nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Montage Online.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -3,23 +3,23 @@ title: Come configurare identità gestite per le risorse di Azure in un set di s
 description: Istruzioni dettagliate per configurare identità gestite assegnate dal sistema e dall'utente in un set di scalabilità di macchine virtuali mediante PowerShell.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
-ms.author: daveba
-ms.openlocfilehash: 516216e435722e27e7c3c9330db4991e280c4014
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: b72752d50c1df0a470f3063de6f2bea1f8a57505
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429061"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163433"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurare identità gestite per le risorse di Azure in set di scalabilità di macchine virtuali tramite PowerShell
 
@@ -30,6 +30,8 @@ Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'iden
 Questo articolo illustra come eseguire le operazioni relative alle identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali mediante PowerShell:
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali
 - Aggiungere e rimuovere un'identità gestita assegnata dall'utente in un set di scalabilità di macchine virtuali
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +45,7 @@ Questo articolo illustra come eseguire le operazioni relative alle identità ges
     - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
     - [Managed Identity Contributor (Collaboratore per identità gestita)](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità gestita assegnata dall'utente.
     - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità gestita assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
-- Installare [la versione più recente di Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM), se non è già installata. 
+- Installare [la versione più recente di Azure PowerShell](/powershell/azure/install-az-ps), se non è già installata. 
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
@@ -53,63 +55,63 @@ Questa sezione descrive come abilitare e rimuovere un'identità gestita assegnat
 
 Per creare un VMSS di Azure con l'identità gestita assegnata dal sistema abilitata:
 
-1. Vedere l'*esempio 1* nell'articolo di riferimento sul cmdlet [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) per creare un VMSS con un'identità gestita assegnata dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzureRmVmssConfig`:
+1. Vedere l'*esempio 1* nell'articolo di riferimento sul cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) per creare un VMSS con un'identità gestita assegnata dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
 
     ```powershell
-    $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
+    $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (Facoltativo) Aggiungere l'estensione del set di scalabilità di macchine virtuali relativa alle identità gestite per le risorse di Azure usando il parametro `-Name` e `-Type` nel cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). È possibile passare "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", in base al tipo di set di scalabilità di macchine virtuali, e assegnare un nome tramite il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+2. (Facoltativo) Aggiungere l'estensione del set di scalabilità di macchine virtuali relativa alle identità gestite per le risorse di Azure usando il parametro `-Name` e `-Type` nel cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). È possibile passare "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", in base al tipo di set di scalabilità di macchine virtuali, e assegnare un nome tramite il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
     > [!NOTE]
     > Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.
 
    ```powershell
    $setting = @{ "port" = 50342 }
-   $vmss = Get-AzureRmVmss
-   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   $vmss = Get-AzVmss
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure esistente
 
 Se è necessario abilitare un'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure esistente:
 
-1. Accedere al portale di Azure con `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
+1. Accedere al portale di Azure con `Connect-AzAccount`. Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzAccount
    ```
 
-2. Recuperare innanzitutto le proprietà del set di scalabilità di macchine virtuali tramite il cmdlet [`Get-AzureRmVmss`](/powershell/module/azurerm.compute/get-azurermvmss). Per abilitare un'identità gestita assegnata dal sistema, usare l'opzione `-IdentityType` nel cmdlet [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+2. Recuperare innanzitutto le proprietà del set di scalabilità di macchine virtuali tramite il cmdlet [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss). Per abilitare un'identità gestita assegnata dal sistema, usare l'opzione `-IdentityType` nel cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
+   Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Aggiungere l'estensione del set di scalabilità di macchine virtuali relativa alle identità gestite per le risorse di Azure usando i parametri `-Name` e `-Type` nel cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). È possibile passare "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", in base al tipo di set di scalabilità di macchine virtuali, e assegnare un nome tramite il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+3. Aggiungere l'estensione del set di scalabilità di macchine virtuali relativa alle identità gestite per le risorse di Azure usando i parametri `-Name` e `-Type` nel cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). È possibile passare "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", in base al tipo di set di scalabilità di macchine virtuali, e assegnare un nome tramite il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
    ```powershell
    $setting = @{ "port" = 50342 }
-   $vmss = Get-AzureRmVmss
-   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   $vmss = Get-AzVmss
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Disabilitare l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali di Azure
 
 Se un set di scalabilità di macchine virtuali non necessità più dell'identità gestita assegnata dal sistema ma necessita ancora delle identità gestite assegnate dall'utente, usare il cmdlet seguente:
 
-1. Accedere al portale di Azure con `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
+1. Accedere al portale di Azure con `Connect-AzAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
 
 2. Eseguire il cmdlet seguente:
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
+   Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
    ```
 
 Se si ha un set di scalabilità di macchine virtuali che non ha più bisogno dell'identità gestita assegnata dal sistema e non dispone di identità gestite assegnate dall'utente, usare i comandi seguenti:
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 
 ## <a name="user-assigned-managed-identity"></a>Identità gestita assegnata dall'utente
@@ -124,18 +126,18 @@ Attualmente non è possibile creare un nuovo set di scalabilità di macchine vir
 
 Per assegnare un'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali di Azure esistente:
 
-1. Accedere al portale di Azure con `Connect-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
+1. Accedere al portale di Azure con `Connect-AzAccount`. Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali, ad esempio "Collaboratore macchina virtuale":
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
-2. Recuperare innanzitutto le proprietà del set di scalabilità di macchine virtuali tramite il cmdlet `Get-AzureRmVM`. Quindi, per assegnare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali di Azure, usare le opzioni `-IdentityType` e `-IdentityID` nel cmdlet [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Sostituire `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con valori personalizzati.
+2. Recuperare innanzitutto le proprietà del set di scalabilità di macchine virtuali tramite il cmdlet `Get-AzVM`. Quindi, per assegnare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali di Azure, usare le opzioni `-IdentityType` e `-IdentityID` nel cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss). Sostituire `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con valori personalizzati.
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
+   Update-AzVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali di Azure
@@ -143,17 +145,17 @@ Per assegnare un'identità gestita assegnata dall'utente a un set di scalabilit�
 Se il set di scalabilità di macchine virtuali ha più identità gestite assegnate dall'utente, è possibile rimuoverle tutte tranne l'ultima tramite i comandi seguenti. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VMSS NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY NAME>` è la proprietà del nome dell'identità gestita assegnata dall'utente, che deve rimanere nel set di scalabilità di macchine virtuali. È possibile trovare queste informazioni nella sezione relativa all'identità del set di scalabilità di macchine virtuali usando `az vmss show`:
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
 ```
 Se il set di scalabilità di macchine virtuali non ha un'identità gestita assegnata dal sistema e si vuole rimuovere tutte le identità gestite assegnate dall'utente al suo interno, usare il comando seguente:
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 Se il set di scalabilità di macchine virtuali ha identità gestite sia assegnate dal sistema che assegnate dall'utente, è possibile rimuovere tutte le identità gestite assegnate dall'utente iniziando a usare solo identità gestite assegnate dal sistema.
 
 ```powershell 
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

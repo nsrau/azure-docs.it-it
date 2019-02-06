@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586258"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299997"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
@@ -44,7 +44,7 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 | [Set di dati di Microsoft Research: analisi scientifica dei dati per la ricerca](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Più set di dati riguardanti l'interazione uomo-computer, audio/video, data mining/recupero informazioni, posizione geospaziale, elaborazione del linguaggio naturale e robotica/visione artificiale. | I set di dati sono disponibili in vari formati, compressi per il download. |
 | [Dati pubblici su genomi](http://www.completegenomics.com/public-data/) | "Un set di dati eterogeneo su genomi umani completi è disponibile gratuitamente per uso pubblico allo scopo di migliorare qualsiasi studio genomico". Il fornitore, Complete Genomics, è un'azienda privata a scopo di lucro. | I set di dati, dopo l'estrazione, sono in formato di testo UNIX. Sono disponibili anche strumenti di analisi. |
 | [Dati di Open Science Data Cloud](https://www.opensciencedatacloud.org/) | "Open Science Data Cloud offre alla comunità scientifica risorse per l'archiviazione, la condivisione e l'analisi di set di dati scientifici a livello di terabyte e petabyte".| I set di dati sono disponibili in vari formati. |
-| [Dati sul clima globale: WorldcLIM](http://worldclim.org/) | "WorldClim è un set di livelli di dati sul clima globale a griglia con risoluzione spaziale di circa 1 km2. Questi dati possono essere usati per la mappatura e la modellazione spaziale". | I file contengono dati geospaziali. Per altre informazioni, vedere [Data format](http://worldclim.org/formats1) (Formato dei dati). |
+| [Dati sul clima globale: WorldClim](http://worldclim.org/) | "WorldClim è un set di livelli di dati sul clima globale a griglia con risoluzione spaziale di circa 1 km2. Questi dati possono essere usati per la mappatura e la modellazione spaziale". | I file contengono dati geospaziali. Per altre informazioni, vedere [Data format](http://worldclim.org/formats1) (Formato dei dati). |
 | [Dati sulla società umana: The GDELT Project](http://www.gdeltproject.org/data.html) | "The GDELT Project è il database aperto relativo alla società umana più grande e completo e con la risoluzione più elevata che sia mai stato creato". | I file di dati non elaborati sono disponibili in formato CSV. |
 | [Dati di stima dei clic per annunci pubblicitari per l'apprendimento automatico di Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Il più grande set di dati per l'apprendimento automatico mai rilasciato al pubblico". Per altre informazioni, vedere [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/) (Set di dati di stima dei clic di 1 TB di Criteo). | |
 | [Set di dati di text mining ClueWeb09 di Lemur Project](http://www.lemurproject.org/clueweb09.php/) | "Il set di dati ClueWeb09 è stato creato per supportare la ricerca sul recupero informazioni e le tecnologie per il linguaggio umano correlate. È costituito da circa 1 miliardo di pagine Web in 10 lingue raccolte nei mesi di gennaio e febbraio 2009". | Vedere [Dataset Information](http://www.lemurproject.org/clueweb09/datasetInformation.php) (Informazioni sul set di dati).|
