@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203930"
 ---
 # <a name="lambda-search-syntax"></a>Sintassi di ricerca lambda
 
@@ -93,7 +93,7 @@ Restituisce *Action.Continue* se la condizione è *true*. Se la condizione è *f
 
 Genera un numero casuale maggiore o uguale a 0,0 e minore di 1,0. Questa funzione restituisce *true* solo se il numero è minore o uguale a *p*.
 
-Rispetto alla ricerca *json*, la ricerca *lambda* è più incentrata sulle espressioni: è possibile usare espressioni lambda C# direttamente per specificare i modelli di query. Ecco due esempi.
+Rispetto alla ricerca *json*, la ricerca *lambda* è più espressiva: le espressioni lambda C# possono essere usate direttamente per specificare modelli di query. Ecco due esempi.
 
 ```
 MAG.StartFrom(@"{

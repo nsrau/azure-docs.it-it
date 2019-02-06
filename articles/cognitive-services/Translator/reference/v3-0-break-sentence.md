@@ -1,22 +1,23 @@
 ---
-title: Metodo BreakSentence dell'API Traduzione testuale Microsoft | Microsoft Docs
-description: Usare il metodo BreakSentence dell'API Traduzione testuale Microsoft.
+title: Metodo BreakSentence dell'API Traduzione testuale
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo BreakSentence dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.subservice: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458527"
 ---
-# <a name="text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
 Identifica il posizionamento dei delimitatori di frase in una porzione di testo.
 
@@ -30,7 +31,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-I parametri della richiesta passati nella stringa di query sono i seguenti:
+I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
@@ -68,7 +69,7 @@ Le intestazioni della richiesta includono:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facoltativo*.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`.</td>
+    <td>*Facoltativo*.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -85,7 +86,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un 
 Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
-* Il valore di testo di un elemento di matrice non può superare 10.000 caratteri inclusi gli spazi.
+* Il valore di testo di un elemento della matrice non può superare 10.000 caratteri spazi inclusi.
 * L'intero testo incluso nella richiesta non può superare 50.000 caratteri inclusi gli spazi.
 * Se viene specificato il parametro di query `language`, tutti gli elementi di matrice devono essere nella stessa lingua. In caso contrario, verrà applicato il rilevamento automatico della lingua a ogni elemento della matrice in modo indipendente.
 
@@ -93,11 +94,11 @@ Si applicano le limitazioni seguenti:
 
 Una risposta corretta è una matrice JSON con un risultato per ogni stringa nella matrice di input. Un oggetto risultato include le proprietà seguenti:
 
-  * `sentLen`: matrice di interi che rappresenta le lunghezze delle frasi nell'elemento di testo. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase. 
+  * `sentLen`: Una matrice di interi che rappresenta le lunghezze delle frasi nell'elemento di testo. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase. 
 
   * `detectedLanguage`: oggetto che descrive la lingua rilevata tramite le proprietà seguenti:
 
-     * `language`: codice della lingua rilevata.
+     * `language`: Codice della lingua rilevata.
 
      * `score`: valore float che indica il livello di attendibilità del risultato. Il punteggio è compreso tra zero e uno e un punteggio basso indica un'attendibilità bassa.
      
@@ -141,7 +142,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -157,11 +158,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

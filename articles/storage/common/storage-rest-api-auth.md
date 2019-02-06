@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529311"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476197"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
@@ -62,11 +62,11 @@ Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/Blob-Se
 
 Esaminando la pagina relativa all'operazione [ListContainers](/rest/api/storageservices/List-Containers2) nelle informazioni di riferimento sulle API REST, è possibile comprendere il significato di alcuni dei campi presenti nella richiesta e nella risposta riportate nella sezione seguente con il codice.
 
-**Metodo della richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
+**Metodo di richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
-**URI della richiesta**: https://myaccount.blob.core.windows.net/?comp=list Viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa della risorsa `/?comp=list`.
+**URI delle richiesta**: https://myaccount.blob.core.windows.net/?comp=list viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa della risorsa `/?comp=list`.
 
-[Parametri dell'URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
+[Parametri URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 
 Un altro parametro utile è *maxresults*. Con questo parametro, se sono disponibili più contenitori rispetto al valore specificato, il corpo della risposta conterrà un elemento *NextMarker* che indica il contenitore da cui ripartire nella richiesta successiva. Per usare questa funzionalità, è necessario specificare il valore *NextMarker* come parametro *marker* nell'URI della richiesta successiva. Questa funzionalità è analoga al paging attraverso i risultati. 
 
@@ -174,7 +174,7 @@ Dopo aver creato la richiesta, è possibile chiamare SendAsync per inviare la ri
 }
 ```
 
-Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta. Vediamo. Il nome dell'account di archiviazione è *contosorest*.
+Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta, Vediamo. Il nome dell'account di archiviazione è *contosorest*.
 
 **Richiesta:**
 
@@ -283,24 +283,24 @@ Questo frammento di codice illustra il formato della stringa della firma con chi
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 La maggior parte di questi campi viene usata raramente. Per l'archiviazione BLOB, si specificano VERB, md5, Content-Length, CanonicalizedHeaders e CanonicalizedResource. Gli altri campi possono essere lasciati vuoti, ma è necessario specificare `\n` per indicare che sono effettivamente vuoti.
 
-Che significato hanno i campi CanonicalizedHeaders e CanonicalizedResource? Per capirlo, è necessario conoscere il significato della parola "canonizzazione". Questa è la definizione riportata su [Wikipedia](http://en.wikipedia.org/wiki/Canonicalization): *In informatica, la canonizzazione (talvolta detta anche standardizzazione o normalizzazione) è un processo per convertire i dati che hanno più di una rappresentazione possibile in un formato standard, normale o canonico.* In parole semplici, ciò significa prendere un elenco di elementi (come le intestazioni nel caso di CanonicalizedHeaders) e convertirli nel formato standard richiesto. Fondamentalmente, Microsoft ha definito un formato specifico che è necessario rispettare.
+Che significato hanno i campi CanonicalizedHeaders e CanonicalizedResource? Per capirlo, è necessario conoscere il significato della parola "canonizzazione". Questa è la definizione di [canonizzazione riportata su Wikipedia](http://en.wikipedia.org/wiki/Canonicalization): *In informatica, la canonizzazione (talvolta detta anche standardizzazione o normalizzazione) è un processo per convertire i dati che hanno più di una rappresentazione possibile in un formato standard, normale o canonico.* In parole semplici, ciò significa prendere un elenco di elementi (come le intestazioni nel caso di CanonicalizedHeaders) e convertirli nel formato standard richiesto. Fondamentalmente, Microsoft ha definito un formato specifico che è necessario rispettare.
 
 Si esamineranno ora i due campi in forma canonica che sono necessari per creare l'intestazione dell'autorizzazione.
 

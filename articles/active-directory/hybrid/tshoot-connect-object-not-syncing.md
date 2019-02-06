@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478655"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296598"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -28,6 +28,34 @@ Se un oggetto non esegue la sincronizzazione come previsto in Azure AD, le cause
 
 >[!IMPORTANT]
 >Per la distribuzione di Azure Active Directory (AAD) Connect versione 1.1.749.0 o successiva, nella procedura guidata usare l'[attività di risoluzione dei problemi](tshoot-connect-objectsync.md) specifica per i problemi di sincronizzazione degli oggetti. 
+
+## <a name="synchronization-process"></a>Processo di sincronizzazione
+
+Prima di esaminare i problemi di sincronizzazione, è importante conoscere il processo di sincronizzazione di **Azure AD Connect**:
+
+  ![Processo di sincronizzazione di Azure AD Connect](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminologia**
+
+* **CS:** spazio connettore, una tabella nel database.
+* **MV:** metaverse, una tabella nel database.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Passaggi di sincronizzazione**
+Il processo di sincronizzazione prevede i passaggi seguenti:
+
+1. **Importazione da AD:** gli oggetti **Active Directory** vengono importati nello **spazio connettore di Active Directory**.
+
+2. **Importazione da AAD:** gli oggetti **Azure Active Directory** vengono importati nello **spazio connettore di Azure Active Directory**.
+
+3. **Sincronizzazione:** vengono eseguite le **regole di sincronizzazione in ingresso** e le **regole di sincronizzazione in uscita** nell'ordine di numero di precedenza dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'**editor delle regole di sincronizzazione** dalle applicazioni desktop. Le **regole di sincronizzazione in ingresso** importano dati dallo spazio connettore nel metaverse. Le **regole di sincronizzazione in uscita** spostano i dati dal metaverse allo spazio connettore.
+
+4. **Esportazione in Active Directory:** dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in **Active Directory**.
+
+5. **Esportazione in Azure Active Directory:** dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Azure Active Directory in **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per individuare gli errori è necessario esaminare vari punti nell'ordine seguente:
 
@@ -123,7 +151,28 @@ In **Synchronization Service Manager**, fare clic su **Metaverse Search** (Cerca
 
 Nella finestra **Risultati della ricerca**, fare clic sull'oggetto.
 
-Se l'oggetto non è stato trovato, non ha ancora raggiunto metaverse. Continuare la ricerca dell'oggetto nello [spazio connettore](#connector-space-object-properties) di Active Directory. Potrebbe essersi verificato un errore di sincronizzazione che non consente all'oggetto di raggiungere metaverse oppure potrebbe essere stato applicato un filtro.
+Se l'oggetto non è stato trovato, non ha ancora raggiunto metaverse. Continuare la ricerca dell'oggetto nello [spazio connettore](#connector-space-object-properties) di **Active Directory**. Se si trova l'oggetto nello spazio connettore di **Active Directory**, potrebbe essersi verificato un errore di sincronizzazione che sta bloccandolo il passaggio dell'oggetto nel metaverse oppure potrebbe essere applicato un filtro di ambito per la regola di sincronizzazione.
+
+### <a name="object-not-found-in-the-mv"></a>Oggetto non trovato nel metaverse
+Se l'oggetto è presente nello spazio connettore di **Active Directory**, ma non è presente nel metaverse, è applicato il filtro di ambito. 
+
+* Per esaminare il filtro di ambito, passare al menu delle applicazioni desktop e fare clic su **Synchronization Rules Editor** (Editor delle regole di sincronizzazione). Filtrare le regole applicabili all'oggetto modificando il filtro riportato di seguito.
+
+  ![Ricerca di regole di sincronizzazione in ingresso](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Visualizzare ogni regola nell'elenco precedente e verificare **Scoping filter** (Filtro di ambito). Nel filtro di ambito seguente, se il valore **isCriticalSystemObject** è null o FALSE oppure è vuoto, significa che si trova nell'ambito.
+
+  ![Ricerca di regole di sincronizzazione in ingresso](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Andare all'elenco di attributi di [Importazione CS](#cs-import) e controllare quale filtro sta bloccando il passaggio dell'oggetto nel metaverse. A parte questo, l'elenco di attributi dello **spazio connettore** mostrerà solo gli attributi non null e non vuoti. Se ad esempio **isCriticalSystemObject** non è visibile nell'elenco, il valore di questo attributo è null o vuoto.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Oggetto non trovato nello spazio connettore di Azure Active Directory
+Se l'oggetto non è presente nello **spazio connettore** di **Azure Active Directory** ma è presente nel metaverse, esaminare il filtro di ambito delle regole **in uscita** dello **spazio connettore** corrispondente e verificare se l'oggetto viene escluso perché gli [attributi del metaverse](#mv-attributes) non soddisfano i criteri.
+
+* Per esaminare il filtro di ambito in uscita, selezionare le regole applicabili per l'oggetto modificando il filtro riportato di seguito. Visualizzare ogni regola ed esaminare il valore dell'[attributo del metaverse](#mv-attributes) corrispondente.
+
+  ![Ricerca di regole di sincronizzazione in uscita](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>Attributi MV
  Nella scheda Attributes (Attributi) è possibile visualizzare i valori e il connettore che li ha indicati.  

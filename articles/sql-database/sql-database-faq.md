@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541618"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463957"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Domande frequenti sul database SQL
 
@@ -35,7 +35,7 @@ Microsoft garantisce che per almeno il 99,99% del tempo il cliente disponga dell
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore per il database SQL di Azure?
 
-Il nuovo modello di acquisto va ad aggiungersi al modello esistente basato su DTU. Il modello basato su vCore è stato creato per garantire ai clienti flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali nel cloud. Il modello consente ai clienti di ridimensionare le risorse di calcolo e di archiviazione in base alle esigenze dei carichi di lavoro. Le opzioni con database singolo e pool elastico che usano il modello vCore possono inoltre usufruire di un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+Il nuovo modello di acquisto va ad aggiungersi al modello esistente basato su DTU. Il modello basato su vCore è stato creato per garantire ai clienti flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali nel cloud. Il modello consente inoltre ai clienti di ridimensionare le risorse di calcolo e di archiviazione in base alle esigenze dei carichi di lavoro. Le opzioni con database singolo e pool elastico che usano il modello vCore possono inoltre usufruire di un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 ## <a name="what-is-a-vcore"></a>Che cos'è un vCore?
 
@@ -43,7 +43,7 @@ Un vCore, o memoria centrale virtuale, rappresenta la CPU logica offerta con la 
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>Il passaggio al modello basato su vCore è obbligatorio?
 
-No, l'introduzione del modello basato su vCore nelle opzioni di distribuzione con pool elastico e database singolo rispecchia il nostro impegno a offrire ai clienti possibilità di scelta e flessibilità. Se i clienti vogliono continuare a usare il modello basato su DTU, non dovranno eseguire alcuna azione e la loro esperienza e la fatturazione non subiranno alcuna modifica.
+No, l'introduzione del modello basato su vCore nelle opzioni di distribuzione del pool elastico e database singolo rispecchia il nostro impegno a offrire ai clienti possibilità di scelta e flessibilità. Se i clienti vogliono continuare a usare il modello basato su DTU, non dovranno eseguire alcuna azione e la loro esperienza e la fatturazione non subiranno alcuna modifica.
 
 In molti casi le applicazioni possono sfruttare la semplicità di un bundle di risorse preconfigurato. Microsoft continua pertanto a offrire ai clienti e a supportare le opzioni basate su DTU. Se si usano le opzioni basate su DTU e queste soddisfano i requisiti aziendali, è consigliabile continuare a usarle.
 
@@ -141,9 +141,9 @@ Numero di volte desiderato. Vedere l'articolo per [gestire i pool elastici](sql-
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo è necessario per modificare il livello di servizio o la dimensione di calcolo di un database singolo o per aggiungere o rimuovere un database da un pool elastico?
 
-La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei database singoli vedere [Modificare il livello di servizio di un database](sql-database-service-tiers-dtu.md).
+La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei database singoli vedere [Modificare il livello di servizio di un database](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando è meglio usare un database singolo e quando invece è meglio usare database elastici?
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>Quando è meglio usare un database singolo e quando invece i pool elastici?
 
 In generale, i pool elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di database singoli e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database spesso non sono metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente. Il motore intelligente di Azure consiglia un pool per i database se garantito da un modello di utilizzo. Per informazioni, vedere le [linee guida sui pool elastici](sql-database-elastic-pool.md).
 

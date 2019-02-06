@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255262"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472576"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
@@ -52,6 +52,8 @@ Per visualizzare le dipendenze di un gruppo, è necessario scaricare e installar
 
 ### <a name="install-the-mma"></a>Installare MMA
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Installare l'agente in un computer Windows
+
 Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
@@ -60,6 +62,9 @@ Per installare l'agente in un computer Windows:
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro di Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
+È possibile installare l'agente tramite la riga di comando oppure usando un metodo automatizzato come Automation DSC di Azure, System Center Configuration Manager o con un modello di Azure Resource Manager se nel data center è stato distribuito Microsoft Azure Stack. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Installare l'agente in un computer Linux
 
 Per installare l'agente in un computer Linux:
 
@@ -68,6 +73,10 @@ Per installare l'agente in un computer Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>Installare l'agente in un computer monitorato tramite System Center Operations Manager
+
+Per i computer monitorati da Operations Manager 2012 R2 o versioni successive, non è necessario installare l'agente MMA. Mapping dei servizi dispone di un'integrazione con Operations Manager che sfrutta l'MMA Operations Manager per raccogliere i dati sulle dipendenze necessari. È possibile abilitare l'integrazione usando il materiale sussidiario disponibile [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Si noti tuttavia che sarà necessario installare l'agente di dipendenza su tali computer.
+
 ### <a name="install-the-dependency-agent"></a>Installare Dependency Agent
 1. Per installare Dependency Agent in un computer Windows, fare doppio clic sul file di installazione e seguire la procedura guidata.
 2. Per installare Dependency Agent in un computer Linux, procedere all'installazione come utente ROOT usando il comando seguente:
@@ -75,6 +84,8 @@ Per installare l'agente in un computer Linux:
     ```sh InstallDependencyAgent-Linux64.bin```
 
 Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
+
+[Altre informazioni](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Ridefinire il gruppo in base alla visualizzazione delle dipendenze
 Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile visualizzare le dipendenze e ridefinirle seguendo i passaggi seguenti.
@@ -86,11 +97,15 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
         - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
         - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
     - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
-    - Le proprietà di ogni computer, come il nome di dominio completo, il sistema operativo, l'indirizzo MAC e così via: fare clic su ogni casella di computer per visualizzare questi dettagli
+    - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
 
      ![Visualizzazione delle dipendenze del gruppo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Per visualizzare le dipendenze a un livello più dettagliato, fare clic sull'intervallo di tempo per modificarlo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
+
+    > [!NOTE]
+      Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare Log Analytics per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) per periodi di tempo più lunghi.
+
 4. Verificare i computer dipendenti, i processi in esecuzione in ciascun computer e identificare i computer da aggiungere o rimuovere dal gruppo.
 5. Premere CTRL+clic per selezionare contemporaneamente più computer sulla mappa e aggiungerle o rimuoverle dal gruppo.
     - È possibile aggiungere solo i computer che sono stati individuati.
@@ -101,6 +116,20 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
     ![Aggiungere o rimuovere computer](./media/how-to-create-group-dependencies/add-remove.png)
 
 Se si vogliono verificare le dipendenze di un computer specifico che viene visualizzato nella mappa delle dipendenze del gruppo, [configurare il mapping delle dipendenze del computer](how-to-create-group-machine-dependencies.md).
+
+## <a name="query-dependency-data-from-log-analytics"></a>Eseguire query sui dati delle dipendenze da Log Analytics
+
+I dati sulle dipendenze acquisiti da Mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analytics associata al progetto di Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle dati di Mapping dei servizi per l'esecuzione di query in Log Analytics. 
+
+Per eseguire query in Log Analytics:
+
+1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
+2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
+3. Nella pagina dell'area di lavoro di Log Analytics, fare clic su **Generale** > **Log**.
+4. Scrivere la query per raccogliere dati sulle dipendenze usando Log Analytics. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Eseguire la query facendo clic su Esegui. 
+
+[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) su come scrivere query di Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
