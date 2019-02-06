@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035036"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191330"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Risolvere i problemi di configurazione non valida delle entità servizio per il dominio gestito
 
@@ -50,7 +50,7 @@ Seguire questa procedura per determinare quali entità servizio devono essere ri
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Ricreare un'entità servizio mancante con PowerShell
 Seguire questa procedura se un'entità servizio con ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` non è presente nella directory di Azure AD.
 
-**Soluzione:** per eseguire questa procedura, è necessario avere installato Azure AD PowerShell. Per informazioni sull'installazione di Azure AD PowerShell, vedere [questo articolo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Risoluzione:** Per eseguire questa procedura, è necessario avere installato Azure AD PowerShell. Per informazioni sull'installazione di Azure AD PowerShell, vedere [questo articolo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Per risolvere questo problema, digitare i comandi seguenti in una finestra di PowerShell:
 1. Installare e importare il modulo Azure AD PowerShell.
@@ -78,7 +78,7 @@ Per risolvere questo problema, digitare i comandi seguenti in una finestra di Po
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Ripetere la registrazione nello spazio dei nomi Microsoft.AAD tramite il portale di Azure
 Seguire questa procedura se un'entità servizio con ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5d09022``` o ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` non è presente nella directory di Azure AD.
 
-**Soluzione:** seguire questa procedura per ripristinare Domain Services nella directory:
+**Risoluzione:** Eseguire la procedura seguente per ripristinare Domain Services nella directory:
 
 1. Passare alla [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure.
 2. Scegliere la sottoscrizione dalla tabella associata al dominio gestito.
@@ -87,12 +87,12 @@ Seguire questa procedura se un'entità servizio con ID ```443155a6-77f3-45e3-882
 5. Per verificare che l'avviso sia stato risolto, visualizzare la pagina relativa all'integrità del dominio gestito dopo due ore.
 
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Avviso AADDS105: L'applicazione di sincronizzazione delle password non è aggiornata
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Avviso AADDS105: Applicazione di sincronizzazione delle password non aggiornata
 
-**Messaggio di avviso:** The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated (L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata). La ricreazione lascia autorizzazioni incoerenti per risorse di Azure AD Domain Services necessarie per gestire il dominio gestito. La sincronizzazione delle password nel dominio gestito può esserne influenzata.
+**Messaggio di avviso:** L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata. La nuova creazione ha generato autorizzazioni non coerenti nelle risorse di Azure AD Domain Services necessarie per la gestione del dominio gestito. La sincronizzazione delle password nel dominio gestito può esserne influenzata.
 
 
-**Soluzione:** per eseguire questa procedura, è necessario avere installato Azure AD PowerShell. Per informazioni sull'installazione di Azure AD PowerShell, vedere [questo articolo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Risoluzione:** Per eseguire questa procedura, è necessario avere installato Azure AD PowerShell. Per informazioni sull'installazione di Azure AD PowerShell, vedere [questo articolo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Per risolvere questo problema, digitare i comandi seguenti in una finestra di PowerShell:
 1. Installare e importare il modulo Azure AD PowerShell.

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082343"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185813"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -40,6 +40,7 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 | | | | 
 | **Funzionalità supportate**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Yes             | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Yes               | 
 | &bull; Campionamento                     | Yes             | Yes               | 
 | &bull; Heartbeat                   |                 | Yes               | 
 | | | | 
@@ -50,6 +51,10 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 | **Configurabile**                      |                   |                   |           
 | &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Yes                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>Metriche attive e canale di controllo sicuro
+
+I criteri di filtri personalizzati specificati dall'utente vengono inviati al componente Metriche attive in Application Insights SDK. I filtri potrebbero contenere informazioni riservate, ad esempio ID cliente. È possibile proteggere il canale con una chiave API privata. Per istruzioni, vedere [Proteggere il canale di controllo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel).
 
 ## <a name="sampling"></a>campionamento
 

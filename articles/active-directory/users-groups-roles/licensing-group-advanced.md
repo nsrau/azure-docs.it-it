@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195157"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -69,7 +69,7 @@ Per questo esempio modificare un utente e impostare extensionAttribute1 sul valo
 
 Un utente può essere membro di più gruppi con licenze. Di seguito sono illustrati alcuni aspetti da considerare:
 
-- Più licenze per lo stesso prodotto possono sovrapporsi e di conseguenza tutti i servizi abilitati vengono applicati all'utente. L'esempio seguente mostra due gruppi di licenze: *E3 - base services* (E3 - Servizi di base) contiene i servizi di base da distribuire nella prima fase a tutti gli utenti. *E3 - extended services* (E3 - Servizi estesi) contiene servizi aggiuntivi (Sway e Planner) da distribuire solo ad alcuni utenti. In questo esempio, l'utente è stato aggiunto a entrambi i gruppi:
+- Più licenze per lo stesso prodotto possono sovrapporsi e di conseguenza tutti i servizi abilitati vengono applicati all'utente. L'esempio seguente mostra due gruppi per la gestione delle licenze: *E3 - base services* (E3 - Servizi di base) contiene i servizi di base da distribuire nella prima fase a tutti gli utenti. *E3 - extended services* (E3 - Servizi estesi) contiene servizi aggiuntivi (Sway e Planner) da distribuire solo ad alcuni utenti. In questo esempio, l'utente è stato aggiunto a entrambi i gruppi:
 
   ![Schermata dei servizi abilitati](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -201,7 +201,7 @@ Questo output di esempio mostra l'inizio dell'elaborazione, tutte le modifiche u
 
 Non è possibile eliminare un gruppo con una licenza attiva assegnata. Un amministratore può eliminare un gruppo senza avere la consapevolezza che questa operazione implica la rimozione delle licenze dagli utenti; per questo motivo viene richiesto di rimuovere le licenze dal gruppo prima di poter eliminare il gruppo.
 
-Quando si tenta di eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![schermata con eliminazione del gruppo non riuscita.](./media/licensing-group-advanced/groupdeletionfailed.png)
+Quando si prova a eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![screenshot del messaggio visualizzato per segnalare che non è stato possibile eliminare il gruppo](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Passare alla scheda **Licenze** per il gruppo e verificare se sono presenti licenze assegnate. In caso affermativo, rimuovere le licenze e provare di nuovo a eliminare il gruppo.
 

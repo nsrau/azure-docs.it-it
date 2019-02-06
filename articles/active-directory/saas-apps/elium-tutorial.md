@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: fae344b3-5bd9-40e2-9a1d-448dcd58155f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: dfa90474632b2cf18055e0ba95994f120cb293ef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac88d3accad8aa9ec523ecce5eb11b6c10eb913c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447785"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Esercitazione: Integrazione di Azure Active Directory con Elium
 
@@ -233,7 +233,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 L'obiettivo di questa sezione consiste nel creare un utente di test di nome Britta Simon in Elium. Elium supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante il tentativo di accesso a Elium viene creato un nuovo utente, se questo non esiste già.
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Elium](mailto:support@elium.com).
+>Se è necessario creare un utente manualmente, contattare il [team di supporto di Elium](mailto:support@elium.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -270,7 +270,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Elium nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Elium.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321591"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181470"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -33,11 +33,11 @@ Questo articolo illustra le raccomandazioni relative alle macchine e alle applic
 
 Per l'elenco completo delle raccomandazioni relative ai servizi di calcolo e app, vedere [Raccomandazioni](security-center-virtual-machine-recommendations.md).
 
-Per continuare, selezionare **Calcolo e app** in **Risorse** o dal menu principale del Centro sicurezza.
+Per continuare, selezionare **Risorse di calcolo e app** in **Risorse** o dal menu principale del Centro sicurezza.
 ![Dashboard Centro sicurezza](./media/security-center-virtual-machine-recommendations/overview.png)
 
 ## <a name="monitor-compute-and-app-services"></a>Monitoraggio dei servizi di calcolo e app
-In **Calcolo e app** sono disponibili le schede seguenti:
+In **Risorse di calcolo e app** sono disponibili le schede seguenti:
 
 - **Panoramica**: monitoraggio e raccomandazioni identificati dal Centro sicurezza.
 - **VM e computer**: elenco di VM, computer e il relativo stato di sicurezza.
@@ -46,7 +46,7 @@ In **Calcolo e app** sono disponibili le schede seguenti:
 - **Contenitori (anteprima)**: elenco dei contenitori ospitati in computer IaaS Linux e valutazione della sicurezza delle relative configurazioni Docker.
 - **Risorse di calcolo (anteprima)**: elenco di raccomandazioni per le risorse di calcolo, come cluster di Service Fabric e hub eventi.
 
-Per continuare, selezionare **Calcolo e app** in **Protezione della sicurezza delle risorse**.
+Per continuare, selezionare **Risorse di calcolo e app** in **Protezione della sicurezza delle risorse**.
 
 ![Calcolo](./media/security-center-virtual-machine-recommendations/compute.png)
 
@@ -163,7 +163,7 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 
 
 ## <a name="compute-and-app-recommendations"></a>Consigli per le app e il calcolo
-|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
 |----|----|----|----|
 |Servizio app|20|L'applicazione Web deve essere accessibile solo tramite HTTPS|Limitare l'accesso delle applicazioni Web solo tramite HTTPS.|
 |Servizio app|20|L'app per le funzioni deve essere accessibile solo tramite HTTPS|Limitare l'accesso delle app per le funzioni solo tramite HTTPS.|

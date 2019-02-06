@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054319"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Esercitazione: Integrazione di Azure Active Directory con Arc Publishing - SSO
 
@@ -195,14 +195,14 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Fare clic su **Crea**.
+    1. Fare clic su **Create**(Crea).
  
 ### <a name="create-an-arc-publishing---sso-test-user"></a>Creare un utente di test di Arc Publishing - SSO
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Arc Publishing - SSO. Arc Publishing - SSO supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già, un nuovo utente viene creato durante un tentativo di accesso ad Arc Publishing - SSO.
 
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Arc Publishing - SSO](mailto:inf@washpost.com).
+>Se è necessario creare un utente manualmente, contattare il [team di supporto di Arc Publishing - SSO](mailto:inf@washpost.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -239,7 +239,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Arc Publishing - SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Arc Publishing - SSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
