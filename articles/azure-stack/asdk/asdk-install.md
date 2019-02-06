@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20c96d1e25e0aef86d09c37ed919e61ec6058c6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249906"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747442"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installare Azure Stack Development Kit (ASDK)
 Dopo aver [Prepara il computer host ASDK](asdk-prepare-host.md), può essere distribuito il ASDK nell'immagine CloudBuilder.vhdx usando la procedura seguente in questo articolo.
@@ -59,7 +59,7 @@ I passaggi descritti in questo articolo mostrano come distribuire il ASDK usando
     - Tipo in un valore valido **indirizzo IP del server di tempo** indirizzo. Questa operazione necessaria campo imposta l'ora del server da utilizzare con il kit di sviluppo. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.
 
       > [!TIP]
-      > Per trovare un server come indirizzo IP, visitare [pool.ntp.org](http://pool.ntp.org) o effettuare il ping time.windows.com. 
+      > Per trovare un server come indirizzo IP, visitare [ntppool.org](https://www.ntppool.org/) o effettuare il ping time.windows.com. 
 
     - **Facoltativamente**, si impostano i valori seguenti:
         - **VLAN ID**: Imposta l'ID VLAN. Usare questa opzione solo se l'host e AzS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e internet). 
