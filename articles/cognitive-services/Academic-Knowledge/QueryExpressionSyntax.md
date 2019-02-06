@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150873"
 ---
 # <a name="query-expression-syntax"></a>Sintassi delle espressioni di query
 
@@ -28,22 +28,22 @@ Ogni attributo di entità che può essere incluso in un'espressione di query ha 
 Alcuni dei dati delle entità vengono archiviati come attributi compositi, come indicato dal punto "." nel nome dell'attributo. Ad esempio, le informazioni su autore/affiliazione vengono rappresentate come attributo composito. Contiene 4 componenti: AuN, AuId, AfN, AfId. Questi componenti sono dati separati che costituiscono un singolo valore dell'attributo di entità.
 
 
-**Attributo di stringa: valore singolo** (include le corrispondenze ai sinonimi)  
+**Attributo stringa: valore singolo** (include le corrispondenze ai sinonimi)  
 Ti='indexing by latent semantic analysis'  
 Composite(AA.AuN='sue dumais')
 
-**Attributo di stringa: valore singolo esatto** (corrisponde solo ai valori canonici)  
+**Attributo stringa: valore singolo esatto** (corrisponde solo ai valori canonici)  
 Ti=='indexing by latent semantic analysis'  
 Composite(AA.AuN=='susan t dumais')
      
-**Attributo di stringa: valore del prefisso**   
+**Attributo stringa: valore del prefisso**   
 Ti='indexing by latent seman'...  
 Composite(AA.AuN='sue du'...)
 
 **Attributo numerico: valore singolo**  
 Y=2010
  
-**Attributo numerico: valore dell'intervallo**  
+**Attributo numerico: valore intervallo**  
 Y>2005  
 Y>=2005  
 Y<2010  
@@ -57,7 +57,7 @@ Y='19'... (qualsiasi valore numerico che inizia con 19)
 **Attributo di data: valore singolo**  
 D='2010-02-04'
 
-**Attributo di data: valore dell'intervallo**  
+**Attributo di data: valore intervallo**  
 D>'2010-02-03'  
 D=['2010-02-03','2010-02-05']
 

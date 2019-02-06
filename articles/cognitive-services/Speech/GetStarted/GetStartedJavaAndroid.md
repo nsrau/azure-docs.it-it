@@ -6,20 +6,20 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222491"
 ---
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
 
 Con l'API Riconoscimento vocale Bing è possibile sviluppare applicazioni Android che usano il Servizio di riconoscimento vocale Bing basato sul cloud per convertire audio parlato in testo. L'API supporta lo streaming in tempo reale, in modo che l'applicazione possa ricevere in modo asincrono e simultaneo risultati parziali di riconoscimento e inviare audio al servizio.
 
@@ -135,7 +135,7 @@ Quando si crea il client con `SpeechRecognitionServiceFactory`, è inoltre neces
 
 È possibile collegare più gestori di eventi al client creato:
 
-* **Eventi con risultati parziali**: chiamati ogni volta che il Servizio di riconoscimento vocale esegue una stima su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
+* **Eventi con risultati parziali**: Questi eventi vengono chiamati ogni volta che il Servizio di riconoscimento vocale formula un'ipotesi su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
 * **Eventi con errore**: chiamati quando il servizio rileva un errore.
 * **Eventi con finalità**: chiamati nei client "WithIntent" (solo nella modalità `ShortPhrase`) dopo che il risultato finale di riconoscimento viene analizzato come finalità JSON strutturata.
 * **Eventi con risultato**:

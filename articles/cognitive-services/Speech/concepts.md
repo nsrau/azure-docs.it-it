@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344926"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219771"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -159,7 +159,7 @@ Le risposte di trascrizione restituiscono il testo convertito dall'audio ai clie
 
 - `RecognitionStatus` specifica lo stato del riconoscimento. I valori possibili sono indicati nella tabella seguente.
 
-| Status | DESCRIZIONE |
+| Stato | Descrizione |
 | ------------- | ---------------- |
 | Success | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
 | NoMatch | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. Per altri dettagli, vedere [NoMatch Recognition Status(#nomatch-recognition-status)  |
@@ -189,7 +189,7 @@ Il servizio di riconoscimento vocale Microsoft può restituire una vasta gamma d
 
 È possibile controllare il formato di un'espressione restituita specificando il parametro di query dell'URL `format`. Per impostazione predefinita, il servizio restituisce `simple` risultati.
 
-| Format | DESCRIZIONE |
+| Format | Descrizione |
 |-----|-----|
 | `simple` | Risultato di un'espressione semplificata contenente lo stato di riconoscimento e il testo riconosciuto nella forma di visualizzazione. |
 | `detailed` | Stato di riconoscimento ed elenco degli N migliori risultati in cui ogni espressione restituita contiene tutte le quattro forme di riconoscimento e un punteggio di attendibilità. |
@@ -306,7 +306,7 @@ Il formato di payload dell'espressione `detailed` restituita è il seguente:
 
 Il servizio di riconoscimento vocale Microsoft riconosce tutte le forme del parlare umano, tra cui parole ed espressioni che molte persone classificherebbero come "contenuto volgare". È possibile controllare il modo in cui il servizio gestisce il contenuto volgare usando il parametro di query *profanity*. Per impostazione predefinita, il servizio maschera il contenuto volgare nei risultati *speech.phrase* e non restituisce messaggi *speech.hypothesis* in cui è presente contenuto volgare.
 
-| Valore di *profanity* | DESCRIZIONE |
+| Valore di *profanity* | Descrizione |
 | - | - |
 | `masked` | Maschera il contenuto volgare con asterischi. Questo è il comportamento predefinito. | 
 | `removed` | Rimuove il contenuto volgare da tutti i risultati. |

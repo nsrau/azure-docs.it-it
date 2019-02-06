@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794006"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206748"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -48,13 +48,18 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per l'operazio
 
 ### <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
-Di seguito è riportato un elenco dei tipi di archiviazione supportati per il dispositivo Data Box.
+Di seguito è riportato un elenco degli account di archiviazione e dei tipi di archiviazione supportati per il dispositivo Data Box. Per l'intero elenco dei diversi tipi di account di archiviazione e delle funzionalità complete, vedere [Tipi di account di archiviazione](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Account di archiviazione** | **Note** |
-| --- | --- |
-| Classico | Standard |
-| Scopo generico  |Standard; sono supportati sia V1 che V2. |
-| BLOB |Sono supportati BLOB sia ad accesso frequente che sporadico. |
+| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine*** |**File di Azure** |**Note**|
+| --- | --- | -- | -- | -- |
+| Versione classica Standard | S | S | S |
+| Utilizzo generico v1 Standard  | S | S | S | Sono supportati BLOB sia ad accesso frequente che sporadico.|
+| Utilizzo generico v1 Premium  |  | S| | |
+| Utilizzo generico v2 Standard  | S | S | S | Sono supportati BLOB sia ad accesso frequente che sporadico.|
+| Utilizzo generico v2 Premium  |  |S | | |
+| Archiviazione BLOB Standard |S | | |Sono supportati BLOB sia ad accesso frequente che sporadico. |
+
+\*  *I dati caricati nei BLOB di pagine devono essere pari a 512 byte allineati, ad esempio vhd.*
 
 >[!NOTE]
 > Gli account di Azure Data Lake Storage Gen 2 non sono supportati.
@@ -85,7 +90,7 @@ Di seguito è riportato un elenco dei Web browser supportati per l'interfaccia u
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
-Il data center disponga di una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
+Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
 
 ## <a name="next-step"></a>Passaggio successivo
 

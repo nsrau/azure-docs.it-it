@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231012"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239775"
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
 
@@ -73,15 +73,15 @@ Ciascun log verrà scritto nel seguente formato:
 
 Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | <service-name> |Nome del servizio di archiviazione. Ad esempio: BLOB, tabella o coda |
-| AAAA |Anno a quattro cifre per il log. Ad esempio: 2011 |
-| MM |Mese a due cifre per il log. Ad esempio: 07 |
-| GG |Mese a due cifre per il log. Ad esempio: 07 |
-| hh |Ora a due cifre che indica l'ora di inizio per i log, nel formato UTC 24 ore. Ad esempio: 18 |
+| AAAA |Anno a quattro cifre per il log. Ad esempio:  2011. |
+| MM |Mese a due cifre per il log. Ad esempio:  07. |
+| GG |Mese a due cifre per il log. Ad esempio:  07. |
+| hh |Ora a due cifre che indica l'ora di inizio per i log, nel formato UTC 24 ore. Ad esempio:  18. |
 | MM |Numero a due cifre che indica il minuto di inizio per i log. Questo valore non è supportato nella versione corrente di Analisi archiviazione, e il relativo valore sarà sempre 00. |
-| <counter> |Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Questo contatore parte da 000000. Ad esempio: 000001 |
+| <counter> |Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Questo contatore parte da 000000. Ad esempio:  000001. |
 
 Di seguito viene riportato un nome di log di esempio completo che combina gli esempi precedenti:
 
@@ -96,11 +96,11 @@ Quando viene registrata una richiesta di archiviazione, il nome log risultante �
 ### <a name="log-metadata"></a>Metadati dei log
 Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utilizzati per identificare i dati di registrazione contenuti nei BLOB. Nella tabella seguente sono descritti i singoli attributi dei metadati:
 
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | LogType |Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura; Esempio 2: lettura, scrittura; Esempio 3: lettura, scrittura, eliminazione. |
-| StartTime |L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:21:46Z |
-| EndTime |L'ora in cui è stata registrata l'ultima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:22:09Z |
+| StartTime |L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio:  31-07-2011T18:21:46Z. |
+| EndTime |L'ora in cui è stata registrata l'ultima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio:  31-07-2011T18:22:09Z. |
 | LogVersion |Versione del formato del log. Al momento, l'unico valore supportato è: 1,0 |
 
 Nell'elenco seguente sono visualizzati i metadati di esempio completi tramite gli esempi precedenti:
@@ -136,8 +136,8 @@ Le metriche delle transazioni vengono registrate sia per le richieste utente, si
 I dati relativi alla capacità vengono registrati quotidianamente per il servizio BLOB di un account di archiviazione e vengono scritte due entità di tabella. Un'entità fornisce le statistiche per i dati utente e l'altra le statistiche sul contenitore BLOB `$logs` utilizzato da Analisi archiviazione. Nella tabella `$MetricsCapacityBlob` sono incluse le seguenti statistiche:
 
 * **Capacity**: quantità di memoria usata dal servizio BLOB dell'account di archiviazione, in byte.
-* **ContainerCount**: numero di contenitori BLOB del servizio BLOB dell'account di archiviazione.
-* **ObjectCount**: numero di BLOB di pagine o blocchi inviati nel servizio BLOB dell'account di archiviazione.
+* **ContainerCount**: numero di contenitori BLOB nel servizio BLOB dell'account di archiviazione.
+* **ObjectCount**: numero di BLOB di pagine o blocchi inviati e non inviati nel servizio BLOB dell'account di archiviazione.
 
 Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx).
 
@@ -146,7 +146,7 @@ Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiv
 
 | Livello metrica | Nomi tabella | Versioni supportate |
 | --- | --- | --- |
-| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Anche se tali nomi sono supportati, è consigliabile passare all'uso delle tabelle elencate di seguito. |
+| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Anche se tali nomi sono supportati, è consigliabile passare all'uso delle tabelle elencate di seguito. |
 | Metriche orarie, posizione principale |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche per minuto, posizione principale |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche orarie, posizione secondaria |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica. |

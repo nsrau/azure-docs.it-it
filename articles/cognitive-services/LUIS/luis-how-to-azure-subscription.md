@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473385"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239180"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso delle chiavi della sottoscrizione con l'app LUIS
 
@@ -43,7 +43,7 @@ Questa chiave deve essere usata solo per le query di stima dell'endpoint. Non us
 
     ![Scelta di API di Azure](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Dopo aver creato la risorsa Language Understanding, è possibile visualizzare le chiavi di accesso generate in **Gestione delle risorse -> Chiavi**. Non usare le chiavi. La sezione successiva illustrerà come connettere questa nuova risorsa a un'app LUIS nel portale LUIS. Occorre usare il nome della risorsa LUIS creato nel passaggio 3.
+1. Dopo aver creato la risorsa Language Understanding, è possibile visualizzare le chiavi di accesso generate in **Gestione delle risorse -> Chiavi**. La sezione successiva illustrerà come connettere questa nuova risorsa a un'app LUIS nel portale LUIS. Occorre usare il nome della risorsa LUIS creato nel passaggio 3.
 
     ![Chiavi di Azure](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Questa chiave deve essere usata solo per le query di stima dell'endpoint. Non us
 
     ![Assegnare una risorsa all'app](./media/luis-manage-keys/assign-key.png)
 
-1. Selezionare un tenant nella finestra di dialogo associata all'indirizzo di posta elettronica con cui si accede al sito Web di LUIS.  
+1. Selezionare un tenant nella finestra di dialogo associata all'indirizzo di posta elettronica usato per accedere al sito Web di LUIS.  
 
 1. Scegliere il **Nome sottoscrizione** associato alla risorsa di Azure che si vuole aggiungere.
 
@@ -122,7 +122,7 @@ Queste finalità e i relativi punteggi sono inclusi anche nei log di endpoint. �
 ### <a name="enable-bing-spell-checker"></a>Abilitare il controllo ortografico di Bing 
 In **Impostazioni URL endpoint** la casella di controllo**Controllo ortografico Bing** permette a LUIS di correggere l'ortografia prima della stima. Creare una **[chiave del Controllo ortografico Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Aggiungere il parametro querystring **spellCheck=true** e **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Sostituire `{YOUR_BING_KEY_HERE}` con la chiave del controllo ortografico di Bing.
+Aggiungere il parametro querystring **spellCheck=true** e **bing-spell-check-subscription-key={CHIAVE_BING}**. Sostituire `{YOUR_BING_KEY_HERE}` con la chiave del controllo ortografico di Bing.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Ulteriori informazioni sulle [regioni](luis-reference-regions.md) di pubblicazio
 
 ## <a name="assign-resource-without-luis-portal"></a>Assegnare risorse senza il portale di LUIS
 
-Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizzare l'assegnazione di una risorsa LUIS a un'app LUIS. Per farlo è necessario seguire questa procedura:
+Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizzare l'assegnazione di una risorsa LUIS a un'app LUIS. Per farlo, è necessario seguire questa procedura:
 
 1. Ottenere un token di Azure Resource Manager per questo [sito Web](https://resources.azure.com/api/token?plaintext=true). Il token scade, perciò usarlo immediatamente. La richiesta restituisce un token di Azure Resource Manager.
 
@@ -163,7 +163,7 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |type|Impostazione|Valore|
+    |Type|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La [chiave di creazione](luis-how-to-account-settings.md).|

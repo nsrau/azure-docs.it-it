@@ -1,5 +1,5 @@
 ---
-title: Formato dei file manifesto del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
+title: Formato dei file manifesto del servizio Importazione/Esportazione di Azure | Microsoft Docs
 description: Informazioni sul formato del file manifesto dell'unità che descrive il mapping tra i BLOB nell'archiviazione BLOB di Azure e i file su un disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione.
 author: muralikk
 services: storage
@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525155"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463243"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato del file manifesto del servizio Importazione/Esportazione di Azure
 Il file manifesto dell'unità descrive il mapping tra i BLOB nell'archiviazione Blob di Azure e i file nell'unità che comprende un processo di importazione o esportazione. Per un'operazione di importazione, il file manifesto viene creato come parte del processo di preparazione dell'unità e viene archiviato nell'unità prima che questa venga inviata al data center di Azure. Durante un'operazione di esportazione, il manifesto viene creato e archiviato nell'unità dal servizio Importazione/Esportazione di Azure.  
@@ -37,9 +37,9 @@ Di seguito viene descritto il formato generale di un file manifesto dell'unità:
         Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
   
       <!-- First Blob -->  
-      <Blob>  
-        <BlobPath>blob-path-relative-to-account</BlobPath>  
-        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
+      <Blob>  
+        <BlobPath>blob-path-relative-to-account</BlobPath>  
+        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
         [<ClientData>client-data</ClientData>]  
         [<Snapshot>snapshot</Snapshot>]  
         <Length>content-length</Length>  
@@ -47,7 +47,7 @@ Di seguito viene descritto il formato generale di un file manifesto dell'unità:
         page-range-list-or-block-list          
         [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
         [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
-      </Blob>  
+      </Blob>  
   
       <!-- Second Blob -->  
       <Blob>  
@@ -72,7 +72,7 @@ page-range-list ::=
     <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
     </PageRangeList>  
   
@@ -80,7 +80,7 @@ block-list ::=
     <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        Hash="md5-hash"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
 
@@ -90,7 +90,7 @@ block-list ::=
 
 Nella tabella seguente vengono specificati gli elementi di dati e gli attributi del formato XML del manifesto dell'unità.  
   
-|Elemento XML|type|DESCRIZIONE|  
+|Elemento XML|Type|Descrizione|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Elemento radice|Elemento radice del file manifesto. Tutti gli altri elementi nel file sono al di sotto di questo elemento.|  
 |`Version`|Attributo, stringa|Versione del file manifesto.|  
@@ -108,9 +108,9 @@ Nella tabella seguente vengono specificati gli elementi di dati e gli attributi 
 |`Blob/BlobPath`|string|URI relativo al BLOB che inizia con il nome del contenitore. Se il BLOB si trova nel contenitore radice, deve iniziare con `$root`.|  
 |`Blob/FilePath`|string|Specifica il percorso relativo verso il file sull'unità. Per i processi di esportazione, il percorso BLOB verrà usato per il percorso del file, se possibile; *ad esempio*, `pictures/bob/wild/desert.jpg` sarà esportato in `\pictures\bob\wild\desert.jpg`. Tuttavia, a causa delle limitazioni sui nomi NTFS, un BLOB può essere esportato in un file con un percorso non simile al percorso del BLOB.|  
 |`Blob/ClientData`|string|facoltativo. Contiene i commenti del cliente. Questo valore non viene interpretato dal servizio Importazione/Esportazione.|  
-|`Blob/Snapshot`|Datetime|Opzionale per i processi di esportazione. Specifica l'identificatore dello snapshot per uno snapshot di BLOB esportato.|  
+|`Blob/Snapshot`|DateTime|Opzionale per i processi di esportazione. Specifica l'identificatore dello snapshot per uno snapshot di BLOB esportato.|  
 |`Blob/Length`|Integer|Specifica la lunghezza totale del BLOB in byte. Il valore può raggiungere 200 GB per un BLOB in blocchi e 1 TB per un BLOB di pagine. Per un BLOB di pagine, questo valore deve essere multiplo di 512.|  
-|`Blob/ImportDisposition`|string|Facoltativo per i processi di importazione, omesso per i processi di esportazione. Specifica in che modo il servizio di Importazione/Esportazione deve comportarsi nel caso di un processo di importazione quando esiste già un BLOB con lo stesso nome. Se questo valore viene omesso dal manifesto di importazione, il valore predefinito è `rename`.<br /><br /> I valori per questo elemento includono:<br /><br /> -   `no-overwrite`: se esiste già un BLOB di destinazione con lo stesso nome, l'operazione di importazione ignora questo file.<br />-   `overwrite`: eventuali BLOB di destinazione esistenti vengono completamente sovrascritti dal nuovo file importato.<br />-   `rename`: il nuovo blob verrà caricato con un nome modificato.<br /><br /> La regola di ridenominazione si presenta come segue:<br /><br /> -   Se il nome del blob non contiene un punto, viene generato un nuovo nome aggiungendo `(2)` al nome del BLOB originale; se il nuovo nome è in conflitto con il nome di un BLOB esistente, viene aggiunto `(3)` al posto di `(2)` e così via.<br />-   Se il nome del BLOB contiene un punto, la parte che segue l'ultimo punto viene considerata come nome dell'estensione. Analogamente alla procedura descritta in alto, `(2)` viene inserito prima dell'ultimo punto per generare un nuovo nome; se il nuovo nome continua a essere in conflitto con il nome di un BLOB esistente, il servizio prova con `(3)`, `(4)` e così via, fino a quando non viene trovato un nome non in conflitto.<br /><br /> Di seguito sono riportati alcuni esempi:<br /><br /> Il BLOB `BlobNameWithoutDot` verrà rinominato in:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Il BLOB `Seattle.jpg` verrà rinominato in:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`Blob/ImportDisposition`|string|Facoltativo per i processi di importazione, omesso per i processi di esportazione. Specifica in che modo il servizio di Importazione/Esportazione deve comportarsi nel caso di un processo di importazione quando esiste già un BLOB con lo stesso nome. Se questo valore viene omesso dal manifesto di importazione, il valore predefinito è `rename`.<br /><br /> I valori per questo elemento includono:<br /><br /> -   `no-overwrite`: se esiste già un BLOB di destinazione con lo stesso nome, l'operazione di importazione ignora questo file.<br />-   `overwrite`: eventuali BLOB di destinazione esistenti vengono completamente sovrascritti dal nuovo file importato.<br />-   `rename`: il nuovo BLOB verrà caricato con un nome modificato.<br /><br /> La regola di ridenominazione si presenta come segue:<br /><br /> -   Se il nome del blob non contiene un punto, viene generato un nuovo nome aggiungendo `(2)` al nome del BLOB originale; se il nuovo nome è in conflitto con il nome di un BLOB esistente, viene aggiunto `(3)` al posto di `(2)` e così via.<br />-   Se il nome del BLOB contiene un punto, la parte che segue l'ultimo punto viene considerata come nome dell'estensione. Analogamente alla procedura descritta in alto, `(2)` viene inserito prima dell'ultimo punto per generare un nuovo nome; se il nuovo nome continua a essere in conflitto con il nome di un BLOB esistente, il servizio prova con `(3)`, `(4)` e così via, fino a quando non viene trovato un nome non in conflitto.<br /><br /> Di seguito sono riportati alcuni esempi:<br /><br /> Il BLOB `BlobNameWithoutDot` verrà rinominato in:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Il BLOB `Seattle.jpg` verrà rinominato in:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
 |`PageRangeList`|Elemento XML nidificato|Obbligatorio per un BLOB di pagine.<br /><br /> Per un'operazione di importazione, specifica un elenco di intervalli di byte di un file da importare. Ogni intervallo di pagine viene descritto da un offset e dalla lunghezza nel file di origine che descrive l'intervallo di pagine, insieme a un hash MD5 dell'area. L'attributo `Hash` di un intervallo di pagine è obbligatorio. Il servizio verifica che l'hash dei dati nel BLOB corrisponda all'hash MD5 calcolato dall'intervallo di pagine. Per descrivere un file per un'importazione, può essere usato qualsiasi numero di intervalli di pagine con una dimensione totale massima di 1 TB. Tutti gli intervalli di pagine devono essere ordinati tramite offset e non sono consentite sovrapposizioni.<br /><br /> Per un'operazione di esportazione, specifica un set di intervalli di byte di un BLOB che sono stati esportati nell'unità.<br /><br /> Tutti gli intervalli di pagine insieme possono coprire solo intervalli secondari di un BLOB o di un file.  La parte rimanente del file non deve essere coperta da intervalli di pagine e il relativo contenuto può essere non definito.|  
 |`PageRange`|Elemento XML|Rappresenta un intervallo di pagine.|  
 |`PageRange/@Offset`|Attributo, valore integer|Specifica l'offset nel file di trasferimento e il BLOB in cui inizia l'intervallo di pagine specificato. Questo valore deve essere un multiplo di 512.|  

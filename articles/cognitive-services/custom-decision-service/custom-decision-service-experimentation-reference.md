@@ -1,19 +1,21 @@
 ---
-title: Sperimentazione - Servizi cognitivi di Azure | Microsoft Docs
-description: Questo articolo è una Guida per la sperimentazione del Servizio decisionale personalizzato di Azure.
+title: Sperimentazione - Servizio decisionale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Questo articolo è una guida alla sperimentazione con il Servizio decisionale personalizzato.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b0ac0bc049d556423493f0c48dd9a548929bcd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377500"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219822"
 ---
 # <a name="experimentation"></a>Sperimentazione
 
@@ -33,8 +35,8 @@ Tramite il file di log, la Sperimentazione cerca di individuare i criteri con il
 * Verifica la valutazione dei criteri `--cb_type` (punteggio di propensione inverso (`ips`) o doppiamente solido (`dr`). Per altre informazioni vedere [esempio di Contextual Bandit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Verifica i marginali.
 * Verifica le funzioni di interazione quadratica:
-   * **fase brute-force**: verifica tutte le combinazioni con coppie di `--q_bruteforce_terms` o meno.
-   * **fase greedy**: aggiunge la coppia più idonea fino a quando non vi sono miglioramenti per i cicli di `--q_greedy_stop`.
+   * **fase brute-force**: verifica tutte le combinazioni con coppie di `--q_bruteforce_terms` o un numero inferiore.
+   * **fase greedy**: aggiunge la coppia più idonea fino a quando non sono disponibili miglioramenti per i cicli di `--q_greedy_stop`.
 * Esegue un secondo sweep sugli iperparametri (`learning rate`, `L1 regularization` e `power_t`).
 
 I parametri che controllano questi passaggi includono alcuni argomenti di Vowpal Wabbit:
@@ -50,13 +52,13 @@ I parametri che controllano questi passaggi includono alcuni argomenti di Vowpal
 
 Per una spiegazione dettagliata degli argomenti precedenti, vedere [gli argomenti della riga di comando di Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - Vowpal Wabbit: installato e presente nel percorso.
-  - Windows: [usare il `.msi` programma di installazione](https://github.com/eisber/vowpal_wabbit/releases).
+  - Windows: [usare il programma di installazione `.msi`](https://github.com/eisber/vowpal_wabbit/releases).
   - Altre piattaforme: [ottenere il codice sorgente](https://github.com/JohnLangford/vowpal_wabbit/releases).
 - Python 3: installato e presente nel percorso.
 - NumPy: usare la gestione pacchetti di propria scelta.
-- Il repository *Microsoft/mwt-ds*: [clonare il repository](https://github.com/Microsoft/mwt-ds).
+- Repository *Microsoft/mwt-ds*: [clonare il repository](https://github.com/Microsoft/mwt-ds).
 - File di log JSON del servizio decisionale: per impostazione predefinita, il comando base include `--dsjson`, che abilita l'analisi JSON del servizio decisionale del file di dati di input. [Ottenere un esempio di questo formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Uso
@@ -75,7 +77,7 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 Un log dei risultati viene accodato al file *mwt-ds/DataScience/experiments.csv*.
 
 ### <a name="parameters"></a>Parametri
-| Input | DESCRIZIONE | Predefinito |
+| Input | Descrizione | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostra il messaggio di aiuto ed esce. | |
 | `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatoria |  

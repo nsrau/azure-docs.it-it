@@ -1,22 +1,25 @@
 ---
-title: Introduzione all'API Riconoscimento vocale Microsoft in Objective-C per dispositivi iOS | Microsoft Docs
-description: Usare l'API Riconoscimento vocale Microsoft per sviluppare applicazioni iOS che convertono audio parlato in testo.
+title: Introduzione all'API Riconoscimento vocale Bing in Objective-C per dispositivi iOS | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Usare l'API Riconoscimento vocale Bing per sviluppare applicazioni iOS che convertono audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373881"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211798"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Introduzione all'API Riconoscimento vocale in Objective-C per dispositivi iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in Objective-C per dispositivi iOS
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Con l'API Riconoscimento vocale, è possibile sviluppare applicazioni iOS che usano il Servizio di riconoscimento vocale basato sul cloud per convertire audio parlato in testo. L'API supporta lo streaming in tempo reale, in modo che l'applicazione possa ricevere in modo asincrono e simultaneo risultati parziali di riconoscimento e inviare audio al servizio.
 
@@ -112,7 +115,7 @@ La libreria client fornisce classi client di riconoscimento pre-implementate per
 
 * `DataRecognitionClient`: riconoscimento vocale con dati PCM, ad esempio da un'origine file o audio. I dati sono suddivisi in buffer e ogni buffer viene inviato al Servizio di riconoscimento vocale. Al buffer non viene apportata alcuna modifica, pertanto gli utenti possono applicare il sistema di rilevamento dei silenzi preferito. Se i dati vengono forniti da file in formato WAV, è possibile inviare dati dal file direttamente al server. Se si dispone di dati non elaborati, ad esempio audio trasferito tramite Bluetooth, inviare innanzitutto un'intestazione di formato al server seguita dai dati.
 * `MicrophoneRecognitionClient`: riconoscimento vocale con audio proveniente dal microfono. Verificare che il microfono sia acceso e che i dati del microfono vengano inviati al Servizio di riconoscimento vocale. Un "rilevatore di silenzi" integrato viene applicato ai dati del microfono prima dell'invio al Servizio di riconoscimento.
-* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: oltre a testo di riconoscimento, questi client restituiscono informazioni strutturate sulla finalità del parlante, che le applicazioni possono usare per altre azioni. Per usare il "rilevamento della finalità", è innanzitutto necessario istruire un modello tramite il servizio [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: oltre a testo di riconoscimento, questi client restituiscono informazioni strutturate sulla finalità del parlante, che le applicazioni possono usare per eseguire altre azioni. Per usare il "rilevamento della finalità", è innanzitutto necessario istruire un modello tramite il servizio [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Lingua di riconoscimento
 
@@ -129,7 +132,7 @@ Quando si crea il client con `SpeechRecognitionServiceFactory`, è inoltre neces
 
 È possibile collegare più gestori di eventi al client creato:
 
-* **Eventi con risultati parziali**: chiamati ogni volta che il Servizio di riconoscimento vocale esegue una stima su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
+* **Eventi con risultati parziali**: chiamati ogni volta che il Servizio di riconoscimento vocale formula un'ipotesi su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`).
 * **Eventi con errore**: chiamati quando il servizio rileva un errore.
 * **Eventi con finalità**: chiamati nei client "WithIntent" (solo nella modalità ShortPhrase) dopo che il risultato finale di riconoscimento viene analizzato come finalità JSON strutturata.
 * **Eventi con risultato**:

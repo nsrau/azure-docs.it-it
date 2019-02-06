@@ -5,16 +5,16 @@ description: Usando la funzionalità di caricamento dei documenti è possibile c
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633249"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217221"
 ---
 # <a name="upload-a-document"></a>Caricare un documento
 
@@ -39,7 +39,7 @@ Dal portale di [Custom Translator](https://portal.customtranslator.azure.ai) far
 
     -  Training: questi documenti verranno usati per il set di training.
     -  Tuning (Ottimizzazione): questi documenti verranno usati per il set di ottimizzazione.
-    -  Testing (Test): questi documenti verranno usati per il set di test.
+    -  Testing: questi documenti verranno usati per il set di test.
     -  Phrase Dictionary (Dizionario di espressioni): questi documenti verranno usati per il dizionario di espressioni.
     -  Sentence Dictionary (Dizionario di frasi): questi documenti verranno usati per il dizionario di frasi.
 
@@ -52,7 +52,7 @@ Dal portale di [Custom Translator](https://portal.customtranslator.azure.ai) far
     -  Parallel data (Dati paralleli):
         -  Source file (File di origine): selezionare il file nella lingua di origine nel computer locale.
         -  Target file (File di destinazione): selezionare il file nella lingua di destinazione nel computer locale.
-        -  Document name (Nome del documento): usato solo per il caricamento di file paralleli.
+        -  Document name (Nome documento): usato solo per il caricamento di file paralleli.
 
     - Combo data (Dati combinati):
         -  Combo File (File combinato): selezionare il file combinato nel computer locale. Il file combinato include sia le frasi nella lingua di origine che quelle nella lingua di destinazione. La [convenzione di denominazione](document-formats-naming-convention.md) è importante per i file combinati.

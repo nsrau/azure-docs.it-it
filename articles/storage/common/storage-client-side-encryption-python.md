@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528123"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453400"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Crittografia lato client con Python per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,11 +125,11 @@ Dopo la creazione di un oggetto di servizio di archiviazione (ad esempio blockbl
 
 La chiave KEK deve implementare i metodi seguenti per consentire una corretta crittografia dei dati:
 
-* wrap_key(cek): esegue il wrapping della chiave CEK (byte) specificata utilizzando un algoritmo scelto dall'utente. Restituisce la chiave su cui è stato eseguito il wrapping.
-* get_key_wrap_algorithm(): restituisce l'algoritmo utilizzato per eseguire il wrapping delle chiavi.
+* wrap_key(cek): esegue il wrapping della chiave CEK (byte) specificata usando un algoritmo scelto dall'utente. Restituisce la chiave su cui è stato eseguito il wrapping.
+* get_key_wrap_algorithm(): restituisce l'algoritmo usato per eseguire il wrapping delle chiavi.
 * get_kid(): restituisce l'ID chiave stringa per questa chiave KEK.
   La chiave KEK deve implementare i metodi seguenti per consentire una corretta decrittografia dei dati:
-* unwrap_key (cek, algoritmo): restituisce il formato privo di wrapping della chiave CEK specificata utilizzando l'algoritmo specificato per la stringa.
+* unwrap_key(cek, algoritmo): restituisce il formato privo di wrapping della chiave CEK specificata usando l'algoritmo specificato per la stringa.
 * get_kid(): restituisce un ID chiave stringa per questa chiave KEK.
 
 Il resolver di chiavi deve implementare almeno un metodo che, dato un ID della chiave, restituisce la chiave KEK corrispondente che implementa l'interfaccia sopra. Solo questo metodo deve essere assegnato alla proprietà key_resolver_function sull'oggetto di servizio.

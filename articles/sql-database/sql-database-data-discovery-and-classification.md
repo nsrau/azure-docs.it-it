@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466593"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 
@@ -28,7 +28,7 @@ L'individuazione e la classificazione dei dati più sensibili (dati commerciali,
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati riservati e rafforzare la sicurezza di questi.
 
-Individuazione dati e classificazione fa parte dell'offerta [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (Protezione avanzata dalle minacce SQL) (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale ATP SQL.
+Individuazione dati e classificazione fa parte dell'offerta [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md), che è un pacchetto unificato per le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
 > Questo documento si riferisce solo al database SQL di Azure. Per SQL Server (locale), vedere [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999) (Individuazione e classificazione dei dati SQL).
@@ -77,7 +77,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare ad **Advanced Threat Protection** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare Advanced Threat Protection e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)**.
+2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Selezionare per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)**.
 
    ![Eseguire l'analisi di un database](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 ## <a id="subheading-3"></a>Controllo dell'accesso ai dati sensibili
 
-Un aspetto importante del paradigma di Information Protection è la possibilità di monitorare l'accesso ai dati sensibili. Il [servizio di controllo del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo denominato *data_sensitivity_information*, in cui vengono registrate le classificazioni (etichette) di sensibilità dei dati effettivi restituiti dalla query.
+Un aspetto importante del paradigma di Information Protection è la possibilità di monitorare l'accesso ai dati sensibili. Il [servizio di controllo del database SQL di Azure](sql-database-auditing.md) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo denominato *data_sensitivity_information*, in cui vengono registrate le classificazioni (etichette) di sensibilità dei dati effettivi restituiti dalla query.
 
 ![Log di controllo](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -147,8 +147,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 ## <a id="subheading-5"></a>Passaggi successivi
 
-- Per altre informazioni, vedere [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (Protezione avanzata dalle minacce SQL).
-- Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
+- Altre informazioni su [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md).
+- Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

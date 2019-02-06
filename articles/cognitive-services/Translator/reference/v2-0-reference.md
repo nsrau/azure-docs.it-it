@@ -1,34 +1,34 @@
 ---
-title: Informazioni di riferimento sull'API Traduzione testuale Microsoft V2.0 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentazione di riferimento per l'API Traduzione testuale Microsoft V2.0.
+title: API Traduzione testuale v2.0
+titleSuffix: Azure Cognitive Services
+description: Documentazione di riferimento per l'API Traduzione testuale v2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.subservice: translator-text
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: e32e28608d2fecf27b61acff74af7eb6849f0ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377761"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463226"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
 
 > [!IMPORTANT]
 > Questa versione dell'API Traduzione testuale è stata deprecata. [Visualizzare la documentazione per la versione 3 dell'API Traduzione testuale](v3-0-reference.md).
 
-L'API Traduzione testuale Microsoft V2 può essere facilmente integrata in applicazioni, siti Web, strumenti o altre soluzioni per assicurare esperienze utente multilingue. Sfruttando gli standard del settore, può essere usata in qualsiasi piattaforma hardware e con qualunque sistema operativo per eseguire la traduzione e altre operazioni relative alla lingua, ad esempio il rilevamento della lingua del testo o la sintesi vocale. Fare clic qui per altre informazioni sull'API di Microsoft Translator.
+L'API Traduzione testuale v2 può essere facilmente integrata in applicazioni, siti Web, strumenti o altre soluzioni per assicurare esperienze utente multilingue. Sfruttando gli standard del settore, può essere usata in qualsiasi piattaforma hardware e con qualunque sistema operativo per eseguire la traduzione e altre operazioni relative alla lingua, ad esempio il rilevamento della lingua del testo o la sintesi vocale. Fare clic qui per altre informazioni sull'API di Microsoft Translator.
 
 ## <a name="getting-started"></a>Introduzione
-Per accedere all'API Traduzione testuale Microsoft, è necessario [registrarsi per Microsoft Azure](../translator-text-how-to-signup.md).
+Per accedere all'API Traduzione testuale, è necessario [registrarsi per Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Authorization
-Tutte le chiamate all'API Traduzione testuale Microsoft richiedono una chiave di sottoscrizione per l'autenticazione. L'API supporta due modalità di autenticazione:
+Tutte le chiamate all'API Traduzione testuale richiedono una chiave di sottoscrizione per l'autenticazione. L'API supporta due modalità di autenticazione:
 
 * Tramite un token di accesso. Usare la chiave di sottoscrizione a cui si fa riferimento nel **passaggio** 9 per generare un token di accesso tramite una richiesta POST al servizio di autorizzazione. Per informazioni dettagliate, vedere la documentazione del servizio token. Passare il token di accesso al servizio Translator usando l'intestazione Authorization o il parametro di query access_token. Il token di accesso è valido per 10 minuti. Ottenere un nuovo token di accesso ogni 10 minuti e continuare a usare lo stesso token di accesso per le richieste ripetute entro 10 minuti.
 
@@ -76,7 +76,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE    |Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione    |Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid  |(vuoto)    |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query|stringa|
 |text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
@@ -84,7 +84,7 @@ Tipo di contenuto della risposta: application/xml
 |to|(vuoto) |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|stringa|
 |contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono text/plain (impostazione predefinita) e text/html. Qualsiasi codice HTML deve essere un elemento completo ben formato.|query|stringa|
 |category|(vuoto)   |facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|stringa|
-|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione: "Bearer" + " " + "access_token".|intestazione|stringa|
+|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
 
 
@@ -129,26 +129,26 @@ Il formato del corpo della richiesta deve essere come segue:
 Gli elementi all'interno di `TranslateArrayRequest` sono:
 
 
-* `appid`: elemento obbligatorio. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
+* `appid`: Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
 * `from`: facoltativo. Stringa che rappresenta il codice della lingua da cui tradurre il testo. Se lasciato vuoto, la risposta includerà il risultato del rilevamento automatico della lingua.
 * `options`: facoltativo. Oggetto `Options` contenente i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
-    - `Category`: stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è `general`.
-    - `ContentType`: formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita), `text/xml` e `text/html`. Qualsiasi codice HTML deve essere un elemento completo ben formato.
-    - `ProfanityAction`: specifica come viene gestito il contenuto volgare come descritto in precedenza. I valori consentiti di `ProfanityAction` sono `NoAction` (impostazione predefinita), `Marked` e `Deleted`.
+    - `Category`: Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è `general`.
+    - `ContentType`: Formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita), `text/xml` e `text/html`. Qualsiasi codice HTML deve essere un elemento completo ben formato.
+    - `ProfanityAction`: specifica come viene gestito il contenuto volgare, in base alla descrizione precedente. I valori consentiti di `ProfanityAction` sono `NoAction` (impostazione predefinita), `Marked` e `Deleted`.
     - `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Verrà restituito lo stesso contenuto nella risposta.
     - `Uri`: filtrare i risultati in base a questo URI. Impostazione predefinita: `all`.
     - `User`: filtrare i risultati in base a questo utente. Impostazione predefinita: `all`.
-* `texts`: elemento obbligatorio. Matrice contenente i testi per la traduzione. Tutte le stringhe devono essere nella stessa lingua. Il totale di tutti i testi da tradurre non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 2000.
-* `to`: elemento obbligatorio. Stringa che rappresenta il codice della lingua in cui tradurre il testo.
+* `texts`: Richiesto. Matrice contenente i testi per la traduzione. Tutte le stringhe devono essere nella stessa lingua. Il totale di tutti i testi da tradurre non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 2000.
+* `to`: Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.
 
 Gli elementi facoltativi possono essere omessi. Gli elementi che sono elementi figlio diretti di TranslateArrayRequest devono essere elencati in ordine alfabetico.
 
 Il metodo TranslateArray accetta `application/xml` o `text/xml` per `Content-Type`.
 
-**Valore restituito:** matrice `TranslateArrayResponse`. Ogni `TranslateArrayResponse` presenta gli elementi seguenti:
+**Valore restituito:** una matrice `TranslateArrayResponse`. Ogni `TranslateArrayResponse` presenta gli elementi seguenti:
 
 * `Error`: indica un errore, nel caso in cui se ne sia verificato uno. In caso contrario, è impostato su null.
-* `OriginalSentenceLengths`: matrice di interi che indica la lunghezza di ogni frase nel testo di origine originale. La lunghezza della matrice indica il numero di frasi.
+* `OriginalSentenceLengths`: matrice di interi che indica la lunghezza di ogni frase nel testo originale. La lunghezza della matrice indica il numero di frasi.
 * `TranslatedText`: testo tradotto.
 * `TranslatedSentenceLengths`: matrice di interi che indica la lunghezza di ogni frase nel testo tradotto. La lunghezza della matrice indica il numero di frasi.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Restituisce lo stesso contenuto della richiesta.
@@ -181,9 +181,9 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|Authorization|(vuoto) |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione: "Bearer" + " " + "access_token".|intestazione|stringa|
+|Authorization|(vuoto) |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
 
 ### <a name="response-messages"></a>Messaggi di risposta
@@ -211,7 +211,7 @@ Il corpo della richiesta include una matrice di stringhe che rappresenta i codic
 </ArrayOfstring>
 ```
 
-**Valore restituito:** matrice di stringhe contenente i nomi delle lingue supportate dal servizio Translator, localizzati nella lingua richiesta.
+**Valore restituito:** Matrice di stringhe contenente i nomi delle lingue supportate dal servizio Translator, localizzati nella lingua richiesta.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i nomi delle lingue supportate dal servizio Translator, localizzati nella lingua richiesta.
@@ -222,7 +222,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |locale|(vuoto) |Richiesto. Stringa che rappresenta una combinazione di un codice ISO 639 di impostazioni cultura a due lettere minuscole associato a una lingua e un codice ISO 3166 di impostazioni cultura secondarie a due lettere maiuscole per localizzare i nomi delle lingue o semplicemente un codice ISO 639 di impostazioni cultura a lettere minuscole.|query|stringa|
@@ -245,7 +245,7 @@ Ottenere un elenco di codici di lingua che rappresenta le lingue supportate dal 
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
-**Valore restituito:** matrice di stringhe contenente i codici delle lingue supportate dai servizi Translator.
+**Valore restituito:** Matrice di stringhe contenente i codici delle lingue supportate dai servizi Translator.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i codici delle lingue supportate dai servizi Translator.
@@ -256,7 +256,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -278,7 +278,7 @@ Recupera le lingue disponibili per la sintesi vocale.
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
-**Valore restituito:** matrice di stringhe contenente i codici delle lingue supportate per la sintesi vocale dal servizio Translator.
+**Valore restituito:** Matrice di stringhe contenente i codici delle lingue supportate per la sintesi vocale dal servizio Translator.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i codici delle lingue supportate per la sintesi vocale dal servizio Translator.
@@ -289,7 +289,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -311,7 +311,7 @@ Restituisce un audio o un flusso mp3 del testo passato pronunciato nella lingua 
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
-**Valore restituito**: audio o flusso mp3 del testo passato pronunciato nella lingua desiderata.
+**Valore restituito:** audio o flusso mp3 del testo passato pronunciato nella lingua desiderata.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 
@@ -321,7 +321,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)   |Richiesto. Stringa contenente una o più frase della lingua specificata da pronunciare per il flusso audio. Le dimensioni del testo da pronunciare non devono superare 2000 caratteri.|query|stringa|
@@ -357,7 +357,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)|Richiesto. Stringa contenente il testo di cui identificare la lingua. Le dimensioni del testo non devono superare 10.000 caratteri.|query| stringa|
@@ -412,7 +412,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -446,7 +446,7 @@ Tipo di contenuto della risposta: application: xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati   |
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati   |
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |originalText|(vuoto)|Richiesto. Stringa contenente il testo da cui tradurre. La stringa può avere una lunghezza massima di 1000 caratteri.|query|stringa|
@@ -508,11 +508,11 @@ Il formato del corpo della richiesta è quello indicato di seguito.
 
 Gli elementi all'interno dell'elemento AddtranslationsRequest sono:
 
-* `AppId`: elemento obbligatorio. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
-* `From`: elemento obbligatorio. Stringa contenente il codice lingua della lingua di origine. Deve essere una delle lingue restituite dal metodo `GetLanguagesForTranslate`.
-* `To`: elemento obbligatorio. Stringa contenente il codice lingua della lingua di destinazione. Deve essere una delle lingue restituite dal metodo `GetLanguagesForTranslate`.
-* `Translations`: elemento obbligatorio. Matrice di traduzioni da aggiungere alla memoria di traduzione. Ogni traduzione deve contenere: originalText, translatedText e classificazione. La dimensione di ogni elemento originalText e translatedText è limitata a 1000 caratteri. Il totale di tutti gli elementi originalText e translatedText non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 100.
-* `Options`: elemento obbligatorio. Set di opzioni, tra cui Category, ContentType, Uri e User. User è obbligatorio. Category, ContentType e Uri sono facoltativi. Gli elementi specificati devono essere elencati in ordine alfabetico.
+* `AppId`: Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
+* `From`: Richiesto. Stringa contenente il codice lingua della lingua di origine. Deve essere una delle lingue restituite dal metodo `GetLanguagesForTranslate`.
+* `To`: Richiesto. Stringa contenente il codice lingua della lingua di destinazione. Deve essere una delle lingue restituite dal metodo `GetLanguagesForTranslate`.
+* `Translations`: Richiesto. Matrice di traduzioni da aggiungere alla memoria di traduzione. Ogni traduzione deve contenere: originalText, translatedText e classificazione. La dimensione di ogni elemento originalText e translatedText è limitata a 1000 caratteri. Il totale di tutti gli elementi originalText e translatedText non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 100.
+* `Options`: Richiesto. Set di opzioni, tra cui Category, ContentType, Uri e User. User è obbligatorio. Category, ContentType e Uri sono facoltativi. Gli elementi specificati devono essere elencati in ordine alfabetico.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Il metodo AddTranslationArray ha avuto esito positivo. Dopo il 31 gennaio 2018, gli invii di frase non verranno accettati. Il servizio risponderà con un codice di errore 410.
@@ -523,9 +523,9 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione: "Bearer" + " " + "access_token".|intestazione|stringa|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
 
 ### <a name="response-messages"></a>Messaggi di risposta
@@ -545,7 +545,7 @@ Suddivide una parte di testo in frasi e restituisce una matrice contenente le lu
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
 
-**Valore restituito**: matrice di interi che rappresenta le lunghezze delle frasi. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
+**Valore restituito:** Matrice di interi che rappresenta le lunghezze delle frasi. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di interi che rappresenta le lunghezze delle frasi. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
@@ -556,12 +556,12 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query| stringa|
 |text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da dividere in frasi. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
 |Linguaggio   |(vuoto)    |Richiesto. Stringa che rappresenta il codice lingua del testo di input.|query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione: "Bearer" + " " + "access_token".    |intestazione|stringa|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".    |intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
 
 ### <a name="response-messages"></a>Messaggi di risposta
@@ -595,10 +595,10 @@ Il corpo della richiesta include l'oggetto TranslationOptions facoltativo, che h
 
 L'oggetto `TranslateOptions` contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
 
-* `Category`: stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".
-* `ContentType`: l'unica opzione supportata e l'impostazione predefinita è "text/plain".
+* `Category`: Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".
+* `ContentType`: l'unica opzione supportata e predefinita è "text/plain".
 * `IncludeMultipleMTAlternatives`: flag booleano per determinare se devono essere restituite più alternative dal motore MT. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
-    - Classificazioni Le classificazioni vengono applicate come segue: 1) la traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
+    - Classificazioni Le classificazioni vengono applicate come segue: 1) La traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
     - Numero di alternative Il numero di alternative restituite è fino a maxTranslations, ma può essere inferiore.
     - Coppie di lingue Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Verrà restituito lo stesso contenuto nella risposta.
@@ -628,7 +628,7 @@ Il `Content-Type` della richiesta deve essere `text/xml`.
 
 Include un elemento `GetTranslationsResponse` contenente i valori seguenti:
 
-* `Translations`: matrice di corrispondenze trovate, archiviate in oggetti TranslationMatch (vedere di seguito). Le traduzioni possono includere leggere varianti del testo originale (corrispondenza fuzzy). Le traduzioni verranno ordinate con le corrispondenze al 100% per prime, seguite dalle corrispondenze fuzzy.
+* `Translations`: matrice di corrispondenze trovate, archiviate in oggetti TranslationMatch (vedere di seguito). Le traduzioni possono includere leggere varianti del testo originale (corrispondenza fuzzy). Le traduzioni verranno ordinate: per prime le corrispondenze al 100%, seguite dalle corrispondenze fuzzy.
 * `From`: se il metodo non ha specificato una lingua di origine, questo valore sarà il risultato del rilevamento automatico della lingua. In caso contrario, sarà la lingua di origine specificata.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Contiene lo stesso valore specificato nel parametro TranslateOptions.
 
@@ -650,11 +650,11 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)|Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
-|from|(vuoto)|Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione.|query|stringa|
+|from|(vuoto)|Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,|query|stringa|
 |to |(vuoto)    |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|stringa|
 |maxTranslations|(vuoto)|Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.|query|numero intero|
 |Authorization| (vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|stringa| intestazione|
@@ -700,21 +700,21 @@ Il formato del corpo della richiesta è quello indicato di seguito.
 
 `GetTranslationsArrayRequest` include gli elementi seguenti:
 
-* `AppId`: elemento obbligatorio. Se si usa l'intestazione Authorization, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
-* `From`: elemento obbligatorio. Stringa che rappresenta il codice lingua del testo della traduzione.
-* `MaxTranslations`: elemento obbligatorio. Intero che rappresenta il numero massimo di traduzioni da restituire.
+* `AppId`: Richiesto. Se si usa l'intestazione Authorization, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.
+* `From`: Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,
+* `MaxTranslations`: Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.
 * `Options`: facoltativo. Oggetto Options contenente i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
-    - Category`: stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è general.
-    - `ContentType`: l'unica opzione supportata e l'impostazione predefinita è text/plain.
+    - Category: stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è general.
+    - `ContentType`: l'unica opzione supportata e predefinita è text/plain.
     - `IncludeMultipleMTAlternatives`: flag booleano per determinare se devono essere restituite più alternative dal motore MT. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
-        - Classificazioni Le classificazioni vengono applicate come segue: 1) la traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
+        - Classificazioni Le classificazioni vengono applicate come segue: 1) La traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
         - Numero di alternative Il numero di alternative restituite è fino a maxTranslations, ma può essere inferiore.
         - Coppie di lingue Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Verrà restituito lo stesso contenuto nella risposta.
 * `Uri`: filtrare i risultati in base a questo URI. Se non si imposta alcun valore, il valore predefinito è all.
 * `User`: filtrare i risultati in base a questo utente. Se non si imposta alcun valore, il valore predefinito è all.
-* `Texts`: elemento obbligatorio. Matrice contenente i testi per la traduzione. Tutte le stringhe devono essere nella stessa lingua. Il totale di tutti i testi da tradurre non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 10.
-* `To`: elemento obbligatorio. Stringa che rappresenta il codice della lingua in cui tradurre il testo.
+* `Texts`: Richiesto. Matrice contenente i testi per la traduzione. Tutte le stringhe devono essere nella stessa lingua. Il totale di tutti i testi da tradurre non deve superare 10.000 caratteri. Il numero massimo di elementi della matrice è 10.
+* `To`: Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.
 
 Gli elementi facoltativi possono essere omessi. Gli elementi che sono elementi figlio diretti di `GetTranslationsArrayRequest` devono essere elencati in ordine alfabetico.
 
@@ -749,7 +749,7 @@ Il `Content-Type` della richiesta deve essere `text/xml`.
 
 Ogni elemento `GetTranslationsResponse` contiene i valori seguenti:
 
-* `Translations`: matrice di corrispondenze trovate, archiviate in oggetti `TranslationMatch` (vedere di seguito). Le traduzioni possono includere leggere varianti del testo originale (corrispondenza fuzzy). Le traduzioni verranno ordinate con le corrispondenze al 100% per prime, seguite dalle corrispondenze fuzzy.
+* `Translations`: matrice di corrispondenze trovate, archiviate in oggetti `TranslationMatch` (vedere di seguito). Le traduzioni possono includere leggere varianti del testo originale (corrispondenza fuzzy). Le traduzioni verranno ordinate: per prime le corrispondenze al 100%, seguite dalle corrispondenze fuzzy.
 * `From`: se il metodo non ha specificato una lingua `From`, questo valore sarà il risultato del rilevamento automatico della lingua. In caso contrario, sarà la lingua di origine specificata.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Contiene lo stesso valore specificato nel parametro `TranslateOptions`.
 
@@ -770,7 +770,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Authorization  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|

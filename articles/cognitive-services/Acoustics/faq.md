@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166561"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -41,7 +41,7 @@ Acoustics utilizza circa lo 0,01% della CPU per ogni sorgente per ogni fotogramm
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>È necessario semplificare la geometria del livello? Controllare il numero di triangoli? Rendere le mesh chiuse?
 
-No. Il sistema inserirà direttamente la geometria dettagliata del livello. Questa sarà voxelizzata per l'elaborazione interna.
+ No. Il sistema inserirà direttamente la geometria dettagliata del livello. Questa sarà voxelizzata per l'elaborazione interna.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Cosa contiene la tabella di ricerca di runtime?
 
@@ -53,7 +53,7 @@ Sì, il plug-in di spazializzazione di Unity **Microsoft Acoustics** consulta la
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>È possibile gestire geometria dinamica? Porte che si chiudono? Muri che esplodono?
 
-No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile escludere la geometria delle porte dall'acustica e quindi applicare ulteriore occlusione in base allo stato degli oggetti di gioco mobili e distruttibili usando tecniche collaudate.
+ No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile escludere la geometria delle porte dall'acustica e quindi applicare ulteriore occlusione in base allo stato degli oggetti di gioco mobili e distruttibili usando tecniche collaudate.
  
 ## <a name="does-it-handle-materials"></a>Gestisce i materiali?
 
@@ -69,7 +69,7 @@ Project Acoustics fornisce parametri acustici accurati e affidabili anche per am
 
 ## <a name="what-exactly-happens-during-baking"></a>Cosa accade esattamente durante il "baking"?
 
-Il sistema considera le potenziali posizioni del giocatore per generare un set di posizioni di campionamento dei probe distribuite in modo uniforme. Il bake di un livello è costituito da attività indipendenti per ogni probe: il sistema prende in considerazione un cuboide "area di simulazione" con al centro il probe ed esegue una simulazione dettagliata delle onde all'interno di tale area con risoluzione fino a 25 cm.
+Il sistema considera le potenziali posizioni del giocatore per generare un set di posizioni di campionamento dei probe distribuite in modo uniforme. Il bake per un livello è costituito da attività indipendenti per ogni probe: il sistema prende in considerazione un cuboide "area di simulazione" con al centro il probe ed esegue una simulazione dettagliata delle onde all'interno di tale area con risoluzione fino a 25 cm.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esplorare la [scena di esempio](sample-walkthrough.md)

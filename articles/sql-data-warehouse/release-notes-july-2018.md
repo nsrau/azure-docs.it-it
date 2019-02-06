@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: e63dd0a6feaedf95bb4845a3c5eded89e6585e36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288005"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463498"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Novità di Azure SQL Data Warehouse Luglio 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di luglio 2018.
@@ -24,13 +24,13 @@ Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo ill
 [Azure SQL Data Warehouse](https://aka.ms/sqldw) imposta nuovi benchmark delle prestazioni con l'introduzione della funzione di accesso immediato ai dati che migliora le operazioni casuali. La funzione di accesso immediato ai dati riduce il sovraccarico per le operazioni di spostamento dei dati usando operazioni dirette tra SQL Server e i dati nativi di SQL Server. L'integrazione diretta con il motore di SQL Server per lo spostamento dei dati significa che SQL Data Warehouse è ora **più veloce del 67% rispetto ad Amazon Redshift** con un carico di lavoro derivato dal noto standard di settore [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
 
 ![Azure SQL Data Warehouse è più veloce ed economico rispetto ad Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
-<sub>Fonte: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>Fonte: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> (Report degli analisti della ricerca Gigaom: benchmark di data warehouse nel cloud)
 
 Oltre alle prestazioni di runtime, il report [Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) ha misurato anche il rapporto prezzo-prestazioni per quantificare il costo di carichi di lavoro specifici. SQL Data Warehouse è risultato **meno caro di almeno il 23%** rispetto a Redshift per carichi di lavoro di 30 TB. Grazie alla capacità di SQL Data Warehouse di ridimensionare in modo elastico le risorse di calcolo, nonché di sospendere e riprendere i carichi di lavoro, i clienti pagano solo quando il servizio è in uso, riducendo ulteriormente i costi.
 ![Azure SQL Data Warehouse è più veloce ed economico rispetto ad Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
-<sub>Fonte: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>Fonte: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> (Report degli analisti della ricerca Gigaom: benchmark di data warehouse nel cloud)
 
-###<a name="query-concurrency"></a>Concorrenza delle query
+### <a name="query-concurrency"></a>Concorrenza delle query
 SQL Data Warehouse garantisce anche che i dati siano accessibili all'interno delle organizzazioni. Microsoft ha migliorato il servizio in modo da supportare 128 query simultanee e consentire così a più utenti di eseguire query sullo stesso database e non essere bloccati da altre richieste. In confronto, Amazon Redshift limita a 50 il numero massimo di query simultanee, ostacolando l'accesso ai dati all'interno dell'organizzazione.
 
 SQL Data Warehouse è in grado di offrire questi miglioramenti a livello di prestazioni e concorrenza delle query senza alcun aumento di prezzo grazie all'esclusiva architettura con separazione tra archiviazione e calcolo.

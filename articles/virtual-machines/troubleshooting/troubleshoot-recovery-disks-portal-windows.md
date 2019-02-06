@@ -1,5 +1,5 @@
 ---
-title: Usare una macchina virtuale per la risoluzione dei problemi Windows nel portale di Azure | Documentazione Microsoft
+title: Usare una macchina virtuale per la risoluzione dei problemi Windows nel portale di Azure | Microsoft Docs
 description: Informazioni su come risolvere i problemi delle macchine virtuali Windows in Azure connettendo il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225930"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale.
@@ -37,12 +37,11 @@ Per la VM che usa il disco gestito, è ora possibile usare Azure PowerShell per 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Per determinare perché la VM non riesce ad avviarsi correttamente, esaminare lo screenshot della VM relativo alla diagnostica di avvio. Un esempio comune è un aggiornamento di un'applicazione non riuscito oppure l'eliminazione o lo spostamento di un disco rigido virtuale sottostante.
 
-Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per visualizzare lo screenshot. Esaminare i messaggi di errore o i codici errore specifici per determinare perché si sta verificando un problema con la VM. L'esempio seguente illustra una VM in attesa dell'arresto dei servizi:
+Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per visualizzare lo screenshot. Esaminare i messaggi di errore o i codici errore specifici per determinare perché si sta verificando un problema con la VM. 
 
 ![Visualizzazione dei registri della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-È anche possibile fare clic **Screenshot** per scaricare una cattura dello screenshot della VM.
-
+È anche possibile fare clic su **Scarica screenshot** per scaricare uno screenshot della macchina virtuale.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Visualizzare i dettagli del disco rigido virtuale esistente
 Prima di collegare il disco rigido virtuale a un'altra macchina virtuale, è necessario identificare il nome del disco rigido virtuale. 

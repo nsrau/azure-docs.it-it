@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820411"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219135"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -24,15 +24,14 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 
 ## <a name="model-boundaries"></a>Limiti di modello
 
-
 |Area|Limite|
 |--|:--|--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
 | [Test di batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
-| [Finalità][intents]|500 per ogni applicazione<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti|
-| [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [Entità basate su Machine Learning](./luis-concept-entity-types.md):<br> Composita<br>  Gerarchica<br> Semplice|100 <br>Il numero totale di entità basate su Machine Learning (semplici, gerarchiche e composite) non può essere superiore a 100. Le entità composite e gerarchiche non possono avere più di 10 elementi figlio.  |
+| [Finalità][intents]|500 per ogni applicazione: 499 finalità personalizzate e la finalità _None_ obbligatoria.<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
+| [Elenca entità](./luis-concept-entity-types.md) | Elementi padre: 50, elementi figlio: 20.000. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
+| [Entità basate su Machine Learning](./luis-concept-entity-types.md):<br> Composita<br>  Gerarchica<br> Semplice|Un limite di 100 entità padre (esclusi gli elementi figlio gerarchici) o 330 entità (inclusi gli elementi figlio gerarchici), indipendentemente dal limite raggiunto dall'utente.<br><br>Un esempio di questa gerarchia è costituito da 30 elementi, ognuno con 10 elementi figlio.  Gli elementi figlio utilizzeranno in totale 300 entità e gli elementi di livello superiore utilizzeranno le restanti 30. |
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
 | [Elenco di frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
@@ -49,7 +48,7 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 ## <a name="intent-and-entity-naming"></a>Denominazione di finalità e entità
 Non utilizzare i seguenti caratteri nei nomi delle entità e delle finalità:
 
-|Character|NOME|
+|Carattere|Nome|
 |--|--|
 |`{`|Parentesi graffa aperta|
 |`}`|Parentesi graffa chiusa|
@@ -77,7 +76,7 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | DESCRIZIONE | 
+|Input tastiera | Descrizione | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

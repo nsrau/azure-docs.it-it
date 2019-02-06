@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452259"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301595"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -59,9 +59,9 @@ Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale
 >
 > - For il **Brasile meridionale** è possibile eseguire la replica e il failover in ina delle seguenti aree: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali. Si noti che Azure Site Recovery consente di usare solo il Brasile meridionale come area di origine da cui è possibile proteggere le macchine virtuali. **Non può essere usata come area di ripristino di emergenza (DR) di destinazione** per aree di Azure quali, ad esempio gli Stati Uniti centro-meridionali. A causa della latenza osservata per la distanza geografica, si consiglia di selezionare qualsiasi altra area dell'America che non sia il Brasile meridionale.
 > 
-> - Se **non è possibile vedere una regione** in cui si desidera **creare un insieme di credenziali** assicurarsi che la sottoscrizione abbia accesso alla creazione di risorse in tale area. Ad esempio:  Se non si è in grado di creare l'insieme di credenziali in Francia meridionale la sottoscrizione non ha accesso all'area della Francia meridionale. Segnalare con un ticket di supporto in Tipo di problema "gestione sottoscrizioni" e tipo di problema "altre domande generali" digitare il soggetto "sottoscrizione whiteelist per l'aree XXX di Azure"
+> - Se **non è possibile vedere una regione** in cui si desidera **creare un insieme di credenziali** assicurarsi che la sottoscrizione abbia accesso alla creazione di risorse in tale area. Ad esempio:  Se non si è in grado di creare l'insieme di credenziali in Francia meridionale la sottoscrizione non ha accesso all'area della Francia meridionale. Compilare un ticket di supporto definendo il problema in Gestione della sottoscrizione e Domande generali, quindi specificando l'oggetto Sottoscrizione all'elenco elementi consentiti per l'area XXX di Azure
 > 
-> - Se **non si è in grado di vedere un'area** all'interno di un cluster geografico **durante l'abilitazione della replica**, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. Ad esempio:  Se si sta provando a proteggere le macchine virtuali dall'area Francia centrale alla Francia meridionale e non viene visualizzata Francia meridionale l'area di elenco a discesa dell'area, la sottoscrizione non ha accesso per la distribuzione della macchina virtuale in quell'area. Segnalare con un ticket di supporto in Tipo di problema "gestione sottoscrizioni" e tipo di problema "altre domande generali" digitare il soggetto "sottoscrizione whiteelist per l'aree XXX di Azure"
+> - Se **non si è in grado di vedere un'area** all'interno di un cluster geografico **durante l'abilitazione della replica**, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. Ad esempio:  Se si sta provando a proteggere le macchine virtuali dall'area Francia centrale alla Francia meridionale e non viene visualizzata Francia meridionale l'area di elenco a discesa dell'area, la sottoscrizione non ha accesso per la distribuzione della macchina virtuale in quell'area. Compilare un ticket di supporto definendo il problema in Gestione della sottoscrizione e Domande generali, quindi specificando l'oggetto Sottoscrizione all'elenco elementi consentiti per l'area XXX di Azure
 > - Nei cluster geografici indicati in precedenza non è possibile selezionare le aree.
 
 
@@ -108,15 +108,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+14.04 LTS | 9.22 | Da 3.13.0-24 generica a 3.13.0-164 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1036 Azure |
 14.04 LTS | 9.21 | Da 3.13.0-24 generica a 3.13.0-163 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1035 Azure |
 14.04 LTS | 9.20 | Da 3.13.0-24 generica a 3.13.0-161 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-138 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1030 Azure |
 14.04 LTS | 9.19 | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-131 generica |
-14.04 LTS | 9.18 | Da 3.13.0-24 generica a 3.13.0-151 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-128 generica |
 |||
+16.04 LTS | 9.22 | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-43 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1036 Azure|
 16.04 LTS | 9.21 | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-42 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1035 Azure|
 16.04 LTS | 9.20 | Da 4.4.0-21 generica a 4.4.0-138 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-38 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1030 Azure|
 16.04 LTS | 9.19 | Da 4.4.0-21 generica a 4.4.0-131 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-30 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1019 Azure|
-16.04 LTS | 9.18 | Da 4.4.0-21 generica a 4.4.0-128 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure |
 
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Debian supportate per macchine virtuali di Azure

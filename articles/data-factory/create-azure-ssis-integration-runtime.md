@@ -12,19 +12,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5b6bef8194123ed6c83a48dd5e819085d4bc5424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434241"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453468"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare Azure-SSIS Integration Runtime in Azure Data Factory
 Questo articolo illustra la procedura per il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire ed eseguire pacchetti SQL Server Integration Services (SSIS) in questo runtime di integrazione in Azure. 
 
 L'[esercitazione Distribuire pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md) illustra come creare Azure-SSIS IR usando il server di database SQL di Azure per ospitare il database di catalogo SSIS (SSISDB). Questo articolo amplia l'esercitazione e descrive come eseguire queste operazioni: 
 
-- Per ospitare il database SSISDB è possibile usare il server di database SQL di Azure con endpoint di servizio di rete virtuale o l'istanza gestita. Per indicazioni sulla scelta del tipo di server di database per ospitare SSISDB, vedere [Confrontare il server logico del database SQL e Istanza gestita](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Come prerequisito, è necessario aggiungere Azure-SSIS IR a una rete virtuale e configurare le autorizzazioni/impostazioni della rete virtuale in base alle esigenze. Vedere [Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Per ospitare il database SSISDB è possibile usare il server di database SQL di Azure con endpoint di servizio di rete virtuale o l'istanza gestita. Per indicazioni sulla scelta del tipo di server di database per ospitare SSISDB, vedere [Confrontare database singolo/pool elastico e Istanza gestita di database SQL di Azure](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Come prerequisito, è necessario aggiungere Azure-SSIS IR a una rete virtuale e configurare le autorizzazioni/impostazioni della rete virtuale in base alle esigenze. Vedere [Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - Facoltativamente, usare l'autenticazione di Azure Active Directory (AAD) con l'identità gestita di ADF per connettersi al server di database. Come prerequisito, è necessario aggiungere l'identità gestita per ADF come utente di database indipendente in grado di creare SSISDB nel server di database SQL di Azure o nell'istanza gestita. Per informazioni, vedere [Abilitare l'autenticazione di AAD per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -55,11 +55,11 @@ Quando si effettua il provisioning di Azure-SSIS IR, vengono installati anche il
 ### <a name="region-support"></a>Supporto di area
 Per un elenco delle aree di Azure in cui sono attualmente disponibili ADF e Azure-SSIS IR, vedere [Disponibilità di ADF + SSIS IR per area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Confrontare il server logico del database SQL e Istanza gestita di database SQL
+### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>Confrontare database singolo/pool elastico e Istanza gestita di database SQL di Azure
 
 La tabella seguente mette a confronto alcune funzionalità del server di database SQL di Azure e di Istanza gestita in relazione a Azure-SSIR IR:
 
-| Funzionalità | Server di database SQL di Azure| Istanza gestita |
+| Funzionalità | Database singolo/pool elastico| Istanza gestita |
 |---------|--------------|------------------|
 | **Pianificazione** | SQL Server Agent non è disponibile.<br/><br/>Vedere [Pianificare un pacchetto nell'ambito di una pipeline di ADF](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agente di istanza gestita è disponibile. |
 | **autenticazione** | È possibile creare SSISDB con un utente di database indipendente che rappresenta un gruppo AAD qualsiasi con l'identità gestita di ADF come membro del ruolo **db_owner**.<br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB nel server di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare SSISDB con un utente di database indipendente che rappresenta l'identità gestita di ADF. <br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB in Istanza gestita di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -69,9 +69,11 @@ La tabella seguente mette a confronto alcune funzionalità del server di databas
 | | | |
 
 ## <a name="azure-portal"></a>Portale di Azure
+
 In questa sezione si userà il portale di Azure, e in particolare l'interfaccia utente o l'app di ADF, per creare Azure-SSIS IR. 
 
 ### <a name="create-a-data-factory"></a>Creare una data factory 
+
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome. 
 1. Accedere al [Portale di Azure](https://portal.azure.com/). 
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 

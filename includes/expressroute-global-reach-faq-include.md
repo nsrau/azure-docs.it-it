@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/23/2018
+ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035264"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55235984"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Che cos'è Copertura globale di ExpressRoute?
 
@@ -33,16 +33,7 @@ ExpressRoute abilita la connettività dalla rete locale ai servizi cloud Microso
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Dove è supportato il servizio Copertura globale di ExpressRoute?
 
-Il servizio Copertura globale di ExpressRoute è supportato nei paesi seguenti. I circuiti ExpressRoute devono essere creati in località di peering in questi paesi.
-
-* Australia
-* Francia
-* RAS di Hong Kong
-* Irlanda
-* Giappone
-* Paesi Bassi
-* Regno Unito
-* Stati Uniti
+Il servizio Copertura globale di ExpressRoute è supportato in [luoghi o paesi specifici](../articles/expressroute/expressroute-global-reach.md). I circuiti ExpressRoute devono essere creati in località di peering in questi luoghi o paesi.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Se esistono più di due reti locali, ciascuna connessa a un circuito ExpressRoute, è possibile abilitare Copertura globale di ExpressRoute per connettere tra loro tutte le reti locali?
 

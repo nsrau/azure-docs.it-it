@@ -3,7 +3,7 @@ title: Limiti delle risorse basate su vCore del database SQL di Azure - database
 description: Questa pagina descrive alcuni limiti delle risorse comuni basate su vCore per un database singolo nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,24 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 894922a80ab874e5304ef441571e03ef559a34b0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215423"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460166"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su vCore.
 
-Per i limiti del modello di acquisto basati su DTU per i singoli database in un server logico, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
+Per i limiti del modello di acquisto basati su DTU per i singoli database in un server di database SQL, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
-È possibile impostare il livello di servizio, la dimensione del calcolo e la quantità di archiviazione per un singolo database usando il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), l'[interfaccia della riga di comando di Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) o l'[API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+È possibile impostare il livello di servizio, la dimensione del calcolo e la quantità di archiviazione per un singolo database usando il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), l'[interfaccia della riga di comando di Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) o l'[API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
 
@@ -82,7 +82,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -104,7 +104,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -152,7 +152,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
 |Supporto per columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
-|Archiviazione OLTP in memoria (GB)|7|8|9.5|11|20|36|
+|Archiviazione OLTP in memoria (GB)|7|8|9,5|11|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
 |Dimensioni massime del log (GB)|307|307|307|307|307|307|
@@ -174,7 +174,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|11|22|33|44|55|66|77|
 |Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
-|Archiviazione OLTP in memoria (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
+|Archiviazione OLTP in memoria (GB)|1.571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Dimensioni massime del log (GB)|307|307|307|461|461|461|461|
 |Dimensioni di TempDB (GB)|64|128|192|256|320|384|384|
@@ -196,7 +196,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|88|99|110|132|176|220|440|
 |Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
-|Archiviazione OLTP in memoria (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
+|Archiviazione OLTP in memoria (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
 |Dimensioni di TempDB (GB)|384|384|384|384|384|384|384|
@@ -241,7 +241,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
-|Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
+|Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163,2|204|408|
 |Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |100 |100 |

@@ -1,6 +1,6 @@
 ---
-title: "Passaggio 4: Eseguire il training dei modelli analitici predittivi" titleSuffix: Descrizione di Azure Machine Learning Studio: "Passaggio 4 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Eseguire il training, classificare e valutare più modelli in Azure Machine Learning Studio."
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: "Passaggio 4: Eseguire il training dei modelli analitici predittivi" titleSuffix: Descrizione di Azure Machine Learning Studio: "Passaggio 4 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Eseguire il training, classificare e valutare più modelli in Azure Machine Learning Studio."
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d52d2aa5e218007aed4510f537fb061ef8d1fbe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166789"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301561"
 documentType: LandingData
 title: Database SQL di Azure - Piattaforma distribuita come servizio
 metadata:
@@ -54,7 +54,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-security-index">Sicurezza avanzata</a>, in grado di rilevare le minacce e le vulnerabilità dei database, consente di proteggere i dati.
+    - html: <a href="/azure/sql-database/sql-database-security-index">Sicurezza avanzata</a> rileva le minacce e le vulnerabilità dei database e consente di proteggere i dati.
     - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Ottimizzazione automatica</a>, che analizza il carico di lavoro e offre indicazioni per l'ottimizzazione delle prestazioni delle applicazioni tramite l'aggiunta di indici, la rimozione degli indici inutilizzati e la correzione automatica dei problemi dei piani di query.
     - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Funzionalità di monitoraggio predefinite</a>, che consentono di acquisire informazioni dettagliate sulle prestazioni dei database e del carico di lavoro e di risolvere i problemi di prestazioni.
     - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Intelligence predefinita</a>, che identifica automaticamente i problemi potenziali del carico di lavoro e offre indicazioni utili per la risoluzione dei problemi.

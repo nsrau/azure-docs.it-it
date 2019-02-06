@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340359"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217646"
 ---
 # <a name="what-is-bing-speech"></a>Informazioni su Riconoscimento vocale Bing
 
@@ -28,7 +28,7 @@ API Riconoscimento vocale Bing di Microsoft è un'API basata sul cloud che offre
 
 ## <a name="speech-to-text-speech-recognition"></a>Riconoscimento vocale
 
-L'API Riconoscimento vocale Microsoft *trascrive* i flussi audio in testo che l'applicazione può mostrare all'utente o che può fungere da input per i comandi. L'API consente agli sviluppatori di aggiungere contenuto vocale alle proprie app in due modi diversi: tramite le API REST **o** le librerie client basate su WebSocket.
+L'API Riconoscimento vocale Microsoft *trascrive* i flussi audio in testo che l'applicazione può mostrare all'utente o che può fungere da input per i comandi. Consente agli sviluppatori di aggiungere le funzioni di riconoscimento vocale alle app in due modi diversi: API REST **o** librerie client basate su Websocket.
 
 - [API REST](GetStarted/GetStartedREST.md): gli sviluppatori possono usare chiamate HTTP dalle proprie app al servizio per il riconoscimento vocale.
 - [Librerie client](GetStarted/GetStartedClientLibraries.md): per le funzionalità avanzate, gli sviluppatori possono scaricare le librerie client del riconoscimento vocale Microsoft e collegarle alle proprie app.  Le librerie client sono disponibili su diverse piattaforme (Windows, Android, iOS) con linguaggi diversi (C#, Java, JavaScript, ObjectiveC). A differenza delle API REST, le librerie client usano un protocollo basato su WebSocket.
@@ -60,4 +60,4 @@ Le API *Sintesi vocale* usano REST per convertire un testo strutturato in un flu
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-- Per un'introduzione all'uso del servizio di sintesi vocale Microsoft, vedere le [informazioni di riferimento sull'API Sintesi vocale](api-reference-rest/bingvoiceoutput.md). Per l'elenco completo delle lingue e delle voci supportate dal servizio di sintesi vocale, vedere [Impostazioni locali e caratteri voce supportati](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Per un'introduzione all'uso del servizio di sintesi vocale Microsoft, vedere: [Informazioni di riferimento per l'API Sintesi vocale](api-reference-rest/bingvoiceoutput.md). Per l'elenco completo delle lingue e delle voci supportate dal servizio di sintesi vocale, vedere [Impostazioni locali e caratteri voce supportati](api-reference-rest/bingvoiceoutput.md#SupLocales).

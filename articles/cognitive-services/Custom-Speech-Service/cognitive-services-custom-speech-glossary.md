@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344252"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223817"
 ---
 # <a name="glossary"></a>Glossario
 
@@ -70,7 +70,7 @@ Il modello linguistico è una distribuzione probabilistica di sequenze di parole
 
 ### <a name="normalization"></a>Normalizzazione
 
-Normalizzazione (testo) : trasformazione del testo risultante (ossia trascrizione) in una forma standard, non ambigua leggibile dal sistema.
+Normalizzazione (testo): trasformazione del testo risultante (ovvero trascrizione) in una forma standard, non ambigua leggibile dal sistema.
 
 ## <a name="o"></a>O
 
@@ -94,7 +94,7 @@ Stringa che deve essere specificata come parametro di stringa di query per richi
 
 ### <a name="transcription"></a>Trascrizione
 
-Frammento di testo risultante dall'elaborazione di un frammento di un file WAV audio.
+Trascrizione: frammento di testo risultante dall'elaborazione di un frammento di un file audio con estensione wav
 
 ## <a name="u"></a>U
 

@@ -1,30 +1,32 @@
 ---
-title: LogDownloader - Servizi cognitivi di Azure | Microsoft Docs
+title: LogDownloader - Servizio decisionale personalizzato
+titlesuffix: Azure Cognitive Services
 description: Scaricare i file di log generati dal Servizio decisionale personalizzato di Azure.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376964"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228118"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Scaricare i file di log che vengono generati dal Servizio decisionale personalizzato di Azure e generare i file *.gz* da usare nelle sperimentazioni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Python 3: installato e presente nel percorso. Si consiglia la versione a 64 bit per gestire file di grandi dimensioni.
-- Il repository *Microsoft/mwt-ds*: [clonare il repository](https://github.com/Microsoft/mwt-ds).
-- Il pacchetto *azure-storage-blob*: per informazioni dettagliate sull'installazione, passare alla [libreria di Archiviazione di Microsoft Azure per Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Immettere la stringa di connessione di archiviazione di Azure in *mwt-ds/DataScience/ds.config*: seguire il modello *my_app_id: my_connectionString*. È possibile specificare più `app_id`. Quando si esegue `LogDownloader.py`, se l'`app_id` di input non viene individuato in `ds.config`, `LogDownloader.py` usa la stringa di connessione `$Default`.
+- Repository *Microsoft/mwt-ds*: [clonare il repository](https://github.com/Microsoft/mwt-ds).
+- Pacchetto *azure-storage-blob*: per informazioni dettagliate sull'installazione, passare alla [libreria di Archiviazione di Microsoft Azure per Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Immettere la stringa di connessione di Archiviazione di Azure in *mwt-ds/DataScience/ds.config*: seguire il modello *ID_app: stringa_di_connessione*. È possibile specificare più `app_id`. Quando si esegue `LogDownloader.py`, se l'`app_id` di input non viene individuato in `ds.config`, `LogDownloader.py` usa la stringa di connessione `$Default`.
 
 ## <a name="usage"></a>Uso
 
@@ -39,7 +41,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>Parametri
 
-| Input | DESCRIZIONE | Predefinito |
+| Input | Descrizione | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
 | `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |

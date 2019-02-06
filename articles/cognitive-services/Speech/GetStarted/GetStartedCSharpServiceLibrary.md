@@ -1,22 +1,25 @@
 ---
 title: Introduzione all'API Riconoscimento vocale Microsoft con la libreria di servizi C# | Microsoft Docs
-description: Usare la libreria di servizi per il riconoscimento vocale Microsoft per convertire la lingua parlata in testo.
+titlesuffix: Azure Cognitive Services
+description: Usare la libreria di servizi per il riconoscimento vocale Bing per convertire la lingua parlata in testo.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373932"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226044"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>Introduzione alla libreria di servizi per il riconoscimento vocale in C&#35; per .NET per dispositivi Windows
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Avvio rapido: Usare la libreria di servizi di Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 La libreria di servizi è destinata agli sviluppatori che dispongono del proprio servizio cloud e vogliono chiamare il Servizio di riconoscimento vocale dal proprio servizio. Se si vuole chiamare il Servizio di riconoscimento vocale da app associate al dispositivo, non usare questo SDK. Usare altre librerie client o le API REST.
 
@@ -61,10 +64,10 @@ Premere CTRL+MAIUSC+B oppure fare clic su **Compila** nel menu della barra multi
 
 3. Eseguire `SpeechClientSample.exe` con gli argomenti seguenti:
 
-   * Arg[0]: specificare un file audio di input in formato WAV.
+   * Arg[0]: specificare un file audio di input in formato wav.
    * Arg[1]: specificare le impostazioni locali per l'audio.
    * Arg[2]: specificare le modalità di riconoscimento: *Short* per la modalità `ShortPhrase` e *Long* per la modalità `LongDictation`.
-   * Arg[3]: specificare la chiave di sottoscrizione per accedere al Servizio di riconoscimento vocale.
+   * Arg[3]: specificare la chiave di sottoscrizione per accedere al servizio di riconoscimento vocale.
 
 ## <a name="samples-explained"></a>Descrizione degli esempi
 
@@ -85,9 +88,9 @@ Speech API supporta file audio/WAV tramite i codec seguenti:
 
 Per creare un oggetto SpeechClient, è necessario creare innanzitutto un oggetto Preferences. L'oggetto Preferences è un set di parametri che configura il comportamento del Servizio di riconoscimento vocale. È costituito dagli elementi seguenti:
 
-* `SpeechLanguage`: le impostazioni locali del file audio inviato al Servizio di riconoscimento vocale.
-* `ServiceUri`: l'endpoint usato per chiamare il Servizio di riconoscimento vocale.
-* `AuthorizationProvider`: un'implementazione di IAuthorizationProvider usata per recuperare i token per accedere al Servizio di riconoscimento vocale. Anche se l'esempio fornisce un provider di autorizzazione di Servizi cognitivi, è consigliabile creare un'implementazione personalizzata per gestire la memorizzazione nella cache del token.
+* `SpeechLanguage`: le impostazioni locali del file audio inviato al servizio di riconoscimento vocale.
+* `ServiceUri`: l'endpoint usato per chiamare il servizio di riconoscimento vocale.
+* `AuthorizationProvider`: un'implementazione di IAuthorizationProvider usata per recuperare i token per accedere al servizio di riconoscimento vocale. Anche se l'esempio fornisce un provider di autorizzazione di Servizi cognitivi, è consigliabile creare un'implementazione personalizzata per gestire la memorizzazione nella cache del token.
 * `EnableAudioBuffering`: un'opzione avanzata. Vedere [Gestione delle connessioni](#connection-management).
 
 ### <a name="speech-input"></a>Input vocale
@@ -125,7 +128,7 @@ Questi eventi vengono chiamati ogni volta che il Servizio di riconoscimento voca
 **MediaDuration** | Durata/lunghezza della frase corrente rispetto al segmento audio (in unità di 100 nanosecondi).
 
 #### <a name="result-event"></a>Evento con risultato
-Questo evento viene chiamato quando l'utente finisce di parlare (nella modalità `ShortPhrase`). Vengono fornite N scelte migliori per il risultato. Nella modalità `LongDictation` l'evento può essere chiamato più volte, in base alle posizioni di pausa della frase indicate dal server. È possibile eseguire la sottoscrizione all'evento usando `SpeechClient.SubscribeToRecognitionResult()`. In alternativa, è possibile usare il metodo di sottoscrizione a eventi generici `SpeechClient.SubscribeTo<RecognitionResult>()`.
+Questo evento viene chiamato quando l'utente finisce di parlare (nella modalità `ShortPhrase`). Vengono fornite N scelte migliori per il risultato. Nella modalità `LongDictation` l'evento può essere chiamato più volte, in base alle posizioni di pausa della frase indicate dal server. È possibile eseguire la sottoscrizione all'evento usando `SpeechClient.SubscribeToRecognitionResult()`. In alternativa è possibile usare il metodo di sottoscrizione a eventi generici `SpeechClient.SubscribeTo<RecognitionResult>()`.
 
 **Formato restituito** | Descrizione |
 ------|------|

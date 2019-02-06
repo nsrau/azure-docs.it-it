@@ -1,22 +1,24 @@
 ---
-title: Espressioni di query strutturate nell'API Knowledge Exploration Service | Microsoft Docs
-description: Informazioni su come usare le espressioni di query strutturate nell'API Knowledge Exploration Service in Servizi cognitivi.
+title: Espressioni di query strutturate - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come usare le espressioni di query strutturate nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373177"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222696"
 ---
 # <a name="structured-query-expression"></a>Espressioni di query strutturate
+
 Un'espressione di query strutturata specifica un set di operazioni da valutare rispetto all'indice dei dati.  È costituita da espressioni di query di attributo e funzioni di alto livello.  Usare il metodo [*evaluate*](evaluateMethod.md) per calcolare gli oggetti corrispondenti all'espressione.  L'esempio seguente è tratto dal dominio delle pubblicazioni accademiche che restituisce le pubblicazioni dell'autore Jaime Teevan dall'anno 2013.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -24,9 +26,10 @@ Un'espressione di query strutturata specifica un set di operazioni da valutare r
 Le espressioni di query strutturate possono essere ottenute da richieste [*interpret*](interpretMethod.md), in cui l'output semantico di ogni interpretazione è un'espressione di query strutturata che restituisce gli oggetti indice corrispondenti alla query in linguaggio naturale di input.  In alternativa, è possibile crearle manualmente usando la sintassi descritta in questa sezione.
 
 ## <a name="attribute-query-expression"></a>Espressione di query per attributo
+
 Un'espressione di query per attributo identifica un set di oggetti in base alla corrispondenza rispetto a un attributo specifico.  Sono supportate operazioni per l'individuazione delle corrispondenze diverse a seconda del tipo di attributo e dell'operazione indicizzata specificata nello [schema](SchemaFormat.md):
 
-| type | Operazione | Esempi |
+| Type | Operazione | Esempi |
 |------|-------------|------------|
 | string | equals | Title = 'latent semantic analysis' (valore canonico + sinonimi) |
 | string | equals | Author.Name=='susan t dumais' (solo valore canonico)|
@@ -45,9 +48,11 @@ Per gli attributi con sinonimi associati, un'espressione di query può specifica
 
 
 ## <a name="functions"></a>Funzioni
+
 È disponibile un set predefinito di funzioni che consente la costruzione di espressioni di query più elaborate da query per attributo di base.
 
 ### <a name="and-function"></a>Funzione And
+
 `And(expr1, expr2)`
 
 Restituisce l'intersezione di due espressioni di query di input.
@@ -57,6 +62,7 @@ L'esempio seguente restituisce le pubblicazioni accademiche pubblicate nell'anno
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### <a name="or-function"></a>Funzione Or
+
 `Or(expr1, expr2)`
 
 Restituisce l'unione delle due espressioni di query di input.
@@ -66,6 +72,7 @@ L'esempio seguente restituisce le pubblicazioni accademiche pubblicate nell'anno
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Funzione Composite
+
 `Composite(expr)`
 
 Restituisce un'espressione che incapsula un'espressione interna composta da query sugli attributi secondari di un attributo composito comune.  Per l'incapsulamento è necessario che l'attributo composito di qualsiasi oggetto dati corrispondenti abbia almeno un valore che soddisfa singolarmente l'espressione interna.  Si noti che un'espressione di query su attributi secondari di un attributo composito deve essere incapsulata usando la funzione Composite() prima di poter essere combinata con altre espressioni di query.

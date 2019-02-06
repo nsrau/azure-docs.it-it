@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452140"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302105"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -50,9 +50,11 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 È possibile assegnare un criterio di accesso condizionale alle app cloud seguenti di Microsoft:
 
-- Azure Information Protection: [altre informazioni](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Altre informazioni](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work) du Azure Information Protection
 
 - Azure RemoteApp
+
+- [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access) sul database SQL di Azure
 
 - Microsoft Dynamics 365
 
@@ -94,7 +96,7 @@ In un criterio di accesso condizionale è possibile configurare la condizione pe
 
 - Windows Phone
 
--  Windows
+- Windows
 
 - macOS
 
@@ -123,7 +125,7 @@ Nel criterio di accesso condizionale è possibile selezionare **Browser** come a
 Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un criterio dei dispositivi, ad esempio un requisito di un dispositivo conforme, sono supportati i sistemi operativi e browser seguenti:
 
 
-| OS                     | Browser                            | Supporto     |
+| Sistema operativo                     | Browser                            | Supporto     |
 | :--                    | :--                                 | :-:         |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Controllo][1] |
 | Windows 8/8.1        | Internet Explorer, Chrome           | ![Controllo][1] |
@@ -147,18 +149,18 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 |--- | ---|
-|path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|NOME | 1 |
-|type | REG_SZ (String) |
+|Percorso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|Nome | 1 |
+|Tipo | REG_SZ (String) |
 |Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 |--- | ---|
-|path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|NOME | 1 |
-|type | REG_SZ (String) |
+|Percorso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Nome | 1 |
+|Tipo | REG_SZ (String) |
 |Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata. 
@@ -242,7 +244,7 @@ Questa impostazione è valida solo per le app client seguenti:
 
 - Il requisito **Richiedi app client approvata**:
 
-    - Supporta solo iOS e Android come [condizione per le piattaforme del dispositivo](#device-platforms-condition).
+    - Supporta solo iOS e Android come [condizione per le piattaforme del dispositivo](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

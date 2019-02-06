@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230557"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220385"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -41,7 +41,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipi supportati per il riconoscimento delle entità denominate
 
-| type  | SubType | Esempio |
+| Type  | SubType | Esempio |
 |:-----------   |:------------- |:---------|
 | Person        | N/D\*         | "Jeff", "Bill Gates"     |
 | Località      | N/D\*         | "Redmond, Washington", "Parigi"  |
@@ -54,14 +54,14 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | Quantità      | Valuta      | "$ 10,99"     | 
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     | 
 | Quantità      | Temperatura   | "32 gradi"    |
-| Datetime      | N/D\*         | "4 febbraio 2012 18:30"      | 
-| Datetime      | Data          | "2 maggio 2017", "02/05/2017"   | 
+| DateTime      | N/D\*         | "4 febbraio 2012 18:30"      | 
+| DateTime      | Data          | "2 maggio 2017", "02/05/2017"   | 
 | Data/Ora     | Tempo          | "8", "8:00"  | 
-| Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
-| Datetime      | TimeRange     | "dalle 18 alle 19"     | 
-| Datetime      | Duration      | "1 minuto e 45 secondi"   | 
-| Datetime      | Configurazione           | "ogni martedì"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
+| DateTime      | TimeRange     | "dalle 18 alle 19"     | 
+| DateTime      | Duration      | "1 minuto e 45 secondi"   | 
+| DateTime      | Configurazione           | "ogni martedì"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "http://www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 \*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.
@@ -89,11 +89,11 @@ Le dimensioni dei documenti devono essere inferiori a 5.000 caratteri per docume
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passaggio 1: Struttura della richiesta
+## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API di collegamento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Collegamento entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + Impostare l'endpoint HTTP per l'estrazione di entità. È necessario includere la risorsa `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 

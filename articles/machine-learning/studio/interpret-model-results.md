@@ -1,6 +1,6 @@
 ---
-title: Interpretare i risultati dei modelli in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Interpretare i risultati dei modelli in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---

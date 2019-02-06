@@ -2,19 +2,18 @@
 title: Preparare il server DPM per eseguire il backup dei carichi di lavoro in Azure
 description: Introduzione al backup dei dati DPM in un insieme di credenziali di servizi di ripristino di Azure.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, data protection manager, backup di dpm
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024478"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301068"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 

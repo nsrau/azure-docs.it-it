@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290774"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188340"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
 
@@ -39,7 +39,7 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | PhysicalDisk(per Disk) | Letture disco/sec  |
 | PhysicalDisk(per Disk) | Byte letti da disco/sec  |
 | PhysicalDisk(per Disk) |  Scritture disco/sec |
-| PhysicalDisk(per Disk) |  Byte scritti su disco/sec |
+| PhysicalDisk(per Disk) | Byte scritti su disco/sec |
 | Memoria | MByte disponibili |
 | PagingFile | % Usage |
 | Processor(Total) | % di tempo processore |
@@ -80,7 +80,7 @@ Se si distribuiscono servizi .NET nel cluster, raccogliere i contatori seguenti.
 
 Service Fabric genera una quantità significativa di contatori delle prestazioni personalizzati. Se è installato l'SDK, è possibile visualizzare l'elenco completo disponibile nel computer Windows mediante l'applicazione Performance Monitor (Start > Performance Monitor). 
 
-Se si usa Reliable Actors, nelle applicazioni che si sta distribuendo nel cluster aggiungere i contatori delle categorie `Service Fabric Actor` e `Service Fabric Actor Method` (vedere [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
+Se si usa Reliable Actors, nelle applicazioni che si stanno distribuendo nel cluster aggiungere i contatori delle categorie `Service Fabric Actor` e `Service Fabric Actor Method`. Vedere [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
 
 Analogamente, se si usa Reliable Services o Servizio remoto, sono presenti categorie di contatori `Service Fabric Service` e `Service Fabric Service Method` da cui è necessario raccogliere contatori. Vedere [Monitoraggio con Servizio remoto](service-fabric-reliable-serviceremoting-diagnostics.md) e [Contatori delle prestazioni di Reliable Services](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 

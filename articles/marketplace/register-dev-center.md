@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834826"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179838"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -68,7 +68,7 @@ Per assicurarsi di non essere connessi a un account personale aprire una nuova s
 
 9.  Nella sezione `Registration - Review` esaminare le informazioni dell'account e verificare che tutto sia corretto.  
 
-    Leggere i termini e le condizioni del Contratto per editori di Microsoft Azure Marketplace.  
+    Leggere i termini e le condizioni del [contratto per editori](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) di Microsoft Azure Marketplace.  
 
     Fare clic sulla casella per indicare di aver letto e accettato queste condizioni.  
     

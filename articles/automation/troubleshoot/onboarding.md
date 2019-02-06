@@ -4,22 +4,40 @@ description: Informazioni su come risolvere problemi di onboarding delle soluzio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879641"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228781"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
 Durante l'onboarding di soluzioni quali Gestione aggiornamenti, Rilevamento modifiche e Inventario, è possibile riscontrare errori. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
 ## <a name="general-errors"></a>Errori generali
+
+### <a name="missing-write-permissions"></a>Scenario: Esito negativo dell'onboarding con messaggio Non è possibile abilitare la soluzione
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di eseguire l'onboarding di una macchina virtuale in una soluzione, viene visualizzato il messaggio seguente:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore è causato da autorizzazioni non corrette o mancanti nella macchina virtuale o per l'utente.
+
+#### <a name="resolution"></a>Risoluzione
+
+Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

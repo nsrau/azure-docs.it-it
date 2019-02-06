@@ -24,7 +24,7 @@ Questo articolo descrive il processo e le decisioni da prendere per creare un mo
 
 ## <a name="select-json-editor"></a>Selezionare l'editor JSON
 
-Il modello di Azure Resource Manager è un file JSON. Per lavorare al file JSON, è necessario un ottimo strumento di creazione. Ci sono molte opzioni a disposizione, ma se non si ha un editor preferito è consigliabile installare [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
+Il modello di Azure Resource Manager è un file JSON. Per eseguire operazioni sul file JSON, è necessario un ottimo strumento di creazione. Ci sono molte opzioni a disposizione, ma se non si ha un editor preferito è consigliabile installare [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
 
 Dopo aver installato Visual Studio Code, aggiungere l'[estensione Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Questa estensione aggiunge molte funzionalità che semplificano la creazione del modello.
 
@@ -36,21 +36,21 @@ Per un'esercitazione sull'installazione dell'estensione Strumenti di Resource Ma
 
 ## <a name="understand-the-template-structure"></a>Comprendere la struttura del modello
 
-Ora vengono esaminate le parti del modello per comprendere il suo funzionamento. Il modello potrebbe non avere tutte le sezioni. Le sezioni che su cui si desidera concentrarsi sono:
+Esaminiamo ora le parti del modello per comprendere il suo funzionamento. Il modello potrebbe non avere tutte le sezioni. Le sezioni che su cui si desidera concentrarsi sono:
 
-* La sezione dei [parametri](resource-manager-templates-parameters.md), che mostra i valori che possono essere specificati durante la distribuzione per personalizzare l'infrastruttura distribuita. 
+* La sezione dei [parameters](resource-manager-templates-parameters.md), che mostra i valori che possono essere specificati durante la distribuzione per personalizzare l'infrastruttura distribuita. 
 
-* La sezione delle [variabili](resource-manager-templates-variables.md), che mostra i valori usati nel modello.
+* La sezione delle [variables](resource-manager-templates-variables.md), che mostra i valori usati nel modello.
 
-* La sezione delle [funzioni](resource-group-authoring-templates.md#functions), che mostra le espressioni personalizzate usate nel modello.
+* La sezione delle [functions](resource-group-authoring-templates.md#functions), che mostra le espressioni personalizzate usate nel modello.
 
-* La sezione delle [risorse](resource-manager-templates-resources.md), che mostra le risorse di Azure distribuite alla sottoscrizione.
+* La sezione delle [resources](resource-manager-templates-resources.md), che mostra le risorse di Azure distribuite alla sottoscrizione.
 
-* La sezione degli [output](resource-manager-templates-outputs.md), che mostra i valori restituiti al termine della distribuzione.
+* La sezione degli [outputs](resource-manager-templates-outputs.md), che mostra i valori restituiti al termine della distribuzione.
 
 ## <a name="look-for-similar-templates"></a>Cercare modelli simili
 
-Spesso, è possibile trovare un modello esistente che distribuisce una soluzione simile a quella che serve. I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) offrono centinaia di modelli per i collaboratori della comunità.
+È spesso possibile trovare un modello esistente che distribuisce una soluzione simile a quella che serve. I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) offrono centinaia di modelli creati dai collaboratori della comunità.
 
 ![Repository di modelli di avvio rapido](./media/how-to-create-template/template-quickstart-repo.png)
 

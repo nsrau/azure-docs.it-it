@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320362"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463566"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Novità di Azure SQL Data Warehouse Agosto 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di agosto 2018.
@@ -30,9 +30,9 @@ Microsoft ha introdotto le [analisi intelligenti automatiche](https://azure.micr
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-| Title | DESCRIZIONE |
+| Title | Descrizione |
 |:---|:---|
-| **Errori potenziali relativi alle query quando il numero di suddivisioni supera il limite massimo** |Quando veniva raggiunto il limite superiore di 1 milione di suddivisioni di file, un'eccezione non gestita causava il dump del motore SQL e le query non riuscivano. Questa correzione consente di risolvere il problema gestendo l'eccezione nel modo corretto e restituendo un errore senza impedire di eseguire le query. |
+| **Errori potenziali relativi alle query quando il numero di suddivisioni supera il limite massimo** |Quando veniva raggiunto il limite superiore di 1 milione di suddivisioni di file, un'eccezione non gestita causava il dump del motore SQL e le query non riuscivano. Questa correzione ha consentito di risolvere il problema gestendo l'eccezione nel modo corretto e restituendo un errore senza impedire l'esecuzione delle query. |
 | **Il valore predefinito di ExternalMoveReadersPerNode è stato aumentato per migliorare le prestazioni di caricamento** |Questo problema era causato dall'impostazione della proprietà ExternalMoveReadersPerNode che non era sincronizzata con l'impostazione di Service Fabric. Questa regressione comportava delle prestazioni ridotte di caricamento della seconda generazione. La correzione riporta le prestazioni di caricamento della seconda generazione ai parametri di progettazione ottimizzati.|
 
 

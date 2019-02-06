@@ -1,6 +1,6 @@
 ---
-title: Creazione degli endpoint del servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Creazione di endpoint del servizio Web in Azure Machine Learning. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Creazione degli endpoint del servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Creazione di endpoint del servizio Web in Azure Machine Learning. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
 ---

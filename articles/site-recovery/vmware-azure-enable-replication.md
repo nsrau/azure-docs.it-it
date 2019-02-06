@@ -1,17 +1,17 @@
 ---
 title: Abilitare la replica delle macchine virtuali VMware per il ripristino di emergenza di VMware in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come abilitare la replica delle macchine virtuali VMware per il ripristino di emergenza in Azure con Azure Site Recovery.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226334"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -86,18 +86,20 @@ Successivamente, verificare le proprietà del computer di origine. Tenere presen
 
 1. Fare clic su **Impostazioni** > **Elementi replicati** e selezionare il computer. La pagina **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
-3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai requisiti di Azure.
+3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile modificare diverse proprietà della macchina virtuale:
+* Nome della macchina virtuale di Azure: se necessario, modificare il nome in modo che sia conforme ai requisiti di Azure.
+* Dimensione o tipo della macchina virtuale di destinazione: il valore predefinito della dimensione della macchina virtuale viene scelto in base alla dimensione della macchina virtuale di origine. È possibile selezionare una dimensione diversa per la macchina virtuale in base alle necessità in qualsiasi momento prima del failover. Si noti che la dimensione del disco della macchina virtuale si basa anche sulla dimensione del disco di origine e può essere modificata solo dopo il failover. Altre informazioni sulle dimensioni dei dischi [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) e [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) e sulle operazioni di I/O al secondo.
 
     ![Proprietà di Calcolo e rete](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  È possibile selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) di cui il computer diventerà parte dopo il failover. È possibile modificare questa impostazione in qualsiasi momento prima del failover. Dopo il failover, se si esegue la migrazione del computer a un gruppo di risorse diverso, le impostazioni di protezione di quel computer non potranno essere applicate.
-5. Se il computer deve far parte di un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) dopo il failover, è possibile selezionarne uno. Quando si seleziona un set di disponibilità, tenere presente quanto segue:
+*  Gruppo di risorse: è possibile selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) di cui un computer diventerà parte dopo il failover. È possibile modificare questa impostazione in qualsiasi momento prima del failover. Dopo il failover, se si esegue la migrazione del computer a un gruppo di risorse diverso, le impostazioni di protezione di quel computer non potranno essere applicate.
+* Set di disponibilità: se il computer deve far parte di un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) dopo il failover, è possibile selezionarne uno. Quando si seleziona un set di disponibilità, tenere presente quanto segue:
 
     * Verranno elencati solo i set di disponibilità che appartengono al gruppo di risorse specificato.  
     * Computer con reti virtuali diverse non possono far parte dello stesso set di disponibilità.
     * In un set di disponibilità possono essere incluse solo macchine virtuali delle stesse dimensioni.
-5. È anche possibile visualizzare e aggiungere le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP assegnati alla macchina virtuale di Azure.
-6. In **Dischi** è possibile visualizzare il sistema operativo e i dischi dati della VM che verranno replicati.
+4. È anche possibile visualizzare e aggiungere le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP assegnati alla macchina virtuale di Azure.
+5. In **Dischi** è possibile visualizzare il sistema operativo e i dischi dati della VM che verranno replicati.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Configurare reti e indirizzi IP
 
@@ -120,7 +122,7 @@ Altre informazioni sul [Vantaggio Azure Hybrid](https://aka.ms/azure-hybrid-bene
 
 ## <a name="common-issues"></a>Problemi comuni
 
-* Le dimensioni di ogni disco devono essere inferiori a 1 TB.
+* La dimensione di ogni disco deve essere inferiore a 4 TB.
 * Il disco del sistema operativo deve essere un disco di base e non un disco dinamico.
 * Per le macchine virtuali di seconda generazione/abilitate per l'interfaccia UEFI, la famiglia del sistema operativo deve essere Windows e le dimensioni del disco di avvio devono essere minori di 300 GB.
 
@@ -128,4 +130,5 @@ Altre informazioni sul [Vantaggio Azure Hybrid](https://aka.ms/azure-hybrid-bene
 
 Quando la protezione è completata e il computer si trova in uno stato protetto, si può provare a effettuare un [failover](site-recovery-failover.md) per controllare se l'applicazione risulta disponibile in Azure o meno.
 
-Se si desidera disabilitare la protezione, vedere come [rimuovere la registrazione e le impostazioni di protezione](site-recovery-manage-registration-and-protection.md).
+* Per disabilitare la replica, vedere come [rimuovere la registrazione e le impostazioni di protezione](site-recovery-manage-registration-and-protection.md).
+* Informazioni su come [automatizzare la replica per le macchine virtuali usando PowerShell](vmware-azure-disaster-recovery-powershell.md)

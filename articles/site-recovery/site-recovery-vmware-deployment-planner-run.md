@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321552"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301502"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -42,7 +42,7 @@ Prima di tutto è necessario un elenco delle VM da profilare. È possibile otten
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Se Connect-VIServer non viene riconosciuto come nome di cmdlet, potrebbe essere necessario eseguire questo comando.
+4. Se Connect-VIServer non viene riconosciuto come nome di cmdlet, può essere necessario eseguire questo comando.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -65,7 +65,7 @@ Dopo aver ottenuto l'elenco di macchine virtuali da profilare, è possibile eseg
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Nome di dominio completo o indirizzo IP del server vCenter o dell'host vSphere ESXi con le VM da profilare.|
@@ -145,7 +145,7 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nome parametro | DESCRIZIONE |
+|Nome parametro | Descrizione |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Nome dominio completo o indirizzo IP (usare lo stesso nome o indirizzo IP usato al momento della profilatura) del server vCenter/vSphere in cui si trovano le VM profilate per le quali generare il report. Si noti che, se è stato usato un server vCenter al momento della profilatura, non è possibile usare un server vSphere per la generazione di report e viceversa.|
@@ -169,7 +169,7 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 |-Currency|(Facoltativo) Valuta usata per visualizzare il costo nel report generato. Il valore predefinito è Dollaro USA ($) o l'ultima valuta usata.<br>Vedere l'elenco delle [valute supportate](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
 Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
-```
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Esempio 4: Generare un report con un fattore di crescita del 5% al posto del valore predefinito pari al 30%
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Esempio 5: Generare un report con un subset di dati profilati
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 Lo strumento usa come valore predefinito il 95° percentile di operazioni di I/O al secondo in lettura/scrittura, operazioni di I/O al secondo in scrittura e varianza dei dati raccolte durante la profilatura di tutte le macchine virtuali. Questa metrica assicura che lo spike del 100° percentile che può essere rilevato dalle VM a causa di eventi temporanei non venga usato per determinare i requisiti dell'account di archiviazione di destinazione e della larghezza di banda di origine. Un evento temporaneo può essere, ad esempio, un processo di backup eseguito una volta al giorno, un'indicizzazione periodica di un database, un'attività di generazione di report analitici o altri eventi simili temporizzati di breve durata.
 
 L'uso dei valori di 95° percentile fornisce un quadro attendibile delle reali caratteristiche del carico di lavoro e offre prestazioni ottimali quando i carichi di lavoro sono in esecuzione in Azure. In genere questo numero non viene modificato. Se invece si sostituisce il valore, ad esempio con il 90° percentile, è possibile aggiornare il file di configurazione *ASRDeploymentPlanner.exe.config* nella cartella predefinita e salvarlo per generare un nuovo report sui dati profilati esistenti.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />
@@ -257,7 +257,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nome parametro | DESCRIZIONE |
+|Nome parametro | Descrizione |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Specificare il tipo di virtualizzazione (VMware o Hyper-V).|

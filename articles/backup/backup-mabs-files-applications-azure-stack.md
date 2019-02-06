@@ -2,18 +2,18 @@
 title: Eseguire il backup dei file nelle macchine virtuali di Azure Stack
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579202"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301476"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Eseguire il backup dei file in Azure Stack
 È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
@@ -55,7 +55,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Per selezionare la **protezione dati online**, è necessario selezionare prima la **protezione dati a breve termine** con disco. Il server di Backup di Azure non consente di proteggere i dati su nastro, quindi il disco è l'unica scelta per la protezione a breve termine.
+    Per selezionare **I want online protection** (Protezione dati online), è necessario selezionare prima **I want short-term protection using:** (Protezione dati a breve termine con:) Disk (Disco). Il server di Backup di Azure non consente di proteggere i dati su nastro, quindi il disco è l'unica scelta per la protezione a breve termine.
 
 5. Nella schermata **Specifica obiettivi a breve termine** indicare per quanto tempo verranno conservati i punti di recupero salvati su disco e quando salvare i backup incrementali. Fare clic su **Avanti**.
 

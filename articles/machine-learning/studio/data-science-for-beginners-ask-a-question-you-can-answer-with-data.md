@@ -1,6 +1,6 @@
 ---
-title: Porre una domanda a cui i dati possano rispondere titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come formulare una domanda mirata sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Porre una domanda a cui i dati possano rispondere titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come formulare una domanda mirata sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---

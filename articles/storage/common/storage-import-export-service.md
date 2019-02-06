@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: alkohli
 services: storage
@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528557"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453383"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -29,14 +29,14 @@ Per trasferire i dati usando i dischi forniti da Microsoft, è possibile usare [
 
 * **Migrazione di dati al cloud**: spostamento di grandi quantità di dati in Azure in modo veloce e a costi contenuti.
 * **Distribuzione del contenuto**: invio rapido di dati ai siti dei clienti.
-* **Backup**: esecuzione di backup dei dati locali da archiviare in Archiviazione di Azure.
-* **Ripristino di dati**: ripristino di una grande quantità di dati archiviati nell'archivio perché vengano recapitati al percorso locale.
+* **Backup**: esecuzione di backup dei dati locali da memorizzare in Archiviazione di Azure.
+* **Ripristino di dati**: ripristino di una grande quantità di dati archiviati nella risorsa di archiviazione perché vengano recapitati al percorso locale.
 
 ## <a name="importexport-components"></a>Componenti del servizio Importazione/Esportazione
 
 Il servizio Importazione/Esportazione usa i componenti seguenti:
 
-- **Servizio Importazione/Esportazione**: questo servizio disponibile nel portale di Azure consente all'utente di creare e tenere traccia dei processi di importazione (upload) ed esportazione (download) di dati.  
+- **Servizio Importazione/Esportazione**: questo servizio, disponibile nel portale di Azure, consente all'utente di creare e tenere traccia dei processi di importazione (upload) ed esportazione (download) di dati.  
 
 - **Strumento WAImportExport**: si tratta di uno strumento da riga di comando che esegue le operazioni seguenti: 
     - Prepara l'unità disco da spedire per l'importazione.
@@ -52,7 +52,7 @@ Il servizio Importazione/Esportazione usa i componenti seguenti:
 >
 > Lo strumento WAImportExport è compatibile solo con il sistema operativo Windows a 64 bit. Per versioni specifiche di sistemi operativi supportate, vedere [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems) (Requisiti per Importazione/Esportazione di Azure).
 
-- **Dischi**: è possibile spedire unità SSD (Solid-State Drive) o unità disco rigido (HDD) al data center di Azure. Per la creazione di un processo di importazione, si spediscono le unità disco contenenti i dati. Per la creazione di un processo di esportazione, si spediscono unità vuote al data center di Azure. Per i tipi di disco specifici, vedere i [tipi di disco supportati](storage-import-export-requirements.md#supported-hardware).
+- **Unità disco**: è possibile spedire unità SSD (Solid-State Drive) o unità disco rigido (HDD) al data center di Azure. Per la creazione di un processo di importazione, si spediscono le unità disco contenenti i dati. Per la creazione di un processo di esportazione, si spediscono unità vuote al data center di Azure. Per i tipi di disco specifici, vedere i [tipi di disco supportati](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Come funziona il servizio Importazione/Esportazione?
 

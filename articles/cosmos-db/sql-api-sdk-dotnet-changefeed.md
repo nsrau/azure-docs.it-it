@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351647"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300609"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351647"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Gestione delle eccezioni di Observer migliorata.
+* Informazioni più dettagliate sugli errori di Observer:
+ * Quando un'istanza di Observer viene chiusa a causa di un'eccezione generata da ProcessChangesAsync di Observer, CloseAsync riceverà il parametro del motivo impostato su ChangeFeedObserverCloseReason.ObserverError.
+ * Sono state aggiunte funzionalità di analisi per identificare errori nel codice utente in un'istanza di Observer.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Aggiunta del supporto per la gestione della suddivisione nelle raccolte che usano la velocità effettiva per database condivisi.
@@ -157,6 +163,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |29 gennaio 2019 |--- |
 | [2.2.5](#2.2.5) |13 dicembre 2018 |--- |
 | [2.2.4](#2.2.4) |29 novembre 2018 |--- |
 | [2.2.3](#2.2.3) |19 novembre 2018 |--- |

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b4f36abb2136223be8d4eec67935317041a41b93
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454098"
 ---
-# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Ottimizzare il costo delle risorse di Azure Cosmos DB con la capacità riservata
+# <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
 La capacità riservata di Azure Cosmos DB permette di risparmiare grazie al pagamento anticipato delle risorse di Azure Cosmos DB per un anno o tre anni. Con la capacità riservata di Azure Cosmos DB, è possibile ottenere uno sconto sulla velocità effettiva di cui viene effettuato il provisioning per le risorse di Cosmos DB, ad esempio database e contenitori (tabelle, raccolte e grafi).
 
@@ -50,7 +50,7 @@ Le dimensioni della prenotazione devono essere basate sulla quantità totale di 
 
    ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
 
-   |Campo  |DESCRIZIONE  |
+   |Campo  |Descrizione  |
    |---------|---------|
    |NOME   |    Nome della prenotazione. Questo campo viene popolato automaticamente con `CosmosDB_Reservation_<timeStamp>`. È possibile immettere un nome diverso durante la creazione della prenotazione o rinominare la prenotazione dopo la creazione.      |
    |Sottoscrizione  |   Sottoscrizione usata per pagare la capacità riservata di Azure Cosmos DB. Per l'addebito dei costi iniziali, viene usata la modalità di pagamento della sottoscrizione selezionata. Il tipo di sottoscrizione deve essere uno dei seguenti: <br/><br/>  [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (numero offerta: MS-AZR-0017P): per una sottoscrizione Enterprise, il costo viene detratto dal saldo dell'impegno monetario della registrazione oppure viene addebitato come eccedenza. <br/><br/> [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) (numero offerta: MS-AZR-0003P): per le sottoscrizioni con pagamento in base al consumo, il costo viene addebitato sulla carta di credito o sulla modalità di pagamento tramite fattura nella sottoscrizione.    |

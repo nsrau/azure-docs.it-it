@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: f8d80ab189d8ed1f4b153e81963ef31cc5f685b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470048"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228254"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti su Sintesi vocale
 
@@ -23,41 +23,41 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 ## <a name="general"></a>Generale
 
-**D: Qual è la differenza tra un modello di voce standard e un modello di voce personalizzata?**
+**D: qual è la differenza tra un modello di voce standard e un modello di voce personalizzata?**
 
-**A**: Il modello di voce standard, definito anche *carattere voce*, è stato sottoposto a training con l'uso di dati di proprietà di Microsoft ed è già distribuito nel cloud. È possibile usare un modello di voce personalizzata per adattare un modello medio e trasferire il timbro e l'espressione dello stile di voce del parlante. In alternativa, è possibile eseguire il training di un modello completamente nuovo, basato sui dati di training preparati dall'utente. Oggi, sempre più clienti vogliono una voce personalizzata per i propri bot. La piattaforma per la creazione di voci personalizzate è la soluzione ideale per rispondere a questa esigenza.
+**R**: il modello di voce standard, definito anche *carattere voce*, è stato sottoposto a training con l'uso di dati di proprietà di Microsoft ed è già distribuito nel cloud. È possibile usare un modello di voce personalizzata per adattare un modello medio e trasferire il timbro e l'espressione dello stile di voce del parlante. In alternativa, è possibile eseguire il training di un modello completamente nuovo, basato sui dati di training preparati dall'utente. Oggi, sempre più clienti vogliono una voce personalizzata per i propri bot. La piattaforma per la creazione di voci personalizzate è la soluzione ideale per rispondere a questa esigenza.
 
-**D: Da dove è necessario iniziare per usare un modello di voce standard?**
+**D: da dove è necessario iniziare per usare un modello di voce standard?**
 
-**R**: Attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. È prima necessario ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**R**: attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. È prima necessario ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**D: Per usare un modello di voce personalizzata, l'API è la stessa che viene usata per le voci standard?**
+**D: per usare un modello di voce personalizzata, l'API è la stessa che viene usata per le voci standard?**
 
-**R**: Dopo aver creato e distribuito un modello di voce personalizzata, si riceve un endpoint univoco per tale modello. Per usare la voce per parlare nelle app, è necessario specificare l'endpoint nelle richieste HTTP. Le stesse funzionalità presenti nell'API REST per il servizio Sintesi vocale sono disponibili anche per l'endpoint personalizzato. Vedere la procedura per [creare e usare l'endpoint personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**R**: dopo aver creato e distribuito un modello di voce personalizzata, si riceve un endpoint univoco per tale modello. Per usare la voce per parlare nelle app, è necessario specificare l'endpoint nelle richieste HTTP. Le stesse funzionalità presenti nell'API REST per il servizio Sintesi vocale sono disponibili anche per l'endpoint personalizzato. Vedere la procedura per [creare e usare l'endpoint personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**D: È necessario preparare i dati di training personalmente per creare modelli di voce personalizzata?**
+**D: è necessario preparare i dati di training personalmente per creare modelli di voce personalizzata?**
 
-**R**: Sì, per un modello di voce personalizzata è necessario preparare i dati di training personalmente.
+**R**: sì, per un modello di voce personalizzata è necessario preparare i dati di training personalmente.
 
 Per creare un modello di voce personalizzato è necessaria una raccolta di dati vocali. Questa raccolta è costituita da un set di file audio con registrazioni vocali e da un file di testo con la trascrizione di ogni file audio. Il risultato della voce digitale dipende principalmente dalla qualità dei dati di training. Per produrre una buona sintesi vocale, è importante che le registrazioni vengano eseguite in un ambiente silenzioso con un microfono a stelo di alta qualità. Volume, velocità di pronuncia e tono uniformi e perfino l'uniformità dei manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. È consigliabile registrare le voci in uno studio di registrazione.
 
 Attualmente non viene fornito supporto per la registrazione online né sono disponibili raccomandazioni per gli studi di registrazione. Per i requisiti di formato, vedere [come preparare le registrazioni e le trascrizioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
-**D: Quali script è necessario usare per la registrazione dei dati vocali per il training della voce personalizzata?**
+**D: quali script è necessario usare per la registrazione dei dati vocali per il training della voce personalizzata?**
 
-**R**: Non esistono limiti per gli script della registrazione vocale. È possibile usare i propri script per registrare la voce. Verificare semplicemente di avere a disposizione una copertura fonetica sufficiente nei dati vocali. Per eseguire il training di una voce personalizzata, è possibile iniziare con un volume ridotto di dati vocali, che può essere costituito da 50 frasi diverse (circa 3-5 minuti di parlato). Più dati si forniscono, più naturale risulterà la voce. È possibile iniziare il training di un carattere voce completo quando si forniscono le registrazioni di più di 2000 frasi (circa 3-4 ore di parlato). Per ottenere una voce di qualità elevata, è necessario preparare le registrazioni di oltre 6000 frasi (circa 8-10 ore di parlato).
+**R**: non esistono limiti per gli script della registrazione vocale. È possibile usare i propri script per registrare la voce. Verificare semplicemente di avere a disposizione una copertura fonetica sufficiente nei dati vocali. Per eseguire il training di una voce personalizzata, è possibile iniziare con un volume ridotto di dati vocali, che può essere costituito da 50 frasi diverse (circa 3-5 minuti di parlato). Più dati si forniscono, più naturale risulterà la voce. È possibile iniziare il training di un carattere voce completo quando si forniscono le registrazioni di più di 2000 frasi (circa 3-4 ore di parlato). Per ottenere una voce di qualità elevata, è necessario preparare le registrazioni di oltre 6000 frasi (circa 8-10 ore di parlato).
 
 Offriamo servizi aggiuntivi per agevolare la preparazione degli script per la registrazione. Contattare l'[assistenza clienti per la voce personalizzata](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) per eventuali domande.
 
-**D: Cosa è necessario fare se serve una concorrenza più elevata rispetto al valore predefinito o all'offerta presente nel portale?**
+**D: cosa è necessario fare se serve una concorrenza più elevata rispetto al valore predefinito o all'offerta presente nel portale?**
 
-**R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee. Contattare l'[assistenza clienti per la voce personalizzata](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) per eventuali domande su un maggiore ridimensionamento.
+**R**: è possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee. Contattare l'[assistenza clienti per la voce personalizzata](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) per eventuali domande su un maggiore ridimensionamento.
 
-**D: È possibile scaricare il modello ed eseguirlo in locale?**
+**D: è possibile scaricare il modello ed eseguirlo in locale?**
 
-**R**: Non è possibile scaricare i modelli ed eseguirli in locale.
+**R**: non è possibile scaricare i modelli ed eseguirli in locale.
 
-**D: Le richieste sono limitate?**
+**D: le richieste sono limitate?**
 
 **R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative a [Sintesi vocale](text-to-speech.md). 
 

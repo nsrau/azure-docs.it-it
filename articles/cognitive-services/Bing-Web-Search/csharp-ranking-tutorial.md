@@ -7,16 +7,16 @@ author: bradumbaugh
 manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: ebe95c8ebad8c7d6b77d98dc0d590a4d38d76b94
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 90ad2ff87e9541c892262edb2e48366826b2a388
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465968"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188440"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -49,7 +49,7 @@ JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiunge
 - In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 - Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
 - Fare clic su **OK** nella finestra **Rivedi modifiche**.
-- Chiudere la scheda di Visual Studio intitolata **NuGet: MyConsoleSearchApp**.
+- Chiudere la scheda di Visual Studio denominata **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Aggiungere un riferimento a System.Web
 
@@ -224,8 +224,8 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
-- `mainline`: i risultati di ricerca da visualizzare nella riga principale.
-- `sidebar`: i risultati di ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
+- `mainline`: I risultati della ricerca da visualizzare nella riga principale.
+- `sidebar`: I risultati della ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
 
 La risposta classificata JSON può includere uno o più gruppi.
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450882"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219720"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -39,6 +39,7 @@ Istanza gestita di database SQL può essere distribuita in due generazioni hardw
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD eNVM veloce, vCore = 1 LP (hyperthread) |
 | Calcolo | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
 | Memoria | 7 GB per vCore | 5,1 GB per vCore |
+| Memoria OLTP in memoria | 3 GB per vCore | 2,6 GB per vCore |
 | Spazio di archiviazione massimo (utilizzo generico) |  8 TB | 1 TB |
 | Spazio di archiviazione massimo (Business critical) | 8 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413397"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239918"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Progetto per la sicurezza e la conformità di Azure: Automazione di applicazioni Web IaaS su tre livelli per UK OFFICIAL
 
@@ -98,7 +98,7 @@ ms.locfileid: "54413397"
   - (2) Schede di interfaccia di rete connesse alla rete virtuale operativa - 1 per VM
   - Non aggiunto a un dominio
 
-Set di disponibilità
+SET DI DISPONIBILITÀ
 - (1) Set di VM di controller di dominio di Active Directory - 2 VM
 - (1) Set di VM di livello Web - 2 VM
 - (1) Set di VM di livello aziendale - 2 VM
@@ -188,7 +188,7 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 **Integrazione in Active Directory**: come alternativa a un'architettura dedicata di AD DS, i clienti possono usare l'integrazione in [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) o [Active Directory in Azure aggiunto a una foresta locale](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 **Sicurezza della gestione**: questo progetto consente agli amministratori di connettersi alla rete virtuale di gestione e al jumpbox tramite RDP da un'origine attendibile. Il traffico di rete per la rete virtuale di gestione viene controllato tramite gruppi di sicurezza di rete. L'accesso alla porta 3389 è limitato al traffico da un intervallo di indirizzi IP attendibile, che può accedere alla subnet contenente il jumpbox.
 
@@ -204,7 +204,7 @@ I clienti possono prendere in considerazione l'uso di un [modello amministrativo
 
 **Separazione dei compiti**: questa architettura di riferimento separa le reti virtuali per operazioni di gestione e aziendali. La separazione di reti virtuali e subnet consente la gestione del traffico, incluse le limitazioni al traffico in ingresso e in uscita, tramite gruppi di sicurezza di rete tra segmenti di rete in base alle procedure consigliate illustrate in [Servizi cloud Microsoft e sicurezza di rete](https://docs.microsoft.com/azure/best-practices-network-security).
 
-**Gestione delle risorse**: le risorse di Azure, ad esempio le macchine virtuali, le reti virtuali e i servizi di bilanciamento del carico, vengono gestite tramite il raggruppamento in [gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). I ruoli di controllo di accesso in base alle risorse possono essere quindi assegnati a ogni gruppo di risorse per limitare l'accesso ai soli utenti autorizzati.
+**Gestione delle risorse**: le risorse di Azure, ad esempio le macchine virtuali, le reti virtuali e i servizi di bilanciamento del carico, vengono gestite tramite il raggruppamento in [gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). I ruoli di controllo di accesso in base alle risorse possono essere quindi assegnati a ogni gruppo di risorse per limitare l'accesso ai soli utenti autorizzati.
 
 **Restrizioni di controllo di accesso**: usare il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per gestire le risorse nell'applicazione tramite [ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). È possibile usare il controllo degli accessi in base al ruolo per limitare le operazioni consentite a DevOps su ogni livello. Quando si concedono autorizzazioni, usare il [principio dei privilegi minimi necessari](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registrare tutte le operazioni amministrative ed eseguire controlli regolari per assicurare che eventuali modifiche alla configurazione siano state pianificate.
 
