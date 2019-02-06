@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663415"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752297"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
@@ -53,7 +53,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 
 2. Creare la distribuzione della macchina virtuale e l'estensione script personalizzato.
     -  Creare la distribuzione di VM Linux usando l'immagine Linux in marketplace **Ubuntu Server 16.04-LTS**.
-    -  Scarica e si esegue l'estensione script cliente dal marketplace. Lo script fa **dello Script personalizzato per Linux 2.0**.
+    -  Scaricare ed eseguire l'estensione script personalizzato dal marketplace. Lo script fa **dello Script personalizzato per Linux 2.0**.
     -  Eseguire lo script personalizzato di DVM. Lo script esegue le attività seguenti:
         1. Ottiene l'endpoint di raccolta dall'endpoint dei metadati di Azure Resource Manager.
         2. Ottiene l'ID di risorsa di active directory dall'endpoint dei metadati di Azure Resource Manager.
@@ -61,7 +61,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
         4. Consente di distribuire il modulo di gestione ACS per il cluster Kubernetes e Salva il profilo di cloud di Azure Stack da `/etc/kubernetes/azurestackcloud.json`.
 3. Creare le VM master.
 
-4. Scaricare ed eseguire le estensioni degli script dei clienti.
+4. Scaricare ed eseguire le estensioni degli script personalizzati.
 
 5. Eseguire lo script master.
 
@@ -75,7 +75,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
         3. Avvia il servizio Utilità di pianificazione.
 6. Creare l'agente di macchine virtuali.
 
-7. Scarica e si esegue l'estensione script cliente.
+7. Scaricare ed eseguire l'estensione script personalizzata.
 
 7. Eseguire lo script dell'agente. Lo script personalizzato dell'agente effettua le seguenti attività:
     - Installa etcd

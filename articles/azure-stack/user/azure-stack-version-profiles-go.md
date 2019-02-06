@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243890"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745402"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usare i profili delle versioni API con Go in Azure Stack
 
@@ -68,7 +68,7 @@ Per eseguire un esempio di codice di Go in Azure Stack, seguire questa procedura
 
    > [!NOTE]  
    > Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/`  
-   > Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/`  
    > Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    File JSON di esempio:

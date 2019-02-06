@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246535"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746711"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -153,6 +153,9 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
 
 <!-- 3190553 - IS ASDK -->
 - Risolto un problema che ha generato avvisi fastidiosi che indica che non era disponibile un'istanza del ruolo di infrastruttura o nodo di unità di scala era offline.
+
+<!-- 2724961 - IS ASDK -->
+- Fissa un problema in cui la pagina di panoramica della macchina virtuale non è possibile visualizzare correttamente il grafico delle metriche della macchina virtuale. 
 
 ## <a name="changes"></a>Modifiche
 
@@ -297,11 +300,6 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 <!-- 1662991 IS ASDK --> 
 - Diagnostica delle VM di Linux non è supportata in Azure Stack. Quando si distribuisce una VM Linux con abilitata la diagnostica della macchina virtuale, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilitano le metriche di base della VM Linux tramite le impostazioni di diagnostica.  
-
-<!-- 2724961- IS ASDK --> 
-- Quando si registra il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creare una VM Windows con Guest OS diagnostica è abilitata, il grafico della percentuale di CPU nella pagina di panoramica della macchina virtuale non mostra i dati delle metriche.
-
-   Per trovare i dati delle metriche, ad esempio il grafico della percentuale di CPU per la macchina virtuale, passare al **metriche** finestra e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks vengono creati due nuovi [tipi di quota di calcolo](azure-stack-quota-types.md#compute-quota-types) per limitare la capacità massima di dischi gestiti che è possibile eseguire il provisioning. Per impostazione predefinita, 2048 GiB viene allocata per ogni tipo di quota di dischi gestiti. Tuttavia, è possibile riscontrare i problemi seguenti:

@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239520"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743842"
 ---
 # <a name="validate-azure-registration"></a>Convalidare la registrazione di Azure
  
@@ -67,6 +67,8 @@ Sono necessari i prerequisiti seguenti:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > Come CSP, quando si usa una sottoscrizione di servizi condivisi o IUR, è necessario fornire le credenziali di un utente da tale AAD corrispondente. In genere sarà simile a `subscriptionowner@iurcontoso.onmicrosoft.com`. Tale utente deve avere le credenziali appropriate, come descritto in precedenza.
 
 3. Al prompt di PowerShell, eseguire il comando seguente per impostare `$subscriptionID` si utilizzerà la sottoscrizione di Azure. Sostituire `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` con il proprio ID sottoscrizione:
    ```powershell
