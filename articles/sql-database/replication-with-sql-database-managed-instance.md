@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467664"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurare la replica nell'istanza gestita di database SQL di Azure
 
-La replica transazionale consente di replicare i dati dai database SQL Server o istanza gestita di database SQL di Azure nell'istanza gestita, o di eseguire il push delle modifiche apportate nei database in istanza gestita ad altri SQL Server, database singoli di Azure o istanze gestite. La replica è disponibile in anteprima pubblica in [iIstanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore. Visualizzare [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations) per le configurazioni disponibili.
+La replica transazionale consente di replicare i dati dai database SQL Server o istanza gestita di database SQL di Azure nell'istanza gestita, oppure di eseguire il push delle modifiche apportate nei database in istanza gestita ad altri database singoli o pool di database elastico SQL e SQL Server, oppure a un’altra istanza gestita. La replica è disponibile in anteprima pubblica in [iIstanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore. Visualizzare [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations) per le configurazioni disponibili.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -46,7 +46,7 @@ Supporta:
 
 - Combinazione di replica transazionale e replica snapshot di istanze locali e di Istanza gestita di database SQL di Azure.
 
-- I sottoscrittori possono essere database singoli locali nel database SQL di Azure o database in pool elastici del database SQL di Azure.
+- I sottoscrittori possono essere database singoli e locali nel database SQL di Azure oppure database in pool nei pool elastici di database SQL di Azure.
 
 - Replica unidirezionale o bidirezionale.
 
@@ -71,7 +71,7 @@ Le funzionalità seguenti non sono supportate:
 
    Negli script di esempio seguenti usare `<SQL_USER>` e `<PASSWORD>` per l'utente del database e la password dell'account di SQL Server.
 
-5. [Connettersi all'Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connettersi all'Istanza gestita di database SQL di Azure](sql-database-connect-query-ssms.md).
 
 6. Eseguire la query seguente per aggiungere il server di distribuzione e il database di distribuzione.
 
@@ -172,4 +172,4 @@ Le funzionalità seguenti non sono supportate:
 ## <a name="see-also"></a>Vedere anche
 
 - [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
-- [Informazioni su Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Informazioni su Istanza gestita](sql-database-managed-instance.md)

@@ -12,22 +12,24 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/31/2018
-ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/25/2019
+ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317458"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464732"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: Errori di connessione di database e altri problemi
 
 Questo articolo elenca i codici di errore di SQL per le applicazioni client del database SQL, inclusi errori di connessione del database, errori temporanei (noti anche come guasti temporanei), errori di governance delle risorse, errori di copia del database, errori relativi al pool elastico e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server. Vedere anche i [messaggi di errore di sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Errori di connessione del database, guasti e altri errori temporanei
+
 La tabella seguente illustra i codici di errore SQL per errori di perdita della connessione e altri errori temporanei che possono verificarsi quando l'applicazione tenta di accedere al database SQL. Per esercitazioni introduttive sulla connessione al database SQL di Azure, vedere [Connessione del database SQL di Azure](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Errori di connessione del database ed errori temporanei più comuni
+
 L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quando si verificano carichi di lavoro intensi nel servizio del database SQL.  Questo comportamento dinamico potrebbe causare la perdita della connessione del programma client al database SQL. Questo tipo di errore è chiamato *errore temporaneo*.
 
 È consigliabile dotare il programma client di logica di ripetizione dei tentativi, in modo che sia in grado di ristabilire una connessione dopo aver concesso all'errore temporaneo un tempo sufficiente per correggersi.  È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
@@ -48,6 +50,7 @@ Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
 Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Codici di errore degli errori temporanei
+
 I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'applicazione: 
 
 | Codice di errore | Gravità | DESCRIZIONE |
@@ -62,6 +65,7 @@ I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'app
 | 4221 |16 |L'accesso alla replica secondaria in lettura non è riuscito a causa del tempo di attesa lungo di 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. La replica non è disponibile per l'accesso perché mancano le versioni di riga per le transazioni che erano in esecuzione quando la replica è stata riciclata. Per risolvere il problema, eseguire il rollback o il commit delle transazioni attive nella replica primaria. È possibile ridurre le occorrenze di questa condizione evitando transazioni di scrittura lunghe nella replica primaria. |
 
 ## <a name="database-copy-errors"></a>Errori di copia del database
+
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
 | Codice di errore | Gravità | DESCRIZIONE |
@@ -81,6 +85,7 @@ Durante la copia di un database nel database SQL di Azure, possono essere rileva
 | 40571 |16 |Copia del database non riuscita a causa di un errore interno. Rimuovere il database di destinazione e riprovare in un secondo momento. |
 
 ## <a name="resource-governance-errors"></a>Errori di governance delle risorse
+
 I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utilizzo del database SQL di Azure, Ad esempio: 
 
 * La transazione è rimasta aperta troppo a lungo.
@@ -94,8 +99,8 @@ Argomenti correlati:
 
 | Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
-| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](sql-database-resource-limits-database-server.md).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](sql-database-resource-limits-database-server.md). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni. |
 | 40549 |16 |La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione. |
 | 40550 |16 |La sessione è stata terminata perché sono stati acquisiti troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione. |
@@ -104,15 +109,16 @@ Argomenti correlati:
 | 40553 |16 |La sessione è stata terminata a causa di un utilizzo eccessivo della memoria. Provare a modificare la query per elaborare un numero inferiore di righe.<br/><br/>La riduzione del numero di operazioni `ORDER BY` e `GROUP BY` nel codice Transact-SQL consente di ridurre i requisiti di memoria della query. |
 
 ## <a name="elastic-pool-errors"></a>Errori relativi al pool elastico
+
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
 | Codice di errore | Gravità | DESCRIZIONE | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. |
-| 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) per assistenza. In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
+| 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Vedere [Limiti delle risorse del database SQL per database singoli e in pool](sql-database-resource-limits-database-server.md) per assistenza. In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
 | 40844 | 16 |Il database '%ls' sul Server '%ls' è un database versione '%ls' in un pool elastico e non può avere una relazione di copia continua.  |N/D |
 | 40857 | 16 |Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. Il pool elastico specificato non esiste nel server specificato. | Fornire un nome pool elastico valido. |
-| 40858 | 16 |Il pool elastico '%ls' esiste già nel server: '%ls'. Il pool elastico specificato esiste già nel server logico specificato. | Fornire un nuovo nome pool elastico. |
+| 40858 | 16 |Il pool elastico '%ls' esiste già nel server: '%ls'. Il pool elastico specificato esiste già nel server di database SQL specificato. | Fornire un nuovo nome pool elastico. |
 | 40859 | 16 |Il pool elastico non supporta il livello di servizio '%ls'. Il livello di servizio specificato non è supportato per il provisioning del pool elastico. |Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
 | 40860 | 16 |La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. Il pool elastico e il livello di servizio possono essere specificati insieme solo se il tipo di risorsa specificato è 'ElasticPool'. |Specificare la combinazione corretta di pool elastico e livello di servizio. |
 | 40861 | 16 |L'edizione del database "%.*ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.* ls". L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
@@ -137,6 +143,7 @@ Argomenti correlati:
 * [Monitorare e gestire un pool elastico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Errori generali
+
 I seguenti errori non rientrano nelle categorie precedenti.
 
 | Codice di errore | Gravità | DESCRIZIONE |
@@ -204,10 +211,11 @@ I seguenti errori non rientrano nelle categorie precedenti.
 | 40671 |17 |Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi. |
 | 40852 |16 |Impossibile aprire il database "%.\*ls" nel server "%.\*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "secure" nel server FQDN - "nome server".database.windows.net deve essere modificato in "nome server".database`secure`.windows.net. |
 | 40914 | 16 | Impossibile aprire il server "*[nome-server]*" richiesto dall'account di accesso. Non è consentito l'accesso del client al server.<br /><br />Per correggere l'errore, provare ad aggiungere una [regola della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare. |
+| 45168 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server di database SQL (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare. |
 | 45169 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare. |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Altre informazioni sulle [funzionalità di database SQL di Azure](sql-database-features.md).
 * Altre informazioni sul [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md).
 * Altre informazioni sul [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
