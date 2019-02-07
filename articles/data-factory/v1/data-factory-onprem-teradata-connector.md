@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2b7a90f948f0176285f1e56bc3c84a2cda2f2577
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023525"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746337"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Spostare i dati da Teradata utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "54023525"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Teradata locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un archivio dati Teradata locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Teradata ad altri archivi dati, ma non da altri archivi dati a un archivio dati Teradata. 
+È possibile copiare dati da un archivio dati Teradata locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Teradata ad altri archivi dati, ma non da altri archivi dati a un archivio dati Teradata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Data factory supporta la connessione a origini Teradata locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
@@ -44,34 +44,34 @@ Il gateway è necessario anche se il database Teradata è ospitato in una macchi
 Perché Gateway di gestione dati si connetta al database Teradata, è necessario installare il [provider di dati .NET per Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versione 14 o successiva nello stesso sistema di Gateway di gestione dati. Sono supportate le versioni di Teradata a partire dalla 12.
 
 ## <a name="getting-started"></a>Introduzione
-È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
+È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati Teradata locale, vedere la sezione [Esempio di JSON: Copiare dati da Teradata a BLOB di Azure](#json-example-copy-data-from-teradata-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati Teradata locale, vedere la sezione [Esempio di JSON: Copiare dati da Teradata a BLOB di Azure](#json-example-copy-data-from-teradata-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di un archivio dati Teradata:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Teradata.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesTeradata** |Yes |
-| server |Nome del server Teradata. |Yes |
-| authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
+| type |La proprietà type deve essere impostata su: **OnPremisesTeradata** |Sì |
+| server |Nome del server Teradata. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
 | username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No  |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. |Yes |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. Attualmente non sono disponibili proprietà di tipo supportate per il set di dati Teradata.
@@ -85,10 +85,10 @@ Se l'origine è di tipo **RelationalSource** (che comprende Teradata), sono disp
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |Yes |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |Sì |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Esempio di JSON: Copiare dati da Teradata a BLOB di Azure
-L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Teradata in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
+L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Teradata in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 L'esempio include le entità di Data Factory seguenti:
 
@@ -257,7 +257,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
                     {
                         "name": "AzureBlobTeradataDataSet"
                     }
-                ],                    
+                ],
                 "policy": {
                     "timeout": "01:00:00",
                     "concurrency": 1
@@ -300,21 +300,21 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 | Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Data |Datetime |
-| Tempo |Intervallo di tempo |
+| Data |DateTime |
+| Tempo |TimeSpan |
 | Time With Time Zone |string |
-| Timestamp |Datetime |
+| Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |Intervallo di tempo |
-| Interval Day To Hour |Intervallo di tempo |
-| Interval Day To Minute |Intervallo di tempo |
-| Interval Day To Second |Intervallo di tempo |
-| Interval Hour |Intervallo di tempo |
-| Interval Hour To Minute |Intervallo di tempo |
-| Intervallo - da ora a secondo |Intervallo di tempo |
-| Interval Minute |Intervallo di tempo |
-| Interval Minute To Second |Intervallo di tempo |
-| Interval Second |Intervallo di tempo |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Intervallo - da ora a secondo |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
 | Interval Year |string |
 | Interval Year To Month |string |
 | Interval Month |string |

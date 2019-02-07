@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686382"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746915"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
 
@@ -47,7 +47,7 @@ Il resto di questo articolo illustra i modelli di Resource Manager che usano Mic
 [Procedure consigliate per la creazione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) offre molti suggerimenti e linee guida per creare modelli di Azure Resource Manager affidabili e semplici da usare.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visualizzare e usare un modello di Resource Manager di Azure di una macchina virtuale
-1. Seguire i passaggi in [Creare la prima macchina virtuale in un lab](devtest-lab-create-first-vm.md) per iniziare a creare una macchina virtuale.
+1. Seguire i passaggi in [Creare la prima macchina virtuale in un lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) per iniziare a creare una macchina virtuale.
 1. Immettere le informazioni necessarie per la macchina virtuale e aggiungere eventuali elementi desiderati per la macchina virtuale.
 1. Nella parte inferiore della finestra Configurazione impostazioni, scegliere **View ARM template** (Visualizza modello ARM).
 

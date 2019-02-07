@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2a0fc7cc4e76c4a93f6ff71767d3074ea8ac6564
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168210"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729269"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Per abilitare l'esecuzione di script, aggiungere l'elemento **ScriptExecution** 
 
 Seguire queste linee guida per personalizzare l'interfaccia dell'applicazione tramite JavaScript:
 
-- Non associare un evento clic in elementi HTML `<a>`. 
+- Non associare un evento clic in elementi HTML `<a>`.
 - Non definire una dipendenza dal codice o da commenti di Azure AD B2C.
 - Non modificare l'ordine o la gerarchia di elementi HTML di Azure AD B2C. Usare un criterio di Azure AD B2C per controllare l'ordine degli elementi dell'interfaccia utente.
 - È possibile chiamare qualsiasi servizio RESTful tenendo presenti queste considerazioni:
@@ -113,9 +113,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>Aggiungere le condizioni per l'utilizzo 
+### <a name="add-terms-of-use"></a>Aggiungere le condizioni per l'utilizzo
 
-Includere il codice seguente nella pagina in cui si vuole aggiungere una casella di controllo **Condizioni per l'utilizzo**. Questa casella di controllo è in genere necessaria nelle pagine di iscrizione dell'account locale e di iscrizione dell'account di social networking.  
+Includere il codice seguente nella pagina in cui si vuole aggiungere una casella di controllo **Condizioni per l'utilizzo**. Questa casella di controllo è in genere necessaria nelle pagine di iscrizione dell'account locale e di iscrizione dell'account di social networking.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -124,18 +124,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -145,4 +145,3 @@ Nel codice sostituire `terms-of-use-url` con il collegamento alle condizioni per
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come personalizzare l'interfaccia utente delle applicazioni sono disponibili nell'argomento [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-

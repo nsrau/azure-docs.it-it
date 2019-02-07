@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826616"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694483"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migrazione Contoso: eseguire il rehosting di un'app locale in una macchina virtuale di Azure e in Istanza gestita di database SQL
 
@@ -173,7 +173,7 @@ Per configurare un'Istanza gestita di database SQL di Azure, Contoso ha bisogno 
 - La subnet deve avere una tabella di routing definita dall'utente. L'unica route assegnata deve essere 0.0.0.0/0 hop successivo su Internet. 
 - DNS personalizzato facoltativo: se per la rete virtuale di Azure sono specificate impostazioni DNS personalizzate, è necessario aggiungere all'elenco l'indirizzo IP dei resolver ricorsivi di Azure, ad esempio 168.63.129.16. Altre informazioni su come [configurare il DNS personalizzato per un'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Alla subnet non deve essere associato alcun endpoint di servizio (archiviazione o SQL). Gli endpoint di servizio devono essere disabilitati nella rete virtuale.
-- La subnet deve avere un minimo di 16 indirizzi IP. Altre informazioni su come [dimensionare la subnet dell'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- La subnet deve avere un minimo di 16 indirizzi IP. Altre informazioni su come [dimensionare la subnet dell'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Nell'ambiente ibrido di Contoso sono necessarie impostazioni DNS personalizzate. Contoso configura le impostazioni DNS per l'uso di uno o più server DNS di Azure aziendali. Altre informazioni sulla [personalizzazione del DNS](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Configurare una rete virtuale per l'istanza gestita
@@ -207,7 +207,7 @@ Gli amministratori di Contoso configurano la rete virtuale come segue:
 *Ulteriore assistenza?*
 
 - Panoramica di [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Informazioni su come [creare una rete virtuale per un'Istanza gestita di database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Informazioni su come [creare una rete virtuale per un'Istanza gestita di database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Informazioni su come [eseguire il peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Informazioni su come [aggiornare le impostazioni DNS di Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ Il team responsabile della sicurezza di Contoso esamina le macchine virtuali di 
 
      ![Sicurezza dell'istanza gestita: rilevamento delle minacce](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Per altre informazioni sulle procedure di sicurezza per le macchine virtuali, vedere [Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Per altre informazioni sulle procedure di sicurezza per le macchine virtuali, vedere [Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

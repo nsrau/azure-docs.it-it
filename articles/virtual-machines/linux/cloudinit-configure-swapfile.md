@@ -1,6 +1,6 @@
 ---
 title: Usare cloud-init per configurare un file di scambio in una macchina virtuale Linux | Microsoft Docs
-description: Come usare cloud-init per configurare un file di scambio in una macchina virtuale Linux durante la creazione con l'interfaccia della riga di comando di Azure 2.0
+description: Come usare cloud-init per configurare un file di scambio in una macchina virtuale Linux durante la creazione con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952599"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769913"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usare cloud-init per configurare un file di scambio in una macchina virtuale Linux
 Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.io) per configurare il file di scambio in diverse distribuzioni Linux. Il file di scambio viene tradizionalmente configurato dall'agente Linux (WALA) in base alle distribuzioni in cui è necessario.  Questo documento descrive il processo di creazione del file di scambio su richiesta durante la fase di provisioning usando cloud-init.  Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -27,7 +27,7 @@ Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.i
 ## <a name="create-swapfile-for-ubuntu-based-images"></a>Creare un file di scambio per immagini basate su Ubuntu
 Per impostazione predefinita, le immagini della raccolta Ubuntu non creano file di scambio. Per abilitare la configurazione dei file di scambio durante la fase di provisioning delle macchine virtuali usando cloud-init, vedere il [documento su AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) nel wiki di Ubuntu.
 
-## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Creare un file di scambio per immagini basate su RedHat e CentOS
+## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Creare un file di scambio per immagini basate su Red Hat e CentOS
 
 Nella shell corrente creare un file denominato *cloud_init_swapfile.txt* e incollare la configurazione seguente. Per questo esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloud_init_swapfile.txt` per creare il file e visualizzare un elenco degli editor disponibili. Scegliere #1 per usare l'editor **nano**. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga.  
 
@@ -48,13 +48,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora una VM con [az vm create](/cli/azure/vm#az_vm_create) e specificare il file cloud-init con `--custom-data cloud_init_swapfile.txt` come segue:
+Creare ora una VM con [az vm create](/cli/azure/vm) e specificare il file cloud-init con `--custom-data cloud_init_swapfile.txt` come segue:
 
 ```azurecli-interactive 
 az vm create \

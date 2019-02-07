@@ -3,7 +3,7 @@ title: Database SQL di Azure - Utilizzo generico e Business critical | Microsoft
 description: Questo articolo illustra i livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61a413fc0b27db66091c8e4a401de654455ebe7c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470995"
+ms.locfileid: "55511828"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Livelli di servizio del database SQL di Azure
 

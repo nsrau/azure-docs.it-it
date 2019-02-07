@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974710"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696049"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -344,7 +344,7 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 **Isolamento del traffico:** una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
-La [subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
+La [subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

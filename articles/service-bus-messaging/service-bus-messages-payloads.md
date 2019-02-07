@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849363"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733927"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messaggi, payload e serializzazione
 
@@ -28,7 +28,7 @@ Il modello a oggetti dei client ufficiali del bus di servizio per .NET e Java ri
  
 Un messaggio del bus di servizio è costituito da una sezione di paylod binario che non viene mai gestita in alcun modo dal bus di servizio sul lato server e da due set di proprietà. Le *proprietà del broker* sono predefinite dal sistema. Queste proprietà predefinite controllano le funzionalità a livello di messaggio all'interno del broker oppure sono mappate a elementi comuni e standardizzati dei metadati. Le *proprietà utente* sono una raccolta di coppie chiave-valore che possono essere definite e configurate dall'applicazione.
  
-Le proprietà predefinite del broker sono elencate nella tabella seguente. I nomi vengono usati con tutte le API client ufficiali e anche nell'oggetto JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) del mapping di protocolli HTTP.
+Le proprietà predefinite del broker sono elencate nella tabella seguente. I nomi vengono usati con tutte le API client ufficiali e anche nell'oggetto JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) del mapping di protocolli HTTP.
  
 I nomi equivalenti usati a livello del protocollo AMQP sono elencati tra parentesi. 
 

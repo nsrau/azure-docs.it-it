@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317110"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695700"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Scegliere uno stili delle mappe in Mappe di Azure
 
@@ -33,7 +33,7 @@ Il blocco di codice riportato sopra imposta la chiave di sottoscrizione e crea u
 
 Il blocco di codice riportato sopra imposta la chiave di sottoscrizione e crea un oggetto Mappa senza preimpostare lo stile. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il secondo blocco di codice usa il metodo [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) della mappa per impostare lo stile della mappa sul satellite.
+Il secondo blocco di codice usa il metodo [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa per impostare lo stile della mappa sul satellite.
 
 ## <a name="add-the-style-picker"></a>Aggiungere il selettore di stile
 
@@ -44,7 +44,7 @@ Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto 
 
 Il secondo blocco di codice costruisce un selettore di stile usando il costruttore [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) dell'atlante.
 
-Un selettore di stile consente di selezionare lo stile per la mappa. Il terzo blocco di codice aggiunge il selettore di stile alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa. Il selettore di stile è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
+Un selettore di stile consente di selezionare lo stile per la mappa. Il terzo blocco di codice aggiunge il selettore di stile alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa. Il selettore di stile è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

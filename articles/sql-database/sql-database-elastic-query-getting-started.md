@@ -11,15 +11,16 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604185"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561995"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
+
 È possibile creare report da più database SQL di Azure da un unico punto di connessione usando una [query elastica](sql-database-elastic-query-overview.md). Il database deve essere con partizionamento orizzontale.
 
 Se si ha un database esistente, vedere [Migrazione dei database esistenti in database con un numero maggiore di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -27,6 +28,7 @@ Se si ha un database esistente, vedere [Migrazione dei database esistenti in dat
 Per comprendere quali sono gli oggetti SQL necessari per eseguire una query, vedere [Eseguire query in database con partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio

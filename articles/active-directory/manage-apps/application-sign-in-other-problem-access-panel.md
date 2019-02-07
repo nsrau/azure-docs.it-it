@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178036"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813535"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemi di accesso a un'applicazione dal pannello di accesso
 
@@ -104,7 +104,7 @@ Per tutte le applicazioni nella raccolta di Azure AD con funzionalità Enterpris
 
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
--   [Aggiungere un'applicazione dalla raccolta di Azure AD](#add-an-application)
+-   Aggiungere un'applicazione dalla raccolta di Azure AD
 
 -   [Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 -   [Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Assegnare utenti all'applicazione](#assign-users-to-the-application)
+-   Assegnare utenti all'applicazione
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Aggiungere un'applicazione dalla raccolta di Azure AD
 
@@ -362,9 +362,9 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
--   [Aggiungere un'applicazione dalla raccolta di Azure AD](#add-an-application)
+-   Aggiungere un'applicazione dalla raccolta di Azure AD
 
--   [Configurare l'applicazione con l'accesso Single Sign-On basato su password](#configure-the-application)
+-   Configurare l'applicazione per un accesso Single Sign-On basato su password
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Aggiungere un'applicazione dalla raccolta di Azure AD
 

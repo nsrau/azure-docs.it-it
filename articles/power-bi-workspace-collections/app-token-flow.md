@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236931"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661089"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-All'interno degli SDK sono disponibili metodi che semplificano la creazione di token di app. Ad esempio, per .NET è possibile esaminare la classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) e i metodi [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_).
+All'interno degli SDK sono disponibili metodi che semplificano la creazione di token di app. Ad esempio, per .NET è possibile esaminare la classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) e i metodi [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN).
 
 Per l'SDK di .NET, è possibile fare riferimento ad [Ambiti](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -176,7 +176,7 @@ Dopo l'invio di un report all'utente dalle **raccolte di aree di lavoro di Power
 
 ## <a name="see-also"></a>Vedere anche
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Esempio introduttivo delle raccolte di aree di lavoro di Power BI](get-started-sample.md)  
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Introduzione alle raccolte di aree di lavoro di Microsoft Power BI](get-started.md)  

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102156"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734488"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -36,7 +36,7 @@ Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per
 
 Azure AD definisce due tipi di autorizzazioni:
 
-* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere concesse solo tramite il [consenso di un amministratore](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati di diversi utenti o a dati a cui altrimenti potrebbero accedere solo gli amministratori.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 

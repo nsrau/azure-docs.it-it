@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319053"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765994"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/security-microsoft-trust-center.md).  
@@ -52,7 +52,6 @@ Non è consigliabile impostare in modo esplicito l'agente perché usi solo il pr
 | Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
 | Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso |
 | Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
-| Windows Server 2008 SP2 | Il supporto per TLS 1.2 richiede un aggiornamento. | Vedere [Aggiornamento per aggiungere il supporto per TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>Separazione dei dati
 Dopo essere stati inseriti nel servizio Log Analytics, i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'area di lavoro. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio. I dati sono archiviati in un database dedicato nel cluster di archiviazione nell'area selezionata.

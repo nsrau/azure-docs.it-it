@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001657"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814861"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
@@ -44,7 +44,7 @@ L'associazione di input di App per dispositivi mobili carica un record da un end
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [Script C# (file con estensione csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
+* JavaScript
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
 

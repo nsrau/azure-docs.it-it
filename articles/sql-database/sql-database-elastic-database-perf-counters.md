@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: ce5ba5f827b790e4ca91d1aed91dfad47cedac4e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a536316437ccf54cb0646603286c54d2a42f07
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191395"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733366"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contatori delle prestazioni per Gestore mappe partizioni
 

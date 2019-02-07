@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094719"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728623"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 
@@ -51,8 +51,6 @@ Fare clic sul collegamento "Visualizza file" nella funzione di Azure (riquadro p
 ## <a name="endpoint-validation"></a>Convalida degli endpoint
 
 La prima cosa da fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che qualcuno sottoscrive un evento, Griglia di eventi invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](security-authentication.md#webhook-event-delivery). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente. Se si usa un servizio API di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), potrebbe non essere possibile ripetere a livello di programmazione il codice di convalida. Per questi servizi, è possibile convalidare manualmente la sottoscrizione usando un URL di convalida che viene inviato quando si verifica l'evento di convalida della sottoscrizione. Copiare l'URL nella proprietà `validationUrl` e inviare una richiesta GET tramite un client REST o un Web browser.
-
-La convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
 
 In C# la funzione `DeserializeEventGridEvents()` deserializza gli eventi di Griglia di eventi. Deserializza i dati dell'evento nel tipo appropriato, ad esempio StorageBlobCreatedEventData. Usare la classe `Microsoft.Azure.EventGrid.EventTypes` per ottenere i nomi e tipi di evento supportati.
 

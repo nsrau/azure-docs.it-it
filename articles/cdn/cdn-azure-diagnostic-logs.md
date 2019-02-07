@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256730"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700231"
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -290,7 +290,7 @@ Seguire questa procedura per aggiungere una soluzione di gestione di Log Analyti
 
 ### <a name="offers-and-pricing-tiers"></a>Offerte e piani tariffari
 
-Le offerte e i piani tariffari per le soluzioni di gestione sono disponibili [qui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Le offerte e i piani tariffari per le soluzioni di gestione sono disponibili [qui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### <a name="customizing-views"></a>Personalizzazione delle visualizzazioni
 
@@ -321,33 +321,33 @@ La tabella seguente mostra un elenco di metriche disponibili nei log di analisi 
 
 |Metrica                     | DESCRIZIONE | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Yes | Sì |Yes |
-| RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Yes | Sì |Yes |
-| RequestCountHttpStatus3xx | Numero di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302). | Yes | Sì |Yes |
-| RequestCountHttpStatus4xx | Numero di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404). | Yes | Sì |Yes |
-| RequestCountHttpStatus5xx | Numero di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504). | Yes | Sì |Yes |
-| RequestCountHttpStatusOthers | Numero di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx). | Yes | Sì |Yes |
-| RequestCountHttpStatus200 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 200. | Yes | No   |Yes |
-| RequestCountHttpStatus206 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 206. | Yes | No   |Yes |
-| RequestCountHttpStatus302 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 302. | Yes | No   |Yes |
-| RequestCountHttpStatus304 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 304. | Yes | No   |Yes |
-| RequestCountHttpStatus404 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 404. | Yes | No   |Yes |
-| RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Yes | Sì | No   |
-| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Mancato riscontro nella cache significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine. | Yes | Sì | No  |
-| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Yes | Sì | No  |
-| RequestCountCacheUncacheable | Numero di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere eseguita la memorizzazione nella cache in un POP o da un client HTTP. | Yes | Sì | No  |
-| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No  | Yes | No   |
-| EgressTotal | Trasferimento di dati in uscita in GB | Yes |Sì |Yes |
-| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Yes | Sì | No   |
-| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB. | Yes | Sì | No   |
-| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB. | Yes | Sì | No   |
-| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB. | Yes | Sì | No  |
-| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB. | Yes | Sì | No   |
-| EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Yes | Sì | No  |
-| EgressCacheMiss. | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine. | Yes | Sì | No  |
-| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Yes | Sì | No  |
-| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP. | Yes | Sì | No  |
-| EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No  | Yes | No  |
+| RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Sì | Sì |Sì |
+| RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Sì | Sì |Sì |
+| RequestCountHttpStatus3xx | Numero di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302). | Sì | Sì |Sì |
+| RequestCountHttpStatus4xx | Numero di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404). | Sì | Sì |Sì |
+| RequestCountHttpStatus5xx | Numero di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504). | Sì | Sì |Sì |
+| RequestCountHttpStatusOthers | Numero di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx). | Sì | Sì |Sì |
+| RequestCountHttpStatus200 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 200. | Sì | No   |Sì |
+| RequestCountHttpStatus206 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 206. | Sì | No   |Sì |
+| RequestCountHttpStatus302 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 302. | Sì | No   |Sì |
+| RequestCountHttpStatus304 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 304. | Sì | No   |Sì |
+| RequestCountHttpStatus404 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 404. | Sì | No   |Sì |
+| RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Sì | Sì | No   |
+| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Mancato riscontro nella cache significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine. | Sì | Sì | No  |
+| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
+| RequestCountCacheUncacheable | Numero di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere eseguita la memorizzazione nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
+| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No  | Sì | No   |
+| EgressTotal | Trasferimento di dati in uscita in GB | Sì |Sì |Sì |
+| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB. | Sì | Sì | No  |
+| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB. | Sì | Sì | No   |
+| EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Sì | Sì | No  |
+| EgressCacheMiss. | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine. | Sì | Sì | No  |
+| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
+| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
+| EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No  | Sì | No  |
 
 *Il trasferimento di dati in uscita si riferisce al traffico recapitato da server POP della rete CDN al client.
 

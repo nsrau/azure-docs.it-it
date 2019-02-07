@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158818"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660919"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ Questo articolo illustra come configurare un cluster HDInsight con ESP usando Az
 ## <a name="enable-azure-ad-ds"></a>Abilitare Azure AD DS
 
 > [!NOTE]  
-> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, disabilitare l'autenticazione a più fattori (MFA) solo per gli utenti che dovranno accedere al cluster usando le autenticazioni Kerberos di base. È possibile usare gli [IP attendibili](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o l'[accesso condizionale](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) per disabilitare l'autenticazione a più fattori per utenti specifici SOLO quando accedono all'intervallo di indirizzi IP della rete virtuale del cluster HDInsight. Se si usa l'accesso condizionale, assicurarsi che l'endpoint di servizio AD sia abilitato nella rete virtuale di HDInsight.
+> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, disabilitare l'autenticazione a più fattori (MFA) solo per gli utenti che dovranno accedere al cluster usando le autenticazioni Kerberos di base. È possibile usare gli [IP attendibili](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) per disabilitare l'autenticazione a più fattori per utenti specifici SOLO quando accedono all'intervallo di indirizzi IP della rete virtuale del cluster HDInsight. Se si usa l'accesso condizionale, assicurarsi che l'endpoint di servizio AD sia abilitato nella rete virtuale di HDInsight.
 >
 >Se l'archiviazione del cluster viene eseguita in Archiviazione BLOB di Azure (WASB), non disabilitare MFA.
 
@@ -87,7 +87,7 @@ Dopo aver eseguito il peering delle reti virtuali, configurare la rete virtuale 
 
 ![Configurazione dei server DNS personalizzati per la rete virtuale di cui è stato eseguito il peering](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Se si usano regole dei gruppi di sicurezza di rete nella subnet HDInsight, è consigliabile consentire gli [indirizzi IP necessari](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) per il traffico in entrata e in uscita. 
+Se si usano regole dei gruppi di sicurezza di rete nella subnet HDInsight, è consigliabile consentire gli [indirizzi IP necessari](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) per il traffico in entrata e in uscita. 
 
 **Per testare** se la rete è configurata correttamente, aggiungere una macchina virtuale Windows alla rete virtuale/subnet HDInsight, eseguire il ping del nome di dominio (deve essere risolto in un indirizzo IP) e quindi eseguire **ldp.exe** per accedere al dominio di Azure Active Directory Domain Services. Infine, **aggiungere la VM Windows al dominio per verificare** che tutte le chiamate RPC necessarie tra il client e il server abbiano esito positivo. È anche possibile usare **nslookup** per verificare l'accesso di rete all'account di archiviazione o a qualsiasi database esterno in uso, ad esempio un database Ranger o un metastore Hive esterno.
 Verificare che tutte le [porte necessarie](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) siano presenti nell'elenco degli elementi consentiti nelle regole del gruppo di sicurezza di rete della subnet di Azure Active Directory Domain Services, nel caso in cui Domain Services sia protetto da un gruppo di sicurezza di rete. Se l'aggiunta al dominio di questa macchina virtuale Windows ha esito positivo, passare al passaggio successivo e creare i cluster ESP.

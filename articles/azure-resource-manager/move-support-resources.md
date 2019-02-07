@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dfed8ce93a97b31380b44f0ac7057c0cff60901e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464707"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497282"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
 Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Anche se un tipo di risorsa supporta l'operazione di spostamento, potrebbero esservi condizioni che impediscano alla risorsa di essere spostata. Per informazioni dettagliate sulle condizioni che influiscono sulle operazioni di spostamento, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>Trovare i provider di risorse e il tipo di risorsa
 
@@ -29,7 +31,7 @@ Per determinare se una risorsa può essere spostata, è necessario trovare il pr
 Per PowerShell, usare:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 Per l'interfaccia della riga di comando di Azure usare:
@@ -51,12 +53,12 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | --------------- | ----------- |
-| service | Yes | Yes |
+| service | Sì | Sì |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -66,19 +68,19 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| automationaccounts | Yes | Yes |
-| automationaccounts/configurations | Yes | Yes |
-| automationaccounts/runbooks | Yes | Yes |
+| automationaccounts | Sì | Sì |
+| automationaccounts/configurations | Sì | Sì |
+| automationaccounts/runbooks | Sì | Sì |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| b2cdirectories | Yes | Yes |
+| b2cdirectories | Sì | Sì |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| registrations | Yes | Yes |
+| registrations | Sì | Sì |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -88,7 +90,7 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| batchaccounts | Yes | Yes |
+| batchaccounts | Sì | Sì |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -98,7 +100,7 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| biztalk | Yes | Yes |
+| biztalk | Sì | Sì |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -108,29 +110,29 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| botservices | Yes | Yes |
+| botservices | Sì | Sì |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| redis | Yes | Yes |
+| redis | Sì | Sì |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| Profili | Yes | Yes |
-| profiles/endpoints | Yes | Yes |
+| Profili | Sì | Sì |
+| profiles/endpoints | Sì | Sì |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| certificateorders | Yes | Yes |
+| certificateorders | Sì | Sì |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| domainnames | Yes | No  |
-| virtualmachines | Yes | No  |
+| domainnames | Sì | No  |
+| virtualmachines | Sì | No  |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -142,29 +144,29 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| storageaccounts | Yes | No  |
+| storageaccounts | Sì | No  |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| availabilitysets | Yes | Yes |
-| disks | Yes | Yes |
+| availabilitysets | Sì | Sì |
+| disks | Sì | Sì |
 | galleries | No  | No  |
 | galleries/images | No  | No  |
 | galleries/images/versions | No  | No  |
-| images | Yes | Yes |
+| images | Sì | Sì |
 | restorepointcollections | No  | No  |
 | sharedvmimages | No  | No  |
 | sharedvmimages/versions | No  | No  |
-| snapshots | Yes | Yes |
-| virtualmachines | Yes | Yes |
-| virtualmachines/extensions | Yes | Yes |
-| virtualmachinescalesets | Yes | Yes |
+| snapshots | Sì | Sì |
+| virtualmachines | Sì | Sì |
+| virtualmachines/extensions | Sì | Sì |
+| virtualmachinescalesets | Sì | Sì |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -179,11 +181,11 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| registries | Yes | Yes |
-| registries/buildtasks | Yes | Yes |
+| registries | Sì | Sì |
+| registries/buildtasks | Sì | Sì |
 | registries/replications | No  | No  |
-| registries/tasks | Yes | Yes |
-| registries/webhooks | Yes | Yes |
+| registries/tasks | Sì | Sì |
+| registries/webhooks | Sì | Sì |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -195,17 +197,17 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| scala Web | Yes | Yes |
+| scala Web | Sì | Sì |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| dell'account di integrazione | Yes | Yes |
+| dell'account di integrazione | Sì | Sì |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| hubs | Yes | Yes |
+| hubs | Sì | Sì |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -225,13 +227,13 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| catalogs | Yes | Yes |
+| catalogs | Sì | Sì |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| datafactories | Yes | Yes |
-| factories | Yes | Yes |
+| datafactories | Sì | Sì |
+| factories | Sì | Sì |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -241,12 +243,12 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -263,13 +265,13 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
 | servergroups | No  | No  |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -283,16 +285,16 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| iothubs | Yes | Yes |
-| provisioningservices | Yes | Yes |
+| iothubs | Sì | Sì |
+| provisioningservices | Sì | Sì |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
 | labcenters | No  | No  |
-| labs | Yes | No  |
-| labs/servicerunners | Yes | Yes |
-| labs/virtualmachines | Yes | No  |
+| labs | Sì | No  |
+| labs/servicerunners | Sì | Sì |
+| labs/virtualmachines | Sì | No  |
 | schedules | No  | No  |
 
 ## <a name="microsoftdns"></a>microsoft.dns
@@ -311,28 +313,28 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| databaseaccounts | Yes | Yes |
+| databaseaccounts | Sì | Sì |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| domains | Yes | Yes |
+| domains | Sì | Sì |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| topics | Yes | Yes |
+| topics | Sì | Sì |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| clusters | Yes | Yes |
-| spazi dei nomi | Yes | Yes |
+| clusters | Sì | Sì |
+| spazi dei nomi | Sì | Sì |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| hanainstances | Yes | Yes |
+| hanainstances | Sì | Sì |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -342,103 +344,103 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| jobs | Yes | Yes |
+| jobs | Sì | Sì |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| actiongroups | Yes | Yes |
+| actiongroups | Sì | Sì |
 | activitylogalerts | No  | No  |
-| alertrules | Yes | Yes |
-| autoscalesettings | Yes | Yes |
-| components | Yes | Yes |
+| alertrules | Sì | Sì |
+| autoscalesettings | Sì | Sì |
+| components | Sì | Sì |
 | metricalerts | No  | No  |
-| scheduledqueryrules | Yes | Yes |
-| webtests | Yes | Yes |
-| workbooks | Yes | Yes |
+| scheduledqueryrules | Sì | Sì |
+| webtests | Sì | Sì |
+| workbooks | Sì | Sì |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| iotapps | Yes | Yes |
+| iotapps | Sì | Sì |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Sì | Sì |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| labaccounts | Yes | Yes |
+| labaccounts | Sì | Sì |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| integrationaccounts | Yes | Yes |
-| flussi di lavoro | Yes | Yes |
+| integrationaccounts | Sì | Sì |
+| flussi di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| commitmentplans | Yes | Yes |
-| webservices | Yes | No  |
-| aree di lavoro | Yes | Yes |
+| commitmentplans | Sì | Sì |
+| webservices | Sì | No  |
+| aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| operationalizationclusters | Yes | Yes |
+| operationalizationclusters | Sì | Sì |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
-| accounts/workspaces | Yes | Yes |
-| accounts/workspaces/projects | Yes | Yes |
-| teamaccounts | Yes | Yes |
-| teamaccounts/workspaces | Yes | Yes |
-| teamaccounts/workspaces/projects | Yes | Yes |
+| account | Sì | Sì |
+| accounts/workspaces | Sì | Sì |
+| accounts/workspaces/projects | Sì | Sì |
+| teamaccounts | Sì | Sì |
+| teamaccounts/workspaces | Sì | Sì |
+| teamaccounts/workspaces/projects | Sì | Sì |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| aree di lavoro | Yes | Yes |
+| aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| userassignedidentities | Yes | Yes |
+| userassignedidentities | Sì | Sì |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -448,9 +450,9 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| mediaservices | Yes | Yes |
-| mediaservices/liveevents | Yes | Yes |
-| mediaservices/streamingendpoints | Yes | Yes |
+| mediaservices | Sì | Sì |
+| mediaservices/liveevents | Sì | Sì |
+| mediaservices/streamingendpoints | Sì | Sì |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -461,123 +463,123 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
 | applicationgateways | No  | No  |
-| applicationsecuritygroups | Yes | Yes |
+| applicationsecuritygroups | Sì | Sì |
 | azurefirewalls | No  | No  |
-| connections | Yes | Yes |
+| connections | Sì | Sì |
 | ddosprotectionplans | No  | No  |
-| dnszones | Yes | Yes |
+| dnszones | Sì | Sì |
 | expressroutecircuits | No  | No  |
 | expressroutecrossconnections | No  | No  |
 | expressroutegateways | No  | No  |
 | expressrouteports | No  | No  |
-| frontdoors | Yes | Yes |
-| frontdoorwebapplicationfirewallpolicies | Yes | Yes |
+| frontdoors | Sì | Sì |
+| frontdoorwebapplicationfirewallpolicies | Sì | Sì |
 | interfaceendpoints | No  | No  |
-| loadbalancers | Yes | Yes |
-| localnetworkgateways | Yes | Yes |
-| networkintentpolicies | Yes | Yes |
-| networkinterfaces | Yes | Yes |
+| loadbalancers | Sì | Sì |
+| localnetworkgateways | Sì | Sì |
+| networkintentpolicies | Sì | Sì |
+| networkinterfaces | Sì | Sì |
 | networkprofiles | No  | No  |
-| networksecuritygroups | Yes | Yes |
-| networkwatchers | Yes | Yes |
-| networkwatchers/connectionmonitors | Yes | Yes |
-| networkwatchers/lenses | Yes | Yes |
-| networkwatchers/pingmeshes | Yes | Yes |
-| publicipaddresses | Yes | Yes |
-| publicipprefixes | Yes | Yes |
+| networksecuritygroups | Sì | Sì |
+| networkwatchers | Sì | Sì |
+| networkwatchers/connectionmonitors | Sì | Sì |
+| networkwatchers/lenses | Sì | Sì |
+| networkwatchers/pingmeshes | Sì | Sì |
+| publicipaddresses | Sì | Sì |
+| publicipprefixes | Sì | Sì |
 | routefilters | No  | No  |
-| routetables | Yes | Yes |
-| serviceendpointpolicies | Yes | Yes |
-| trafficmanagerprofiles | Yes | Yes |
-| virtualhubs | Yes | Yes |
-| virtualnetworkgateways | Yes | Yes |
-| virtualnetworks | Yes | Yes |
+| routetables | Sì | Sì |
+| serviceendpointpolicies | Sì | Sì |
+| trafficmanagerprofiles | Sì | Sì |
+| virtualhubs | Sì | Sì |
+| virtualnetworkgateways | Sì | Sì |
+| virtualnetworks | Sì | Sì |
 | virtualnetworktaps | No  | No  |
-| virtualwans | Yes | Yes |
-| vpngateways | Yes | Yes |
-| vpnsites | Yes | Yes |
-| webapplicationfirewallpolicies | Yes | Yes |
+| virtualwans | Sì | Sì |
+| vpngateways | Sì | Sì |
+| vpnsites | Sì | Sì |
+| webapplicationfirewallpolicies | Sì | Sì |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| spazi dei nomi | Yes | Yes |
-| namespaces/notificationhubs | Yes | Yes |
+| spazi dei nomi | Sì | Sì |
+| namespaces/notificationhubs | Sì | Sì |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| aree di lavoro | Yes | Yes |
+| aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| managementconfigurations | Yes | Yes |
-| solutions | Yes | Yes |
-| Viste | Yes | Yes |
+| managementconfigurations | Sì | Sì |
+| solutions | Sì | Sì |
+| Viste | Sì | Sì |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| dashboards | Yes | Yes |
+| dashboards | Sì | Sì |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| workspacecollections | Yes | Yes |
+| workspacecollections | Sì | Sì |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| capacities | Yes | Yes |
+| capacities | Sì | Sì |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Sì | Sì |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| spazi dei nomi | Yes | Yes |
+| spazi dei nomi | Sì | Sì |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| scala Web | Yes | No  |
+| scala Web | Sì | No  |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| flows | Yes | Yes |
-| jobcollections | Yes | Yes |
+| flows | Sì | Sì |
+| jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| searchservices | Yes | Yes |
+| searchservices | Sì | Sì |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| spazi dei nomi | Yes | Yes |
+| spazi dei nomi | Sì | Sì |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| scala Web | Yes | Yes |
-| networks | Yes | Yes |
-| volumes | Yes | Yes |
+| scala Web | Sì | Sì |
+| networks | Sì | Sì |
+| volumes | Sì | Sì |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| signalr | Yes | Yes |
+| signalr | Sì | Sì |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -595,22 +597,22 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| managedinstances | Yes | Yes |
-| managedinstances/databases | Yes | Yes |
-| servers | Yes | Yes |
-| servers/databases | Yes | Yes |
-| servers/elasticpools | Yes | Yes |
-| virtualclusters | Yes | Yes |
+| managedinstances | Sì | Sì |
+| managedinstances/databases | Sì | Sì |
+| servers | Sì | Sì |
+| servers/databases | Sì | Sì |
+| servers/elasticpools | Sì | Sì |
+| virtualclusters | Sì | Sì |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| storageaccounts | Yes | Yes |
+| storageaccounts | Sì | Sì |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| storagesyncservices | Yes | Yes |
+| storagesyncservices | Sì | Sì |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -620,40 +622,40 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| streamingjobs | Yes | Yes |
+| streamingjobs | Sì | Sì |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| environments | Yes | Yes |
-| environments/eventsources | Yes | Yes |
-| environments/referencedatasets | Yes | Yes |
+| environments | Sì | Sì |
+| environments/eventsources | Sì | Sì |
+| environments/referencedatasets | Sì | Sì |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| account | Yes | Yes |
-| account/extension | Yes | Yes |
-| account/project | Yes | Yes |
+| account | Sì | Sì |
+| account/extension | Sì | Sì |
+| account/project | Sì | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| certificates | No  | Yes |
+| certificates | No  | Sì |
 | classicmobileservices | No  | No  |
-| connectiongateways | Yes | Yes |
-| connections | Yes | Yes |
-| customapis | Yes | Yes |
+| connectiongateways | Sì | Sì |
+| connections | Sì | Sì |
+| customapis | Sì | Sì |
 | hostingenvironments | No  | No  |
-| serverfarms | Yes | Yes |
-| siti | Yes | Yes |
-| sites/premieraddons | Yes | Yes |
-| sites/slots | Yes | Yes |
+| serverfarms | Sì | Sì |
+| siti | Sì | Sì |
+| sites/premieraddons | Sì | Sì |
+| sites/slots | Sì | Sì |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
-| deviceservices | Yes | Yes |
+| deviceservices | Sì | Sì |
 
 
 ## <a name="third-party-services"></a>Servizi di terze parti

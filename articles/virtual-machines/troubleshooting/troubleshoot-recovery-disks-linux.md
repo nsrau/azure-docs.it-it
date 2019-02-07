@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 76a29ce05aab39d9460dcf068ec8a7f60d1e8fac
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462013"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753283"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino con l'interfaccia della riga di comando di Azure
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per connettere il disco rigido virtuale a un'altra VM Linux per risolvere eventuali errori e quindi ricreare la VM originale. 
@@ -43,7 +43,7 @@ Negli esempi seguenti sostituire i nomi dei parametri con i valori desiderati. A
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare l'output seriale per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento del disco rigido virtuale sottostante.
 
-Ottenere i log di avvio con il comando [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). L'esempio seguente ottiene l'output seriale dalla macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
+Ottenere i log di avvio con il comando [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). L'esempio seguente ottiene l'output seriale dalla macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -55,7 +55,7 @@ Esaminare l'output seriale per determinare perché la macchina virtuale non è i
 ## <a name="view-existing-virtual-hard-disk-details"></a>Visualizzare i dettagli del disco rigido virtuale esistente
 Prima di collegare il disco rigido virtuale (VHD) a un'altra macchina virtuale, è necessario identificare l'URI del disco del sistema operativo. 
 
-Visualizzare le informazioni sulla macchina virtuale con il comando [az vm show](/cli/azure/vm#az_vm_show). Usare il flag `--query` per estrarre l'URI nel disco del sistema operativo. Nell'esempio seguente si ottengono le informazioni sul disco per la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`:
+Visualizzare le informazioni sulla macchina virtuale con il comando [az vm show](/cli/azure/vm). Usare il flag `--query` per estrarre l'URI nel disco del sistema operativo. Nell'esempio seguente si ottengono le informazioni sul disco per la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -81,7 +81,7 @@ Attendere il completamento dell'eliminazione della macchina virtuale prima di co
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Collegare il disco rigido virtuale esistente a un'altra macchina virtuale
 Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Il disco rigido virtuale esistente viene collegato alla macchina virtuale usata per la risoluzione dei problemi, grazie alla quale è possibile individuare e modificare il contenuto del disco. Questo processo consente, ad esempio, di correggere eventuali errori di configurazione, di esaminare applicazioni aggiuntive o file del registro di sistema. Scegliere o creare un'altra macchina virtuale da usare per la risoluzione dei problemi.
 
-Collegare il disco rigido virtuale con il comando [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_attach). Quando si collega il disco rigido virtuale esistente, specificare l'URI del disco ottenuto con il comando `az vm show` precedente. Nell'esempio seguente il disco rigido virtuale esistente viene collegato alla macchina virtuale usata per la risoluzione dei problemi denominata `myVMRecovery` nel gruppo di risorse `myResourceGroup`:
+Collegare il disco rigido virtuale con il comando [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk). Quando si collega il disco rigido virtuale esistente, specificare l'URI del disco ottenuto con il comando `az vm show` precedente. Nell'esempio seguente il disco rigido virtuale esistente viene collegato alla macchina virtuale usata per la risoluzione dei problemi denominata `myVMRecovery` nel gruppo di risorse `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -147,7 +147,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
     sudo umount /dev/sdc1
     ```
 
-2. Scollegare il disco rigido virtuale dalla macchina virtuale. Chiudere la sessione SSH nella macchina virtuale usata per la risoluzione dei problemi. Elencare i dischi dati collegati alla macchina virtuale per la risoluzione dei problemi con il comando [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_list). L'esempio seguente elenca i dischi dati collegati alla macchina virtuale denominata `myVMRecovery`nel gruppo di risorse `myResourceGroup`:
+2. Scollegare il disco rigido virtuale dalla macchina virtuale. Chiudere la sessione SSH nella macchina virtuale usata per la risoluzione dei problemi. Elencare i dischi dati collegati alla macchina virtuale per la risoluzione dei problemi con il comando [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk). L'esempio seguente elenca i dischi dati collegati alla macchina virtuale denominata `myVMRecovery`nel gruppo di risorse `myResourceGroup`:
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -156,7 +156,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
 
     Annotare il valore del disco rigido virtuale esistente. Ad esempio, il nome di un disco con URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** è **myVHD**. 
 
-    Scollegare il disco dati dalla macchina virtuale con il comando [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). Nell'esempio seguente il disco denominato `myVHD` viene scollegato dalla macchina virtuale denominata `myVMRecovery` nel gruppo di risorse `myResourceGroup`:
+    Scollegare il disco dati dalla macchina virtuale con il comando [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk). Nell'esempio seguente il disco denominato `myVHD` viene scollegato dalla macchina virtuale denominata `myVMRecovery` nel gruppo di risorse `myResourceGroup`:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -169,7 +169,7 @@ Per creare una macchina virtuale dal disco rigido virtuale originale, usare [que
 
 - https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
-Il modello distribuisce una macchina virtuale usando l'URI del disco rigido virtuale dal comando precedente. Distribuire il modello con il comando [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Specificare l'URI per il disco rigido virtuale originale e quindi specificare il tipo di sistema operativo e le dimensioni e il nome della macchina virtuale nel modo seguente:
+Il modello distribuisce una macchina virtuale usando l'URI del disco rigido virtuale dal comando precedente. Distribuire il modello con il comando [az group deployment create](/cli/azure/group/deployment). Specificare l'URI per il disco rigido virtuale originale e quindi specificare il tipo di sistema operativo e le dimensioni e il nome della macchina virtuale nel modo seguente:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -181,7 +181,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## <a name="re-enable-boot-diagnostics"></a>Riabilitare la diagnostica di avvio
-Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diagnostica di avvio potrebbe non essere abilitata automaticamente. Abilitare la diagnostica di avvio con il comando [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). L'esempio seguente abilita l'estensione di diagnostica nella macchina virtuale denominata `myDeployedVM` nel gruppo di risorse `myResourceGroup`:
+Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diagnostica di avvio potrebbe non essere abilitata automaticamente. Abilitare la diagnostica di avvio con il comando [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics). L'esempio seguente abilita l'estensione di diagnostica nella macchina virtuale denominata `myDeployedVM` nel gruppo di risorse `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM

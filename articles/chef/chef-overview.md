@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: be1e7ab953c55581645a9702fc4759cb603e7ecc
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357862"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658845"
 ---
 # <a name="using-chef-with-azure"></a>Uso di Chef con Azure
 [Chef](http://www.chef.io) è una potente piattaforma di automazione, che converte in codice l'infrastruttura delle macchine virtuali di Azure. Chef automatizza la configurazione, la distribuzione e la gestione dell'infrastruttura nella rete, indipendentemente dalle dimensioni.
@@ -21,7 +21,7 @@ ms.locfileid: "54357862"
 Questo articolo descrive i vantaggi dell'uso di Chef nella gestione dell'infrastruttura di Azure.
 
 ## <a name="chef-extension-on-azure"></a>Estensione Chef per Azure
-Effettuare il provisioning di una macchina virtuale con Chef Client in esecuzione come servizio in background con l'[estensione Chef](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) nel portale di Azure. Al termine del provisioning, queste macchine virtuali sono pronte per essere gestite da un server Chef.
+Effettuare il provisioning di una macchina virtuale con Chef Client in esecuzione come servizio in background con l'[estensione Chef](https://docs.microsoft.com/azure/chef/chef-extension-portal) nel portale di Azure. Al termine del provisioning, queste macchine virtuali sono pronte per essere gestite da un server Chef.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Usare la workstation di Chef direttamente in Azure Cloud Shell. Eseguire tutte le utilità di Chef e InSpec direttamente da Cloud Shell. È possibile usare i comandi di Chef da:

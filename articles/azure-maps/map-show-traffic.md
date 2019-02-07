@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7cd7c0dbb375dad78927183dbaffe574a0dc10c2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51513766"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753540"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come visualizzare le informazioni riguardant
 
 Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](map-create.md).
 
-Il secondo blocco di codice usa la funzione [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) all'interno della funzione del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) della mappa per eseguire il rendering dei flussi di traffico e gli eventi imprevisti sulla mappa.
+Il secondo blocco di codice usa la funzione [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) all'interno della funzione del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) della mappa per eseguire il rendering dei flussi di traffico e gli eventi imprevisti sulla mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

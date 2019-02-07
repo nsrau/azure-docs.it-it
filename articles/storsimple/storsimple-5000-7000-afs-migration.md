@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814591"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730170"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Eseguire la migrazione dei dati da StorSimple serie 5000/7000 a Sincronizzazione file di Azure
 
@@ -56,9 +56,8 @@ Di seguito sono elencati i prerequisiti per la migrazione di un dispositivo lega
 - I volumi StorSimple vengono montati nell'host e contengono condivisioni file.
 - L'host dispone di spazio di archiviazione locale sufficiente per contenere i dati memorizzati nella cache locale.
 - Livello di accesso come proprietario della sottoscrizione di Azure che si userà per distribuire Sincronizzazione file di Azure. Si potrebbero riscontrare problemi durante la creazione di un endpoint cloud per il gruppo di sincronizzazione se non si dispone di autorizzazioni a livello di amministratore o proprietario.
-- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-options) con una condivisione di File di Azure di cui si desidera eseguire la sincronizzazione. Per altre informazioni, vedere 
- - Come [Creare un account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
- - Come [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
+- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+ - Come [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo di migrazione
 

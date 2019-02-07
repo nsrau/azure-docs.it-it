@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360003"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496704"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
 
@@ -38,6 +38,8 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
 <a id="add" />
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add"></a>add
 `add(operand1, operand2)`
 
@@ -45,7 +47,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sì |int |Il primo numero da aggiungere. |
 |operand2 |Sì |int |Il secondo numero da aggiungere. |
@@ -91,9 +93,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| addResult | int | 8 |
+| addResult | Int | 8 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -104,7 +106,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
 ```
 
 <a id="copyindex" />
@@ -116,7 +118,7 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | loopName | No  | stringa | Nome del ciclo per ottenere l'iterazione. |
 | offset |No  |int |Il numero da aggiungere al valore di iterazione in base zero. |
@@ -162,7 +164,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
@@ -208,9 +210,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| divResult | int | 2 |
+| divResult | Int | 2 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -221,7 +223,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
 ```
 
 <a id="float" />
@@ -233,7 +235,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -267,7 +269,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o int |Il valore da convertire in numero intero. |
 
@@ -302,9 +304,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | Int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -315,7 +317,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
 <a id="max" />
@@ -327,7 +329,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -365,10 +367,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -379,7 +381,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a id="min" />
@@ -391,7 +393,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -429,10 +431,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -443,7 +445,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a id="mod" />
@@ -455,7 +457,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
@@ -500,9 +502,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| modResult | int | 1 |
+| modResult | Int | 1 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -513,7 +515,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
 ```
 
 <a id="mul" />
@@ -525,7 +527,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il primo numero da moltiplicare. |
 | operand2 |Sì |int |Il secondo numero da moltiplicare. |
@@ -571,9 +573,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| mulResult | int | 15 |
+| mulResult | Int | 15 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -584,7 +586,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
 ```
 
 <a id="sub" />
@@ -596,7 +598,7 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da cui sottrarre. |
 | operand2 |Sì |int |Il numero sottratto. |
@@ -641,9 +643,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | Int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -654,7 +656,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

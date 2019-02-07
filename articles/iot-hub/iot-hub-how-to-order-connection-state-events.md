@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184050"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730077"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -341,7 +341,7 @@ Anche se si mantiene l'hub IoT, può essere opportuno eliminare la sottoscrizion
 
 3. Selezionare **Elimina**. 
 
-Per rimuovere un account Azure Cosmos DB dal portale di Azure, fare clic con il pulsante destro del mouse sul nome dell'account e quindi fare clic su **Elimina account**. Vedere le istruzioni dettagliate per [eliminare un account di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+Per rimuovere un account Azure Cosmos DB dal portale di Azure, fare clic con il pulsante destro del mouse sul nome dell'account e quindi fare clic su **Elimina account**. Vedere le istruzioni dettagliate per [eliminare un account di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

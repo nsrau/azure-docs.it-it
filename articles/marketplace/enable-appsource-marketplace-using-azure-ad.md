@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351950"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732329"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
 
@@ -44,7 +44,7 @@ Le [opzioni di presentazione e i tipi di offerta](https://docs.microsoft.com/azu
 | Macchina virtuale | N/D | No  | No  | No  |
 | App di Azure (modello di soluzione)  | N/D | N/D | N/D | N/D |
 | App gestite  | N/D | N/D | N/D | No  |
-| SaaS  | No  | Yes | Yes | Yes |
+| SaaS  | No  | Sì | Sì | Sì |
 | Contenitori  | N/D | N/D | N/D | No  |
 | Servizi di consulenza  | No  | N/D | N/D | N/D |
 
@@ -59,7 +59,7 @@ Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblic
 
 La configurazione automatica dei clienti può aumentare le probabilità di conversione. Se il cliente seleziona l'inserzione relativa a una versione di valutazione e viene reindirizzato all'ambiente di prova, è possibile configurare il cliente direttamente senza bisogno di altri passaggi di accesso.
 
-Durante l'autenticazione, Azure AD invia un token all'app o all'offerta. Le informazioni utente fornite dal token consentono la creazione di un account utente nell'app o nell'offerta. Per altre informazioni, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Durante l'autenticazione, Azure AD invia un token all'app o all'offerta. Le informazioni utente fornite dal token consentono la creazione di un account utente nell'app o nell'offerta. Per altre informazioni, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Se si usa Azure AD per abilitare l'autenticazione con un solo clic nell'app o nell'inserzione relativa alla versione di valutazione, è possibile:
 

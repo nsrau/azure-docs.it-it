@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473630"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699177"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -241,7 +241,7 @@ Ogni account di archiviazione supporta fino a 100 regole di rete IP, che possono
 
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete. Per assistenza contattare l'amministratore di rete.
 
-È possibile usare [ExpressRoute](/azure/expressroute/expressroute-introduction) per connettere la propria rete alla rete di Azure. Qui ogni circuito è configurato con due indirizzi IP pubblici. È possibile trovarli in corrispondenza dell'Edge Microsoft e usano il [peering pubblico di Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) per stabilire la connessione a servizi Microsoft come Archiviazione di Azure. Per consentire la comunicazione con Archiviazione di Azure, creare regole di rete IP per gli indirizzi IP pubblici dei circuiti. Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure.
+È possibile usare [ExpressRoute](/azure/expressroute/expressroute-introduction) per connettere la propria rete alla rete di Azure. Qui ogni circuito è configurato con due indirizzi IP pubblici. È possibile trovarli in corrispondenza dell'Edge Microsoft e usano il [peering pubblico di Azure](/azure/expressroute/expressroute-circuit-peerings) per stabilire la connessione a servizi Microsoft come Archiviazione di Azure. Per consentire la comunicazione con Archiviazione di Azure, creare regole di rete IP per gli indirizzi IP pubblici dei circuiti. Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure.
 
 ### <a name="managing-ip-network-rules"></a>Gestione delle regole di rete IP
 
@@ -355,7 +355,7 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...**, ai s
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview).|
 |Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)|
-|Monitoraggio di Azure|Microsoft.Insights|Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Monitoraggio di Azure|Microsoft.Insights|Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Consente scenari di importazione ed esportazione con PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione

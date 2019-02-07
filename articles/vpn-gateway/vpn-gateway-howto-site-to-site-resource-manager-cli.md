@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412122"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730357"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando
 
@@ -101,7 +101,7 @@ az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefi
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-Usare il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) per creare la subnet gateway.
+Usare il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet) per creare la subnet gateway.
 
 ```azurecli-interactive
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
@@ -128,7 +128,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 Un gateway VPN deve avere un indirizzo IP pubblico. È necessario richiedere prima di tutto la risorsa dell'indirizzo IP e quindi farvi riferimento durante la creazione del gateway di rete virtuale. L'indirizzo IP viene assegnato dinamicamente alla risorsa durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Non è possibile richiedere un'assegnazione degli indirizzi IP pubblici statici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
-Usare il comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) per richiedere un indirizzo IP pubblico dinamico.
+Usare il comando [az network public-ip create](/cli/azure/network/public-ip) per richiedere un indirizzo IP pubblico dinamico.
 
 ```azurecli-interactive
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
@@ -144,7 +144,7 @@ Usare i valori seguenti:
 * Il valore di *--vpn-type* può essere *RouteBased*, talvolta definito gateway dinamico nella documentazione, o *PolicyBased*, talvolta definito gateway statico nella documentazione. L'impostazione è specifica dei requisiti del dispositivo a cui ci si connette. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Selezionare lo SKU del gateway da usare. Esistono limitazioni di configurazione per alcuni SKU. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create). Se si esegue questo comando usando il parametro '--no-wait', non viene visualizzato alcun output o commento. Questo parametro consente la creazione in background del gateway. La creazione di un gateway richiede circa 45 minuti.
+Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway). Se si esegue questo comando usando il parametro '--no-wait', non viene visualizzato alcun output o commento. Questo parametro consente la creazione in background del gateway. La creazione di un gateway richiede circa 45 minuti.
 
 ```azurecli-interactive
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
@@ -155,7 +155,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. In questo passaggio viene configurato il dispositivo VPN. Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
 - Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
-- Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando. Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, usare il comando [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list). Per facilitare la lettura, la formattazione dell'output visualizza l'elenco di IP pubblici in formato tabella.
+- Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando. Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, usare il comando [az network public-ip list](/cli/azure/network/public-ip). Per facilitare la lettura, la formattazione dell'output visualizza l'elenco di IP pubblici in formato tabella.
 
   ```azurecli-interactive
   az network public-ip list --resource-group TestRG1 --output table
@@ -169,10 +169,10 @@ Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VP
 
 Creare la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN locale. Prestare particolare attenzione al valore della chiave condivisa, che deve corrispondere al valore della chiave condivisa configurato per il dispositivo VPN.
 
-Creare la connessione usando il comando [az network vpn-connection create](/cli/azure/network/vpn-connection#az_network_vpn_connection_create).
+Creare la connessione usando il comando [az network vpn-connection create](/cli/azure/network/vpn-connection).
 
 ```azurecli-interactive
-az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 La connessione verrà stabilita in breve tempo.
@@ -195,7 +195,7 @@ Questa sezione contiene i comandi comuni che risultano utili quando si usano con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/).
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Per informazioni sul tunneling forzato, vedere [Informazioni sul tunneling forzato](vpn-gateway-forced-tunneling-rm.md).
 * Per informazioni sulle connessioni da rete attiva a rete attiva a disponibilità elevata, vedere [Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata](vpn-gateway-highlyavailable.md).

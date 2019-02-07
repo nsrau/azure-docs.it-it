@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247749"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751396"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -90,7 +90,7 @@ Di seguito è riportato un esempio di un evento BlobCreated:
 Per altre informazioni, vedere lo [schema di eventi di archiviazione BLOB](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtro degli eventi
-Le sottoscrizioni di eventi BLOB possono essere filtrate in base al tipo di evento e in base al nome del contenitore e al nome del BLOB dell'oggetto che è stato creato o eliminato.  È possibile applicare filtri alle sottoscrizioni di eventi durante la [creazione](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) della sottoscrizione stessa o [in un secondo momento](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). I filtri dell'oggetto in Griglia di eventi si basano sulle corrispondenze con "inizia con" e "termina con". In questo modo gli eventi con un oggetto corrispondente vengono recapitati al sottoscrittore. 
+Le sottoscrizioni di eventi BLOB possono essere filtrate in base al tipo di evento e in base al nome del contenitore e al nome del BLOB dell'oggetto che è stato creato o eliminato.  È possibile applicare filtri alle sottoscrizioni di eventi durante la [creazione](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) della sottoscrizione stessa o [in un secondo momento](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). I filtri dell'oggetto in Griglia di eventi si basano sulle corrispondenze con "inizia con" e "termina con". In questo modo gli eventi con un oggetto corrispondente vengono recapitati al sottoscrittore. 
 
 L'oggetto di eventi di archiviazione BLOB usa il formato:
 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409174"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812668"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -54,14 +54,14 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Mappe di Azure](#azure-maps-limits)
 * [Monitoraggio di Azure](#monitor-limits)
 * [Criteri di Azure](#azure-policy-limits)
-* [Cache Redis di Azure](#azure-redis-cache-limits)
+* Cache Redis di Azure
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [Servizi BizTalk](#biztalk-services-limits)
 * [RETE CDN](#cdn-limits)
 * [Servizi cloud](#cloud-services-limits)
-* [Istanze di contenitore](#container-instances-limits)
-* [Registro contenitori](#container-registry-limits)
+* [Istanze di Container](#container-instances-limits)
+* [Registro Container](#container-registry-limits)
 * [Kubernetes Service](#kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Analisi Data Lake](#data-lake-analytics-limits)

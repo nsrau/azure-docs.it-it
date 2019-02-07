@@ -51,7 +51,7 @@ Risorse per lo sviluppo:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) per Visual Studio Code. 
+* [Strumenti di Azure IoT per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 

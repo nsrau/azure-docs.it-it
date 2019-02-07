@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856588"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818074"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -39,7 +39,7 @@ Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, 
 
 ### <a name="standard"></a>Standard
 
-A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Se il partizionamento è abilitato, il bus di servizio crea 4 copie (4 partizioni) dell'entità per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB con 4 partizioni, le dimensioni massime della coda sono (5 \* 4) = 20 GB. È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
 
 ### <a name="premium"></a>Premium
 

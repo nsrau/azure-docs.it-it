@@ -3,7 +3,7 @@ title: Server di database SQL di Azure | Microsoft Docs
 description: Informazioni sui server di database SQL di Azure e sulla relativa gestione.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f3378c43c225152ebdcf2e92de6d4fc65c047c31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479129"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756649"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Server di database SQL di Azure e relativa gestione
 
@@ -78,7 +78,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 > [!IMPORTANT]
 > Per configurare le proprietà delle prestazioni di un database, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Per una guida introduttiva per il portale di Azure, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md).
+> Per una guida introduttiva per il portale di Azure, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gestire server, database e firewall SQL di Azure con PowerShell
 
@@ -102,7 +102,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShe
 | New-AzureRmSqlServerVirtualNetworkRule | Crea una [*regola della rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
 
 > [!TIP]
-> Per l'avvio rapido di PowerShell, consultare [Creare un singolo database SQL di Azure usando PowerShell](sql-database-get-started-portal.md). Per gli script di esempio di PowerShell, consultare [Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorare e ridimensionare un singolo database SQL di Azure usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Per l'avvio rapido di PowerShell, consultare [Creare un singolo database SQL di Azure usando PowerShell](sql-database-single-database-get-started.md). Per gli script di esempio di PowerShell, consultare [Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorare e ridimensionare un singolo database SQL di Azure usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gestire server, database e firewall SQL di Azure con l'interfaccia della riga di comando di Azure

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460166"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663979"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
@@ -39,7 +39,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|
 |Dimensioni massime del log (GB)|307|307|307|461|461|461|
@@ -61,7 +61,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1536|3072|3072|3072|4096|4096|
 |Dimensioni massime del log (GB)|461|922|922|922|1229|1229|
@@ -83,7 +83,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Dimensioni massime del log (GB)|307|307|307|461|461|461|461|
@@ -105,7 +105,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
@@ -140,8 +140,8 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 2)
@@ -162,8 +162,8 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 1)
@@ -172,8 +172,8 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|11|22|33|44|55|66|77|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Dimensioni massime del log (GB)|307|307|307|461|461|461|461|
@@ -184,7 +184,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -194,8 +194,8 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|88|99|110|132|176|220|440|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
@@ -206,7 +206,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -219,7 +219,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |
@@ -231,7 +231,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|2|2|2|2|2|2|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|7|7|7|7|7|7|
 |||
 
@@ -242,7 +242,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163,2|204|408|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
@@ -254,7 +254,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|2|2|2|2|2|2|2|2|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso (limite di anteprima)|7|7|7|7|7|7|7|7|
 |||
 

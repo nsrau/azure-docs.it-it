@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460720"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734505"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -73,7 +73,7 @@ Il nuovo modello tariffario non ha allocazioni di dati inclusi in base ai nodi. 
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nuovo modello tariffario e diritti della sottoscrizione di Operations Management Suite
 
-I clienti che hanno acquistato Microsoft Operations Management Suite E1 ed E2 possono usufruire dei diritti di inserimento dati per nodo per [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Per ricevere questi diritti per le aree di lavoro di Log Analytics o le risorse di Application Insights in una determinata sottoscrizione: 
+I clienti che hanno acquistato Microsoft Operations Management Suite E1 ed E2 possono usufruire dei diritti di inserimento dati per nodo per [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Per ricevere questi diritti per le aree di lavoro di Log Analytics o le risorse di Application Insights in una determinata sottoscrizione: 
 
 - Il modello tariffario della sottoscrizione deve essere antecedente ad aprile 2018.
 - Le aree di lavoro di Log Analytics devono usare il piano tariffario "Per nodo (OMS)".

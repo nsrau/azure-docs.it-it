@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471777"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744399"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
 In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare gruppi di risorse di Azure e risorse di Azure a livello di sottoscrizione. Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure e Azure PowerShell. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
-Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../azure-policy/azure-policy-introduction.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../azure-policy/azure-policy-introduction.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
@@ -99,7 +101,7 @@ Il modello seguente crea un gruppo di risorse vuoto.
 }
 ```
 
-Lo schema dei modelli è reperibile [qui](/azure/templates/microsoft.resources/allversions.md). Modelli simili sono reperibili in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+Lo schema dei modelli è reperibile [qui](/azure/templates/microsoft.resources/allversions). Modelli simili sono reperibili in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Creare più gruppi di risorse
 
