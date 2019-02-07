@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472491"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769726"
 ---
 # <a name="what-is-translator-speech-api"></a>Informazioni sull'API Traduzione vocale
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472491"
 
 L'API Traduzione vocale può essere usata per aggiungere traduzioni vocali end-to-end e in tempo reale ad applicazioni, strumenti o a qualsiasi altra soluzione in cui sia necessaria la traduzione vocale in più lingue, indipendentemente dal sistema operativo di destinazione o dal linguaggio di sviluppo. L'API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
 
-L'API Traduzione testuale è un servizio di Azure, parte della [raccolta delle API dei Servizi cognitivi di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) di algoritmi di apprendimento automatico e algoritmi AI nel cloud, facilmente utilizzabile nei progetti di sviluppo.
+L'API Traduzione testuale è un servizio di Azure, parte della [raccolta delle API dei Servizi cognitivi di Azure](https://docs.microsoft.com/azure/) di algoritmi di apprendimento automatico e algoritmi AI nel cloud, facilmente utilizzabile nei progetti di sviluppo.
 
 Con l'API Traduzione vocale le applicazioni client trasmettono audio vocale al servizio e ricevono un flusso di risultati basati su testo e audio, inclusi il testo riconosciuto nella lingua di origine e la sua traduzione nella lingua di destinazione. I risultati del testo vengono prodotti applicando il riconoscimento vocale automatico (ASR) alimentato da reti neurali profonde al flusso audio in ingresso. L'output ASR non elaborato viene migliorato ulteriormente con una nuova tecnica chiamata TrueText, per riflettere più da vicino le finalità dell'utente. Ad esempio, TrueText rimuove le disfluenze (gli hmmm e i colpi di tosse), le parole ripetute e ripristina la punteggiatura e l'uso delle maiuscole corretti. Vi è inoltre la possibilità di nascondere o escludere i contenuti volgari. Per i motori di riconoscimento e di traduzione il training viene eseguito specificamente per gestire gli argomenti delle conversazioni. 
 
@@ -66,6 +66,6 @@ Altre informazioni sul [funzionamento della traduzione automatica neurale](https
 > [Iniziare a scrivere codice](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Vedere anche 
-- [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/)
 - [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)
 - [Informazioni sui prezzi e sulla soluzione](https://www.microsoft.com/en-us/translator/home.aspx) 

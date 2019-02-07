@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599833"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563219"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
+
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configurazione dei certificati
+
 I certificati vengono configurati in due modi. 
 
 1. [Per configurare il certificato SSL](#to-configure-the-ssl-certificate)
 2. [Per configurare i certificati client](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Per ottenere i certificati
+
 È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
 
 Se tali opzioni non sono disponibili, è possibile generare **certificati autofirmati**.
 
 ## <a name="tools-to-generate-certificates"></a>Strumenti per generare i certificati
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Per eseguire gli strumenti
+
 * Da un Prompt dei comandi per gli sviluppatori per Visual Studio, vedere l'articolo relativo al [prompt dei comandi di Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Se installato, passare a:
@@ -46,9 +51,11 @@ Se tali opzioni non sono disponibili, è possibile generare **certificati autofi
 * Ottenere il WDK da [Windows 8.1: scaricare kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Per configurare il certificato SSL
+
 Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Creare un nuovo certificato autofirmato
+
 1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
 2. [Creare un file PFX per il certificato SSL autofirmato](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)

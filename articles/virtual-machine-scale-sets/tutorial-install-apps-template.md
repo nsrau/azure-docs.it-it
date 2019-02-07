@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883994"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750393"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con un modello di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
@@ -77,13 +77,13 @@ Per un esempio completo di un modello di Azure che distribuisce un set di scalab
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Verrà usato il modello di esempio per creare un set di scalabilità e applicare l'estensione Script personalizzato. Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Verrà usato il modello di esempio per creare un set di scalabilità e applicare l'estensione Script personalizzato. Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Quando richiesto, specificare il nome utente e la password usati come credenziali per ogni istanza di VM:
+Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente e la password usati come credenziali per ogni istanza di VM:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Ogni istanza di macchina virtuale nel set di scalabilità scarica ed esegue lo s
 
 
 ## <a name="test-your-scale-set"></a>Testare il set di scalabilità
-Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip#show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetPublicIP* creato come parte del set di scalabilità:
+Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetPublicIP* creato come parte del set di scalabilità:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Per aggiornare la definizione dell'estensione Script personalizzato, modificare 
 }
 ```
 
-Applicare la configurazione dell'estensione Script personalizzato alle istanze di macchina virtuale nel set di scalabilità con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Questo modello *azuredeployv2.json* viene usato per applicare la versione aggiornata dell'applicazione. In pratica, si modifica il modello *azuredeploy.json* esistente per fare riferimento allo script di installazione aggiornato, come illustrato nella sezione precedente. Quando richiesto, immettere le stesse credenziali di nome utente e password usate quando si è creato il primo set di scalabilità:
+Applicare la configurazione dell'estensione Script personalizzato alle istanze di macchina virtuale nel set di scalabilità con [az group deployment create](/cli/azure/group/deployment). Questo modello *azuredeployv2.json* viene usato per applicare la versione aggiornata dell'applicazione. In pratica, si modifica il modello *azuredeploy.json* esistente per fare riferimento allo script di installazione aggiornato, come illustrato nella sezione precedente. Quando richiesto, immettere le stesse credenziali di nome utente e password usate quando si è creato il primo set di scalabilità:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Tutte le istanze di macchina virtuale nel set di scalabilità vengono aggiornate
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

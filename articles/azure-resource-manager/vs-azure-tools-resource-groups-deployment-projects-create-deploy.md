@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081212"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493443"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
+
 Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL.  
 
 Questo articolo illustra come usare [Visual Studio 2017 con lo sviluppo di Azure e i carichi di lavoro ASP.NET installati](/dotnet/azure/dotnet-tools). Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
+
 In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web e SQL**.
 
 1. In Visual Studio scegliere **File**, **Nuovo progetto** e quindi **C#** o **Visual Basic**. Il linguaggio scelto non ha alcun impatto sulle fasi successive perché questi progetti includono solo contenuto JSON e PowerShell. Scegliere quindi **Cloud** e scegliere il progetto **Gruppo di risorse di Azure**.

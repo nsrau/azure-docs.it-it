@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
 ms.author: priyamo
-ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e266ebca40ac9a3c1d6c1a77e30fed717f4b1b51
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158197"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753454"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite la chiave di accesso
 
@@ -173,5 +173,5 @@ Name              : testblob
 In questa esercitazione si è appreso come creare un'identità gestita assegnata dal sistema per accedere ad Archiviazione di Azure usando una chiave di accesso.  Per altre informazioni sulle chiavi di accesso ad Archiviazione di Azure, vedere:
 
 > [!div class="nextstepaction"]
->[Gestire le chiavi di accesso alle risorse di archiviazione](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gestire le chiavi di accesso alle risorse di archiviazione](/azure/storage/common/storage-create-storage-account)
 

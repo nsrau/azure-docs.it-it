@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170709"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751277"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -62,7 +62,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definire un profilo di scalabilità automatica
 
-Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi poiché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di scala. Creare un profilo di scalabilità automatica con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
+Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi perché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di riduzione. Creare un profilo di scalabilità automatica con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -107,7 +107,7 @@ az monitor autoscale rule create \
 
 Per testare le regole di scalabilità automatica, generare una certa quantità di carico della CPU nelle istanze di VM del set di scalabilità. Questo carico della CPU simulato causa l'aumento del numero di istanze di VM in base alla scalabilità automatica. Quando il carico della CPU simulato viene successivamente ridotto, le regole di scalabilità automatica determinano la riduzione del numero di istanze di VM.
 
-Per prima cosa, visualizzare l'elenco con l'indirizzo e le porte per la connessione alle istanze di VM di un set di scalabilità con [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Per prima cosa, visualizzare l'elenco con l'indirizzo e le porte per la connessione alle istanze di VM di un set di scalabilità con [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -141,7 +141,7 @@ Quando **stress** visualizza un output simile a *stress: info: [2688] dispatchin
 
 Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -152,7 +152,7 @@ Ctrl-c
 exit
 ```
 
-Connettersi alla seconda istanza di VM con il numero di porta elencato dal precedente comando [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Connettersi alla seconda istanza di VM con il numero di porta elencato dal precedente comando [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -208,7 +208,7 @@ Uscire da *watch* con `Ctrl-c`. La riduzione del numero di istanze nel set di sc
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

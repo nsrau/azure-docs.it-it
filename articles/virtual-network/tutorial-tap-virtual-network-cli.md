@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 36de5ec6f7384663106bfb88ee9f236cced6930a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997948"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700843"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Usare un TAP di rete virtuale con l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ Vedere i [prerequisiti](virtual-network-tap-overview.md#prerequisites) prima di 
    - Recuperare la configurazione IP front-end del servizio di bilanciamento del carico interno di Azure in una variabile che verrà usata in un passaggio successivo. L'ID è l'endpoint che aggregherà il traffico TAP. L'esempio seguente recupera l'ID della configurazione IP front-end *frontendipconfig1* per un servizio di bilanciamento del carico denominato *myInternalLoadBalancer* in un gruppo di risorse denominato *myResourceGroup*:
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \

@@ -4,16 +4,16 @@ description: Questo articolo fornisce informazioni dettagliate su come protegger
 services: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 2/21/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492805"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

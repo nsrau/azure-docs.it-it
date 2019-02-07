@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228203"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756666"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -115,7 +115,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
         - Contatore: Byte scritti/sec"</br>
         - Questa varianza dei dati aumenterà o rimarrà a un livello elevato, a seconda del carico di lavoro della macchina virtuale o delle relative app.
         - La varianza media dei dati del disco di origine è 2 MB/s per l'archiviazione standard per Site Recovery. [Altre informazioni](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - È anche possibile [verificare gli obiettivi di scalabilità delle risorse di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
+    - È anche possibile [verificare gli obiettivi di scalabilità delle risorse di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Eseguire [Deployment Planner](hyper-v-deployment-planner-run.md).
 9. Esaminare le raccomandazioni per la [rete](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e l'[archiviazione](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

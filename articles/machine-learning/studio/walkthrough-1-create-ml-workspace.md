@@ -1,8 +1,21 @@
 ---
-title: "Passaggio 1: Creare un'area di lavoro" titleSuffix: Descrizione di Azure Machine Learning Studio: "Passaggio 1 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Informazioni su come configurare una nuova area di lavoro di Azure Machine Learning Studio".
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
+title: "Passaggio 1: Creare un'area di lavoro"
+titleSuffix: Azure Machine Learning Studio
+description: 'Passaggio 1 della procedura dettagliata sullo sviluppo di una soluzione predittiva: informazioni su come configurare una nuova area di lavoro di Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/23/2017
+ms.openlocfilehash: c018988eb36e395372b3d927732a1acbcb5c2fa9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509509"
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Azure Machine Learning Studio
 Questo è il primo passaggio della procedura dettagliata per [sviluppare una soluzione di analisi predittiva con Azure Machine Learning](walkthrough-develop-predictive-solution.md).

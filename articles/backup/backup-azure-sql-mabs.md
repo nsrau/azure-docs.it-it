@@ -2,18 +2,18 @@
 title: Backup di Azure per carichi di lavoro SQL Server tramite il server di Backup di Azure
 description: Introduzione al backup dei database SQL Server tramite il server di Backup di Azure
 services: backup
-author: pvrk
-manager: Shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606393"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490466"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure con il server di Backup di Azure
 Questo articolo descrive la procedura di configurazione per il backup dei database SQL Server mediante il server di Backup di Microsoft Azure (MABS).
@@ -66,7 +66,7 @@ Prima di iniziare, assicurarsi di avere [installato e preparato il server di Bac
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) a MABS. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, gli amministratori possono scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente tramite la rete** (ad un orario specificato).
+    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) a MABS. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, gli amministratori possono scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (a un orario specificato).
 
     Una volta completato il backup iniziale, quelli successivi saranno backup incrementali della copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 10. Scegliere quando si vuole eseguire la verifica della coerenza e fare clic su **Avanti**.

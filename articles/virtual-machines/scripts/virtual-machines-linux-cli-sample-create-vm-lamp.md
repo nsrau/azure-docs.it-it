@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731105"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato
 
@@ -53,14 +53,14 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Consente di creare un set di scalabilità di macchine virtuali |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Consente di aggiungere un endpoint con carico bilanciato |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Consente di creare l'estensione che esegue lo script personalizzato sulla distribuzione di una macchina virtuale |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Consente di eseguire lo script personalizzato nelle istanze di macchine virtuali che sono state distribuite prima che l'estensione sia stata applicata al set di scalabilità. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Consente di aumentare il set di scalabilità mediante l'aggiunta di più istanze di macchine virtuali. Lo script personalizzato viene eseguito su queste quando vengono distribuite. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Consente di creare un set di scalabilità di macchine virtuali |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Consente di aggiungere un endpoint con carico bilanciato |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Consente di creare l'estensione che esegue lo script personalizzato sulla distribuzione di una macchina virtuale |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Consente di eseguire lo script personalizzato nelle istanze di macchine virtuali che sono state distribuite prima che l'estensione sia stata applicata al set di scalabilità. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Consente di aumentare il set di scalabilità mediante l'aggiunta di più istanze di macchine virtuali. Lo script personalizzato viene eseguito su queste quando vengono distribuite. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Consente di ottenere gli indirizzi IP delle macchine virtuali create dall'esempio. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Consente di ottenere le porte di front-end e back-end usate dal bilanciamento del carico. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Consente di ottenere le porte di front-end e back-end usate dal bilanciamento del carico. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

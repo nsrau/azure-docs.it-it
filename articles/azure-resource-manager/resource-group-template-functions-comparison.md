@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359710"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492858"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
@@ -31,6 +31,8 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="equals"></a>equals
 `equals(arg1, arg2)`
 
@@ -38,7 +40,7 @@ Controlla se due valori sono uguali tra loro.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
@@ -133,12 +135,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Booleano | True  |
-| checkStrings | Booleano | True  |
-| checkArrays | Booleano | True  |
-| checkObjects | Booleano | True  |
+| checkInts | Bool | True  |
+| checkStrings | Bool | True  |
+| checkArrays | Bool | True  |
+| checkObjects | Bool | True  |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -149,7 +151,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
 ```
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa [not](resource-group-template-functions-logical.md#not) con **equals**.
@@ -171,9 +173,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkNotEquals | Booleano | True  |
+| checkNotEquals | Bool | True  |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -184,7 +186,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
 ```
 
 ## <a name="greater"></a>greater
@@ -194,7 +196,7 @@ Controlla se il primo valore è maggiore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
@@ -246,10 +248,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Booleano | False |
-| checkStrings | Booleano | True  |
+| checkInts | Bool | False |
+| checkStrings | Bool | True  |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -260,7 +262,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
 ```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -270,7 +272,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -322,10 +324,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Booleano | False |
-| checkStrings | Booleano | True  |
+| checkInts | Bool | False |
+| checkStrings | Bool | True  |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -336,7 +338,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
 ## <a name="less"></a>less
@@ -346,7 +348,7 @@ Controlla se il primo valore è minore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
@@ -398,10 +400,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Booleano | True  |
-| checkStrings | Booleano | False |
+| checkInts | Bool | True  |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -412,7 +414,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
 ```
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -422,7 +424,7 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
@@ -474,10 +476,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | type | Valore |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Booleano | True  |
-| checkStrings | Booleano | False |
+| checkInts | Bool | True  |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -488,7 +490,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

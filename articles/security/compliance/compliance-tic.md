@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017100"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751923"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
 
@@ -49,7 +49,7 @@ Esistono diversi modi per soddisfare i requisiti dell'Appendice H del TIC (Consi
 
 Per abilitare la connessione **dal dipartimento o dall'agenzia (D/A)** in Azure o Office 365 senza inoltrare il traffico tramite il programma TIC del D/A, il D/A deve usare un tunnel crittografato e/o una connessione dedicata al provider di servizi cloud (CSP). I servizi CSP possono garantire che non sia consentita la connettività agli asset cloud del D/A dalla rete Internet pubblica per l'accesso diretto del personale dell'agenzia.
 
-Office 365 rispetta le disposizioni riportate nell'allegato H del TIC 2.0 usando ExpressRoute con [Peering Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) abilitato o una connessione Internet che crittografa tutto il traffico tramite TLS 1.2. Gli utenti finali del D/A nella rete del D/A possono connettersi usando la rete dell'agenzia e l'infrastruttura TIC tramite Internet. L'accesso Internet remoto a Office 365 è bloccato e viene inoltrato attraverso l'agenzia. Il D/A può anche connettersi a Office 365 sfruttando una connessione ExpressRoute con Peering Microsoft, un tipo di peering pubblico.  
+Office 365 rispetta le disposizioni riportate nell'allegato H del TIC 2.0 usando ExpressRoute con [Peering Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) abilitato o una connessione Internet che crittografa tutto il traffico tramite TLS 1.2. Gli utenti finali del D/A nella rete del D/A possono connettersi usando la rete dell'agenzia e l'infrastruttura TIC tramite Internet. L'accesso Internet remoto a Office 365 è bloccato e viene inoltrato attraverso l'agenzia. Il D/A può anche connettersi a Office 365 sfruttando una connessione ExpressRoute con Peering Microsoft, un tipo di peering pubblico.  
 
 Solo per Azure, la seconda opzione (VPN) e la terza opzione (ExpressRoute) possono soddisfare questi requisiti quando sono usate in combinazione con i servizi che limitano l'accesso a Internet.
 
@@ -211,7 +211,7 @@ Oltre a numerose definizioni predefinite, gli amministratori possono specificare
 
 I criteri di esempio seguenti possono essere utili per gli scenari di conformità al TIC:
 
-|Criterio  |Scenario di esempio  |Modello  |
+|Policy  |Scenario di esempio  |Modello  |
 |---------|---------|---------|
 |Applicare la tabella di route definita dall'utente. | Assicurarsi che la route predefinita in tutte le reti virtuali sia indirizzata verso un gateway di rete virtuale approvato per il routing verso l'ambiente locale.    | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
 |Controllare se Network Watcher non è abilitato per un'area.  | Assicurarsi che Network Watcher sia abilitato per tutte le aree usate.  | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
@@ -249,25 +249,25 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 
 | Categoria | Carico di lavoro | IaaS | PaaS dedicato/Integrazione di rete virtuale  | Endpoint di servizio  |
 |---------|---------|---------|---------|--------|
-| Calcolo | Macchine virtuali Linux in Azure | Yes | | |
-| Calcolo | Macchine virtuali Windows in Azure | Yes | | |
-| Calcolo | set di scalabilità di macchine virtuali | Yes | | |
+| Calcolo | Macchine virtuali Linux in Azure | Sì | | |
+| Calcolo | Macchine virtuali Windows in Azure | Sì | | |
+| Calcolo | set di scalabilità di macchine virtuali | Sì | | |
 | Calcolo | Funzioni di Azure | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazione Web interna | | Ambiente del servizio app| |
 | Web e dispositivi mobili | Applicazione mobile interna | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
-| Contenitori | Servizio Azure Container | | | Yes |
-| Contenitori | Servizio Azure Kubernetes \* | | | Yes |
+| Contenitori | Servizio Azure Container | | | Sì |
+| Contenitori | Servizio Azure Kubernetes \* | | | Sì |
 | Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
-| Database | Database di Azure per MySQL | | | Yes |
-| Database | Database di Azure per PostgreSQL | | | Yes |
-| Database | Azure SQL Data Warehouse | | | Yes |
-| Database | Azure Cosmos DB | | | Yes |
-| Database | Cache Redis di Azure | | Yes | |
-| Archiviazione | Archivio BLOB di Azure | Yes | | |
-| Archiviazione | File di Azure | Yes | | |
-| Archiviazione | Archiviazione code di Azure | Yes | | |
-| Archiviazione | Archiviazione tabelle di Azure | Yes | | |
-| Archiviazione | Archiviazione su disco di Azure | Yes | | |
+| Database | Database di Azure per MySQL | | | Sì |
+| Database | Database di Azure per PostgreSQL | | | Sì |
+| Database | Azure SQL Data Warehouse | | | Sì |
+| Database | Azure Cosmos DB | | | Sì |
+| Database | Cache Redis di Azure | | Sì | |
+| Archiviazione | Archivio BLOB di Azure | Sì | | |
+| Archiviazione | File di Azure | Sì | | |
+| Archiviazione | Archiviazione code di Azure | Sì | | |
+| Archiviazione | Archiviazione tabelle di Azure | Sì | | |
+| Archiviazione | Archiviazione su disco di Azure | Sì | | |
 
 \* Anteprima pubblica in Azure per enti pubblici, a partire da maggio 2018.

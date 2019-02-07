@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150549"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751498"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -43,7 +43,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive
 az group create \
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Creare una rete virtuale con una subnet con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Creare una rete virtuale con una subnet con [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Abilitare un endpoint di servizio 
 
-È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati per gli endpoint di servizio in una località di Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo perché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
+È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati per gli endpoint di servizio in una località di Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo perché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Creare le regole di sicurezza con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). La regola che segue consente l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure: 
+Creare le regole di sicurezza con [az network nsg rule create](/cli/azure/network/nsg/rule). La regola che segue consente l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Dopo aver creato l'account di archiviazione, recuperare la stringa di connessione per l'account di archiviazione in una variabile con [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). La stringa di connessione viene usata per creare una condivisione file in un passaggio successivo.
+Dopo aver creato l'account di archiviazione, recuperare la stringa di connessione per l'account di archiviazione in una variabile con [az storage account show-connection-string](/cli/azure/storage/account). La stringa di connessione viene usata per creare una condivisione file in un passaggio successivo.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Per testare l'accesso di rete a un account di archiviazione, distribuire una VM 
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
-Creare una macchina virtuale nella subnet *Public* con [az vm create](/cli/azure/vm#az_vm_create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
+Creare una macchina virtuale nella subnet *Public* con [az vm create](/cli/azure/vm). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -322,7 +322,7 @@ L'accesso viene rifiutato e viene visualizzato un errore `mount error(13): Permi
 
 Uscire dalla sessione SSH alla macchina virtuale *myVmPublic*.
 
-Dal computer provare a visualizzare le condivisioni nell'account di archiviazione con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Sostituire `<account-name>` e `<account-key>` con il nome e la chiave dell'account di archiviazione usati in [Creare un account di archiviazione](#create-a-storage-account):
+Dal computer provare a visualizzare le condivisioni nell'account di archiviazione con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Sostituire `<account-name>` e `<account-key>` con il nome e la chiave dell'account di archiviazione usati in [Creare un account di archiviazione](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 61c1afbe6252d1feefc9bc648457ef21a57d23d5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887955"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733995"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -64,7 +64,7 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
 2. Aprire un prompt dei comandi o la shell Git Bash. Eseguire il comando seguente per clonare il repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c):
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     Le dimensioni di questo repository sono attualmente di circa 220 MB.
@@ -73,7 +73,6 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -89,14 +88,14 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
 In Windows eseguire i comandi seguenti nel Prompt dei comandi per gli sviluppatori per Visual Studio 2015 o 2017:
 
 ```
-    # In Windows
-    # For VS2015
+    rem In Windows
+    rem For VS2015
     cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465164"
+ms.locfileid: "55509021"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -24,15 +24,15 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 | Versione di Windows        | Versione di SMB | Montabile in una VM di Azure | Montabile in locale |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 7              | SMB 2.1     | Yes                   | No                    |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                    |
+| Windows Server 2019    | SMB 3.0 | Sì | Sì |
+| Windows 10<sup>1</sup> | SMB 3.0 | Sì | Sì |
+| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Sì | Sì |
+| Windows Server 2016    | SMB 3.0     | Sì                   | Sì                  |
+| Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
+| Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
+| Windows Server 2012    | SMB 3.0     | Sì                   | Sì                  |
+| Windows 7              | SMB 2.1     | Sì                   | No                    |
+| Windows Server 2008 R2 | SMB 2.1     | Sì                   | No                    |
 
 <sup>1</sup>Windows 10 versioni 1507, 1607, 1703, 1709, 1803 e 1809.  
 <sup>2</sup>Windows Server versioni 1709 e 1803.
@@ -45,7 +45,7 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resoure-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ A differenza di altre condivisioni SMB con cui si potrebbe aver interagito, come
 Un modello comune per il trasferimento in modalità lift-and-shift in Azure di applicazioni line-of-business che prevedono una condivisione file SMB consiste nell'usare una condivisione file di Azure come alternativa per eseguire un file server Windows dedicato in una VM di Azure. Una considerazione importante per eseguire correttamente la migrazione di un'applicazione line-of-business in modo da usare una condivisione file di Azure è che molte applicazioni line-of-business vengono eseguite nel contesto di un account di servizio dedicato con autorizzazioni di sistema limitate anziché con l'account amministrativo della VM. Di conseguenza, è necessario assicurarsi di eseguire il montaggio/salvare le credenziali per la condivisione file di Azure dal contesto dell'account di servizio anziché dall'account amministrativo.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Salvataggio permanente delle credenziali della condivisione file di Azure in Windows  
-L'utilità [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) consente di archiviare le credenziali dell'account di archiviazione in Windows. In questo modo, quando si prova ad accedere a una condivisione file di Azure tramite il relativo percorso UNC o a montare la condivisione file di Azure, non è necessario specificare le credenziali. Per salvare le credenziali dell'account di archiviazione, eseguire i comandi di PowerShell seguenti sostituendo `<your-storage-account-name>` e `<your-resoure-group-name>` quando opportuno.
+L'utilità [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) consente di archiviare le credenziali dell'account di archiviazione in Windows. In questo modo, quando si prova ad accedere a una condivisione file di Azure tramite il relativo percorso UNC o a montare la condivisione file di Azure, non è necessario specificare le credenziali. Per salvare le credenziali dell'account di archiviazione, eseguire i comandi di PowerShell seguenti sostituendo `<your-storage-account-name>` e `<your-resource-group-name>` quando opportuno.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

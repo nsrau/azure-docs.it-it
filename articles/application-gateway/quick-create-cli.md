@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157718"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754745"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
 
 Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare rapidamente un gateway applicazione con due macchine virtuali nel relativo pool back-end. Il gateway verrà quindi testato per assicurarsi che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end.
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Quando si crea una rete virtuale, il gateway applicazione può comunicare con altre risorse. È possibile creare una rete virtuale durante la creazione del gateway applicazione. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per le macchine virtuali. La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
 
-Per creare la rete virtuale e la subnet usare il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Eseguire [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) per creare l'indirizzo IP pubblico.
+Per creare la rete virtuale e la subnet usare il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Eseguire [az network public-ip create](/cli/azure/network/public-ip) per creare l'indirizzo IP pubblico.
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-Creare un gateway applicazione con il comando [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Quando si crea un gateway applicazione con l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Azure aggiunge quindi gli indirizzi IP privati delle interfacce di rete come server nel pool back-end del gateway applicazione.
+Creare un gateway applicazione con il comando [az network application-gateway create](/cli/azure/network/application-gateway). Quando si crea un gateway applicazione con l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Azure aggiunge quindi gli indirizzi IP privati delle interfacce di rete come server nel pool back-end del gateway applicazione.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

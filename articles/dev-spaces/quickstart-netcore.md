@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 4c1715dcd431e49c869a16448220cd5fa7d31c15
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e176da3b9f015d3f1e9c8759ff45007ddbe4bdc8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474514"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656500"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e VS Code)
 
@@ -147,4 +147,4 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami diversi del codice in spazi diversi. 
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](team-development-netcore.md)
+> [Uso di più contenitori e sviluppo in team](multi-service-netcore.md)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464256"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756174"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -57,7 +57,7 @@ Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli sp
 
 Invece di assegnare ruoli ai singoli utenti, è spesso più facile usare un gruppo di Azure Active Directory con utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per questo articolo, usare un gruppo esistente per la gestione della macchina virtuale oppure usare il portale per [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare al nuovo gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.
+Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [az role assignment create](/cli/azure/role/assignment) per assegnare al nuovo gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Accoun
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-I [Criteri di Azure](../../azure-policy/azure-policy-introduction.md) consentono di verificare che tutte le risorse nella sottoscrizione soddisfino gli standard aziendali. La sottoscrizione include già alcune definizioni dei criteri. Per visualizzare le definizioni dei criteri disponibili, usare il comando [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list):
+I [Criteri di Azure](../../azure-policy/azure-policy-introduction.md) consentono di verificare che tutte le risorse nella sottoscrizione soddisfino gli standard aziendali. La sottoscrizione include già alcune definizioni dei criteri. Per visualizzare le definizioni dei criteri disponibili, usare il comando [az policy definition list](/cli/azure/policy/definition):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ Vengono visualizzate le definizioni dei criteri esistenti. Il tipo di criterio �
 * Limitare gli SKU per le macchine virtuali.
 * Controllare le macchine virtuali che non usano dischi gestiti.
 
-L'esempio seguente recupera tre definizioni di criteri in base al nome visualizzato. Viene usato il comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) per assegnare queste definizioni al gruppo di risorse. Per alcuni criteri occorre fornire i valori dei parametri per specificare i valori consentiti.
+L'esempio seguente recupera tre definizioni di criteri in base al nome visualizzato. Viene usato il comando [az policy assignment create](/cli/azure/policy/assignment) per assegnare queste definizioni al gruppo di risorse. Per alcuni criteri occorre fornire i valori dei parametri per specificare i valori consentiti.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ I [blocchi delle risorse](../../azure-resource-manager/resource-group-lock-resou
 
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
 
-Per bloccare la macchina virtuale e il gruppo di sicurezza di rete, usare il comando [az lock create](/cli/azure/lock#az_lock_create):
+Per bloccare la macchina virtuale e il gruppo di sicurezza di rete, usare il comando [az lock create](/cli/azure/lock):
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-È possibile eliminare il gruppo di sicurezza di rete bloccato solo dopo la rimozione del blocco. Per rimuovere il blocco, recuperare gli ID dei blocchi e fornirli al comando [az lock delete](/cli/azure/lock#az_lock_delete):
+È possibile eliminare il gruppo di sicurezza di rete bloccato solo dopo la rimozione del blocco. Per rimuovere il blocco, recuperare gli ID dei blocchi e fornirli al comando [az lock delete](/cli/azure/lock):
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Chiudere la sessione SSH per la macchina virtuale, quindi eliminare le risorse come segue:
+Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Chiudere la sessione SSH per la macchina virtuale, quindi eliminare le risorse come segue:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

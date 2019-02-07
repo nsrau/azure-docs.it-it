@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: f5ec31cf0f88b9bfdff2e4fa877d56a2689054ae
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 233b77de4a034b5e87aeea2152a3fb6a71aeb8e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097946"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755384"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -83,5 +83,5 @@ Di seguito sono illustrate le esperienze di consenso che un utente può visualiz
     1. Gli utenti non amministratore visualizzeranno la stessa schermata illustrata in precedenza al punto 2.ii.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
+- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.

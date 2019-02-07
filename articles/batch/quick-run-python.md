@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462080"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754422"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 
@@ -153,7 +153,7 @@ Per creare un pool di Batch, l'app usa la classe [PoolAddParameter](/python/api/
 
 Il numero di nodi (`_POOL_NODE_COUNT`) e le dimensioni delle VM (`_POOL_VM_SIZE`) sono costanti definite. L'esempio crea per impostazione predefinita un pool con 2 nodi di dimensioni *Standard_A1_v2*. Le dimensioni consigliate offrono un buon compromesso in termini di costi/prestazioni per questo esempio rapido.
 
-Il metodo [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) invia il pool al servizio Batch.
+Il metodo [pool.add](/python/api/azure.batch.operations.pooloperations) invia il pool al servizio Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 Questa app crea un elenco di oggetti attività usando la classe [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Ogni attività elabora un oggetto `resource_files` di input usando un parametro `command_line`. Nell'esempio, la riga di comando esegue il comando `cat` della shell Bash per visualizzare il file di testo. Questo comando è un esempio semplice fornito a scopo dimostrativo. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
 
-L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), che le accoda per l'esecuzione nei nodi di calcolo. 
+L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo. 
 
 ```python
 tasks = list()

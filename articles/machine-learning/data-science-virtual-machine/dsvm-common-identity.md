@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452856"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754601"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurare un'identità comune in Data Science Virtual Machine
 
@@ -31,7 +31,7 @@ Active Directory è un provider di identità molto diffuso ed è supportato in A
 
 Se è già disponibile Active Directory per gestire le identità, è possibile usarlo come provider di identità comune. Se Active Directory non è disponibile, è possibile eseguire un'istanza gestita di Active Directory in Azure tramite un servizio denominato [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). 
 
-La documentazione relativa ad [Azure AD](https://docs.microsoft.com/azure/active-directory/) fornisce [istruzioni di gestione](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity) dettagliate per l'istanza gestita di Active Directory, inclusa la connessione dell'istanza di Azure AD alla directory locale, se presente. 
+La documentazione relativa ad [Azure AD](https://docs.microsoft.com/azure/active-directory/) fornisce [istruzioni di gestione](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution) dettagliate per l'istanza gestita di Active Directory, inclusa la connessione dell'istanza di Azure AD alla directory locale, se presente. 
 
 Questo articolo illustra la procedura di configurazione di un servizio di dominio di Active Directory completamente gestito in Azure tramite Azure Active Directory Domain Services. È quindi possibile aggiungere le DSVM al dominio di Active Directory gestito per consentire agli utenti di accedere a un pool di DSVM (e altre risorse di Azure) usando un account utente e credenziali comuni. 
 

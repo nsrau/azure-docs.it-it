@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/05/2018
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 307ddaad6ce2b3f48707bbbda0278baed33e2c58
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3962fb93331cf9a74d9b5aca4622d6ff968f478b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203267"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566120"
 ---
 # <a name="how-to-get-analytics-for-bing-videos-search-api"></a>Come ottenere l'analisi per l'API Ricerca video Bing
 

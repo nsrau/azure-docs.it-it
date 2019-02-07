@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136890"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493560"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
+
 Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. L'ambito di questi limiti è l'ID dell'entità di sicurezza che effettua le richieste e l'ID sottoscrizione o l'ID tenant. Se le richieste provengono da più di un ID dell'entità di sicurezza, il limite per la sottoscrizione o il tenant è superiore a 12.000 e 1.200 richieste per ora.
 
 Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste relative alla sottoscrizione sono quelle che comportano il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
@@ -30,6 +31,8 @@ Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presen
 Se l'applicazione o script raggiunge questi limiti, è necessario restringere le richieste. In questo articolo viene illustrato come determinare il numero di richieste rimanenti prima di raggiungere il limite e come rispondere in caso di raggiungimento.
 
 Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Richieste rimanenti
 È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Ogni richiesta include i valori per il numero di richieste di scrittura e lettura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
@@ -66,7 +69,7 @@ Per un esempio completo di PowerShell, vedere [Check Resource Manager Limits for
 Per visualizzare le richieste rimanenti per il debug, è possibile specificare il parametro **-Debug** nel cmdlet **PowerShell**.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Tale parametro restituisce molti valori, incluso il valore di risposta seguente:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Per ottenere i limiti di scrittura, usare un'operazione di scrittura: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Tale opzione restituisce numerosi valori, inclusi i seguenti:

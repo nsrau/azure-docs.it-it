@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180399"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766062"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)
 
@@ -28,7 +28,7 @@ La configurazione delle informazioni di sicurezza richiede l'accesso all'account
 
 A seconda delle impostazioni dell'organizzazione, può venire chiesto di configurare l'app Microsoft Authenticator al momento dell'accesso. In caso contrario, per iniziare a configurare l'app Microsoft Authenticator nelle informazioni di sicurezza, seguire i passaggi in [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
 
-Per scaricare l'app Microsoft Authenticator e ottenere altre informazioni, vedere [Introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Per scaricare l'app Microsoft Authenticator e ottenere altre informazioni, vedere [Introduzione all'app Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Se non si vuole usare l'app Microsoft Authenticator, è possibile scegliere un'app diversa durante la configurazione. In questo articolo viene usata l'app Microsoft Authenticator. Se l'opzione relativa all'app di autenticazione non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di un'app di autenticazione per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.

@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196651"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567129"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
+
 Le tabelle temporali sono una nuova funzionalità di programmabilità del database SQL di Azure che consente di monitorare e analizzare la cronologia completa delle modifiche ai dati, senza dover scrivere codice personalizzato. Le tabelle temporali mantengono i dati strettamente correlati al contesto temporale, in modo che i fatti archiviati possano essere interpretati come validi solo entro il periodo specifico. Questa proprietà delle tabelle temporali consente di eseguire un'analisi efficace basata sul tempo e di ottenere informazioni accurate dall'evoluzione dei dati.
 
 ## <a name="temporal-scenario"></a>Scenario temporale
+
 Questo articolo illustra la procedura per l'utilizzo delle tabelle temporali in uno scenario di applicazione. Si supponga di voler tenere traccia delle attività dell'utente in un nuovo sito Web sviluppato da zero o in un sito Web esistente che si vuole estendere con l'analisi delle attività dell'utente. In questo esempio semplificato si presuppone che il numero di pagine Web visitate in un arco di tempo sia un indicatore da acquisire e monitorare nel database del sito Web, ospitato in un database SQL di Azure. L'obiettivo dell'analisi cronologica delle attività dell'utente è ottenere informazioni per riprogettare il sito Web e offrire un'esperienza migliore ai visitatori.
 
 Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Inoltre, per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ognuna di esse rappresenta il numero di pagine visitate da un determinato utente in un arco di tempo specifico.

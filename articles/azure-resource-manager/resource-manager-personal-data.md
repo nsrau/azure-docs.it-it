@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01e2b1608d55d7852db947181482d34d6d8010d2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495208"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gestire i dati personali associati a Azure Resource Manager
 
 Per evitare di esporre informazioni riservate, eliminare eventuali informazioni personali fornite in distribuzioni, gruppi di risorse o tag. In Azure Resource Manager è possibile eseguire operazioni che consentono di gestire i dati personali eventualmente forniti in distribuzioni, gruppi di risorse o tag.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="delete-personal-data-in-deployment-history"></a>Eliminare i dati personali nella cronologia di distribuzione
 

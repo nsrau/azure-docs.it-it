@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 0dd32ae2b8f0fb91ca8d6391d5c3f3979d13b90f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bcdd999a4954766398800e6e6a0ddb8c9727a99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085264"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749160"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Ottenere i dettagli di un'istanza di Cache Redis di Azure
 
@@ -38,11 +38,11 @@ Questo script usa i comandi seguenti per recuperare i dettagli di un'istanza di 
 
 | Comando | Note |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Recupera i dettagli di un'istanza di Cache Redis di Azure. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Recupera i dettagli di un'istanza di Cache Redis di Azure. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando della Cache Redis di Azure sono disponibili nella [documentazione della Cache Redis di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Cache Redis di Azure sono disponibili nella [documentazione di Cache Redis di Azure](../cli-samples.md).

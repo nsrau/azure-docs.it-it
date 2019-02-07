@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a0774c69c074698383e9c6f7f7cf9331e8939f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508811"
 ---
-# <a name="claimsproviders"></a>ClaimsProviders 
+# <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -35,7 +35,6 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
@@ -56,7 +55,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
 | DisplayName | 0:1 | Stringa contenente il nome del provider di attestazioni visualizzabile agli utenti. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Set di profili tecnici supportato dal provider di attestazioni. |
 
-**ClaimsProvider** organizza i profili tecnici correlati al provider di attestazioni. L'esempio seguente illustra il provider di attestazioni Azure Active Directory con i profili tecnici di Azure Active Directory: 
+**ClaimsProvider** organizza i profili tecnici correlati al provider di attestazioni. L'esempio seguente illustra il provider di attestazioni Azure Active Directory con i profili tecnici di Azure Active Directory:
 
 ```XML
 <ClaimsProvider>
@@ -82,7 +81,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -109,4 +108,3 @@ L'esempio seguente illustra il provider di attestazioni Facebook con il profilo 
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190786"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820318"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -49,8 +49,6 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 
 È possibile usare filtri avanzati nel report di controllo per accedere a una categoria specifica di dati di controllo, impostando la modalità di filtro desiderata nel filtro **Activity category** (Categoria attività). Ad esempio, per visualizzare tutte le attività relative alla reimpostazione password self-service, selezionare la categoria **Self-service Password Management** (Gestione delle password self-service). 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Le categorie delle attività includono:
 
 - Directory principale
@@ -62,8 +60,6 @@ Le categorie delle attività includono:
 ## <a name="sign-ins-report"></a>Report sugli accessi 
 
 Nella vista **Accessi** sono inclusi tutti gli accessi utente, nonché il report **Utilizzo delle applicazioni**. È anche possibile visualizzare le informazioni sull'uso delle applicazioni nella sezione **Gestisci** della pagina di panoramica **Applicazioni aziendali**.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Per accedere al report degli accessi:
 

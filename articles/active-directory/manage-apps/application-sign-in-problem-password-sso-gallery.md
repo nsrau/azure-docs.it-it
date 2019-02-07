@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184972"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822528"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
 
@@ -88,7 +88,7 @@ Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla conf
 
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
--   [Aggiungere un'applicazione dalla raccolta di Azure AD](#_Add_an_application)
+-   Aggiungere un'applicazione dalla raccolta di Azure AD
 
 -   [Configurare l'applicazione per un accesso Single Sign-On basato su password](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 8.  Selezionare la modalità **Accesso basato su password**.
 
-9.  [Assegnare gli utenti all'applicazione](#_How_to_assign).
+9.  Assegnare gli utenti all'applicazione.
 
 10. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 

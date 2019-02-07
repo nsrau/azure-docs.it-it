@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017685"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814201"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identità del servizio di Azure Data Factory
 
@@ -44,7 +44,7 @@ Se seguendo le istruzioni riportate in [Recuperare l'identità del servizio](#re
 
 - [Generare l'identità del servizio tramite PowerShell](#generate-service-identity-using-powershell)
 - [Generare l'identità del servizio tramite API REST](#generate-service-identity-using-rest-api)
-- [Generare l'identità del servizio usando un modello di Azure Resource Manager](#generate-service-identity-using-azure-resource-manager-template)
+- Generare l'identità del servizio usando un modello di Azure Resource Manager
 - [Generare l'identità del servizio tramite SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Vedere gli argomenti seguenti che presentano quando e come usare l'identità del
 - [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiare dati da e verso Azure Data Lake Store usando identità gestite per l'autenticazione di risorse di Azure](connector-azure-data-lake-store.md)
 
-Per altre informazioni sulle identità gestite per le risorse di Azure, su cui si basa l'identità del servizio di data factory, vedere [Panoramica delle identità gestite per le risorse di Azure](~/articles/active-directory/msi-overview.md). 
+Per altre informazioni sulle identità gestite per le risorse di Azure, su cui si basa l'identità del servizio di data factory, vedere [Panoramica delle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview). 

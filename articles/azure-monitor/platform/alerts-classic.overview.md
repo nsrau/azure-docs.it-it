@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994352"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661718"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
 > [!NOTE]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [nuovi avvisi delle metriche near real time e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Per gli avvisi classici è stato [pianificato il ritiro](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [nuovi avvisi delle metriche near real time e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Per gli avvisi classici è stato [pianificato il ritiro](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Gli avvisi consentono di configurare le condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.

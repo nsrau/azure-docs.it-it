@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900885"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751617"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
@@ -154,7 +154,7 @@ Il primo passaggio consiste nel creare un contenitore, in quanto i BLOB devono s
 
    ![Menu di scelta rapida Crea contenitore BLOB](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Sotto la cartella **BLOB Containers** (Contenitori BLOB) viene visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [Creare il contenitore e impostare le autorizzazioni](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
+4. Sotto la cartella **BLOB Containers** (Contenitori BLOB) viene visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [Creare il contenitore e impostare le autorizzazioni](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo la creazione, il contenitore BLOB viene visualizzato all'interno della cartella **BLOB Containers** (Contenitori BLOB) per l'account di archiviazione selezionato.
 
    ![Contenitore BLOB creato](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
@@ -196,7 +196,7 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

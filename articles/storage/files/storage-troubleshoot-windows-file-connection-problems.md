@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477693"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564443"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -61,7 +61,7 @@ L'errore di sistema 53 o 67 può verificarsi se la comunicazione in uscita dalla
 
 È possibile verificare se la porta 445 è bloccata dal firewall o dai vincoli dell'ISP con lo strumento [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) o il cmdlet `Test-NetConnection`. 
 
-Per usare il cmdlet `Test-NetConnection` è necessario che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resoure-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+Per usare il cmdlet `Test-NetConnection` è necessario che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -265,11 +265,11 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
 
 ### <a name="cause"></a>Causa
 
-L'errore AadDsTenantNotFound avviene quando si tenta [abilitare l'autenticazione di Azure Active Directory (AAD) per i file di Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [dominio di servizio (AAD DS) ](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) non viene creata in un tenant di Azure appartenente alla sottoscrizione associata.  
+L'errore AadDsTenantNotFound avviene quando si tenta [abilitare l'autenticazione di Azure Active Directory (AAD) per i file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [dominio di servizio (AAD DS) ](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creata in un tenant di Azure appartenente alla sottoscrizione associata.  
 
 ### <a name="solution"></a>Soluzione
 
-Abilitare AAD DS nel tenant della sottoscrizione in cui è stato distribuito l'account di archiviazione. Sono necessari privilegi di amministratore del tenant di AAD per creare un dominio gestito. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Abilitare AAD DS nel tenant della sottoscrizione in cui è stato distribuito l'account di archiviazione. Sono necessari privilegi di amministratore del tenant di AAD per creare un dominio gestito. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

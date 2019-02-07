@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 637bae0a3f6bba712662e894b75c8bd663e91b4a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 7514f33662359ee9181e9efe6954ccec5c7b6f8f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446632"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561111"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
 
@@ -61,9 +61,9 @@ Per inviare notifiche multipiattaforma usando i modelli, seguire questa procedur
             var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
             registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
             break;
-        case "gcm":
+        case "fcm":
             var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
-            registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+            registration = new FcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -114,6 +114,6 @@ Dopo avere completato questa esercitazione, è possibile reperire altre informaz
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Invio di notifiche agli utenti con Hub di notifica]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[invio di notifiche agli utenti con Hub di notifica]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx

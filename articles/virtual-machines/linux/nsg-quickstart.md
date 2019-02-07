@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f6aee3c42c7c01d226732245b47dfb87e07a5ce4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a12952c73863d10c4fffd013ab594a83ab1b6433
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464460"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729457"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una VM Linux con l'interfaccia della riga di comando di Azure
 
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM con l'interfaccia della riga di comando di Azure. 
 
 
-Per creare un gruppo di sicurezza di rete e le regole è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure usando [az login](/cli/azure/reference-index#az_login).
+Per creare un gruppo di sicurezza di rete e le regole è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure usando [az login](/cli/azure/reference-index).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Aprire rapidamente una porta per una macchina virtuale
-Se è necessario aprire rapidamente una porta per una macchina virtuale in uno scenario di sviluppo/test, è possibile usare il comando [az vm open-port](/cli/azure/vm#az_vm_open_port). Questo comando crea un gruppo di sicurezza di rete, aggiunge una regola e la applica a una macchina virtuale o una subnet. L'esempio seguente apre la porta *80* sulla macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*.
+Se è necessario aprire rapidamente una porta per una macchina virtuale in uno scenario di sviluppo/test, è possibile usare il comando [az vm open-port](/cli/azure/vm). Questo comando crea un gruppo di sicurezza di rete, aggiunge una regola e la applica a una macchina virtuale o una subnet. L'esempio seguente apre la porta *80* sulla macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -51,7 +51,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Aggiungere una regola con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) per consentire il traffico HTTP al server Web (o in base allo scenario specifico, come l'accesso SSH o la connettività al database). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico TCP sulla porta 80:
+Aggiungere una regola con [az network nsg rule create](/cli/azure/network/nsg/rule) per consentire il traffico HTTP al server Web (o in base allo scenario specifico, come l'accesso SSH o la connettività al database). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico TCP sulla porta 80:
 
 ```azurecli
 az network nsg rule create \
@@ -65,7 +65,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Applicare un gruppo di sicurezza di rete alla macchina virtuale
-Associare il gruppo di sicurezza di rete all'interfaccia di rete della VM (NIC) utilizzando [az network nic update](/cli/azure/network/nic#az_network_nic_update). L'esempio seguente associa una scheda di interfaccia di rete esistente denominata *myNic* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Associare il gruppo di sicurezza di rete all'interfaccia di rete della VM (NIC) utilizzando [az network nic update](/cli/azure/network/nic). L'esempio seguente associa una scheda di interfaccia di rete esistente denominata *myNic* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -74,7 +74,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-In alternativa, è possibile associare il gruppo di sicurezza di rete a una subnet di rete virtuale utilizzando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) anziché solo all'interfaccia di rete di una singola VM. L'esempio seguente associa una subnet esistente denominata *mySubnet* nella rete virtuale *myVnet* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+In alternativa, è possibile associare il gruppo di sicurezza di rete a una subnet di rete virtuale utilizzando [az network vnet subnet update](/cli/azure/network/vnet/subnet) anziché solo all'interfaccia di rete di una singola VM. L'esempio seguente associa una subnet esistente denominata *mySubnet* nella rete virtuale *myVnet* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

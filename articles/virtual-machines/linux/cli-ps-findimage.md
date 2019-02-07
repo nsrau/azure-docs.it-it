@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169689"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734140"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 
@@ -35,7 +35,7 @@ Assicurarsi di avere installato la versione più recente dell'[interfaccia della
 
 ## <a name="list-popular-images"></a>Elencare immagini popolari
 
-Eseguire il comando [az vm image list](/cli/azure/vm/image#az_vm_image_list), senza l'opzione `--all`, per visualizzare un elenco di immagini di VM popolari in Azure Marketplace. Ad esempio, eseguire il comando seguente per visualizzare un elenco memorizzato nella cache di immagini popolari in formato tabella:
+Eseguire il comando [az vm image list](/cli/azure/vm/image), senza l'opzione `--all`, per visualizzare un elenco di immagini di VM popolari in Azure Marketplace. Ad esempio, eseguire il comando seguente per visualizzare un elenco memorizzato nella cache di immagini popolari in formato tabella:
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Esplorare le immagini
  
-Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequenza dei comandi [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) . Con questi comandi si determinano questi valori:
+Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequenza dei comandi [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image) . Con questi comandi si determinano questi valori:
 
 1. Elencando gli editori di immagini.
 2. Elencando le offerte di un determinato editore.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-A questo punto è possibile scegliere con precisione l'immagine da usare prendendo nota del valore URN. Passare questo valore con il parametro `--image` quando si crea una macchina virtuale con il [az vm create](/cli/azure/vm#az_vm_create). Facoltativamente, è possibile sostituire il numero di versione nell'URN con "latest", che rappresenta sempre la versione più recente dell'immagine. 
+A questo punto è possibile scegliere con precisione l'immagine da usare prendendo nota del valore URN. Passare questo valore con il parametro `--image` quando si crea una macchina virtuale con il [az vm create](/cli/azure/vm). Facoltativamente, è possibile sostituire il numero di versione nell'URN con "latest", che rappresenta sempre la versione più recente dell'immagine. 
 
 Se si distribuisce una macchina virtuale con un modello di Resource Manager, impostare singolarmente i parametri dell'immagine nelle proprietà `imageReference`. Vedere le [informazioni di riferimento sul modello](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -337,7 +337,7 @@ Output:
 
 ### <a name="accept-the-terms"></a>Accettare le condizioni
 
-Per visualizzare e accettare le condizioni di licenza, usare il comando [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms). Quando si accettano le condizioni, si abilita la distribuzione a livello di codice nella sottoscrizione. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Ad esempio: 
+Per visualizzare e accettare le condizioni di licenza, usare il comando [az vm image accept-terms](/cli/azure/vm/image?). Quando si accettano le condizioni, si abilita la distribuzione a livello di codice nella sottoscrizione. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Ad esempio: 
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

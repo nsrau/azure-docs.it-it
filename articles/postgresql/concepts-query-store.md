@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546913"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660730"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -83,7 +83,7 @@ Quando è abilitato, Query Store salva i dati in intervalli di aggregazione di 1
 Per la configurazione dei parametri di Query Store sono disponibili le opzioni seguenti.
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | top | none, top, all |
+| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | Nessuno | none, top, all |
 | pg_qs.max_query_text_length | Imposta la lunghezza massima di query che è possibile salvare. Le query più lunghe verranno troncate. | 6000 | 100-10000 |
 | pg_qs.retention_period_in_days | Imposta il periodo di conservazione. | 7 | 1-30 |
 | pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |

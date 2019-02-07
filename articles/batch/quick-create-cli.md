@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470961"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752348"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
@@ -139,7 +139,7 @@ L'output del comando include molti dettagli, ma annotare il valore di `exitCode`
 
 ## <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
-Per elencare i file creati da un'attività in un nodo di calcolo, usare il comando [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). Il comando seguente elenca i file creati da *mytask1*: 
+Per elencare i file creati da un'attività in un nodo di calcolo, usare il comando [az batch task file list](/cli/azure/batch/task). Il comando seguente elenca i file creati da *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Per scaricare uno dei file di output in una directory locale, usare il comando [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download). In questo esempio l'output dell'attività è in `stdout.txt`. 
+Per scaricare uno dei file di output in una directory locale, usare il comando [az batch task file download](/cli/azure/batch/task). In questo esempio l'output dell'attività è in `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \

@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603437"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560873"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
 
@@ -92,6 +92,6 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 * Per altre informazioni sull'ottimizzazione automatica di indici del database e di piani di esecuzione di query, vedere [Ottimizzazione automatica nel database SQL di Azure](sql-database-automatic-tuning.md).
 * Per altre informazioni sul monitoraggio automatico delle prestazioni del database con diagnostica automatizzata e analisi della causa radice dei problemi di prestazioni, vedere [Intelligent Insights in Azure SQL](sql-database-intelligent-insights.md).
 *  Per altre informazioni su come usare le raccomandazioni per le prestazioni nel portale di Azure, vedere [Raccomandazioni per le prestazioni nel portale di Azure](sql-database-advisor-portal.md).
-* Per informazioni su come esaminare l'impatto sulle prestazioni delle query principali, vedere [Informazioni dettagliate prestazioni query del database SQL di Azure](sql-database-query-performance.md).
+* Per imparare a esaminare l'impatto sulle prestazioni delle query principali, vedere [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md).
 
 
