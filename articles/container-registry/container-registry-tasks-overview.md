@@ -1,18 +1,18 @@
 ---
-title: Automatizzare l'applicazione di patch al sistema operativo e al framework con Attività del Registro contenitori di Azure (ACR Tasks)
-description: Introduzione ad ACR Tasks, un gruppo di funzionalità in Registro contenitori di Azure che consente di eseguire la compilazione di immagini dei contenitori e l'applicazione di patch nel cloud in modo automatico e sicuro.
+title: Automatizzare l'applicazione di patch al sistema operativo e al framework con Attività di Registro Azure Container (ACR Tasks)
+description: Introduzione ad ACR Tasks, un gruppo di funzionalità in Registro Azure Container che consente di eseguire la compilazione di immagini dei contenitori e l'applicazione di patch nel cloud in modo automatico e sicuro.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329974"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660715"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)
 
@@ -20,7 +20,7 @@ I contenitori offrono nuovi livelli di virtualizzazione, isolando le dipendenze 
 
 ## <a name="what-is-acr-tasks"></a>Informazioni su ACR Tasks
 
-**ACR Tasks** è una suite di funzionalità nel Registro contenitori di Azure. Fornisce funzionalità per la creazione di immagini di contenitore basate su cloud per Linux, Windows e ARM e ed è in grado di automatizzare l'[applicazione di patch a sistemi operativi e framework](#automate-os-and-framework-patching) per i contenitori Docker. ACR Tasks non solo estende il ciclo di sviluppo "a ciclo interno" al cloud con la creazione di immagini contenitore on demand, ma permette anche la compilazione automatica su commit del codice sorgente o quando viene aggiornata l'immagine base del contenitore. Con i trigger correlati all'aggiornamento dell'immagine di base, è possibile automatizzare il flusso di lavoro dell'applicazione di patch al sistema operativo e al framework applicazioni mantenendo gli ambienti sicuri e rispettando le entità di sicurezza di contenitori non modificabili.
+**ACR Tasks** è una suite di funzionalità in Registro Azure Container. Fornisce funzionalità per la creazione di immagini di contenitore basate su cloud per Linux, Windows e ARM e ed è in grado di automatizzare l'[applicazione di patch a sistemi operativi e framework](#automate-os-and-framework-patching) per i contenitori Docker. ACR Tasks non solo estende il ciclo di sviluppo "a ciclo interno" al cloud con la creazione di immagini contenitore on demand, ma permette anche la compilazione automatica su commit del codice sorgente o quando viene aggiornata l'immagine base del contenitore. Con i trigger correlati all'aggiornamento dell'immagine di base, è possibile automatizzare il flusso di lavoro dell'applicazione di patch al sistema operativo e al framework applicazioni mantenendo gli ambienti sicuri e rispettando le entità di sicurezza di contenitori non modificabili.
 
 Compilare e testare le immagini del contenitore con ACR Tasks in quattro modi:
 
@@ -74,7 +74,7 @@ Individuando dinamicamente le dipendenze dell'immagine di base durante la compil
 Per informazioni sull'applicazione di patch al sistema operativo e al framework, vedere la terza esercitazione su ACR Tasks, [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Gli aggiornamenti delle immagini di base attivano compilazioni solo quando sia l'immagine di base che quella dell'applicazione risiedono nello stesso registro contenitori di Azure, o la base risiede in un repository dell'hub Docker accessibile pubblicamente.
+> Gli aggiornamenti delle immagini di base attivano compilazioni solo quando sia l'immagine di base che quella dell'applicazione risiedono nello stesso Registro Azure Container, o la base risiede in un repository dell'hub Docker accessibile pubblicamente.
 
 ## <a name="multi-step-tasks-preview"></a>Attività in più passaggi (anteprima)
 
@@ -114,9 +114,9 @@ Quando si è pronti ad automatizzare l'applicazione di patch al sistema operativ
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
-[az-login-service-principal]: /cli/azure/authenticate-azure-cli#log-in-with-a-service-principal
+[az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png

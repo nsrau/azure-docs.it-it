@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 53fcaab5d98dd63579390105f3b62c053208e894
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020303"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512354"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | storageAccountId |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica |
 | serviceBusRuleId |string | ID regola del bus di servizio dello spazio dei nomi del bus di servizio in cui creare gli hub eventi per il flusso dei log di diagnostica. Il formato dell'ID della regola è: "{ID risorsa bus di servizio}/authorizationrules/{nome chiave}".|
@@ -112,9 +112,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | logs| Tipo complesso| Nome di una categoria di log di diagnostica per un tipo di risorsa. Per ottenere l'elenco di una categoria di log di diagnostica per una risorsa, eseguire prima un'operazione GET sulle impostazioni di diagnostica. |
 | category| string| Matrice di categorie di log e relativi criteri di conservazione |
 | timeGrain | string | Granularità delle metriche acquisite nel formato di durata ISO 8601. Deve essere PT1M (un minuto)|
-| Enabled| boolean | Specifica se la raccolta di tale metrica o categoria di log è abilitata per questa risorsa|
+| Enabled| Boolean | Specifica se la raccolta di tale metrica o categoria di log è abilitata per questa risorsa|
 | retentionPolicy| Tipo complesso| Descrive i criteri di conservazione per una metrica o categoria di log. Usata solo per l'opzione dell'account di archiviazione.|
-| days| int| Numero di giorni di conservazione delle metriche o dei log. Se il valore è 0, i log vengono conservati all'infinito. Usata solo per l'opzione dell'account di archiviazione. |
+| days| Int| Numero di giorni di conservazione delle metriche o dei log. Se il valore è 0, i log vengono conservati all'infinito. Usata solo per l'opzione dell'account di archiviazione. |
 
 **Risposta**
 
@@ -251,7 +251,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:"
+   "properties":
        {
           "Input": "{
               "source": {
@@ -273,14 +273,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | type | DESCRIZIONE | Esempio |
+| Proprietà | Type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è sempre valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| string| ID dell'esecuzione attività | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "ActivityRuns" | `ActivityRuns` |
 |level| string | Livello dei log di diagnostica. Impostare questa proprietà su "Informational" | `Informational` |
 |operationName| string |Nome dell'attività con lo stato. Se lo stato è l'heartbeat di inizio, è impostato su `MyActivity -`. Se lo stato è l'heartbeat di fine, è impostato su `MyActivity - Succeeded` con lo stato finale | `MyActivity - Succeeded` |
@@ -320,13 +320,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | type | DESCRIZIONE | Esempio |
+| Proprietà | Type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |
 |level| string | Livello dei log di diagnostica. Impostare questa proprietà su "Informational" | `Informational` |
 |operationName| string |Nome della pipeline con lo stato. "Pipeline - Succeeded" con lo stato finale indicante quando l'esecuzione pipeline viene completata| `MyPipeline - Succeeded` |
@@ -365,13 +365,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Proprietà | type | DESCRIZIONE | Esempio |
+| Proprietà | Type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Impostare sul livello 4 per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| string| ID dell'esecuzione del trigger | `08587023010602533858661257311` |
-|ResourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |
 |level| string | Livello dei log di diagnostica. Impostare questa proprietà su "Informational" | `Informational` |
 |operationName| string |Nome del trigger con lo stato finale indicante se è stato attivato correttamente. "MyTrigger - Succeeded" se l'heartbeat è riuscito| `MyTrigger - Succeeded` |

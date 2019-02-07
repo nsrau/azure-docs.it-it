@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453431"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657060"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Avvio rapido: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (Java e VS Code)
 
@@ -27,7 +27,7 @@ In questa guida si apprenderà come:
 - Eseguire il debug del codice nello spazio di sviluppo da VS Code.
 
 > [!Note]
-> **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-netcore.md) più dettagliata.
+> **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-java.md) più dettagliata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -137,4 +137,4 @@ Aggiornare l'app Web nel browser. Nell'interfaccia utente verrà visualizzato il
 Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami diversi del codice in spazi diversi.
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](team-development-java.md)
+> [Uso di più contenitori e sviluppo in team](multi-service-java.md)

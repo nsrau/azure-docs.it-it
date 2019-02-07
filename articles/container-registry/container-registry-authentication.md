@@ -9,20 +9,18 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301051"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661633"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
 Esistono diversi modi per eseguire l'autenticazione con un registro contenitori di Azure, ognuno dei quali è applicabile a uno o più scenari di utilizzo del registro.
 
 È possibile accedere a un registro direttamente tramite l'[accesso individuale](#individual-login-with-azure-ad). In alternativa, le applicazioni e gli agenti di orchestrazione dei contenitori possono eseguire l'autenticazione automatica o "headless", usando un'[entità servizio](#service-principal) di Azure Active Directory (Azure AD).
-
-Registro Azure Container non supporta le operazioni di Docker non autenticate o l'accesso anonimo. Per le immagini pubbliche, è possibile usare l'[Hub Docker](https://docs.docker.com/docker-hub/).
 
 ## <a name="individual-login-with-azure-ad"></a>Accesso individuale con Azure AD
 
@@ -69,7 +67,7 @@ docker login myregistry.azurecr.io
 Dopo aver effettuato l'accesso, Docker memorizza nella cache le credenziali, così da non doversi ricordare l'ID app.
 
 > [!TIP]
-> È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
+> È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest).
 >
 
 ## <a name="admin-account"></a>Account amministratore

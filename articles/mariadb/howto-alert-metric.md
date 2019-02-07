@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244240"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661701"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -27,7 +27,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
 * [Portale di Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Creare una regola di avviso per una metrica
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare il server di Database di Azure per MariaDB da monitorare.

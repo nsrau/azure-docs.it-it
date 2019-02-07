@@ -7,15 +7,15 @@ manager: carmonm
 keywords: backup e ripristino; servizi di ripristino; soluzioni di backup
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631162"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487881"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -116,11 +116,11 @@ Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supp
 ### <a name="storage"></a>Archiviazione
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Insieme di credenziali dei servizi di ripristino |![Yes][green] |![Sì][green] |![Sì][green] |![Yes][green] |
-| Archiviazione su disco | |![Yes][green] |![Yes][green] | |
-| Archiviazione su nastro | |![Yes][green] | | |
-| Compressione <br/>(nell'insieme di credenziali di Servizi di ripristino) |![Yes][green] |![Sì][green] |![Yes][green] | |
-| Backup incrementale |![Yes][green] |![Sì][green] |![Sì][green] |![Yes][green] |
+| Insieme di credenziali dei servizi di ripristino |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
+| Archiviazione su disco | |![Sì][green] |![Sì][green] | |
+| Archiviazione su nastro | |![Sì][green] | | |
+| Compressione <br/>(nell'insieme di credenziali di Servizi di ripristino) |![Sì][green] |![Sì][green] |![Sì][green] | |
+| Backup incrementale |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
 | Deduplicazione dei dischi | |![Parzialmente][yellow] |![Parzialmente][yellow] | | |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -154,11 +154,11 @@ Il **backup differenziale** archivia solo i blocchi modificati dopo il primo bac
 
 Il **backup incrementale** raggiunge un'elevata efficienza di archiviazione e di rete, archiviando solamente i blocchi di dati modificati in seguito al backup precedente. Con i backup incrementali, non è necessario eseguire backup completi regolari. Nell'esempio, dopo aver eseguito il backup completo per il primo mese, i blocchi A2, A3, A4 e A9 vengono contrassegnati come tali e trasferiti al secondo mese. Nel terzo mese, viene contrassegnato e trasferito solo il blocco A5 modificato. Spostare meno dati comporta risparmi in termini di risorse di archiviazione e di rete, per un minor costo totale di proprietà.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Sicurezza di rete<br/> (in Azure) |![Yes][green] |![Sì][green] |![Sì][green] |![Yes][green] |
-| Sicurezza dei dati<br/> (in Azure) |![Yes][green] |![Sì][green] |![Sì][green] |![Yes][green] |
+| Sicurezza di rete<br/> (in Azure) |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
+| Sicurezza dei dati<br/> (in Azure) |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ Per il backup delle VM di Azure, è necessario configurare la crittografia *nell
 ### <a name="network"></a>Rete
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Compressione di rete <br/>(nel **server di backup**) | |![Yes][green] |![Yes][green] | |
-| Compressione di rete <br/>(nell'**insieme di credenziali di Servizi di ripristino**) |![Yes][green] |![Sì][green] |![Yes][green] | |
+| Compressione di rete <br/>(nel **server di backup**) | |![Sì][green] |![Sì][green] | |
+| Compressione di rete <br/>(nell'**insieme di credenziali di Servizi di ripristino**) |![Sì][green] |![Sì][green] |![Sì][green] | |
 | Protocollo di rete <br/>(nel **server di backup**) | |TCP |TCP | |
 | Protocollo di rete <br/>(nell'**insieme di credenziali di Servizi di ripristino**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

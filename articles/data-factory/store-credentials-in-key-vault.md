@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016649"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661242"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Archiviare le credenziali in Azure Key Vault
 
@@ -27,9 +27,6 @@ Attualmente questa funzionalità è supportata da tutti i tipi di attività tran
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa funzionalità si basa sull'identità del servizio Data Factory. È necessario apprenderne il funzionamento tramite l'[identità del servizio Data Factory](data-factory-service-identity.md) e verificare che la data factory in uso abbia un'identità associata.
-
->[!TIP]
->Quando si crea un segreto in Azure Key Vault, **inserire il valore intero di una proprietà del segreto richiesta dal servizio collegato di Azure Data Factory (ad esempio stringa di connessione/password/chiave entità servizio/ecc)**. Ad esempio, per il servizio collegato di Archiviazione di Azure, inserire `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` come segreto AKV e quindi farvi riferimento nel campo "connectionString" da ADF. Per il servizio collegato di Dynamics, inserire `myPassword` come segreto AKV e quindi farvi riferimento nel campo "password" da ADF. Per informazioni dettagliate sulle proprietà supportate, vedere gli articoli per ogni connettore o risorsa di calcolo.
 
 ## <a name="steps"></a>Passaggi
 
@@ -44,10 +41,10 @@ Per fare riferimento a una credenziale archiviata in Azure Key Vault, è necessa
 
 Per il servizio collegato di Azure Key Vault sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Yes |
-| baseUrl | Specificare l'URL di Azure Key Vault. | Yes |
+| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Sì |
+| baseUrl | Specificare l'URL di Azure Key Vault. | Sì |
 
 **Nell'interfaccia utente:**
 
@@ -77,12 +74,12 @@ Selezionare l'insieme di credenziali delle chiavi di Azure di cui è stato effet
 
 Quando si configura un campo nel servizio collegato che fa riferimento a un segreto dell'insieme di credenziali delle chiavi, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Yes |
-| secretName | Il nome del segreto in Azure Key Vault. | Yes |
+| type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Sì |
+| secretName | Il nome del segreto in Azure Key Vault. | Sì |
 | secretVersion | La versione del segreto in Azure Key Vault.<br/>Se non specificata, usare sempre la versione più recente del segreto.<br/>Se specificata, corrisponde alla versione specificata.| No  |
-| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Yes |
+| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Sì |
 
 **Nell'interfaccia utente:**
 

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f367049cda76eea2dfb3040f714a7050a26520e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996053"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495905"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -65,7 +65,7 @@ Seguire la procedura dal portale di Azure per limitare i dettagli degli errori d
 
 Dal portale di Azure sono sufficienti pochi passaggi per identificare scenari risolvibili specifici:  
 1.  Controllare la colonna **Diagnose status** (Stato diagnosi). Lo stato indica se esiste un modo per correggere un errore di sincronizzazione direttamente da Azure Active Directory. In altre parole, esiste un flusso di risoluzione dei problemi che può identificare il caso di errore e potenzialmente risolverlo.
-| Status | Da cosa dipende il problema? |
+| Stato | Da cosa dipende il problema? |
 | ------------------ | -----------------|
 | Non avviata | Questo processo di diagnosi non è stato avviato. A seconda del risultato della diagnosi; esiste potenzialmente un modo per correggere l'errore di sincronizzazione direttamente dal portale. |
 | Correzione manuale necessaria | L'errore non rientra nei criteri delle correzioni disponibili dal portale. È possibile che i tipi di oggetto in conflitto non siano utenti oppure la procedura diagnostica è stata eseguita e nessuna risoluzione è disponibile dal portale. Nel secondo caso, una correzione dal lato locale è ancora una delle soluzioni. [Altre informazioni sulle correzioni in locale](https://support.microsoft.com/help/2647098). | 

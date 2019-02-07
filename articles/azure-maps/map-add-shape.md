@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214607"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658743"
 ---
 # <a name="add-a-shape-to-a-map"></a>Aggiungere una forma a una mappa
 
@@ -108,7 +108,7 @@ Il primo blocco di codice in alto costruisce un oggetto Map. Per le istruzioni �
 
 Un punto è una [Funzionalità](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) della classe [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) (Punto). Il secondo blocco di codice inizializza il valore del raggio per l'elemento del dispositivo di scorrimento HTML e quindi costruisce ed esegue il wrapping di un oggetto punto in un oggetto classe [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) (Forma).
 
-Il terzo blocco di codice crea una funzione che prende il valore dall'elemento del dispositivo di scorrimento dell'intervallo HTML e modifica il valore del raggio usando il metodo [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) della classe shape.
+Il terzo blocco di codice crea una funzione che prende il valore dall'elemento del dispositivo di scorrimento dell'intervallo HTML e modifica il valore del raggio usando il metodo [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) della classe shape.
 
 Nel quarto blocco di codice viene creato un oggetto origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Il punto viene quindi aggiunto all'origine dati.
 

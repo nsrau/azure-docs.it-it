@@ -4,17 +4,17 @@ description: Questo articolo illustra la creazione a livello di codice e la gest
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101788"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510827"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
@@ -96,8 +96,9 @@ Il primo passo per una migliore visibilità delle risorse consiste nel creare e 
    Sostituire _ContosoRG_ con il nome del gruppo di risorse previsto.
 
    Il parametro **Scope** in `New-AzPolicyAssignment` funziona anche con le sottoscrizioni e i gruppi di gestione. Il parametro usa un percorso di risorsa completo, restituito dalla proprietà **ResourceId** in `Get-AzResourceGroup`. Il modello per **Scope** per ogni contenitore è il seguente.
-   Sostituire `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione.
+   Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione. `{rType}` può essere sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
 
+   - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Gruppo di risorse - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Sottoscrizione - `/subscriptions/{subId}/`
    - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`

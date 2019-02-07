@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 2523db3d817b4281b6435374ef0cca4e1d2da695
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005858"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660698"
 ---
 # <a name="available-event-hubs-apis"></a>API di Hub eventi disponibili
 
@@ -43,7 +43,7 @@ Per altre informazioni sullo stato attuale di ogni libreria di runtime, vedere [
 
 #### <a name="net"></a>.NET
 
-L'ecosistema .NET include molteplici runtime. Per Hub eventi sono pertanto disponibili più librerie .NET. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per altre informazioni sulle versioni di .NET Framework, vedere le [versioni del framework](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+L'ecosistema .NET include molteplici runtime. Per Hub eventi sono pertanto disponibili più librerie .NET. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per altre informazioni sulle versioni di .NET Framework, vedere le [versioni del framework](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### <a name="node"></a>Nodo
 

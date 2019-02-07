@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863534"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567010"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 
@@ -260,9 +260,9 @@ Criteri di esecuzione che attualmente consentono la definizione di:
 
 * Nome: Identificatore del criterio di esecuzione.
 * Timeout del processo: Tempo totale prima che un processo venga annullato dai processi del database elastico.
-* Intervallo iniziale tra tentativi: Intervallo di attesa che precede il primo tentativo.
-* Intervallo massimo tra tentativi: Limite massimo degli intervalli tra tentativi da usare.
-* Coefficiente di backoff dell'intervallo tra tentativi: Coefficiente usato per calcolare l’intervallo successivo tra i tentativi.  Viene usata la formula seguente: (Intervallo iniziale tra tentativi) * Math.pow((Coefficiente di backoff intervallo), (Numero di tentativi) - 2).
+* Intervallo iniziale tra tentativi: intervallo di attesa che precede il primo tentativo.
+* Intervallo massimo tra tentativi: limite massimo degli intervalli tra tentativi da usare.
+* Coefficiente di backoff dell'intervallo tra tentativi: coefficiente usato per calcolare l'intervallo successivo tra i tentativi.  Viene usata la formula seguente: (Intervallo iniziale tra tentativi) * Math.pow((Coefficiente di backoff intervallo), (Numero di tentativi) - 2).
 * Numero massimo di tentativi: Numero massimo di tentativi da eseguire all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:

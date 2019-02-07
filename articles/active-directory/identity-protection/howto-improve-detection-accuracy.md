@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 2ba6e3b8b844d72b762e9a66629f16b36193a69f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d2b477c31898884761f260e9520913c67c7c6f83
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478390"
+ms.locfileid: "55488918"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Procedura: Migliorare la precisione del rilevamento 
 
@@ -121,7 +121,7 @@ Se sono già state adottate azioni di correzione per un utente a rischio, o se s
 
 - Il completamento di questa azione può richiedere alcuni minuti, motivo per cui non si consiglia di inviare nuovamente la richiesta.
 
-- È possibile eseguire questa azione solo se AD gestisce le credenziali dell'utente. (Che cosa significa?)
+- È possibile eseguire questa azione solo se AD gestisce le credenziali dell'utente. 
 
 
 
