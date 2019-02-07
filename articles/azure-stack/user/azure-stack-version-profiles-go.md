@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745402"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766942"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usare i profili delle versioni API con Go in Azure Stack
 
@@ -86,7 +86,7 @@ Per eseguire un esempio di codice di Go in Azure Stack, seguire questa procedura
 
 3. Se non è disponibile, creare una sottoscrizione e salvare l'ID sottoscrizione da usare in un secondo momento. Per informazioni sulla creazione di una sottoscrizione, vedere [creare le sottoscrizioni di offerte in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Creare un'entità con un servizio **abbonamento** ambito e **proprietario** ruolo. Salvare l'ID dell'entità servizio e il segreto. Per informazioni sulla creazione di un'entità servizio per Azure Stack, vedere [creare un'entità servizio](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). L'ambiente Azure Stack è ora impostata.
+4. Creare un'entità con un servizio **abbonamento** ambito e **proprietario** ruolo. Salvare l'ID dell'entità servizio e il segreto. Per informazioni sulla creazione di un'entità servizio per Azure Stack, vedere [creare un'entità servizio](azure-stack-create-service-principals.md). L'ambiente Azure Stack è ora impostata.
 
 5. Importare un modulo del servizio dal profilo Go SDK nel codice. La versione corrente del profilo Azure Stack **2017-03-09**. Ad esempio, per importare il modulo di rete dal **2017-03-09** tipo di profilo, usare il codice seguente:
 

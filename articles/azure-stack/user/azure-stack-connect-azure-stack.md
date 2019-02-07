@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243767"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816408"
 ---
 # <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
 
 Per gestire le risorse, è necessario connettersi a Azure Stack Development Kit. Questo articolo descrive in dettaglio i passaggi necessari per connettersi al kit di sviluppo. È possibile usare una delle opzioni di connessione seguente:
 
-* [Desktop remoto](#connect-with-remote-desktop): consente un singolo utente simultaneo di connettersi rapidamente nel Kit di sviluppo.
-* [La rete privata virtuale (VPN)](#connect-with-vpn): consente di connettersi più utenti simultanei da client esterni all'infrastruttura di Azure Stack (richiede la configurazione).
+* Desktop remoto: consente a un singolo utente simultaneo di connettersi rapidamente nel Kit di sviluppo.
+* Rete privata virtuale (VPN): consente a più utenti simultanei di connettersi da client esterni all'infrastruttura di Azure Stack (richiede la configurazione).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Connettersi ad Azure Stack con Desktop remoto
 Con una connessione Desktop remoto, un singolo utente simultaneo possibile collaborare con il portale per gestire le risorse.

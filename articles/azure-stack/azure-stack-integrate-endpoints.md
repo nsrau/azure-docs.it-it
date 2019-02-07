@@ -6,17 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.lastreviewed: 12/06/2018
-keywords: ''
-ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241203"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816357"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -69,19 +68,24 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 > [!Note]  
 > Azure Stack non supporta l'uso di Expressroute per raggiungere i servizi di Azure elencati nella tabella seguente.
 
-|Scopo|URL|Protocollo|Porte|
-|---------|---------|---------|---------|
-|Identità|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
-|Diffusione di Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|Aggiorna & patch|https://&#42;.azureedge.net|HTTPS|443|
-|Registrazione|https://management.azure.com|HTTPS|443|
-|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|(Server IP di NTP fornito per deployment)|UDP|123|
-|DNS|(Server DNS dell'indirizzo IP fornito per deployment)|TCP<br>UDP|53|
-|CRL|(URL sotto i punti di distribuzione CRL nel certificato)|HTTP|80|
-|Backup dell'infrastruttura|(Indirizzo IP o nome di dominio completo del file server di destinazione esterno)|SMB|445|
-|     |     |     |     |
+|Scopo|URL di destinazione|Protocollo|Porte|Rete di origine|
+|---------|---------|---------|---------|---------|
+|Identità|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
+|Diffusione di Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 pubblici|
+|Aggiorna & patch|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 pubblici|
+|Registrazione|https://management.azure.com|HTTPS|443|VIP - /27 pubblici|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 pubblici|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
+|NTP|(Server IP di NTP fornito per deployment)|UDP|123|VIP - /27 pubblici|
+|DNS|(Server DNS dell'indirizzo IP fornito per deployment)|TCP<br>UDP|53|VIP - /27 pubblici|
+|CRL|(URL sotto i punti di distribuzione CRL nel certificato)|HTTP|80|VIP - /27 pubblici|
+|Backup dell'infrastruttura|(Indirizzo IP o nome di dominio completo del file server di destinazione esterno)|SMB|445|Pubblica dell'infrastruttura di rete|
+|LDAP|Foresta di Active Directory specificato per l'integrazione di Graph|TCP<br>UDP|389|VIP - /27 pubblici|
+|LDAP SSL|Foresta di Active Directory specificato per l'integrazione di Graph|TCP|636|VIP - /27 pubblici|
+|LDAP GC|Foresta di Active Directory specificato per l'integrazione di Graph|TCP|3268|VIP - /27 pubblici|
+|LDAP GC SSL|Foresta di Active Directory specificato per l'integrazione di Graph|TCP|3269|VIP - /27 pubblici|
+|AD FS|Endpoint dei metadati di AD FS fornita per l'integrazione con AD FS|TCP|443|VIP - /27 pubblici|
+|     |     |     |     |     |
 
 > [!Note]  
 > Gli URL in uscita sono con carico bilanciato usando Gestione traffico di Azure per fornire la migliore connettività possibili basate sulla posizione geografica. Con carico bilanciato URL, Microsoft è possibile aggiornare e modificare gli endpoint di back-end senza conseguenze per i clienti. Microsoft non condivide l'elenco di indirizzi IP per gli URL con bilanciamento del carico. È consigliabile usare un dispositivo che supporta i filtri dall'URL piuttosto che dall'IP.

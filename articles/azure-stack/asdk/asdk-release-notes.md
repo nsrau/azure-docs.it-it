@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816459"
 ---
 # <a name="asdk-release-notes"></a>Note sulla versione ASDK 
  
@@ -60,7 +60,7 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack:
 - Risolto un problema che impediva l'applicazione dei criteri RBAC a un gruppo di utenti quando si usa ad FS.
 
 <!--3463840 - IS, ASDK --> 
-- Risolto un problema con backup di infrastruttura non riusciti a causa di un server file inaccessibile dalla rete VIP pubblica. Questa correzione sposta nuovamente il servizio backup di infrastruttura alla rete dell'infrastruttura pubblico. Se è stata applicata la versione più recente [aggiornamento rapido di Azure Stack per 1809](#azure-stack-hotfixes) che risolve questo problema, l'aggiornamento 1811 non effettuerà ulteriori modifiche. 
+- Risolto un problema con backup di infrastruttura non riusciti a causa di un server file inaccessibile dalla rete VIP pubblica. Questa correzione sposta nuovamente il servizio backup di infrastruttura alla rete dell'infrastruttura pubblico. Se è stato applicato l'hotfix Azure Stack più recente per 1809 che risolve questo problema, l'aggiornamento 1811 renderà non ulteriori modifiche. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Risolto un problema in cui l'account usato per accedere al portale di amministratore o utente di Azure Stack è visualizzato come **utente non identificato**. Veniva visualizzato il messaggio quando l'account non dispone di un *primo* o *ultima* nome specificato.   

@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239078"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817292"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Aggiornare il provider di risorse MySQL 
 
@@ -30,7 +30,7 @@ Vengono aggiornate un MySQL nuovi adapter del provider di risorse potrebbe esser
 
 Iniziando con il rilascio della versione 1.1.33.0 MySQL resource provider, gli aggiornamenti sono cumulativi e non devono essere installati nell'ordine in cui vengono rilasciate; fino a quando si è a partire dalla versione 1.1.24.0 o versione successiva. Ad esempio, se si esegue la versione 1.1.24.0 del provider di risorse MySQL, quindi è possibile aggiornare alla versione 1.1.33.0 o in un secondo momento senza dover prima installare versione 1.1.30.0. Per esaminare le versioni del provider delle risorse disponibili e la versione di Azure Stack sono supportati in, vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Per l'aggiornamento del provider di risorse è usare il **UpdateMySQLProvider.ps1** script. Il processo è simile a quello usato per installare un provider di risorse, come descritto nel [distribuire il provider di risorse](#deploy-the-resource-provider) sezione di questo articolo. Lo script è incluso nel download del provider di risorse. 
+Per l'aggiornamento del provider di risorse è usare il **UpdateMySQLProvider.ps1** script. Il processo è simile a quello usato per installare un provider di risorse, come descritto in per la distribuzione, la sezione relativa ai provider di risorse di questo articolo. Lo script è incluso nel download del provider di risorse. 
 
  > [!IMPORTANT]
  > Prima di aggiornare il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.

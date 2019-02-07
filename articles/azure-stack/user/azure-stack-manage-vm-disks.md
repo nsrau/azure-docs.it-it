@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245355"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813875"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Creare i dischi di macchina virtuale in Azure Stack
 
@@ -50,7 +50,7 @@ La tabella seguente riepiloga come aggiungere i dischi tramite il portale e Powe
 
 | Metodo | Opzioni
 |-|-|
-|[Portale per gli utenti](#use-the-portal-to-add-additional-disks-to-a-vm)|-Aggiungere nuovi dischi dati a una VM esistente. Vengono creati nuovi dischi tramite Azure Stack. </br> </br>-Aggiungere un file di disco (VHD) esistente a una macchina virtuale creata in precedenza. A tale scopo, è necessario preparare il file VHD e quindi caricare il file di Azure Stack. |
+|Portale utenti|-Aggiungere nuovi dischi dati a una VM esistente. Vengono creati nuovi dischi tramite Azure Stack. </br> </br>-Aggiungere un file di disco (VHD) esistente a una macchina virtuale creata in precedenza. A tale scopo, è necessario preparare il file VHD e quindi caricare il file di Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Creare una nuova macchina virtuale con un disco del sistema operativo e allo stesso tempo aggiungere uno o più dischi dati a tale macchina virtuale. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Usare il portale per aggiungere dischi a una macchina virtuale

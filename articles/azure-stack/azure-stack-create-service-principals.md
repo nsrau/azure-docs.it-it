@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245270"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809249"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornisci alle applicazioni l'accesso ad Azure Stack
 
@@ -38,10 +38,10 @@ Le entità servizio sono preferibili per l'esecuzione dell'app con le proprie cr
 
 A seconda del modo in cui è stato distribuito Azure Stack, è necessario creare un'entità servizio. Questo documento descrive la creazione di un servizio principale per:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD è una directory di multi-tenant, basato sul cloud e il servizio di gestione di identità. È possibile usare Azure AD con un connesse di Azure Stack.
-- [Active Directory Federation Services (ADFS)](#create-service-principal-for-ad-fs). ADFS fornisce federazione delle identità semplificate e protette e funzionalità di single sign-on (SSO) Web. È possibile usare AD FS con istanze di Azure Stack connesse e disconnesse.
+- Azure Active Directory (Azure AD). Azure AD è una directory di multi-tenant, basato sul cloud e il servizio di gestione di identità. È possibile usare Azure AD con un connesse di Azure Stack.
+- Active Directory Federation Services (ADFS). ADFS fornisce federazione delle identità semplificate e protette e funzionalità di single sign-on (SSO) Web. È possibile usare AD FS con istanze di Azure Stack connesse e disconnesse.
 
-Dopo aver creato l'entità servizio, vengono usati per una serie di passaggi comuni per AD FS sia Azure Active Directory [delegare le autorizzazioni](#assign-role-to-service-principal) al ruolo.
+Dopo aver creato l'entità servizio, una serie di passaggi comuni per AD FS sia Azure Active Directory consentono di delegare le autorizzazioni al ruolo.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Gestire entità servizio per Azure AD
 
@@ -57,13 +57,13 @@ In questa sezione si crea un'applicazione (entità servizio) in Azure AD che rap
 
 È stato creato un'entità servizio per l'applicazione.
 
-### <a name="get-credentials"></a>Ottieni credenziali
+### <a name="get-credentials"></a>Ottenere le credenziali
 
 Durante l'accesso a livello di codice, si usa l'ID per l'applicazione e per un'app Web / API, una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
 
 1. Da **Registrazioni dell'app** in Active Directory selezionare l'applicazione.
 
-2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nella sezione delle [applicazioni di esempio](#sample-applications) indicano questo valore come ID client.
+2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nella sezione di applicazioni di esempio fare riferimento a questo valore come ID client.
 
      ![Client Id](./media/azure-stack-create-service-principal/image12.png)
 3. Per generare una chiave di autenticazione per un'app Web / API, selezionare **le impostazioni** > **chiavi**. 
@@ -74,7 +74,7 @@ Dopo aver salvato la chiave viene visualizzato il valore della chiave. Copiare q
 
 ![Chiave salvata](./media/azure-stack-create-service-principal/image15.png)
 
-Al termine dell'operazione, è possibile [assegnare un ruolo applicazione](#assign-role-to-service-principal).
+Al termine dell'operazione, è possibile assegnare un ruolo applicazione.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>Gestire entità servizio per ADFS
 

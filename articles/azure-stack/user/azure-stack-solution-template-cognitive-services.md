@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247035"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810676"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Distribuzione di servizi cognitivi di Azure ad Azure Stack
 
@@ -144,7 +144,7 @@ Dettagli sui campi di chiave:
 | ImageLocation | Indica la posizione dell'immagine del contenitore specifiche di servizi cognitivi in Registro contenitori di AZURE. Ad esempio, il servizio di volti: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |L'URL dell'Endpoint indicato nel passaggio di [Crea risorsa di Azure](#create-azure-resources) |
 | ApiKey | La chiave di sottoscrizione annotate nel passaggio di [Crea risorsa di Azure](#create-azure-resources) |
-| SecretName | Il nome del segreto annotato nel passaggio di [crea segrete per accedere al registro contenitori privato](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | Il nome del segreto annotato nel passaggio di creazione segrete per accedere al registro contenitori privato |
 
 ## <a name="deploy-the-cognitive-service"></a>Distribuire i servizi cognitivi
 

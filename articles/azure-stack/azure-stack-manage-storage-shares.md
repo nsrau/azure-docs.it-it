@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819519"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -51,7 +51,7 @@ Poiché le condivisioni del servizio di archiviazione sono per l'utilizzo esclus
 
 Le condivisioni nei volumi contengono i dati del tenant. I dati del tenant includono i BLOB di pagine, i BLOB in blocchi, accodare BLOB, tabelle, code, i database e gli archivi di metadati correlato. Poiché gli oggetti di archiviazione (BLOB e così via) singolarmente sono contenuti all'interno di una singola condivisione, la dimensione massima di ogni oggetto non può superare le dimensioni di una condivisione. Le dimensioni massime di nuovi oggetti dipendono dalla capacità che rimane in una condivisione di spazio inutilizzato quando viene creato il nuovo oggetto.
 
-Quando una condivisione è meno intensa in spazio disponibile e le azioni [occupata](#reclaim-capacity) lo spazio non è riuscita o disponibile, l'operatore di cloud di Azure Stack può [eseguire la migrazione](#migrate-a-container-between) i contenitori di blob da una condivisione a un altro.
+Quando una condivisione è meno intensa in spazio disponibile e le azioni [occupata](#reclaim-capacity) spazio non è disponibile o ha esito positivo, l'operatore di cloud di Azure Stack può eseguire la migrazione i contenitori blob da una condivisione a un altro.
 
 - Per altre informazioni sui contenitori e BLOB, vedere [archiviazione Blob](azure-stack-key-features.md#blob-storage) nella funzionalità chiave e concetti di Azure Stack.
 - Per informazioni sul funzionano di utenti del tenant con un archivio blob in Azure Stack, vedere [servizi di archiviazione di Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

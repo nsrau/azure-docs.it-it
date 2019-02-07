@@ -16,12 +16,12 @@ ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 1/09/2019
-ms.openlocfilehash: 072f3fba08f9a6703379e404d4be00896f8d4bc6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aaa4dc48f237a4647cfde330e40eda91eeb1388d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241838"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768733"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Note sulla versione SQL resource provider 1.1.30.0
 

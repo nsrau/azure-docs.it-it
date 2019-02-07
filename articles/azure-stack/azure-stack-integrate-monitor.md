@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816095"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrare la soluzione di monitoraggio esterna con Azure Stack
 
@@ -38,6 +38,9 @@ Ogni soluzione di Azure Stack viene fornito con un host del ciclo di vita dell'h
 Il diagramma seguente mostra il flusso del traffico tra un sistema integrato Azure Stack, l'host del ciclo di vita dell'hardware, una soluzione di monitoraggio esterna e un sistema di raccolta per le richieste o dati esterni.
 
 ![Diagramma che mostra il traffico tra Azure Stack, il monitoraggio e creazione di ticket soluzione.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> Integrazione di monitoraggio esterni direttamente con i dispositivi di rete e server fisici non è consentita e bloccata attivamente da elenchi di controllo di accesso (ACL). 
 
 Questo articolo illustra come integrare Azure Stack con soluzioni di monitoraggio esterne, ad esempio System Center Operations Manager e Nagios. Include inoltre come utilizzare gli avvisi a livello di codice tramite PowerShell o tramite le chiamate API REST.
 
