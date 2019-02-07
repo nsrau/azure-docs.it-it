@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450456"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728420"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Panoramica dell'API .NET Standard di Hub eventi
 
@@ -35,7 +35,7 @@ Un oggetto [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient
 var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-Per modificare la stringa di connessione a livello di codice, è possibile usare la classe [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) e passare la stringa di connessione come parametro a [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Per modificare la stringa di connessione a livello di codice, è possibile usare la classe [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) e passare la stringa di connessione come parametro a [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
@@ -65,7 +65,7 @@ Il metodo consigliato per ricevere eventi da Hub eventi è tramite [EventProcess
 
 #### <a name="create-a-receiver"></a>Creare un ricevitore
 
-I ricevitori sono legati a partizioni specifiche, pertanto, per ricevere tutti gli eventi in un hub eventi, è necessario creare più istanze. È buona norma ottenere le informazioni di partizione a livello di programmazione, anziché impostare come hardcoded gli ID di partizione. A tale scopo, è possibile usare il metodo [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
+I ricevitori sono legati a partizioni specifiche, pertanto, per ricevere tutti gli eventi in un hub eventi, è necessario creare più istanze. È buona norma ottenere le informazioni di partizione a livello di programmazione, anziché impostare come hardcoded gli ID di partizione. A tale scopo, è possibile usare il metodo [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
 
 ```csharp
 // Create a list to keep track of the receivers

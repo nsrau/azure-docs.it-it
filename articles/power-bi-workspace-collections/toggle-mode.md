@@ -2,26 +2,19 @@
 title: Passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
-ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 23a8c4f0dd626a623df56de9546258a23d549d1a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409952"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754337"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI
 
@@ -122,7 +115,7 @@ report.switchMode("edit");
 [Esempio introduttivo](get-started-sample.md)  
 [Incorporare un report](embed-report.md)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Repository Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repository Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  

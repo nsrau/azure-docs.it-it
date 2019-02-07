@@ -1,6 +1,6 @@
 ---
-title: Usare un'identità gestita con Istanze di contenitore di Azure
-description: Informazioni su come usare un'identità gestita per l'autenticazione con altri servizi di Azure da Istanze di contenitore di Azure.
+title: Usare un'identità gestita con Istanze di Azure Container
+description: Informazioni su come usare un'identità gestita per l'autenticazione con altri servizi di Azure da Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,43 +8,43 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229333"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657026"
 ---
-# <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di contenitore di Azure
+# <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
-Usare [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) per eseguire codice in Istanze di contenitore di Azure che interagisce con altri servizi di Azure, senza dover gestire segreti o credenziali nel codice. La funzionalità offre una distribuzione di Istanze di contenitore di Azure con un'identità gestita automaticamente in Azure Active Directory.
+Usare [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) per eseguire codice in Istanze di Azure Container che interagisce con altri servizi di Azure, senza dover gestire segreti o credenziali nel codice. La funzionalità offre una distribuzione di Istanze di Azure Container con un'identità gestita automaticamente in Azure Active Directory.
 
-In questo articolo sono fornite altre informazioni sulle identità gestite in Istanze di contenitore di Azure e viene illustrato come:
+In questo articolo sono fornite altre informazioni sulle identità gestite in Istanze di Azure Container e viene illustrato come:
 
 > [!div class="checklist"]
 > * Abilitare un'identità assegnata dall'utente o un'identità assegnata dal sistema in un gruppo di contenitori
 > * Concedere all'identità di accedere ad Azure Key Vault
 > * Usare l'identità gestita per accedere a un insieme di credenziali delle chiavi da un contenitore in esecuzione
 
-Adattare gli esempi per abilitare e usare le identità in Istanze di contenitore di Azure per accedere ad altri servizi di Azure. Questi esempi sono interattivi. Tuttavia, in pratica le immagini del contenitore dovrebbero eseguire codice per accedere ai servizi di Azure.
+Adattare gli esempi per abilitare e usare le identità in Istanze di Azure Container per accedere ad altri servizi di Azure. Questi esempi sono interattivi. Tuttavia, in pratica le immagini del contenitore dovrebbero eseguire codice per accedere ai servizi di Azure.
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 
 Con un'identità gestita in un contenitore in esecuzione è possibile eseguire l'autenticazione a qualsiasi [servizio che supporti l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) senza dover gestire le credenziali nel codice del contenitore. Per i servizi che non supportano l'autenticazione di AD, è possibile archiviare i segreti in Azure Key Vault e usare l'identità gestita per accedere a Key Vault e recuperare le credenziali. Per altre informazioni sull'uso di un'identità gestita, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale. Attualmente, le identità gestite sono supportate solo in istanze di contenitore Linux.
+> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale. Attualmente, le identità gestite sono supportate solo nelle istanze di contenitore Linux.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Abilitare un'identità gestita
 
- In Istanze di contenitore di Azure, le identità gestite per le risorse di Azure sono supportate a partire dalla versione API REST 2018-10-01 e da SDK e strumenti corrispondenti. Quando si crea un gruppo di contenitori, abilitare una o più identità gestite impostando una proprietà [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). È anche possibile abilitare o aggiornare identità gestite quando un gruppo di contenitori è in esecuzione. Entrambe le azioni causano il riavvio del gruppo di contenitori. Per impostare le identità in un gruppo di contenitori nuovo o esistente, usare l'interfaccia della riga di comando di Azure, un modello di Resource Manager o un file YAML. 
+ In Istanze di Azure Container, le identità gestite per le risorse di Azure sono supportate a partire dalla versione API REST 2018-10-01 e da SDK e strumenti corrispondenti. Quando si crea un gruppo di contenitori, abilitare una o più identità gestite impostando una proprietà [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). È anche possibile abilitare o aggiornare identità gestite quando un gruppo di contenitori è in esecuzione. Entrambe le azioni causano il riavvio del gruppo di contenitori. Per impostare le identità in un gruppo di contenitori nuovo o esistente, usare l'interfaccia della riga di comando di Azure, un modello di Resource Manager o un file YAML. 
 
-Istanze di contenitore di Azure supporta entrambi i tipi di identità di Azure gestite: assegnata dall'utente e assegnata dal sistema. In un gruppo di contenitori è possibile abilitare un'identità assegnata dal sistema, una o più identità assegnate dall'utente o entrambi i tipi di identità. 
+Istanze di Azure Container supporta entrambi i tipi di identità di Azure gestite: assegnata dall'utente e assegnata dal sistema. In un gruppo di contenitori è possibile abilitare un'identità assegnata dal sistema, una o più identità assegnate dall'utente o entrambi i tipi di identità. 
 
-* Un'identità gestita **assegnata dall'utente** viene creata come risorsa di Azure autonoma nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più risorse di Azure (in Istanze di contenitore di Azure o in altri servizi Azure). Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita dei gruppi di contenitori o di altre risorse di servizio a cui l'identità è assegnata. Questo comportamento è particolarmente utile in Istanze di contenitore di Azure. Poiché l'identità si estende oltre il ciclo di vita di un gruppo di contenitori, è possibile riutilizzarla insieme alle altre impostazioni standard per rendere altamente replicabili le distribuzioni di gruppi di contenitori.
+* Un'identità gestita **assegnata dall'utente** viene creata come risorsa di Azure autonoma nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più risorse di Azure (in Istanze di Azure Container o in altri servizi Azure). Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita dei gruppi di contenitori o di altre risorse di servizio a cui l'identità è assegnata. Questo comportamento è particolarmente utile in Istanze di Azure Container. Poiché l'identità si estende oltre il ciclo di vita di un gruppo di contenitori, è possibile riutilizzarla insieme alle altre impostazioni standard per rendere altamente replicabili le distribuzioni di gruppi di contenitori.
 
-* Un'identità gestita **assegnata dal sistema** viene abilitata direttamente in un gruppo di contenitori in Istanze di contenitore di Azure. Quando è abilitata, Azure crea un'identità per il gruppo nel tenant di Azure AD considerato attendibile dalla sottoscrizione dell'istanza. Dopo la creazione dell'identità, viene effettuato il provisioning delle credenziali in ogni contenitore del gruppo. Il ciclo di vita di un'identità assegnata dal sistema è direttamente collegato al gruppo di contenitori in cui l'identità è abilitata. Quando il gruppo viene eliminato, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
+* Un'identità gestita **assegnata dal sistema** viene abilitata direttamente in un gruppo di contenitori in Istanze di Azure Container. Quando è abilitata, Azure crea un'identità per il gruppo nel tenant di Azure AD considerato attendibile dalla sottoscrizione dell'istanza. Dopo la creazione dell'identità, viene effettuato il provisioning delle credenziali in ogni contenitore del gruppo. Il ciclo di vita di un'identità assegnata dal sistema è direttamente collegato al gruppo di contenitori in cui l'identità è abilitata. Quando il gruppo viene eliminato, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
 
 ### <a name="use-a-managed-identity"></a>Usare un'identità gestita
 
@@ -58,7 +58,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
 
-Gli esempi in questo articolo usano un'identità gestita in Istanze di contenitore di Azure per accedere a un segreto di Azure Key Vault. 
+Gli esempi in questo articolo usano un'identità gestita in Istanze di Azure Container per accedere a un segreto di Azure Key Vault. 
 
 Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) seguente:
 
@@ -78,7 +78,7 @@ Archiviare un segreto di esempio nell'insieme di credenziali delle chiavi usando
 az keyvault secret set --name SampleSecret --value "Hello Container Instances!" --description ACIsecret  --vault-name mykeyvault
 ```
 
-Continuare con gli esempi seguenti per accedere all'insieme di credenziali delle chiavi usando un'identità gestita assegnata dall'utente o assegnata dal sistema in Istanze di contenitore di Azure.
+Continuare con gli esempi seguenti per accedere all'insieme di credenziali delle chiavi usando un'identità gestita assegnata dall'utente o assegnata dal sistema in Istanze di Azure Container.
 
 ## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Esempio 1: Usare un'identità assegnata dall'utente per accedere ad Azure Key Vault
 
@@ -134,7 +134,7 @@ La sezione `identity` dell'output è simile alla seguente e mostra che l'identit
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Concedere all'identità assegnata dall'utente di accedere all'insieme di credenziali delle chiavi
 
-Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Concedere al gruppo di contenitori di accedere all'insieme di credenziali delle chiavi
 
-Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita assegnata dal sistema di ricevere segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita assegnata dal sistema di ricevere segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -350,7 +350,7 @@ identity:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state fornite altre informazioni sulle identità gestite in Istanze di contenitore di Azure ed è stato illustrato come:
+In questo articolo sono state fornite altre informazioni sulle identità gestite in Istanze di Azure Container ed è stato illustrato come:
 
 > [!div class="checklist"]
 > * Abilitare un'identità assegnata dall'utente o un'identità assegnata dal sistema in un gruppo di contenitori
@@ -359,4 +359,4 @@ In questo articolo sono state fornite altre informazioni sulle identità gestite
 
 * Altre informazioni sulle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/).
 
-* Vedere un [esempio dell'SDK Azure Go](https://medium.com/@samkreter/c98911206328) sull'uso di un'identità gestita per accedere all'insieme di credenziali delle chiavi da Istanze di contenitore di Azure.
+* Vedere un [esempio dell'SDK Azure Go](https://medium.com/@samkreter/c98911206328) sull'uso di un'identità gestita per accedere all'insieme di credenziali delle chiavi da Istanze di Azure Container.

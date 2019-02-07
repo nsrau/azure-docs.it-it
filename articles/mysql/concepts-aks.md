@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538175"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485450"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connessione del servizio Azure Kubernetes e del Database di Azure per MySQL
 
@@ -32,6 +32,14 @@ Da novembre 2018 il servizio Azure Kubernetes supporta la funzionalità di rete 
 6. Passare alla scheda**Rete** della macchina virtuale.
 7. Verificare che la **rete accelerata** sia abilitata.
 
+In alternativa, eseguire i due comandi seguenti tramite l'interfaccia della riga di comando di Azure:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+Come output verrà restituito il gruppo di risorse generato dal servizio Azure Kubernetes contenente l'interfaccia di rete. Prendere nota del nome "nodeResourceGroup" e usarlo nel comando successivo. **EnableAcceleratedNetworking** sarà true o false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) consente di effettuare il provisioning dei servizi di Azure direttamente da Kubernetes o Cloud Foundry. Si tratta di un'implementazione dell'[API di Open Service Broker](https://www.openservicebrokerapi.org/) per Azure.

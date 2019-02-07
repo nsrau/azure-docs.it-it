@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bbb2b292f2793a1d157a6ea87aa245ad39b15830
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241220"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729371"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
 Questa guida introduttiva illustra come creare un'istanza di Load Balancer Standard. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
 
@@ -171,7 +171,7 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 ### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
-Creare un set di disponibilità con il comando [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Creare un set di disponibilità con il comando [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

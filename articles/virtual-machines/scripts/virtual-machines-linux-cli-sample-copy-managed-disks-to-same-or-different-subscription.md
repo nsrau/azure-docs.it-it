@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4f870c052d83352c8cfd692ea5f30a42071c95a0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aea21d09aa37eb2f0902df6245e9baebfcbb37fd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582043"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698566"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiare i dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa con l'interfaccia della riga di comando
 
@@ -43,8 +43,8 @@ Questo script usa i comandi seguenti per creare un nuovo disco gestito nella sot
 
 | Comando | Note |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse del disco gestito. La proprietà ID viene usata per copiare il disco gestito in una sottoscrizione diversa.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Consente di copiare un disco gestito creando un nuovo disco gestito in una sottoscrizione diversa tramite l'ID e il nome del disco gestito padre.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse del disco gestito. La proprietà ID viene usata per copiare il disco gestito in una sottoscrizione diversa.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Consente di copiare un disco gestito creando un nuovo disco gestito in una sottoscrizione diversa tramite l'ID e il nome del disco gestito padre.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

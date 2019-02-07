@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Traduzione vocale Java'
+title: 'Avvio rapido: API Traduzione vocale Java'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459170"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753130"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Guida introduttiva: API Traduzione vocale con Java 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ Sono necessario i file seguenti.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (o più recente)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (o più recente)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

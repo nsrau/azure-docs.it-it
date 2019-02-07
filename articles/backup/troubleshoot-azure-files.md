@@ -5,15 +5,15 @@ services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 10/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5ee0eccced5757c91fca1ba7f77750839bc017f3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064118"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492726"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
 È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di condivisioni file di Azure con le informazioni elencate nelle tabelle seguenti.
@@ -67,7 +67,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 
 
 ## <a name="modify-policy"></a>Modifica criterio
-| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | È in corso un'altra operazione di configurazione della protezione per questo elemento. | Attendere il completamento dell'operazione di modifica criterio precedente e riprovare dopo qualche minuto.|
 | Nell'elemento selezionato è già in corso un'altra operazione. | Attendere il completamento dell'altra operazione in corso e riprovare dopo qualche minuto. |

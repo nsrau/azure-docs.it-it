@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Gestire il traffico Web - Interfaccia della riga di comando di Azure'
-description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali per gestire il traffico Web usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali per gestire il traffico Web tramite l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f93ae2a4aaab2ae25a212b2f97c1f97e6b0e095e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160030"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749071"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Esercitazione: Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete 
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). È quindi possibile aggiungere la subnet denominata *myBackendSubnet* necessaria per i server back-end tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet). È quindi possibile aggiungere la subnet denominata *myBackendSubnet* necessaria per i server back-end tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-Usare [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPAddress* creati in precedenza. 
+Usare [az network application-gateway create](/cli/azure/network/application-gateway) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPAddress* creati in precedenza. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -134,7 +134,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
 ```azurepowershell-interactive
 az network public-ip show \

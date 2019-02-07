@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f4abacb42cfd5efe22d29b58b36eca0a7a1f5ba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161316"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662891"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Eseguire la migrazione di utenti con identità dei social network
 Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
@@ -46,7 +46,7 @@ Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti
 * A seconda del provider di identità, l'**ID utente di social networking** è un valore univoco per ogni applicazione o account di sviluppo per un utente specificato. Configurare i criteri di Azure AD B2C con lo stesso ID di applicazione assegnato in precedenza dal provider di social networking. In alternativa configurare un'altra applicazione nello stesso account di sviluppo.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Usare l'API Graph per eseguire la migrazione degli utenti
-L'account utente di Azure AD B2C viene creato tramite [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Per comunicare con l'API Graph è innanzitutto necessario avere un account di servizio con privilegi amministrativi. In Azure AD registrare un'applicazione e l'autenticazione ad Azure AD. Le credenziali dell'applicazione sono l'ID applicazione e il segreto dell'applicazione. L'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph. Seguire le istruzioni nel passaggio 1 nell'articolo sulla [migrazione degli utenti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users).
+L'account utente di Azure AD B2C viene creato tramite [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Per comunicare con l'API Graph è innanzitutto necessario avere un account di servizio con privilegi amministrativi. In Azure AD registrare un'applicazione e l'autenticazione ad Azure AD. Le credenziali dell'applicazione sono l'ID applicazione e il segreto dell'applicazione. L'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph. Seguire le istruzioni nel passaggio 1 nell'articolo sulla [migrazione degli utenti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration).
 
 ## <a name="required-properties"></a>Proprietà obbligatorie
 L'elenco seguente include le proprietà obbligatorie per la creazione di un utente.

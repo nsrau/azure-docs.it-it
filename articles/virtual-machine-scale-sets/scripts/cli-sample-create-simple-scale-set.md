@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 06ce83695181968e54592a09b93ce084b55294bf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888856"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695631"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali di Azure con sistema operativo Ubuntu e le relative risorse di rete, incluso un servizio di bilanciamento del carico. Dopo aver eseguito lo script, è possibile accedere alle istanze di macchina virtuale tramite SSH.
@@ -47,7 +47,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 |---|---|
 | [az group create](/cli/azure/ad/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az vmss create](/cli/azure/vmss) | Crea il set di scalabilità di macchine virtuali e lo connette alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Per distribuire il traffico a più istanze di macchina virtuale, viene anche creato un servizio di bilanciamento del carico. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
-| [az group delete](/cli/azure/ad/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group delete](/cli/azure/ad/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).

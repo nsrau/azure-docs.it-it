@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477999"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661939"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrare altri servizi con SQL Data Warehouse
 Oltre alle funzionalità di base, SQL Data Warehouse assicura agli utenti l'integrazione con molti altri servizi in Azure. Alcuni di questi servizi includono:
@@ -41,7 +41,7 @@ Azure Data Factory offre agli utenti una piattaforma gestita per creare pipeline
 * **Procedure di archiviazione**: Orchestrare l'esecuzione delle procedure di archiviazione in SQL Data Warehouse.
 * **Copia**: Usare ADF per spostare dati in SQL Data Warehouse. Questa operazione può usare un meccanismo di spostamento dati ADF standard oppure PolyBase in background. 
 
-Per altre informazioni, vedere [Integrazione con Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
+Per altre informazioni, vedere [Integrazione con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning è un servizio di analisi completamente gestito, che consente di creare modelli complessi usando un ampio set di strumenti di previsione. SQL Data Warehouse è supportato come origine e destinazione per questi modelli con le funzionalità seguenti:

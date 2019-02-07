@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: cb4d3c4d15dded3c7f90a1e3cf118ca10371dcb1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461067"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700996"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici
 
@@ -42,7 +42,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
 |Dimensioni massime dei log|154|227|227|461|461|461|
@@ -68,7 +68,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1536|2048|2048|2048|3584|4096|
 |Dimensioni massime del log (GB)|461|614|614|614|1075|1229|
@@ -94,7 +94,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
 |Dimensioni massime del log (GB)|154|227|227|461|461|461|461|
@@ -120,7 +120,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|2048|2048|3072|3072|4096|4096|4096|
 |Dimensioni massime del log (GB)|614|614|922|922|1229|1229|1229|
@@ -160,8 +160,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di database per pool|Sono supportati solo i database singoli per questa dimensione di calcolo|50|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
@@ -186,8 +186,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di database per pool|100|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
@@ -198,8 +198,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|11|22|33|44|55|66|77|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Dimensioni massime del log (GB)|307|307|307|461|461|461|461|
@@ -212,8 +212,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di database per pool|Sono supportati solo i database singoli per questa dimensione di calcolo|50|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Numero di repliche|4|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
@@ -225,7 +225,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
@@ -238,8 +238,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di database per pool|100|100|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...20, 24, 32, 40|0, 0,25, 0,5, 1...20, 24, 32, 40, 80|
 |Numero di repliche|4|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Yes|Sì|Sì|Sì|Sì|Yes|
-|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Sì|Yes|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)

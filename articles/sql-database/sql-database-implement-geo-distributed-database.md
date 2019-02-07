@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
-ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/10/2019
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198185"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750342"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Esercitazione: Implementare un database con distribuzione geografica
 
@@ -26,7 +26,7 @@ Questa esercitazione mostra come configurare un database SQL di Azure e l'applic
 > [!div class="checklist"]
 > - Creare un [gruppo di failover](sql-database-auto-failover-group.md)
 > - Usare un'applicazione Java per eseguire query su un database SQL di Azure
-> - Testare un failover
+> - Failover di test
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -35,9 +35,9 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Un database SQL di Azure. Per crearne uno, usare:
-  - [Portale](sql-database-get-started-portal.md)
-  - [Interfaccia della riga di comando](sql-database-cli-samples.md)
+- un database SQL di Azure. Per crearne uno, usare:
+  - [Portale](sql-database-single-database-get-started.md)
+  - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
@@ -48,7 +48,7 @@ Per completare l'esercitazione, verificare di avere installato i componenti segu
 > [!IMPORTANT]
 > Assicurarsi di configurare le regole del firewall in modo da usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi dell'esercitazione. Le regole del firewall a livello di database verranno replicate automaticamente nel server secondario.
 >
-> Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il proprio computer, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal-firewall.md).  
+> Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il proprio computer, vedere [Creare una regola del firewall a livello di server](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Creare un gruppo di failover
 
@@ -293,7 +293,7 @@ Le impostazioni di replica geografica possono essere modificate anche nel portal
    ...
    ```
 
-## <a name="test-failover"></a>Testare un failover
+## <a name="test-failover"></a>Failover di test
 
 Eseguire gli script seguenti per simulare un failover e osservare i risultati dell'applicazione. Si noti come alcune operazioni di inserimento e selezione avranno esito negativo durante la migrazione del database.
 
@@ -333,7 +333,7 @@ In questa esercitazione sono stati configurati un database SQL di Azure e un'app
 > [!div class="checklist"]
 > - Creare un gruppo di failover con replica geografica
 > - Usare un'applicazione Java per eseguire query su un database SQL di Azure
-> - Testare un failover
+> - Failover di test
 
 Passare all'esercitazione successiva per informazioni su come eseguire la migrazione con Servizio Migrazione del database.
 

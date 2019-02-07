@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840368"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752127"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali 
 
@@ -69,7 +69,7 @@ Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Creare un'immagine da uno o più snapshot
 
-Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di comando di Azure, ad esempio il comando [az image create](/cli/azure/image#az_image_create). È possibile creare un'immagine specificando uno snapshot del disco del sistema operativo e, facoltativamente, uno o più snapshot dei dischi dati.
+Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di comando di Azure, ad esempio il comando [az image create](/cli/azure/image). È possibile creare un'immagine specificando uno snapshot del disco del sistema operativo e, facoltativamente, uno o più snapshot dei dischi dati.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Per creare un pool da un'immagine personalizzata nel portale
 

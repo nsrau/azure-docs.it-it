@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: ccd4334961ff6e5e687d2f57be0291bd389f43b4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfc70186590bce0165cf25f089f6863152cfba47
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463804"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658369"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (Node.js)
 
@@ -189,4 +189,4 @@ In questa configurazione, il contenitore è configurato per avviare *nodemon*. Q
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](team-development-nodejs.md)
+> [Uso di più contenitori e sviluppo in team](multi-service-nodejs.md)

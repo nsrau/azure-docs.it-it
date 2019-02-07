@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: f717c0c656c5a80b14ef09a10cda18bd12500eeb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 2131aa63f0f5cdbbc9e0b4eb7c1f57604fe75cdb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869025"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754955"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Disinstallare i componenti dei processi di database elastici
 
@@ -44,25 +44,23 @@ I componenti dei **processi di database elastico** possono essere disinstallati 
 
 O semplicemente, eseguire lo script seguente, supponendo che i valori predefiniti se utilizzati nell'installazione dei componenti:
 
-        $ResourceGroupName = "__ElasticDatabaseJob"
-        Switch-AzureMode AzureResourceManager
+```powershell
+$ResourceGroupName = "__ElasticDatabaseJob"
+Switch-AzureMode AzureResourceManager
 
-        $resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
-        if(!$resourceGroup)
-        {
-            Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
-            return
-        }
+$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
+if(!$resourceGroup)
+{
+     Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
+     return
+}
 
-        Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
-        Remove-AzureResourceGroup -Name $ResourceGroupName -Force
-        Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
+Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
+Remove-AzureResourceGroup -Name $ResourceGroupName -Force
+Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job components are now uninstalled."
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per reinstallare i processi di database elastici, vedere [Installazione del servizio processo di database elastico](sql-database-elastic-jobs-service-installation.md)
 
 Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
-
-<!--Image references-->
-
-

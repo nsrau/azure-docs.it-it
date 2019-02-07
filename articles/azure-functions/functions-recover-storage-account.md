@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000020"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732159"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -63,7 +63,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 [Informazioni su queste impostazioni dell'applicazione qui](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Indicazioni
+### <a name="guidance"></a>Materiale sussidiario
 
 * Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
 * Non impostare queste impostazioni quando si usano le distribuzioni automatizzate.
@@ -71,7 +71,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 ## <a name="storage-account-credentials-invalid"></a>Credenziali dell'account di archiviazione non valide
 
-Se si rigenerano le chiavi di archiviazione, è necessario aggiornare le stringhe di connessione dell'account di archiviazione precedente. [Altre informazioni sulla gestione delle chiavi archiviazione qui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+Se si rigenerano le chiavi di archiviazione, è necessario aggiornare le stringhe di connessione dell'account di archiviazione precedente. [Altre informazioni sulla gestione delle chiavi archiviazione qui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>Account di archiviazione inaccessibile
 

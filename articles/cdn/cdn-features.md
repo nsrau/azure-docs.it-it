@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 02/01/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 11c8533068b914bce4826146cf8c938c6ec621f1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55bcfb3a7afdf8db0cf9aaea4674685277ce1b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475527"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696218"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
 
@@ -33,7 +33,7 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | **Ottimizzazioni e funzionalità per le prestazioni** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
 | [Accelerazione sito dinamico](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Compressione di immagini adattiva](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Compressione di immagini adattiva](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Prelettura degli oggetti](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  |  |  |
 | [Ottimizzazione dello streaming video](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
 | [Ottimizzazione di file di grandi dimensioni](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
@@ -48,7 +48,7 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 ||||
  **Sicurezza** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Supporto per HTTPS con endpoint della rete CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [HTTPS dominio personalizzato](cdn-custom-ssl.md)  | **&#x2713;** | |**&#x2713;** |**&#x2713;** |
+| [HTTPS dominio personalizzato](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtro geografico](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Autenticazione tramite token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 

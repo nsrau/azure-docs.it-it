@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195598"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663639"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Servizio di sincronizzazione Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -33,7 +33,7 @@ L'errore LargeObject può essere causato da altri attributi di AD. Per verificar
 
 Per ottenere l'elenco di oggetti nel tenant con gli errori LargeObject, usare uno dei metodi seguenti:
 
- * Se il tenant è abilitato per la sincronizzazione di Azure AD Connect Health, è possibile fare riferimento al [Report degli errori di sincronizzazione](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) indicato.
+ * Se il tenant è abilitato per la sincronizzazione di Azure AD Connect Health, è possibile fare riferimento al [Report degli errori di sincronizzazione](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) indicato.
  
  * La notifica tramite posta elettronica relativa agli errori di sincronizzazione della directory inviata alla fine di ogni ciclo di sincronizzazione contiene l'elenco di oggetti con errori LargeObject. 
  * La [scheda Synchronization Service Manager Operations](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) (Operazioni di Synchronization Service Manager) mostra l'elenco di oggetti con gli errori LargeObject se si sceglie l'esportazione più recente per il funzionamento di Azure AD.

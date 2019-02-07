@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ramamill
-ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468404"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744093"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -122,7 +122,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
-Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni dettagliate su come aggiornare tutti i componenti di Site Recovery, fare clic [qui](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni dettagliate su come aggiornare tutti i componenti di Site Recovery, fare clic [qui](service-updates-how-to.md).
 
 ## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
 

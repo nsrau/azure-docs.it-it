@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 031085b3048d0ffc92dd5a35b4054903088b4858
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824337"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755047"
 ---
 # <a name="show-search-results-on-the-map"></a>Visualizzare i risultati della ricerca sulla mappa
 
@@ -29,7 +29,7 @@ Esistono due modi per eseguire la ricerca di una posizione di interesse. Uno con
 
 Nel codice precedente il primo blocco costruisce un oggetto mappa e inizializza il servizio client. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice usa il metodo [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) nel [modulo del servizio](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Consente di eseguire una ricerca di testo in formato libero tramite l'[API REST di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) per cercare un punto di interesse. L'API di ricerca Fuzzy può gestire qualsiasi combinazione di input Fuzzy. La risposta del servizio di ricerca fuzzy viene quindi analizzata in formato GeoJSON con il metodo [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse). 
+Il secondo blocco di codice usa il metodo [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) nel [modulo del servizio](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Consente di eseguire una ricerca di testo in formato libero tramite l'[API REST di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) per cercare un punto di interesse. L'API di ricerca Fuzzy può gestire qualsiasi combinazione di input Fuzzy. La risposta del servizio di ricerca fuzzy viene quindi analizzata in formato GeoJSON con il metodo [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest). 
 
 Il terzo blocco di codice crea un oggetto origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) e aggiunge i risultati della ricerca in tale oggetto. Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come simboli sulla mappa.  Viene quindi creato un livello simbolo e l'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
 

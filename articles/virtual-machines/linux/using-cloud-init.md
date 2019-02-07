@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188874"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700095"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -32,7 +32,7 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
  Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permetteranno il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. La tabella seguente contiene le attuali immagini abilitate per cloud-init disponibili nella piattaforma Azure:
 
-| Editore | Offerta | SKU | Version | Pronta per cloud-init |
+| Editore | Offerta | SKU | Versione | Pronta per cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |più recenti |Sì | 
 |Canonical |UbuntuServer |17.10 |più recenti |Sì | 
@@ -54,7 +54,7 @@ Le configurazioni WALA delle macchine virtuali hanno vincoli di tempo che ne imp
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Distribuzione di una macchina virtuale abilitata per cloud-init
 Distribuire una macchina virtuale abilitata per cloud-init è facile come fare riferimento a una distribuzione abilitata per cloud-init.  I gestori di distribuzioni Linux devono scegliere se abilitare e integrare cloud-init nelle proprie immagini pubblicate in Azure. Dopo aver verificato che l'immagine che si vuole distribuire sia abilitata per cloud-init, è possibile usare l'interfaccia della riga di comando di Azure per distribuirla. 
 
-Il primo passaggio della distribuzione di questa immagine è creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+Il primo passaggio della distribuzione di questa immagine è creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Premere `ctrl-X` per uscire dal file, digitare `y` per salvare il file e premere `enter` per confermare il nome del file alla chiusura.
 
-Il passaggio finale consiste nel creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). 
+Il passaggio finale consiste nel creare una macchina virtuale con il comando [az vm create](/cli/azure/vm). 
 
 L'esempio seguente crea una macchina virtuale denominata *centos74* e le chiavi SSH, se non esistono già in un percorso predefinito. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una macchina virtuale denominata *centos74*:
 

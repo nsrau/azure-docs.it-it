@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c1b0d4ea794e5b3ed4f899addef18da2465562a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b63a4ed26688b73b9a8b1568433c7ae7606e6c6a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882192"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698963"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Installare applicazioni in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu e usa l'estensione Script personalizzato per installare un'applicazione Web di base. Dopo aver eseguito lo script, è possibile accedere all'app Web tramite un Web browser.
@@ -47,10 +47,10 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 |---|---|
 | [az group create](/cli/azure/ad/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az vmss create](/cli/azure/vmss#az_vmss_create) | Crea il set di scalabilità di macchine virtuali e lo connette alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Per distribuire il traffico a più istanze di macchina virtuale, viene anche creato un servizio di bilanciamento del carico. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
-| [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Installa l'estensione di script personalizzati di Azure per eseguire uno script che prepara i dischi dati in ogni istanza di macchina virtuale. |
-| [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Crea una regola di bilanciamento del carico per distribuire il traffico della porta TCP 80 alle istanze di macchina virtuale nel set di scalabilità. |
-| [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) | Ottiene informazioni sull'indirizzo IP pubblico assegnato usato dal servizio di bilanciamento del carico. |
-| [az group delete](/cli/azure/ad/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az vmss extension set](/cli/azure/vmss/extension) | Installa l'estensione di script personalizzati di Azure per eseguire uno script che prepara i dischi dati in ogni istanza di macchina virtuale. |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Crea una regola di bilanciamento del carico per distribuire il traffico della porta TCP 80 alle istanze di macchina virtuale nel set di scalabilità. |
+| [az network public-ip show](/cli/azure/network/public-ip) | Ottiene informazioni sull'indirizzo IP pubblico assegnato usato dal servizio di bilanciamento del carico. |
+| [az group delete](/cli/azure/ad/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).

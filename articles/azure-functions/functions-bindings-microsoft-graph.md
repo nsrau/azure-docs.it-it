@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793989"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822630"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -80,7 +80,7 @@ Questa associazione di input per il token di autenticazione ottiene un token Azu
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#auth-token---example)
-* [Attributes (Attributi) (Attributi)](#auth-token---attributes)
+* [Attributes (Attributi)](#auth-token---attributes)
 * [Configurazione](#auth-token---configuration)
 * [Utilizzo](#auth-token---usage)
 
@@ -238,7 +238,7 @@ L'associazione di input per la tabella di Excel legge il contenuto di una tabell
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-input---example)
-* [Attributes (Attributi) (Attributi)](#excel-input---attributes)
+* [Attributes (Attributi)](#excel-input---attributes)
 * [Configurazione](#excel-input---configuration)
 * [Utilizzo](#excel-input---usage)
 
@@ -386,7 +386,7 @@ Questa associazione di output di Excel modifica il contenuto di una tabella di E
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-output---example)
-* [Attributes (Attributi) (Attributi)](#excel-output---attributes)
+* [Attributes (Attributi)](#excel-output---attributes)
 * [Configurazione](#excel-output---configuration)
 * [Utilizzo](#excel-output---usage)
 
@@ -544,7 +544,7 @@ L'associazione di input di file di OneDrive legge il contenuto di un file archiv
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-input---example)
-* [Attributes (Attributi) (Attributi)](#file-input---attributes)
+* [Attributes (Attributi)](#file-input---attributes)
 * [Configurazione](#file-input---configuration)
 * [Utilizzo](#file-input---usage)
 
@@ -687,7 +687,7 @@ L'associazione di output di file di OneDrive modifica il contenuto di un file ar
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-output---example)
-* [Attributes (Attributi) (Attributi)](#file-output---attributes)
+* [Attributes (Attributi)](#file-output---attributes)
 * [Configurazione](#file-output---configuration)
 * [Utilizzo](#file-output---usage)
 
@@ -833,7 +833,7 @@ L'associazione di output del messaggio di Outlook invia un messaggio di posta tr
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#outlook-output---example)
-* [Attributes (Attributi) (Attributi)](#outlook-output---attributes)
+* [Attributes (Attributi)](#outlook-output---attributes)
 * [Configurazione](#outlook-output---configuration)
 * [Utilizzo](#outlook-output---usage)
 
@@ -997,7 +997,7 @@ Il trigger di webhook di Microsoft Graph consente di rispondere a un webhook in 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-trigger---example)
-* [Attributes (Attributi) (Attributi)](#webhook-trigger---attributes)
+* [Attributes (Attributi)](#webhook-trigger---attributes)
 * [Configurazione](#webhook-trigger---configuration)
 * [Utilizzo](#webhook-trigger---usage)
 
@@ -1116,7 +1116,7 @@ L'associazione di input per il webhook di Microsoft Graph consente di recuperare
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-input---example)
-* [Attributes (Attributi) (Attributi)](#webhook-input---attributes)
+* [Attributes (Attributi)](#webhook-input---attributes)
 * [Configurazione](#webhook-input---configuration)
 * [Utilizzo](#webhook-input---usage)
 
@@ -1267,7 +1267,7 @@ L'associazione di output per la sottoscrizione webhook consente di creare, elimi
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-output---example)
-* [Attributes (Attributi) (Attributi)](#webhook-output---attributes)
+* [Attributes (Attributi)](#webhook-output---attributes)
 * [Configurazione](#webhook-output---configuration)
 * [Utilizzo](#webhook-output---usage)
 
@@ -1421,7 +1421,7 @@ In questa sezione contiene un esempio per ognuno di questi approcci:
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [Script C# (file con estensione csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>Aggiornamento dell'identità app: esempio di script C#
 

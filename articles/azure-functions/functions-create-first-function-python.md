@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911891"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731258"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Creare la prima funzione Python in Azure (anteprima)
 
@@ -179,7 +179,7 @@ A questo punto si è pronti per creare un'app per le funzioni e le altre risorse
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Creare un'app per le funzioni Linux in Azure
 
-L'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'**app per le funzioni Python eseguita in Linux** usando il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create).
+L'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'**app per le funzioni Python eseguita in Linux** usando il comando [az functionapp create](/cli/azure/functionapp).
 
 Eseguire il comando seguente sostituendo il segnaposto `<app_name>` con un nome univoco dell'app per le funzioni e il segnaposto `<storage_name>` con il nome dell'account di archiviazione. `<app_name>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure.
 

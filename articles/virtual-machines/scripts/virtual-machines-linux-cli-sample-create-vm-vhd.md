@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 6963a7d8541897940316d0fdfbea06f265884249
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 18bfdaaf75230cf91ea8f786188b9de9f7a6a5be
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478315"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696735"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Creare una macchina virtuale con un disco rigido virtuale
 
@@ -53,16 +53,16 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Elenca gli account di archiviazione |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Verifica che un nome di account di archiviazione sia valido e che non esista già |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Elenca gli account di archiviazione |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Verifica che un nome di account di archiviazione sia valido e che non esista già |
 | [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Elenca le chiavi per gli account di archiviazione |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Controlla se il BLOB esiste |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Crea un contenitore in un account di archiviazione. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Crea un BLOB nel contenitore caricando il disco rigido virtuale. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Usato con `--query`, controlla se il nome della macchina virtuale è in uso. | 
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Controlla se il BLOB esiste |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | Crea un contenitore in un account di archiviazione. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Crea un BLOB nel contenitore caricando il disco rigido virtuale. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Usato con `--query`, controlla se il nome della macchina virtuale è in uso. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crea le macchine virtuali. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

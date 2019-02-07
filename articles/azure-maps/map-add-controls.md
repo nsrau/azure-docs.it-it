@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eefa639ca5f13d23c3b2048436d739a01bd0dfa
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 4947977fbed2b4fe4bd47adcc4de6516090573ad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975619"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661310"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Aggiungere controlli mappa in Mappe di Azure
 
-Questo articolo illustra come aggiungere i controlli mappa a una mappa. Si apprenderà anche come creare una mappa con tutti i controlli e un [selettore di stile](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker).
+Questo articolo illustra come aggiungere i controlli mappa a una mappa. Si apprenderà anche come creare una mappa con tutti i controlli e un [selettore di stile](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Aggiungere un controllo zoom
 
@@ -26,7 +26,7 @@ Questo articolo illustra come aggiungere i controlli mappa a una mappa. Si appre
 
 Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto Mappa senza preimpostare lo stile. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il controllo zoom consente di fare zoom avanti o indietro sulla mappa. Il secondo blocco di codice crea un oggetto Controllo zoom usando [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa. Il Controllo zoom è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
+Il controllo zoom consente di fare zoom avanti o indietro sulla mappa. Il secondo blocco di codice crea un oggetto Controllo zoom usando [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa. Il Controllo zoom è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
 
 ## <a name="add-pitch-control"></a>Aggiungere un controllo inclinazione
 
@@ -35,7 +35,7 @@ Il controllo zoom consente di fare zoom avanti o indietro sulla mappa. Il second
 
 Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto Mappa senza preimpostare lo stile. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il controllo inclinazione consente di modificare l'inclinazione della mappa. Il secondo blocco di codice crea un oggetto Controllo inclinazione con [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa. Il Controllo inclinazione è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
+Il controllo inclinazione consente di modificare l'inclinazione della mappa. Il secondo blocco di codice crea un oggetto Controllo inclinazione con [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa. Il Controllo inclinazione è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
 
 ## <a name="add-compass-control"></a>Aggiungere un controllo bussola
 
@@ -44,7 +44,7 @@ Il controllo inclinazione consente di modificare l'inclinazione della mappa. Il 
 
 Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto Mappa senza preimpostare lo stile. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un oggetto controllo bussola usando [Compass Control](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) di Atlas. Aggiunge anche il controllo bussola alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol). Il Controllo bussola è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
+Il secondo blocco di codice crea un oggetto controllo bussola usando [Compass Control](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) di Atlas. Aggiunge anche il controllo bussola alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Il Controllo bussola è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
 
 ## <a name="a-map-with-all-controls"></a>Una mappa con tutti i controlli
 
@@ -53,13 +53,13 @@ Il secondo blocco di codice crea un oggetto controllo bussola usando [Compass Co
 
 Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto Mappa senza preimpostare lo stile. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un oggetto Controllo bussola usando [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa.
+Il secondo blocco di codice crea un oggetto Controllo bussola usando [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa.
 
-Il terzo blocco di codice crea un oggetto Controllo zoom usando [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa.
+Il terzo blocco di codice crea un oggetto Controllo zoom usando [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa.
 
-Il quarto blocco di codice crea un oggetto Controllo inclinazione con [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa.
+Il quarto blocco di codice crea un oggetto Controllo inclinazione con [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa.
 
-L'ultimo blocco di codice crea un oggetto Selettore di stile usando [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa. Tutti gli oggetti di controllo sono aggiunti all'interno del **listener di eventi** della mappa per garantire che vengano caricati dopo che la mappa è stata caricata completamente.
+L'ultimo blocco di codice crea un oggetto Selettore di stile usando [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) di Atlas e lo aggiunge alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) della mappa. Tutti gli oggetti di controllo sono aggiunti all'interno del **listener di eventi** della mappa per garantire che vengano caricati dopo che la mappa è stata caricata completamente.
 
 L'ordine degli oggetti di controllo nello script determina l'ordine in cui vengono visualizzati sulla mappa. Per modificare l'ordine dei controlli sulla mappa, è possibile modificarne l'ordine nello script.
 

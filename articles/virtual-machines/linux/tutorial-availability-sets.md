@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885588"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756411"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
@@ -49,7 +49,7 @@ Si consideri una soluzione tipica basata su macchine virtuali, in cui sono dispo
 
 ## <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
-È possibile creare un set di disponibilità usando il comando [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In questo esempio il numero di domini di aggiornamento e di errore viene impostato su *2* per il set di disponibilità denominato *myAvailabilitySet* nel gruppo di risorse *myResourceGroupAvailability*.
+È possibile creare un set di disponibilità usando il comando [az vm availability-set create](/cli/azure/vm/availability-set). In questo esempio il numero di domini di aggiornamento e di errore viene impostato su *2* per il set di disponibilità denominato *myAvailabilitySet* nel gruppo di risorse *myResourceGroupAvailability*.
 
 Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create), quindi creare il set di disponibilità:
 

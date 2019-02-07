@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: fb5449ec33467a78de0eef7a345b687901063fe1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 85f119b2a0aaa49fa02ad579a89ce2a0b6e72007
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102295"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756283"
 ---
 # <a name="how-to-configure-endpoints"></a>Come configurare gli endpoint
 
@@ -36,4 +36,4 @@ ms.locfileid: "55102295"
 -   Per creare la richiesta di autenticazione specifica per l'applicazione, usare l'endpoint specifico del protocollo di autenticazione in uso, in combinazione con l'ID applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496228"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Come usare l'API REST QnA Maker con Node.js 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ Il codice seguente crea una nuova knowledge base usando il metodo [Create](https
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ Il codice seguente aggiorna una knowledge base esistente usando il metodo [Updat
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ Il codice seguente pubblica una knowledge base esistente usando il metodo [Publi
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ Il codice seguente sostituisce i contenuti della knowledge base specificata usan
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ Il codice seguente scarica i contenuti della knowledge base specificata usando i
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ Il codice seguente ottiene le risposte a una domanda usando la knowledge base sp
 1. Sostituire il valore di `kb` con l'ID della knowledge base su cui si vogliono eseguire query per ottenere risposte. Tenere presente che questa knowledge base deve essere già stata pubblicata tramite il metodo [Publish](#Publish).
 1. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ Il codice seguente ottiene informazioni sulla knowledge base specificata usando 
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ Il codice seguente ottiene informazioni su tutte le knowledge base per un utente
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ Il codice seguente elimina la knowledge base specificata usando il metodo [Delet
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ Il codice seguente ottiene le chiavi dell'endpoint correnti usando il metodo [Ge
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ Il codice seguente rigenera le chiavi dell'endpoint correnti usando il metodo [R
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ Il codice seguente ottiene le variazioni delle parole correnti usando il metodo 
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ Il codice seguente sostituisce le variazioni delle parole correnti usando il met
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

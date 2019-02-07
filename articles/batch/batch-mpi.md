@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 420f69e246b322eff28b56237613cea250be7530
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460540"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766555"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -49,7 +49,7 @@ Quando si invia a un processo un'attività con impostazioni per istanze multiple
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisiti delle attività a istanze multiple
-Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione di attività simultanee, impostare la proprietà [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) su 1.
+Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione di attività simultanee, impostare la proprietà [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) su 1.
 
 > [!NOTE]
 > Batch [limita](batch-quota-limit.md#other-limits) le dimensioni di un pool per cui è abilitata la comunicazione tra i nodi.

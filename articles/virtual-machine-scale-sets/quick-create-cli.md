@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884895"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733179"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva viene creato un set di scalabilità di macchine virtuali e viene distribuita un'applicazione di esempio con l'interfaccia della riga di comando di Azure.
@@ -40,7 +40,7 @@ Per poter creare un set di scalabilità, è prima necessario creare un gruppo di
 az group create --name myResourceGroup --location eastus
 ```
 
-Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che è impostato per l'aggiornamento automatico man mano che vengono applicate modifiche e genera le chiavi SSH se non esistono in *~/.ssh/id_rsa*. Queste chiavi SSH vengono usate per l'accesso alle istanze di macchina virtuale. Per usare invece un set di chiavi SSH esistente, usare il parametro `--ssh-key-value` e specificare il percorso delle chiavi.
+Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che è impostato per l'aggiornamento automatico man mano che vengono applicate modifiche e genera le chiavi SSH se non esistono in *~/.ssh/id_rsa*. Queste chiavi SSH vengono usate per l'accesso alle istanze di macchina virtuale. Per usare invece un set di chiavi SSH esistente, usare il parametro `--ssh-key-value` e specificare il percorso delle chiavi.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 ## <a name="deploy-sample-application"></a>Distribuire l'applicazione di esempio
 Per testare il set di scalabilità, installare un'applicazione Web di base. Usare l'estensione script personalizzati di Azure per scaricare ed eseguire uno script che installa un'applicazione nelle istanze di macchina virtuale. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/linux/extensions-customscript.md).
 
-Usare l'estensione script personalizzati per installare un server NGINX di base. Applicare l'estensione script personalizzati che installa NGINX con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) nel modo seguente:
+Usare l'estensione script personalizzati per installare un server NGINX di base. Applicare l'estensione script personalizzati che installa NGINX con [az vmss extension set](/cli/azure/vmss/extension) nel modo seguente:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Consentire il traffico verso l'applicazione
-Quando è stato creato il set di scalabilità, è stato distribuito automaticamente un servizio Azure Load Balancer. Il servizio di bilanciamento del carico distribuisce il traffico alle istanze di macchina virtuale nel set di scalabilità. Per consentire al traffico di raggiungere l'applicazione Web di esempio, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
+Quando è stato creato il set di scalabilità, è stato distribuito automaticamente un servizio Azure Load Balancer. Il servizio di bilanciamento del carico distribuisce il traffico alle istanze di macchina virtuale nel set di scalabilità. Per consentire al traffico di raggiungere l'applicazione Web di esempio, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Immettere l'indirizzo IP pubblico del servizio di bilanciamento del carico in un
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli, come segue. Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group) per rimuoverli, come segue. Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

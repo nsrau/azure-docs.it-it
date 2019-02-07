@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001465"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698245"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creare un'API senza server mediante Funzioni di Azure
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
 
 1. Fare clic su **Save**.
 
-Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Testare l'API
 
@@ -176,7 +176,7 @@ Ora si aggiungerà l'API fittizia. Sostituire il file proxies.json con il seguen
 }
 ```
 
-In questo modo viene aggiunto un nuovo proxy, "GetUserByName", senza la proprietà backendUri. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. Ciò è particolarmente utile quando si esegue l'inoltro tramite proxy dei dati di un sistema legacy, in cui potrebbe essere necessario modificare le intestazioni, eseguire una query dei parametri e così via. Per altre informazioni sugli override di richiesta e risposta, vedere [Modifica delle richieste e delle risposte](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+In questo modo viene aggiunto un nuovo proxy, "GetUserByName", senza la proprietà backendUri. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. Ciò è particolarmente utile quando si esegue l'inoltro tramite proxy dei dati di un sistema legacy, in cui potrebbe essere necessario modificare le intestazioni, eseguire una query dei parametri e così via. Per altre informazioni sugli override di richiesta e risposta, vedere [Modifica delle richieste e delle risposte](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testare l'API fittizia chiamando l'endpoint `<YourProxyApp>.azurewebsites.net/api/users/{username}` mediante un browser o il client REST preferito. Assicurarsi di sostituire _{username}_ con un valore stringa che rappresenta un nome utente.
 

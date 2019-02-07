@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 905d701437b1b580c019c800d13b18f725580fdd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51de92eb64e9879b769baf7e574ee1dca9355040
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972947"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767010"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Usare cloud-init per aggiungere un utente a una VM Linux in Azure
 Questo articolo illustra come usare [cloud-init](https://cloudinit.readthedocs.io) per aggiungere un utente in una macchina virtuale (VM) o un set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questo script cloud-init viene eseguito al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md).
@@ -43,13 +43,13 @@ users:
 > [!NOTE] 
 > Il file #cloud-config include il parametro `- default`. In questo modo, l'utente verrà aggiunto all'utente amministratore esistente creato durante il provisioning. Se si crea un utente senza il parametro `- default`, l'utente amministratore generato automaticamente dalla piattaforma Azure verrà sovrascritto. 
 
-Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora una VM con [az vm create](/cli/azure/vm#az_vm_create) e specificare il file cloud-init con `--custom-data cloud_init_add_user.txt` come segue:
+Creare ora una VM con [az vm create](/cli/azure/vm) e specificare il file cloud-init con `--custom-data cloud_init_add_user.txt` come segue:
 
 ```azurecli-interactive 
 az vm create \

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: a1f5946e3dcfd00631ed09b5e9211d0b207fba33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250419"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756377"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Avvio rapido: Instradare gli eventi di archiviazione a un endpoint Web con l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,7 @@ Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 
 L'esempio seguente crea un gruppo di risorse denominato `<resource_group_name>` nella località *westcentralus*.  Sostituire `<resource_group_name>` con un nome univoco per il gruppo di risorse.
 

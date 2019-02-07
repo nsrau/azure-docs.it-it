@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306251"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697919"
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 
@@ -194,9 +194,9 @@ Analisi archiviazione registra i tipi seguenti di richieste autenticate e anonim
 
 Il monitoraggio e la registrazione di rete in Azure comprende due categorie generali:
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Tra le funzionalità di questo servizio è incluso il monitoraggio di rete basato su scenari. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i registri dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Tra le funzionalità di questo servizio è incluso il monitoraggio di rete basato su scenari. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i registri dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
 
-* [Monitoraggio delle risorse](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Il monitoraggio a livello di risorsa include quattro funzionalità, ovvero log di diagnostica, metriche, risoluzione dei problemi e integrità delle risorse. Tutte queste funzionalità vengono compilate a livello di risorsa di rete.
+* [Monitoraggio delle risorse](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Il monitoraggio a livello di risorsa include quattro funzionalità, ovvero log di diagnostica, metriche, risoluzione dei problemi e integrità delle risorse. Tutte queste funzionalità vengono compilate a livello di risorsa di rete.
 
 ![Log di rete di Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Oltre alle funzionalità di registrazione già citate, Network Watcher offre att
 
 * [Risoluzione dei problemi di connessione e del gateway di rete virtuale](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Consente di risolvere i problemi di connessioni e gateway di rete virtuale.
 
-* [Limiti delle sottoscrizioni di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Consente di visualizzare l'uso delle risorse di rete rispetto ai limiti.
+* [Limiti delle sottoscrizioni di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Consente di visualizzare l'uso delle risorse di rete rispetto ai limiti.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -371,10 +371,10 @@ Integrazione log supporta attualmente l'integrazione dei log attività di Azure,
 
 | Tipo di log | Log Analytics con supporto JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Log di controllo di Azure AD|   Yes|
-|Log attività| Yes|
-|Avvisi del Centro sicurezza |Yes|
-|Log di diagnostica (log di risorse)|  Yes|
+|Log di controllo di Azure AD|   Sì|
+|Log attività| Sì|
+|Avvisi del Centro sicurezza |Sì|
+|Log di diagnostica (log di risorse)|  Sì|
 |Log VM|   Sì, tramite eventi inoltrati e non attraverso JSON|
 
 [Introduzione a Integrazione log di Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): Questa esercitazione illustra come installare Integrazione log di Azure e integrare i log dall'archiviazione di Azure, dai log attività di Azure, dagli avvisi del Centro sicurezza di Azure e dai log di controllo di Azure AD.

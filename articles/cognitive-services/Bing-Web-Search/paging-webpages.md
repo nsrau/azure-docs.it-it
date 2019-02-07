@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1ff4b7aa804dc3576462b3a30b94fdab8e1945e1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e46c3c5722be6448999c4ed7f98b8babe609cd2c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164283"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734369"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Come sfogliare i risultati nell'API Ricerca Web Bing
 
-Quando si chiama l'API Ricerca Web, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) dell'oggetto risposta.  
+Quando si chiama l'API Ricerca Web, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) dell'oggetto risposta.  
 
 L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risposta Web.  
 

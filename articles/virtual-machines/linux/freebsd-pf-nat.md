@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8400fa12e8776834f71740f809df18753291601f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8cfa1696a18925e9e9e8b96299f1255875e85aa8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992310"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727264"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedura: usare Packet Filter di FreeBSD per creare un firewall sicuro in Azure
 In questo articolo viene illustrato come distribuire un firewall NAT usando Packet Filter di FreeBSD tramite un modello di Azure Resource Manager per uno scenario server Web comune.
@@ -35,13 +35,13 @@ Il modello Azure Resource Manager configura una macchina virtuale FreeBSD che es
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuire tramite l'interfaccia della riga di comando di Azure
-È necessario aver installato l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login). Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `West US`.
+È necessario aver installato l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index). Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `West US`.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Scaricare [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i valori di risorse specifici, ad esempio `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
+Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment). Scaricare [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i valori di risorse specifici, ad esempio `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

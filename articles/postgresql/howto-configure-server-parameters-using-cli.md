@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843635"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731564"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un server PostgreSQL di Azure usando l'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 
@@ -23,7 +23,7 @@ Per proseguire con questa guida, si richiedono:
 - Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nel computer oppure usare [Azure Cloud Shell](../cloud-shell/overview.md) nel portale di Azure tramite il browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Elencare i parametri di configurazione del server per Database di Azure per il server PostgreSQL
-Per elencare tutti i parametri modificabili in un server e i relativi valori, eseguire il comando [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list).
+Per elencare tutti i parametri modificabili in un server e i relativi valori, eseguire il comando [az postgres server configuration list](/cli/azure/postgres/server/configuration).
 
 È possibile elencare i parametri di configurazione per il server **mydemoserver.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup**.
 ```azurecli-interactive
@@ -37,7 +37,7 @@ Questo esempio mostra i dettagli del parametro di configurazione del server **lo
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Modificare il valore di un parametro di configurazione server
-È anche possibile modificare il valore di un determinato parametro di configurazione del server, che aggiorna il valore di configurazione sottostante del motore del server PostgreSQL. Per aggiornare la configurazione, usare il comando [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set). 
+È anche possibile modificare il valore di un determinato parametro di configurazione del server, che aggiorna il valore di configurazione sottostante del motore del server PostgreSQL. Per aggiornare la configurazione, usare il comando [az postgres server configuration set](/cli/azure/postgres/server/configuration). 
 
 Per aggiornare il parametro di configurazione del server **log\_min\_messages** per il server **mydemoserver.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup**.
 ```azurecli-interactive

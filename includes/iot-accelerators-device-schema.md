@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285647"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701183"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Parte dello schema del modello di dispositivo
 
@@ -105,7 +105,7 @@ La sezione `Properties` dello schema definisce i valori di proprietà segnalati 
 }
 ```
 
-All'avvio, la soluzione richiede a tutti i dispositivi simulati di compilare un elenco di valori `Type` da usare nell'interfaccia utente. La soluzione usa le proprietà `Latitiude` e `Longitude` per aggiungere la posizione del dispositivo alla mappa nel dashboard.
+All'avvio, la soluzione richiede a tutti i dispositivi simulati di compilare un elenco di valori `Type` da usare nell'interfaccia utente. La soluzione usa le proprietà `Latitude` e `Longitude` per aggiungere la posizione del dispositivo alla mappa nel dashboard.
 
 ## <a name="telemetry"></a>Telemetria
 
@@ -142,10 +142,10 @@ Attualmente, è possibile usare solo gli schemi di messaggio JSON. I campi elenc
 * Oggetto: serializzato con JSON
 * Binario: serializzato con base64
 * Text
-* boolean
+* Boolean
 * Integer
 * Double
-* Datetime
+* DateTime
 
 Per inviare messaggi di dati di telemetria a intervalli diversi, aggiungere più tipi di dati di telemetria alla matrice `Telemetry`. L'esempio seguente invia i dati di temperatura e umidità ogni 10 secondi e lo stato dell'illuminazione ogni minuto:
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478288"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756045"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
 
@@ -46,7 +46,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 #### <a name="installation-steps"></a>Procedura di installazione
 
-1. Nel [portale di Azure](https://portal.azure.com/)creare un database premium o business critical in un server. Impostare **Origine** sul database AdventureWorksLT di esempio. Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-get-started-portal.md).
+1. Nel [portale di Azure](https://portal.azure.com/)creare un database premium o business critical in un server. Impostare **Origine** sul database AdventureWorksLT di esempio. Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-single-database-get-started.md).
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

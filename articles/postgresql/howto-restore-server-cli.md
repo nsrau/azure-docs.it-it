@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 4bee57abe6de8e80ddf6f788fb17bb8b7d82849d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913101"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756513"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
@@ -57,7 +57,7 @@ Il periodo di conservazione dei backup determina quanto è possibile tornare ind
 ## <a name="server-point-in-time-restore"></a>Ripristino temporizzato del server
 È possibile ripristinare il server in base a una temporizzazione precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
 
-Per ripristinare il server usare il comando [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) dell'interfaccia della riga di comando di Azure.
+Per ripristinare il server usare il comando [az postgres server restore](/cli/azure/postgres/server) dell'interfaccia della riga di comando di Azure.
 
 ### <a name="run-the-restore-command"></a>Eseguire il comando di ripristino
 

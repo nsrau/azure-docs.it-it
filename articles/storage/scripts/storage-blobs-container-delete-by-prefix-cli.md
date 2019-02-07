@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 01187a4dbcd8333f95cf20b5956b7b81559a19a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853732"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730653"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
 
@@ -49,10 +49,10 @@ Lo script usa i comandi seguenti per eliminare i contenitori in base al prefisso
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Crea un contenitore nell'Archiviazione BLOB di Azure. |
+| [az storage account create](/cli/azure/storage/account) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
+| [az storage container create](/cli/azure/storage/container) | Crea un contenitore nell'Archiviazione BLOB di Azure. |
 | [az storage container list](/cli/azure/storage/container) | Elenca i contenitori nell'account di Archiviazione di Azure. |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Elimina i contenitori nell'account di Archiviazione di Azure. |
+| [az storage container delete](/cli/azure/storage/container) | Elimina i contenitori nell'account di Archiviazione di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

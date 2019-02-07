@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846311"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698990"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -140,7 +140,7 @@ Negli esempi vengono usati i valori seguenti:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Creare uno spazio indirizzi aggiuntivo per la subnet back-end. Si noti che in questo passaggio vengono specificati sia lo spazio indirizzi creato prima che lo spazio indirizzi aggiuntivo che si vuole aggiungere. Infatti il comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) sovrascrive le impostazioni precedenti. Quando si usa questo comando, assicurarsi di specificare tutti i prefissi degli indirizzi.
+3. Creare uno spazio indirizzi aggiuntivo per la subnet back-end. Si noti che in questo passaggio vengono specificati sia lo spazio indirizzi creato prima che lo spazio indirizzi aggiuntivo che si vuole aggiungere. Infatti il comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) sovrascrive le impostazioni precedenti. Quando si usa questo comando, assicurarsi di specificare tutti i prefissi degli indirizzi.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la [documentazione sulle macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la [documentazione sulle macchine virtuali](https://docs.microsoft.com/azure/).
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438813"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822681"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analizzare i log di Apache Hadoop
 
@@ -99,7 +99,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. È p
     Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Log scritti nell'archivio BLOB di Azure
-[I log scritti nelle tabelle di Azure](#log-written-to-azure-tables) offrono un livello di informazioni relative a ciò che accade in un cluster HDInsight. Queste tabelle non offrono tuttavia log a livello di attività, che possono essere utili per approfondire i problemi quando si verificano. Per fornire questo livello successivo di dettaglio, i cluster HDInsight sono configurati per scrivere log sulle attività nell'account di archiviazione BLOB per qualsiasi processo inviato con Templeton. In pratica ad accedere al cluster sono i processi inviati usando i cmdlet di Microsoft Azure PowerShell o le API di invio processi di .NET e non i processi inviati tramite RDP/riga di comando. 
+I log scritti nelle tabelle di Azure offrono un livello di informazioni relative a ciò che accade in un cluster HDInsight. Queste tabelle non offrono tuttavia log a livello di attività, che possono essere utili per approfondire i problemi quando si verificano. Per fornire questo livello successivo di dettaglio, i cluster HDInsight sono configurati per scrivere log sulle attività nell'account di archiviazione BLOB per qualsiasi processo inviato con Templeton. In pratica ad accedere al cluster sono i processi inviati usando i cmdlet di Microsoft Azure PowerShell o le API di invio processi di .NET e non i processi inviati tramite RDP/riga di comando. 
 
 Per visualizzare i log, vedere [Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
@@ -151,7 +151,7 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 * **Descrizione**: il nome del cluster *NomeCluster* non è disponibile. Scegliere un altro nome.  
-* **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se usa il portale, durante la procedura di creazione l’interfaccia utente indica se un nome di cluster è già in uso.
+* **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se usa il portale, durante la procedura di creazione l’interfaccia utente  indica se un nome di cluster è già in uso.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
 * **Descrizione**: la password del cluster non è valida. La password deve essere costituita da almeno 10 caratteri e deve contenere almeno un numero, una lettera maiuscola, una lettera minuscola e un carattere speciale senza spazi e non deve contenere al suo interno il nome utente.  
@@ -278,7 +278,7 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 * **Soluzione**: specificare un'area che supporti i cluster HDInsight. Le aree supportate pubblicamente sono: Asia sud-orientale, Europa occidentale, Europa settentrionale, Stati Uniti orientali o Stati Uniti occidentali.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Descrizione**: l'account di archiviazione *NomeAccountArchiviazione* si trova nell'area *NomeAreaCorrente*. Dovrebbe corrispondere all'area del cluster *NomeAreaCluster*.  
+* **Descrizione**: l'account di archiviazione *NomeAccountArchiviazione* si trova nell'area *NomeAreaCorrente*. Dovrebbe corrispondere all'area del cluster *NomeAreaGeograficaCluster*.  
 * **Soluzione**: specificare un account di archiviazione nella stessa area del cluster oppure, se i dati si trovano già nell'account di archiviazione, creare un nuovo cluster nella stessa area dell'account di archiviazione esistente. Se si usa il portale, questo problema verrà segnalato in anticipo dall’interfaccia utente.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive

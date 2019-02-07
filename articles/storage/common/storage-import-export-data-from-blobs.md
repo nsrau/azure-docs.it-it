@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453111"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769278"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -145,7 +145,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
     |**/sn:**|Richiesto. Il nome dell'account di archiviazione per il processo di esportazione.|  
     |**/sk:**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  
-    |**/ExportBlobListFile:**|Richiesto. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) dell'API REST del servizio Importazione/Esportazione.|  
+    |**/ExportBlobListFile:**|Richiesto. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs) dell'API REST del servizio Importazione/Esportazione.|  
     |**/DriveSize:**|Richiesto. Dimensione delle unità da usare per un processo di esportazione, *ad esempio* 500 GB o 1,5 TB.|  
 
     Vedere [Esempio di comando PreviewExport](#example-of-previewexport-command).

@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162617"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755461"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
@@ -164,14 +164,6 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza** > **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 

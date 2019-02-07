@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1d7130e841ce48ead4fca1d76bf5e3e051263efd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 416295b9dc7736d66515ebcbf9caa52053027c85
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216796"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489955"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
@@ -137,7 +137,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
         public async Task<string> GetAnswer(string question)
         {
             string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
-            string questionJSON = @"{'question': '" + question + "'}";
+            string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
 

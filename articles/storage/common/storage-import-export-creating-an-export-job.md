@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 935af10c2ebcdc5273671ed058fdf72099059da3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475619"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731395"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creazione di un processo di esportazione per Importazione/Esportazione di Azure
 La creazione di un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure con l'API REST prevede i passaggi seguenti:
@@ -45,21 +45,21 @@ La creazione di un processo di esportazione per il servizio Importazione/Esporta
 
 -   È possibile esportare tutti i BLOB e gli snapshot nell'account di archiviazione.
 
- Per altre informazioni sulla specifica dei BLOB da esportare, vedere l'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
+ Per altre informazioni sulla specifica dei BLOB da esportare, vedere l'operazione [Put Job](/rest/api/storageimportexport/jobs).
 
 ## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
 Prima di creare un processo di esportazione, è necessario ottenere il nome e l'indirizzo di una località di spedizione chiamando l'operazione [Get Location](https://portal.azure.com) o [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` restituirà un elenco di località con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
 
 Seguire i passaggi sotto per ottenere la posizione di spedizione:
 
--   Identificare il nome della località dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identificare il nome della località dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts).
 
 -   Recuperare la località disponibile per elaborare questo account di archiviazione chiamando l'operazione `Get Location`.
 
 -   Se la proprietà `AlternateLocations` della località contiene la località stessa, è possibile usare questa località. In caso contrario, chiamare di nuovo l'operazione `Get Location` con una delle posizione alternative. La località originale potrebbe essere chiusa temporaneamente per manutenzione.
 
 ## <a name="creating-the-export-job"></a>Creazione del processo di esportazione
- Per creare il processo di esportazione, chiamare l'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Sarà necessario specificare le informazioni seguenti:
+ Per creare il processo di esportazione, chiamare l'operazione [Put Job](/rest/api/storageimportexport/jobs). Sarà necessario specificare le informazioni seguenti:
 
 -   Un nome per il processo.
 
@@ -82,10 +82,10 @@ Seguire i passaggi sotto per ottenere la posizione di spedizione:
 >  È necessario spedire le unità con un vettore supportato, che fornirà un numero di tracciabilità per il pacchetto.
 
 ## <a name="updating-the-export-job-with-your-package-information"></a>Aggiornamento del processo di esportazione con le informazioni del pacchetto
- Dopo avere ottenuto il numero di tracciabilità, chiamare l'operazione [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) per aggiornare il nome del vettore e il numero di tracciabilità per il processo. È facoltativamente possibile specificare anche il numero di unità, l'indirizzo mittente e la data di spedizione.
+ Dopo avere ottenuto il numero di tracciabilità, chiamare l'operazione [Update Job Properties](/rest/api/storageimportexport/jobs) per aggiornare il nome del vettore e il numero di tracciabilità per il processo. È facoltativamente possibile specificare anche il numero di unità, l'indirizzo mittente e la data di spedizione.
 
 ## <a name="receiving-the-package"></a>Ricezione del pacchetto
- Dopo che il processo di esportazione è stato elaborato, le unità verranno restituite all'utente con i dati crittografati. È possibile recuperare la chiave BitLocker per ogni unità chiamando l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). È quindi possibile sbloccare l'unità usando la chiave. Il file manifesto di ogni unità contiene l'elenco di file dell'unità, oltre all'indirizzo BLOB originale per ogni file.
+ Dopo che il processo di esportazione è stato elaborato, le unità verranno restituite all'utente con i dati crittografati. È possibile recuperare la chiave BitLocker per ogni unità chiamando l'operazione [Get Job](/rest/api/storageimportexport/jobs). È quindi possibile sbloccare l'unità usando la chiave. Il file manifesto di ogni unità contiene l'elenco di file dell'unità, oltre all'indirizzo BLOB originale per ogni file.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

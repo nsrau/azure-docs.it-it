@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478084"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733434"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -105,5 +105,5 @@ Prima di eseguire nel contesto Spark in Microsoft R Server nella versione della 
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Le librerie di accesso ai dati di BLOB di Azure o dell'archiviazione di Azure Data Lake tramite l'uso delle librerie di machine learning MMLSpark di Microsoft sono preinstallate in $SPARK_HOME/JAR. Questi JAR vengono caricati automaticamente all'avvio di Spark. Per impostazione predefinita Spark usa i dati sul disco locale. Affinché l'istanza di Spark sulla macchina virtuale per data science acceda ai dati archiviati nel BLOB di Azure o in Azure Data Lake Storage è necessario creare o configurare il file `core-site.xml` basato sul modello che si trova in $SPARK_HOME/conf/core-site.xml.template, in cui sono presenti i segnaposto per le configurazione BLOB e di Azure Data Lake Storage, con le credenziali appropriate per i BLOB di Azure e Azure Data Lake Storage. Una procedura più dettagliata sulla creazione delle credenziali del servizio Azure Data Lake Storage è disponibile [qui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Dopo aver inserito le credenziali per il BLOB di Azure o di Azure Data Lake Storage nel file core-site.xml file, è possibile fare riferimento ai dati archiviati nelle origini con il prefisso URI wasb:// o adl://. 
+Le librerie di accesso ai dati di BLOB di Azure o dell'archiviazione di Azure Data Lake tramite l'uso delle librerie di machine learning MMLSpark di Microsoft sono preinstallate in $SPARK_HOME/JAR. Questi JAR vengono caricati automaticamente all'avvio di Spark. Per impostazione predefinita Spark usa i dati sul disco locale. Affinché l'istanza di Spark sulla macchina virtuale per data science acceda ai dati archiviati nel BLOB di Azure o in Azure Data Lake Storage è necessario creare o configurare il file `core-site.xml` basato sul modello che si trova in $SPARK_HOME/conf/core-site.xml.template, in cui sono presenti i segnaposto per le configurazione BLOB e di Azure Data Lake Storage, con le credenziali appropriate per i BLOB di Azure e Azure Data Lake Storage. Una procedura più dettagliata sulla creazione delle credenziali del servizio Azure Data Lake Storage è disponibile [qui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Dopo aver inserito le credenziali per il BLOB di Azure o di Azure Data Lake Storage nel file core-site.xml file, è possibile fare riferimento ai dati archiviati nelle origini con il prefisso URI wasb:// o adl://. 
 

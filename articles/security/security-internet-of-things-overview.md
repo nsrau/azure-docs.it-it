@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d5c1cb22fdfe59bd8409f9595b2fa4c3a0df771e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641238"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695254"
 ---
 # <a name="internet-of-things-security-overview"></a>Informazioni generali sulla sicurezza di Internet delle cose
 I servizi di Azure IoT (Internet delle cose) offrono una vasta gamma di funzionalità. Questi servizi di livello aziendale consentono di:
@@ -39,32 +39,32 @@ Le informazioni seguenti sono utili per comprendere come proteggere le soluzioni
 ## <a name="security-architecture"></a>Architettura di sicurezza
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
 
-Informazioni sull'architettura di sicurezza IoT sono disponibili in [Architettura di sicurezza di Internet delle cose](../iot-accelerators/iot-security-architecture.md).
+Informazioni sull'architettura di sicurezza IoT sono disponibili in [Architettura di sicurezza di Internet delle cose](/azure/iot-fundamentals/iot-security-architecture).
 
 Questo articolo tratta gli argomenti seguenti:
 
-* [La sicurezza inizia con un modello di rischio](../iot-accelerators/iot-security-architecture.md#security-starts-with-a-threat-model)
-* [Sicurezza in IoT](../iot-accelerators/iot-security-architecture.md#security-in-iot)
-* [Modellazione delle minacce nell'architettura di riferimento di Azure IoT](../iot-accelerators/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+* [La sicurezza inizia con un modello di rischio](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
+* [Sicurezza in IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
+* [Modellazione delle minacce nell'architettura di riferimento di Azure IoT](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Sicurezza sin dall'inizio
 Internet delle cose pone numerose sfide in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi vincolati alle risorse, la distribuzione geografica delle implementazioni e l'inclusione di numerosi dispositivi in un'unica soluzione.
 
-Informazioni su come gestire la sicurezza in queste aree sono disponibili in [Sicurezza di Internet delle cose sin dall'inizio](../iot-accelerators/securing-iot-ground-up.md).
+Informazioni su come gestire la sicurezza in queste aree sono disponibili in [Sicurezza di Internet delle cose sin dall'inizio](/azure/iot-fundamentals/iot-security-ground-up).
 
 L'articolo tratta gli argomenti seguenti:
 
-* [Proteggere l'infrastruttura fin dall'inizio](../iot-accelerators/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-* [Microsoft Azure: protezione dell'infrastruttura IoT aziendale](../iot-accelerators/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+* [Proteggere l'infrastruttura fin dall'inizio](/azure/iot-fundamentals/iot-security-ground-up#secure-infrastructure-from-the-ground-up)
+* [Microsoft Azure: protezione dell'infrastruttura IoT aziendale](/azure/iot-fundamentals/iot-security-ground-up#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## <a name="best-practices"></a>Procedure consigliate
 Proteggere un'infrastruttura IoT richiede una strategia di sicurezza rigorosa e approfondita. Dalla protezione dei dati nel cloud alla protezione dell'integrità dei dati in transito sulla rete Internet pubblica e al provisioning sicuro dei dispositivi, ogni strato aumenta il livello di sicurezza dell'intera infrastruttura.
 
-Informazioni sulle procedure consigliate per la sicurezza di Internet delle cose sono disponibili in [Procedure consigliate per la sicurezza di Internet delle cose](../iot-accelerators/iot-security-best-practices.md).
+Informazioni sulle procedure consigliate per la sicurezza di Internet delle cose sono disponibili in [Procedure consigliate per la sicurezza di Internet delle cose](/azure/iot-fundamentals/iot-security-best-practices).
 
 L'articolo tratta gli argomenti seguenti:
 
-* [Produttore/integratore di hardware IoT](../iot-accelerators/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-* [Sviluppatore di soluzioni IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-developer)
-* [Distributore di soluzioni IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-deployer)
-* [Operatore di soluzioni IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-operator)
+* [Produttore/integratore di hardware IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-hardware-manufacturerintegrator)
+* [Sviluppatore di soluzioni IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-developer)
+* [Distributore di soluzioni IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-deployer)
+* [Operatore di soluzioni IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-operator)

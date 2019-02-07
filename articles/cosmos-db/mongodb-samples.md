@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 1fb7ad7638f3235b915e758460bf6c483572a30d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54031854"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507519"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Creare un'app usando Node.js e l'API di Azure Cosmos DB per MongoDB 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Per usare questo esempio è necessario:
 
 1. Creare un file *app.js* e copiare e incollare il codice seguente.
 
-    ```nodejs
+    ```javascript
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
@@ -119,7 +119,7 @@ Per usare questo esempio è necessario:
 
     Originale:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     var db = client.db('familiesdb');
@@ -137,7 +137,7 @@ Per usare questo esempio è necessario:
     
     Deve essere sostituito con:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -163,7 +163,7 @@ Per usare questo esempio è necessario:
     >
     >
    
-    ```nodejs
+    ```javascript
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
@@ -171,6 +171,6 @@ Per usare questo esempio è necessario:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [usare Studio 3T](mongodb-mongochef.md) con l'API Azure Cosmos DB per MongoDB.
-- Informazioni su come [usare Robo 3T](mongodb-robomongo.md) con l'API Azure Cosmos DB per MongoDB.
-- Esplorare gli [esempi](mongodb-samples.md) di MongoDB con l'API Azure Cosmos DB per MongoDB.
+- Informazioni su come [usare Studio 3T](mongodb-mongochef.md) con l'API di Azure Cosmos DB per MongoDB.
+- Informazioni su come [usare Robo 3T](mongodb-robomongo.md) con l'API di Azure Cosmos DB per MongoDB.
+- Esplorare gli [esempi](mongodb-samples.md) di MongoDB con l'API di Azure Cosmos DB per MongoDB.

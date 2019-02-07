@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: f2636720f6f1faeffb9a63052efdf009668d806f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346406"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752076"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Driver di volume per File di Azure di Service Fabric (anteprima)
 Il plug-in di volume di File di Azure è un [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) per contenitori Docker. Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di Service Fabric distribuibile nei cluster di Service Fabric, con lo scopo di fornire volumi basati su File di Azure per altre applicazioni contenitore di Service Fabric distribuite nel cluster.
@@ -185,7 +185,7 @@ Come illustrato negli elementi **DriverOption** nel frammento precedente, il plu
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso di un driver di volume o di registrazione personalizzato
-Service Fabric consente anche di usare driver di [volume](https://docs.docker.com/engine/extend/plugins_volume/) o di [registrazione](https://docs.docker.com/engine/admin/logging/overview/) personalizzati. Se il driver di volume/registrazione Docker non è installato nel cluster, è possibile installarlo manualmente usando i protocolli RDP/SSH. È possibile eseguire l'installazione con questi protocolli tramite un [script di avvio del set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o uno [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Service Fabric consente anche di usare driver di [volume](https://docs.docker.com/engine/extend/plugins_volume/) o di [registrazione](https://docs.docker.com/engine/admin/logging/overview/) personalizzati. Se il driver di volume/registrazione Docker non è installato nel cluster, è possibile installarlo manualmente usando i protocolli RDP/SSH. È possibile eseguire l'installazione con questi protocolli tramite un [script di avvio del set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o uno [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
 
 Un esempio di script per installare il [driver di volume Docker per Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) è riportato di seguito:
 

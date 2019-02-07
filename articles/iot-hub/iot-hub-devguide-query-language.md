@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157208"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568380"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -207,7 +207,7 @@ La funzionalità di query viene esposta da [SDK per i servizi IoT di Azure per N
 
 Ecco un esempio di una query semplice:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {

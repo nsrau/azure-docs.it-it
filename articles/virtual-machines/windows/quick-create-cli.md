@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411884"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730323"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Avvio rapido: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale in Azure che esegue Windows Server 2016. Per vedere la macchina virtuale in azione, eseguire RDP nella macchina virtuale e installare il server Web IIS.
 
@@ -35,7 +35,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*. Questo esempio usa *azureuser* come nome utente amministrativo e *myPassword12* come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando si esegue la connessione alla macchina virtuale.
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM*. Questo esempio usa *azureuser* come nome utente amministrativo e *myPassword12* come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando si esegue la connessione alla macchina virtuale.
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +73,7 @@ Si noti `publicIpAddress` nell'output della macchina virtuale. Questo indirizzo 
 
 ## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
-Per impostazione predefinita, quando si crea una macchina virtuale Windows in Azure vengono aperte solo le connessioni RDP. Usare [az vm open-port](/cli/azure/vm#az_vm_open_port) per aprire la porta TCP 80 da usare con il server Web IIS:
+Per impostazione predefinita, quando si crea una macchina virtuale Windows in Azure vengono aperte solo le connessioni RDP. Usare [az vm open-port](/cli/azure/vm) per aprire la porta TCP 80 da usare con il server Web IIS:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
