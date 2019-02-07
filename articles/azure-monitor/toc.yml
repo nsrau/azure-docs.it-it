@@ -61,7 +61,7 @@ items:
 - name: Concetti
   items:
   - name: Gestione di Azure
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Monitoraggio continuo
     href: continuous-monitoring.md
   - name: Dati di monitoraggio
@@ -135,7 +135,7 @@ items:
     - name: Avvisi dei log attività
       href: platform/activity-log-alerts.md
   - name: Visualizzare i dati
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Integrazioni di partner
     href: platform/partners.md
   - name: Domande frequenti
@@ -195,9 +195,9 @@ items:
         - name: Agenti di Windows
           href: platform/agent-windows.md
         - name: Estensione macchina virtuale per Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: Estensione macchina virtuale per Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
         - name: Gateway di Log Analytics
@@ -287,7 +287,7 @@ items:
           - name: Risoluzione dei problemi di Profiler
             href: app/profiler-troubleshooting.md
         - name: Diagnostica
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Anteprime
           href: app/previews.md
       - name: App ASP.NET
@@ -354,7 +354,7 @@ items:
         - name: JavaScript
           href: app/javascript.md
       - name: Monitorare Funzioni di Azure
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
+        href: ../azure-functions/functions-monitoring.md
       - name: Analisi distribuita
         items:
         - name: Server d'inoltro locale
@@ -397,7 +397,7 @@ items:
         - name: Nessun dato per .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Debugger di snapshot
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -604,7 +604,7 @@ items:
       - name: Analisi dell'insieme di credenziali delle chiavi
         href: insights/azure-key-vault.md
       - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Monitorare altre risorse
       items:
       - name: Valutare l'integrità di AD
@@ -653,7 +653,7 @@ items:
     - name: Esempi di grafici di Esplora metriche
       href: platform/metric-chart-samples.md
     - name: Visualizzare eventi nel log attività
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: Visualizzare le notifiche del servizio
       href: platform/service-notifications.md
     - name: Eseguire query sui dati di log
@@ -819,7 +819,7 @@ items:
       - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuali con i modelli di Gestione risorse
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Ridimensionare automaticamente le macchine virtuali in un di set di scalabilità di macchine virtuali
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configurare webhook e notifiche di posta elettronica per la scalabilità automatica
         href: platform/autoscale-webhook-email.md
     - name: Notifiche del servizio
@@ -908,7 +908,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Application Insights
     items:
@@ -1023,9 +1023,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d972d54cd81609ae16f7966795f16e5efe41e863
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 96f79397b16212fe0897e0d03f57ffb7248118c8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752025"
+ms.locfileid: "55767123"

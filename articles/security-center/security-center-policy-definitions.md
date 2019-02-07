@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261894"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180671"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Criteri di sicurezza di Azure monitorati dal Centro sicurezza di Azure
 Questo articolo offre un elenco di definizioni di criteri di Azure che possono essere monitorate nel Centro sicurezza. Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
@@ -28,13 +28,13 @@ Questo articolo offre un elenco di definizioni di criteri di Azure che possono e
 
 Per informazioni sui criteri predefiniti che vengono monitorati dal Centro sicurezza, vedere la tabella seguente:
 
-| Criterio | Operazioni eseguite dai criteri |
+| Policy | Operazioni eseguite dai criteri |
 | --- | --- |
 |Abilitazione dell'audit dei log di diagnostica in Service Fabric e nei set di scalabilità di macchine virtuali|È consigliabile abilitare i log per poter ricreare la traccia delle attività quando sono necessarie indagini in caso di evento imprevisto o compromissione.|
 |Controlla le regole di autorizzazione negli spazi dei nomi di Hub eventi|I client di Hub eventi non devono usare un criterio di accesso a livello di spazio dei nomi che assicura l'accesso a tutte le code e gli argomenti in uno spazio dei nomi. Per allinearsi al modello di sicurezza con privilegi minimi, è opportuno creare criteri di accesso a livello di entità per code e argomenti per assicurare l'accesso solo all'entità specifica.|
 |Controlla l'esistenza di regole di autorizzazione nelle entità di Hub eventi|Controlla l'esistenza di regole di autorizzazione nelle entità di Hub eventi per concedere l'accesso con privilegi minimi.|
 |Controlla l'accesso di rete senza restrizioni agli account di archiviazione|Controllare l'accesso alla rete senza restrizioni nelle impostazioni del firewall dell'account di archiviazione. Configurare invece regole di rete in modo che l'account di archiviazione sia accessibile solo alle applicazioni provenienti da reti consentite. Per consentire connessioni da specifici client Internet o locali, è possibile concedere l'accesso al traffico proveniente da determinate reti virtuali di Azure o diretto verso intervalli di indirizzi IP Internet pubblici.|
-|Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati|Controlla i ruoli predefiniti, ad esempio "Proprietario, Collaboratore, Lettore" invece che i ruoli Controllo degli accessi in base al ruolo personalizzati, che sono soggetti a errori. L'uso di ruoli personalizzati è considerato un'eccezione e richiede una revisione rigorosa e la modellazione delle minacce.|
+|Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati|Controlla i ruoli predefiniti, ad esempio "Proprietario, Collaboratore, Lettore" anziché i ruoli Controllo degli accessi in base al ruolo personalizzati, che sono soggetti a errori. L'uso di ruoli personalizzati è considerato un'eccezione e richiede una revisione rigorosa e la modellazione delle minacce.|
 |Controlla l'abilitazione dei log di diagnostica in Analisi di flusso di Azure|Controlla l'abilitazione dei log e li conserva per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.|
 |Controlla il trasferimento sicuro negli account di archiviazione|Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|
 |Controlla il provisioning di un amministratore di Azure Active Directory per SQL Server|Controlla il provisioning di un amministratore di Azure Active Directory per il server SQL per abilitare l'autenticazione di Azure AD. Questo tipo di autenticazione consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.|
