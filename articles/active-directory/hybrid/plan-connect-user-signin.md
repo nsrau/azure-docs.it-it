@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a851883d612119e49cc47b1a4c8e2ec470de064
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e838f24aa54469bad9c82f72af9787183d5f52bd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197365"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495361"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
 Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle risorse cloud e locali usando le stesse password. Questo articolo descrive i concetti chiave di ciascun modello di identità per facilitare la scelta dell'identità da usare per l'accesso ad Azure AD.

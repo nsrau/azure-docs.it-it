@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b8340221c61bedbe010b9ef280ada62cfee7a21
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228254"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754873"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti su Sintesi vocale
 
@@ -29,7 +29,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: da dove è necessario iniziare per usare un modello di voce standard?**
 
-**R**: attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. È prima necessario ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**R**: attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. È prima necessario ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **D: per usare un modello di voce personalizzata, l'API è la stessa che viene usata per le voci standard?**
 

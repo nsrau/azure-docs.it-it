@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267386"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697188"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migrazione di Contoso: eseguire il rehosting di un'app locale in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server
 
@@ -35,7 +35,7 @@ Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in u
 [Articolo 10: Effettuare il refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
 [Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app nei contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
-[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
+[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui il servizio app di Azure, servizio Azure Kubernetes, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
 [Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
 
@@ -690,7 +690,7 @@ Ora Contoso deve eseguire le operazioni di pulizia seguenti:
 
 Al termine della migrazione delle risorse in Azure, Contoso deve rendere pienamente operativa la nuova infrastruttura e proteggerla.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Il team di sicurezza Contoso esamina le VM di Azure WEBVM, SQLAOG1 e SQLAOG2 per determinare eventuali problemi di sicurezza. 
 
@@ -698,7 +698,7 @@ Il team di sicurezza Contoso esamina le VM di Azure WEBVM, SQLAOG1 e SQLAOG2 per
 - Il team valuta l'opportunità di proteggere i dati sul disco usando Crittografia dischi di Azure e KeyVault.
 - Il team dovrebbe valutare l'uso della tecnologia TDE (Transparent Data Encryption) e quindi abilitarla nel database di SmartHotel360 in esecuzione sul nuovo gruppo di disponibilità AlwaysOn di SQL. [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)
 
-[Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sulle procedure di sicurezza per le macchine virtuali.
+[Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) sulle procedure di sicurezza per le macchine virtuali.
 
 
 ## <a name="bcdr"></a>BCDR

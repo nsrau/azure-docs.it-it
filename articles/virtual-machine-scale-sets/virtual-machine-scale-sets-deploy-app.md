@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881699"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733142"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -97,7 +97,7 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
 Per altre informazioni, incluso un file *cloud-init.txt* di esempio, vedere [Usare cloud-init per personalizzare le macchine virtuali di Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Per creare un set di scalabilità e usare un file cloud-init, aggiungere il parametro `--custom-data` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) e specificare il nome di un file cloud-int. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* in *myResourceGroup* e configura le istanze di macchine virtuali con un file denominato *cloud-init.txt*. Immettere i nomi personalizzati nel modo seguente:
+Per creare un set di scalabilità e usare un file cloud-init, aggiungere il parametro `--custom-data` al comando [az vmss create](/cli/azure/vmss) e specificare il nome di un file cloud-int. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* in *myResourceGroup* e configura le istanze di macchine virtuali con un file denominato *cloud-init.txt*. Immettere i nomi personalizzati nel modo seguente:
 
 ```azurecli
 az vmss create \

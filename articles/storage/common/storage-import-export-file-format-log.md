@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454845"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697833"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato dei file di log del servizio Importazione/Esportazione di Azure
 Quando il servizio Importazione/Esportazione di Microsoft Azure esegue un'azione in un'unità come parte di un processo di importazione o di esportazione, i log vengono scritti in BLOB in blocchi nell'account di archiviazione associato a tale processo.  
@@ -22,7 +22,7 @@ Esistono due log che possono essere scritti dal servizio Importazione/Esportazio
   
 -   Il log degli errori viene sempre generato in caso di errore.  
   
--   Il log dettagliato non è abilitato per impostazione predefinita, ma può essere abilitato impostando la proprietà `EnableVerboseLog` in un'operazione di tipo [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) o [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).  
+-   Il log dettagliato non è abilitato per impostazione predefinita, ma può essere abilitato impostando la proprietà `EnableVerboseLog` in un'operazione di tipo [Put Job](/rest/api/storageimportexport/jobs) o [Update Job Properties](/rest/api/storageimportexport/jobs).  
   
 ## <a name="log-file-location"></a>Posizione dei file di log  
 I log vengono scritti in BLOB in blocchi nel contenitore o nella directory virtuale specificata tramite l'impostazione `ImportExportStatesPath`, che è possibile impostare in un'operazione di tipo `Put Job`. La posizione in cui vengono scritti i log dipende da come viene specificata l'autenticazione per il processo e dal valore specificato per `ImportExportStatesPath`. L'autenticazione per il processo può essere specificata tramite una chiave dell'account di archiviazione o la firma di accesso condiviso di un contenitore.  
@@ -38,7 +38,7 @@ Nella tabella seguente vengono illustrate le opzioni possibili:
 |Firma di accesso condiviso del contenitore|Valore predefinito|Una directory virtuale denominata `waimportexport`, ovvero il nome predefinito, sotto il contenitore specificato nella firma di accesso condiviso.<br /><br /> Ad esempio, se la firma di accesso condiviso specificata per il processo è `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, la posizione del log sarà `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Firma di accesso condiviso del contenitore|Valore specificato dall'utente|Una directory virtuale denominata dall'utente, sotto il contenitore specificato nella firma di accesso condiviso.<br /><br /> Ad esempio, se la firma di accesso condiviso specificata per il processo è `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` e la directory virtuale specificata è denominata `mylogblobs`, la posizione del log sarà `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-È possibile recuperare l'URL per l'errore e i log dettagliati chiamando l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). I log sono disponibili al termine dell'elaborazione dell'unità.  
+È possibile recuperare l'URL per l'errore e i log dettagliati chiamando l'operazione [Get Job](/rest/api/storageimportexport/jobs). I log sono disponibili al termine dell'elaborazione dell'unità.  
   
 ## <a name="log-file-format"></a>Formato di file dei log  
 Il formato è lo stesso per entrambi i log: un BLOB che contiene le descrizioni XML degli eventi che si sono verificati durante la copia dei BLOB tra il disco rigido e l'account del cliente.  

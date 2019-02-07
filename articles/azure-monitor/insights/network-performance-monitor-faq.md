@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232343"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734556"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -134,7 +134,7 @@ Monitoraggio prestazioni rete può monitorare la connettività tra reti in quals
 Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
-Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro di Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm#regions).
+Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro di Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27744113"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497741"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
 
@@ -289,7 +289,7 @@ HCS Vnic Resource             Online HCS Cluster Group
 hcs_cloud_connectivity_...    Online HCS Cluster Group
 hcs_controller_replacement    Online HCS Cluster Group
 hcs_datapath_service          Online HCS Cluster Group
-hcs_management_servic         Online HCS Cluster Group
+hcs_management_service        Online HCS Cluster Group
 hcs_nvram_service             Online HCS Cluster Group
 hcs_passive_datapath          Online HCS Passive Cluster Group
 hcs_platform_service          Online HCS Cluster Group
@@ -378,7 +378,7 @@ Per usare lo strumento di diagnostica, seguire questa procedura:
 
 1.  Creare prima di tutto una combinazione di volumi a livelli e volumi a livelli con l'opzione di archiviazione selezionata. Questa azione assicura l'esecuzione dei test per entrambe le dimensioni del BLOB, 64 KB e 512 KB.
 
-2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare: 
+2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 

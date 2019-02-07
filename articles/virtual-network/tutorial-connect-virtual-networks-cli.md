@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470716"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694568"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -41,7 +41,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-virtual-networks"></a>Creare reti virtuali
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -71,7 +71,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>Eseguire il peering delle reti virtuali
 
-I peering vengono stabiliti tra gli ID delle reti virtuali, quindi occorre prima di tutto ottenere l'ID di ogni rete virtuale con [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show) e memorizzarlo in una variabile.
+I peering vengono stabiliti tra gli ID delle reti virtuali, quindi occorre prima di tutto ottenere l'ID di ogni rete virtuale con [az network vnet show](/cli/azure/network/vnet) e memorizzarlo in una variabile.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -110,7 +110,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-Come si può vedere nell'output restituito dopo l'esecuzione del comando precedente, lo stato **peeringState** è ora *Connected*. Azure ha cambiato anche lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* sia cambiato in *Connected* con [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show).
+Come si può vedere nell'output restituito dopo l'esecuzione del comando precedente, lo stato **peeringState** è ora *Connected*. Azure ha cambiato anche lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* sia cambiato in *Connected* con [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -128,7 +128,7 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'opzione `--no-wait` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo.
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'opzione `--no-wait` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +192,7 @@ Chiudere la sessione SSH alla macchina virtuale *myVm2*.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group#az_group_delete) per rimuoverli.
+Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

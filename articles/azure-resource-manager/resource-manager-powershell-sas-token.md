@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: f138cceb88cb9a43efdd3f11b24203378a288286
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0935952011bf4cbcae9bf2e9ac218a9fc3be47ad
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602980"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497656"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell
 
 Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione. Questo articolo illustra come usare Azure PowerShell con modelli di Resource Manager per fornire un token di firma di accesso condiviso durante la distribuzione. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-private-template-to-storage-account"></a>Aggiungere un modello privato all'account di archiviazione
 
@@ -38,9 +40,9 @@ L'esempio seguente configura un contenitore dell'account di archiviazione privat
    
 ```powershell
 # create a storage account for templates
-New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
-New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
 New-AzureStorageContainer -Name templates -Permission Off
@@ -51,15 +53,15 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 Per distribuire un modello privato in un account di archiviazione, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione.
    
 ```powershell
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
 Per un esempio sull'uso di un token di firma di accesso condiviso con modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).

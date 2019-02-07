@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: aa5fef6e8910a5b0b5fe89d5c8cfb141415d07a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846639"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694551"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Creare una rete per applicazioni multilivello
 
@@ -50,15 +50,15 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Consente di creare una rete virtuale e una subnet front-end di Azure. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Consente di creare una subnet back-end. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Consente di creare un indirizzo IP pubblico per accedere alla VM da Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Consente di creare interfacce di rete virtuale e di associarle alle subnet front-end e back-end della rete virtuale. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Consente di creare gruppi di sicurezza di rete associati alle subnet front-end e back-end. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Consente di creare regole del gruppo di sicurezza di rete che consentono o bloccano porte specifiche su subnet specifiche. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Consente di creare macchine virtuali e associa una NIC a ogni VM. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione. |
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse e tutte le risorse in esso contenute. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az network vnet create](/cli/azure/network/vnet) | Consente di creare una rete virtuale e una subnet front-end di Azure. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Consente di creare una subnet back-end. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Consente di creare un indirizzo IP pubblico per accedere alla VM da Internet. |
+| [az network nic create](/cli/azure/network/nic) | Consente di creare interfacce di rete virtuale e di associarle alle subnet front-end e back-end della rete virtuale. |
+| [az network nsg create](/cli/azure/network/nsg) | Consente di creare gruppi di sicurezza di rete associati alle subnet front-end e back-end. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Consente di creare regole del gruppo di sicurezza di rete che consentono o bloccano porte specifiche su subnet specifiche. |
+| [az vm create](/cli/azure/vm) | Consente di creare macchine virtuali e associa una NIC a ogni VM. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione. |
+| [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse e tutte le risorse in esso contenute. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: e516319b2f0ddb842a02a731a59362e040784ace
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2421cdbb192500e0544e5711ae988c3a89c49e80
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179447"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731054"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problemi di accesso al sito Web del pannello di accesso
 
@@ -161,7 +161,7 @@ Per abilitare la reimpostazione self-service delle password, seguire questa proc
 
 -   [Consentire agli utenti di reimpostare le password di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Controllare lo stato di autenticazione a più fattori di un utente
 

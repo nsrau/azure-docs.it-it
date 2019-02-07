@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 25ec82c923ebe322194d868159332ef145727999
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411969"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692994"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 
@@ -53,14 +53,14 @@ Questa guida descrive come creare gli artefatti associati ai prerequisiti.
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure 
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index#az_login) e seguire le istruzioni visualizzate oppure fare clic su **Prova** per usare Cloud Shell.
+Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index) e seguire le istruzioni visualizzate oppure fare clic su **Prova** per usare Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Si consiglia di usare un gruppo di risorse dedicato per ospitare l'insieme di credenziali delle chiavi. Questo gruppo è separato dal gruppo di risorse in cui vengono distribuite le risorse del cluster OpenShift.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Si consiglia di usare un gruppo di risorse dedicato per ospitare l'insieme di credenziali delle chiavi. Questo gruppo è separato dal gruppo di risorse in cui vengono distribuite le risorse del cluster OpenShift.
 
 L'esempio seguente crea un gruppo di risorse denominato *keyvaultrg* nella località *eastus*:
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
-Creare un insieme di credenziali delle chiavi per archiviare le chiavi SSH per il cluster con il comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Il nome dell'insieme di credenziali delle chiavi deve essere univoco a livello globale.
+Creare un insieme di credenziali delle chiavi per archiviare le chiavi SSH per il cluster con il comando [az keyvault create](/cli/azure/keyvault). Il nome dell'insieme di credenziali delle chiavi deve essere univoco a livello globale.
 
 L'esempio seguente crea un insieme di credenziali delle chiavi denominato *keyvault* nel gruppo di risorse *keyvaultrg*:
 

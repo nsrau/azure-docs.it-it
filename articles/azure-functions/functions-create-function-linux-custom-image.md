@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840096"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700809"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Creare una funzione in Linux tramite un'immagine personalizzata (anteprima)
 
@@ -229,7 +229,7 @@ Il parametro _deployment-container-image-name_ indica l'immagine ospitata nell'h
 
 La funzione richiede la stringa di connessione per connettersi all'account di archiviazione predefinito. Quando si pubblica l'immagine personalizzata in un account di un contenitore privato, è invece necessario definire le impostazioni dell'applicazione come variabili di ambiente in Dockerfile, ad esempio usando l'[istruzione ENV](https://docs.docker.com/engine/reference/builder/#env).
 
-In questo caso `<storage_account>` è il nome dell'account di archiviazione creato. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Aggiungere le impostazioni dell'applicazione nell'app per le funzioni con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+In questo caso `<storage_account>` è il nome dell'account di archiviazione creato. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account). Aggiungere le impostazioni dell'applicazione nell'app per le funzioni con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

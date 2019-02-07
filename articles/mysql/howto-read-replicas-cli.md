@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9992d93f689663e859315dd55d248866d88b4a25
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 67cfa45d602b6bf9de27a0b559c58e28b79d1c84
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903601"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732822"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
@@ -67,7 +67,7 @@ Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
 ## <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
-L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -78,7 +78,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

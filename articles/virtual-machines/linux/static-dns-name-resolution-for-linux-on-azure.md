@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466092"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734123"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
 
@@ -32,12 +32,12 @@ I requisiti sono:
 * [File di chiavi SSH pubbliche e private](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index#az_login).
+Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
 
 Prerequisiti: gruppo di risorse, rete virtuale e subnet, gruppo di sicurezza di rete con SSH in ingresso.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Creare una scheda di interfaccia di rete virtuale con un nome DNS interno statico
-Creare la vNic con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create). Il flag `--internal-dns-name` dell'interfaccia della riga di comando consente di impostare l'etichetta DNS, che indica il nome DNS statico per la scheda di interfaccia di rete virtuale (vNic). L'esempio seguente crea una scheda di rete virtuale denominata `myNic`, la connette alla rete virtuale `myVnet` e crea un record di nome DNS interno denominato `jenkins`:
+Creare la vNic con il comando [az network nic create](/cli/azure/network/nic). Il flag `--internal-dns-name` dell'interfaccia della riga di comando consente di impostare l'etichetta DNS, che indica il nome DNS statico per la scheda di interfaccia di rete virtuale (vNic). L'esempio seguente crea una scheda di rete virtuale denominata `myNic`, la connette alla rete virtuale `myVnet` e crea un record di nome DNS interno denominato `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -70,7 +70,7 @@ I nomi DNS interni sono risolvibili solo all'interno di una rete virtuale di Azu
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `myNic` e `myVM`.
 
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
-Creare prima il gruppo di risorse con [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westus`:
+Creare prima il gruppo di risorse con [az group create](/cli/azure/group). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -94,7 +94,7 @@ az network vnet create \
 ## <a name="create-the-network-security-group"></a>Creare il gruppo di sicurezza di rete
 I gruppi di sicurezza di rete di Azure sono analoghi a un firewall a livello di rete. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -121,7 +121,7 @@ az network nsg rule create \
 ```
 
 ## <a name="associate-the-subnet-with-the-network-security-group"></a>Associare la subnet con il gruppo di sicurezza di rete
-Per associare la subnet con il gruppo di sicurezza di rete usare [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). L'esempio seguente associa il nome di subnet `mySubnet` al gruppo di sicurezza di rete `myNetworkSecurityGroup`:
+Per associare la subnet con il gruppo di sicurezza di rete usare [az network vnet subnet update](/cli/azure/network/vnet/subnet). L'esempio seguente associa il nome di subnet `mySubnet` al gruppo di sicurezza di rete `myNetworkSecurityGroup`:
 
 ```azurecli
 az network vnet subnet update \
@@ -135,7 +135,7 @@ az network vnet subnet update \
 ## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Creare la scheda di interfaccia di rete virtuale e i nomi DNS statici
 Sebbene Azure sia molto flessibile, per poter usare nomi DNS per la risoluzione dei nomi di VM è necessario creare schede di interfaccia di rete virtuale (vNic) che includano un'etichetta DNS. Le schede di interfaccia di rete virtuale sono importanti in quanto è possibile riutilizzarle connettendole a VM differenti nel ciclo di vita dell'infrastruttura. In questo modo la scheda di interfaccia di rete virtuale diventa una risorsa statica, mentre le VM possono essere temporanee. Applicando l'etichettatura DNS a una scheda di interfaccia di rete virtuale, è possibile abilitare nella rete virtuale la risoluzione di nomi semplici provenienti da altre VM. L'uso di nomi risolvibili consente anche ad altre macchine virtuali di accedere al server di automazione in base al nome DNS `Jenkins` o al server Git come `gitrepo`.  
 
-Creare la vNic con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create). L'esempio seguente crea una scheda di rete virtuale denominata `myNic`, la connette alla rete virtuale `myVnet` denominata `myVnet` e crea un record di nome DNS interno denominato `jenkins`:
+Creare la vNic con il comando [az network nic create](/cli/azure/network/nic). L'esempio seguente crea una scheda di rete virtuale denominata `myNic`, la connette alla rete virtuale `myVnet` denominata `myVnet` e crea un record di nome DNS interno denominato `jenkins`:
 
 ```azurecli
 az network nic create \

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716277"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770521"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
@@ -26,13 +26,13 @@ DNS di Azure offre le funzionalità seguenti.
 
 I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure dei server dei nomi DNS. DNS di Azure usa le reti Anycast. Ogni query DNS riceve una risposta dal server DNS disponibile più vicino, per assicurare prestazioni e disponibilità elevate per il dominio.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
  DNS di Azure si basa su Azure Resource Manager, che offre funzionalità quali:
 
 * [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
 
-* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
+* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
 
 * [Blocco delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) per bloccare una sottoscrizione, un gruppo di risorse o una risorsa. I blocchi impediscono ad altri utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale.
 

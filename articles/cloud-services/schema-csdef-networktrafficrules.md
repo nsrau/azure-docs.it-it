@@ -13,12 +13,12 @@ caps.latest.revision: 17
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821685"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
 Il nodo `NetworkTrafficRules` è un elemento facoltativo nel file di definizione del servizio che specifica come i ruoli comunicano tra loro. Impone un limite ai ruoli che possono accedere agli endpoint interni del ruolo specifico. `NetworkTrafficRules` non è un elemento autonomo. Viene combinato con due o più ruoli Web nel file di definizione del servizio.
@@ -58,7 +58,7 @@ Il nodo `NetworkTrafficRules` del file di definizione del servizio include gli e
 
 [Elemento RoleEndpoint](#RoleEndpoint)
 
-[Elemento AllowAllTraffic](#AllowAllTraffic)
+Elemento AllowAllTraffic
 
 [Elemento WhenSource](#WhenSource)
 
@@ -76,7 +76,7 @@ L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è 
 ##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
-| Attributo      | type     | DESCRIZIONE |
+| Attributo      | Type     | DESCRIZIONE |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Richiesto. Il nome dell'endpoint verso il quale consentire il traffico.|
 | `roleName`     | `string` | Richiesto. Il nome del ruolo Web con il quale consentire le comunicazioni.|
@@ -87,14 +87,14 @@ L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comun
 ##  <a name="WhenSource"></a> Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-| Attributo | type     | DESCRIZIONE |
+| Attributo | Type     | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Richiesto. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | type     | DESCRIZIONE |
+| Attributo  | Type     | DESCRIZIONE |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Richiesto. Il nome del ruolo da cui consentire la comunicazione.|
 

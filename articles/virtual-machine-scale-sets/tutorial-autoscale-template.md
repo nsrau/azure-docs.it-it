@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887769"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749194"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -144,13 +144,13 @@ L'esempio seguente definisce una regola per ridurre il numero di istanze di VM d
 ## <a name="create-an-autoscaling-scale-set"></a>Creare un set di scalabilità con scalabilità automatica
 Verrà ora usato un modello di esempio per creare un set di scalabilità e applicare regole di scalabilità automatica. È possibile [esaminare il modello completo](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) oppure [vedere la sezione del provider di risorse *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) all'interno del modello.
 
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Quando richiesto, specificare il nome utente, ad esempio *azureuser*, e la password usati come credenziali per ogni istanza di VM:
+Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente, ad esempio *azureuser*, e la password usati come credenziali per ogni istanza di VM:
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ Quando **stress** visualizza un output simile a *stress: info: [2688] dispatchin
 
 Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Uscire da *watch* con `Ctrl-c`. La riduzione del numero di istanze nel set di sc
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete):
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

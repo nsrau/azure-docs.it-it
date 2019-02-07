@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451204"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770585"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
@@ -98,7 +98,7 @@ Al termine, premere **ESC** e quindi digitare **:wq** per salvare e chiudere il 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
 
 In questo esempio le regole e i parametri sono i file creati e archiviati come file JSON in Cloud Shell.
 
@@ -115,9 +115,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Assegnare i criteri
 
-Questo esempio assegna i criteri a un gruppo di risorse usando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Qualsiasi macchina virtuale creata nel gruppo di risorse **myResourceGroup** non potrà installare le estensioni dell'accesso alle macchine virtuali Linux o di script personalizzato per Linux. Prima di poter assegnare i criteri, il gruppo di risorse deve essere già presente.
+Questo esempio assegna i criteri a un gruppo di risorse usando [az policy assignment create](/cli/azure/policy/assignment). Qualsiasi macchina virtuale creata nel gruppo di risorse **myResourceGroup** non potrà installare le estensioni dell'accesso alle macchine virtuali Linux o di script personalizzato per Linux. Prima di poter assegnare i criteri, il gruppo di risorse deve essere già presente.
 
-Usare [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) per ottenere l'ID sottoscrizione da usare al posto di quello nell'esempio.
+Usare [az account list](/cli/azure/account?view=azure-cli-latest) per ottenere l'ID sottoscrizione da usare al posto di quello nell'esempio.
 
 
 ```azurecli-interactive

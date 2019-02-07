@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f0dd3b276adb815723673042060b2ad5d54a1ac7
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dfbd8425048ddc5c96349bfd6a7462dcd32dc1d9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382638"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727757"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creare la prima funzione con Java e Maven (anteprima)
 
@@ -58,7 +58,7 @@ npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]
-> Se si verificano problemi durante l'installazione degli strumenti di base di Funzioni di Azure versione 2.0, vedere [Version di runtime 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> Se si verificano problemi durante l'installazione degli strumenti di base di Funzioni di Azure versione 2.0, vedere [Version di runtime 2.x](/azure/azure-functions/functions-run-local).
 
 ## <a name="generate-a-new-functions-project"></a>Generare un nuovo progetto di Funzioni
 

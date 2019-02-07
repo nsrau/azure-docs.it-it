@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: d9e1eee9ab45e9f3a74f296e555c8f91802f36ab
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723893"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563185"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 

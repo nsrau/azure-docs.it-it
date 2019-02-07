@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687385"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734522"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Crittografare il disco del sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -42,13 +42,13 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="register-for-disk-encryption-preview"></a>Eseguire la registrazione per l'anteprima di Crittografia dischi
 
-Per usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali è necessario eseguire la registrazione automatica della sottoscrizione con il comando [az feature register](/cli/azure/feature#az_feature_register). È sufficiente eseguire la procedura seguente la prima volta che si usa la funzionalità di anteprima per la crittografia dei dischi:
+Per usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali è necessario eseguire la registrazione automatica della sottoscrizione con il comando [az feature register](/cli/azure/feature). È sufficiente eseguire la procedura seguente la prima volta che si usa la funzionalità di anteprima per la crittografia dei dischi:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Possono essere necessari fino a 10 minuti per la propagazione della richiesta di registrazione. È possibile verificare lo stato della registrazione con il comando [az feature show](/cli/azure/feature#az_feature_show). Quando `State` indica il valore *Registered*, registrare nuovamente il provider *Microsoft.Compute* con il comando [az provider register](/cli/azure/provider#az_provider_register):
+Possono essere necessari fino a 10 minuti per la propagazione della richiesta di registrazione. È possibile verificare lo stato della registrazione con il comando [az feature show](/cli/azure/feature). Quando `State` indica il valore *Registered*, registrare nuovamente il provider *Microsoft.Compute* con il comando [az provider register](/cli/azure/provider):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -56,13 +56,13 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
-Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che è impostato per l'aggiornamento automatico man mano che vengono applicate modifiche e genera le chiavi SSH se non esistono in *~/.ssh/id_rsa*. Un disco dati da 32 GB è collegato a ogni istanza di macchina virtuale e viene usata l'[estensione dello script personalizzata](../virtual-machines/linux/extensions-customscript.md) di Azure per preparare i dischi dati con il comando [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set):
+Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che è impostato per l'aggiornamento automatico man mano che vengono applicate modifiche e genera le chiavi SSH se non esistono in *~/.ssh/id_rsa*. Un disco dati da 32 GB è collegato a ogni istanza di macchina virtuale e viene usata l'[estensione dello script personalizzata](../virtual-machines/linux/extensions-customscript.md) di Azure per preparare i dischi dati con il comando [az vmss extension set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

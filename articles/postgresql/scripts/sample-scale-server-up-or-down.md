@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 37b7364d48508ad557e6118487c0cb88f9df8e4f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548756"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728334"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorare e scalare un singolo server PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server PostgreSQL a un diverso livello di prestazioni dopo le query sulle metriche. 
@@ -35,10 +35,10 @@ Questo script usa i comandi illustrati nella tabella seguente:
 
 | **Comando** | **Note** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Crea un server PostgreSQL che ospita i database. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Elencare il valore metrico per le risorse. |
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az postgres server create](/cli/azure/postgres/server) | Crea un server PostgreSQL che ospita i database. |
+| [az monitor metrics list](/cli/azure/monitor/metrics) | Elencare il valore metrico per le risorse. |
+| [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure)

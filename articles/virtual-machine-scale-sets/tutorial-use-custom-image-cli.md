@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193489"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755187"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -44,7 +44,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 >[!NOTE]
 > Questa esercitazione illustra in modo dettagliato il processo di creazione e di uso di un'immagine di macchina virtuale generalizzata. Non è supportata la creazione di un set di scalabilità da un'immagine di macchina virtuale specializzata.
 
-Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per un'immagine di macchina virtuale personalizzata. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
+Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per un'immagine di macchina virtuale personalizzata. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Creare un'immagine di macchina virtuale personalizzata dalla macchina virtuale di origine
 La macchina virtuale di origine viene ora personalizzata con il server Web Nginx installato. Verrà creata l'immagine di macchina virtuale personalizzata da usare con un set di scalabilità.
 
-Per creare un'immagine, è necessario deallocare la macchina virtuale. Deallocare la macchina virtuale con [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Impostare quindi lo stato della VM come generalizzato con [az vm generalize](/cli//azure/vm#az_vm_generalize) in modo che la piattaforma Azure riconosca che la VM è pronta per usare un'immagine personalizzata. È possibile creare solo un'immagine da una VM generalizzata:
+Per creare un'immagine, è necessario deallocare la macchina virtuale. Deallocare la macchina virtuale con [az vm deallocate](/cli//azure/vm). Impostare quindi lo stato della VM come generalizzato con [az vm generalize](/cli//azure/vm) in modo che la piattaforma Azure riconosca che la VM è pronta per usare un'immagine personalizzata. È possibile creare solo un'immagine da una VM generalizzata:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="test-your-scale-set"></a>Testare il set di scalabilità
-Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule#create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80*:
+Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Per vedere il set di scalabilità in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip#show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
+Per vedere il set di scalabilità in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Digitare l'indirizzo IP pubblico nel Web browser. La pagina Web NGINX predefinit
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

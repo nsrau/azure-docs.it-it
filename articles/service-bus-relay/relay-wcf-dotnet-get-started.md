@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854117"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728313"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Come usare gli inoltri WCF di Inoltro di Azure con .NET
 Questo articolo descrive come usare il servizio di inoltro di Azure. Negli esempi, scritti in C#, viene usata l'API di Windows Communication Foundation (WCF) con le estensioni contenute nell'assembly del bus di servizio. Per altre informazioni, vedere la [panoramica del servizio di inoltro di Azure](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il servizio di inoltro. Le differenze principali tra di essi sono costituite dalle associazioni: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) per l'endpoint e gli indirizzi di inoltro. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint di inoltro ha un indirizzo costituito dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene così l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP (di inoltro) del bus di servizio con nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sull'inoltro, rimuovere la dichiarazione dell'endpoint locale.
+Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il servizio di inoltro. Le differenze principali tra di essi sono costituite dalle associazioni: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) per l'endpoint e gli indirizzi di inoltro. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint di inoltro ha un indirizzo costituito dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene così l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP (di inoltro) del bus di servizio con nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sull'inoltro, rimuovere la dichiarazione dell'endpoint locale.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Come configurare un host del servizio nel file App.config
 È anche possibile configurare l'host usando il file App.config. L'esempio seguente in questo caso visualizza il codice del servizio di hosting.
@@ -161,7 +161,7 @@ Dopo aver apportato queste modifiche, il servizio viene avviato come in preceden
 
 ### <a name="create-the-client"></a>Creare il client
 #### <a name="configure-a-client-programmatically"></a>Configurare un client a livello di codice
-Per usare il servizio, è possibile costruire un client WCF tramite un oggetto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Il bus di servizio usa un modello di sicurezza basato sui token implementato tramite la firma di accesso condiviso. La classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) rappresenta un provider di token di sicurezza con metodi factory incorporati che restituiscono alcuni provider di token noti. L'esempio seguente usa il metodo [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) per gestire l'acquisizione del token SAS appropriato. Il nome e la chiave sono quelli ottenuti dal portale come descritto nella sezione precedente.
+Per usare il servizio, è possibile costruire un client WCF tramite un oggetto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Il bus di servizio usa un modello di sicurezza basato sui token implementato tramite la firma di accesso condiviso. La classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) rappresenta un provider di token di sicurezza con metodi factory incorporati che restituiscono alcuni provider di token noti. L'esempio seguente usa il metodo [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) per gestire l'acquisizione del token SAS appropriato. Il nome e la chiave sono quelli ottenuti dal portale come descritto nella sezione precedente.
 
 In primo luogo, fare riferimento o copiare nel progetto client il codice del contratto `IProblemSolver` del servizio.
 

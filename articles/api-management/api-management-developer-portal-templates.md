@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446960"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733060"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -45,15 +45,15 @@ L'elenco dei modelli include varie categorie di modelli che coprono le diverse p
 
 ![Modelli del portale per sviluppatori][api-management-templates-menu]
 
-Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list** (Elenco prodotti). Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso. 
+Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list** (Elenco prodotti). Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
 
 ![Modello Product list][api-management-developer-portal-templates-overview]
 
-Alcuni modelli, come i modelli **User Profile** , permettono di personalizzare parti diverse della stessa pagina. 
+Alcuni modelli, come i modelli **User Profile** , permettono di personalizzare parti diverse della stessa pagina.
 
 ![Modelli User Profile][api-management-user-profile-templates]
 
-L'editor di ogni modello del portale per sviluppatori include due sezioni visualizzate nella parte inferiore della pagina. A sinistra è visualizzato il riquadro di modifica per il modello, mentre a destra è visualizzato il relativo modello di dati. 
+L'editor di ogni modello del portale per sviluppatori include due sezioni visualizzate nella parte inferiore della pagina. A sinistra è visualizzato il riquadro di modifica per il modello, mentre a destra è visualizzato il relativo modello di dati.
 
 Il riquadro di modifica del modello contiene il markup che controlla l'aspetto e il comportamento della pagina corrispondente nel portale per sviluppatori. Il markup del modello usa la sintassi [DotLiquid](http://dotliquidmarkup.org/) . Uno degli editor più diffusi per DotLiquid è [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Tutte le modifiche apportate al modello in fase di modifica vengono visualizzate in tempo reale nel browser, ma non sono visibili ai clienti finché non si sceglie di [salvare](#to-save-a-template) e [pubblicare](#to-publish-a-template) il modello.
 
@@ -118,7 +118,7 @@ Il markup del modello **Product list** elabora i dati per fornire l'output previ
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Per informazioni di riferimento sui modelli del portale per sviluppatori, le ris
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

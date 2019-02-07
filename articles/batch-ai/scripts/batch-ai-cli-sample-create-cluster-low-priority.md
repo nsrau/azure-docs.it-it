@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: c56cd7d25ce391b67798c7833894e248f37300bf
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e1a37104a5dc6e89b147c8bb9e14b4eda36d8eef
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406607"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697850"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-low-priority-nodes"></a>Esempio di interfaccia della riga di comando: Creare e gestire un cluster Batch per intelligenza artificiale con nodi a priorità bassa
 
@@ -57,8 +57,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Crea un'area di lavoro Batch per intelligenza artificiale. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Crea un cluster Batch per intelligenza artificiale. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Mostra informazioni su un cluster Batch per intelligenza artificiale. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Elenca i nodi in un cluster Batch per intelligenza artificiale. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Mostra informazioni su un cluster Batch per intelligenza artificiale. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Elenca i nodi in un cluster Batch per intelligenza artificiale. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Ridimensiona il cluster Batch per intelligenza artificiale.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

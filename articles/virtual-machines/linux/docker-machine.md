@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a59183365ada644f2ff1aae7d52bac5fb1f42354
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f4be58d702b5d97722a3f9f1ee2df6b519ba4fab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888873"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731751"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Come usare Docker Machine per creare host in Azure
 Questa articolo illustra come usare [Docker Machine](https://docs.docker.com/machine/) per creare host in Azure. Il comando `docker-machine` crea una macchina virtuale (VM) Linux in Azure e quindi installa Docker. Ciò consentirà di gestire gli host Docker in Azure usando gli stessi strumenti e flussi di lavoro locali. Per usare docker-machine in Windows 10, è necessario usare la bash di Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
-Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account#az_account_show) nel modo seguente:
+Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account) nel modo seguente:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)

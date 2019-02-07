@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157500"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732839"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -27,7 +27,7 @@ ms.locfileid: "55157500"
 Questo articolo illustra come creare una macchina virtuale con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto
-Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index#az_login).
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *myVM*.
 
@@ -37,7 +37,7 @@ Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'ese
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare la rete virtuale con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L'esempio seguente crea una rete virtuale denominata *myVnet* e una subnet denominata *mySubnetFrontEnd*:
+Creare la rete virtuale con [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVnet* e una subnet denominata *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Creare una subnet per il traffico di back-end con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). L'esempio seguente crea una subnet denominata *mySubnetBackEnd*:
+Creare una subnet per il traffico di back-end con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet). L'esempio seguente crea una subnet denominata *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md).
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli
 az vm create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Per aggiungere una scheda di interfaccia di rete a una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L'esempio seguente dealloca la VM denominata *myVM*:
+Per aggiungere una scheda di interfaccia di rete a una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la VM denominata *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Aggiungere la scheda di interfaccia di rete con [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add). L'esempio seguente aggiunge *myNic3* a *myVM*:
+Aggiungere la scheda di interfaccia di rete con [az vm nic add](/cli/azure/vm/nic). L'esempio seguente aggiunge *myNic3* a *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM
-Per rimuovere una scheda di interfaccia di rete da una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L'esempio seguente dealloca la VM denominata *myVM*:
+Per rimuovere una scheda di interfaccia di rete da una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la VM denominata *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Rimuovere la scheda di interfaccia di rete con [az vm nic remove](/cli/azure/vm/nic#az_vm_nic_remove). L'esempio seguente rimuove *myNic3* da *myVM*:
+Rimuovere la scheda di interfaccia di rete con [az vm nic remove](/cli/azure/vm/nic). L'esempio seguente rimuove *myNic3* da *myVM*:
 
 ```azurecli
 az vm nic remove \

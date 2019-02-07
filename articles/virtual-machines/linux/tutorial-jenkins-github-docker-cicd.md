@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189868"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751124"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Esercitazione: Creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupJenkins* nella posizione *eastus*:
+Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupJenkins* nella posizione *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Per creare e configurare la macchina virtuale sono necessari alcuni minuti.
 
-Per consentire al traffico Web di raggiungere la macchina virtuale, usare [az vm open-port](/cli/azure/vm#az_vm_open_port) per aprire la porta *8080* per il traffico Jenkins e la porta *1337* per l'app Node.js che viene usata per eseguire un'app di esempio:
+Per consentire al traffico Web di raggiungere la macchina virtuale, usare [az vm open-port](/cli/azure/vm) per aprire la porta *8080* per il traffico Jenkins e la porta *1337* per l'app Node.js che viene usata per eseguire un'app di esempio:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -160,7 +160,7 @@ Per testare l'integrazione di GitHub con Jenkins, eseguire il commit di una modi
 
 Nell'interfaccia utente Web di GitHub selezionare il repository con fork e quindi fare clic sul file **index.js**. Selezionare l'icona a forma di matita per modificare il file in modo che la riga 6 corrisponda a:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466986"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730901"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione ottenuti da Monitoraggio di Azure, tra cui diversi log e metriche. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -66,7 +66,7 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 
 3. Creare un'entità servizio: Grafana usa un'entità servizio di Azure Active Directory per connettersi alle API di Monitoraggio di Azure e raccogliere i dati. È necessario creare un'entità servizio o usarne una esistente per gestire l'accesso alle risorse di Azure.
     * Per creare un'entità servizio, seguire [queste istruzioni](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Copiare e salvare l'ID tenant (ID directory), l'ID client (ID applicazione) e il segreto client (valore della chiave dell'applicazione).
-    * Vedere [Assegnare l'applicazione al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) per assegnare il ruolo Lettore all'applicazione Azure Active Directory per la sottoscrizione, il gruppo di risorse o la risorsa che si vuole monitorare. 
+    * Vedere [Assegnare l'applicazione al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) per assegnare il ruolo Lettore all'applicazione Azure Active Directory per la sottoscrizione, il gruppo di risorse o la risorsa che si vuole monitorare. 
     L'API Log Analytics richiede il [ruolo Lettore di Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), che include le autorizzazioni del ruolo Lettore e le aggiunge.
 
 4. Fornire i dettagli della connessione alle API da usare. È possibile connettersi a tutte o ad alcune di esse. 

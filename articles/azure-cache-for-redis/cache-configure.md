@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104676"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819842"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -57,7 +57,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Proprietà](#properties)
     * [Blocchi](#locks)
     * [Script di automazione](#automation-script)
-* [Amministrazione](#administration)
+* Administration
     * [Importazione dei dati](#importexport)
     * [Esportazione dei dati](#importexport)
     * [Reboot](#reboot)
@@ -65,7 +65,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Metriche di Redis](#redis-metrics)
     * [Regole di avviso](#alert-rules)
     * [Diagnostica](#diagnostics)
-* [Supporto e impostazioni di risoluzione dei problemi](#support-amp-troubleshooting-settings)
+* Supporto e impostazioni di risoluzione dei problemi
     * [Integrità delle risorse](#resource-health)
     * [Nuova richiesta di supporto](#new-support-request)
 
@@ -320,14 +320,14 @@ L'esportazione consente di esportare in i file RDB compatibili con Redis i dati 
 > 
 > 
 
-### <a name="reboot"></a>Reboot
+### <a name="reboot"></a>Riavvio
 Il pannello **Riavvia** consente di riavviare i nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Reboot](./media/cache-configure/redis-cache-reboot.png)
+![Riavvio](./media/cache-configure/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Riavvio](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -371,7 +371,7 @@ Le impostazioni nella sezione **Supporto e risoluzione dei problemi** forniscono
 * [Integrità delle risorse](#resource-health)
 * [Nuova richiesta di supporto](#new-support-request)
 
-### <a name="resource-health"></a>Integrità delle risorse
+### <a name="resource-health"></a>Resource Health
 **Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
 
 > [!NOTE]

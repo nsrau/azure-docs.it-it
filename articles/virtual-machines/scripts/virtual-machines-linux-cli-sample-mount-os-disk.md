@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6f2d4c9a7871e0917b33407605abe1389eb4420e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413601"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753606"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Risolvere i problemi del disco del sistema operativo della VM
 
@@ -41,11 +41,11 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Recupera un elenco di macchine virtuali. In questo caso, l'opzione di query viene usata per restituire il disco del sistema operativo della macchina virtuale. Questo valore viene quindi aggiunto a un nome di variabile 'uri'. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Consente di eliminare una macchina virtuale. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Recupera un elenco di macchine virtuali. In questo caso, l'opzione di query viene usata per restituire il disco del sistema operativo della macchina virtuale. Questo valore viene quindi aggiunto a un nome di variabile 'uri'. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Consente di eliminare una macchina virtuale. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Consente di creare una macchina virtuale.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Collega un disco a una macchina virtuale. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Restituisce gli indirizzi IP di una macchina virtuale. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Restituisce gli indirizzi IP di una macchina virtuale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

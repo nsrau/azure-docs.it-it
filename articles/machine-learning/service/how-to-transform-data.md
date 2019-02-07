@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243284"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812209"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con Azure Machine Learning Data Prep SDK
 
@@ -25,7 +25,7 @@ Questo articolo illustra i diversi metodi di caricamento dei dati con [Azure Mac
 
 Attualmente sono disponibili funzioni per le attività seguenti:
 
-- [Aggiungere una colonna tramite un'espressione](#column)
+- Aggiungere una colonna tramite un'espressione
 - [Attribuire i valori mancanti](#impute-missing-values)
 - [Derivare le colonne in base a un esempio](#derive-column-by-example)
 - [Filtri](#filtering)

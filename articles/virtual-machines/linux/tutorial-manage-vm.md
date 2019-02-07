@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466857"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749143"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group). 
 
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *eastus*. 
 
@@ -52,7 +52,7 @@ Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Crea una macchina virtuale usando il comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
+Crea una macchina virtuale usando il comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
 Quando si crea una macchina virtuale, sono disponibili alcune opzioni come immagine del sistema operativo, ridimensionamento dei dischi e credenziali amministrative. L'esempio seguente crea una macchina virtuale denominata *myVM* che esegue Ubuntu Server. Viene creato un account utente denominato *azureuser* nella macchina virtuale e vengono generate chiavi SSH se non esistono già nel percorso predefinito delle chiavi (*~/.ssh*):
 
@@ -98,7 +98,7 @@ exit
 
 Azure Marketplace include diverse immagini che possono essere usate per creare VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Ubuntu. In questo passaggio l'interfaccia della riga di comando di Azure viene usata per cercare nel marketplace un'immagine CentOS, che viene quindi usata per distribuire una seconda macchina virtuale. 
 
-Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -155,7 +155,7 @@ La dimensioni di una macchina virtuale determinano la quantità di risorse di ca
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
 
-| type                     | Dimensioni           |    DESCRIZIONE       |
+| Type                     | Dimensioni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -167,7 +167,7 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 
 ### <a name="find-available-vm-sizes"></a>Trovare le dimensioni delle macchine virtuali disponibili
 
-Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
+Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ Output parziale:
 
 ### <a name="create-vm-with-specific-size"></a>Creare una macchina virtuale con dimensioni specifiche
 
-Nell'esempio precedente di creazione di una VM, non essendo state specificate le dimensioni, sono state usate le dimensioni predefinite. Le dimensioni di una VM possono essere selezionate in fase di creazione usando [az vm create](/cli/azure/vm#az_vm_create) e l'argomento `--size`. 
+Nell'esempio precedente di creazione di una VM, non essendo state specificate le dimensioni, sono state usate le dimensioni predefinite. Le dimensioni di una VM possono essere selezionate in fase di creazione usando [az vm create](/cli/azure/vm) e l'argomento `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ri
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Prima di ridimensionare una macchina virtuale, verificare se le dimensioni desiderate sono disponibili nel cluster di Azure corrente. Il comando [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) restituisce l'elenco di dimensioni. 
+Prima di ridimensionare una macchina virtuale, verificare se le dimensioni desiderate sono disponibili nel cluster di Azure corrente. Il comando [az vm list-vm-resize-options](/cli/azure/vm) restituisce l'elenco di dimensioni. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata mentre è accesa, ma durante l'operazione viene riavviata. Usare il comando [az vm resize]( /cli/azure/vm#az_vm_resize) per eseguire il ridimensionamento.
+Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata mentre è accesa, ma durante l'operazione viene riavviata. Usare il comando [az vm resize]( /cli/azure/vm) per eseguire il ridimensionamento.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="find-the-power-state"></a>Trovare lo stato di alimentazione
 
-Per recuperare lo stato di una determinata VM, usare il comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
+Per recuperare lo stato di una determinata VM, usare il comando [az vm get-instance-view](/cli/azure/vm). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

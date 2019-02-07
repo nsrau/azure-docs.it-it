@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: abf5857ed105f85e51c7eac4a5d1eb8cabe7a44a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078049"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815116"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Installare Ansible in macchine virtuali di Azure
 
@@ -32,7 +32,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
 Accedere al computer Linux e selezionare una delle distribuzioni seguenti per informazioni sui passaggi per l'installazione di Ansible:
 
 - [CentOS 7.4](#centos-74)
-- [Ubuntu 16.04 LTS](#ubuntu1604-lts)
+- Ubuntu 16.04 LTS
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="centos-74"></a>CentOS 7.4

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226940"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736234"
 ---
 Per usare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Resource Manager per distribuire risorse e carichi di lavoro di Azure tramite gruppi di risorse, è necessario un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -44,7 +44,7 @@ Questo articolo illustra i comandi di base da usare con l'interfaccia della riga
 | Eliminare una macchina virtuale |`azure vm delete [options] <resource_group> <name>` |
 | Acquisire una macchina virtuale |`azure vm capture [options] <resource_group> <name>` |
 | Creare una macchina virtuale da un'immagine dell'utente |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Creare una macchina virtuale da un disco specializzato |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Creare una macchina virtuale da un disco specializzato |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Aggiungere un disco dati a una macchina virtuale |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Rimuovere un disco dati da una macchina virtuale |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Aggiungere un'estensione generica a una macchina virtuale |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

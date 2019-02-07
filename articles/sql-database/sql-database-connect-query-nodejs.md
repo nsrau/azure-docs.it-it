@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194305"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756046"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Node.js per eseguire query su un database SQL di Azure
 
@@ -41,7 +41,7 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-get-started-portal-firewall.md).
+> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-server-level-firewall-rule.md).
 
 ## <a name="create-the-project"></a>Creare il progetto
 

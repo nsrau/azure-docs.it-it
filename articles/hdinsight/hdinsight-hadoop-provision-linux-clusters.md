@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299867"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817923"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -50,7 +50,7 @@ Seguire le istruzioni sullo schermo per eseguire una configurazione base del clu
 
 * [Nome del gruppo di risorse](#resource-group-name)
 * [Tipi di cluster e configurazione](#cluster-types) 
-* [Account di accesso del cluster e nome utente SSH](#cluster-login-and-ssh-username)
+* Account di accesso del cluster e nome utente SSH
 * [Posizione](#location)
 
 > [!IMPORTANT]  
@@ -88,7 +88,7 @@ Con i cluster HDInsight è possibile configurare due account utente durante la c
 * Utente HTTP: Il nome utente predefinito è *admin*. e usa la configurazione di base nel portale di Azure. In alcuni casi, viene chiamato "utente cluster".
 * Utente SSH: Usato per la connessione ai cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Enterprise Security Package consente di integrare HDInsight con Active Directory e Apache Ranger. È possibile creare più utenti usando Enterprise Security Package.
+Il Pacchetto di sicurezza aziendale consente di integrare HDInsight con Active Directory e Apache Ranger. È possibile creare più utenti usando il Pacchetto di sicurezza aziendale.
 
 ## <a name="location"></a>Posizione (regioni) per cluster e risorse di archiviazione
 
@@ -138,9 +138,9 @@ La configurazione di un cluster personalizzato si basa sulle impostazioni di Cre
 - [Azioni script](#advanced-settings-script-actions)
 - [Rete virtuale](#advanced-settings-extend-clusters-with-a-virtual-network)
  
-## <a name="enterprise-security-package"></a>Enterprise Security Package
+## <a name="enterprise-security-package"></a>Pacchetto di sicurezza aziendale
 
-Per i tipi di cluster Hadoop, Spark, HBase, Kafka e Interactive Query, è possibile scegliere di abilitare **Enterprise Security Package**. Questo pacchetto consente di eseguire una configurazione cluster più sicura usando Apache Ranger e integrando Azure Active Directory. Per altre informazioni, vedere [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+Per i tipi di cluster Hadoop, Spark, HBase, Kafka e Interactive Query, è possibile scegliere di abilitare **Enterprise Security Package**. Questo pacchetto consente di eseguire una configurazione cluster più sicura usando Apache Ranger e integrando Azure Active Directory. Per altre informazioni, vedere [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md) (Pacchetto di sicurezza aziendale in Azure HDInsight).
 
 ![Opzioni di creazione di HDInsight Scegliere il pacchetto di sicurezza aziendale](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 

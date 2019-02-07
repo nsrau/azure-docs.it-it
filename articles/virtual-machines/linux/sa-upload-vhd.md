@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468183"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755028"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
@@ -31,11 +31,11 @@ Questo argomento usa gli account di archiviazione per i dischi rigidi virtuali f
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare un disco rigido virtuale in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#requirements).
 
-Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
+Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -48,20 +48,20 @@ az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Elencare le chiavi di accesso per l'account di archiviazione con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Annotare il valore di `key1`:
+Elencare le chiavi di accesso per l'account di archiviazione con [az storage account keys list](/cli/azure/storage/account/keys). Annotare il valore di `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Creare un contenitore nell'account di archiviazione con [az storage container create](/cli/azure/storage/container#az_storage_container_create) usando la chiave di archiviazione ottenuta. Nell'esempio seguente viene creato un contenitore denominato `mydisks` usando il valore della chiave di archiviazione da `key1`:
+Creare un contenitore nell'account di archiviazione con [az storage container create](/cli/azure/storage/container) usando la chiave di archiviazione ottenuta. Nell'esempio seguente viene creato un contenitore denominato `mydisks` usando il valore della chiave di archiviazione da `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Usare infine [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) per caricare il disco rigido virtuale nel contenitore creato. Specificare il percorso locale per il disco rigido virtuale in `/path/to/disk/mydisk.vhd`:
+Usare infine [az storage blob upload](/cli/azure/storage/blob) per caricare il disco rigido virtuale nel contenitore creato. Specificare il percorso locale per il disco rigido virtuale in `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -97,7 +97,7 @@ Per completare la procedura seguente, è necessario:
   * Creare un account di archiviazione e un contenitore in cui inserire il disco personalizzato e le VM create
   * Una volta create tutte le VM, è possibile eliminare il disco
 
-Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
+Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -122,7 +122,7 @@ Vedere anche le **[Note generali sull'installazione di Linux](create-upload-gene
 > 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-I gruppi di risorse riuniscono in modo logico tutte le risorse di Azure a supporto delle macchine virtuali, come l'archiviazione e la rete virtuale. Per altre informazioni sui gruppi di risorse, vedere la [panoramica dei gruppi di risorse](../../azure-resource-manager/resource-group-overview.md). Prima di caricare il disco personalizzato e creare le VM, è necessario creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create).
+I gruppi di risorse riuniscono in modo logico tutte le risorse di Azure a supporto delle macchine virtuali, come l'archiviazione e la rete virtuale. Per altre informazioni sui gruppi di risorse, vedere la [panoramica dei gruppi di risorse](../../azure-resource-manager/resource-group-overview.md). Prima di caricare il disco personalizzato e creare le VM, è necessario creare un gruppo di risorse con [az group create](/cli/azure/group).
 
 Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westus`:
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-account-manage.md#access-keys). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-account-manage.md#access-keys). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys).
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 
@@ -164,7 +164,7 @@ info:    storage account keys list command OK
 Prendere nota dell'elemento `key1` perché verrà utilizzato per interagire con l'account di archiviazione nei passaggi successivi.
 
 ## <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
-Nello stesso modo in cui si creano directory diverse per organizzare in modo logico il file system locale si creano anche i contenitori con un account di archiviazione per organizzare i dischi. Un account di archiviazione può contenere un numero qualsiasi di contenitori. Creare un contenitore con [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+Nello stesso modo in cui si creano directory diverse per organizzare in modo logico il file system locale si creano anche i contenitori con un account di archiviazione per organizzare i dischi. Un account di archiviazione può contenere un numero qualsiasi di contenitori. Creare un contenitore con [az storage container create](/cli/azure/storage/container).
 
 Nell'esempio seguente viene creato un contenitore denominato `mydisks`:
 
@@ -175,7 +175,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>Caricare il file VHD.
-Caricare ora il disco personalizzato con [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Caricare e archiviare il disco personalizzato come BLOB di pagine.
+Caricare ora il disco personalizzato con [az storage blob upload](/cli/azure/storage/blob). Caricare e archiviare il disco personalizzato come BLOB di pagine.
 
 Specificare la chiave di accesso e il contenitore creato nel passaggio precedente, quindi selezionare il percorso del disco personalizzato sul computer locale:
 
@@ -226,7 +226,7 @@ Nel provider `Microsoft.Compute/virtualMachines` del modello, è presente un nod
 
 È possibile usare [questo modello esistente per creare una VM da un'immagine personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) oppure consultare le informazioni sulla [creazione di modelli di Azure Resource Manager personalizzati](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Dopo aver configurato un modello, creare le VM tramite il comando [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Specificare l'URI del modello JSON con il parametro `--template-uri` :
+Dopo aver configurato un modello, creare le VM tramite il comando [az group deployment create](/cli/azure/group/deployment). Specificare l'URI del modello JSON con il parametro `--template-uri` :
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \

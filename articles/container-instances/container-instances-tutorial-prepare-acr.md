@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4ee7411853127d331e70e486bbf9f21e0ce6c153
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188921"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750308"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un registro contenitori di Azure ed eseguire il push di un'immagine del contenitore
 
@@ -204,7 +204,7 @@ In questa esercitazione è stata preparata un'istanza di Registro Azure Containe
 Passare all'esercitazione successiva per apprendere come distribuire il contenitore in Azure usando Istanze di Azure Container:
 
 > [!div class="nextstepaction"]
-> [Distribuire un contenitore in Istanze di contenitore di Azure](container-instances-tutorial-deploy-app.md)
+> [Distribuire un contenitore in Istanze di Azure Container](container-instances-tutorial-deploy-app.md)
 
 <!-- LINKS - External -->
 [docker-build]: https://docs.docker.com/engine/reference/commandline/build/
@@ -222,7 +222,7 @@ Passare all'esercitazione successiva per apprendere come distribuire il contenit
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-group-create]: /cli/azure/group#az-group-create

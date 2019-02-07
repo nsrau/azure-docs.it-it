@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103517"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700775"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -170,7 +170,7 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
     - **Frequenza snapshot coerenti con l'app**: per impostazione predefinita, Site Recovery accetta uno snapshot coerente con l'app ogni 4 ore. È possibile configurare un valore compreso tra 1 e 12 ore. Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app nella macchina virtuale sia coerente quando viene creato lo snapshot.
     - **Gruppo di replica**: se l'applicazione richiede la coerenza tra più macchine virtuali, è possibile creare un gruppo di replica per tali macchine virtuali. Per impostazione predefinita, le VM selezionate non fanno parte di gruppi di replica.
 
-5. Per aggiungere VM a un gruppo di replica nuovo o esistente, in **Personalizza** selezionare **Sì** per la coerenza tra più macchine virtuali . Fare quindi clic su **OK**.
+5. Per aggiungere VM a un gruppo di replica nuovo o esistente, in **Personalizza** selezionare **Sì** per la coerenza tra più macchine virtuali Fare quindi clic su **OK**.
 
     - Tutte le macchine virtuali in un gruppo di replica avranno punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando si esegue il failover. L'abilitazione della coerenza tra più macchine virtuali può influire sulle prestazioni del carico di lavoro (perché è a uso intensivo della CPU), quindi deve essere usata solo se le macchine eseguono lo stesso carico di lavoro ed è necessaria coerenza tra più macchine.
     - È possibile scegliere di inserire al massimo 16 macchine virtuali in un gruppo di replica.

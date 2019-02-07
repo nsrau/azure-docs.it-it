@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451666"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729405"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
@@ -61,14 +61,14 @@ Prima di creare un processo di importazione, è necessario ottenere il nome e l'
 
  Seguire i passaggi sotto per ottenere la posizione di spedizione:
 
--   Identificare il nome della località dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identificare il nome della località dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts).
 
 -   Recuperare la posizione disponibile per elaborare questo account di archiviazione chiamando l'operazione `Get Location`.
 
 -   Se la proprietà `AlternateLocations` della posizione contiene la posizione stessa, è possibile usare questa posizione. In caso contrario, chiamare di nuovo l'operazione `Get Location` con una delle posizione alternative. La località originale potrebbe essere chiusa temporaneamente per manutenzione.
 
 ## <a name="creating-the-import-job"></a>Creazione del processo di importazione
-Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Inserisci processo). Sarà necessario specificare le informazioni seguenti:
+Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/api/storageimportexport/jobs) (Inserisci processo). Sarà necessario specificare le informazioni seguenti:
 
 -   Un nome per il processo.
 

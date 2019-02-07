@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102123"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751906"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -117,7 +117,7 @@ Se si usa qualsiasi proxy firewall basato su URL per controllare la connettivit�
 
 **L'agente di raccolta non è in grado di connettersi a Internet a causa di un errore di convalida del certificato**
 
-Questa situazione può verificarsi se si usa un proxy di intercettazione per connettersi a Internet e non è stato importato il certificato del proxy nella macchina virtuale dell'agente di raccolta. È possibile importare il certificato del proxy eseguendo i passaggi descritti [qui](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Questa situazione può verificarsi se si usa un proxy di intercettazione per connettersi a Internet e non è stato importato il certificato del proxy nella macchina virtuale dell'agente di raccolta. È possibile importare il certificato del proxy eseguendo i passaggi descritti [qui](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **L'agente di raccolta non riesce a connettersi al progetto usando l'ID progetto e la chiave copiata dal portale.**
 
@@ -172,7 +172,7 @@ Questo problema può verificarsi a causa di un problema con l'installazione di V
 
 Non è possibile connettersi al server vCenter "Servername.com:9443" a causa dell'errore: Nessun endpoint in ascolto su https://Servername.com:9443/sdk in grado di accettare il messaggio.
 
-Controllare se si sta usando la versione più recente dell'appliance dell'agente di raccolta; in caso contrario, aggiornare l'appliance alla [versione più recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Controllare se si sta usando la versione più recente dell'appliance dell'agente di raccolta; in caso contrario, aggiornare l'appliance alla [versione più recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Se l'errore si verifica anche con la versione più recente, è possibile che computer dell'agente di raccolta non sia in grado di risolvere il nome del server vCenter specificato o la porta specificata non è corretta. Per impostazione predefinita, se la porta non è specificata, l'agente di raccolta tenterà di connettersi alla porta numero 443.
 

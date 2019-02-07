@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462359"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731445"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account#create). In questo esempio viene creato un account di archiviazione denominato *mySTORAGEACCT<random number>* e viene inserito il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
+Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). In questo esempio viene creato un account di archiviazione denominato *mySTORAGEACCT<random number>* e viene inserito il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 Quando si crea un account di archiviazione, le chiavi dell'account vengono create a coppie perché possano essere ruotate senza interrompere il servizio. Quando si passa alla seconda chiave della coppia, viene creata una nuova coppia di chiavi. Le nuove chiavi dell'account di archiviazione vengono sempre create a coppie in modo da avere sempre a disposizione almeno una chiave dell'account di archiviazione non usata alla quale passare.
 
-Visualizzare le chiavi dell'account di archiviazione tramite il comando [az storage account keys list](/cli/azure/storage/account/keys#list). Questo esempio archivia il valore della chiave 1 nella variabile **STORAGEKEY**.
+Visualizzare le chiavi dell'account di archiviazione tramite il comando [az storage account keys list](/cli/azure/storage/account/keys). Questo esempio archivia il valore della chiave 1 nella variabile **STORAGEKEY**.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Creare una condivisione file
 
-Creare la condivisione File di archiviazione usando [az storage share create](/cli/azure/storage/share#create). 
+Creare la condivisione File di archiviazione usando [az storage share create](/cli/azure/storage/share). 
 
 I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trattini singoli, ma non possono iniziare con un trattino. Per dettagli su come denominare condivisioni e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 

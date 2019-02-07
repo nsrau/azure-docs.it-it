@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8115ffd943750d88a1aa9f94ba53ff972a636373
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157313"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765647"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Che cos'è l'API Ricerca immagini Bing?
 
@@ -33,9 +33,9 @@ Ricerca immagini Bing trova e restituisce principalmente immagini rilevanti da u
 | Funzionalità                                                                                                                                                                                 | DESCRIZIONE                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggerimento dei termini di ricerca in tempo reale](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
-| [Filtro e limitazione delle immagini restituite come risultato](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | È possibile filtrare le immagini restituite da Bing modificando i parametri di query.                                                                                                       |
+| [Filtro e limitazione delle immagini restituite come risultato](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | È possibile filtrare le immagini restituite da Bing modificando i parametri di query.                                                                                                       |
 | [Ritaglio, ridimensionamento e visualizzazione anteprime](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | È possibile modificare e visualizzare le anteprime delle immagini restituite dalla Ricerca immagini Bing.                                                                                      |
-| [Espansione e trasformazione tramite pivot delle query di ricerca utente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | È possibile espandere le funzionalità di ricerca includendo e visualizzando i termini di ricerca suggeriti da Bing per le query.                                                                    |
+| [Espansione e trasformazione tramite pivot delle query di ricerca utente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | È possibile espandere le funzionalità di ricerca includendo e visualizzando i termini di ricerca suggeriti da Bing per le query.                                                                    |
 | [Ricerca di immagini di tendenza](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | È possibile personalizzare una ricerca per trovare immagini di tendenza da tutto il mondo.                                                                                                          |
 
 ## <a name="workflow"></a>Flusso di lavoro

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177408"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768184"
 ---
 # <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
 
@@ -36,7 +36,7 @@ I motivi per cui potrebbe essere necessario usare un metodo di verifica alternat
 
 - **Perdita del telefono o presenza di un nuovo numero di telefono.** Se si perde il telefono o se è stato ricevuto un nuovo numero, è possibile eseguire l'accesso usando un metodo diverso o chiedere all'amministratore di cancellare le impostazioni. È consigliabile far sapere all'amministratore se il telefono è stato smarrito o rubato, in modo che all'account possano essere apportati gli aggiornamenti appropriati. Dopo che le impostazioni sono state cancellate, all'accesso successivo viene chiesto di [eseguire la registrazione per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
 
-- **Mancata ricezione del messaggio di testo o della chiamata telefonica di autenticazione.** I motivi per cui si potrebbe non ricevere il messaggio di testo o una chiamata telefonica sono diversi. Se in precedenza i messaggi di testo o le chiamate telefoniche sono stati ricevuti in modo corretto, è probabile che il problema sia dovuto al provider e non all'account. Se si verificano spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sul dispositivo mobile. Questa app può generare codici di sicurezza casuali per l'accesso, senza richiedere alcun segnale di rete né alcuna connessione Internet.<br><br>Se si tenta di ricevere un messaggio di testo, chiedere a un amico di inviare un messaggio per verificare che sia possibile riceverne uno e se sono stati ricevuti più messaggi, verificare di usare il codice relativo a quello più attuale.
+- **Mancata ricezione del messaggio di testo o della chiamata telefonica di autenticazione.** I motivi per cui si potrebbe non ricevere il messaggio di testo o una chiamata telefonica sono diversi. Se in precedenza i messaggi di testo o le chiamate telefoniche sono stati ricevuti in modo corretto, è probabile che il problema sia dovuto al provider e non all'account. Se si verificano spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](user-help-auth-app-download-install.md) sul dispositivo mobile. Questa app può generare codici di sicurezza casuali per l'accesso, senza richiedere alcun segnale di rete né alcuna connessione Internet.<br><br>Se si tenta di ricevere un messaggio di testo, chiedere a un amico di inviare un messaggio per verificare che sia possibile riceverne uno e se sono stati ricevuti più messaggi, verificare di usare il codice relativo a quello più attuale.
 
 - **Mancato funzionamento delle password dell'app.** Le password dell'app sostituiscono la normale password per le applicazioni desktop precedenti che non supportano la verifica in due passaggi. Verificare prima che la password sia stata digitata correttamente. Se il problema non viene risolto, provare a eseguire l'accesso per [creare una nuova password dell'app](multi-factor-authentication-end-user-app-passwords.md) o contattare l'amministratore per [eliminare le password dell'app esistenti](../authentication/howto-mfa-userdevicesettings.md) in modo che sia possibile crearne una nuova.
 
@@ -61,4 +61,4 @@ Se i problemi persistono anche dopo l'esecuzione delle operazioni descritte, con
 
 * [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Domande frequenti sull'applicazione Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [Domande frequenti sull'applicazione Microsoft Authenticator](user-help-auth-app-faq.md)

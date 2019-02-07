@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413227"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730340"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Linux in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Linux e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per gli ambienti applicativi e di distribuzione più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
@@ -29,7 +29,7 @@ Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da 
 ## <a name="create-azure-resource-group"></a>Creare un gruppo di risorse di Azure
 Durante il processo di compilazione della macchina virtuale di origine Packer crea risorse di Azure temporanee. Per acquisire la macchina virtuale di origine per usarla come immagine, è necessario definire un gruppo di risorse, nel quale verrà archiviato l'output del processo di compilazione di Packer.
 
-Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -39,7 +39,7 @@ az group create -n myResourceGroup -l eastus
 ## <a name="create-azure-credentials"></a>Creare credenziali di Azure
 Per eseguire l'autenticazione con Azure, Packer usa un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come Packer. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente.
 
-Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e generare l'output delle credenziali necessarie per Packer:
+Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp) e generare l'output delle credenziali necessarie per Packer:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -55,7 +55,7 @@ Ecco un esempio di output dei comandi precedenti:
 }
 ```
 
-Per eseguire l'autenticazione in Azure, è anche necessario ottenere l'ID della sottoscrizione di Azure con [az account show](/cli/azure/account#az_account_show):
+Per eseguire l'autenticazione in Azure, è anche necessario ottenere l'ID della sottoscrizione di Azure con [az account show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -216,7 +216,7 @@ Per creare macchine virtuali in un gruppo di risorse o un'area diversa rispetto 
 
 La creazione della macchina virtuale richiede alcuni minuti. Dopo aver creato la macchina virtuale, prendere nota dell'indirizzo `publicIpAddress` visualizzato dall'interfaccia della riga di comando di Azure. Questo indirizzo viene usato per accedere al sito NGINX tramite un Web browser.
 
-Per consentire al traffico Web di raggiungere la macchina virtuale, aprire la porta 80 da Internet con il comando [az vm open_port](/cli/azure/vm#open-port):
+Per consentire al traffico Web di raggiungere la macchina virtuale, aprire la porta 80 da Internet con il comando [az vm open_port](/cli/azure/vm):
 
 ```azurecli
 az vm open-port \

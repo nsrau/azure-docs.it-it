@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: d9e0848b7e4598d03e5d8d8b15ff4cde3316884d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fb7d84264b8de8833d7dec2a8b22dc23995c17bb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850876"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767156"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando di Azure
 
@@ -54,7 +54,7 @@ Immettere la password per il certificato. In questo esempio, *Azure123456!* è l
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group#create).
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group).
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella località *eastus*.
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). È quindi possibile aggiungere la subnet denominata *myBackendSubnet* necessaria per i server back-end tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet). È quindi possibile aggiungere la subnet denominata *myBackendSubnet* necessaria per i server back-end tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#az-network_application_gateway_create) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. 
+È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. 
 
 Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza. In questo esempio, associare il certificato creato e la relativa password quando si crea il gateway applicazione. 
 
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>Aggiungere il listener HTTP
 
-È possibile usare [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network_application_gateway_http_listener_create) per aggiungere il listener denominato *myListener* al gateway applicazione.
+È possibile usare [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) per aggiungere il listener denominato *myListener* al gateway applicazione.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -210,7 +210,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
 ```azurepowershell-interactive
 az network public-ip show \

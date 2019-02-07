@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c570982fed746b01f5a8c15edb94bdeac679b248
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6b5a855c8db5cb87f313e14c42396ae70b407e61
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545611"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692206"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Elencare e aggiornare le configurazioni di un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di esempio elenca tutti i parametri di configurazione disponibili, nonché i relativi valori consentiti per un server di Database di Azure per PostgreSQL e imposta *log_retention_days* su un valore diverso da quello predefinito.
@@ -35,12 +35,12 @@ Questo script usa i comandi illustrati nella tabella seguente:
 
 | **Comando** | **Note** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Crea un server PostgreSQL che ospita i database. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Elenca le configurazioni di un server di Database di Azure per PostgreSQL. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Aggiorna la configurazione di un server di Database di Azure per PostgreSQL. |
-| [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | Mostra la configurazione di un server di Database di Azure per PostgreSQL. |
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az postgres server create](/cli/azure/postgres/server) | Crea un server PostgreSQL che ospita i database. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Elenca le configurazioni di un server di Database di Azure per PostgreSQL. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Aggiorna la configurazione di un server di Database di Azure per PostgreSQL. |
+| [az postgres server configuration show](/cli/azure/postgres/server/configuration) | Mostra la configurazione di un server di Database di Azure per PostgreSQL. |
+| [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).

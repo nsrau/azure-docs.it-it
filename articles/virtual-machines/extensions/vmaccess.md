@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413839"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731309"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
 ## <a name="overview"></a>Panoramica
@@ -110,7 +110,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Usare file JSON e l'estensione VMAccess
-Gli esempi seguenti usano file JSON non elaborati. Usare [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) per chiamare in seguito i file JSON. Questi file JSON possono essere chiamati anche dai modelli di Azure. 
+Gli esempi seguenti usano file JSON non elaborati. Usare [az vm extension set](/cli/azure/vm/extension) per chiamare in seguito i file JSON. Questi file JSON possono essere chiamati anche dai modelli di Azure. 
 
 ### <a name="reset-user-access"></a>Ripristinare l'accesso utente
 Se si è perso l'accesso alla radice della macchina virtuale Linux, è possibile avviare uno script VMAccess per aggiornare la chiave SSH o la password di un utente.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c8c9f2ab2bed2e05f540422e47fdc634cb011187
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2ff32bf5a8e3c5c31b13e2e8a1594f94647ed689
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583273"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695390"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiare lo snapshot di un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa con l'interfaccia della riga di comando
 
@@ -43,8 +43,8 @@ Questo script usa i comandi seguenti per creare uno snapshot nella sottoscrizion
 
 | Comando | Note |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse dello snapshot. La proprietà ID viene usata per copiare lo snapshot in una sottoscrizione diversa.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_create) | Consente di copiare uno snapshot creando uno snapshot in una sottoscrizione diversa con l'ID e il nome dello snapshot padre.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse dello snapshot. La proprietà ID viene usata per copiare lo snapshot in una sottoscrizione diversa.  |
+| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | Consente di copiare uno snapshot creando uno snapshot in una sottoscrizione diversa con l'ID e il nome dello snapshot padre.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248436"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732448"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
@@ -125,11 +125,8 @@ Iniziare aprendo una sessione di PowerShell con autorizzazioni elevate.
 Installare il modulo Az.Storage
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> I moduli di Azure Powershell Az sono i moduli preferiti per l'utilizzo dei servizi di Azure in PowerShell. Per altre informazioni, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
@@ -195,7 +192,7 @@ A tale scopo, usando Cloud Shell o una shell locale, immettere il comando seguen
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per creare un nuovo gruppo di risorse con l'interfaccia della riga di comando di Azure, usare il comando [az group create](/cli/azure/group#az_group_create).
+Per creare un nuovo gruppo di risorse con l'interfaccia della riga di comando di Azure, usare il comando [az group create](/cli/azure/group).
 
 ```azurecli-interactive
 az group create `

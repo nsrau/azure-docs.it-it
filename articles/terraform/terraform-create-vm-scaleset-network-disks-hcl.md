@@ -8,12 +8,12 @@ author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: a15f3e243d411bd7033fa1f86c89e7c95c95a3c1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7d23e9113b83970d0cfee8f96989faa2c2760421
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478026"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745827"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
 
@@ -190,7 +190,7 @@ In Azure Cloud Shell seguire questa procedura:
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    allocation_method = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
   }
@@ -463,7 +463,7 @@ Un *jumpbox* SSH è un server singolo usato come tramite per poter accedere ad a
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    allocation_method = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
   }

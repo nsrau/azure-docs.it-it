@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422916"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699680"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Come effettuare una chiamata tramite Twilio in un ruolo Web in Azure
 In questa guida viene illustrato come usare Twilio per effettuare una chiamata da una pagina Web ospitata in Azure. L'applicazione risultante chiede all'utente di eseguire una chiamata con il numero e il messaggio specificati, come illustrato nella schermata seguente.
@@ -70,7 +70,7 @@ Nel codice seguente viene illustrato come creare un modulo Web per recuperare i 
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Procedura: Creare il codice per effettuare la chiamata
+## <a id="howtocreatecode"></a>Procedura: Creare il codice per l'esecuzione della chiamata
 Il codice seguente, chiamato quando l'utente completa il modulo, crea il messaggio di chiamata e genera la chiamata. In questo esempio, il codice viene eseguito sul gestore dell'evento onclick del pulsante del modulo. Nel codice seguente sostituire i valori segnaposto assegnati a `accountSID` e `authToken` con il proprio account e il token di autenticazione Twilio.
 
 ```csharp
@@ -96,7 +96,7 @@ namespace WebRole1
 
         protected void callpage_Click(object sender, EventArgs e)
         {
-            // Call porcessing happens here.
+            // Call processing happens here.
 
             // Use your account SID and authentication token instead of
             // the placeholders shown here.

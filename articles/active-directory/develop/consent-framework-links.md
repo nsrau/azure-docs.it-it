@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: da22c7a62d39b348e2114fd208d2aa8dd9711e0d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2356167fca0bde9fd7dd78c3c893218967e41220
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099227"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750053"
 ---
 # <a name="how-application-consent-works"></a>Funzionamento del consenso per applicazioni
 
@@ -28,8 +28,8 @@ Questo articolo offre altre informazioni sul funzionamento del framework di cons
 ## <a name="recommended-documents"></a>Documenti consigliati
 
 - Informazioni generali su [come il consenso consente a un proprietario di risorse di gestire l'accesso alle risorse di un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
+- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
 - Per informazioni più dettagliate, scoprire [come viene supportato il consenso a livello del protocollo OAuth 2.0 durante il flusso di concessione del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code).
 
 ## <a name="next-steps"></a>Passaggi successivi

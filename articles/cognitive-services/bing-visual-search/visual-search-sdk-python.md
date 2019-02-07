@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: SDK di Ricerca visiva Bing, Python'
+title: 'Guida introduttiva: SDK di Ricerca visiva Bing, Python'
 titleSuffix: Azure Cognitive Services
 description: Configurare l'applicazione console SDK di Ricerca visiva per Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 372b7719fd77d1fe52f020a419a756bc769a676d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dfd611746b8d962d5844fcac0e9ea42638acad11
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187846"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766606"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Python
 
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con l'SDK per Python. Mentre Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
@@ -42,7 +42,7 @@ Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dett
     import http.client, urllib.parse
     import json
     import os.path
-    from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
+    from azure.cognitiveservices.search.visualsearch import VisualSearchClient
     from azure.cognitiveservices.search.visualsearch.models import (
         VisualSearchRequest,
         CropArea,
@@ -63,7 +63,7 @@ Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dett
 3. Creare un'istanza del client
 
     ```python
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
     ```
 
 ## <a name="send-the-search-request"></a>Inviare la richiesta di ricerca

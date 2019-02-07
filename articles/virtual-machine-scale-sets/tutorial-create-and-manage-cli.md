@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179481"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751022"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -41,7 +41,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È necessario creare un gruppo di risorse prima di un set di scalabilità di macchine virtuali. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*. 
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È necessario creare un gruppo di risorse prima di un set di scalabilità di macchine virtuali. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ La creazione e la configurazione di tutte le risorse e le istanze di VM del set 
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Visualizzare le istanze di VM in un set di scalabilità
-Per visualizzare un elenco delle istanze di VM in un set di scalabilità, usare [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) come illustrato di seguito:
+Per visualizzare un elenco delle istanze di VM in un set di scalabilità, usare [az vmss list-instances](/cli/azure/vmss) come illustrato di seguito:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ L'output di esempio seguente mostra due istanze di VM nel set di scalabilità:
 ```
 
 
-La prima colonna dell'output contiene *InstanceId*. Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` ad [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). L'esempio seguente consente di visualizzare informazioni sull'istanza di VM *1*:
+La prima colonna dell'output contiene *InstanceId*. Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` ad [az vmss get-instance-view](/cli/azure/vmss). L'esempio seguente consente di visualizzare informazioni sull'istanza di VM *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Informazioni sulle immagini delle istanze di VM
-Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stata specificata un'immagine (`--image`) *UbuntuLTS*. Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stata specificata un'immagine (`--image`) *UbuntuLTS*. Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
 Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per impostazione predefinita sono state distribuite due istanze di VM. È possibile specificare il parametro `--instance-count` con [az vmss create](/cli/azure/vmss) per modificare il numero delle istanze create con un set di scalabilità. Per aumentare o ridurre il numero di istanze di VM nel set di scalabilità esistente, è possibile modificare la capacità manualmente. Il set di scalabilità crea o rimuove il numero necessario di istanze di VM, quindi configura il servizio di bilanciamento del carico per la distribuzione del traffico.
 
-Per aumentare o ridurre manualmente il numero di istanze di VM nel set di scalabilità, usare [az vmss scale](/cli/azure/vmss#az_vmss_scale). L'esempio seguente imposta il numero di istanze di VM nel set di scalabilità su *3*:
+Per aumentare o ridurre manualmente il numero di istanze di VM nel set di scalabilità, usare [az vmss scale](/cli/azure/vmss). L'esempio seguente imposta il numero di istanze di VM nel set di scalabilità su *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità. Per visualizzare il numero di istanze attualmente presente nel set di scalabilità, usare [az vmss show](/cli/azure/vmss#az_vmss_show) ed eseguire una query su *sku.capacity*:
+Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità. Per visualizzare il numero di istanze attualmente presente nel set di scalabilità, usare [az vmss show](/cli/azure/vmss) ed eseguire una query su *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 È ora possibile creare un set di scalabilità, visualizzare l'elenco delle informazioni di connessione e connettersi alle istanze di VM. È stato illustrato come è possibile usare una diversa immagine del sistema operativo per le istanze di VM, selezionare una diversa dimensione di VM o ridimensionare manualmente il numero di istanze. Nell'ambito della gestione quotidiana, potrebbe essere necessario arrestare, avviare o riavviare le istanze di VM del set di scalabilità.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Arrestare e deallocare le istanze di VM di un set di scalabilità
-Per arrestare una o più istanze di VM di un set di scalabilità, usare [az vmss stop](/cli/azure/vmss#az_vmss_stop). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da arrestare. Se non si specifica un ID istanza, verranno arrestate tutte le istanze di VM del set di scalabilità. L'esempio seguente arresta l'istanza *1*:
+Per arrestare una o più istanze di VM di un set di scalabilità, usare [az vmss stop](/cli/azure/vmss). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da arrestare. Se non si specifica un ID istanza, verranno arrestate tutte le istanze di VM del set di scalabilità. L'esempio seguente arresta l'istanza *1*:
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-Le istanze di VM arrestate rimangono allocate e continuano a comportare l'addebito di costi di calcolo. Se si preferisce deallocare le istanze di VM mantenendo solo gli addebiti per l'archiviazione, usare [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). L'esempio seguente arresta e dealloca l'istanza *1*:
+Le istanze di VM arrestate rimangono allocate e continuano a comportare l'addebito di costi di calcolo. Se si preferisce deallocare le istanze di VM mantenendo solo gli addebiti per l'archiviazione, usare [az vmss deallocate](/cli/azure/vmss). L'esempio seguente arresta e dealloca l'istanza *1*:
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Avviare le istanze di VM di un set di scalabilità
-Per avviare una o più istanze di VM di un set di scalabilità, usare [az vmss start](/cli/azure/vmss#az_vmss_start). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da avviare. Se non si specifica un ID istanza, verranno avviate tutte le istanze di VM del set di scalabilità. L'esempio seguente avvia l'istanza *1*:
+Per avviare una o più istanze di VM di un set di scalabilità, usare [az vmss start](/cli/azure/vmss). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da avviare. Se non si specifica un ID istanza, verranno avviate tutte le istanze di VM del set di scalabilità. L'esempio seguente avvia l'istanza *1*:
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Riavviare le istanze di VM di un set di scalabilità
-Per riavviare una o più istanze di VM di un set di scalabilità, usare [az vmss restart](/cli/azure/vmss#az_vm_restart). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da riavviare. Se non si specifica un ID istanza, verranno riavviate tutte le istanze di VM del set di scalabilità. L'esempio seguente riavvia l'istanza *1*:
+Per riavviare una o più istanze di VM di un set di scalabilità, usare [az vmss restart](/cli/azure/vmss). Il parametro `--instance-ids` consente di specificare una o più istanze di VM da riavviare. Se non si specifica un ID istanza, verranno riavviate tutte le istanze di VM del set di scalabilità. L'esempio seguente riavvia l'istanza *1*:
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

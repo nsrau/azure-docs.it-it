@@ -1,5 +1,5 @@
 ---
-title: Quote vCPU per Azure | Microsoft Docs
+title: Quote vCPU per Azure | Documentazione Microsoft
 description: Informazioni sulle quote vCPU per Azure.
 keywords: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e9a9e3f902439f0fc3f1fa4aa758d4fcd55f5bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b7ec3a6919a27633fc36ba7fb1551ead10e06ffe
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048945"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769448"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 
@@ -29,7 +29,7 @@ Le quote vCPU per le macchine virtuali e i set di scalabilità di macchine virtu
 
 ## <a name="check-usage"></a>Controllare l'utilizzo
 
-È possibile controllare l'utilizzo della quota utilizzando [az vm list-usage](/cli/azure/vm#az_vm_list_usage).
+È possibile controllare l'utilizzo della quota utilizzando [az vm list-usage](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-usage --location "East US" -o table

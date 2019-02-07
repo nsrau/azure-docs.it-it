@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f0434fbeb5e0ce825589950a366b09143a1bcba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034914"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691423"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Compilare un'app Node.js con JavaScript SDK per gestire i dati API SQL di Azure Cosmos DB
 
@@ -81,37 +81,37 @@ Clonare ora un'app per le API SQL da GitHub, impostare la stringa di connessione
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
-Si noti che, se si ha familiarità con la versione precedente di JavaScript SDK, ci si potrebbe aspettare di vedere termini come "raccolta" e "documento". Poiché Azure Cosmos DB supporta [più modelli di API](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), nella versione 2.0+ di JavaScript SDK vengono usati i termini generici "contenitore", che può essere una raccolta, un grafo o una tabella, ed "elemento" per descrivere il contenuto del contenitore.
+Si noti che, se si ha familiarità con la versione precedente di JavaScript SDK, ci si potrebbe aspettare di vedere termini come "raccolta" e "documento". Poiché Azure Cosmos DB supporta [più modelli di API](https://docs.microsoft.com/azure/cosmos-db/introduction), nella versione 2.0+ di JavaScript SDK vengono usati i termini generici "contenitore", che può essere una raccolta, un grafo o una tabella, ed "elemento" per descrivere il contenuto del contenitore.
 
 Tutti i frammenti di codice seguenti sono tratti dal file **app.js**.
 
 * Viene inizializzato `CosmosClient`.
 
-    ```nodejs
+    ```javascript
     const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * Viene creato un nuovo database.
 
-    ```nodejs
+    ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
 * Viene creato un nuovo contenitore (raccolta).
 
-    ```nodejs
+    ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
 * Viene creato un elemento (documento).
 
-    ```nodejs
+    ```javascript
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * Viene eseguita una query SQL su JSON.
 
-    ```nodejs
+    ```javascript
     const querySpec = {
         query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
         parameters: [

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847812"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693922"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Creare un account di archiviazione e ruotare le relative chiavi di accesso
 
@@ -48,10 +48,10 @@ Lo script usa i comandi seguenti per creare l'account di archiviazione e recuper
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Mostra le chiavi di accesso per l'account di archiviazione specificato. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Rigenera la chiave di accesso di account dell'account di archiviazione primario o secondario. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Mostra le chiavi di accesso per l'account di archiviazione specificato. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Rigenera la chiave di accesso di account dell'account di archiviazione primario o secondario. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

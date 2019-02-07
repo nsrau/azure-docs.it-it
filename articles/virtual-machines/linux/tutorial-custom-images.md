@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197620"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750002"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ Per creare un'immagine, è necessario deallocare la macchina virtuale. Deallocar
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Infine, impostare lo stato della macchina virtuale come generalizzato tramite [az vm generalize](/cli//azure/vm#generalize) in modo che la piattaforma Azure riconosca che la macchina virtuale è stata generalizzata. È possibile creare solo un'immagine da una VM generalizzata.
+Infine, impostare lo stato della macchina virtuale come generalizzato tramite [az vm generalize](/cli//azure/vm) in modo che la piattaforma Azure riconosca che la macchina virtuale è stata generalizzata. È possibile creare solo un'immagine da una VM generalizzata.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Creare l'immagine
 
-È ora possibile creare un'immagine della macchina virtuale con il comando [az image create](/cli//azure/image#create). Nell'esempio seguente viene creata un'immagine denominata *myImage* dalla VM denominata *myVM*.
+È ora possibile creare un'immagine della macchina virtuale con il comando [az image create](/cli//azure/image). Nell'esempio seguente viene creata un'immagine denominata *myImage* dalla VM denominata *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>Creare VM dall'immagine
 
-Ora che è stata creata un'immagine, è possibile creare una o più nuove VM dall'immagine usando [az vm create](/cli/azure/vm#az_vm_create). Nell'esempio seguente viene creata una VM denominata *myVMfromImage* dall'immagine denominata *myImage*.
+Ora che è stata creata un'immagine, è possibile creare una o più nuove VM dall'immagine usando [az vm create](/cli/azure/vm). Nell'esempio seguente viene creata una VM denominata *myVMfromImage* dall'immagine denominata *myImage*.
 
 ```azurecli-interactive 
 az vm create \

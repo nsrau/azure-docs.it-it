@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 302445038dc9767bd412e232f62fc5249a1a7f09
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828299"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696949"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Procedure consigliate per la configurazione della rete per i carichi di lavoro migrati in Azure
 
@@ -72,7 +72,7 @@ Valutare gli aspetti seguenti:
 **Altre informazioni:**
 
 - [Informazioni su](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) una topologia hub-spoke.
-- Ottenere raccomandazioni sulla rete per l'esecuzione di macchine virtuali [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm#network-recommendations) e [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm#network-recommendations) di Azure.
+- Ottenere raccomandazioni sulla rete per l'esecuzione di macchine virtuali [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) e [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm) di Azure.
 - [Informazioni sul](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) peering reti virtuali.
 
 

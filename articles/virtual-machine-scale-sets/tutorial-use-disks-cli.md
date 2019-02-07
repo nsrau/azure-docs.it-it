@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163059"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751158"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -95,13 +95,13 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 È possibile creare e collegare i dischi quando si crea un set di scalabilità oppure con un set di scalabilità esistente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Collegare dischi al momento della creazione del set di scalabilità
-Creare prima di tutto un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
+Creare prima di tutto un gruppo di risorse con il comando [az group create](/cli/azure/group). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti. Vengono creati due dischi con il parametro `--data-disk-sizes-gb`. Il primo disco è da *64* GB, il secondo è da *128* GB:
+Creare set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti. Vengono creati due dischi con il parametro `--data-disk-sizes-gb`. Il primo disco è da *64* GB, il secondo è da *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 La creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Collegare un disco a un set di scalabilità esistente
-È anche possibile collegare dischi a un set di scalabilità esistente. Usare il set di scalabilità creato nel passaggio precedente per aggiungere un altro disco con [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). L'esempio seguente collega un altro disco dati da *128* GB:
+È anche possibile collegare dischi a un set di scalabilità esistente. Usare il set di scalabilità creato nel passaggio precedente per aggiungere un altro disco con [az vmss disk attach](/cli/azure/vmss/disk). L'esempio seguente collega un altro disco dati da *128* GB:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Per confermare che i dischi siano stati preparati correttamente, usare SSH per connettersi a una delle istanze di macchina virtuale. Elencare le informazioni sulla connessione per il set di scalabilità con [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Per confermare che i dischi siano stati preparati correttamente, usare SSH per connettersi a una delle istanze di macchina virtuale. Elencare le informazioni sulla connessione per il set di scalabilità con [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Elencare i dischi collegati
-Per visualizzare informazioni sui dischi collegati a un set di scalabilità, usare [az vmss show](/cli/azure/vmss#az_vmss_show) ed eseguire query su *virtualMachineProfile.storageProfile.dataDisks*:
+Per visualizzare informazioni sui dischi collegati a un set di scalabilità, usare [az vmss show](/cli/azure/vmss) ed eseguire query su *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ Vengono visualizzate informazioni su dimensioni del disco, livello di archiviazi
 
 
 ## <a name="detach-a-disk"></a>Scollegare un disco
-Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco dati da un set di scalabilità, usare il comando [az vmss disk detach](/cli/azure/vmss/disk) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [az vmss show](/cli/azure/vmss#az_vmss_show) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *2* dal set di scalabilità:
+Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco dati da un set di scalabilità, usare il comando [az vmss disk detach](/cli/azure/vmss/disk) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [az vmss show](/cli/azure/vmss) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *2* dal set di scalabilità:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e i dischi, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e i dischi, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

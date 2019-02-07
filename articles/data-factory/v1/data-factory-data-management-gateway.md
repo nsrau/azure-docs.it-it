@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022309"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813765"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
 > [!NOTE]
@@ -246,7 +246,7 @@ Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se si sceglie di non aprire la porta 8050 nel computer gateway, usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. È ad esempio possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) . Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione [Impostare le credenziali e la sicurezza](#set-credentials-and-securityy) .
+Se si sceglie di non aprire la porta 8050 nel computer gateway, usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. È ad esempio possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) . Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione sull'impostazione delle credenziali e della sicurezza.
 
 ## <a name="update"></a>Aggiornamento
 Per impostazione predefinita, il gateway di gestione dati viene aggiornato automaticamente quando è disponibile una versione più recente del gateway. Il gateway non viene aggiornato finché non vengono eseguite tutte le operazioni pianificate. Nessun'altra attività viene elaborata dal gateway fino al completamento dell'operazione di aggiornamento. Se l'aggiornamento non riesce, viene eseguito il rollback del gateway alla versione precedente.
@@ -362,8 +362,8 @@ La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del
 Proprietà monitoraggio | DESCRIZIONE
 :------------------ | :---------- 
 NOME | Nome del gateway logico e nodi associati al gateway. Il nodo è un computer Windows locale in cui è installato il gateway. Per informazioni sulla possibilità di avere più di un nodo (fino a quattro nodi) in un singolo gateway logico, vedere [Gateway di gestione dati: disponibilità elevata e scalabilità](data-factory-data-management-gateway-high-availability-scalability.md).    
-Status | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
-Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
+Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
+Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
@@ -375,7 +375,7 @@ In questa pagina vengono visualizzate alcune impostazioni che sono più appropri
 ### <a name="gateway-status"></a>Stato del gateway
 La tabella seguente indica i possibili stati di un **nodo del gateway**: 
 
-Status  | Commenti/Scenari
+Stato  | Commenti/Scenari
 :------- | :------------------
 Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
@@ -386,7 +386,7 @@ Inactive | Il nodo è in una configurazione diversa da quella della maggior part
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
 
-Status | Commenti
+Stato | Commenti
 :----- | :-------
 Needs Registration (Registrazione necessaria) | Nessun nodo è ancora registrato per questo gateway logico
 Online | I nodi del gateway sono online

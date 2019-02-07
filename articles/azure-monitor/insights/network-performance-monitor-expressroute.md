@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188776"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747459"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
@@ -118,23 +118,12 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
 
 | Codice di notifica (log) | DESCRIZIONE |
 | --- | --- |
-| 5101 | La sottointerfaccia di Microsoft Edge mostra una latenza elevata |
-| 5102 | La sottointerfaccia di Microsoft Edge sta rimuovendo il pacchetto | 
-| 5103 | Il gateway di ExpressRoute non è integro | 
-| 5201 | Il collegamento del provider di servizi mostra una latenza elevata |
-| 5202 | I pacchetti dal circuito ExpressRoute previsto non vengono trasferiti |
-| 5301 | Il router perimetrale del cliente mostra una latenza elevata | 
-| 5302 | La latenza è causata da problemi del dispositivo/collegamento nell'ambiente del cliente. Il problema non è dovuto al circuito ExpressRoute | 
 | 5501 | Non è possibile attraversare la connessione secondaria del circuito ExpressRoute |
 | 5502 | Non è possibile attraversare la connessione primaria del circuito ExpressRoute |
 | 5503 | Non sono stati trovati circuiti per la sottoscrizione collegata all'area di lavoro | 
-| 5506 | L'utilizzo è prossimo al raggiungimento della capacità massima | 
-| 5507 | L'utilizzo è ridotto |
 | 5508 | Not able to determine whether traffic is passing through any circuit(s) for path (Non è possibile determinare se il traffico transita attraverso alcun circuito per il percorso) |
 | 5510 | Il traffico non transita attraverso il circuito previsto | 
 | 5511 | Il traffico non transita attraverso la rete virtuale prevista | 
-| 5512 | Non è possibile determinare se il traffico transita attraverso il circuito previsto |
-
 
 **Il circuito è inattivo.** Monitoraggio prestazioni rete invia una notifica non appena viene persa la connettività tra le risorse locali e le reti virtuali di Azure. Questa notifica permette di intervenire in modo proattivo prima di ricevere comunicazioni dagli utenti e di ridurre il tempo di inattività.
 

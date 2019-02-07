@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8402d0228e062aed60adee1c4622ade31771584d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210948"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700282"
 ---
 # <a name="quickstart-query-for-facts"></a>Guida introduttiva: Query per i fatti
 
 Se la query è per un fatto, ad esempio una data o informazioni personali, la risposta può contenere risposte `facts`. Le risposte di fatti contengono i risultati pertinenti estratti da paragrafi di documenti Web.  Queste query restituiscono sempre pagine Web, e i [fatti](fact-queries.md) e/o le [entità](entity-queries.md) dipendono dalla query.
 
-Le query come San Valentino+2016 o quando+è+il+ramadan vengono considerate query correlate a date. Se Bing determina che la query è correlata a date, la risposta sarà una risposta `facts`. 
+Le query come San Valentino+2016 o quando+è+il+ramadan vengono considerate query correlate a date. Se Bing determina che la query è correlata a date, la risposta sarà una risposta `facts`.
 
-L'esempio seguente contiene una risposta `facts` correlata a date. 
+L'esempio seguente contiene una risposta `facts` correlata a date.
 
 **Query:**
 ```
@@ -34,28 +34,29 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 **Risposta:** il campo `subjectName` contiene una versione visualizzata della query dell'utente che è possibile usare come etichetta quando si visualizza il fatto. Se la stringa di query è San Valentino+2016, Bing può modificarla con il giorno di San Valentino 2016. Il campo descrizione contiene il fatto.
 
 ```
-{   
-    "_type" : "SearchResponse",   
-    "queryContext" : {   
-        "originalQuery" : "valentines 2016" 
-    },   
-    "facts" : {   
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",   
-        "value" : [{   
-            "description" : "Valentine's Day was on Sunday, February 14, 2016.",   
-            "subjectName" : "Valentine's Day 2016"   
-        }]   
-    },   
-    "rankingResponse" : {   
-        "mainline" : {   
-            "items" : [{   
-                "answerType" : "Facts",   
-                "value" : {   
-                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"                   }   
-            }]   
-        }   
-    }   
-}   
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "valentines 2016"
+    },
+    "facts" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",
+        "value" : [{
+            "description" : "Valentine's Day was on Sunday, February 14, 2016.",
+            "subjectName" : "Valentine's Day 2016"
+        }]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "Facts",
+                "value" : {
+                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"
+                }
+            }]
+        }
+    }
+}
 
 ```
 
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 In alcuni casi, i fatti possono essere restituiti come `_type: StructuredValue/TabularData`. La query seguente ottiene i dati tabulari con informazioni contrastanti su caffè e tè.
 
 ```
-https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
+https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us
 
 ```
 I risultati `facts` includono le righe e celle seguenti:

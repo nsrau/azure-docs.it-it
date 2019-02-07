@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296393"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694099"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 
@@ -174,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 
-I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) impostata in [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
+I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) impostata in [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
 
 ```csharp
 using System.Fabric;

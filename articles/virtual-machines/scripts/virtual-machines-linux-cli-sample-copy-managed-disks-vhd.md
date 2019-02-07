@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 66dcb8d38f8c469656d36ff1da1ac03f900069b2
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583137"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727135"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Esportare/copiare un disco gestito su un account di archiviazione usando l'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ Questo script usa i comandi seguenti per generare l'URI SAS per un disco gestito
 | Comando | Note |
 |---|---|
 | [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Genera SAS di sola lettura usati per copiare il file del disco rigido virtuale sottostante in un account di archiviazione o scaricarlo in locale  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Copia un BLOB in modo asincrono da un account di archiviazione a un altro |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copia un BLOB in modo asincrono da un account di archiviazione a un altro |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

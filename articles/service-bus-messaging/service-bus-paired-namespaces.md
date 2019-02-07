@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 35c643b9bb4f348b790577e560eaf14d3a19802f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54376f3067e6aca52af8d283b42f6363f8016bff
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848345"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728725"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato
 
@@ -102,21 +102,21 @@ In un'applicazione che ospita il sifone, non appena l'oggetto [MessagingFactory]
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, vedere [Modelli di messaggistica asincrona e disponibilità elevata][Asynchronous messaging patterns and high availability]. 
 
-[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[FailoverInterval]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions#Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_FailoverInterval
+[FailoverInterval]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
 [MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
-[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_PingPrimaryInterval
+[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
 [TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
-[ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType
-[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive
+[ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png

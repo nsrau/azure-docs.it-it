@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203590"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755690"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
 
@@ -42,7 +42,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
+Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

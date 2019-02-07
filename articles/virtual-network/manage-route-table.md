@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 3381bf32bfd3df538641b11b35a64b53fda6744f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466874"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731870"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -44,7 +44,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table create](/cli/azure/network/route-table/route#az_network_route_table_create)
+- Interfaccia della riga di comando di Azure: [az network route-table create](/cli/azure/network/route-table/route)
 - PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Visualizzare tabelle di route
@@ -53,7 +53,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *tabelle di
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
+- Interfaccia della riga di comando di Azure: [az network route-table list](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Visualizzare i dettagli di una tabella di route
@@ -62,14 +62,14 @@ Nella casella di ricerca nella parte superiore del portale immettere *tabelle di
 2. Selezionare nell'elenco la tabella di route di cui si vuole visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Route** presenti nella tabella di route e le **Subnet** a cui essa è associata.
 3. Per altre informazioni sulle impostazioni comuni di Azure, vedere le informazioni seguenti:
     *   [Log attività](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Controllo di accesso (IAM)](../role-based-access-control/overview.md)
     *   [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
+- Interfaccia della riga di comando di Azure: [az network route-table show](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Modificare una tabella di route
@@ -79,7 +79,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *tabelle di
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- Interfaccia della riga di comando di Azure: [az network route-table update](/cli/azure/network/route-table/route)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associare una route a una subnet
@@ -124,7 +124,7 @@ Se una tabella di route è associata a una subnet, non può essere eliminata. [A
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- Interfaccia della riga di comando di Azure: [az network route-table delete](/cli/azure/network/route-table/route)
 - PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Creare una route
@@ -143,7 +143,7 @@ Se una tabella di route è associata a una subnet, non può essere eliminata. [A
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Interfaccia della riga di comando di Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Visualizzare le route
@@ -168,7 +168,7 @@ Una tabella di route può contenere nessuna o più route. Per saperne di più su
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Interfaccia della riga di comando di Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Modificare una route
@@ -194,7 +194,7 @@ Una tabella di route può contenere nessuna o più route. Per saperne di più su
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Interfaccia della riga di comando di Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Visualizzare le route valide
@@ -209,7 +209,7 @@ Le route valide per ogni interfaccia di rete associata a una macchina virtuale s
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Interfaccia della riga di comando di Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Convalidare il routing tra due endpoint
@@ -226,7 +226,7 @@ Le route valide per ogni interfaccia di rete associata a una macchina virtuale s
 
 **Comandi**
 
-- Interfaccia della riga di comando di Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Interfaccia della riga di comando di Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>Autorizzazioni

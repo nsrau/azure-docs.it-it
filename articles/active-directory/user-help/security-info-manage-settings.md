@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 36d1b4ef9501c94fe385c37f31ee7e8c9f57106e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80a78d12570e3da1371d2fc1cbb0270eb81fc6ce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197229"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766844"
 ---
 # <a name="manage-your-security-info-preview"></a>Gestire le informazioni di sicurezza (anteprima)
 
@@ -81,7 +81,7 @@ Questo articolo aiuta a risolvere i problemi relativi alle informazioni di sicur
 |Il telefono è stato perso o rubato|Sfortunatamente può succedere che il telefono venga perso o rubato. Si consiglia vivamente in questo caso di informare l'organizzazione in modo che il personale IT possa reimpostare le password delle app e cancellare eventuali dispositivi memorizzati dall'elenco dei dispositivi attendibili. È anche possibile ignorare i dispositivi attendibili attenendosi alla procedura descritta nella sezione [Gestire le informazioni di sicurezza in caso di smarrimento o potenziale compromissione di un dispositivo](#manage-your-security-info-for-a-lost-or-potentially-compromised-device).|
 |Nuovo numero di telefono|È possibile procedere in due modi per risolvere questo problema. È possibile accedere usando un metodo di autenticazione alternativo che non richiede l'inserimento del numero di telefono, ad esempio la posta elettronica, oppure, se ciò non è possibile, si può contattare il personale IT della propria organizzazione e chiedere di cancellare le impostazioni. Per aggiungere altri metodi alle informazioni di sicurezza, è possibile seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info).|
 |Il metodo predefinito è errato|È possibile aggiornare il metodo predefinito nelle opzioni di sicurezza. Per i dettagli specifici, vedere la sezione [Modificare le informazioni](#change-your-info).|
-|Non si ricevono messaggi o chiamate sul telefono|Se in precedenza si ricevevano messaggi e telefonate senza problemi, si tratta molto probabilmente di un problema del provider del servizio di telefonia, non dell'account. Assicurarsi di avere una copertura del segnale adeguata e che sia possibile ricevere SMS e telefonate. Chiedere a un amico di provare a chiamare o a inviare un SMS.<br><br>Se si ricevono gli SMS e le telefonate, ma non si riceve ancora la notifica, provare a usare un metodo diverso. Per aggiungere altri metodi alle informazioni di sicurezza, seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info). Se non si può aggiungere un altro metodo, contattare il supporto tecnico aziendale e chiedere di cancellare le impostazioni in modo da poter configurare i metodi al successivo accesso.<br><br>Se si verificano spesso problemi a causa della scarsa qualità del segnale, è consigliabile usare l'app Microsoft Authenticator sul dispositivo mobile. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet. Per altre informazioni sull'app Microsoft Authenticator, vedere l'articolo [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).|
+|Non si ricevono messaggi o chiamate sul telefono|Se in precedenza si ricevevano messaggi e telefonate senza problemi, si tratta molto probabilmente di un problema del provider del servizio di telefonia, non dell'account. Assicurarsi di avere una copertura del segnale adeguata e che sia possibile ricevere SMS e telefonate. Chiedere a un amico di provare a chiamare o a inviare un SMS.<br><br>Se si ricevono gli SMS e le telefonate, ma non si riceve ancora la notifica, provare a usare un metodo diverso. Per aggiungere altri metodi alle informazioni di sicurezza, seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info). Se non si può aggiungere un altro metodo, contattare il supporto tecnico aziendale e chiedere di cancellare le impostazioni in modo da poter configurare i metodi al successivo accesso.<br><br>Se si verificano spesso problemi a causa della scarsa qualità del segnale, è consigliabile usare l'app Microsoft Authenticator sul dispositivo mobile. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet. Per altre informazioni sull'app Microsoft Authenticator, vedere l'articolo [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/user-help-auth-app-download-install).|
 |Nessuna delle opzioni in questa tabella ha risolto il problema|Se dopo aver provato queste procedure i problemi persistono, contattare il supporto tecnico aziendale per assistenza.|
 
 ## <a name="next-steps"></a>Passaggi successivi

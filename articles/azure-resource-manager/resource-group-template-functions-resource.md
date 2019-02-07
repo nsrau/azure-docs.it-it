@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 31c845673c524a504bd3078fc62c1fc73aa4ca63
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459367"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756683"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -34,6 +34,8 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 
 Per ottenere valori dai parametri, dalle variabili o dalla distribuzione corrente, vedere [Funzioni dei valori della distribuzione](resource-group-template-functions-deployment.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <a id="listkeys" />
 <a id="list" />
 
@@ -47,8 +49,8 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 | Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |stringa |Identificatore univoco della risorsa. |
-| apiVersion |Yes |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| resourceName o resourceIdentifier |Sì |stringa |Identificatore univoco della risorsa. |
+| apiVersion |Sì |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 | functionValues |No  |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
 ### <a name="implementations"></a>Implementazioni
@@ -138,7 +140,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 
 Per determinare quali tipi di risorse dispongono di un'operazione list, usare le opzioni seguenti:
 
-* Visualizzare le [operazioni dell'API REST](/rest/api/) di un provider di risorse e individuare le operazioni list. Gli account di archiviazione, ad esempio, dispongono dell'[operazione listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Visualizzare le [operazioni dell'API REST](/rest/api/) di un provider di risorse e individuare le operazioni list. Gli account di archiviazione, ad esempio, dispongono dell'[operazione listKeys](/rest/api/storagerp/storageaccounts).
 * Usare il cmdlet di PowerShell [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation). L'esempio seguente ottiene tutte le operazioni list degli account di archiviazione:
 
   ```powershell
@@ -269,7 +271,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 | Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |stringa |Spazio dei nomi del provider |
+| providerNamespace |Sì |stringa |Spazio dei nomi del provider |
 | resourceType |No  |stringa |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -357,7 +359,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |stringa |Nome o identificatore univoco di una risorsa. |
+| resourceName o resourceIdentifier |Sì |stringa |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No  |stringa |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
 | 'Full' |No  |stringa |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -658,8 +660,8 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No  |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No  |stringa |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
-| resourceType |Yes |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Yes |stringa |Nome della risorsa. |
+| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |stringa |Nome della risorsa. |
 | resourceName2 |No  |stringa |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 
 ### <a name="return-value"></a>Valore restituito

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c983ece9d883397e43833522b2fa4d1bfb3fa4f0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001686"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753640"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in .NET
 
@@ -102,7 +102,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create).
+Creare una VM con il comando [az vm create](/cli/azure/vm).
 
 Nell'esempio seguente viene creata una macchina virtuale denominata *myVM* e aggiunto un account utente denominato *azureuser*. Il parametro `--generate-ssh-keys` viene usato per generare automaticamente una chiave SSH e inserito nella posizione predefinita della chiave (*~/.ssh*). Per usare invece un set specifico di chiavi, usare l'opzione `--ssh-key-value`.
 

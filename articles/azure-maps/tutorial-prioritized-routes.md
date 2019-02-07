@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705280"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749764"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -248,7 +248,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
         datasource.add(routeLine, 0);
     });
     ```
-    Nel frammento di codice seguente viene eseguita una query per il servizio itinerari di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Viene quindi creata una matrice di coordinate per l'itinerario restituito e tale elemento viene aggiunto all'origine dati. Viene anche creato un indice 0 per garantire che venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel. 
+    Nel frammento di codice seguente viene eseguita una query per il servizio itinerari di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Viene quindi creata una matrice di coordinate per l'itinerario restituito e tale elemento viene aggiunto all'origine dati. Viene anche creato un indice 0 per garantire che venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel. 
 
 4. Aggiungere il codice JavaScript seguente per richiedere l'itinerario per un'auto e visualizzare i risultati:
 
@@ -267,7 +267,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
         datasource.add(routeLine);
     });
     ```
-    Questo frammento di codice usa la stessa query di itinerario di un autocarro per un'auto. Viene eseguita una query per il servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Viene quindi creata una matrice di coordinate per l'itinerario restituito e tale elemento viene aggiunto all'origine dati. Alla linea dell'itinerario per le auto vengono aggiunte due proprietà, un colore di tratto con sfumatura viola e uno spessore tratto di 5 pixel. 
+    Questo frammento di codice usa la stessa query di itinerario di un autocarro per un'auto. Viene eseguita una query per il servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Viene quindi creata una matrice di coordinate per l'itinerario restituito e tale elemento viene aggiunto all'origine dati. Alla linea dell'itinerario per le auto vengono aggiunte due proprietà, un colore di tratto con sfumatura viola e uno spessore tratto di 5 pixel. 
 
 5. Salvare il file **MapTruckRoute.html** e aggiornare il browser per osservare il risultato. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente.
 

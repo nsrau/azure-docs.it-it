@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 41e2eee491141be3a7e39a70bccf8440890e2982
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aa1f71d0e8e73ae793fc5396b8b654b9ca875bc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186499"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733536"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Esercitazione: Creare e usare un'immagine condivisa per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
 
@@ -65,7 +65,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

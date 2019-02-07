@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306336"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750410"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API Python
 
@@ -170,7 +170,7 @@ Il numero di nodi e le dimensioni delle VM vengono impostati usando costanti def
 
 Oltre alle proprietà dei nodi fisici, la configurazione del pool include un oggetto [StartTask](/python/api/azure.batch.models.starttask). L'attività StartTask viene eseguita in ogni nodo quando questo viene aggiunto al pool e ogni volta che viene riavviato. In questo esempio l'oggetto StartTask esegue i comandi della shell Bash per installare il pacchetto ffmpeg e le dipendenze nei nodi.
 
-Il metodo [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) invia il pool al servizio Batch.
+Il metodo [pool.add](/python/api/azure.batch.operations.pooloperations) invia il pool al servizio Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Creare un processo
 
-Un processo Batch specifica un pool in cui eseguire le attività e impostazioni facoltative, ad esempio una priorità e una pianificazione per il lavoro. L'esempio crea un processo con una chiamata a `create_job`. La funzione definita usa la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) invia il pool al servizio Batch. Inizialmente il processo è privo di attività.
+Un processo Batch specifica un pool in cui eseguire le attività e impostazioni facoltative, ad esempio una priorità e una pianificazione per il lavoro. L'esempio crea un processo con una chiamata a `create_job`. La funzione definita usa la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure.batch.operations.joboperations) invia il pool al servizio Batch. Inizialmente il processo è privo di attività.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ L'app crea le attività nel processo con una chiamata a `add_tasks`. Questa funz
 
 L'esempio crea un oggetto [OutputFile](/python/api/azure.batch.models.outputfile) per il file MP3 dopo l'esecuzione della riga di comando. I file di output di ogni attività, in questo caso uno, vengono caricati in un contenitore nell'account di archiviazione collegato, usando la proprietà `output_files` dell'attività.
 
-L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), che le accoda per l'esecuzione nei nodi di calcolo. 
+L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo. 
 
 ```python
 tasks = list()

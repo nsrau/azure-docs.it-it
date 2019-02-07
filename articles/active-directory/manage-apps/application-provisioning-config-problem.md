@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2d1a449511ce944783c8d93b79d59be263b20fa3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163944"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822273"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD
 
@@ -41,7 +41,7 @@ Dopo aver configurato il servizio, sarà possibile ricavare la maggior parte del
 Di seguito è riportato un elenco delle aree problematiche generali che è possibile analizzare se si ha un'idea del punto da cui iniziare.
 
 * [Avvio non riuscito del servizio di provisioning](#provisioning-service-does-not-appear-to-start)
-* [Impossibile salvare la configurazione a causa di un errore nelle credenziali dell'app](#can’t-save-configuration-due-to-app-credentials-not-working)
+* Impossibile salvare la configurazione a causa di un errore nelle credenziali dell'app
 * [I log di controllo indicano che gli utenti vengono "ignorati" e non sottoposti a provisioning, anche se assegnati](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Avvio non riuscito del servizio di provisioning

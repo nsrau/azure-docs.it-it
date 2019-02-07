@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 8e8950cbd7927cb6b0543866ab976b550c9ec043
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f65ebfd2e1ce508c5cf9b224871102a35b55fe0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959547"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770321"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Usare cloud-init per eseguire uno script Bash in una macchina virtuale Linux in Azure
 Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.io) per eseguire uno script Bash esistente in una macchina virtuale o un set di scalabilità di macchine virtuali Linux in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -36,13 +36,13 @@ Per visualizzare questa funzionalità in azione, creare un semplice script Bash 
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora una macchina virtuale con [az vm create](/cli/azure/vm#az_vm_create) e specificare il file script Bash con `--custom-data simple_bash.sh` in questo modo:
+Creare ora una macchina virtuale con [az vm create](/cli/azure/vm) e specificare il file script Bash con `--custom-data simple_bash.sh` in questo modo:
 
 ```azurecli-interactive 
 az vm create \

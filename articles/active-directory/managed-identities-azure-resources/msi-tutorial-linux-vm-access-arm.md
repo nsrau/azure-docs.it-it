@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: priyamo
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b0c46485a0b35762c4dc34134eb11c31d09d4fe0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 857991ee171dca8e579b1e6dbfd97551ee857530
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151346"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749935"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -84,7 +84,7 @@ La risposta contiene i dettagli relativi all'identità gestita assegnata dall'ut
 
 Un'identità gestita assegnata dall'utente può essere usata dai client in più risorse di Azure. Usare i comandi seguenti per assegnare l'identità gestita assegnata dall'utente a una singola macchina virtuale. Usare la proprietà `Id` restituita nel passaggio precedente per il parametro `-IdentityID`.
 
-Assegnare l'identità gestita assegnata dall'utente alla macchina virtuale Linux usando [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`.
+Assegnare l'identità gestita assegnata dall'utente alla macchina virtuale Linux usando [az vm identity assign](/cli/azure/vm). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`.
 
 ```azurecli-interactive
 az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"

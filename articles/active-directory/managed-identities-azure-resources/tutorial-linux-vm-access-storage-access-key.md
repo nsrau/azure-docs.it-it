@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158095"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755469"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite la chiave di accesso
 
@@ -198,4 +198,4 @@ Risposta:
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite una chiave di accesso.  Per altre informazioni sulle chiavi di accesso ad Archiviazione di Azure, vedere:
 
 > [!div class="nextstepaction"]
->[Gestire le chiavi di accesso alle risorse di archiviazione](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gestire le chiavi di accesso alle risorse di archiviazione](/azure/storage/common/storage-create-storage-account)

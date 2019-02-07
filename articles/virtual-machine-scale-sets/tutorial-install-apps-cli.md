@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157262"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755714"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
@@ -82,7 +82,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="apply-the-custom-script-extension"></a>Applicare l'estensione Script personalizzato
-Applicare la configurazione dell'estensione dello script personalizzata alle istanze di macchine virtuali nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension#set). Nell'esempio seguente viene applicata la configurazione *customConfig.json* alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*:
+Applicare la configurazione dell'estensione dello script personalizzata alle istanze di macchine virtuali nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension). Nell'esempio seguente viene applicata la configurazione *customConfig.json* alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip#show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
+Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Nella shell corrente creare un file denominato *customConfigv2.json* e incollare
 }
 ```
 
-Applicare la configurazione dell'estensione Script personalizzato alle istanze di macchina virtuale nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension#set). Il file *customConfigv2.json* viene usato per applicare la versione aggiornata dell'applicazione:
+Applicare la configurazione dell'estensione Script personalizzato alle istanze di macchina virtuale nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension). Il file *customConfigv2.json* viene usato per applicare la versione aggiornata dell'applicazione:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ Tutte le istanze di macchina virtuale nel set di scalabilità vengono aggiornate
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
+Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

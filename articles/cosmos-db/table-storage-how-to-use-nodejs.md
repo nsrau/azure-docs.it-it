@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044264"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510952"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ Per usare Archiviazione di Azure o Azure Cosmos DB, è necessario disporre di Az
 ### <a name="import-the-package"></a>Importare il pacchetto
 Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazione:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Aggiungere una connessione ad Archiviazione di Azure
 I modulo di Azure legge le variabili di ambiente AZURE_STORAGE_ACCOUNT e AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**. Il codice seguente, ad esempio, crea un oggetto **TableService**:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Aggiungere una connessione ad Azure Cosmos DB
 Per aggiungere una connessione ad Azure Cosmos DB, creare un oggetto **TableService** e specificare il nome dell'account, la chiave primaria e l'endpoint. È possibile copiare questi valori da **Impostazioni** > **Stringa di connessione** nel portale di Azure per l'account DB Cosmos. Ad esempio: 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Creare una tabella
 Il codice seguente consente di creare un oggetto **TableService** e di utilizzarlo per creare una nuova tabella. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 La chiamata a **createTableIfNotExists** crea una nuova tabella con il nome specificato, se non è già presente. Nell'esempio seguente viene creata una nuova tabella denominata "mytable" se questa non esiste ancora:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>Filtri
 È possibile applicare filtri facoltativi alle operazioni eseguite usando **TableService**. I filtri possono essere applicati alla registrazione, alla ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 Dopo aver eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare **next** passando un callback con la firma seguente:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ In questo callback, e dopo l'elaborazione di **returnObject** (la risposta della
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi. Sono **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **TableService** che usa **ExponentialRetryPolicyFilter**:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre info
 
 Nell'esempio seguente viene definita un'entità. **dueDate** è definito come tipo di **Edm.DateTime**. La definizione del tipo è facoltativa e i tipi vengono dedotti se non sono specificati.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 È anche possibile usare **entityGenerator** per creare le entità. Nell'esempio seguente viene creata la stessa entità Task tramite **entityGenerator**.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 Per aggiungere un'entità alla tabella, passare l'oggetto entità al metodo **insertEntity** .
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ Se l'operazione ha esito positivo, `result` contiene l'[ETag](https://en.wikiped
 
 Esempio di risposta:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ Esistono vari metodi per aggiornare un'entità esistente:
 
 Nell'esempio seguente viene illustrato l'aggiornamento di un'entità mediante **replaceEntity**:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ L'oggetto `result` per le operazioni di aggiornamento riuscite contiene l'**Etag
 
  Nell'esempio seguente viene dimostrato l'invio di due entità in un batch:
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ Per le operazioni in batch riuscite, `result` contiene le informazioni relative 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperare un'entità in base alla chiave
 Per restituire un'entità specifica in base a **PartitionKey** e **RowKey**, usare il metodo **retrieveEntity**.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ Per eseguire una query su una tabella, usare l'oggetto **TableQuery** per creare
 
 L'esempio seguente crea una query che restituisce i primi cinque elementi con PartitionKey 'hometasks'.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 Poiché la clausola **select** non viene usata, vengono restituiti tutti i campi. Per eseguire la query su una tabella, usare **queryEntities**. Nell'esempio seguente viene usata questa query per restituire entità da 'mytable'.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ Se la query ha esito positivo, `result.entries` contiene una matrice delle entit
 Una query su una tabella può recuperare solo alcuni campi da un'entità.
 Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. La query seguente, ad esempio, restituisce solo i campi **description** e **dueDate**.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>Eliminare un'entità
 È possibile eliminare un'entità utilizzando le relative chiavi di riga e di partizione. In questo esempio l'oggetto **task1** contiene i valori **RowKey** e **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi passato al metodo **deleteEntity** .
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>Eliminare una tabella
 Nell'esempio di codice seguente viene illustrato come eliminare una tabella da un account di archiviazione.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ L'oggetto **results** restituito quando si esegue una query sulle entità impost
 
 Quando si esegue una query, è possibile specificare un parametro `continuationToken` tra l'istanza dell'oggetto della query e la funzione di callback:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una
 
 Nell'esempio seguente viene generato un nuovo criterio di accesso condiviso che consentirà al titolare della firma di accesso condiviso di eseguire una query ('r') per la tabella e che scadrà 100 minuti dopo la data di creazione.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ Si noti che è necessario specificare anche le informazioni sull'host poiché ve
 
 L'applicazione client usa quindi la firma di accesso condiviso con il metodo **TableServiceWithSAS** per eseguire operazioni sulla tabella. Nell'esempio seguente viene eseguita la connessione alla tabella e viene eseguita una query. Per il formato della tabella SAS vedere l'articolo [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris). 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ Per impostare i criteri di accesso per una firma di accesso condiviso è anche p
 
 Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. L'esempio seguente definisce due criteri, uno per 'user1' e uno per 'user2':
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl**. Risultato:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una firma di accesso condiviso in base all'ID di un criterio. Nell'esempio seguente viene creata una nuova firma di accesso condiviso per 'user2':
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

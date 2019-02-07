@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159350"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744790"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
@@ -66,8 +66,8 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 
 | Tipo di oggetto di Azure | Limite predefinito                                             |
 |-------------------|-----------------------------------------------------------|
-| BLOB in blocchi        | ~ 8 TB                                                 |
-| BLOB di pagine         | 1 TB <br> Le dimensioni di tutti i file caricati nel formato BLOB di pagine devono essere multipli integrali di 512 byte per garantire che il caricamento venga completato in modo corretto. <br> I file VHD e VHDX sono allineati a 512 byte. |
+| BLOB in blocchi        | Circa 4,75 TiB                                                 |
+| BLOB di pagine         | 8 TiB <br> Le dimensioni di tutti i file caricati nel formato BLOB di pagine devono essere multipli integrali di 512 byte per garantire che il caricamento venga completato in modo corretto. <br> I file VHD e VHDX sono allineati a 512 byte. |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Convenzioni di denominazione BLOB di pagine e BLOB in blocchi di Azure

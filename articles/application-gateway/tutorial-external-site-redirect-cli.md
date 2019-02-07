@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 62397bc707c90a69df558833595c196d4f908d32
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844399"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727331"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete 
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create). Queste risorse vengono usate per fornire la connettività di rete al gateway applicazione e alle risorse associate.
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip). Queste risorse vengono usate per fornire la connettività di rete al gateway applicazione e alle risorse associate.
 
 ```azurecli-interactive
 az network vnet create \
@@ -93,7 +93,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico dal gateway applicazione a *bing.com* usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+Aggiungere la configurazione di reindirizzamento che invia il traffico dal gateway applicazione a *bing.com* usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Aggiungere un listener e una regola di gestione
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato. Creare il listener usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) con la porta front-end creata con [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). È necessaria una regola per comunicare al listener dove inviare il traffico in ingresso. Creare una regola di base denominata *redirectRule* usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) con la configurazione di reindirizzamento.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato. Creare il listener usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway) con la porta front-end creata con [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). È necessaria una regola per comunicare al listener dove inviare il traffico in ingresso. Creare una regola di base denominata *redirectRule* usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) con la configurazione di reindirizzamento.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,7 +131,7 @@ az network application-gateway rule create \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
 Nel browser dovrebbe essere visualizzato *bing.com*.
 

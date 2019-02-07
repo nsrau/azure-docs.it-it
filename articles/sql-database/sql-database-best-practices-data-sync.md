@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: cd4c5dc877bf565e5218d431506bbeccd5dc6382
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721598"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567269"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -129,7 +129,7 @@ Quando si crea un gruppo di sincronizzazione, iniziare con dati in un solo datab
 
 Se i database si trovano in data center diversi, ogni riga deve spostarsi da un data center a un altro, con il conseguente aumento dei costi della sincronizzazione iniziale.
 
-#### <a name="recommendation"></a>Raccomandazione
+#### <a name="recommendation"></a>Recommendation
 
 Se possibile, iniziare con i dati in un unico database del gruppo di sincronizzazione.
 
@@ -158,7 +158,7 @@ Si verifica un ciclo di sincronizzazione quando all'interno di un gruppo di sinc
 > [!NOTE]
 > Queste modifiche non verranno mai propagate. L'unico modo per risolvere il problema è ricreare il gruppo di sincronizzazione.
 
-#### <a name="recommendation"></a>Raccomandazione
+#### <a name="recommendation"></a>Recommendation
 
 Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazione attraverso l'interfaccia del portale e del log.
 
