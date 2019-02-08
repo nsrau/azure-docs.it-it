@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ddf08c69b5ef06d6243230230bcfdb56965aef4d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239945"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893682"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gestire Key Vault in Azure Stack tramite PowerShell
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Se la registrazione ha esito positivo, viene restituito l'output seguente:
 
-![Registrare](media/azure-stack-key-vault-manage-powershell/image2.png) quando si richiamano i comandi di insieme di credenziali delle chiavi, è possibile ottenere un errore, ad esempio "la sottoscrizione non è registrata per l'utilizzo dello spazio dei nomi 'Microsoft. keyvault'." Se si verifica un errore, verificare di avere [abilitato il provider di risorse di Key Vault](#enable-your-tenant-subscription-for-vault-operations) seguendo le istruzioni indicate in precedenza.
+![Registrare](media/azure-stack-key-vault-manage-powershell/image2.png) quando si richiamano i comandi di insieme di credenziali delle chiavi, è possibile ottenere un errore, ad esempio "la sottoscrizione non è registrata per l'utilizzo dello spazio dei nomi 'Microsoft. keyvault'." Se si verifica un errore, verificare che sia stato abilitato il provider di risorse di Key Vault, seguire le istruzioni indicate in precedenza.
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
