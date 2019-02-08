@@ -15,12 +15,12 @@ ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a197a366d70958859eed47a9d66606adf80344e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744964"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891273"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Distribuzione di Kubernetes in Azure Stack tramite Active Directory Federated Services
 
@@ -60,7 +60,7 @@ Per iniziare, assicurarsi che si abbia le autorizzazioni appropriate e che Azure
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Assegnare la nuova entità servizio di un ruolo di collaboratore per la sottoscrizione. Per istruzioni, vedere [assegnare un ruolo](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Assegnare la nuova entità servizio di un ruolo di collaboratore per la sottoscrizione. Per istruzioni, vedere [assegnare un ruolo](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 3. Creare un insieme di credenziali delle chiavi per archiviare il certificato per la distribuzione.
 

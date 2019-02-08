@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766504"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895060"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 
@@ -67,7 +67,7 @@ Potrebbe essere in una situazione in cui è necessario ripristinare un account e
 
 In Azure Stack è un modo semplice per farlo:
 
-1. Passare all'elenco degli account di archiviazione. Visualizzare [trovare un account di archiviazione](#find) in questo articolo per altre informazioni.
+1. Passare all'elenco degli account di archiviazione. Trova un account di archiviazione in questo articolo per altre informazioni, vedere.
 2. Individuare quel particolare account nell'elenco. Potrebbe essere necessario filtrare.
 3. Verificare i *stato* dell'account. Dovrebbe risultare **Deleted**.
 4. Selezionare l'account, che consente di aprire il riquadro dei dettagli account.
@@ -113,7 +113,7 @@ Uno degli effetti collaterali di avere un periodo di conservazione è che un acc
 È possibile recuperare la capacità usando il portale o PowerShell.
 
 **Per recuperare la capacità usando il portale:**
-1. Passare al riquadro account di archiviazione. Visualizzare [trovare un account di archiviazione](#find).
+1. Passare al riquadro account di archiviazione. Consultare la sezione trovare un account di archiviazione.
 2. Selezionare **recuperare spazio** nella parte superiore del riquadro.
 3. Leggere il messaggio e quindi selezionare **OK**.
 
