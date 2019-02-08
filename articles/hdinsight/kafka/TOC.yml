@@ -17,7 +17,7 @@ items:
     href: apache-kafka-get-started.md
   - name: Creare un cluster Apache Kafka - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Creare un cluster Apache Kafka - Modello
+  - name: Creare un cluster Apache Kafka - Modello di Resource Manager
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Esercitazioni
   items:
@@ -116,6 +116,8 @@ items:
       maintainContext: true
     - name: BYOK (Bring Your Own Key)
       href: apache-kafka-byok.md
+    - name: Autenticazione e crittografia SSL
+      href: apache-kafka-ssl-encryption-authentication.md
     - name: Controllo degli accessi in base al ruolo per Apache Kafka con Apache Ranger
       href: ../domain-joined/apache-domain-joined-run-kafka.md
       maintainContext: true
@@ -241,7 +243,7 @@ items:
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -276,9 +278,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9e70f019902634c3edaeed274a2687c21605658c
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 11468d52eb07180abc6624772d69a3c0cd122ae7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319597"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814300"

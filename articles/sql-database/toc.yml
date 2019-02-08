@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: Conservazione del backup a lungo termine
       href: sql-database-long-term-retention.md
+    - name: Eventi di manutenzione pianificata
+      href: sql-database-planned-maintenance.md
     - name: Gruppi di failover e replica geografica
       items:
       - name: Replica geografica attiva
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transazioni elastiche
       href: sql-database-elastic-transactions-overview.md
-  - name: Confronto delle funzionalità SQL
-    href: sql-database-features.md
   - name: Monitoraggio e ottimizzazione
     items:
     - name: Panoramica di monitoraggio e ottimizzazione
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: Consigli sulle prestazioni di Database Advisor
         href: sql-database-advisor.md
-  - name: Caricare e spostare dati
-    items:
-    - name: Sincronizzazione dati SQL
-      href: sql-database-sync-data.md
-    - name: Replica transazionale
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Funzionalità dei database
     items:
-    - name: Funzionalità dei database
-      href: sql-database-develop-overview.md
+    - name: Confronto delle funzionalità SQL
+      href: sql-database-features.md
     - name: Funzionalità multimodello
       href: sql-database-multi-model-features.md
     - name: In memoria
       href: sql-database-in-memory.md
+    - name: Replica transazionale
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: Sincronizzazione dati SQL
+      href: sql-database-sync-data.md
     - name: Tabelle temporali
       href: sql-database-temporal-tables.md
     - name: Automazione dei processi
       href: sql-database-job-automation-overview.md
+    - name: Machine Learning
+      items:
+      - name: Panoramica di Machine Learning
+        href: sql-database-machine-learning-services-overview.md
+      - name: Differenze principali
+        href: sql-database-machine-learning-services-differences.md
 - name: Guide alle procedure
   items:
   - name: Panoramica
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: Sviluppo di applicazioni
     items:
-    - name: Connettività
-      href: sql-database-libraries.md
+    - name: Panoramica
+      href: sql-database-develop-overview.md
     - name: Uso dei dati JSON
       href: sql-database-json-features.md
     - name: Usare il connettore Spark
@@ -541,7 +545,7 @@ items:
       href: dns-alias-overview.md
     - name: PowerShell per l'alias DNS
       href: dns-alias-powershell.md
-    - name: Porte - ADO.NET
+    - name: 'Porte: ADO.NET'
       href: sql-database-develop-direct-route-ports-adonet-v12.md
     - name: C e C++
       href: sql-database-develop-cplusplus-simple.md
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756734"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813678"
