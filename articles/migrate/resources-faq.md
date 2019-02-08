@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079257"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746313"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -108,7 +108,7 @@ L'individuazione basata su agenti è un'opzione disponibile oltre all'individuaz
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Ci sono conseguenze sulle prestazioni dell'ambiente host di ESXi analizzato?
 
-Nel caso dell'[approccio di individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), per raccogliere i dati sulle prestazioni, il livello delle statistiche nel server vCenter deve essere impostato su 3. Impostando il livello in questo modo viene raccolta una grande quantità di dati di risoluzione dei problemi che viene archiviata nel database del server vCenter. Ciò potrebbe causare problemi di prestazioni del server vCenter, mentre l'impatto sull'host ESXi sarebbe trascurabile.
+Nel caso dell'[approccio di individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector), per raccogliere i dati sulle prestazioni, il livello delle statistiche nel server vCenter deve essere impostato su 3. Impostando il livello in questo modo viene raccolta una grande quantità di dati di risoluzione dei problemi che viene archiviata nel database del server vCenter. Ciò potrebbe causare problemi di prestazioni del server vCenter, mentre l'impatto sull'host ESXi sarebbe trascurabile.
 
 È stata introdotta la profilatura continua dei dati sulle prestazioni (disponibile in anteprima). Con la profilatura continua, non è più necessario modificare il livello delle statistiche del server vCenter per eseguire una valutazione basata sulle prestazioni. L'appliance dell'agente di raccolta esegue ora la profilatura delle macchine virtuali locali per misurarne i dati sulle prestazioni. Ciò ha un impatto quasi nullo sulle prestazioni degli host ESXi, nonché del server vCenter.
 

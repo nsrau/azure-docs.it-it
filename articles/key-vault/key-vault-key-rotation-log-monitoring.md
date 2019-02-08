@@ -269,7 +269,7 @@ Il passaggio successivo consiste nella [creazione di una coda del bus di servizi
 
 Per creare una funzione di Azure, scegliere **Crea una risorsa**, cercare _App per le funzioni_ nel Marketplace e fare clic su **Crea**. Durante la creazione è possibile usare un piano di hosting esistente o crearne uno nuovo. È anche possibile optare per l'hosting dinamico. Altre informazioni sulle opzioni di hosting delle funzioni sono disponibili in [Scalabilità di Funzioni di Azure](../azure-functions/functions-scale.md).
 
-Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una funzione timer e C\#, quindi fare clic su **Creare questa funzione.
+Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una funzione timer e C\#, quindi fare clic su **Creare questa funzione**
 
 ![Pannello iniziale di Funzioni di Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

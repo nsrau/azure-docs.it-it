@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093241"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745963"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -65,7 +65,7 @@ La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunt
 | [Archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. Usare un editor JSON per visualizzare il contenuto dei file.|
 | [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
-Sia Log Analytics che archiviazione BLOB sono disponibili come servizio condiviso gratuito, quindi è possibile provarli gratuitamente per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/ricing/details/monitor/) per informazioni dettagliate).
+Sia Log Analytics che archiviazione BLOB sono disponibili come servizio condiviso gratuito, quindi è possibile provarli gratuitamente per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
 
 La sezione successiva illustra la procedura per l'abilitazione e l'uso dell'archiviazione BLOB di Azure per raccogliere i dati di log creati dalle operazioni di Ricerca di Azure e accedervi.
 

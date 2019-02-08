@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8af2398246fac4c8cb1d097e22147bbf695e43a6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469601"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728931"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -71,7 +71,7 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di elabora
 
 Si consideri ad esempio l'ambiente di Azure Machine Learning Studio:
 
-* Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#data-formats-and-data-types-supported) .
+* Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#supported-data-formats-and-data-types) .
 
 
 Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-subscription-service-limits.md).

@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459843"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730009"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per la scalabilità dei nodi di calcolo in un pool Batch
 
@@ -85,7 +85,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere e impostare i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
-| Variabili in lettura/scrittura definite dal servizio | Descrizione |
+| Variabili in lettura/scrittura definite dal servizio | DESCRIZIONE |
 | --- | --- |
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi calcolo con priorità bassa, vedere [Usare le VM con priorità bassa in Batch (anteprima)](batch-low-pri-vms.md). |
@@ -93,7 +93,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
-| Variabili di sola lettura definite dal servizio | Descrizione |
+| Variabili di sola lettura definite dal servizio | DESCRIZIONE |
 | --- | --- |
 | $CPUPercent |Percentuale media di utilizzo della CPU. |
 | $WallClockSeconds |Numero di secondi utilizzati. |
@@ -176,7 +176,7 @@ Durante il test di un valore double con un operatore ternario (`double ? stateme
 ## <a name="functions"></a>Funzioni
 Queste **funzioni** predefinite sono disponibili per consentire la definizione di una formula di ridimensionamento automatico.
 
-| Funzione | Tipo restituito | Descrizione |
+| Funzione | Tipo restituito | DESCRIZIONE |
 | --- | --- | --- |
 | avg(doubleVecList) |Double |Restituisce il valore medio per tutti i valori in doubleVecList. |
 | len(doubleVecList) |Double |Restituisce la lunghezza del vettore creato da doubleVecList. |
@@ -211,7 +211,7 @@ Le formule di ridimensionamento automatico agiscono sui dati di metrica (campion
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | GetSample() |Il metodo `GetSample()` restituisce un vettore relativo ai campioni di dati.<br/><br/>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifica il numero di campioni da ottenere tra quelli raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta di dati di esempio. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi 10 minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrà esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` avrà esito positivo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo ritardo quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` di seguito. |
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
@@ -269,7 +269,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 <table>
   <tr>
     <th>Metrica</th>
-    <th>Descrizione</th>
+    <th>DESCRIZIONE</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>
@@ -551,7 +551,7 @@ In .NET di Batch la proprietà [CloudPool.AutoScaleRun](https://docs.microsoft.c
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Nell'API REST la richiesta [Ottenere informazioni su un pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) restituisce informazioni relative al pool, che includono l'ultima esecuzione della scalabilità automatica nella proprietà [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun).
+Nell'API REST la richiesta [Ottenere informazioni su un pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) restituisce informazioni relative al pool, che includono l'ultima esecuzione della scalabilità automatica nella proprietà [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool).
 
 Il frammento di codice C# seguente usa la libreria .NET di Batch per stampare informazioni sull'ultima esecuzione della scalabilità automatica nel pool _myPool_:
 

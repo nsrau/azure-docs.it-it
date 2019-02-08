@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ed781b7d3388015de93a81fb745764a8ad95baa
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169332"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663186"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -69,11 +69,11 @@ Per bloccare l'accesso dell'utente guest al [portale di Azure](https://portal.az
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>La reimpostazione della password per gli utenti di Collaborazione B2B di Azure AD è supportata?
-Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpostare la password dell'utente](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) dal portale di Azure, ma non è possibile reimpostare direttamente una password per un utente guest che accede con un account gestito da un'altra directory di Azure AD o da un altro provider di identità esterno. Solo l'utente guest o un amministratore nella home directory dell'utente può reimpostare la password. Di seguito sono riportati alcuni esempi di come funziona la reimpostazione della password per gli utenti guest:
+Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpostare la password dell'utente](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) dal portale di Azure, ma non è possibile reimpostare direttamente una password per un utente guest che accede con un account gestito da un'altra directory di Azure AD o da un altro provider di identità esterno. Solo l'utente guest o un amministratore nella home directory dell'utente può reimpostare la password. Di seguito sono riportati alcuni esempi di come funziona la reimpostazione della password per gli utenti guest:
  
 * Gli utenti guest che accedono con un account Microsoft (ad esempio, guestuser@live.com) possono reimpostare le proprie password con la reimpostazione della password self-service dell'account Microsoft. Vedere [Come reimpostare la password dell'account Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gli utenti guest che accedono con un account Google o un altro provider di identità esterno possono reimpostare le proprie password usando il metodo di reimpostazione della password self-service del provider di identità. Un utente guest con un account Google guestuser@gmail.com, ad esempio, può reimpostare la password seguendo le istruzioni contenute in [Modificare o reimpostare la password](https://support.google.com/accounts/answer/41078).
-* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
+* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
 * Se la home directory dell'utente guest è il tenant di Azure AD, è possibile reimpostare la password dell'utente. È ad esempio possibile che sia stato creato o sincronizzato un utente da Active Directory locale e che UserType sia stato impostato su Guest. Poiché questo utente è incluso nella directory, è possibile reimpostarne la password dal portale di Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 offre supporto online per Collaborazione B2B di Azure AD?

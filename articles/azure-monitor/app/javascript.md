@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117811"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661514"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](../../azure-monitor/app/app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
@@ -206,7 +206,7 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 > 
 > 
 
-Per eseguire ricerche sulle visualizzazioni di pagina, è anche possibile usare l'avanzato [linguaggio di query di Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table).
+Per eseguire ricerche sulle visualizzazioni di pagina, è anche possibile usare l'avanzato [linguaggio di query di Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour).
 
 ### <a name="page-view-properties"></a>Proprietà delle visualizzazioni di pagina
 * **Durata della visualizzazione pagina** 

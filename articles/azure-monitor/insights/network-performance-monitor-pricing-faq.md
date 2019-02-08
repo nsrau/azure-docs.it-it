@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192788"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734301"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modifiche ai prezzi per il Monitoraggio prestazioni rete di Azure
 
@@ -27,7 +27,7 @@ In risposta al feedback degli utenti, di recente è stata introdotta una [nuova 
 
 Monitoraggio prestazioni rete è costituito da tre componenti:
 * [Monitoraggio prestazioni](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Monitoraggio endpoint di servizio](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [Monitoraggio endpoint di servizio](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
 * [Monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 Le sezioni seguenti illustrano le modifiche dei prezzi per i componenti di Monitoraggio delle prestazioni di rete.

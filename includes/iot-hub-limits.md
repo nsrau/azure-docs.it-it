@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e6dbfe225b6957406b7143d5db4a28cb50f13e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841425"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480322"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio (S1, S2, S3, F1). Per informazioni sul costo di ogni *unità* in ogni livello, vedere [Prezzi di IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -57,7 +57,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 
 
 > [!NOTE]
-> Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+> Il numero massimo di dispositivi che è attualmente possibile connettere a un singolo hub IoT è 1.000.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 Il servizio IoT Hub limita le richieste quando vengono superate le quote seguenti:
 

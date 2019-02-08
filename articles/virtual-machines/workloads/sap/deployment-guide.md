@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b2c3e8d7c465ca4fa9427c3a14ef04e4f69d17d6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424899"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661565"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -719,7 +719,7 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
 
     Per i sistemi più grandi, è consigliabile usare Archiviazione Premium di Azure. Per altre informazioni sui tipi di archiviazione, vedere le risorse seguenti:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
-      * [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
       * [Introduzione ad Archiviazione di Microsoft Azure][storage-introduction]
   * **OS disk VHD URI** (URI VHD del disco del sistema operativo - solo per il modello di disco non gestito): URI del disco del sistema operativo privato, ad esempio https://&lt;nomeaccount>.blob.core.windows.net/vhds/osdisk.vhd.

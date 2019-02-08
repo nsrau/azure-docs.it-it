@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553301"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757622"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: Progettata per prestazioni elevate
 
@@ -118,7 +118,7 @@ Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco
 
 | Contatore | DESCRIZIONE | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec  <br>  Scritture disco/sec |tps  <br> r/s  <br>  w/s |
+| **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec  <br> Scritture disco/sec |tps  <br> r/s  <br>  w/s |
 | **Letture e scritture del disco** |% di operazioni di lettura e scrittura eseguite sul disco. |% Tempo lettura disco  <br>  % Tempo scrittura disco |r/s  <br>  w/s |
 | **Velocità effettiva** |Quantità di dati letti da o scritti nel disco al secondo. |Byte letti da disco/sec  <br>  Byte scritti su disco/sec |kB_read/s <br> kB_wrtn/s |
 | **Latency** |Tempo totale necessario per completare una richiesta I/O per il disco. |Media letture disco/sec  <br>  Media scritture disco/sec |await  <br>  svctm |
@@ -464,7 +464,7 @@ Verranno usati quattro thread di lavoro per la gestione delle operazioni di scri
 *IOPS massime di scrittura*  
  Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di scrittura. Assegnare al file il nome "fiowrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 *IOPS massime di lettura*  
  Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di lettura. Assegnare al file il nome "fioread.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 *IOPS massime di lettura e scrittura*  
  Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS combinate di lettura e scrittura. Assegnare al file il nome "fioreadwrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229847"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729796"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -52,14 +52,14 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Regno Unito meridionale
 * Virginia e Governo degli Stati Uniti
 
-L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Installare e configurare
 
 ### <a name="install-and-configure-agents"></a>Installare e configurare agenti 
 
-Usare i processi di base per installare agenti in [Connettere computer Windows ad Azure Log Analytics](../../azure-monitor/platform/om-agents.md) e [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
+Usare i processi di base per installare agenti in [Connettere computer Windows ad Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) e [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti 
 

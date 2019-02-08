@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198696"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695373"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Vendita SaaS tramite Azure - API
 
@@ -168,21 +168,21 @@ L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token 
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| Tipo di contenuto       | Yes          | `application/json`                                        |
-| authorization      | Yes          | Il token di connessione JSON Web token (JWT).                    |
-| x-ms-marketplace-token| Yes| Il parametro di query token nell'URL quando l'utente viene reindirizzato al sito Web dell'ISV SaaS da Azure. **Nota:** questo token è valido solo per un'ora. Decodificare inoltre l'URL nel valore del token dal browser prima dell'uso.|
+| Tipo di contenuto       | Sì          | `application/json`                                        |
+| authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
+| x-ms-marketplace-token| Sì| Il parametro di query token nell'URL quando l'utente viene reindirizzato al sito Web dell'ISV SaaS da Azure. **Nota:** questo token è valido solo per un'ora. Decodificare inoltre l'URL nel valore del token dal browser prima dell'uso.|
 |  |  |  |
   
 
 *Corpo della risposta*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                       |
@@ -210,9 +210,9 @@ L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token 
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
 | Retry-After        | No            | Questo valore viene impostato solo per una risposta 429.                                                                   |
 |  |  |  |
 
@@ -238,17 +238,17 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 | x-ms-requestid         |   No          | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | x-ms-correlationid     |   No          | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | If-Match/If-None-Match |   No          |   Valore assoluto del validator ETag.                                                          |
-| content-type           |   Yes        |    `application/json`                                                                   |
-|  authorization         |   Yes        |    Il token di connessione JSON Web token (JWT).                                               |
+| content-type           |   Sì        |    `application/json`                                                                   |
+|  authorization         |   Sì        |    Il token di connessione JSON Web token (JWT).                                               |
 | x-ms-marketplace-modalità sessione| No  | Flag per abilitare la modalità di esecuzione durante la sottoscrizione di un'offerta SaaS. Se impostato, non verrà addebitato nessun importo di sottoscrizione. Ciò è utile per scenari di test di ISV. Impostarlo su **"dryrun"**|
 |  |  |  |
 
 *Corpo*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Nome dell'elemento** | **Tipo di dati** | **Descrizione**                      |
@@ -275,11 +275,11 @@ In caso di risposta 202, seguire lo stato dell'operazione richiesta nell'intesta
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Questo valore viene usato per eventuali riconciliazioni. |
-| Retry-After        | Yes          | Intervallo per cui il client può controllare lo stato.                                                       |
-| Operation-Location | Yes          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Questo valore viene usato per eventuali riconciliazioni. |
+| Retry-After        | Sì          | Intervallo per cui il client può controllare lo stato.                                                       |
+| Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
 ### <a name="change-plan-endpoint"></a>Modificare il piano endpoint
@@ -303,19 +303,17 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | x-ms-requestid          | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
 | x-ms-correlationid      | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | If-Match /If-None-Match | No            | Valore assoluto del validator ETag.                              |
-| content-type            | Yes          | `application/json`                                        |
-| authorization           | Yes          | Il token di connessione JSON Web token (JWT).                    |
+| content-type            | Sì          | `application/json`                                        |
+| authorization           | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
-
 
 *Corpo*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Nome dell'elemento** |  **Tipo di dati**  | **Descrizione**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -339,11 +337,11 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Questo valore viene usato per eventuali riconciliazioni. |
-| Retry-After        | Yes          | Intervallo per cui il client può controllare lo stato.                                                       |
-| Operation-Location | Yes          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Questo valore viene usato per eventuali riconciliazioni. |
+| Retry-After        | Sì          | Intervallo per cui il client può controllare lo stato.                                                       |
+| Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
 ### <a name="delete-subscription"></a>Eliminare una sottoscrizione
@@ -368,9 +366,8 @@ L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminar
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| authorization      | Yes          | Il token di connessione JSON Web token (JWT).                    |
+| authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
- 
 
 *Codici di risposta*
 
@@ -390,11 +387,11 @@ In caso di risposta 202, seguire lo stato dell'operazione richiesta nell'intesta
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
-| Retry-After        | Yes          | Intervallo per cui il client può controllare lo stato.                                                       |
-| Operation-Location | Yes          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
+| Retry-After        | Sì          | Intervallo per cui il client può controllare lo stato.                                                       |
+| Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |   |  |  |
 
 ### <a name="get-operation-status"></a>Ottenere lo stato dell'operazione
@@ -413,27 +410,25 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-
 *Intestazioni*
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
-| authorization      | Yes          | Il token di connessione JSON Web token (JWT).                    |
+| authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  | 
-  
 
 *Corpo della risposta*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                                                                                                                                               |
@@ -461,10 +456,10 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
-| Retry-After        | Yes          | Intervallo per cui il client può controllare lo stato.                                                       |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
+| Retry-After        | Sì          | Intervallo per cui il client può controllare lo stato.                                                       |
 |  |  |  |
 
 ### <a name="get-subscription"></a>Ottenere una sottoscrizione
@@ -489,21 +484,21 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| authorization      | Yes          | Il token di connessione JSON Web token (JWT).                                                                    |
+| authorization      | Sì          | Il token di connessione JSON Web token (JWT).                                                                    |
 |  |  |  |
 
 *Corpo della risposta*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -532,13 +527,12 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
 | Retry-After        | No            | Intervallo per cui il client può controllare lo stato.                                                       |
-| eTag               | Yes          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
+| eTag               | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
-
 
 ### <a name="get-subscriptions"></a>Ottenere le sottoscrizioni
 
@@ -561,22 +555,21 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.             |
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| authorization      | Yes          | Il token di connessione JSON Web token (JWT).                    |
+| authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
-
 
 *Corpo della risposta*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
@@ -606,16 +599,15 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
-| x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
-| x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
+| x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
+| x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
+| x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
 | Retry-After        | No            | Intervallo per cui il client può controllare lo stato.                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>Webhook SaaS
 
 Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al servizio SaaS. Questa API POST deve essere non autenticata e verrà chiamata dal servizio Microsoft. Il servizio SaaS dovrà chiamare l'API delle operazioni per la convalida e l'autorizzazione prima di intraprendere un'azione in base alla notifica del webhook. 
-
 
 *Corpo*
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247120"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658335"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
 
@@ -228,7 +228,7 @@ Per il supporto generale per le applicazioni in merito all'utilizzo o alla risol
 
 Per problemi di fatturazione e sottoscrizione relativi all'acquisto di Azure Marketplace, contattare il [supporto tecnico di Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
-**Chi è possibile contattare per ottenere supporto tecnico per una soluzione acquistata in Azure Marketplace?**
+**Chi posso contattare per ottenere supporto tecnico per una soluzione acquistata in Azure Marketplace?**
 
 Per il supporto tecnico per tutti i prodotti, contattare il provider dell'editore. Le informazioni di contatto dell'editore e/o il collegamento al sito Web di supporto sono disponibili nella pagina dei dettagli della soluzione in Azure Marketplace.
 
@@ -266,7 +266,7 @@ Iniziare creando un [ID Microsoft Partner Network (MPN)](https://partner.microso
 
 **Che cosa succede dopo che è stata completata la registrazione?**
 
-Cercare un messaggio di posta elettronica da verify@microsoft.com con oggetto che indica che è necessario verificare l'account di posta elettronica con Microsoft. Fare clic sul collegamento di verifica a tempo per completare la registrazione. Se non si ricevono messaggi di posta elettronica entro 24 ore, controllare la cartella di posta indesiderata.
+Cercare un messaggio di posta elettronica da verify@microsoft.com con riga dell'oggetto "Azione necessaria: verificare l'account di posta elettronica con Microsoft. Fare clic sul collegamento di verifica a tempo per completare la registrazione. Se non si ricevono messaggi di posta elettronica entro 24 ore, controllare la cartella di posta indesiderata.
 
 **Quali sono i passaggi successivi alla verifica da parte del Dev Center?**
 
@@ -358,9 +358,9 @@ Editori che pubblicano con i tipi di inserzione transazione: macchina virtuale, 
 
 **Che cosa sono i lead e perché sono importanti per chi pubblica in Marketplace?**
 
-I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Che l'inserzione del prodotto sia pubblicata in [Azure Marketplace](https://azuremarketplace.microsoft.com) o [AppSource](https://appsource.microsoft.com), è possibile ricevere lead dei clienti interessati al prodotto.  È possibile definire i lead destinatari per un'offerta. Per altre informazioni, vedere [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Che l'inserzione del prodotto sia pubblicata in [Azure Marketplace](https://azuremarketplace.microsoft.com) o [AppSource](https://appsource.microsoft.com), è possibile ricevere lead dei clienti interessati al prodotto.  È possibile definire i lead destinatari per un'offerta. Per altre informazioni, vedere [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
-**Dove è possibile ottenere assistenza per configurare i lead destinatari?**
+**Dove è possibile ottenere assistenza per configurare la destinazione dei lead?**
 
 Vedere la documentazione nella [pagina Ottenere lead del portale Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) oppure inviare un ticket di supporto tramite [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) selezionando il tipo di offerta e la gestione dei lead.
 
