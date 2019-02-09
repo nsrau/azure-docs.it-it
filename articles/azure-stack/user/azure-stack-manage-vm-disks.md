@@ -3,7 +3,7 @@ title: Gestire i dischi delle macchine Virtuali in Azure Stack | Microsoft Docs
 description: Creare dischi per macchine virtuali in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813875"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961398"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Creare i dischi di macchina virtuale in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "55813875"
 
 Questo articolo descrive come creare macchine virtuali di archiviazione su disco tramite il portale di Azure Stack o tramite PowerShell.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Informazioni generali
 
 A partire dalla versione 1808, Azure Stack supporta l'uso di managed disks e i dischi non gestiti nelle macchine virtuali, come un sistema operativo (SO) e un disco dati. Prima della versione 1808, sono supportati solo dischi non gestiti. 
 

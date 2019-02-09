@@ -16,24 +16,24 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249492"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979548"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrazione di Data Center di Azure Stack
 
-Questo articolo descrive l'esperienza dei clienti di Azure Stack end-to-end dall'acquisto di una soluzione integrata tramite per una corretta distribuzione sul posto da un provider di soluzioni. Usare queste informazioni per facilitare il tuo viaggio e per consentire di impostare le aspettative su ciò che è, come cliente di Azure Stack, deve prevedere quando l'integrazione di Azure Stack nel tuo Data Center.
+Questo articolo descrive l'esperienza dei clienti di Azure Stack end-to-end dall'acquisto di un sistema integrato per una corretta distribuzione sul posto da un provider di soluzioni. Usare queste informazioni per facilitare il tuo viaggio e per consentire di impostare le aspettative per l'utente, i clienti di Azure Stack.
 
-I clienti di Azure Stack è bene aspettarsi le fasi di integrazione di Data Center seguenti:
+I clienti di Azure Stack è bene aspettarsi nelle fasi seguenti:
 
 |     |Fase di pianificazione|Processo di ordine|Pre-distribuzione|Processo di factory|Distribuzione di hardware|Distribuzione in loco|
 |-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Coinvolgi i partner per offrire il supporto per la prevendita.|Preparare gestione licenze software e i contratti in base alle esigenze.|Fornire gli strumenti necessari per raccogliere i requisiti di integrazione di Data Center e la documentazione per cliente.|Fornire le compilazioni della linea di base e degli strumenti più recenti aggiornamenti catena cadenza mensile.|N/D|Supporto per tecnici del supporto Microsoft eventuali problemi di distribuzione.|
+|**Microsoft**|Coinvolgi i partner per offrire il supporto per la prevendita.|Preparare gestione licenze software e i contratti in base alle esigenze.|Fornire gli strumenti necessari per raccogliere i requisiti di integrazione di Data Center e la documentazione per cliente.|Fornire le compilazioni della linea di base e degli strumenti più recenti aggiornamenti catena cadenza mensile.|N/A|Supporto per tecnici del supporto Microsoft eventuali problemi di distribuzione.|
 |**Partner**|Consigliare opzioni di soluzione in base ai requisiti del cliente.<br><br>Se necessario, è possibile proporre modello di verifica (POC).<br><br>Stabilire una relazione di business.<br><br>Decidere il livello di supporto.|Preparare i contratti necessari al cliente.<br><br>Creare l'ordine di acquisto dei clienti.<br><br>Decidere su sequenza temporale di recapito.<br><br>Contatto cliente con Microsoft se necessario.|Fornire i clienti con corsi di formazione necessari verificare le opzioni di integrazione conoscenza di tutti i prerequisiti per la distribuzione e Data Center.<br><br>Aiutare il cliente con la convalida dei dati raccolti per garantire la completezza e accuratezza.|Applicare l'ultima compilazione baseline convalidato.<br><br>Applicare il Microsoft deployment toolkit necessari.|Spedire hardware al sito del cliente.|Distribuzione gestita da un tecnico in sede.<br><br>Rack e dello stack.<br><br>Distribuzione dell'host (HLH) del ciclo di vita dell'hardware.<br><br>Distribuzione di Azure Stack.<br><br>Consegnare al cliente.|
-|**Cliente**|Vengono descritti i casi di utilizzo previsto e specificare i requisiti.|Determinare il modello di fatturazione da usare, esaminare e approvare i contratti.|Completare il foglio di lavoro di distribuzione e assicurarsi che tutti i prerequisiti di distribuzione sono soddisfatto e pronto per la distribuzione.|N/D|Preparare i Data Center, garantendo tutti obbligatori power e raffreddamento, la connettività del bordo e altri requisiti di integrazione di Data Center necessari siano presenti.|Essere disponibile durante la distribuzione per fornire le credenziali della sottoscrizione e supporta se sono presenti domande sui dati forniti.|
+|**Cliente**|Vengono descritti i casi di utilizzo previsto e specificare i requisiti.|Determinare il modello di fatturazione da usare, esaminare e approvare i contratti.|Completare il foglio di lavoro di distribuzione e assicurarsi che tutti i prerequisiti di distribuzione sono soddisfatto e pronto per la distribuzione.|N/A|Preparare i Data Center, garantendo tutti obbligatori power e raffreddamento, la connettività del bordo e altri requisiti di integrazione di Data Center necessari siano presenti.|Essere disponibile durante la distribuzione per fornire le credenziali della sottoscrizione e supporta se sono presenti domande sui dati forniti.|
 | | | | | | | |
 
 
@@ -63,7 +63,7 @@ Durante questa fase, è necessario decidere come si desidera integrare il tuo Da
 Il [considerazioni relative all'integrazione di datacenter generale](azure-stack-datacenter-integration.md) articolo fornisce informazioni che consentono di completare il modello, noto come il foglio di lavoro di distribuzione. 
 
 > [!IMPORTANT]
-> Durante questa fase è importante che tutte le informazioni necessarie vengano esaminate e ha Optate per prima dell'ordinamento della soluzione. Tenere presente che questo passaggio può richiedere molto tempo e richiede il coordinamento e la raccolta dati dai più discipline all'interno dell'organizzazione. 
+> Durante questa fase è importante che tutte le informazioni necessarie vengano esaminate e ha Optate per prima dell'ordinamento della soluzione. Tenere presente che questo passaggio può richiedere molto tempo e richiede il coordinamento e la raccolta dati dai più discipline all'interno dell'organizzazione. Informazioni errate o incomplete possono comportare una distribuzione più lungo. 
 
 In fase di pre-distribuzione è necessario stabilire quanto segue:
 
@@ -90,7 +90,7 @@ Si tratta **fondamentale** che tutti i prerequisiti vengono bloccati i dati disp
 
 -   Tutti i certificati devono essere acquistati e pronto.
 
--   Nome di dominio deve essere operato in.
+-   Nome dell'area debba essere optato per.
 
 -   Tutti i parametri di integrazione di rete vengono finalizzati e corrispondono a ciò che è stata condivisa con il provider di soluzioni.
 
@@ -102,16 +102,16 @@ Per distribuire Azure Stack, un tecnico in sede dal provider di soluzioni hardwa
 
 Ecco che cosa deve aspettarsi dal tecnico in sede durante l'esperienza di distribuzione:
 
-- Controllare tutti i collegamenti e bordo connettività per assicurare la soluzione correttamente raccolto e soddisfa i requisiti
-- Configurare la soluzione HLH (Host del ciclo di vita dell'Hardware)
+- Controllare tutti i cavi e connettività del bordo per garantire la soluzione correttamente raccolto e soddisfi le proprie esigenze.
+- Configurare la soluzione HLH (Host di ciclo di vita dell'Hardware), se presente.
 - Verificare che tutti i BMC, il BIOS e rete impostazioni siano corrette.
-- Assicurarsi che il firmware di tutti i componenti sia la versione più recente approvate dalla soluzione
-- Avviare la distribuzione
+- Assicurarsi che il firmware di tutti i componenti sia la versione più recente approvate dalla soluzione.
+- Avviare la distribuzione.
 
 > [!NOTE]
 > Per il tecnico in sede, una stored procedure di distribuzione potrebbe richiedere circa una settimana di business.
 
-## <a name="post-integration-phase"></a>Post-integrazione di fase
+## <a name="post-deployment-phase"></a>Fase di post-distribuzione
 Prima che la soluzione viene passata al cliente nella fase di post-integrazione, è necessario effettuare alcuni passaggi dal partner. In questa fase, la convalida è importante per garantire che la distribuzione del sistema e funzionino correttamente. 
 
 Le azioni che devono essere eseguite dal Partner OEM sono:
@@ -122,13 +122,13 @@ Le azioni che devono essere eseguite dal Partner OEM sono:
 
 -   [Diffusione di Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   File di configurazione opzione di backup
+-   File di configurazione del commutatore e HLH configurazione backup
 
 -   Rimuovere DVM
 
 -   Preparare un riepilogo dei clienti per la distribuzione
 
--   [Controllare gli aggiornamenti per assicurarsi che il software di soluzione viene aggiornato alla versione più recente](azure-stack-updates.md)
+-   [Controllare gli aggiornamenti per assicurarsi che il software di soluzione viene aggiornato alla versione più recente](.\azure-stack-updates.md)
 
 Sono disponibili diversi passaggi che sono obbligatori o facoltativi in base al tipo di installazione.
 
@@ -147,7 +147,7 @@ Sono disponibili diversi passaggi che sono obbligatori o facoltativi in base al 
 
 ![](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
-## <a name="support"></a>Supporto
+## <a name="support"></a>Supporto tecnico
 Azure Stack consente un coerenti con Azure, esperienza di supporto integrato che descrive il ciclo di vita dell'intero sistema. Per supportare completamente i sistemi integrati di Azure Stack, i clienti devono due contratti di supporto; uno con Microsoft (o i Cloud Solution Provider) per il supporto di servizi di Azure e uno con il provider hardware per il supporto del sistema. L'esperienza di supporto integrata fornisce coordinato escalation e risoluzione, in modo che i clienti ottengono un'esperienza di supporto coerente indipendentemente da chi chiamano prima di tutto. I clienti che hanno già piano Premier, Azure - Standard / è incluso il supporto tecnico ProDirect o Partner con Microsoft, supporto del software Azure Stack.
 
 L'esperienza di supporto integrata si avvale di un cambio di Case meccanismo per il trasferimento bidirezionale di casi di supporto e aggiornamenti case tra Microsoft e i partner hardware. Microsoft Azure Stack seguirà la [criterio del ciclo di vita moderni](https://support.microsoft.com/help/30881).

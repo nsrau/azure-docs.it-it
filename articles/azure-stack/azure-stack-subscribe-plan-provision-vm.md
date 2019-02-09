@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2019
-ms.author: sethm
+ms.author: efemmano
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c0dd183700fe8af24750746dd3d10d40027c9a36
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6f91d011e9f15b80c2efd6ad1c6bbcd549786882
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239384"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976844"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Creare le sottoscrizioni di offerte in Azure Stack
 
@@ -45,7 +45,7 @@ Dopo aver creato una sottoscrizione per un utente, possono accedere al portale p
 2. Selezionare **Aggiungi**. Sotto **nuova sottoscrizione utente**, immettere le informazioni seguenti:  
 
    - **Nome visualizzato** : un nome descrittivo per identificare la sottoscrizione che viene visualizzato come il *il nome di sottoscrizione utente*.
-   - **Utente** : specificare un utente da un tenant di directory disponibili per questa sottoscrizione. Il nome utente viene visualizzato come *proprietario*.  Il formato del nome utente dipende la soluzione di identità. Ad esempio: 
+   - **Utente** : specificare un utente da un tenant di directory disponibili per questa sottoscrizione. Il nome utente viene visualizzato come *proprietario*.  Il formato del nome utente dipende la soluzione di identità. Ad esempio:
 
      - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 

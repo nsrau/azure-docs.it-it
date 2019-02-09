@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248504"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962792"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Servizio App in note sulla versione update 3 di Azure Stack
 
@@ -185,19 +185,19 @@ Convalida
 - I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.  Questo è l'acronimo di nel servizio App di Azure nella documentazione relativa alla distribuzione di Azure Stack.
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: Qualsiasi
+ * Origine: Any
  * Intervallo di porte di origine: *
  * Destinazione: Indirizzi IP
  * Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
  * Intervallo di porte di destinazione: 445
  * Protocollo: TCP
- * Azione: CONSENTI
+ * Azione: Consentire
  * Priorità: 700
  * Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud funziona nel servizio App di Azure in Azure Stack
 
-Vedere la documentazione nel [note sulla versione di Azure Stack 1807](azure-stack-update-1807.md)
+Vedere la documentazione nelle note sulla versione di Azure Stack 1807.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

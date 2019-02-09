@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d304a0f43632ab0f33e286b4404e1063ecb437e
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a539e1db4fb86adb9f1fcf1f478e24e5de5edbdb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364352"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983237"
 documentType: LandingData
 title: Documentazione di Funzioni di Azure
 metadata:
@@ -126,4 +126,4 @@ sections:
     - title: REST
       html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
     - title: Associazioni
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Archiviazione BLOB</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Hub eventi</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">File esterno</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP e webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">App per dispositivi mobili</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Hub di notifica di Azure</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Archiviazione code</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Bus di servizio</a></p><p><a href="/azure/azure-functions/functions-bindings-signalr-service">Servizio SignalR</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Archiviazione tabelle</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Timer</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Associazione output di Twilio</a></p>
+      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Archiviazione BLOB</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Hub eventi</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP e webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">App per dispositivi mobili</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Hub di notifica di Azure</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Archiviazione code</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Bus di servizio</a></p><p><a href="/azure/azure-functions/functions-bindings-signalr-service">Servizio SignalR</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Archiviazione tabelle</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Timer</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Associazione output di Twilio</a></p>

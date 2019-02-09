@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1664e19f3a238b2986af4669c3853a54d7c7e328
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6825524667c473496b62cecbce54f6e249742bae
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250824"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977712"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
 
@@ -52,11 +52,10 @@ Microsoft prevede di rilasciare pacchetti di aggiornamento software una cadenza 
 Documentazione su come pianificare e gestire gli aggiornamenti e come determinare la versione corrente in [Gestisci Aggiorna Panoramica](azure-stack-updates.md).
 
 Per informazioni su uno specifico aggiornamento, incluso come scaricarlo, vedere le note sulla versione per cui aggiornare:
-
+- [Aggiornamento di Azure Stack 1901](azure-stack-update-1901.md)
 - [Aggiornamento di Azure Stack 1811](azure-stack-update-1811.md)
 - [Aggiornamento di Azure Stack 1809](azure-stack-update-1809.md)
 - [Aggiornamento di Azure Stack 1808](azure-stack-update-1808.md)
-- [Aggiornamento di Azure Stack 1807](azure-stack-update-1807.md)
 
 ## <a name="hotfixes"></a>Hotfix
 
@@ -72,7 +71,7 @@ Ad esempio, se la versione di aggiornamento più recente disponibile è 1805 e i
 
 Pacchetti di aggiornamento software Microsoft sono non cumulativo e richiedono il precedente aggiornamento pacchetto o l'hotfix come prerequisito. Se si decide di rinviare gli aggiornamenti di uno o più, prendere in considerazione la fase di esecuzione complessivo se si vuole ottenere la versione più recente.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Supporto tecnico
 
 Azure Stack segue lo stesso processo di supporto di Azure. I clienti aziendali possono seguire la procedura descritta nel [come creare una richiesta di supporto tecnico di Azure](/azure/azure-supportability/how-to-create-azure-support-request). Se sei un cliente di un Provider del servizio Cloud (CSP), contattare il CSP per il supporto.  Per altre informazioni, vedere le [domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 

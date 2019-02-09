@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245960"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962248"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo delle macchine virtuali in Azure Stack
 
@@ -41,8 +41,9 @@ Macchine virtuali di Azure Stack forniscono le risorse di calcolo on demand e sc
 | Prestazioni di dischi di macchina virtuale | Varia a seconda delle dimensioni e tipo di disco. | Dipende dalle dimensioni della macchina virtuale della VM che i dischi sono collegati a, fare riferimento al [le dimensioni di macchina virtuale supportate in Azure Stack](azure-stack-vm-sizes.md) articolo.
 | Versioni dell'API | Azure ha sempre le versioni dell'API più recente per tutte le funzionalità di macchina virtuale. | Azure Stack supporta specifiche versioni di API e servizi di Azure specifici per questi servizi. Per visualizzare l'elenco delle versioni API supportate, vedere la [le versioni API](#api-versions) sezione di questo articolo. |
 | Servizio metadati dell'istanza di Azure | Il Servizio metadati dell'istanza di Azure fornisce informazioni sull'esecuzione delle istanze di macchine virtuali che possono essere utilizzate per gestire e configurare le macchine virtuali.  | Servizio metadati dell'istanza non è supportato in Azure Stack. |
-|Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento<br>Supporto di dischi gestiti|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento (fino a 20)<br>Nessun supporto del disco gestito|
-|set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportata.<br>Aggiungere altre istanze di un set di scalabilità tramite il portale, modelli di Resource Manager o PowerShell.
+| Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento (fino a 20)|
+| Set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportata.<br>Aggiungere altre istanze di un set di scalabilità tramite il portale, modelli di Resource Manager o PowerShell. |
+| Diagnostica delle macchine virtuali | Diagnostica delle VM Linux | Diagnostica delle VM di Linux non è supportata in Azure Stack. Quando si distribuisce una VM Linux con abilitata la diagnostica della macchina virtuale, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilitano le metriche di base della VM Linux tramite le impostazioni di diagnostica.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 
@@ -54,24 +55,24 @@ Stack di Azure impone limiti delle risorse per evitare il consumo di risorse per
 
 La tabella seguente elenca le macchine virtuali che sono supportate in Azure Stack con la relativa configurazione:
 
-| Type           | Dimensione          | Intervallo di dimensioni supportate |
+| Tipo           | Dimensione          | Intervallo di dimensioni supportate |
 | ---------------| ------------- | ------------------------ |
-|Scopo generico |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Scopo generico |Oggetto standard     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
-|Scopo generico |Serie D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|Scopo generico |Serie Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Scopo generico |Serie DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Scopo generico |Serie DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Ottimizzate per la memoria|Serie D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|Ottimizzate per la memoria|Serie DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Ottimizzate per la memoria|Serie Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Ottimizzate per la memoria|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Utilizzo generico |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Utilizzo generico |Oggetto standard     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Utilizzo generico |Serie D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Utilizzo generico |Serie Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Utilizzo generico |Serie DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Utilizzo generico |Serie DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Con ottimizzazione per la memoria|Serie D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Con ottimizzazione per la memoria|Serie DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Con ottimizzazione per la memoria|Serie Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Con ottimizzazione per la memoria|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Azure e Azure Stack. Ciò include la quantità di memoria, il numero di core e il numero o le dimensioni dei dischi dati che possono essere creati. Prestazioni delle macchine virtuali con le stesse dimensioni dipendono tuttavia le caratteristiche di un determinato ambiente di Azure Stack sottostante.
 
 ## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
- Lo Stack di Azure include un piccolo set di estensioni. Gli aggiornamenti e le estensioni aggiuntive sono disponibili tramite diffusione di Marketplace.
+Lo Stack di Azure include un piccolo set di estensioni. Gli aggiornamenti e le estensioni aggiuntive sono disponibili tramite diffusione di Marketplace.
 
 Usare lo script di PowerShell seguente per ottenere l'elenco di estensioni di macchina virtuale che sono disponibili nell'ambiente Azure Stack:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Se il provisioning di un'estensione in una distribuzione della VM impiega troppo tempo, si supponga che il timeout provisioning anziché tentare di arrestare il processo per deallocare o eliminare la macchina virtuale.
 
 ## <a name="api-versions"></a>Versioni dell'API
 

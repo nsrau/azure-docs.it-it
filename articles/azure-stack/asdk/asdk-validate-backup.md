@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251572"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965325"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Usare il ASDK per convalidare un backup di Azure Stack
 Dopo la distribuzione di Azure Stack e il provisioning di risorse utente, ad esempio offerte, piani, le quote e le sottoscrizioni, è consigliabile [abilitare il backup di Azure Stack dell'infrastruttura](../azure-stack-backup-enable-backup-console.md). Pianificazione e l'esecuzione dei backup regolari infrastruttura garantisce che i dati di gestione dell'infrastruttura non vengono persi se è presente un grave errore hardware o servizio.
@@ -47,7 +47,7 @@ Lo scenario seguente **non è** supportate durante la convalida di backup nel AS
 
 
 
-### <a name="cloud-recovery-prerequisites"></a>Prerequisiti di ripristino di cloud
+### <a name="prereqs"></a>Prerequisiti di ripristino di cloud
 Prima di iniziare una distribuzione di ripristino di cloud del ASDK, assicurarsi di avere le informazioni seguenti:
 
 |Prerequisito|DESCRIZIONE|
@@ -80,6 +80,43 @@ Il **InstallAzureStackPOC.ps1** script viene usato per avviare il ripristino del
 > [!IMPORTANT]
 > Installazione ASDK supporta esattamente una scheda di interfaccia di rete (NIC) per la rete. Se si dispone di più schede di rete, assicurarsi che solo uno è attivato (e tutti gli altri sono disabilitati) prima di eseguire lo script di distribuzione.
 
+### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Usare il programma di installazione per distribuire il ASDK in modalità di ripristino
+I passaggi descritti in questa sezione mostrano come distribuire il ASDK usando un'interfaccia utente grafica (GUI) fornita scaricando ed eseguendo il **asdk installer.ps1** script di PowerShell.
+
+> [!NOTE]
+> L'interfaccia utente di programma di installazione per Azure Stack Development Kit è un script open source basato su WCF e PowerShell.
+
+1. Dopo che il computer host viene avviato correttamente nell'immagine CloudBuilder.vhdx, accedere con le credenziali di amministratore specificato quando si [preparato il computer host kit di sviluppo](asdk-prepare-host.md) per l'installazione ASDK. Deve trattarsi di quello utilizzato per le credenziali di amministratore locale host kit di sviluppo.
+2. Aprire una console di PowerShell con privilegi elevata ed eseguire la  **&lt;lettera unità > \AzureStack_Installer\asdk-installer.ps1** script di PowerShell. Lo script potrebbe essere in un'unità diversa da quella C:\ nell'immagine CloudBuilder.vhdx. Fare clic su **Ripristina**.
+
+    ![Script di installazione di ASDK](media/asdk-validate-backup/1.PNG) 
+
+3. Immettere le informazioni di directory di Azure AD (facoltative) e la password di amministratore locale per il computer host ASDK nella pagina delle credenziali e provider di identità. Fare clic su **Avanti**.
+
+    ![Pagina credenziali e identità](media/asdk-validate-backup/2.PNG) 
+
+4. Selezionare la scheda di rete da utilizzare per il computer host ASDK e fare clic su **successivo**. Tutte le altre interfacce di rete verranno disabilitate durante l'installazione ASDK. 
+
+    ![Scheda di rete](media/asdk-validate-backup/3.PNG) 
+
+5. Nella pagina di configurazione di rete, specificare server ora valido e gli indirizzi IP di server d'inoltro DNS. Fare clic su **Avanti**.
+
+    ![Pagina Configurazione di rete](media/asdk-validate-backup/4.PNG) 
+
+6. Proprietà delle schede di interfaccia di rete sono stati verificati, fare clic su **successivo**. 
+
+    ![Verifica le impostazioni della rete](media/asdk-validate-backup/5.PNG) 
+
+7. Fornire le informazioni necessarie, descritte nella sezione precedente [sezione Prerequisiti](#prereqs) nella pagina delle impostazioni di Backup e il nome utente e password da utilizzare per accedere alla condivisione. Fare clic su **successivo**: 
+
+   ![Pagina Impostazioni di backup](media/asdk-validate-backup/6.PNG) 
+
+8. Esaminare lo script di distribuzione da utilizzare per la distribuzione di ASDK nella pagina di riepilogo. Fare clic su **Distribuisci** per iniziare la distribuzione. 
+
+    ![Pagina Riepilogo](media/asdk-validate-backup/7.PNG) 
+
+
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Usare PowerShell per distribuire il ASDK in modalità di ripristino
 Modificare i seguenti comandi di PowerShell per l'ambiente ed eseguire in modo da distribuire ASDK in modalità di ripristino di cloud:
 
 ```powershell

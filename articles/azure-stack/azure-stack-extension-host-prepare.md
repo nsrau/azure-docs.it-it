@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660086"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962367"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparazione per l'host dell'estensione per Azure Stack
 
@@ -128,10 +128,10 @@ Usare un computer in grado di connettersi all'endpoint di Azure Stack con privil
 > Questo passaggio non è necessario usare la delega delle Zone DNS di integrazione DNS.
 Se i record A singolo host sono stati configurati per pubblicare gli endpoint di Azure Stack, è necessario creare due record host aggiuntivo:
 
-| IP | Nome host | Type |
+| IP | Nome host | Tipo |
 |----|------------------------------|------|
-| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Una  |
-| \<IP> | *.Hosting.\<Region>.\<FQDN> | Una  |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
 Gli indirizzi IP allocati può essere recuperato tramite endpoint con privilegi eseguendo il cmdlet **Get-AzureStackStampInformation**.
 
@@ -187,7 +187,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Endpoint (indirizzo VIP) | Protocollo | Porte |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Hosting di amministrazione | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Aggiornare le regole di pubblicazione esistente (abilitazione della Post dell'host dell'estensione)

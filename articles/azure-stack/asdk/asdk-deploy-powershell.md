@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247732"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984274"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuire il ASDK dalla riga di comando
 Il ASDK è un ambiente di test e sviluppo che è possibile distribuire per valutare e illustrano i servizi e funzionalità di Azure Stack. Per renderlo attivo e in esecuzione, è necessario preparare l'ambiente hardware ed eseguire alcuni script (questa operazione richiederà diverse ore). Successivamente, è possibile accedere ai portali di amministratore e utente per iniziare a usare Azure Stack.
@@ -134,22 +134,19 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 Nel caso dell'ambiente non DHCP abilitato, è necessario includere i seguenti parametri aggiuntivi per una delle opzioni sopra (utilizzo di esempio fornito): 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parametri facoltativi ASDK InstallAzureStackPOC.ps1
 |Parametro|Obbligatorio/Facoltativo|DESCRIZIONE|
 |-----|-----|-----|
-|AdminPassword|Obbligatorio|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
-|InfraAzureDirectoryTenantName|Obbligatorio|Imposta la directory del tenant. Usare questo parametro per specificare una directory specifica in cui l'account AAD ha le autorizzazioni per gestire più directory. Il nome di un Tenant di Directory di AAD nel formato completo. onmicrosoft.com oppure ad Azure AD verificato il nome del dominio personalizzato.|
-|TimeServer|Obbligatorio|Usare questo parametro per specificare un server specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
-|InfraAzureDirectoryTenantAdminCredential|Facoltativo|Imposta il nome utente di Azure Active Directory e la password. Queste credenziali di Azure devono essere un ID. Org|
-|InfraAzureEnvironment|Facoltativo|Selezionare l'ambiente di Azure con cui si vuole registrare la distribuzione di Azure Stack. Le opzioni includono Azure pubblico, Azure - Cina, Azure - governo degli Stati Uniti.|
-|DNSForwarder|Facoltativo|Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per risolvere i nomi all'esterno di timbro, forniscono server di infrastruttura DNS esistente. Il server DNS nel timbro inoltra le richieste di risoluzione nome sconosciuto a questo server.|
-|NatIPv4Address|Necessari per il supporto di DHCP NAT|Imposta un indirizzo IP statico per MAS-BGPNAT01. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
-|NatIPv4Subnet|Necessari per il supporto di DHCP NAT|Prefisso di Subnet IP usato per DHCP sul supporto NAT. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
-|PublicVlanId|Facoltativo|Imposta l'ID VLAN. Usare questo parametro solo se l'host e MAS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e Internet). Ad esempio,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Riesegui|Facoltativo|Usare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dover immettere di nuovo i dati forniti in precedenza non sono supportati perché alcuni valori univoci vengono generati e utilizzati per la distribuzione.|
+|AdminPassword|Richiesti|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
+|InfraAzureDirectoryTenantName|Richiesti|Imposta la directory del tenant. Usare questo parametro per specificare una directory specifica in cui l'account AAD ha le autorizzazioni per gestire più directory. Il nome di un Tenant di Directory di AAD nel formato completo. onmicrosoft.com oppure ad Azure AD verificato il nome del dominio personalizzato.|
+|TimeServer|Richiesti|Usare questo parametro per specificare un server specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
+|InfraAzureDirectoryTenantAdminCredential|Facoltativi|Imposta il nome utente di Azure Active Directory e la password. Queste credenziali di Azure devono essere un ID. Org|
+|InfraAzureEnvironment|Facoltativi|Selezionare l'ambiente di Azure con cui si vuole registrare la distribuzione di Azure Stack. Le opzioni includono Azure pubblico, Azure - Cina, Azure - governo degli Stati Uniti.|
+|DNSForwarder|Facoltativi|Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per risolvere i nomi all'esterno di timbro, forniscono server di infrastruttura DNS esistente. Il server DNS nel timbro inoltra le richieste di risoluzione nome sconosciuto a questo server.|
+|Riesegui|Facoltativi|Usare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dover immettere di nuovo i dati forniti in precedenza non sono supportati perché alcuni valori univoci vengono generati e utilizzati per la distribuzione.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Eseguire le configurazioni di post-distribuzione
@@ -168,7 +165,7 @@ Dopo aver installato il ASDK, esistono alcuni controlli di post-installazione co
 **[Registrare Azure Stack con Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! Dopo aver completato questi passaggi, si otterrà un ambiente del kit di sviluppo con entrambe [administrator](https://adminportal.local.azurestack.external) e [utente](https://portal.local.azurestack.external) portali. 
+Congratulazioni. Dopo aver completato questi passaggi, si otterrà un ambiente del kit di sviluppo con entrambe [administrator](https://adminportal.local.azurestack.external) e [utente](https://portal.local.azurestack.external) portali. 
 
 [Attività post-installazione ASDK configurazione](asdk-post-deploy.md)
 

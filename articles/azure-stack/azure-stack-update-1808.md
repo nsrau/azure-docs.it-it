@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: beb86284256d42c119e551a18d9900f0dad61b7f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d23aab91df2d69850e8c3b80a1c12f49f2e7fcaa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247494"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965172"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -130,9 +130,9 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Installare Azure Stack [1807 aggiornare](azure-stack-update-1807.md) prima di applicare l'aggiornamento di Azure Stack 1808. 
+- Prima di applicare l'aggiornamento di Azure Stack 1808, installare l'aggiornamento di Azure Stack 1807. 
 
-- Installare la versione più recente disponibile [update o un hotfix per la versione 1807](azure-stack-update-1807.md#post-update-steps).  
+- Installare l'aggiornamento più recente o l'hotfix per la versione 1807.  
   > [!TIP]  
   > Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -245,7 +245,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbe essere visualizzato un avviso per **archiviazione** componente che contiene i dettagli seguenti:
 
    - NOME: Errore di comunicazione interna del servizio di archiviazione  
-   - GRAVITÀ: Critico  
+   - GRAVITÀ: Critica  
    - COMPONENTE: Archiviazione  
    - DESCRIZIONE: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
 

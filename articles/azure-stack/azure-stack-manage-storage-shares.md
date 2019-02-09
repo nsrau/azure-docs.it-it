@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819519"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960565"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -91,7 +91,7 @@ Come operatore di cloud, è possibile utilizzare il portale di amministrazione p
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
 2. Selezionare **tutti i servizi** > **archiviazione** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo. 
 
-  ![Esempio: Condivisioni file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Esempio: Condivisioni file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
   - **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
@@ -208,5 +208,5 @@ Migrazione consolida tutti un blob in contenitori nella nuova condivisione.
 
 Il metodo per gestire lo spazio più estremo comporta lo spostamento dei dischi delle macchine virtuali. Poiché lo spostamento di un contenitore collegato (uno che contiene un disco di macchina virtuale) è complesso, contattare il supporto tecnico Microsoft per completare l'azione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulle [offerta di macchine virtuali agli utenti](azure-stack-tutorial-tenant-vm.md).
