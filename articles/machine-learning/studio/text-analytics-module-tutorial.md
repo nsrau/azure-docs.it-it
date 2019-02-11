@@ -1,7 +1,21 @@
 ---
-title: Creare un modello di analisi della valutazione titleSuffix: Descrizione di Azure Machine Learning Studio: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli per la pre-elaborazione del testo, N-grammi o servizi di hashing delle funzionalità: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2018
+title: Creare un modello di analisi della valutazione
+titleSuffix: Azure Machine Learning Studio
+description: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2018
+ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511361"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creare un modello di analisi della valutazione in Azure Machine Learning Studio
 

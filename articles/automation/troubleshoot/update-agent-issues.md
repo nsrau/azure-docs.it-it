@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432989"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812634"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
@@ -39,7 +39,7 @@ Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic
 
 ![Pagina Risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
 
-I risultati vengono visualizzati nella pagina quando sono pronti. Le [sezioni dei controlli](#prerequisiste-checks) mostrano il contenuto di ogni controllo.
+I risultati vengono visualizzati nella pagina quando sono pronti. Le sezioni dei controlli mostrano il contenuto di ogni controllo.
 
 ![Controlli di risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/update-agent-checks.png)
 

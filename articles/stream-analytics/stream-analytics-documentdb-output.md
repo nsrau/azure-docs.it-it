@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267131"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658573"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -49,7 +49,7 @@ Se il documento JSON in ingresso include già un campo ID esistente, tale campo 
 Se si desidera salvare <i>tutti</i> i documenti inclusi quelli con un ID duplicato, rinominare il campo ID nella query (con la parola chiave AS) e consentire a Cosmos DB di creare il campo ID o sostituire l'ID con un altro valore della colonna (usando la parola chiave AS o tramite l'impostazione di 'ID documento').
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partizionamento dei dati in Cosmos DB
-Azure Cosmos DB con partizionamento [senza limiti](../cosmos-db/partition-data.md) costituisce l'approccio consigliato per il partizionamento dei dati, in quanto Azure Cosmos DB ridimensiona le partizioni automaticamente in base al carico di lavoro. Durante la scrittura in contenitori senza limiti, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.
+I contenitori [senza limiti](../cosmos-db/partition-data.md) di Azure Cosmos DB costituiscono l'approccio consigliato per il partizionamento dei dati, in quanto Azure Cosmos DB ridimensiona automaticamente le partizioni in base al carico di lavoro. Durante la scrittura in contenitori senza limiti, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.
 > [!Note]
 > A questo punto, Analisi di flusso di Azure supporta solo un numero illimitato di raccolte con chiavi di partizione di primo livello. Ad esempio, `/region` è supportata. Le chiavi di partizione annidate (ad esempio `/region/name`) non sono supportate. 
 

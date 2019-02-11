@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329379"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770351"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -32,24 +32,24 @@ ms.locfileid: "54329379"
 
 SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincrone con il supporto della libreria [Netty](https://netty.io/). La versione pre-esistente [SQL API Java SDK](sql-api-sdk-java.md) non supporta operazioni asincrone. 
 
-<table>
-
-<tr><td>**Download dell'SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
-
-<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
-
-<tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
-
-<tr><td>**Introduzione**</td><td>[Introduzione ad Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
-
-<tr><td>**Codice di esempio**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
-
-<tr><td>**Suggerimenti per incrementare le prestazioni**</td><td>[File Leggimi di GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
-
-<tr><td>**Runtime minimo supportato**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+| **Download dell'SDK** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
+|**Documentazione sull'API** |[Documentazione di riferimento API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**Contribuire all'SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
+|**Introduzione** | [Introduzione ad Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
+|**Codice di esempio** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
+| **Suggerimenti per incrementare le prestazioni**| [File Leggimi di GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
+| **Runtime minimo supportato**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
+* Aggiunta del supporto per Direct.
+* Modifica delle API che accettano java.util.Collection per il cui ordine è invece importante accettare java.util.List.
+  Adesso ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) accettano List.
+* Risolto un bug di sessione per la query di documenti in modalità gateway.
+* Aggiornamento delle dipendenze (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79) e RxJava 1.3.8).
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Correzioni nella gestione delle risposte alle query di dimensioni molto grandi.
@@ -130,6 +130,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |4 febbraio 2019|--- |
 | [2.3.1](#2.3.1) |15 gen 2019|--- |
 | [2.3.0](#2.3.0) |29 novembre 2018|--- |
 | [2.2.2](#2.2.2) |8 novembre 2018|--- |

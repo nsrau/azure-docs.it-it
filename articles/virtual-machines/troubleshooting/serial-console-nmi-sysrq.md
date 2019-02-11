@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884643"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697929"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Console seriale per le chiamate SysRq e NMI
 
@@ -63,7 +63,7 @@ Dalla Guida dell'amministratore SysRq precedente:
 |``h``  |   Verrà visualizzata la Guida (anche qualsiasi altra chiave rispetto a quelle elencate di seguito visualizza la Guida, ma ``h`` è facile da ricordare :-)
 |``i``  |    Inviare un SIGKILL a tutti i processi, ad eccezione di init.
 |``j``  |    "Semplicemente sbloccalo" in modo forzato - file system bloccato dall’ioctl FIFREEZE.
-|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. Nota: vedere i commenti importanti nella sezione SAK.
+|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. NOTA:  vedere i commenti importanti nella sezione SAK.
 |``l``  |    Mostra una traccia dello stack per tutte le CPU attive.
 |``m``  |    Viene eseguito il dump delle informazioni sulla memoria corrente per la console.
 |``n``  |    Consente di eseguire attività RT interessanti
@@ -76,7 +76,7 @@ Dalla Guida dell'amministratore SysRq precedente:
 |``u``  |    Tenta di rimontare i file system di sola lettura montati.
 |``v``  |    Consente di ripristinare in modo forzato la console buffer frame
 |``v``  |    Causa il dump di buffer ETM [specifcio per ARM]
-|``w``  |    I dump di attività con stato non interrompibile (bloccato).
+|``w``  |    Esegue il dump di attività con stato non interrompibile (bloccato).
 |``x``  |    Usato dall'interfaccia xmon su piattaforme ppc/powerpc. Mostra registri PMU globali su sparc64. Eseguire il dump di tutte le voci TLB su MIPS.
 |``y``  |    Visualizzare i registri delle CPU globali [specifico per 64 SPARC]
 |``z``  |    Scarica il buffer ftrace
@@ -112,7 +112,7 @@ Per i sistemi Linux che supportano sysctl per la configurazione dei parametri de
 1. Riavviare o aggiornare sysctl eseguendo <br>
     `sysctl -p`
 
-Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, vedere: [documentazione per /proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
+Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consultare: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt) (Documentazione per /proc/sys/kernel/*). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Dump di arresto anomalo del kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

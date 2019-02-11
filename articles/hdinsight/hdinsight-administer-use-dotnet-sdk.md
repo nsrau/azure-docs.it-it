@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788804"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810905"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire i cluster Apache Hadoop in HDInsight con .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Questa operazione può essere eseguita anche tramite il portale. Vedere l'articolo su come [amministrare HDInsight con il portale di Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Aggiornare le credenziali utente HTTP
-È la stessa procedura di [Concessione/revoca dell'accesso HTTP](#grant/revoke-access).  Se al cluster è stato concesso l'accesso HTTP, è necessario innanzitutto revocarlo.  E quindi concedere l'accesso con le nuove credenziali utente HTTP.
+È la stessa procedura di Concessione/revoca dell'accesso HTTP.  Se al cluster è stato concesso l'accesso HTTP, è necessario innanzitutto revocarlo.  E quindi concedere l'accesso con le nuove credenziali utente HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Trovare l'account di archiviazione predefinito
 Il frammento di codice seguente dimostra come ottenere il nome dell’account di archiviazione predefinito e la chiave dell’account di archiviazione predefinita per un cluster.

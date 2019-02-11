@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103310"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814471"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB (GRand Unified Bootloader) è probabilmente la prima funzionalità che viene visualizzata quando si avvia una macchina virtuale. Poiché viene visualizzata prima dell'avvio del sistema operativo, non è accessibile tramite SSH. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -44,7 +44,7 @@ Il riavvio della macchina virtuale può essere eseguito anche con il comando Sys
 ![Riavvio della console seriale Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Informazioni generali sull'accesso alla modalità utente singolo
-L'accesso manuale alla modalità utente singolo può essere necessario nelle situazioni in cui non è stato configurato un account con autenticazione della password. Per attivare manualmente la modalità utente singolo è necessario modificare la configurazione di GRUB. Al termine di questa operazione, vedere [Usare la modalità utente singolo per reimpostare o aggiungere una password](#-Use-Single-User-Mode-to-reset-or-add-a-password) per altre istruzioni.
+L'accesso manuale alla modalità utente singolo può essere necessario nelle situazioni in cui non è stato configurato un account con autenticazione della password. Per attivare manualmente la modalità utente singolo è necessario modificare la configurazione di GRUB. Al termine di questa operazione, consultare la sezione Usare la modalità utente singolo per reimpostare o aggiungere una password per altre istruzioni.
 
 Nei casi in cui la macchina virtuale non è in grado di eseguire l'avvio, alcune distribuzioni attivano automaticamente la modalità utente singolo o la modalità di emergenza. Altre distribuzioni, invece, prima di attivare automaticamente queste modalità, richiedono una configurazione aggiuntiva, ad esempio la configurazione di una password per l'utente ROOT.
 

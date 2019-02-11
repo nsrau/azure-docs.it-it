@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559043"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698236"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Panoramica della continuità aziendale con Database di Azure per PostgreSQL
 
@@ -49,6 +49,6 @@ La seconda opzione consiste nell'usare la funzionalità di ripristino geografico
 > Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica. Per passare da backup con ridondanza locale a backup con ridondanza geografica per un server esistente, è necessario eseguire un dump del server esistente usando pg_dump e quindi ripristinarlo in un nuovo server configurato per i backup con ridondanza geografica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sui backup automatizzati, vedere [Backup in Database di Azure per PostgreSQL](concepts-backup.md). 
-- Per eseguire il ripristino temporizzato con il portale di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con il portale di Azure](howto-restore-server-portal.md).
-- Per eseguire il ripristino temporizzato con l'interfaccia della riga di comando di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con l'interfaccia della riga di comando](howto-restore-server-cli.md).
+- Altre informazioni sui [backup automatizzati in Database di Azure per PostgreSQL](concepts-backup.md). 
+- Informazioni su come effettuare il ripristino usando il [portale di Azure](howto-restore-server-portal.md) o l'[interfaccia della riga di comando di Azure](howto-restore-server-cli.md).
+- Altre informazioni sulle [repliche in lettura in Database di Azure per PostgreSQL](concepts-read-replicas.md).

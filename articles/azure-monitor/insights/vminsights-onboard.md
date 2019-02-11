@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889043"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814990"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)
 Questo articolo descrive come configurare Monitoraggio di Azure per le macchine virtuali. Il servizio consente di monitorare l'integrità del sistema operativo delle macchine virtuali e dei set di scalabilità di macchine virtuali di Azure, oltre che delle macchine virtuali nell'ambiente in uso. Il monitoraggio include l'individuazione e il mapping delle dipendenze delle applicazioni eventualmente ospitate al loro interno. 
@@ -62,7 +62,7 @@ Per abilitare la soluzione per lo scenario su larga scala, prima di tutto config
 * Installare le soluzioni ServiceMap e InfrastructureInsights. È possibile completare l'installazione solo usando un modello di Azure Resource Manager fornito in questo articolo.
 * Configurare l'area di lavoro di Log Analytics per raccogliere i contatori delle prestazioni.
 
-Per configurare l'area di lavoro per lo scenario su larga scala, vedere [Configurare l'area di lavoro di Log Analytics per la distribuzione su larga scala](#setup-log-analytics-workspace).
+Per configurare l'area di lavoro per lo scenario su larga scala, consultare Configurare l'area di lavoro di Log Analytics per la distribuzione su larga scala.
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -70,6 +70,7 @@ La tabella seguente elenca le versioni dei sistemi operativi Windows e Linux sup
 
 |Versione del sistema operativo |Prestazioni |Mappe |Integrità |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -102,6 +103,7 @@ La tabella seguente elenca le versioni dei sistemi operativi Windows e Linux sup
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -117,6 +119,7 @@ La tabella seguente elenca le versioni dei sistemi operativi Windows e Linux sup
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -161,8 +164,8 @@ La tabella seguente descrive le origini connesse supportate dalla funzionalità 
 
 | Origine connessa | Supportato | DESCRIZIONE |
 |:--|:--|:--|
-| Agenti di Windows | Yes | Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Agenti Linux | Yes | Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
+| Agenti di Windows | Sì | Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
+| Agenti Linux | Sì | Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | No  | |
 
 È possibile scaricare Dependency Agent dalle posizioni seguenti:

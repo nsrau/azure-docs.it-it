@@ -16,20 +16,19 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463708"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754303"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
-Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento. 
-
+Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Collegare un nuovo disco a una VM
 
-Se si vuole aggiungere un nuovo disco dati vuoto nella macchina virtuale, usare il comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) con il parametro `--new`. Se la macchina virtuale è in una zona di disponibilità, il disco viene creato automaticamente nella stessa area della macchina virtuale. Per ulteriori informazioni, vedere [Overview of Availability Zones](../../availability-zones/az-overview.md) (Panoramica delle zone di disponibilità in Azure). L'esempio seguente crea un disco denominato *myDataDisk* da 50 GB:
+Se si vuole aggiungere un nuovo disco dati vuoto nella macchina virtuale, usare il comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) con il parametro `--new`. Se la macchina virtuale è in una zona di disponibilità, il disco viene creato automaticamente nella stessa area della macchina virtuale. Per ulteriori informazioni, vedere [Overview of Availability Zones](../../availability-zones/az-overview.md) (Panoramica delle zone di disponibilità in Azure). L'esempio seguente crea un disco denominato *myDataDisk* da 50 GB:
 
 ```azurecli
 az vm disk attach \
@@ -40,9 +39,9 @@ az vm disk attach \
    --size-gb 50
 ```
 
-## <a name="attach-an-existing-disk"></a>Collegare un disco esistente 
+## <a name="attach-an-existing-disk"></a>Collegare un disco esistente
 
-Per collegare un disco esistente, individuare l'ID del disco e trasmetterlo al comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach). Nell'esempio seguente viene proposta una query per un disco denominato *myDataDisk* in *myResourceGroup*, che viene collegato alla macchina virtuale denominata *myVM*:
+Per collegare un disco esistente, individuare l'ID del disco e trasmetterlo al comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest). Nell'esempio seguente viene proposta una query per un disco denominato *myDataDisk* in *myResourceGroup*, che viene collegato alla macchina virtuale denominata *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -50,9 +49,9 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
+
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -74,10 +73,10 @@ L'output è simile all'esempio seguente:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `fdisk`, renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
+In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`: se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare il partizionamento MBR o GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `parted` su *dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Usare il comando `n` per aggiungere una nuova partizione. In questo esempio si sceglie il comando `p` anche per una partizione primaria e si accettano gli altri valori predefiniti. L'output sarà simile all'esempio seguente:
@@ -228,9 +227,10 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     ```
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](optimization.md) .
 * Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](configure-raid.md) per migliorare le prestazioni.
-

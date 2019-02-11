@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139150"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734386"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
@@ -34,7 +34,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Per crea una macchina virtuale (VM), usare il comando [az vm create](/cli/azure/vm#az_vm_create). 
+Per crea una macchina virtuale (VM), usare il comando [az vm create](/cli/azure/vm). 
 
 L'esempio seguente crea una VM denominata `myVM`. Crea anche le chiavi SSH se non esistono già in un percorso predefinito. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  
 
@@ -145,7 +145,7 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 
 3. Impostare le variabili Oracle
 
-Prima della connessione, è necessario configurare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
+Prima della connessione, è necessario impostare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -271,7 +271,7 @@ Per impostazione predefinita, il database Oracle non viene avviato automaticamen
 
 Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per configurare il gruppo di sicurezza di rete di Azure che protegge la VM, prima di tutto chiudere la sessione SSH nella VM, anche se la sessione dovrebbe essere stata chiusa durante il riavvio nel passaggio precedente. 
 
-1.  Per aprire l'endpoint usato per accedere al database Oracle in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) come segue: 
+1.  Per aprire l'endpoint usato per accedere al database Oracle in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule) come segue: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
         --destination-port-range 1521
     ```
 
-2.  Per aprire l'endpoint usato per accedere a Oracle EM Express in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) come segue:
+2.  Per aprire l'endpoint usato per accedere a Oracle EM Express in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule) come segue:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
         --destination-port-range 5502
     ```
 
-3. Se necessario, ottenere di nuovo l'indirizzo IP pubblico della VM con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show).
+3. Se necessario, ottenere di nuovo l'indirizzo IP pubblico della VM con [az network public-ip show](/cli/azure/network/public-ip).
 
     ```azurecli-interactive
     az network public-ip show \
@@ -317,7 +317,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'esplorazione di un primo database Oracle in Azure e quando la macchina virtuale non è più necessaria, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse la macchina virtuale e tutte le risorse correlate.
+Al termine dell'esplorazione di un primo database Oracle in Azure e quando la macchina virtuale non è più necessaria, è possibile usare il comando [az group delete](/cli/azure/group) per rimuovere il gruppo di risorse la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: 1df948d2b3127ede7129d26401cd5f0c80e964fb
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 2c402898af713901fc4d6f9bd04a5935334c9b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331742"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822341"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -431,7 +431,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Il trigger di Hub eventi fornisce diverse [proprietà di metadati](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono proprietà della classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Proprietà|type|DESCRIZIONE|
+|Proprietà|Type|DESCRIZIONE|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L'istanza di `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
@@ -453,7 +453,7 @@ Il file [host.json](functions-host-json.md#eventhub) contiene le impostazioni ch
 
 È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
 
-Verificare che i riferimenti ai pacchetti necessari siano disponibili: [Funzioni 1.x](#packages---functions-1.x) o [Funzioni 2.x](#packages---functions-2.x)
+Verificare che i riferimenti ai pacchetti necessari siano disponibili: Funzioni 1.x o Funzioni 2.x
 
 ## <a name="output---example"></a>Output - esempio
 

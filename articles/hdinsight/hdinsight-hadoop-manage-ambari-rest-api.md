@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715110"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820869"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -132,7 +132,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]  
-> Anche se nella maggior parte degli esempi in questo documento viene usato `ConvertFrom-Json` per visualizzare gli elementi del documento di risposta, l'esempio sull'[aggiornamento della configurazione di Ambari](#example-update-ambari-configuration) usa jq. Jq viene usato in questo esempio per creare un nuovo modello dal documento di risposta JSON.
+> Anche se nella maggior parte degli esempi in questo documento si usa `ConvertFrom-Json` per visualizzare gli elementi del documento di risposta, l'esempio sull'aggiornamento della configurazione di Ambari usa jq. Jq viene usato in questo esempio per creare un nuovo modello dal documento di risposta JSON.
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470876"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699721"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -54,7 +54,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Parametro facoltativo*.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con [Custom Translator](../customization.md). Il valore predefinito è: `general`.</td>
+    <td>*Parametro facoltativo*.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con [Custom Translator](../customization.md). Aggiungere l'ID categoria dal progetto di traduttore personalizzato a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -126,7 +126,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un ogg
 
 Si applicano le limitazioni seguenti:
 
-* La matrice deve essere composta al massimo da 25 elementi.
+* La matrice deve essere composta al massimo da 100 elementi.
 * L'intero testo incluso nella richiesta non può superare 5.000 caratteri inclusi gli spazi.
 
 ## <a name="response-body"></a>Corpo della risposta
@@ -224,6 +224,8 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
     <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Esempi
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51252007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817819"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
@@ -98,10 +98,10 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 
 2. Individuare il file **mobileconfig** nel computer Mac.
 
-   ![Percorso del file mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Percorso del file mobileconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Passaggio facoltativo - Se si vuole specificare un DNS personalizzato, aggiungere le righe seguenti al file **mobileconfig**:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -260,17 +260,17 @@ Usare questa procedura per configurare il client VPN nativo in un Mac per l'aute
 
 Per usare un diverso tipo di autenticazione, ad esempio OTP, oppure un diverso protocollo di autenticazione, ad esempio PEAP-MSCHAPv2 invece di EAP-MSCHAPv2, è necessario creare un profilo di configurazione del client VPN personalizzato. Per creare il profilo sono necessarie informazioni come l'indirizzo IP del gateway di rete virtuale, il tipo di tunnel e le route per lo split tunneling. Per ottenere tali informazioni, seguire questa procedura:
 
-1. Usare il cmdlet `Get-AzureRmVpnClientConfiguration` per generare la configurazione del client VPN per EapMSChapv2. Per istruzioni, vedere [questa sezione](#ccradius) dell'articolo.
+1. Usare il cmdlet `Get-AzureRmVpnClientConfiguration` per generare la configurazione del client VPN per EapMSChapv2. Per istruzioni, vedere questa sezione dell'articolo.
 
-2. Decomprimere il file VpnClientConfiguration.zip e cercare la cartella **GenenericDevice**. Ignorare le cartelle contenenti i programmi di installazione Windows per le architetture a 64 e a 32 bit.
+2. Decomprimere il file VpnClientConfiguration.zip e cercare la cartella **GenericDevice**. Ignorare le cartelle contenenti i programmi di installazione Windows per le architetture a 64 e a 32 bit.
  
-3. La cartella **GenenericDevice** include un file XML denominato **VpnSettings** che contiene tutte le informazioni necessarie:
+3. La cartella **GenericDevice** include un file XML denominato **VpnSettings**. che contiene tutte le informazioni necessarie:
 
    * **VpnServer**: FQDN del gateway VPN di Azure. È l'indirizzo a cui si connette il client.
    * **VpnType**: tipo di tunnel usato per la connessione.
    * **Routes**: route da configurare nel profilo affinché sul tunnel da punto a sito venga inviato solo il traffico associato alla rete virtuale di Azure.
    
-   La cartella **GenenericDevice** include anche un file con estensione cer denominato **VpnServerRoot** che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito. Installare il certificato in tutti i dispositivi che si connetteranno alla rete virtuale di Azure.
+   La cartella **GenericDevice** include anche un file con estensione .cer denominato **VpnServerRoot**. che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito. Installare il certificato in tutti i dispositivi che si connetteranno alla rete virtuale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

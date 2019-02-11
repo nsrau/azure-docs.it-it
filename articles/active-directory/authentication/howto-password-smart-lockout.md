@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 101070dab80c69ea1d24dd11fe5e067947505d19
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 8364d09aa2d068e347199d104c069047aa24d7a4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077965"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511905"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -23,7 +23,7 @@ La funzione di blocco intelligente consente di bloccare gli attori malintenziona
 
 Per impostazione predefinita, dopo dieci tentativi non riusciti la funzione di blocco intelligente blocca l'account da nuovi tentativi di accesso per un minuto. Dopo ogni successivo tentativo di accesso non riuscito, l'account viene nuovamente bloccato prima per un minuto e quindi per intervalli più lunghi.
 
-Il blocco intelligente tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi. Se un utente immette la stessa password errata più volte, questo comportamento non comporterà il blocco dell'account.
+Il blocco intelligente tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se un utente immette la stessa password errata più volte, questo comportamento non comporterà il blocco dell'account.
 
  > [!NOTE]
  > La funzionalità di rilevamento hash non è disponibile per i clienti con autenticazione pass-through abilitata, poiché l'autenticazione avviene in locale e non nel cloud.

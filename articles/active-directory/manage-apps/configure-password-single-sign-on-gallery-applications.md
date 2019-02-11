@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168618"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815405"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
 
-Quando si aggiunge un'applicazione della [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), è possibile scegliere come gli utenti accedono a tale applicazione. È possibile configurare questa opzione in qualsiasi momento selezionando l'elemento di spostamento **Single Sign-On** in un'applicazione aziendale nel [portale di Azure](https://portal.azure.com/).
+Quando si aggiunge un'applicazione della [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), è possibile scegliere come gli utenti accedono a tale applicazione. È possibile configurare questa opzione in qualsiasi momento selezionando l'elemento di spostamento **Single Sign-On** in un'applicazione aziendale nel [portale di Azure](https://portal.azure.com/).
 
-Uno dei metodi di accesso disponibili è l'opzione [Accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Questo metodo è efficace per iniziare rapidamente l'integrazione di applicazioni in Azure AD e consente di:
+Uno dei metodi di accesso disponibili è l'opzione [Accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Questo metodo è efficace per iniziare rapidamente l'integrazione di applicazioni in Azure AD e consente di:
 
 -   Abilitare l'**accesso Single Sign-On per gli utenti** archiviando e riproducendo in modo sicuro i nomi utente e password per l'applicazione integrata con Azure AD
 
@@ -41,7 +41,7 @@ Uno dei metodi di accesso disponibili è l'opzione [Accesso Single Sign-On basat
 
 -   Consentire un **amministratore** di specificare i nomi utente e le password condivisi usati da un gruppo di utenti tramite la funzionalità di credenziali di aggiornamento quando [viene assegnato un gruppo a un'applicazione](#assign-an-application-to-a-group-directly)
 
-La sezione seguente illustra come è possibile abilitare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) per un'applicazione già inclusa nella [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+La sezione seguente illustra come è possibile abilitare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) per un'applicazione già inclusa nella [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Panoramica dei passaggi necessari
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
@@ -50,7 +50,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 -   [Configurare l'applicazione per un accesso Single Sign-On basato su password](#configure-the-application-for-password-single-sign-on)
 
--   [Assegnare l'applicazione a un utente o un gruppo](#assign-the-application-to-a-user-or-a-group)
+-   Assegnare l'applicazione a un utente o un gruppo
 
     -   [Assegnare un utente direttamente a un'applicazione](#assign-a-user-to-an-application-directly)
 

@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873105"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492284"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
-Questo articolo descrive come rimuovere tutti gli elementi da un insieme di credenziali dei servizi di ripristino e successivamente eliminare l'insieme di credenziali. Se un insieme di credenziali dei servizi di ripristino è registrato in un server e conserva dati di backup, non è possibile eliminarlo. Se si tenta di eliminare un insieme di credenziali senza riuscirci, l'insieme di credenziali risulta ancora configurato per ricevere dati di backup.
+Questo articolo descrive come rimuovere tutti gli elementi da un insieme di credenziali di Servizi di ripristino e, successivamente, come eliminare l'insieme di credenziali. Se un insieme di credenziali dei servizi di ripristino è registrato in un server e conserva dati di backup, non è possibile eliminarlo. Se si tenta di eliminare un insieme di credenziali senza riuscirci, l'insieme di credenziali risulta ancora configurato per ricevere dati di backup.
 
 Per informazioni su come eliminare un insieme di credenziali, vedere la sezione [Eliminare un insieme di credenziali dal portale di Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Se non si desidera conservare dati nell'insieme di credenziali dei servizi di ripristino e si desidera eliminare l'insieme di credenziali, vedere la sezione [Eliminare forzatamente l'insieme di credenziali](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se non si conosce con sicurezza il contenuto dell'insieme di credenziali e si vuole essere certi di poter eliminare l'insieme di credenziali, vedere la sezione [Rimuovere le dipendenze dell'insieme di credenziali ed eliminare l'insieme di credenziali](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 

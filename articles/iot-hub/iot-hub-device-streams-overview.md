@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884963"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770789"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
@@ -82,8 +82,22 @@ Sia il lato dispositivo che il lato servizio di un flusso dispositivo devono ess
 In alternativa, è possibile recuperare le informazioni sugli endpoint usando l'interfaccia della riga di comando di Azure nella sezione delle proprietà dell'hub, in particolare chiavi `property.hostname` e `property.deviceStreams`.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+L'output è un oggetto JSON di tutti gli endpoint a cui il servizio e il dispositivo dell'hub potrebbero dover connettersi per stabilire un flusso di dispositivo.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Endpoint di streaming del dispositivo facenti parte dell'elenco elementi consentiti
 
@@ -92,9 +106,14 @@ Come accennato [precedentemente](#Overview), il dispositivo crea una connessione
 Il nome host dell'endpoint di streaming del dispositivo è reperibile nel portale dell'hub IoT nella scheda Panoramica. ![Testo alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Endpoint di flusso dispositivo")
 
 In alternativa, è possibile trovare queste informazioni tramite l'interfaccia della riga di comando di Azure:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Risolvere i problemi tramite i log attività di Device Streams
 

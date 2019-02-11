@@ -1,8 +1,21 @@
 ---
-title: Prevedere le risposte con modelli di regressione titleSuffix: Descrizione di Azure Machine Learning Studio: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
+title: Prevedere risposte con modelli di regressione
+titleSuffix: Azure Machine Learning Studio
+description: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/03/2018
+ms.openlocfilehash: 0d00d57cbeed9024ad2593171abc95c5157829d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495922"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Data science per principianti

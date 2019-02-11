@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903758"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493049"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -86,6 +86,7 @@ Gli utenti del server master vengono replicati nelle repliche in lettura. È pos
 - La creazione di una replica di replica non è supportata.
 - Le tabelle in memoria potrebbero causare la perdita di sincronia delle repliche. Si tratta di una limitazione della tecnologia di replica di MySQL. Per altre informazioni, vedere la [documentazione di riferimento di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
 - La modifica del parametro [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) in un server master dopo la creazione di un server di replica può causare la perdita di sincronia della replica. Il server di replica non riconosce i diversi spazi di tabella.
+- Verificare che le tabelle di server master dispongano di chiavi primarie. La mancanza di chiavi primarie può comportare una latenza di replica tra il server master e le repliche.
 - Esaminare l'elenco completo delle limitazioni di replica di MySQL nella [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

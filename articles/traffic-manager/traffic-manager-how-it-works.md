@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229252"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567843"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
 
@@ -47,7 +47,7 @@ Per ottenere questa configurazione, si completa la seguente procedura:
 ![Configurazione DNS di Gestione traffico][1]
 
 > [!NOTE]
-> Quando si usa un dominio personale con Gestione traffico di Azure, è necessario usare un record CNAME per scegliere il nome del dominio personale sul nome di dominio di Gestione traffico. Gli standard DNS non consentono di creare un record CNAME al "vertice" (o alla radice) di un dominio. Non è quindi possibile creare un record CNAME per "contoso.com", detto anche dominio "naked". È possibile creare solo un record CNAME per un dominio in "contoso.com", ad esempio "www.contoso.com". Per risolvere questa limitazione, è consigliabile usare un semplice reindirizzamento HTTP per indirizzare le richieste di "contoso.com" su un nome alternativo, ad esempio "www.contoso.com".
+> Quando si usa un dominio personale con Gestione traffico di Azure, è necessario usare un record CNAME per scegliere il nome del dominio personale sul nome di dominio di Gestione traffico. Gli standard DNS non consentono di creare un record CNAME al "vertice" (o alla radice) di un dominio. Non è quindi possibile creare un record CNAME per "contoso.com", detto anche dominio "naked". È possibile creare solo un record CNAME per un dominio in "contoso.com", ad esempio "www.contoso.com". Per aggirare questa limitazione, è consigliabile ospitare il dominio DNS nel [DNS di Azure](../dns/dns-overview.md) e usare i [record Alias](../dns/tutorial-alias-tm.md) in modo da puntare al profilo di Gestione traffico. In alternativa usare un semplice reindirizzamento HTTP per indirizzare le richieste di "contoso.com" su un nome alternativo, ad esempio "www.contoso.com".
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Come si connettono i client tramite Gestione traffico
 

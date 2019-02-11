@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435516"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821219"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
@@ -45,7 +45,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
 **Per creare criteri di Ranger**
 
-1. Aprire l'interfaccia utente di amministrazione di Ranger. Vedere [Connettersi all'interfaccia utente di amministrazione di Apache Ranger](#connect-to-apache-ranager-admin-ui).
+1. Aprire l'interfaccia utente di amministrazione di Ranger. Consultare la sezione Connettersi all'interfaccia utente di amministrazione di Apache Ranger.
 2. Fare clic su **&lt;ClusterName>_hive** in **Hive**. Verranno visualizzati due criteri preconfigurati.
 3. Fare clic su **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4b58a95ed149886cb987d316b7738c4a2d778864
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540680"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699817"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Concetti relativi alla disponibilità elevata in Database di Azure per PostgreSQL
 Il servizio Database di Azure per PostgreSQL offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.
@@ -32,5 +32,5 @@ Come avviene per il modello a disponibilità elevata, quando un'istanza di Datab
 Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, vedere  [Panoramica di Database di Azure per PostgreSQL](overview.md)
-- Per una panoramica della logica di ripetizione dei tentativi, vedere [Gestione degli errori di connettività temporanei per Database di Azure per PostgreSQL](concepts-connectivity.md)
+- Informazioni sulla [gestione degli errori di connettività temporanei](concepts-connectivity.md)
+- Informazioni sulle modalità di [replica dei dati con le repliche in lettura](howto-read-replicas-portal.md)

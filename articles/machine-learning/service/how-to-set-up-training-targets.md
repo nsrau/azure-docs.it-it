@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250708"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756530"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello
 
@@ -38,18 +38,14 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 Il servizio Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
 
-|Destinazione di calcolo per il training| Accelerazione GPU | Automatizzata<br/> Ottimizzazione degli iperparametri | Automatizzata</br> Machine Learning | Pipeline descrittivo|
+|Destinazione di calcolo per il training| Accelerazione GPU | Automatizzata<br/> Ottimizzazione degli iperparametri | Automatizzata</br> Machine Learning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Computer locale](#local)| È possibile | &nbsp; | ✓ | &nbsp; |
 |[Ambiente di calcolo di Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Macchina virtuale remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks e Azure Data Lake Analytics possono essere usati __solo__ in una pipeline. 
-
->Creare le destinazioni di calcolo per le pipeline di apprendimento automatico come illustrato in questo articolo, ma usare queste destinazioni di calcolo nei passaggi della pipeline anziché i metodi elencati di seguito.  Inoltre, solo alcuni passaggi della pipeline usano la configurazione di esecuzione descritta in questo articolo.  Per altre informazioni sull'uso di destinazioni di calcolo in una pipeline, consultare [Creare ed eseguire una pipeline di apprendimento automatico](how-to-create-your-first-pipeline.md).
 
 ## <a name="whats-a-run-configuration"></a>Che cos'è una configurazione di esecuzione?
 
@@ -159,7 +155,7 @@ Azure Machine Learning consente di usare la risorsa di calcolo personale e di as
 
 Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virtuale di Azure. Questa macchina virtuale è un ambiente preconfigurato di data science e di sviluppo per l'intelligenza artificiale in Azure. La macchina virtuale offre una scelta dettagliata di strumenti e framework per l'intero ciclo di vita dello sviluppo dell'apprendimento automatico. Per altre informazioni su come usare una Data Science Virtual Machine, consultare [Configurare un ambiente di sviluppo per Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Creazione**: Creare una Data Science Virtual Machine prima di usarla per eseguire il training del modello. Per creare questa risorsa consultare [Effettuare il provisioning della Data Science Virtual Machine per Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Creazione**: Creare una Data Science Virtual Machine prima di usarla per eseguire il training del modello. Per creare questa risorsa consultare [Effettuare il provisioning della Data Science Virtual Machine per Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning supporta solo macchine virtuali che eseguono Ubuntu. Quando si crea una macchina virtuale o se ne sceglie una esistente, è necessario selezionare una macchina virtuale che usa Ubuntu.
@@ -384,5 +380,5 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
-* Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
+* Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

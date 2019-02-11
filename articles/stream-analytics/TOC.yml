@@ -47,6 +47,8 @@ items:
       href: stream-analytics-sql-output-perf.md
     - name: Modelli di percorso personalizzati per i BLOB
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: Stati di un processo
+    href: job-states.md
   - name: Funzioni finestra
     href: stream-analytics-window-functions.md
   - name: Funzioni geospaziali
@@ -393,7 +395,7 @@ items:
   - name: Garanzie di recapito degli eventi
     href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
   maintainContext: true
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.streamanalytics
@@ -429,9 +431,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 63ca98d968397f7626341e9cfdece664bdde971e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d2038b8a663db50f4b2341ae3b2c39b499bb00c2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695305"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882348"

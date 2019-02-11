@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248729"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747595"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
 
@@ -79,7 +79,7 @@ StorSimple offre i vantaggi seguenti:
 
 Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, consultare [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md) (Serie StorSimple 8000: una soluzione di archiviazione cloud ibrida). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
@@ -376,7 +376,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 \* La capacità totale include 17 TiB dei dischi StorSimple e 1 TiB del volume RAID locale.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: rotazione GFS settimanale, mensile e annuale
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: Pianificazione della rotazione GFS settimanale, mensile e annuale
 
 | Settimana | Completa | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
@@ -430,7 +430,7 @@ La sezione seguente descrive come creare un breve script per avviare ed eliminar
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Avviare ed eliminare gli snapshot cloud mediante uno script
 
 > [!NOTE]
-> Valutare attentamente la conformità e le ripercussioni della conservazione dei dati prima di eliminare uno snapshot StorSimple. Per altre informazioni su come eseguire uno script di post-backup, vedere la [documentazione di Backup Exec](https://www.veritas.com/support/en_US/15047.html).
+> Valutare attentamente la conformità e le ripercussioni della conservazione dei dati prima di eliminare uno snapshot StorSimple. Per altre informazioni su come eseguire uno script di post-backup, vedere la [documentazione di Backup Exec](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### <a name="backup-lifecycle"></a>Ciclo di vita del backup
 
@@ -480,7 +480,7 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 Questo articolo fa riferimento ai documenti seguenti:
 
 - [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Scenari di archiviazione: thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx) (Scenari di archiviazione: Thin provisioning)
 - [Uso di unità GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurare le copie shadow di cartelle condivise](https://technet.microsoft.com/library/cc771893.aspx)
 

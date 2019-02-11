@@ -1,5 +1,5 @@
 # [Documentazione di Data Lake Storage Gen1](index.md)
-# [Passare alla documentazione di Data Lake Storage Gen2 (anteprima)](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Passare alla documentazione di Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Panoramica
 ## [Panoramica di Data Lake Storage Gen1](data-lake-store-overview.md)
@@ -28,7 +28,7 @@
 ### [Controllo di accesso](data-lake-store-access-control.md)
 ### [Protezione dei dati archiviati](data-lake-store-secure-data.md)
 ### [Crittografia](data-lake-store-encryption.md)
-### [Integrazione rete virtuale (anteprima)](data-lake-store-network-security.md)
+### [Integrazione della rete virtuale](data-lake-store-network-security.md)
 
 ## Eseguire l'autenticazione con Data Lake Storage Gen1
 ### [Opzioni di autenticazione](data-lakes-store-authentication-using-azure-active-directory.md)

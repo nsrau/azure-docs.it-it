@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817530"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - Risolvere i problemi correlati agli avvisi
 Questo articolo fornisce istruzioni per la risoluzione dei problemi correlati agli avvisi che si possono ricevere nel dominio gestito.
@@ -42,7 +42,7 @@ Seguire la procedura di risoluzione dei problemi corrispondente all'ID o al mess
 | AADDS108 | *La sottoscrizione usata da Azure AD Domain Services è stata spostata in un'altra directory. Per il funzionamento corretto di Azure AD Domain Services è necessaria una sottoscrizione attiva nella stessa directory.* | [Directory della sottoscrizione spostate](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Una risorsa usata per il dominio gestito è stata eliminata. Questa risorsa è necessaria per il funzionamento corretto di Azure AD Domain Services.* | [Una risorsa è stata eliminata](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *La subnet selezionata per la distribuzione di Azure AD Domain Services è piena e non ha spazio sufficiente per il controller di dominio aggiuntivo che deve essere creato.* | [La subnet è piena](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Un'entità servizio usata da Azure AD Domain Services per gestire il dominio non è autorizzata a gestire risorse nella sottoscrizione di Azure. L'entità servizio deve ottenere le autorizzazioni per gestire il dominio gestito. * | [Entità servizio non autorizzata](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *Un'entità servizio usata da Azure AD Domain Services per gestire il dominio non è autorizzata a gestire risorse nella sottoscrizione di Azure. L'entità servizio deve ottenere le autorizzazioni per gestire il dominio gestito. * | Entità servizio non autorizzata |
 | AADDS112 | *È stato rilevato che la subnet della rete virtuale in questo dominio potrebbe non avere indirizzi IP sufficienti. Azure AD Domain Services necessita di almeno due indirizzi IP disponibili entro la subnet in cui è abilitato. È consigliabile avere almeno da 3 a 5 indirizzi IP disponibili entro la subnet. È possibile che questo problema si verifichi se altre macchine virtuali sono distribuite nella subnet, esaurendo il numero di indirizzi IP, o se è presente una limitazione sul numero di indirizzi IP disponibili nella subnet.* | [Gli indirizzi IP non sono sufficienti](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Le risorse usate da Azure AD Domain Services sono state rilevate con uno stato imprevisto e non possono essere ripristinate.* | [Le risorse non sono recuperabili](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | *La subnet selezionata per la distribuzione di Azure AD Domain Services non è valida e non può essere usata. * | [Subnet non valida](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Le entità servizio devono accedere per poter gestire e creare le risorse nel do
 
 **Risoluzione:**
 
-1. [Eliminare il dominio gestito](#active-directory-ds-disable-aadds.md) dal tenant.
+1. Eliminare il dominio gestito dal tenant.
 2. Correggere l'intervallo di indirizzi IP della subnet:
   1. Passare alla [pagina Reti virtuali nel portale di Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Selezionare la rete virtuale che si prevede di usare per Azure AD Domain Services.

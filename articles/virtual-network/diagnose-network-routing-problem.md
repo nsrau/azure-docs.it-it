@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819791"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
 
@@ -116,7 +116,7 @@ La risoluzione dei problemi di routing in genere comporta:
 - Verifica che la tabella di route che contiene le route personalizzate eventualmente definite sia associata alla subnet in cui si trova l'interfaccia di rete. Informazioni su come [associare una route a una subnet](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Verifica del corretto funzionamento dei dispositivi distribuiti, ad esempio gateway VPN di Azure VPN o appliance di rete virtuali. Usare la funzionalità di [diagnostica VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Network Watcher per individuare eventuali problemi con un gateway VPN di Azure.
 
-Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e [Diagnosi aggiuntiva](#additional-dignosis).
+Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e Diagnosi aggiuntiva.
 
 ## <a name="considerations"></a>Considerazioni
 

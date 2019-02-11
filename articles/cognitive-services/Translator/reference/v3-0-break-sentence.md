@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a74b3ba4fe9f12ce9d205b3865435edfb99566a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458527"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693701"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -98,7 +98,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
   * `detectedLanguage`: oggetto che descrive la lingua rilevata tramite le proprietà seguenti:
 
-     * `language`: Codice della lingua rilevata.
+     * `language`: codice della lingua rilevata.
 
      * `score`: valore float che indica il livello di attendibilità del risultato. Il punteggio è compreso tra zero e uno e un punteggio basso indica un'attendibilità bassa.
      
@@ -165,6 +165,8 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
     <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili in [Informazioni di riferimento sull'API Traduzione testuale v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Esempi
 

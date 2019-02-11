@@ -1,5 +1,5 @@
 ---
-title: Configurare connessioni di rete privata virtuale da sito a sito active-active per i gateway VPN - Azure Resource Manager - PowerShell | Microsoft Docs
+title: 'Configurare connessioni VPN da sito a sito active-active per gateway VPN: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: In questo articolo viene illustrata la configurazione di connessioni active-active con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: 01f25df117eddaaf640a8bd2ef184fe685c5bc75
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 05c4a01f4317f311e1ba78a5bf45baa969dc8351
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258994"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507860"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurare connessioni di rete privata virtuale da sito a sito active-active con gateway VPN di Azure
 

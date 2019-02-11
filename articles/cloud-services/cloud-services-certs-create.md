@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812379"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
-I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
+I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
@@ -64,7 +64,7 @@ I certificati di gestione consentono di eseguire l'autenticazione con il modello
     > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
 
 * Crittografia minima a 2048 bit.
-* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale* .
+* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *personale*.
 
 Sono disponibili due semplici modi per creare un certificato in Windows: con l'utilità `makecert.exe` o con IIS.
 

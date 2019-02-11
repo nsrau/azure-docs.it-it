@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452644"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817275"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452644"
 
 1. Al termine della configurazione del monitoraggio, selezionare **Salva**.
 
-Un set predefinito di metriche verrà visualizzato in grafici nel pannello dell'account di archiviazione e nei pannelli dei singoli servizi (BLOB, accodamento, tabelle e file). Dopo aver abilitato le metriche per un servizio, potrebbe trascorrere fino a un'ora prima che i dati vengano visualizzati nei grafici. È possibile selezionare **Modifica** in qualsiasi grafico delle metriche per [configurare le metriche](#how-to-customize-metrics-charts) visualizzate nel grafico.
+Un set predefinito di metriche verrà visualizzato in grafici nel pannello dell'account di archiviazione e nei pannelli dei singoli servizi (BLOB, accodamento, tabelle e file). Dopo aver abilitato le metriche per un servizio, potrebbe trascorrere fino a un'ora prima che i dati vengano visualizzati nei grafici. È possibile selezionare **Modifica** in qualsiasi grafico delle metriche per configurare le metriche visualizzate nel grafico.
 
 È possibile disabilitare la raccolta e la registrazione delle metriche impostando **Stato** su **Disattivato**.
 
@@ -116,7 +116,7 @@ Le metriche selezionate in **Diagnostica** determinano la risoluzione delle metr
    ![Raccolta riquadri nel portale di Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Dopo aver completato l'aggiunta dei grafici, selezionare **Fine personalizzazione** nella parte superiore del dashboard.
 
-Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriormente personalizzati come descritto in [Personalizzare i grafici delle metriche](#how-to-customize-metrics-charts).
+Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriormente personalizzati come descritto in Personalizzare i grafici delle metriche.
 
 ## <a name="configure-logging"></a>Configurare la registrazione
 

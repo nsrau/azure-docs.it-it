@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306977"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767453"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
 
@@ -33,9 +33,16 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 | [LiveEvents](live-streaming-overview.md) | Disponibile | Disponibile | Disponibile | Disponibile |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponibile | Disponibile | Disponibile | Disponibile |
 
-## <a name="regions"></a>Regioni 
+## <a name="regionsgeographieslocations"></a>Aree/aree geografiche/località
 
-Quando è necessario fornire il parametro dell'**ubicazione**, è necessario fornire il codice dell'area come il valore della **posizione**. Per ottenere il nome del codice dell'area in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+* [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Prodotti in base all'area](https://azure.microsoft.com/global-infrastructure/services/)
+* [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Località di Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Nome del codice dell'area 
+
+Quando è necessario fornire il parametro dell'**ubicazione**, è necessario fornire il codice dell'area come il valore della **posizione**. Per ottenere il nome del codice dell'area in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations

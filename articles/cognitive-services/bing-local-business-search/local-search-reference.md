@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182235"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820743"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
 
@@ -53,7 +53,7 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 |Intestazione|DESCRIZIONE|  
 |------------|-----------------|  
 |Accept|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](http://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
-|<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario anche specificare il parametro di query [cc](#cc). Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
+|<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario inoltre specificare il parametro di query cc. Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
 |<a name="market" />BingAPIs-Market|Intestazione della risposta.<br /><br /> Il mercato usato dalla richiesta. Il formato è \<languageCode\>-\<countryCode\>, ad esempio en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Intestazione della risposta.<br /><br /> L'ID della voce di registro che contiene i dettagli della richiesta. In caso di errore acquisire questo ID. Se non si riesce a individuare e risolvere il problema, includere questo ID con le altre informazioni inviate al team di supporto.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Intestazione della richiesta obbligatoria.<br /><br /> La chiave di sottoscrizione ricevuta quando è stata eseguita la registrazione per questo servizio in [Servizi cognitivi](https://www.microsoft.com/cognitive-services/).|  
@@ -75,7 +75,7 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 |----------|-----------|----------|--------------|
 |<a name="count" />count|Numero di risultati da restituire, a partire dall'indice specificato dal parametro `offset`.|string|No |   
 |<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|string|No |  
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, vedere [Codici di mercato](#market-codes).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|string|Yes|
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Codici di mercato.<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|string|Sì|
 |<a name="offset"/>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|No |  
 |<a name="query" />q|Termine di ricerca dell'utente.|string|No |  
 |<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](http://json-ld.org/).|string|No |  
@@ -154,8 +154,8 @@ Definisce le informazioni su un'attività commerciale locale, ad esempio un rist
 |NOME|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|string|  
-|Address|Indirizzo postale del luogo in cui si trova l'entità.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Informazioni aggiuntive sull'entità, ad esempio gli hint che è possibile usare per determinare il tipo dell'entità. Ad esempio, se si tratta di un ristorante o di un hotel. Il campo `entityScenario` è impostato su ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|Address|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
+|entityPresentationInfo|Informazioni aggiuntive sull'entità, ad esempio gli hint che è possibile usare per determinare il tipo dell'entità. Ad esempio, se si tratta di un ristorante o di un hotel. Il campo `entityScenario` è impostato su ListItem.|EntityPresentationInfo|  
 |name|Nome dell'entità.|string|  
 |telephone|Numero di telefono dell'entità.|string|  
 |URL|URL del sito Web dell'entità.<br /><br /> Usare questo URL insieme al nome dell'entità per creare un collegamento ipertestuale su cui l'utente può fare clic per visualizzare il sito Web dell'entità.|string|  

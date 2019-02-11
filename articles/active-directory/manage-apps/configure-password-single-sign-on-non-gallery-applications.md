@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184377"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812467"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
-Oltre alle applicazioni della raccolta di Azure AD, è anche possibile aggiungere un'**applicazione non inclusa nella raccolta**. Tramite questa funzionalità, è possibile aggiungere qualsiasi applicazione che esiste già nell'organizzazione o qualsiasi applicazione di terze parti che potrebbe essere usata da un fornitore che non fa parte della [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Oltre alle applicazioni della raccolta di Azure AD, è anche possibile aggiungere un'**applicazione non inclusa nella raccolta**. Tramite questa funzionalità, è possibile aggiungere qualsiasi applicazione che esiste già nell'organizzazione o qualsiasi applicazione di terze parti che potrebbe essere usata da un fornitore che non fa parte della [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Dopo aver aggiunto un'applicazione non inclusa nella raccolta, è possibile configurare il metodo Single Sign-On usato da questa applicazione selezionando l'elemento di spostamento **Single Sign-On** in un'applicazione aziendale nel [portale di Azure](https://portal.azure.com/).
 
-Uno dei metodi di accesso disponibili è l'opzione [Accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Con il metodo di **aggiungere un'applicazione non inclusa nella raccolta**, è possibile integrare qualsiasi applicazione che usa un campo di input per il nome utente e la password basati su HTML, anche se non è inclusa nel set di applicazioni preintegrate.
+Uno dei metodi di accesso disponibili è l'opzione [Accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Con il metodo di **aggiungere un'applicazione non inclusa nella raccolta**, è possibile integrare qualsiasi applicazione che usa un campo di input per il nome utente e la password basati su HTML, anche se non è inclusa nel set di applicazioni preintegrate.
 
 A tale scopo viene usata una tecnologia di scraping delle pagine che fa parte dell'estensione del pannello di accesso. Ciò consente di rilevare automaticamente i campi di input di nome utente e password e archiviarli in modo sicuro per l'istanza dell'applicazione specifica. Eseguire quindi in modo sicuro la riproduzione di nomi utente e password per tali campi quando un utente passa all'applicazione nel pannello di accesso dell'applicazione.
 
@@ -43,11 +43,11 @@ Questo è un modo efficace per iniziare rapidamente l'integrazione di qualsiasi 
 
 -   Consentire a un **membro del gruppo aziendale** di specificare i nome utente e le password assegnati a un utente tramite la funzionalità di [accesso all'applicazione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Consentire a un **amministratore** di specificare i nomi utente e le password assegnati a un utente tramite la funzionalità di credenziali di aggiornamento quando [viene assegnato un utente a un'applicazione](#_How_to_configure_1)
+-   Consentire a un **amministratore** di specificare i nomi utente e le password assegnati a un utente tramite la funzionalità di aggiornamento credenziali quando viene assegnato un utente a un'applicazione
 
 -   Consentire un **amministratore** di specificare i nomi utente e le password condivisi usati da un gruppo di utenti tramite la funzionalità di credenziali di aggiornamento quando [viene assegnato un gruppo a un'applicazione](#assign-an-application-to-a-group-directly)
 
-La sezione seguente spiega come abilitare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) per una qualsiasi applicazione aggiunta con l'esperienza per **aggiungere un'applicazione non inclusa nella raccolta**.
+La sezione seguente spiega come abilitare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) per una qualsiasi applicazione aggiunta con l'esperienza per **aggiungere un'applicazione non inclusa nella raccolta**.
 
 ## <a name="overview-of-steps-required"></a>Panoramica dei passaggi necessari
 
@@ -57,7 +57,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 -   [Configurare l'applicazione per un accesso Single Sign-On basato su password](#configure-the-application-for-password-single-sign-on)
 
--   [Assegnare l'applicazione a un utente o un gruppo](#assign-the-application-to-a-user-or-a-group)
+-   Assegnare l'applicazione a un utente o un gruppo
 
     -   [Assegnare un utente direttamente a un'applicazione](#assign-a-user-to-an-application-directly)
 

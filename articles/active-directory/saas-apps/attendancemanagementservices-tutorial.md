@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164810"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Esercitazione: Integrazione di Azure Active Directory con Attendance Management Services
 
@@ -86,7 +86,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Attendance Ma
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente di test di Attendance Management Services](#create-an-attendance-management-service-test-user)**: per avere una controparte di Britta Simon in Attendance Management Services collegata alla rappresentazione dell'utente in Azure AD.
+1. **Creare un utente di test di Attendance Management Services**: per avere una controparte di Britta Simon in Attendance Management Services collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 

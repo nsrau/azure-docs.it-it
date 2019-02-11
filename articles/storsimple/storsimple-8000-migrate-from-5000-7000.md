@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234409"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495854"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Eseguire la migrazione dei dati da un dispositivo StorSimple serie 5000/7000 a un dispositivo serie 8000
 
@@ -125,7 +125,7 @@ Per installare lo strumento di migrazione StorSimple nel computer, seguire quest
 
     Aprire il file di configurazione dello strumento _StorSimple8000SeriesMigrationTool.exe.config_ nella cartella. Di seguito è riportato il frammento del file.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809981"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -25,8 +25,7 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 
 > [!IMPORTANT]
 > **[Modifica imminente] Per le connessioni dell'endpoint di servizio ai server SQL di Azure, un comportamento di connettività `Default` passa a `Redirect`.**
->
-> Modifica applicata per tutte le aree durante o prima del 2 gennaio 2019.
+> I clienti sono invitati a creare nuovi server e a impostare quelli esistenti con un tipo di connessione impostata esplicitamente su Redirect (scelta consigliata) oppure su Proxy a seconda della relativa architettura di connettività.
 >
 > Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
 > - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.
@@ -38,7 +37,7 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 >
 > Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In tal caso, è necessario aprire le regole del firewall e i gruppi di sicurezza di rete della macchina virtuale a tutti gli indirizzi IP di Azure dell'area appartenenti al [tag di servizio](../virtual-network/security-overview.md#service-tags) Sql per le porte 11000-12000. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
 > [!NOTE]
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> Questo argomento si applica ai server di database SQL di Azure che ospitano database singoli, pool elastici e database di SQL Data Warehouse. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 

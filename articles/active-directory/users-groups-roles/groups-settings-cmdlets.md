@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni di gruppo usando PowerShell in Azure Active Directory | Microsoft Docs
+title: Configurare le impostazioni di gruppo usando PowerShell - Azure Active Directory | Microsoft Docs
 description: Come gestire le impostazioni dei gruppi con i cmdlet di Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29c46c3987a6adff4ef2492a60b4e6a4b022e3e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e838af0ac8e9cfd1d42b768fa68ec7d9f46386c6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168840"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512228"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell in Azure Active Directory (Azure AD) per creare e aggiornare i gruppi. Questo contenuto si applica solo ai gruppi di Office 365, noti anche come gruppi unificati. 

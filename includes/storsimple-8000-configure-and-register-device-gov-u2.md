@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164330"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736231"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50164330"
 11. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla ora. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere tre dei seguenti tipi di caratteri: minuscole, maiuscole, numeri e caratteri speciali.
     
     <br/>![StorSimple registrare il dispositivo 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. Il passaggio finale dell'installazione guidata registra il dispositivo nel servizio Gestione dispositivi StorSimple. A tale scopo, è necessario il codice di registrazione del servizio ottenuto in [Passaggio 2: Ottenere la chiave di registrazione del servizio](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
+12. Il passaggio finale dell'installazione guidata registra il dispositivo nel servizio Gestione dispositivi StorSimple. A tale scopo, è necessaria la chiave di registrazione del servizio ottenuta nel [Passaggio 2: Ottenere la chiave di registrazione del servizio](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
     
     > [!NOTE]
     > È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.

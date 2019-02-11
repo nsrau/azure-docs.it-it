@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: c3532ff5422ae35aa6bb079fcedf3a2a90d45349
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 77de3e554e20b5380656e33bd15c9174a1f36681
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181572"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Esercitazione: Integrazione di Azure Active Directory con StatusPage
 
@@ -222,7 +222,7 @@ StatusPage supporta il provisioning JIT (just-in-time), È già stato abilitato 
    
     ![Creazione di un utente test di Azure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Digitare i valori **Indirizzo di posta elettronica**, **Nome** e **Cognome** di un utente valido di cui si vuole eseguire il provisioning nelle caselle di testo corrispondenti. 
+1. Digitare i valori **Indirizzo e-mail**, **Nome** e **Cognome** di un utente valido di cui si vuole effettuare il provisioning nelle caselle di testo corrispondenti. 
    
     ![Creazione di un utente test di Azure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

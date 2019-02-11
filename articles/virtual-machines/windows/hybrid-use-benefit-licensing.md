@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999952"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817717"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Serv
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Modalità di utilizzo del vantaggio Azure Hybrid per Windows Server
 Esistono più modi per usare macchine virtuali di Windows con il vantaggio Azure Hybrid:
 
-1. È possibile distribuire le macchine virtuali da una delle [immagini di Windows Server in Azure Marketplace](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) fornite
+1. È possibile distribuire le macchine virtuali da una delle immagini fornite di Windows Server in Azure Marketplace
 2. È possibile caricare una macchina virtuale personalizzata e distribuirla usando un modello Resource Manager o Azure PowerShell
 3. È possibile alternare la macchina virtuale esistente tra l'esecuzione con il vantaggio Azure Hybrid e il pagamento del costo in base al consumo per Windows Server
 4. È possibile anche applicare il vantaggio Azure Hybrid per Windows Server a un set di scalabilità di macchine virtuali

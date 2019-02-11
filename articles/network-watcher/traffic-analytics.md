@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429090"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815847"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -164,7 +164,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 2. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione.
 3. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
 4. Selezionare *Sì* per **Stato di Analisi del traffico**.
-5. Selezionare un'area di lavoro di Log Analytics esistente oppure selezionare **Crea una nuova area di lavoro** per crearne una nuova. Un'area di lavoro di Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, deve esistere in una delle [aree supportate](#traffic-analytics-supported-regions) ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selezionare un'area di lavoro di Log Analytics esistente oppure selezionare **Crea una nuova area di lavoro** per crearne una nuova. Un'area di lavoro di Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, questa deve esistere in una delle aree supportate ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Non è necessario che l'area di lavoro di Log Analytics che ospita la soluzione Analisi del traffico e i gruppi di sicurezza di rete si trovino nella stessa area. È ad esempio possibile avere Analisi del traffico in un'area di lavoro nell'area Europa occidentale e i gruppi di sicurezza di rete in Stati Uniti orientali e Stati Uniti occidentali. È possibile configurare più gruppi di sicurezza di rete nella stessa area di lavoro.
 6. Selezionare **Salva**.

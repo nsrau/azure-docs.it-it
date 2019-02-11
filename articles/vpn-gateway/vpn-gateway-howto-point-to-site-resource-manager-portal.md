@@ -1,5 +1,5 @@
 ---
-title: "Connettere un computer a una rete virtuale di Azure da punto a sito con l'autenticazione del certificato di Azure nativo: portale di Azure | Microsoft Docs"
+title: "Connettere un computer a una rete virtuale usando l'autenticazione da punto a sito e il certificato di Azure nativo: Portale di Azure | Microsoft Docs"
 description: Connettere i client Windows, Mac OS X e Linux in modo sicuro a una rete virtuale di Azure tramite connessione da punto a sito e certificati autofirmati o rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure.
 services: vpn-gateway
 author: cherylmc
@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026365"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700537"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: portale di Azure
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: Portale di Azure
 
 Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows, Linux o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
@@ -36,19 +36,19 @@ Le connessioni con autenticazione tramite certificato da punto a sito di Azure u
 È possibile usare i valori seguenti per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo:
 
 * **Nome della rete virtuale:** VNet1
-* **Spazio indirizzi:** 192.168.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
-* **Nome subnet:** FrontEnd
+* **Spazio indirizzi**: 192.168.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
+* **Nome della subnet:** FrontEnd
 * **Intervallo di indirizzi subnet:** 192.168.1.0/24
-* **Sottoscrizione:** se si hanno più sottoscrizioni, verificare di usare quella corretta.
+* **Sottoscrizione:** se si dispone di più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse:** TestRG
 * **Località:** Stati Uniti orientali
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **Server DNS:** (facoltativo) indirizzo IP del server DNS che si vuole usare per la risoluzione dei nomi.
-* **Nome gateway di rete virtuale:** VNet1GW
+* **Nome del gateway di rete virtuale:** VNet1GW
 * **Tipo di gateway:** VPN
-* **Tipo VPN:** Basato su route
-* **Nome indirizzo IP pubblico:** VNet1GWpip
-* **Tipo di connessione:** Da punto a sito
+* **Tipo di VPN:** basato su route
+* **Nome dell'indirizzo IP pubblico**: VNet1GWpip
+* **Tipo di connessione**: Da punto a sito
 * **Pool di indirizzi client:** 172.16.201.0/24<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client.
 
 ## <a name="createvnet"></a>1. Crea rete virtuale
@@ -239,6 +239,6 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Per informazioni sulla risoluzione dei problemi della connessione da punto a sito, vedere [Risoluzione dei problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

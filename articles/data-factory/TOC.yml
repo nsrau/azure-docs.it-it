@@ -304,6 +304,8 @@ items:
     items:
     - name: Copiare dati con l'attività di copia
       href: copy-activity-overview.md
+    - name: Eliminare file con l'attività di eliminazione
+      href: delete-activity.md
     - name: Strumento Copia dati
       href: copy-data-tool.md
     - name: Caricare dati in Data Lake Storage Gen2
@@ -458,8 +460,22 @@ items:
       href: how-to-create-schedule-trigger.md
     - name: Creare un trigger di finestra a cascata
       href: how-to-create-tumbling-window-trigger.md
+    - name: Creare una dipendenza del trigger di finestra a cascata
+      href: tumbling-window-trigger-dependency.md
     - name: Creare un trigger basato su eventi
       href: how-to-create-event-trigger.md
+  - name: Modelli
+    items:
+    - name: Panoramica dei modelli
+      href: solution-templates-introduction.md
+    - name: Copiare file da più contenitori
+      href: solution-template-copy-files-multiple-containers.md
+    - name: Eseguire una copia bulk con la tabella di controllo
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Eseguire una copia differenziale con la tabella di controllo
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Trasformare i dati con Databricks
+      href: solution-template-databricks-notebook.md
 - name: riferimento
   items:
   - name: .NET
@@ -490,9 +506,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: fd664db6e5f4bfbf0a86d9984559a1e5eabf262d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567248"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960242"

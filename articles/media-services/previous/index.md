@@ -10,16 +10,16 @@ ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: a38158467664eb12b388ad6bdc4bb5d783aa8762
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283599"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979667"
 ---
-# <a name="media-services-documentation"></a>Documentazione su Servizi multimediali
+# <a name="media-services-documentation-legacy"></a>Documentazione su Servizi multimediali (legacy)
 
 Informazioni su come riprodurre in streaming video di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
@@ -191,7 +191,7 @@ Informazioni su come riprodurre in streaming video di alta qualità con Servizi 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lingue</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
                    </div>
                 </div>

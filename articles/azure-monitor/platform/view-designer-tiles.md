@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186804"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817387"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guida di riferimento per i riquadri di Progettazione viste in Log Analytics
 Progettazione viste in Azure Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
@@ -36,7 +36,7 @@ I riquadri di Progettazione viste disponibili sono descritti nella tabella segue
 | [Number](#number-tile) |Numero di record restituiti da una query. |
 | [Due numeri](#two-numbers-tile) |Numero di record restituiti da due diverse query. |
 | [Anello](#donut-tile) | Grafico basato su una query con un valore di riepilogo al centro. |
-| [Grafico a linee e callout](#line-chart-amp-callout-tile) | Grafico a linee basato su una query e callout con un valore di riepilogo. |
+| Grafico a linee e callout | Grafico a linee basato su una query e callout con un valore di riepilogo. |
 | [Grafico a linee](#line-chart-tile) |Grafico a linee basato su una query. |
 | [Due sequenze temporali](#two-timelines-tile) | Istogramma con due serie, ognuna basata su una query separata. |
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467226"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817241"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configurazione di esempio: dispositivo Cisco ASA (IKEv2/senza BGP)
 Questo articolo fornisce configurazioni di esempio per la connessione di dispositivi Cisco ASA (Adaptive Security Appliance) a gateway VPN di Azure. L'esempio si applica a dispositivi Cisco ASA che eseguono IKEv2 senza il protocollo BGP (Border Gateway Protocol). 
@@ -44,7 +44,7 @@ I gateway VPN di Azure usano le suite di protocolli IPsec/IKE standard per stabi
 > È possibile specificare facoltativamente l'esatta combinazione di algoritmi di crittografia e di complessità della chiave per una connessione specifica, come descritto in [Informazioni sui requisiti di crittografia e i gateway VPN di Azure](vpn-gateway-about-compliance-crypto.md). Se si seleziona una combinazione specifica di complessità delle chiavi e algoritmi di crittografia, assicurarsi di usare le specifiche corrispondenti nei dispositivi VPN.
 
 ## <a name="single-vpn-tunnel"></a>Tunnel per VPN unico
-Questa configurazione è costituita da un singolo tunnel VPN S2S tra un gateway VPN di Azure e il dispositivo VPN locale. È possibile configurare [BGP nel tunnel VPN locale](#bgp).
+Questa configurazione è costituita da un singolo tunnel VPN S2S tra un gateway VPN di Azure e il dispositivo VPN locale. Se necessario, è possibile configurare il BGP nel tunnel VPN.
 
 ![Tunnel per VPN S2S unico](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

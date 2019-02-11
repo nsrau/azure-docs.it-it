@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549552"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813620"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per altre informazioni, vedere la sezione [Azure Active Directory](#azure-active-directory) e l'esempio di codice [AccountManagement][acct_mgmt_sample].
+> Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per altre informazioni, consultare la sezione Azure Active Directory e l'esempio di codice [AccountManagement][acct_mgmt_sample].
 > 
 > 
 
@@ -143,7 +143,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Molti dei limiti delle quote predefinite per i servizi e le sottoscrizioni di Azure possono essere aumentati inviando una richiesta nel [portale di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> Molti dei limiti delle quote predefinite per i servizi e le sottoscrizioni di Azure possono essere aumentati inviando una richiesta nel [portale di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md) .
 > 
 > 
 

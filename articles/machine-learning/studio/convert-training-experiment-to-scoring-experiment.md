@@ -1,8 +1,20 @@
 ---
-title: Preparare il modello per la distribuzione titleSuffix: Descrizione di Azure Machine Learning Studio: Come preparare il modello con training per la distribuzione come servizio Web convertendo l'esperimento di training di Machine Learning Studio in un esperimento predittivo.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.date: 28/03/2017
+title: Preparare il modello per la distribuzione
+titleSuffix: Azure Machine Learning Studio
+description: Come preparare il modello con training per la distribuzione come servizio Web convertendo l'esperimento di training di Machine Learning Studio in un esperimento predittivo.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
+ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496075"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
 

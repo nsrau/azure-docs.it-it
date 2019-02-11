@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477506"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756462"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ In questo caso, *sdc* è il disco interessato.
 ### <a name="partition-a-new-disk"></a>Eseguire la partizione di un nuovo disco
 Se si usa un disco esistente contenente dati, procedere al montaggio del disco. Se si collega un nuovo disco, è necessario eseguire la partizione del disco.
 
-Eseguire la partizione del disco con `fdisk`, impostarlo come disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
+Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `parted` su *dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Usare il comando `n` per aggiungere una nuova partizione. In questo esempio si sceglie il comando `p` anche per una partizione primaria e si accettano gli altri valori predefiniti. L'output sarà simile all'esempio seguente:

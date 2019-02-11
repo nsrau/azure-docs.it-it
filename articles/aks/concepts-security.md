@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380696"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818992"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -24,7 +24,7 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 - [Sicurezza dei nodi](#node-security)
 - [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
 - [Sicurezza di rete](#network-security)
-- [Segreti di Kubernetes](#secrets)
+- Segreti di Kubernetes
 
 ## <a name="master-security"></a>Sicurezza master
 
@@ -42,9 +42,11 @@ I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indiriz
 
 Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
 
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, consultare [Procedure consigliate per l'isolamento del cluster nel servizio Azure Kubernetes][cluster-isolation].
+
 ## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 
-Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Azure Kubernetes. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un elenco delle versioni di Kubernetes disponibili per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
+Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Kubernetes di Azure. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un elenco delle versioni di Kubernetes disponibili per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
 
 ### <a name="cordon-and-drain"></a>Blocco e svuotamento
 
@@ -55,11 +57,11 @@ Durante il processo di aggiornamento, i nodi del servizio Azure Kubernetes vengo
 - Viene di nuovo pianificata l'esecuzione dei pod nei nodi.
 - Il nodo successivo nel cluster viene bloccato e svuotato con lo stesso processo fino a quando non vengono aggiornati tutti i nodi.
 
-Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
+Per altre informazioni, vedere [Aggiornare un cluster del servizio Kubernetes di Azure][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-Per la connettività e sicurezza con le reti locali, è possibile distribuire il cluster del servizio Azure Kubernetes nelle subnet di rete virtuale di Azure esistenti. Queste reti virtuali possono avere una connessione ExpressRoute o VPN da sito a sito di Azure con la rete locale. È possibile definire controller in ingresso di Kubernetes con indirizzi IP privati interni in modo che i servizi siano accessibili solo tramite questa connessione di rete interna.
+Per la connettività e sicurezza con le reti locali, è possibile distribuire il cluster del servizio Kubernetes di Azure nelle subnet di rete virtuale di Azure esistenti. Queste reti virtuali possono avere una connessione ExpressRoute o VPN da sito a sito di Azure con la rete locale. È possibile definire controller in ingresso di Kubernetes con indirizzi IP privati interni in modo che i servizi siano accessibili solo tramite questa connessione di rete interna.
 
 ### <a name="azure-network-security-groups"></a>Gruppi di sicurezza di rete di Azure
 
@@ -73,14 +75,14 @@ L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manife
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a proteggere i cluster del servizio Azure Kubernetes, vedere [Aggiornare un cluster del servizio Azure Container][aks-upgrade-cluster].
+Per iniziare a proteggere i cluster del servizio Kubernetes di Azure, vedere [Aggiornare un cluster del servizio contenitore di Azure][aks-upgrade-cluster].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / Cluster AKS e carichi di lavoro][aks-concepts-clusters-workloads]
-- [Kubernetes / Identità di AKS][aks-concepts-identity]
-- [Kubernetes / Reti virtuali in AKS][aks-concepts-network]
-- [Kubernetes / Archiviazione in AKS][aks-concepts-storage]
+- [Kubernetes / Cluster servizio Azure Kubernetes e carichi di lavoro][aks-concepts-clusters-workloads]
+- [Kubernetes / Identità di servizio Azure Kubernetes][aks-concepts-identity]
+- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes / Archiviazione in servizio Azure Kubernetes][aks-concepts-storage]
 - [Kubernetes / Ridimensionamento in AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
@@ -96,3 +98,4 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473426"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755170"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -107,7 +107,7 @@ Le sezioni seguenti forniscono una panoramica della procedura per eseguire il ri
 
 Indipendentemente dalla funzionalità di continuità aziendale in uso, è necessario:
 
-- Identificare e preparare il server di destinazione, tra cui le regole del firewall a livello di server, gli account di accesso e le autorizzazioni a livello di database master.
+- Identificare e preparare il server di destinazione, tra cui le regole del firewall per indirizzi IP a livello di server, gli account di accesso e le autorizzazioni a livello di database master.
 - Stabilire come verranno reindirizzati i client e le applicazioni client verso il nuovo server
 - Documentare altre dipendenze, ad esempio impostazioni di controllo e avvisi
 
@@ -132,7 +132,7 @@ Se si usano i backup automatici con l'archiviazione con ridondanza geografica (a
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 - Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
-- Verificare che siano disponibili le regole del firewall a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)
+- Verificare che siano disponibili regole del firewall per indirizzi IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) per abilitare regole appropriate.
 - Verificare che siano presenti gli account di accesso appropriato e le autorizzazioni a livello di database master o usare gli [utenti contenuti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 - Configurare il controllo in base alle proprie esigenze.
 - Configurare gli avvisi in base alle proprie esigenze.

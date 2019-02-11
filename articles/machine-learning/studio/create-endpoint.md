@@ -1,8 +1,21 @@
 ---
-title: Creazione degli endpoint del servizio Web titleSuffix: Descrizione di Azure Machine Learning Studio: Creazione di endpoint del servizio Web in Azure Machine Learning. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
+title: Creazione di endpoint del servizio Web
+titleSuffix: Azure Machine Learning Studio
+description: Creazione di endpoint del servizio Web in Azure Machine Learning. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493372"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Creazione di endpoint per servizi Web di Azure Machine Learning Studio distribuiti
 > [!NOTE]
