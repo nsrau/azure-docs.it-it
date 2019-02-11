@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473164"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811529"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.0
 > [!NOTE]
@@ -101,7 +101,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 Attributi:
 
-|Attributo  |type   |Obbligatoria| Predefinito | DESCRIZIONE|  
+|Attributo  |Type   |Obbligatoria| Predefinito | DESCRIZIONE|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Facoltativo | PT1M| Specifica l'intervallo con cui il monitor di diagnostica esegue il polling per le modifiche della configurazione di diagnostica.|  
 |**overallQuotaInMB**|unsignedInt|Facoltativo| 4000 MB. Se si specifica un valore, non deve superare la quantità |Spazio totale di archiviazione del file system allocato per tutti i buffer di registrazione.|  
@@ -109,11 +109,11 @@ Attributi:
 ## <a name="diagnosticinfrastructurelogs-element"></a>Elemento DiagnosticInfrastructureLogs  
 Definisce la configurazione del buffer per i log generati dall'infrastruttura di diagnostica sottostante.
 
-Elemento padre: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Elemento padre: Elemento DiagnosticMonitorConfiguration.  
 
 Attributi:
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
@@ -122,11 +122,11 @@ Attributi:
 ## <a name="logs-element"></a>Elemento Logs  
  Definisce la configurazione del buffer per i log di base di Azure.
 
- Elemento padre: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+ Elemento padre: Elemento DiagnosticMonitorConfiguration.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
@@ -135,12 +135,12 @@ Attributi:
 ## <a name="directories-element"></a>Elemento Directories  
 Definisce la configurazione del buffer per i log basati su file che è possibile definire.
 
-Elemento padre: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Elemento padre: Elemento DiagnosticMonitorConfiguration.  
 
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
@@ -148,11 +148,11 @@ Attributi:
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Definisce la directory dei dump di arresto anomalo del sistema.
 
- Elemento padre: [Elemento Directories](#Directories).  
+ Elemento padre: Elemento Directories.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -160,11 +160,11 @@ Attributi:
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
  Definisce la directory dei log di richieste non riuscite.
 
- Elemento padre: [elemento Directories](#Directories).  
+ Elemento padre elemento Directories.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -172,11 +172,11 @@ Attributi:
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
  Definisce la directory di log IIS.
 
- Elemento padre: [elemento Directories](#Directories).  
+ Elemento padre elemento Directories.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -184,16 +184,16 @@ Attributi:
 ## <a name="datasources-element"></a>Elemento DataSources  
  Definisce zero o più directory di log aggiuntivi.
 
- Elemento padre: [Elemento Directories](#Directories).
+ Elemento padre: Elemento Directories.
 
 ## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
  Definisce la directory di file di log da monitorare.
 
- Elemento padre: [Elemento DataSources](#DataSources).
+ Elemento padre: Elemento DataSources.
 
 Attributi:
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
@@ -201,11 +201,11 @@ Attributi:
 ## <a name="absolute-element"></a>Elemento Absolute  
  Definisce un percorso assoluto della directory da monitorare con espansione dell'ambiente facoltativa.
 
- Elemento padre: [Elemento DirectoryConfiguration](#DirectoryConfiguration).  
+ Elemento padre: Elemento DirectoryConfiguration.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**path**|stringa|Richiesto. Percorso assoluto della directory da monitorare.|  
 |**expandEnvironment**|boolean|Richiesto. Se impostato su **true**, le variabili di ambiente nel percorso verranno espanse.|  
@@ -213,11 +213,11 @@ Attributi:
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Definisce un percorso relativo a una risorsa locale nella definizione del servizio.
 
- Elemento padre: [Elemento DirectoryConfiguration](#DirectoryConfiguration).  
+ Elemento padre: Elemento DirectoryConfiguration.  
 
 Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**nome**|stringa|Richiesto. Nome della risorsa locale che contiene la directory da monitorare.|  
 |**relativePath**|stringa|Richiesto. Percorso relativo della risorsa locale da monitorare.|  
@@ -225,12 +225,12 @@ Attributi:
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Definisce il percorso del contatore delle prestazioni da raccogliere.
 
- Elemento padre: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Elemento padre: Elemento DiagnosticMonitorConfiguration.
 
 
  Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
@@ -238,11 +238,11 @@ Attributi:
 ## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
  Definisce il contatore delle prestazioni da raccogliere.
 
- Elemento padre: [Elemento PerformanceCounters](#PerformanceCounters).  
+ Elemento padre: Elemento PerformanceCounters.  
 
  Attributi:  
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|stringa|Richiesto. Percorso del contatore delle prestazioni da raccogliere.|  
 |**sampleRate**|duration|Richiesto. Frequenza con la quale raccogliere il contatore delle prestazioni.|  
@@ -250,11 +250,11 @@ Attributi:
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  Definisce i registri eventi da monitorare.
 
- Elemento padre: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Elemento padre: Elemento DiagnosticMonitorConfiguration.
 
   Attributi:
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
 |**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
@@ -263,11 +263,11 @@ Attributi:
 ## <a name="datasource-element"></a>Elemento DataSource  
  Definisce il registro eventi da monitorare.
 
- Elemento padre: [Elemento WindowsEventLog](#windowsEventLog).  
+ Elemento padre: Elemento WindowsEventLog.  
 
  Attributi:
 
-|Attributo|type|DESCRIZIONE|  
+|Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**nome**|stringa|Richiesto. Espressione XPath che specifica il log da raccogliere.|  
 

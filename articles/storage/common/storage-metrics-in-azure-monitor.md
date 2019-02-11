@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467646"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811768"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -39,7 +39,7 @@ Per le metriche che supportano le dimensioni, è possibile applicare un filtro s
 
 ### <a name="access-metrics-with-the-rest-api"></a>Accedere alle metriche con l'API REST
 
-Monitoraggio di Azure fornisce le [API REST](/rest/api/monitor/) per leggere definizioni e valori delle metriche. Questa sezione illustra come leggere le metriche di archiviazione. L'ID risorsa viene usato in tutte le API REST. Per altre informazioni, leggere [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage) (Informazioni sull'ID risorsa per i servizi in Archiviazione).
+Monitoraggio di Azure fornisce le [API REST](/rest/api/monitor/) per leggere definizioni e valori delle metriche. Questa sezione illustra come leggere le metriche di archiviazione. L'ID risorsa viene usato in tutte le API REST. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
 
 L'esempio seguente mostra come usare [ArmClient](https://github.com/projectkudu/ARMClient) nella riga di comando per semplificare i test con l'API REST.
 
@@ -136,7 +136,7 @@ La risposta seguente contiene valori di metriche in formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Accedere alle metriche con .NET SDK
 
-Monitoraggio di Azure fornisce [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere definizioni e valori delle metriche. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. L'ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage) (Informazioni sull'ID risorsa per i servizi in Archiviazione).
+Monitoraggio di Azure fornisce [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere definizioni e valori delle metriche. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. L'ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
 
 L'esempio seguente mostra come usare .NET SDK di Monitoraggio di Azure per la lettura delle metriche di archiviazione.
 
@@ -391,7 +391,7 @@ Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monito
 | BlobType | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob** e **PageBlob**. Il BLOB di aggiunta è incluso in BlockBlob. |
 | ResponseType | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>ServerOtherError: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li> ServerBusyError: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li> ServerTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li> AuthorizationError: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li> NetworkError: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>    ClientThrottlingError: errore di limitazione sul lato client. </li> <li> ClientTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li> ClientOtherError: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li> Success: richiesta con esito positivo|
 | GeoType | Transazione da un cluster primario o secondario. I valori disponibili includono Primary e Secondary. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
-| ApiName | Nome dell'operazione. Ad esempio:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | Nome dell'operazione. Ad esempio:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>AccountKey: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>SAS: la transazione viene autenticata con firme di accesso condiviso.</li> <li>OAuth: la transazione viene autenticata con i token di accesso OAuth.</li> <li>Anonymous: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>AnonymousPreflight: la transazione è una richiesta preliminare.</li> |
 
 Per le dimensioni che supportano metriche, è necessario specificare il valore relativo alla dimensione per visualizzare i valori delle metriche corrispondenti. Se, ad esempio, si esamina il valore **Transactions** per le risposte con esito positivo, è necessario filtrare la dimensione **ResponseType** con **Success**. In alternativa, se si esamina il valore **BlobCount** per il BLOB in blocchi, è necessario filtrare la dimensione **BlobType** con **BlockBlob**.
@@ -401,6 +401,10 @@ Per le dimensioni che supportano metriche, è necessario specificare il valore r
 Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite da Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche legacy da parte di Archiviazione di Azure.
 
 ## <a name="faq"></a>Domande frequenti
+
+**Le nuove metriche supportano l'account di archiviazione classico?**
+
+No, le nuove metriche in Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Se si vogliono usare le metriche per gli account di archiviazione, è necessario eseguire la migrazione all'account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) (Eseguire la migrazione ad Azure Resource Manager).
 
 **Archiviazione di Azure supporta le metriche per i dischi gestiti o non gestiti?**
 

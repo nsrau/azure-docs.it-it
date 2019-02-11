@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076333"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815338"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
 Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che il rollover di queste chiavi viene eseguito periodicamente e in caso di emergenza può essere eseguito immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
@@ -44,7 +44,7 @@ Il modo in cui l'applicazione gestisce il rollover della chiave dipende da varia
 * [API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad](#passport)
 * [API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o Visual Studio 2017](#vs2015)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013)
-* [API Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013_webapi)
+* API Web che proteggono le risorse e sono state create con Visual Studio 2013
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012](#vs2012)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2010 o 2008 o con Windows Identity Foundation](#vs2010)
 * [API / applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato](#other)

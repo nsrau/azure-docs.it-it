@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d53221a8bed6995231385cae21a8994fce132a30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175911"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770721"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
@@ -41,12 +41,12 @@ La prima domanda posta nel processo di registrazione è relativa alla modalità 
 
 | Metodo di contatto | DESCRIZIONE |
 | --- | --- |
-| [App per dispositivi mobili](#use-a-mobile-app-as-the-contact-method) |- **Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.<br>- **Usare il codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
+| [App per dispositivi mobili](#use-a-mobile-app-as-the-contact-method) |- **Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.<br>- **Usare il codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Chiamata o SMS sul telefono cellulare](#use-your-mobile-phone-as-the-contact-method) |- **Chiamata telefonica** invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico.<br>- **SMS** invia un SNS contenente un codice di verifica. Seguendo la richiesta indicata nel testo, rispondere all'SMS o immettere il codice di verifica fornito nell'interfaccia di accesso. |
 | [Chiamata telefonica dell'ufficio](#use-your-office-phone-as-the-contact-method) |Invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usare un'app per dispositivi mobili come metodo di contatto
-L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul telefono o sul tablet. I passaggi in questo articolo sono basati sull'app Microsoft Authenticator, disponibile per [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul telefono o sul tablet. I passaggi in questo articolo sono basati sull'app Microsoft Authenticator, disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
 
 >[!NOTE]
 >Non è necessario usare l'app Microsoft Authenticator. Se è già in uso un'altra app di autenticazione, è possibile continuare a usarla.
@@ -106,4 +106,4 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 ## <a name="next-steps"></a>Passaggi successivi
 * Modificare le opzioni desiderate e [gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 * Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le app di dispositivo native che non supportano la verifica in due passaggi.
-* Estrarre l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per eseguire un'autenticazione sicura e veloce, anche in assenza di copertura di rete.
+* Estrarre l'[app Microsoft Authenticator](user-help-auth-app-download-install.md) per eseguire un'autenticazione sicura e veloce, anche in assenza di copertura di rete.

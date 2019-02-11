@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193696"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809630"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Eseguire operazioni con un runbook di automazione dai risultati della ricerca log di Log Analytics
 
-Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezionare **Take action** (Intervieni) per eseguire un runbook di automazione.  Il runbook consente di risolvere il problema o eseguire altre operazioni, come raccogliere informazioni sulla risoluzione del problema, inviare un messaggio di posta elettronica o creare una richiesta di servizio. 
+Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezionare **Take action** (Intervieni) per eseguire un runbook di automazione. Il runbook consente di risolvere il problema o eseguire altre operazioni, come raccogliere informazioni sulla risoluzione del problema, inviare un messaggio di posta elettronica o creare una richiesta di servizio. 
 
 ## <a name="components-and-features-used"></a>Componenti e le funzionalità usati
 * [Account di automazione di Azure](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezion
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Per avviare il runbook dalla ricerca log
 
-Per intervenire su un evento e avviare un runbook dai risultati della ricerca log, è necessario prima creare una ricerca log, dai cui risultati è possibile richiamare un runbook on demand.  A questo scopo, è possibile usare la funzionalità di ricerca log disponibile nel [portale di Azure](../../azure-monitor/log-query/log-query-overview.md).  In questo esempio si eseguirà una ricerca log dal portale di Azure con una dimostrazione di base di questa funzionalità.
+Per intervenire su un evento e avviare un runbook dai risultati della ricerca log, è necessario prima creare una ricerca log, dai cui risultati è possibile richiamare un runbook on demand. A questo scopo, è possibile usare la funzionalità di ricerca log classica disponibile nel [portale di Azure](../../azure-monitor/log-query/log-query-overview.md). In questo esempio si eseguirà una ricerca log dal portale di Azure con una dimostrazione di base di questa funzionalità.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e selezionare **Log Analytics**.  
 2. Selezionare l'area di lavoro di Log Analytics.
-3. Nell'area di lavoro selezionare **Ricerca log**.  
+3. Nell'area di lavoro selezionare **Log (versione classica)**.  
 4. Nella pagina Ricerca log eseguire una ricerca log.  
 5. Nei risultati della ricerca log fare clic sui puntini di sospensione a sinistra di uno dei campi disponibili e nella finestra popup visualizzata selezionare **Take action on** (Intervieni su).<br><br> ![Selezione dell'azione di intervento dai risultati della ricerca](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selezionare **Esegui un runbook** e quindi un runbook da eseguire.  È possibile selezionare qualsiasi runbook disponibile nell'account di automazione associato all'area di lavoro Log Analytics.  Tenere presente quanto segue:

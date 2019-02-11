@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3d6464f3e69868b4903d999e52a37b0520018c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635696"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659457"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
 
@@ -108,7 +108,7 @@ In questo esempio, sia l'Azienda-Y sia il Tecnico-Z interagiscono con lo Smart-X
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-Questo è una buona occasione per esaminare il valore del metodo della CA X.509.  Invece di pre-generare e passare i certificati per ogni Smart-X-Widget nella catena di alimentazione, la Società-X firma solo una volta per l'Azienda-Y.  Invece di tenere traccia di ogni dispositivo in tutto il ciclo di vita dei dispositivi, la Società-X potrebbe non monitorare né gestire i dispositivi tramite i gruppi che emergono naturalmente dal processo della catena di alimentazione, ad esempio, i dispositivi installati dal Tecnico-Z dopo luglio di un qualunque anno.
+Questo è una buona occasione per esaminare il valore del metodo della CA X.509.  Invece di pre-generare e distribuire i certificati per ogni Smart-X-Widget nella catena di alimentazione, la Società-X firma solo una volta per l'Azienda-Y.  Invece di tenere traccia di ogni dispositivo in tutto il ciclo di vita dei dispositivi, la Società-X potrebbe adesso monitorare e gestire i dispositivi tramite i gruppi che emergono naturalmente dal processo della catena di alimentazione, ad esempio, i dispositivi installati dal Tecnico-Z dopo luglio di un qualunque anno.
 
 Ultima cosa, ma non meno importante, il metodo di autenticazione della CA garantisce una contabilità protetta nella catena di alimentazione del dispositivo. A causa del processo della catena di certificati, le azioni di ogni membro nella catena sono registrate e crittograficamente e verificabili.
 

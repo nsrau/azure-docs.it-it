@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576205"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566238"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione.
@@ -88,7 +88,7 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
 
 Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimensioni. Non si tratta di un elenco completo. Per altri dettagli fare riferimento a [funzionalità e configurazioni non supportate](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations).  Questi problemi tecnici potrebbero anche non verificarsi, ma se vengono risolti prima della migrazione, questa sarà più semplice.
 
-- **Eseguire una convalida/preparazione/interruzione di prova** - Questo passaggio è probabilmente quello più importante per garantire una corretta migrazione dal modello di distribuzione classica ad Azure Resource Manager. L'API di migrazione prevede tre passaggi principali: Convalida, Preparazione e Commit. La convalida leggerà lo stato dell'ambiente di distribuzione classica e restituirà come risultato tutti i problemi. Alcuni problemi tuttavia potrebbero non essere rilevati in quanto presenti nello stack di Azure Resource Manager. Il passaggio successivo nel processo di migrazione, la preparazione, consente di rilevare questi problemi. La preparazione sposterà i metadati dal modello di distribuzione classica ad Azure Resource Manager ma non eseguirà il commit dello spostamento e non rimuoverà o modificherà nulla nel modello di distribuzione classica. L'interruzione di prova consiste nel preparare la migrazione e quindi di interrompere la preparazione ossia **non eseguire il commit**. L'obiettivo di convalida/preparazione/interruzione di prova è visualizzare tutti i metadati nello stack Azure Resource Manager, esaminarli (*a livello di codice o nel portale*), verificare che la migrazione avvenga correttamente e risolvere i problemi tecnici.  Inoltre si avrà un'idea della durata della migrazione in modo che sia possibile pianificare di conseguenza i tempi di inattività.  Una convalida/preparazione/interruzione di prova non causa tempi di inattività e pertanto non crea problemi per l'uso delle applicazioni.
+- **Eseguire una convalida/preparazione/interruzione di prova** - Questo passaggio è probabilmente quello più importante per garantire una corretta migrazione dal modello di distribuzione classica ad Azure Resource Manager. L'API di migrazione prevede tre passaggi principali: convalida, preparazione ed esecuzione della migrazione. La convalida leggerà lo stato dell'ambiente di distribuzione classica e restituirà come risultato tutti i problemi. Alcuni problemi tuttavia potrebbero non essere rilevati in quanto presenti nello stack di Azure Resource Manager. Il passaggio successivo nel processo di migrazione, la preparazione, consente di rilevare questi problemi. La preparazione sposterà i metadati dal modello di distribuzione classica ad Azure Resource Manager ma non eseguirà il commit dello spostamento e non rimuoverà o modificherà nulla nel modello di distribuzione classica. L'interruzione di prova consiste nel preparare la migrazione e quindi di interrompere la preparazione ossia **non eseguire il commit**. L'obiettivo di convalida/preparazione/interruzione di prova è visualizzare tutti i metadati nello stack Azure Resource Manager, esaminarli (*a livello di codice o nel portale*), verificare che la migrazione avvenga correttamente e risolvere i problemi tecnici.  Inoltre si avrà un'idea della durata della migrazione in modo che sia possibile pianificare di conseguenza i tempi di inattività.  Una convalida/preparazione/interruzione di prova non causa tempi di inattività e pertanto non crea problemi per l'uso delle applicazioni.
   - Gli elementi seguenti dovranno essere risolti prima della prova, ma un test di interruzione di prova rileverà anche eventuali passaggi di preparazione mancanti. Durante la migrazione al livello enterprise, è stato rilevato che la prova è un modo sicuro e prezioso per semplificare la migrazione.
   - Nella fase di preparazione il piano di controllo, ossia le operazioni di gestione di Azure, verrà bloccato per tutta la rete virtuale e pertanto non sarà possibile apportare modifiche ai metadati delle macchine virtuali durante la convalida/preparazione/interruzione.  A parte questo, tutte le funzioni delle applicazioni, ad esempio l'uso del desktop remoto, le macchine virtuali e così via, non saranno interessate.  Gli utenti delle VM non sapranno che è in esecuzione la prova.
 
@@ -138,7 +138,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **Rete***(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
+    **Rete** *(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
@@ -201,7 +201,7 @@ Ecco alcuni aspetti da considerare:
 
 Decidere quali servizi si desidera abilitare ora in Azure Resource Manager.  Molti clienti ritengono efficace quanto segue per i propri ambienti Azure:
 
-- [controllo degli accessi in base al ruolo](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 - [Modelli di Azure Resource Manager per una distribuzione più semplice e controllata](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tag](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controllo di attività](../../azure-resource-manager/resource-group-audit.md)

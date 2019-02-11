@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904005"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743634"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -36,11 +36,11 @@ Per aggiornare l'ambito di una prenotazione:
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare la prenotazione.
 4. Selezionare **Impostazioni** > **Configurazione**.
-5. Modificare l'ambito. 
+5. Modificare l'ambito.
 
 Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui l'utente è proprietario. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione.
 
-L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P, MS-AZR-0017P di tipo Enterprise o CSP. Per i contratti Enterprise le sottoscrizioni di sviluppo/test non sono idonee per ottenere lo sconto associato alla prenotazione.
+L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P o MS-AZR-0023P, MS-AZR-0017P o MS-AZR-0148P di tipo Enterprise o CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Aggiungere o modificare gli utenti che possono gestire una prenotazione
 

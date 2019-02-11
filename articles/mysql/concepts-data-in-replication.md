@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544227"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691523"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
-La funzione per la replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud, nel servizio Database di Azure per MySQL. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL). 
+Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL esterno nel servizio Database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL). 
 
 ## <a name="when-to-use-data-in-replication"></a>Quando usare la replica dei dati in ingresso
 Gli scenari principali da considerare quando si usa la funzione di replica dei dati in ingresso sono i seguenti:
@@ -41,3 +41,4 @@ Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare la replica dei dati in ingresso](howto-data-in-replication.md)
+- Informazioni sulla [replica in Azure con repliche in lettura](concepts-read-replicas.md)

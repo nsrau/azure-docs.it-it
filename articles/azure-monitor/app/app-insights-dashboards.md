@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117078"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813764"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigazione e dashboard nel portale Application Insights
 Dopo aver [impostato Application Insights nel progetto](../../azure-monitor/app/app-insights-overview.md), i dati di telemetria sull'uso e le prestazioni dell'app verranno visualizzati nella risorsa di Application Insights del progetto nel [portale di Azure](https://portal.azure.com).
@@ -62,7 +62,7 @@ Il grafico viene aggiornato automaticamente con una frequenza che dipende dall'i
 * Intervallo di tempo superiore a 24 ore: (intervallo di tempo)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Aggiungere query in Analisi
-È anche possibile aggiungere grafici di [Analisi](../../azure-monitor/log-query/get-started-portal.md) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard. 
+È anche possibile [aggiungere grafici di Analisi](../../azure-monitor/log-query/get-started-portal.md) a un dashboard condiviso. In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard. 
 
 I risultati vengono ricalcolati automaticamente ogni ora. Fare clic sull'icona Aggiorna del grafico per un ricalcolo immediato. (L'aggiornamento del browser non esegue il ricalcolo).
 
