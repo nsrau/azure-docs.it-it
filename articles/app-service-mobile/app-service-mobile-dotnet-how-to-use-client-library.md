@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157329"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816782"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 * [Cercare un record per Id](#lookingup)
 * [Gestione delle query non tipizzate](#untypedqueries)
 * [Inserimento dei dati](#inserting)
-* [Aggiornamento dei dati](#updating)
+* Aggiornamento dei dati
 * [Eliminazione dei dati](#deleting)
 * [Risoluzione dei conflitti e concorrenza ottimistica](#optimisticconcurrency)
 * [Associazione a un'interfaccia utente di Windows](#binding)
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Se si effettua il push a WNS, è necessario [ottenere un SID pacchetto di Microsoft Store](#package-sid) (vedere sotto).  Per ulteriori informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app].
 
 La richiesta di tag dal client non è supportata.  Le richieste di tag vengono eliminate automaticamente dalla registrazione.
-Se si desidera registrare il dispositivo con tag, creare un'API personalizzata che usa l'API di hub di notifica per eseguire la registrazione automaticamente.  [Eseguire una chiamata all'API personalizzata](#customapi) invece che al metodo `RegisterNativeAsync()`.
+Se si desidera registrare il dispositivo con tag, creare un'API personalizzata che usa l'API di hub di notifica per eseguire la registrazione automaticamente.  Effettuare una chiamata all'API personalizzata invece che al metodo `RegisterNativeAsync()`.
 
 ### <a name="package-sid"></a>Procedura: Ottenere un SID pacchetto di Microsoft Store
 Per abilitare le notifiche push nelle app di Microsoft Store è necessario un SID pacchetto.  Per ricevere un SID pacchetto, registrare l'applicazione in Microsoft Store.

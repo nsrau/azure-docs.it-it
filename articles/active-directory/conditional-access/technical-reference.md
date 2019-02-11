@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302105"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563739"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -50,7 +50,7 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 È possibile assegnare un criterio di accesso condizionale alle app cloud seguenti di Microsoft:
 
-- [Altre informazioni](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work) du Azure Information Protection
+- Azure Information Protection: [altre informazioni](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
 
@@ -96,7 +96,7 @@ In un criterio di accesso condizionale è possibile configurare la condizione pe
 
 - Windows Phone
 
-- Windows
+-  Windows
 
 - macOS
 
@@ -125,7 +125,7 @@ Nel criterio di accesso condizionale è possibile selezionare **Browser** come a
 Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un criterio dei dispositivi, ad esempio un requisito di un dispositivo conforme, sono supportati i sistemi operativi e browser seguenti:
 
 
-| Sistema operativo                     | Browser                            | Supporto     |
+| OS                     | Browser                            | Supporto     |
 | :--                    | :--                                 | :-:         |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Controllo][1] |
 | Windows 8/8.1        | Internet Explorer, Chrome           | ![Controllo][1] |
@@ -149,18 +149,18 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 |--- | ---|
-|Percorso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Nome | 1 |
-|Tipo | REG_SZ (String) |
+|path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|NOME | 1 |
+|Type | REG_SZ (String) |
 |Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 |--- | ---|
-|Percorso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Nome | 1 |
-|Tipo | REG_SZ (String) |
+|path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|NOME | 1 |
+|Type | REG_SZ (String) |
 |Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata. 
@@ -177,24 +177,27 @@ Nel criterio di accesso condizionale è possibile selezionare **App per disposit
 Questa impostazione interessa i tentativi di accesso eseguiti dalle app per dispositivi mobili e client desktop seguenti: 
 
 
-|App client|Servizio di destinazione|Piattaforma|
-|---|---|---|
-|App Azure Remote|Servizio app Azure Remote|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
-|Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS e Android|
-|App Mail/Calendar/People, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati. |Qualsiasi servizio app Mie app|Android e iOS|
-|Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-|App Office 2016, Office 2013, client di sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|App di Office 2016, app di Office universale, Office 2013, client sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro|Office 365 SharePoint Online|Windows 10|
-|Office 2016 per macOS (solo Word, Excel, PowerPoint e OneNote). OneDrive per il supporto Business pianificato in futuro|Office 365 SharePoint Online|Mac OS X|
-|App Office per dispositivi mobili|Office 365 SharePoint Online|Android, iOS|
-|App Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office per macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013, Skype for Business|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|App Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|App PowerBI|Servizio PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
-|Skype for Business Online|Office 365 Exchange Online|Android, iOS |
-|App Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| App client| Servizio di destinazione| Piattaforma |
+| --- | --- | --- |
+| App Azure Remote| Servizio app Azure Remote| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
+| Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, iOS e Android|
+| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online| Windows 10|
+| MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS|
+| Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
+| App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (solo Word, Excel, PowerPoint e OneNote). OneDrive per il supporto Business pianificato in futuro| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| App Office per dispositivi mobili| Office 365 SharePoint Online| Android, iOS|
+| App Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office per macOS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| App Outlook Mobile| Office 365 Exchange Online| Android, iOS|
+| App PowerBI| Servizio PowerBI| Windows 10, Windows 8.1, Windows 7, Android e iOS|
+| Skype for Business Online| Office 365 Exchange Online| Android, iOS|
+| App Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Supporto per l'autenticazione legacy
@@ -214,27 +217,33 @@ Nel criterio di accesso condizionale è possibile impostare l'esecuzione dei ten
 Questa impostazione è valida solo per le app client seguenti:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft Power BI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

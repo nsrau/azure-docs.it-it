@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239775"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745657"
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
 
@@ -43,7 +43,7 @@ Vengono registrati i seguenti tipi di richieste autenticate:
 * Richieste tramite una firma di accesso condiviso, incluse le richieste riuscite e non riuscite
 * Richieste ai dati di analisi
 
-Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx).
+Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="logging-anonymous-requests"></a>Registrazione di richieste anonime
 Vengono registrati i seguenti tipi di richieste anonime:
@@ -53,7 +53,7 @@ Vengono registrati i seguenti tipi di richieste anonime:
 * Errori di timeout per client e server
 * Richieste GET non riuscite con codice di errore 304 (non modificate)
 
-Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx).
+Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="how-logs-are-stored"></a>Come vengono archiviati i log
 Tutti i log vengono archiviati in BLOB di blocchi in un contenitore denominato $logs, che viene creato automaticamente quando viene abilitata Analisi archiviazione per un account di archiviazione. Il contenitore $logs si trova nello spazio dei nomi BLOB dell'account di archiviazione, ad esempio: `http://<accountname>.blob.core.windows.net/$logs`. Questo contenitore non può essere eliminato una volta abilitata Analisi di archiviazione, sebbene sia possibile eliminarne il contenuto.
@@ -61,8 +61,8 @@ Tutti i log vengono archiviati in BLOB di blocchi in un contenitore denominato $
 > [!NOTE]
 > Il contenitore $logs non viene visualizzato quando viene eseguita un'operazione di inclusione nell'elenco del contenitore, ad esempio, il metodo [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) . È necessario effettuare l'accesso diretto. Ad esempio, è possibile usare il metodo [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) per accedere ai BLOB nel contenitore `$logs`.
 > Nel momento in cui vengono registrate le richieste, Analisi archiviazione carica i risultati intermedi come blocchi. Analisi archiviazione invierà periodicamente questi blocchi e li renderà disponibili come BLOB.
-> 
-> 
+>
+>
 
 Per i log creati nella stessa ora possono esistere record duplicati. È possibile determinare se un record è un duplicato controllandone il numero **RequestId** e **Operation**.
 
@@ -73,7 +73,7 @@ Ciascun log verrà scritto nel seguente formato:
 
 Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | <service-name> |Nome del servizio di archiviazione. Ad esempio: BLOB, tabella o coda |
 | AAAA |Anno a quattro cifre per il log. Ad esempio:  2011. |
@@ -96,7 +96,7 @@ Quando viene registrata una richiesta di archiviazione, il nome log risultante �
 ### <a name="log-metadata"></a>Metadati dei log
 Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utilizzati per identificare i dati di registrazione contenuti nei BLOB. Nella tabella seguente sono descritti i singoli attributi dei metadati:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | LogType |Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura; Esempio 2: lettura, scrittura; Esempio 3: lettura, scrittura, eliminazione. |
 | StartTime |L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio:  31-07-2011T18:21:46Z. |
@@ -129,9 +129,9 @@ Le metriche delle transazioni vengono registrate sia per le richieste utente, si
 
 ### <a name="capacity-metrics"></a>Metriche della capacità
 > [!NOTE]
-> Al momento, le metriche per la capacità sono disponibili solo per il servizio BLOB. Le metriche della capacità per il servizio di tabelle e di accodamento saranno disponibili nelle versioni future di Analisi archiviazione.
-> 
-> 
+> Al momento, le metriche per la capacità sono disponibili solo per il servizio BLOB.
+>
+>
 
 I dati relativi alla capacità vengono registrati quotidianamente per il servizio BLOB di un account di archiviazione e vengono scritte due entità di tabella. Un'entità fornisce le statistiche per i dati utente e l'altra le statistiche sul contenitore BLOB `$logs` utilizzato da Analisi archiviazione. Nella tabella `$MetricsCapacityBlob` sono incluse le seguenti statistiche:
 
@@ -139,7 +139,7 @@ I dati relativi alla capacità vengono registrati quotidianamente per il servizi
 * **ContainerCount**: numero di contenitori BLOB nel servizio BLOB dell'account di archiviazione.
 * **ObjectCount**: numero di BLOB di pagine o blocchi inviati e non inviati nel servizio BLOB dell'account di archiviazione.
 
-Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx).
+Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Come vengono archiviate le metriche
 Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiviati in tre tabelle riservate per tale servizio: una tabella per le informazioni sulle transazioni, una per le informazioni sulle transazioni al minuto e un'altra per le informazioni relative alla capacità. Le informazioni sulla transazione e sulle transazioni al minuto consistono nei dati di richiesta e di risposta, mentre le informazioni sulla capacità consistono nei dati d'uso dell'archiviazione. Metriche per ora, minuto e capacità del servizio BLOB di un account di archiviazione sono accessibili nelle tabelle denominate nel modo descritto nella tabella seguente.
@@ -163,7 +163,7 @@ Tutti i dati delle metriche vengono scritti dai servizi di un account di archivi
 
 Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
-* Richieste di creazione di BLOB per la registrazione 
+* Richieste di creazione di BLOB per la registrazione
 * Richieste di creazione di entità di tabella per le metriche
 
 Se è stato configurato un criterio di conservazione dei dati, non verranno addebitati costi per le transazioni eliminate quando Analisi archiviazione elimina i vecchi dati di registrazione e delle metriche. Tuttavia, le transazioni eliminate da un client sono fatturabili. Per ulteriori informazioni sui criteri di conservazione, vedere [Impostazione di un criterio di conservazione dei dati di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Se è stato configurato un criterio di conservazione dei dati, non verranno adde
 ### <a name="understanding-billable-requests"></a>Informazioni sulle richieste fatturabili
 Ogni richiesta effettuata al servizio di archiviazione di un account è fatturabile oppure non fatturabile. Analisi archiviazione registra ogni singola richiesta eseguita a un servizio, incluso un messaggio di stato che indica in che modo è stata gestita la richiesta. Allo stesso modo, Analisi archiviazione archivia le metriche per un servizio e per le operazioni API di tale servizio, incluse le percentuali e il numero di determinati messaggi di stato. Insieme, queste funzionalità possono aiutare l'utente ad analizzare le richieste fatturabili, apportare miglioramenti all'applicazione, e diagnosticare i problemi relativi alle richieste ai servizi. Per altre informazioni sulla fatturazione, vedere [Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le tabelle dell'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/azure/hh343260.aspx) per determinare quali sono le richieste fatturabili. Quindi è possibile confrontare i log e i dati delle metriche ai messaggi di stato per vedere se è stata addebitata una particolare richiesta. Le tabelle dell'argomento citato possono anche essere utilizzate per investigare la disponibilità di un servizio di archiviazione o di una singola operazione API.
+Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le tabelle dell'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) per determinare quali sono le richieste fatturabili. Quindi è possibile confrontare i log e i dati delle metriche ai messaggi di stato per vedere se è stata addebitata una particolare richiesta. Le tabelle dell'argomento citato possono anche essere utilizzate per investigare la disponibilità di un servizio di archiviazione o di una singola operazione API.
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="setting-up-storage-analytics"></a>Configurazione di Analisi archiviazione
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
-* [Abilitazione e configurazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Registrazione di Analisi archiviazione
-* [Informazioni sulla registrazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Metriche di Analisi archiviazione
-* [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Registrazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx)

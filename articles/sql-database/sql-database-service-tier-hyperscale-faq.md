@@ -3,7 +3,7 @@ title: Domande frequenti sui database SQL di Azure di livello Hyperscale | Micro
 description: Risposte alle domande comuni dei clienti sul database SQL di Azure nel livello di servizio Hyperscale, detto comunemente database Hyperscale.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810066"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -198,7 +198,7 @@ No
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 
-Yes
+Sì
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
@@ -222,7 +222,7 @@ Sì. Alcune funzionalità del database SQL di Azure non sono supportate nel live
 
 Sì. È possibile usare tutte le tecnologie di migrazione esistenti per la migrazione al livello Hyperscale, tra cui BACPAC, replica transazionale, caricamento logico dei dati. Vedere anche [Servizio Migrazione del database di Azure](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Quanto è il tempo di inattività durante la migrazione da un ambiente locale o di macchine virtuali al livello Hyperscale e come è possibile ridurlo al minimo
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Quanto è il tempo di inattività durante la migrazione da un ambiente locale o di macchine virtuali al livello Hyperscale e come è possibile ridurlo al minimo
 
 Il tempo di inattività equivale a quello per la migrazione dei database a un database singolo nel database SQL di Azure. È possibile usare la [replica transazionale](replication-to-sql-database.md#data-migration-scenario
 ) per ridurre al minimo il tempo di inattività per la migrazione di database con dimensioni di pochi TB. Per i database di dimensioni molto grandi (più di 10 TB), può essere opportuno eseguire la migrazione dei dati usando ADF, Spark o altre tecnologie di spostamento dati.
@@ -257,7 +257,7 @@ In generale, non viene fornito un contratto di servizio durante l'anteprima pubb
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>I backup dei database vengono gestiti automaticamente dal servizio di database SQL di Azure
 
-Yes
+Sì
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Con che frequenza vengono eseguiti i backup dei database
 
@@ -265,7 +265,7 @@ Per i database SQL Hyperscale non sono previsti i tradizionali backup completi, 
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>Il database SQL Hyperscale supporta il ripristino temporizzato
 
-Yes
+Sì
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Quali sono l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per le operazioni di backup/ripristino nel database SQL Hyperscale
 

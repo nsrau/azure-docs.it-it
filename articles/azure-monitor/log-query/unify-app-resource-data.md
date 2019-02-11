@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265210"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766013"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
-Questo articolo descrive come eseguire query su tutti i dati dei log applicazioni di Application Insights e visualizzarli in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, in sostituzione del Connettore di Application Insights, ora deprecato.  
+Questo articolo descrive come eseguire query su tutti i dati dei log applicazioni di Application Insights e visualizzarli in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, in sostituzione del Connettore di Application Insights, ora deprecato. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Approccio consigliato per eseguire query su più risorse di Application Insights 
 Includere l'elenco di più risorse di Application Insights in una query può risultare impegnativo e difficile da gestire. In alternativa, è possibile sfruttare la funzione che consente di separare la logica di query dalla definizione dell'ambito delle applicazioni.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >In questo esempio l'operatore parse è facoltativo. Estrae il nome dell'applicazione dalla proprietà SourceApp. 
 
-A questo punto si può usare la funzione applicationsScoping nella query su più risorse. L'alias della funzione restituisce l'unione delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione. ![Esempio di risultati di query su più risorse](media/unify-app-resource-data/app-insights-query-results.png)
+A questo punto si può usare la funzione applicationsScoping nella query su più risorse:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+L'alias della funzione restituisce l'unione delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione.
+
+![Esempio di risultati di query su più risorse](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Query sulle risorse di Application Insights e sui dati dell'area di lavoro 
 Quando si arresta il Connettore e si devono eseguire query nel corso di un intervallo di tempo definito in base alla conservazione dei dati di Application Insights (90 giorni), per un periodo intermedio è necessario eseguire [query su più risorse](../../azure-monitor/log-query/cross-workspace-query.md), ovvero nell'area di lavoro e nelle risorse di Application Insights. Ciò è necessario finché i dati delle applicazioni non si accumulano in base al nuovo periodo di conservazione dei dati di Application Insights sopra indicato. La query richiede alcune modifiche poiché gli schemi in Application Insights e nell'area di lavoro sono diversi. Vedere più avanti in questa sezione la tabella che mostra le differenze tra gli schemi. 
@@ -88,16 +101,16 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | message |
+| AvailabilityMessage | Message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
-| AvailabilityTimestamp | timestamp |
+| AvailabilityTimestamp |  timestamp |
 | Browser | client_browser |
-| City | client_city |
+| city | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Paese | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -105,7 +118,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
+| ExceptionMessage | Message | 
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
@@ -118,9 +131,9 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | success | 
+| RequestSuccess | esito positivo | 
 | ResponseCode | resultCode | 
-| Role | cloud_RoleName |
+| Ruolo | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |

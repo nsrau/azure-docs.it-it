@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2990ce7a555fae54b8628f11cd90124860a5b983
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457429"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656737"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 
@@ -40,14 +40,14 @@ Creare prima di tutto un account di archiviazione, se non ne è già disponibile
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passaggio 2: abilitare la crittografia del servizio di archiviazione per l'archiviazione BLOB e file
 
-Per abilitare la crittografia SSE usando chiavi gestite dal cliente, è necessario abilitare in Azure Key Vault anche due funzionalità di sicurezza delle chiavi, per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di evitare che le chiavi vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware.
+Per abilitare la crittografia SSE usando chiavi gestite dal cliente, è necessario abilitare in Azure Key Vault anche due funzionalità di sicurezza delle chiavi, per l'eliminazione temporanea e la protezione dall'eliminazione. Queste impostazioni consentono di evitare che le chiavi vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware.
 
 Se si vogliono abilitare a livello di codice le chiavi gestite dal cliente per la crittografia SSE, è possibile usare l'[API REST del provider di risorse di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 Per usare chiavi gestite dal cliente con la crittografia SSE, è necessario assegnare un'identità all'account di archiviazione. È possibile impostare l'identità eseguendo il seguente comando di PowerShell o dell'interfaccia della riga di comando di Azure:
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -60,16 +60,14 @@ az storage account \
 È possibile abilitare l'eliminazione temporanea e la protezione dall'eliminazione eseguendo i seguenti comandi di PowerShell o dell'interfaccia della riga di comando di Azure:
 
 ```powershell
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enableSoftDelete -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enablePurgeProtection -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enablePurgeProtection -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
@@ -126,8 +124,16 @@ Se l'account di archiviazione non ha accesso all'insieme di credenziali delle ch
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy `
+    -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+    -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: copiare i dati nell'account di archiviazione
@@ -174,7 +180,7 @@ La crittografia del servizio di archiviazione è abilitata per tutti gli account
 Accertarsi di usare un account di archiviazione di Azure Resource Manager. Gli account di archiviazione di tipo classico non sono supportati con le chiavi gestite dal cliente. La crittografia SSE con chiavi gestite dal cliente può essere abilitata solo sugli account di archiviazione di Resource Manager.
 
 **A cosa servono le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione? È necessario abilitarle per usare la crittografia SSE con chiavi gestite dal cliente?**  
-Per usare la crittografia del servizio di archiviazione con chiavi gestite dal cliente, è necessario abilitare le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di assicurarsi che le chiavi non vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware. Questa impostazione non può essere disabilitata.
+Per usare la crittografia del servizio di archiviazione con chiavi gestite dal cliente, è necessario abilitare le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione. Queste impostazioni garantiscono che la chiave non venga eliminata intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware. Questa impostazione non può essere disabilitata.
 
 **La crittografia del servizio di archiviazione con chiavi gestite dal cliente è disponibile solo in aree specifiche?**  
 La crittografia del servizio di archiviazione con chiavi gestite dal cliente è disponibile in tutte le aree per Archiviazione BLOB di Azure e per File di Azure.
