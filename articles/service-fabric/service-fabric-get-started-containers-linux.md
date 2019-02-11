@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: e91c6fcb7d1943136ab1c110dd81445ab43164a7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 8cd7b33cca46433ec5efbc3a436f56ddc869a567
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100837"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820029"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -264,7 +264,8 @@ Connettersi al cluster locale di Service Fabric.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Usare lo script di installazione messo a disposizione nel modello per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.
+Usare lo script di installazione messo a disposizione nei modelli in https://github.com/Azure-Samples/service-fabric-containers/ per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.
+
 
 ```bash
 ./install.sh

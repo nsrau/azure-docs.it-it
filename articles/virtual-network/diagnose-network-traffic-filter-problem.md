@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821865"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -181,7 +181,7 @@ Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso 
 
 Quando Azure elabora il traffico in ingresso, elabora le regole nel gruppo di sicurezza di rete associato alla subnet, se presente, e quindi elabora le regole nel gruppo di sicurezza di rete associato all'interfaccia di rete. Se esiste un NSG associato all'interfaccia di rete e alla subnet, perché il traffico possa raggiungere la VM, la porta deve essere aperta in entrambi gli NSG. Per semplificare la soluzione dei problemi di gestione e comunicazione, è consigliabile associare un NSG a una subnet, anziché a interfacce di rete singole. Se le macchine virtuali all'interno di una subnet necessitano di regole di sicurezza diverse, è possibile rendere le interfacce di rete membri di un gruppo di sicurezza dell'applicazione e specificare un gruppo di sicurezza dell'applicazione come origine e destinazione di una regola di sicurezza. Per altre informazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
 
-Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e [Diagnosi aggiuntiva](#additional-dignosis).
+Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e Diagnosi aggiuntiva.
 
 ## <a name="considerations"></a>Considerazioni
 
