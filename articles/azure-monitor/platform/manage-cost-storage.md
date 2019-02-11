@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3372d399c339133fc0ee3dbfd031ec3c4c03cc3b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821474"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gestire l'utilizzo e i costi per Log Analytics
 
@@ -112,7 +112,7 @@ Se l'area di lavoro di Log Analytics ha accesso ai piani tariffari esistenti, mo
 3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
     ![Piano tariffario selezionato](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
+Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
 
 > [!NOTE]
 > Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
@@ -128,7 +128,7 @@ Quando la raccolta dati si interrompe, OperationStatus è Avviso. Quando la racc
 |Motivo dell'arresto della raccolta| Soluzione| 
 |-----------------------|---------|
 |Limite giornaliero del piano tariffario legacy Gratuito raggiunto |Attendere fino al giorno successivo per il riavvio automatico della raccolta oppure passare a un piano tariffario a pagamento.|
-|È stato raggiunto il limite giornaliero dell'area di lavoro|Attendere per il riavvio automatico della raccolta oppure aumentare il limite giornaliero per il volume di dati, come descritto in [Gestire il volume di dati giornaliero massimo](#manage-the-maximum-daily-volume). Il tempo di ripristino del limite giornaliero viene visualizzato nella pagina **Gestione del volume dati**. |
+|È stato raggiunto il limite giornaliero dell'area di lavoro|Attendere il riavvio automatico della raccolta oppure aumentare il limite giornaliero per il volume di dati, come descritto nella sezione sulla gestione del volume di dati giornaliero massimo. Il tempo di ripristino del limite giornaliero viene visualizzato nella pagina **Gestione del volume dati**. |
 |La sottoscrizione di Azure è in sospeso perché:<br> la versione di prova gratuita è terminata<br> Azure Pass è scaduto<br> Il limite di spesa mensile è stato raggiunto, ad esempio in una sottoscrizione MSDN o in una sottoscrizione di Visual Studio|Passare a una sottoscrizione a pagamento<br> Rimuovere il limite oppure attendere fino ripristino del limite|
 
 Per ricevere una notifica all'interruzione della raccolta dati, usare la procedura per la *creazione di un avviso relativo al limite di dati giornaliero* per ricevere una notifica quando la raccolta dati si arresta e seguire i passaggi per aggiungere azioni alle regole di avviso per configurare un messaggio di posta elettronica, un webhook o un runbook per la regola di avviso. 
@@ -231,7 +231,7 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 
 | Origine del volume di dati elevato | Come ridurre il volume di dati |
 | -------------------------- | ------------------------- |
-| Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [controllo Registro di sistema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
+| Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [controllo Registro di sistema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
 | Contatori delle prestazioni       | Modificare la [configurazione del contatore delle prestazioni](data-sources-performance-counters.md) per: <br> - Ridurre la frequenza di raccolta <br> - Ridurre il numero di contatori delle prestazioni |
 | Log eventi                 | Modificare la [configurazione del log eventi](data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
 | syslog                     | Modificare la [configurazione di Syslog](data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |

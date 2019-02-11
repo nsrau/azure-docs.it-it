@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187075"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745674"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali (anteprima)
 
@@ -27,6 +27,7 @@ Questo articolo descrive problemi noti relativi a Monitoraggio di Azure per le m
 ## <a name="health"></a>Integrità 
 Di seguito sono descritti i problemi noti relativi alla versione corrente della funzione di integrità:
 
+- Il pannello delle proprietà della macchina virtuale visualizza il sistema operativo Windows Server 2019 come Windows Server 2016. Questo problema verrà risolto in una versione futura.
 - Se una macchina virtuale di Azure viene rimossa o eliminata, viene visualizzata nella visualizzazione elenco delle macchine virtuali per un periodo. Facendo clic sullo stato di una macchina virtuale rimossa o eliminata, viene aperta la vista **Diagnostica integrità** e si avvia un ciclo di caricamento. Selezionando il nome di una macchina virtuale eliminata, viene aperto un pannello con un messaggio che dice che la macchina virtuale è stata eliminata.
 - L'applicazione delle modifiche di configurazione, ad esempio l'aggiornamento di una soglia, può richiedere fino a 30 minuti, anche se l'API di monitoraggio del carico di lavoro o il portale potrebbe aggiornarle immediatamente. 
 - L'esperienza della diagnostica di integrità si aggiorna più velocemente rispetto alle altre viste. Le informazioni potrebbero subire un ritardo quando si passa da una vista all'altra. 

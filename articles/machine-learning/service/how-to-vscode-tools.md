@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245567"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752569"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introduzione ad Azure Machine Learning per Visual Studio Code
 
@@ -23,10 +23,10 @@ In questo articolo si apprenderà come installare l'estensione **Azure Machine L
 
 Usare l'estensione Azure Machine Learning in Visual Studio code per usufruire del servizio Azure Machine Learning per preparare i dati, eseguire il training e testare i modelli di apprendimento automatico in destinazioni di calcolo locali e remote, distribuire tali modelli e tenere traccia di esperimenti e metriche personalizzate.
 
-## <a name="prerequisite"></a>Prerequisito
+## <a name="prerequisites"></a>Prerequisiti
 
 
-+ Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
++ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 + È necessario installare Visual Studio Code. Visual Studio Code è un editor di codice sorgente leggero, ma potente che viene eseguito sul desktop. Include supporto integrato per Python e altro ancora.  [Informazioni su come installare Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
@@ -60,19 +60,17 @@ Per usare Azure Machine Learning, è necessario trasformare Visual Studio Code i
 > [!Tip] 
 > Consultare l'[estensione IntelliCode per Visual Studio Code (anteprima)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode fornisce un set di funzionalità supportate da AI per IntelliSense in Python, ad esempio dedurre i completamenti automatici più pertinenti in base al contesto di codice corrente.
 
-## <a name="install-the-sdk"></a>Installare l'SDK
+## <a name="azure-ml-sdk-installation"></a>Installazione di Azure Machine Learning SDK
 
 1. Assicurarsi che Python 3.5 o versione successiva sia installato e riconosciuto da Visual Studio Code. Se si installa ora, riavviare Visual Studio Code e selezionare un interprete Python seguendo le istruzioni in https://code.visualstudio.com/docs/python/python-tutorial.
-
-1. In Visual Studio Code, aprire il riquadro comandi **CTRL+MAIUSC+P**.
-
-1. Digitare "installare Azure Machine Learning SDK" per trovare il comando di installazione pip per l'SDK. Viene creato un ambiente Python privato locale che presenta i prerequisiti di Visual Studio Code per l'uso di Azure Machine Learning.
-
-   ![Installare Azure Machine Learning SDK per Python](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. Nella finestra del terminale integrato, specificare l'interprete Python da usare oppure premere **INVIO** per usare l'interprete Python predefinito.
 
    ![Scegliere l'interprete](./media/vscode-tools-for-ai/python.png)
+
+1. Nell'angolo inferiore destro della finestra verrà visualizzata una notifica indicante che l'installazione automatica di Azure Machine Learning SDK è in corso.    Viene creato un ambiente Python privato locale che presenta i prerequisiti di Visual Studio Code per l'uso di Azure Machine Learning.
+
+   ![Installare Azure Machine Learning SDK per Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Introduzione ad Azure Machine Learning
 

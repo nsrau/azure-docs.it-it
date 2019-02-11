@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161767"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732584"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -120,7 +120,7 @@ Per semplificare il processo, vengono forniti [esempi di codice](https://github.
 ### <a name="getting-started"></a>Introduzione
 Il modo più semplice per implementare un endpoint SCIM in grado di accettare richieste di provisioning da Azure AD consiste nel compilare e distribuire l'esempio di codice che fornisce come output gli utenti con provisioning in un file CSV (Comma-Separated Value).
 
-**Per creare un endpoint SCIM di esempio:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Per creare un endpoint SCIM di esempio
 
 1. Scaricare il pacchetto del codice di esempio dal sito [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 8. In Windows, in **Impostazioni di Windows > Rete e Internet**, selezionare **Windows Firewall > Impostazioni avanzate** e quindi creare una **Nuova regola connessioni in entrata** che consente l'accesso in ingresso alla porta 9000.
 9. Se il computer Windows si trova dietro un router, è necessario configurare il router in modo che esegua NAT (Network Access Translation) tra la rispettiva porta 9000 esposta a Internet e la porta 9000 nel computer Windows. Questa configurazione è necessario per consentire ad Azure AD di accedere a questo endpoint sul cloud.
 
-**Per registrare l'endpoint SCIM di esempio in Azure AD:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Per registrare l'endpoint SCIM di esempio in Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Passare ad **Azure Active Directory > Applicazioni aziendali** e selezionare **Nuova applicazione > Tutte > Applicazione non nella raccolta**.

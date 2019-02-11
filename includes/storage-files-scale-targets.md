@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 038c273806188d04223f1e455c158249a3e17718
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 72b7bd722bc7634a707e10cbcd45768140ed527a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165151"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757555"
 ---
 | Risorsa | Condivisioni file Standard | Condivisioni file Premium (anteprima) |
 |----------|---------------|------------------------------------------|
@@ -22,3 +22,5 @@ ms.locfileid: "50165151"
 | Velocità effettiva da raggiungere per singola condivisione di file | Fino a 60 MiB/sec | Fino a 612 MiB/sec (con provisioning) |
 | Numero massimo di handle aperti per ogni file | 2000 handle aperti | 2000 handle aperti |
 | Numero massimo di condivisioni snapshot | 200 snapshot di condivisione | 200 snapshot di condivisione |
+| Lunghezza massima del nome dell'oggetto (directory e file) | 2048 caratteri | 2048 caratteri |
+| Numero massimo di componenti del percorso (nel percorso \A\B\C\D ogni lettera è un componente) | 255 caratteri | 255 caratteri |

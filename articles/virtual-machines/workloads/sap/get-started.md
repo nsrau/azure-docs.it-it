@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0988a6367eb1a1bacaab61f8bc5924a2c9f0a58c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474718"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744824"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 
@@ -35,6 +35,8 @@ L'univocità di Azure per SAP HANA è rappresentata da un'offerta che distingue 
 L'hosting di scenari di carichi di lavoro SAP in Azure consente anche di creare i requisiti di integrazione della soluzione di gestione delle identità e Single Sign-On usando Azure Active Directory in vari componenti SAP e offerte SAP di tipo SaaS o PaaS. La sezione sull'integrazione della soluzione di gestione delle identità e Single Sign-On SAP AAD descrive e illustra un elenco di questi scenari di integrazione e Single Sign-On con Azure Active Directory (AAD) ed entità SAP.
 
 ## <a name="latest-changes"></a>Modifiche più recenti
+
+Pubblicazione di [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md) (Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure)
 
 Pubblicazione di [Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP](sap-deployment-checklist.md)
 

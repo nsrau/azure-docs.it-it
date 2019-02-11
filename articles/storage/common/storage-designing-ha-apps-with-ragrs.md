@@ -1,20 +1,20 @@
 ---
-title: Progettazione di applicazioni a disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) | Documentazione Microsoft
+title: Progettazione di applicazioni a disponibilità elevata usando l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) | Microsoft Docs
 description: Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454944"
+ms.locfileid: "55512245"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -43,9 +43,7 @@ Tener conto dei punti chiave seguenti quando si progetta un'applicazione per l'a
 
 * È possibile usare la libreria client di archiviazione per interagire con i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
 
-* Se si verifica un problema grave che interessa l'accessibilità dei dati nell'area primaria, il team di Azure può attivare un failover geografico; le voci DNS che puntano all'area primaria verranno quindi modificate per puntare all'area secondaria.
-
-* Se si verifica un failover geografico, Azure selezionerà una nuova posizione secondaria e replicherà i dati in tale posizione, puntandovi quindi le voci DNS secondarie. L'endpoint secondario non sarà disponibile fino al termine della replica dell'account di archiviazione. Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Se l'area primaria diventa non disponibile, è possibile avviare il failover di un account. Quando si effettua il failover all'area secondaria, le voci DNS che puntano all'area primaria vengono modificate in modo da puntare all'area secondaria. Dopo aver completato il failover, viene ripristinato l'accesso in scrittura per gli account con archiviazione con ridondanza geografica e RA-GRS. Per altre informazioni, consultare [Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Considerazioni sulla progettazione di applicazioni quando si usa l'archiviazione con ridondanza geografica e accesso in lettura
 

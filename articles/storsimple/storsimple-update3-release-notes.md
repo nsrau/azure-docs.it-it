@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9308602b77903e553e26d6f0586d963a4c58230d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: d18feba4ded3dfccb8f774112a7dc8d42b12f1d5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057826"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488324"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 3 del dispositivo StorSimple serie 8000
 
@@ -60,7 +60,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 ## <a name="known-issues-in-update-3"></a>Problemi noti nell'aggiornamento 3
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
-| di serie | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+|  No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un'assenza di quorum disco, il pool di archiviazione sarà offline. Il pool rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No  |
 | 2 |ID controller non corretto |Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. |Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller. |Sì |No  |
@@ -70,7 +70,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md). |Sì |No  |
 | 7 |Proxy Web |Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | |Sì |No  |
 | 8 |Elevata latenza del cloud ed elevato carico di lavoro I/O |Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". |In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere  il problema. |Sì |No  |
-| 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poter creare un oggetto **VolumeContainer** nuovo, il cmdlet restituisce tutti gli oggetti. |Racchiudere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
+| 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poter creare un oggetto **VolumeContainer** nuovo, il cmdlet restituisce tutti gli oggetti. |Eseguire il wrapping di cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
 | 10 |Migrazione |Quando, per la migrazione, vengono passati più contenitori del volume, ETA per il backup più recente è accurato solo per il primo contenitore del volume. Inoltre, la migrazione parallela verrà avviata dopo la migrazione dei primi quattro backup nel primo contenitore del volume. |Si consiglia di migrare un contenitore del volume alla volta. |Sì |No  |
 | 11 |Migrazione |Dopo il ripristino, i volumi non vengono aggiunti ai criteri di backup o al gruppo di dischi virtuali. |È necessario aggiungerli a un criterio di backup per creare i backup. |Sì |Sì |
 | 12 |Migrazione |Al termine della migrazione, il dispositivo di serie 5000/7000 non deve accedere ai contenitori di dati migrati. |Dopo il completamento e l'approvazione della migrazione, è consigliabile eliminare i contenitori di dati migrati. |Sì |No  |
@@ -83,7 +83,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 19 |Volumi aggiunti in locale |Se si annulla un processo di ripristino o se un ripristino ha esito negativo e quindi si verifica un failover del controller, viene visualizzato un processo di ripristino aggiuntivo nella pagina **Processi** . |Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. |Sì |No  |
 | 20 |Volumi aggiunti in locale |Se si cerca di convertire un volume a livelli (creato e clonato con l'aggiornamento 1.2 o precedente) in un volume aggiunto in locale e il dispositivo sta esaurendo lo spazio o si verifica un'interruzione del cloud, i cloni possono risultare danneggiati. |Questo problema si verifica solo con i volumi che sono stati creati e clonati con software precedente all'aggiornamento 2.1. Si tratta di uno scenario poco frequente. | | |
 | 21 |Conversione del volume |Non aggiornare i record di controllo di accesso collegati a un volume mentre è in corso una conversione del volume (da volume a livelli a volume aggiunto in locale o viceversa). L'aggiornamento dei record di controllo di accesso potrebbe causare il danneggiamento dei dati. |Se necessario, aggiornare i record di controllo di accesso prima della conversione del volume e non eseguire altri aggiornamenti dei record di controllo di accesso mentre la conversione è in corso. | | |
-| 22 |Aggiornamenti |Quando si applica l'aggiornamento 3, nella pagina **Manutenzione** del portale di Azure classico verrà visualizzato il seguente messaggio relativo all'aggiornamento 2: - "L'aggiornamento 2 di StorSimple serie 8000 consente a Microsoft di raccogliere in modo attivo le informazioni di log dal dispositivo quando vengono rilevati problemi potenziali". Si tratta di un messaggio fuorviante, poiché indica che al dispositivo sta per essere applicato l'aggiornamento 2. Dopo aver applicato l'aggiornamento 3 al dispositivo, il messaggio scomparirà. |Questo comportamento verrà risolto in una versione futura. |Sì |No  |
+| 22 |Aggiornamenti |Quando si applica l'aggiornamento 3, nella pagina **Manutenzione** del portale di Azure classico verrà visualizzato il seguente messaggio relativo all'aggiornamento 2: - "L'aggiornamento 2 di StorSimple serie 8000 consente a Microsoft di raccogliere in modo attivo le informazioni di log dal dispositivo quando vengono rilevati problemi potenziali". Si tratta di un messaggio fuorviante, poiché indica che al dispositivo sta per essere applicato l'aggiornamento 2. Dopo aver applicato correttamente l'aggiornamento 3 al dispositivo, il messaggio scomparirà. |Questo comportamento verrà risolto in una versione futura. |Sì |No  |
 
 ## <a name="controller-and-firmware-updates-in-update-3"></a>Aggiornamenti firmware e controller presenti nell'aggiornamento 3
 Questa versione dispone degli aggiornamenti del firmware e del driver LSI. Per altre informazioni su come installare gli aggiornamenti per firmware e driver LSI, vedere l'articolo sull' [installazione dell'aggiornamento 3](storsimple-install-update-3.md) nel dispositivo StorSimple.

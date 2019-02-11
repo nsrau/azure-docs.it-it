@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472984"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821185"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 Il parametro `kind` del metodo [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) consente di categorizzare i file persistenti. Esistono quattro tipi [TaskOutputKind][net_taskoutputkind] predefiniti: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.` È anche possibile definire categorie personalizzate di output.
 
-Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili in [Recuperare l'output](#retrieve-output) più avanti nell'articolo.
+Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili più avanti nell'articolo alla sezione Retrieve output (Recuperare l'output).
 
 > [!TIP]
 > Il tipo di output determina inoltre in quale area del portale di Azure viene visualizzato un file specifico: i file categorizzati come *TaskOutput* vengono visualizzati in **File di output delle attività** e i file *TaskLog* vengono visualizzati in **Task logs** (Log delle attività).
@@ -197,7 +197,7 @@ Il portale di Azure visualizza gli output e i log di un'attività resi persisten
 
 Per abilitare la visualizzazione dei file di output nel portale, è necessario soddisfare i requisiti seguenti:
 
-1. [Collegare un account di archiviazione di Azure](#requirement-linked-storage-account) all'account Batch.
+1. Collegare un account di Archiviazione di Azure all'account Batch.
 1. Rispettare le convenzioni di denominazione predefinite per i contenitori di archiviazione e i file durante il salvataggio in modo permanente degli output. È possibile trovare la definizione di queste convenzioni nel file [LEGGIMI][github_file_conventions_readme] della libreria File Conventions. Se si usa la libreria [Azure Batch File Conventions][nuget_package] per rendere persistente l'output, i file vengono resi persistenti in base allo standard File Conventions.
 
 Per visualizzare i file di output delle attività e i log nel portale di Azure, passare all'attività di cui si vuole visualizzare l'output, quindi fare clic su **File di output salvati** o **Log salvati**. L'immagine illustra l'opzione **ile di output salvato** per l'attività con ID "007":

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388430"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815647"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limiti di Azure Data Box Gateway (anteprima)
 
@@ -26,7 +26,7 @@ Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Gateway, t
 
 ## <a name="data-box-gateway-service-limits"></a>Limiti del servizio Data Box Gateway
 
-- In questa versione, il servizio è disponibile solo in determinate aree geografiche di Stati Uniti, Europa e Asia Pacifico. Per altre informazioni, vedere [Disponibilità a livello di area](#data-box-gateway-overview#region-availability). L'account di archiviazione deve essere fisicamente più vicino all'area in cui è distribuito il dispositivo (può essere diverso dalle impostazioni geografiche del servizio).
+- In questa versione, il servizio è disponibile solo in determinate aree geografiche di Stati Uniti, Europa e Asia Pacifico. Per altre informazioni, vedere la disponibilità a livello di area. L'account di archiviazione deve essere fisicamente più vicino all'area in cui è distribuito il dispositivo (può essere diverso dalle impostazioni geografiche del servizio).
 - Non è supportato lo spostamento di una risorsa di Data Box Gateway in un'altra sottoscrizione o in un altro gruppo di risorse. Per altri dettagli, vedere [Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Limiti del dispositivo Data Box Gateway

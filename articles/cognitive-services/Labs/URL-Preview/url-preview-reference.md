@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222916"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812056"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informazioni di riferimento su Project URL Preview v7
 
@@ -75,8 +75,8 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 
 |NOME|Valore|Type|Obbligatoria|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, vedere [Codici di mercato](#market-codes).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|string|Yes|
-|<a name="query" />q|URL per l'anteprima|string|Yes|
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|string|Sì|
+|<a name="query" />q|URL per l'anteprima|string|Sì|
 |<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](http://json-ld.org/).|string|No |
 |<a name="safesearch"/>safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e il flag *isFamilyFriendly* non viene restituito. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |string|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.|
 

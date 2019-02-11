@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629848"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732351"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
 * Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-security.md#attestation-mechanism) in uso:
     * [**TPM (Trusted Platform Module)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Registrazione singola: ID registrazione e chiave di verifica dell'autenticità del TPM da un dispositivo fisico o da un simulatore TPM.
         * Il gruppo di registrazioni non è valido per l'attestazione TPM.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * Registrazione singola: [certificato foglia](/azure/iot-dps/concepts-security#leaf-certificate) dal dispositivo fisico o dall'emulatore [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) dell'SDK.
-        * Gruppo di registrazioni: [certificato della CA/radice](/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE dell'SDK.
+        * Registrazione singola: il [certificato foglia](/azure/iot-dps/concepts-security) dal dispositivo fisico o dall'emulatore [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) dell'SDK.
+        * Gruppo di registrazioni: il [certificato CA/radice](/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE dell'SDK.
 * Le chiamate API possono essere diverse a seconda dei diversi linguaggi. Per i dettagli fare riferimento agli esempi disponibili su GitHub:
    * [Esempi client del servizio di provisioning per Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Esempi client del servizio di provisioning per Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)

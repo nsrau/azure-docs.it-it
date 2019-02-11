@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469397"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814113"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database autonomi, in pool e in istanza nel database SQL di Azure
 
-La replica transazionale è una funzionalità del database SQL di Azure, Istanza gestita e SQL Server che consente di replicare i dati da una tabella nel database SQL di Azure o in SQL Server verso tabelle inserite in database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi.
+La replica transazionale è una funzionalità del database SQL di Azure e di SQL Server che consente di replicare i dati da una tabella nel database SQL di Azure o in un SQL Server verso tabelle inserite in database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi.
 
 ## <a name="when-to-use-transactional-replication"></a>Quando usare la replica transazionale
 
@@ -38,15 +38,15 @@ I componenti chiave della replica transazionale sono illustrati nell'immagine se
 ![Replica con database SQL](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-Il **server di pubblicazione** è un'istanza o un server che pubblica le modifiche apportate in alcune tabelle (articoli) inviando gli aggiornamenti al database di distribuzione. La pubblicazione in un database SQL di Azure da SQL Server locale è supportata nelle versioni seguenti di SQL Server:
+Il **server di pubblicazione** è un'istanza o un server che pubblica le modifiche apportate in alcune tabelle (articoli) inviando gli aggiornamenti al database di distribuzione. La pubblicazione in un database SQL di Azure qualsiasi da un SQL Server locale è supportata dalle versioni seguenti di SQL Server:
 
-    - SQL Server 2019 (anteprima)
-    - SQL Server da 2016 a 2017
-    - SQL Server 2014 SP1 CU3 o versione successiva (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 o versione successiva (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server. 
+   - SQL Server 2019 (anteprima)
+   - SQL Server da 2016 a 2017
+   - SQL Server 2014 SP1 CU3 o versione successiva (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 o versione successiva (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server. 
 
 Il **database di distribuzione** è un'istanza o un server che raccoglie le modifiche negli articoli da un server di pubblicazione e li distribuisce ai sottoscrittori. Il database di distribuzione può essere un'istanza gestita di database SQL di Azure o SQL Server (qualsiasi versione purché uguale o superiore alla versione del server di pubblicazione). 
 
@@ -54,10 +54,10 @@ Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportat
 
 | Ruolo | Database autonomi e in pool | Database in istanza |
 | :----| :------------- | :--------------- |
-| **Autore** | No  | Yes | 
-| **Database di distribuzione** | No  | Yes|
-| **Sottoscrittore pull** | No  | Yes|
-| **Sottoscrittore push**| Yes | Yes|
+| **Autore** | No  | Sì | 
+| **Database di distribuzione** | No  | Sì|
+| **Sottoscrittore pull** | No  | Sì|
+| **Sottoscrittore push**| Sì | Sì|
 | &nbsp; | &nbsp; | &nbsp; |
 
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
@@ -65,12 +65,12 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
 | Replica | Database autonomi e in pool | Database in istanza|
 | :----| :------------- | :--------------- |
-| [**Transazionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Yes | 
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Yes|
+| [**Transazionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
 | [**Replica di tipo merge**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No  | No |
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No  | No |
-| **Unidirezionale** | Yes | Yes|
-| [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No  | Yes|
+| **Unidirezionale** | Sì | Sì|
+| [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No  | Sì|
 | [**Sottoscrizioni aggiornabili**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No  | No |
 | &nbsp; | &nbsp; | &nbsp; |
 

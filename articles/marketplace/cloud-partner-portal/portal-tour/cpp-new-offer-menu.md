@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195071"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656852"
 ---
 # <a name="new-offer-menu"></a>Menu Nuova offerta
 
@@ -34,6 +34,7 @@ Il menu **Nuova offerta** consente ai partner di creare istanze dei tipi di offe
 | ![Voce di menu Dynamics 365 for Customer Engagement](./media/new-offer-menu5.png) | [Offerta Dynamics 365 for Customer Engagement](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Voce di menu Dynamics 365 for Operations](./media/new-offer-menu6.png) | [Offerta Dynamics 365 for Operations](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![Voce di menu Moduli IoT Edge](./media/new-offer-menu7.png) | [Offerta di modulo IoT Edge](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Voce di menu dell'app Power BI](./media/new-offer-pbi.png)   |  [Offerta per app Power BI](../power-bi/cpp-power-bi-offer.md)  |
 | ![ Voce di menu App SaaS](./media/new-offer-menu8.png) | [Offerta di applicazioni SaaS](../saas-app/cpp-saas-offer.md) |
 | ![ Voce di menu Macchine virtuali](./media/new-offer-menu9.png) | [Offerta per le macchine virtuali](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

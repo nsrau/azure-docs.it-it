@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455389"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751634"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 
@@ -50,42 +50,47 @@ Può apparire inconsueto che si inizi un'analisi dell'invio in batch parlando di
 
 Si consideri il codice C# seguente che contiene una sequenza di operazioni di inserimento e aggiornamento in una semplice tabella.
 
-    List<string> dbOperations = new List<string>();
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
-    dbOperations.Add("insert MyTable values ('new value',1)");
-    dbOperations.Add("insert MyTable values ('new value',2)");
-    dbOperations.Add("insert MyTable values ('new value',3)");
-
+```csharp
+List<string> dbOperations = new List<string>();
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
+dbOperations.Add("insert MyTable values ('new value',1)");
+dbOperations.Add("insert MyTable values ('new value',2)");
+dbOperations.Add("insert MyTable values ('new value',3)");
+```
 Il codice ADO.NET seguente esegue queste operazioni in sequenza.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        conn.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
 
-        foreach(string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn);
-            cmd.ExecuteNonQuery();                   
-        }
+    foreach(string commandString in dbOperations)
+    {
+        SqlCommand cmd = new SqlCommand(commandString, conn);
+        cmd.ExecuteNonQuery();
     }
+}
+```
 
 Il modo migliore per ottimizzare il codice consiste nell'implementare una qualche forma di invio in batch di queste chiamate sul lato client. Esiste tuttavia un modo semplice per migliorare le prestazioni del codice, eseguendo semplicemente il wrapping della sequenza di chiamate in una transazione. Ecco lo stesso codice che usa una transazione.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
+    SqlTransaction transaction = conn.BeginTransaction();
+
+    foreach (string commandString in dbOperations)
     {
-        conn.Open();
-        SqlTransaction transaction = conn.BeginTransaction();
-
-        foreach (string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
-            cmd.ExecuteNonQuery();
-        }
-
-        transaction.Commit();
+        SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
+        cmd.ExecuteNonQuery();
     }
+
+    transaction.Commit();
+}
+```
 
 Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
 
@@ -124,59 +129,66 @@ Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali 
 
 I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType**.
 
+```sql
     CREATE TYPE MyTableType AS TABLE 
     ( mytext TEXT,
       num INT );
-
+```
 
 Nel codice si crea un oggetto **DataTable** con gli stessi nomi e tipi del tipo di tabella. Passare l'oggetto **DataTable** in un parametro in una chiamata di stored procedure o query di testo. Questa tecnica è illustrata nell'esempio seguente:
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    DataTable table = new DataTable();
+    // Add columns and rows. The following is a simple example.
+    table.Columns.Add("mytext", typeof(string));
+    table.Columns.Add("num", typeof(int));
+    for (var i = 0; i < 10; i++)
     {
-        connection.Open();
-
-        DataTable table = new DataTable();
-        // Add columns and rows. The following is a simple example.
-        table.Columns.Add("mytext", typeof(string));
-        table.Columns.Add("num", typeof(int));    
-        for (var i = 0; i < 10; i++)
-        {
-            table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
-        }
-
-        SqlCommand cmd = new SqlCommand(
-            "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
-            connection);
-
-        cmd.Parameters.Add(
-            new SqlParameter()
-            {
-                ParameterName = "@TestTvp",
-                SqlDbType = SqlDbType.Structured,
-                TypeName = "MyTableType",
-                Value = table,
-            });
-
-        cmd.ExecuteNonQuery();
+        table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
     }
+
+    SqlCommand cmd = new SqlCommand(
+        "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
+        connection);
+
+    cmd.Parameters.Add(
+        new SqlParameter()
+        {
+            ParameterName = "@TestTvp",
+            SqlDbType = SqlDbType.Structured,
+            TypeName = "MyTableType",
+            Value = table,
+        });
+
+    cmd.ExecuteNonQuery();
+}
+```
 
 Nell'esempio precedente l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
-    CREATE PROCEDURE [dbo].[sp_InsertRows] 
-    @TestTvp as MyTableType READONLY
-    AS
-    BEGIN
-    INSERT INTO MyTable(mytext, num) 
-    SELECT mytext, num FROM @TestTvp
-    END
-    GO
+```sql
+CREATE PROCEDURE [dbo].[sp_InsertRows] 
+@TestTvp as MyTableType READONLY
+AS
+BEGIN
+INSERT INTO MyTable(mytext, num) 
+SELECT mytext, num FROM @TestTvp
+END
+GO
+```
 
 Modificare quindi la dichiarazione dell'oggetto **SqlCommand** nell'esempio di codice precedente come segue.
 
-    SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
-    cmd.CommandType = CommandType.StoredProcedure;
+```csharp
+SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
+cmd.CommandType = CommandType.StoredProcedure;
+```
 
 Nella maggior parte dei casi i parametri con valori di tabella hanno prestazioni equivalenti o superiori rispetto ad altre tecniche di invio in batch. I parametri con valori di tabella sono spesso preferibili perché più flessibili di altre opzioni. Ad esempio, altre tecniche come la copia bulk di SQL consentono solo l'inserimento di nuove righe. Con i parametri con valori di tabella è invece possibile usare la logica della stored procedure per determinare le righe da aggiornare e quelle da inserire. È anche possibile modificare il tipo di tabella perché contenga la colonna "Operation" che indica se la riga specificata deve essere inserita, aggiornata o eliminata.
 
@@ -203,18 +215,20 @@ Per altre informazioni sui parametri con valori di tabella, vedere [Usare parame
 
 La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT**. L'esempio di codice seguente illustra come eseguire la copia bulk delle righe nella tabella di origine **DataTable**alla tabella di destinazione MyTable in SQL Server.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
 
-        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-        {
-            bulkCopy.DestinationTableName = "MyTable";
-            bulkCopy.ColumnMappings.Add("mytext", "mytext");
-            bulkCopy.ColumnMappings.Add("num", "num");
-            bulkCopy.WriteToServer(table);
-        }
+    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+    {
+        bulkCopy.DestinationTableName = "MyTable";
+        bulkCopy.ColumnMappings.Add("mytext", "mytext");
+        bulkCopy.ColumnMappings.Add("num", "num");
+        bulkCopy.WriteToServer(table);
     }
+}
+```
 
 In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'articolo [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
@@ -241,24 +255,25 @@ Per altre informazioni sulla copia bulk in ADO.NET, vedere [Operazioni di copia 
 
 Un'alternativa per i batch piccoli consiste nella creazione di un'istruzione INSERT con parametri di grandi dimensioni per l'inserimento di più righe. L'esempio di codice seguente illustra questa tecnica.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
+
+    SqlCommand cmd = new SqlCommand(insertCommand, connection);
+
+    for (int i = 1; i <= 10; i += 2)
     {
-        connection.Open();
-
-        string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
-            "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
-
-        SqlCommand cmd = new SqlCommand(insertCommand, connection);
-
-        for (int i = 1; i <= 10; i += 2)
-        {
-            cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
-            cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
-        }
-
-        cmd.ExecuteNonQuery();
+        cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
+        cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
     }
 
+    cmd.ExecuteNonQuery();
+}
+```
 
 Questo esempio è ideato per illustrare il concetto di base. Uno scenario più realistico prevedrebbe l'esecuzione di un ciclo sulle entità richieste per costruire contemporaneamente la stringa di query e i parametri del comando. Esiste un limite massimo di 2100 parametri di query, il che limita il numero totale di righe elaborabili in questo modo.
 
@@ -378,88 +393,92 @@ L'esempio di codice seguente usa [Reactive Extensions - Rx](https://msdn.microso
 
 La classe NavHistoryData seguente modella i dettagli di navigazione dell'utente. Contiene informazioni di base quali l'identificatore utente, l'URL a cui si accede e l'ora di accesso.
 
-```c#
-    public class NavHistoryData
-    {
-        public NavHistoryData(int userId, string url, DateTime accessTime)
-        { UserId = userId; URL = url; AccessTime = accessTime; }
-        public int UserId { get; set; }
-        public string URL { get; set; }
-        public DateTime AccessTime { get; set; }
-    }
+```csharp
+public class NavHistoryData
+{
+    public NavHistoryData(int userId, string url, DateTime accessTime)
+    { UserId = userId; URL = url; AccessTime = accessTime; }
+    public int UserId { get; set; }
+    public string URL { get; set; }
+    public DateTime AccessTime { get; set; }
+}
 ```
 
 La classe NavHistoryDataMonitor è responsabile del buffering dei dati di navigazione dell'utente nel database. Contiene un metodo RecordUserNavigationEntry che risponde generando un evento **OnAdded** . Il codice seguente illustra la logica del costruttore che utilizza Rx per creare una raccolta osservabile in base all'evento. Sottoscrive quindi questa raccolta osservabile con il metodo Buffer. L'overload specifica che il buffer deve essere inviato ogni 20 secondi o 1000 voci.
 
-```c#
+```csharp
+public NavHistoryDataMonitor()
+{
+    var observableData =
+        Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+
+    observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
+}
+```
+
+Il gestore converte tutti gli elementi memorizzati nel buffer nel tipo con valori di tabella e quindi passa questo tipo a una stored procedure che elabora il batch. Il codice seguente illustra la definizione completa per le classi NavHistoryDataEventArgs e NavHistoryDataMonitor.
+
+```csharp
+public class NavHistoryDataEventArgs : System.EventArgs
+{
+    public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
+    public NavHistoryData Data { get; set; }
+}
+
+public class NavHistoryDataMonitor
+{
+    public event EventHandler<NavHistoryDataEventArgs> OnAdded;
+
     public NavHistoryDataMonitor()
     {
         var observableData =
             Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
 
-        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
     }
 ```
 
 Il gestore converte tutti gli elementi memorizzati nel buffer nel tipo con valori di tabella e quindi passa questo tipo a una stored procedure che elabora il batch. Il codice seguente illustra la definizione completa per le classi NavHistoryDataEventArgs e NavHistoryDataMonitor.
 
-```c#
+```csharp
     public class NavHistoryDataEventArgs : System.EventArgs
     {
-        public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
-        public NavHistoryData Data { get; set; }
+        if (OnAdded != null)
+            OnAdded(this, new NavHistoryDataEventArgs(data));
     }
 
-    public class NavHistoryDataMonitor
+    protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
     {
-        public event EventHandler<NavHistoryDataEventArgs> OnAdded;
-
-        public NavHistoryDataMonitor()
+        DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
+        navHistoryBatch.Columns.Add("UserId", typeof(int));
+        navHistoryBatch.Columns.Add("URL", typeof(string));
+        navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
+        foreach (EventPattern<NavHistoryDataEventArgs> item in items)
         {
-            var observableData =
-                Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-
-            observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+            NavHistoryData data = item.EventArgs.Data;
+            navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
         }
 
-        public void RecordUserNavigationEntry(NavHistoryData data)
-        {    
-            if (OnAdded != null)
-                OnAdded(this, new NavHistoryDataEventArgs(data));
-        }
-
-        protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
+        using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
         {
-            DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
-            navHistoryBatch.Columns.Add("UserId", typeof(int));
-            navHistoryBatch.Columns.Add("URL", typeof(string));
-            navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
-            foreach (EventPattern<NavHistoryDataEventArgs> item in items)
-            {
-                NavHistoryData data = item.EventArgs.Data;
-                navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
-            }
+            connection.Open();
 
-            using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-            {
-                connection.Open();
+            SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(
+                new SqlParameter()
+                {
+                    ParameterName = "@NavHistoryBatch",
+                    SqlDbType = SqlDbType.Structured,
+                    TypeName = "NavigationHistoryTableType",
+                    Value = navHistoryBatch,
+                });
 
-                cmd.Parameters.Add(
-                    new SqlParameter()
-                    {
-                        ParameterName = "@NavHistoryBatch",
-                        SqlDbType = SqlDbType.Structured,
-                        TypeName = "NavigationHistoryTableType",
-                        Value = navHistoryBatch,
-                    });
-
-                cmd.ExecuteNonQuery();
-            }
+            cmd.ExecuteNonQuery();
         }
     }
+}
 ```
 
 Per usare questa classe di buffering, l'applicazione crea un oggetto statico NavHistoryDataMonitor. Ogni volta che l'utente accede a una pagina, l'applicazione chiama il metodo NavHistoryDataMonitor.RecordUserNavigationEntry. La logica di buffering continua a provvedere all'invio delle voci al database in batch.
@@ -469,97 +488,97 @@ Per usare questa classe di buffering, l'applicazione crea un oggetto statico Nav
 I parametri con valori di tabella sono utili per gli scenari INSERT semplici. Tuttavia, può risultare più difficile inviare in batch le operazioni di inserimento che includono più tabelle. Lo scenario "master/dettaglio" è un buon esempio. La tabella master identifica l'entità primaria. In una o più tabelle dei dettagli sono archiviati altri dati sull'entità. In questo scenario, le relazioni di chiave esterna applicano la relazione dei dettagli a un'entità master univoca. Si consideri una versione semplificata di una tabella PurchaseOrder e la tabella associata OrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con quattro colonne: OrderID, OrderDate, CustomerID e Status.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrder](
-    [OrderID] [int] IDENTITY(1,1) NOT NULL,
-    [OrderDate] [datetime] NOT NULL,
-    [CustomerID] [int] NOT NULL,
-    [Status] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrder] 
-    PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrder](
+[OrderID] [int] IDENTITY(1,1) NOT NULL,
+[OrderDate] [datetime] NOT NULL,
+[CustomerID] [int] NOT NULL,
+[Status] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrder] 
+PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
 Ogni ordine contiene uno o più acquisti di prodotti. Tali informazioni vengono acquisite nella tabella PurchaseOrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con cinque colonne: OrderID, OrderDetailID, ProductID, UnitPrice e OrderQty.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrderDetail](
-    [OrderID] [int] NOT NULL,
-    [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
-    [ProductID] [int] NOT NULL,
-    [UnitPrice] [money] NULL,
-    [OrderQty] [smallint] NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
-    ( [OrderID] ASC, [OrderDetailID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrderDetail](
+[OrderID] [int] NOT NULL,
+[OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
+[ProductID] [int] NOT NULL,
+[UnitPrice] [money] NULL,
+[OrderQty] [smallint] NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+( [OrderID] ASC, [OrderDetailID] ASC ))
 ```
 
 La colonna OrderID della tabella PurchaseOrderDetail deve fare riferimento a un ordine dalla tabella PurchaseOrder. La seguente definizione di una chiave esterna applica il vincolo.
 
 ```sql
-    ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
-    CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-    REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 ```
 
 Per usare parametri con valori di tabella, è necessario avere un tipo di tabella definito dall'utente per ogni tabella di destinazione.
 
 ```sql
-    CREATE TYPE PurchaseOrderTableType AS TABLE 
-    ( OrderID INT,
-      OrderDate DATETIME,
-      CustomerID INT,
-      Status NVARCHAR(50) );
-    GO
+CREATE TYPE PurchaseOrderTableType AS TABLE 
+( OrderID INT,
+    OrderDate DATETIME,
+    CustomerID INT,
+    Status NVARCHAR(50) );
+GO
 
-    CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
-    ( OrderID INT,
-      ProductID INT,
-      UnitPrice MONEY,
-      OrderQty SMALLINT );
-    GO
+CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+( OrderID INT,
+    ProductID INT,
+    UnitPrice MONEY,
+    OrderQty SMALLINT );
+GO
 ```
 
 Definire quindi una stored procedure che accetti tabelle di questi tipi. Questa routine consente a un'applicazione di inviare in batch localmente un set di ordini e i dettagli degli ordini in una singola chiamata. L'istruzione Transact-SQL seguente fornisce la dichiarazione completa della stored procedure per questo esempio di ordine di acquisto.
 
 ```sql
-    CREATE PROCEDURE sp_InsertOrdersBatch (
-    @orders as PurchaseOrderTableType READONLY,
-    @details as PurchaseOrderDetailTableType READONLY )
-    AS
-    SET NOCOUNT ON;
+CREATE PROCEDURE sp_InsertOrdersBatch (
+@orders as PurchaseOrderTableType READONLY,
+@details as PurchaseOrderDetailTableType READONLY )
+AS
+SET NOCOUNT ON;
 
-    -- Table that connects the order identifiers in the @orders
-    -- table with the actual order identifiers in the PurchaseOrder table
-    DECLARE @IdentityLink AS TABLE ( 
-    SubmittedKey int, 
-    ActualKey int, 
-    RowNumber int identity(1,1)
-    );
+-- Table that connects the order identifiers in the @orders
+-- table with the actual order identifiers in the PurchaseOrder table
+DECLARE @IdentityLink AS TABLE ( 
+SubmittedKey int, 
+ActualKey int, 
+RowNumber int identity(1,1)
+);
 
-          -- Add new orders to the PurchaseOrder table, storing the actual
-    -- order identifiers in the @IdentityLink table   
-    INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
-    OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
-    SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
+-- Add new orders to the PurchaseOrder table, storing the actual
+-- order identifiers in the @IdentityLink table   
+INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
+OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
+SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
 
-    -- Match the passed-in order identifiers with the actual identifiers
-    -- and complete the @IdentityLink table for use with inserting the details
-    WITH OrderedRows As (
-    SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
-    FROM @orders
-    )
-    UPDATE @IdentityLink SET SubmittedKey = M.OrderID
-    FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
+-- Match the passed-in order identifiers with the actual identifiers
+-- and complete the @IdentityLink table for use with inserting the details
+WITH OrderedRows As (
+SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+FROM @orders
+)
+UPDATE @IdentityLink SET SubmittedKey = M.OrderID
+FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
 
-    -- Insert the order details into the PurchaseOrderDetail table, 
-          -- using the actual order identifiers of the master table, PurchaseOrder
-    INSERT INTO PurchaseOrderDetail (
-    [OrderID],
-    [ProductID],
-    [UnitPrice],
-    [OrderQty] )
-    SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
-    FROM @details D
-    JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
-    GO
+-- Insert the order details into the PurchaseOrderDetail table, 
+-- using the actual order identifiers of the master table, PurchaseOrder
+INSERT INTO PurchaseOrderDetail (
+[OrderID],
+[ProductID],
+[UnitPrice],
+[OrderQty] )
+SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
+FROM @details D
+JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
+GO
 ```
 
 In questo esempio la tabella @IdentityLink definita a livello locale archivia i valori OrderID effettivi dalle righe appena inserite. Gli identificatori di ordine sono diversi dai valori OrderID temporanei nei parametri con valori di tabella @orders e @details. Per questo motivo, la tabella @IdentityLink connette quindi i valori OrderID del parametro @orders ai valori OrderID reali per le nuove righe della tabella PurchaseOrder. Dopo questo passaggio, la tabella @IdentityLink può facilitare l'inserimento dei dettagli degli ordini con il valore OrderID effettivo che soddisfa il vincolo di chiave esterna.
@@ -567,23 +586,23 @@ In questo esempio la tabella @IdentityLink definita a livello locale archivia i 
 Questa stored procedure può essere utilizzata dal codice o da altre chiamate Transact-SQL. Vedere la sezione sui parametri con valori di tabella di questo articolo per un esempio di codice. Il codice Transact-SQL seguente mostra come chiamare sp_InsertOrdersBatch.
 
 ```sql
-    declare @orders as PurchaseOrderTableType
-    declare @details as PurchaseOrderDetailTableType
+declare @orders as PurchaseOrderTableType
+declare @details as PurchaseOrderDetailTableType
 
-    INSERT @orders 
-    ([OrderID], [OrderDate], [CustomerID], [Status])
-    VALUES(1, '1/1/2013', 1125, 'Complete'),
-    (2, '1/13/2013', 348, 'Processing'),
-    (3, '1/12/2013', 2504, 'Shipped')
+INSERT @orders 
+([OrderID], [OrderDate], [CustomerID], [Status])
+VALUES(1, '1/1/2013', 1125, 'Complete'),
+(2, '1/13/2013', 348, 'Processing'),
+(3, '1/12/2013', 2504, 'Shipped')
 
-    INSERT @details
-    ([OrderID], [ProductID], [UnitPrice], [OrderQty])
-    VALUES(1, 10, $11.50, 1),
-    (1, 12, $1.58, 1),
-    (2, 23, $2.57, 2),
-    (3, 4, $10.00, 1)
+INSERT @details
+([OrderID], [ProductID], [UnitPrice], [OrderQty])
+VALUES(1, 10, $11.50, 1),
+(1, 12, $1.58, 1),
+(2, 23, $2.57, 2),
+(3, 4, $10.00, 1)
 
-    exec sp_InsertOrdersBatch @orders, @details
+exec sp_InsertOrdersBatch @orders, @details
 ```
 
 Questa soluzione consente a ogni batch di usare un set di valori OrderID che iniziano da 1. Questi valori OrderID temporanei descrivono le relazioni nel batch, ma i valori OrderID effettivi vengono determinati al momento dell'operazione di inserimento. È possibile eseguire ripetutamente le stesse istruzioni dell'esempio precedente e generare ordini univoci nel database. Per questo motivo, considerare l'aggiunta di più logica di database o di codice che impedisca gli ordini duplicati quando si usa questa tecnica di invio in batch.
@@ -597,40 +616,40 @@ Un altro scenario di invio in batch prevede l'aggiornamento simultaneo di righe 
 I parametri con valori di tabella possono essere usati con l'istruzione MERGE per eseguire aggiornamenti e inserimenti. Si consideri ad esempio una tabella Employee semplificata che contiene le colonne seguenti: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 
 ```sql
-    CREATE TABLE [dbo].[Employee](
-    [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
-    [FirstName] [nvarchar](50) NOT NULL,
-    [LastName] [nvarchar](50) NOT NULL,
-    [SocialSecurityNumber] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
-    ([EmployeeID] ASC ))
+CREATE TABLE [dbo].[Employee](
+[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+[FirstName] [nvarchar](50) NOT NULL,
+[LastName] [nvarchar](50) NOT NULL,
+[SocialSecurityNumber] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+([EmployeeID] ASC ))
 ```
 
 In questo esempio, è possibile usare il fatto che la colonna SocialSecurityNumber è unica per eseguire un'operazione MERGE di più dipendenti. Creare innanzitutto il tipo di tabella definito dall'utente:
 
 ```sql
-    CREATE TYPE EmployeeTableType AS TABLE 
-    ( Employee_ID INT,
-      FirstName NVARCHAR(50),
-      LastName NVARCHAR(50),
-      SocialSecurityNumber NVARCHAR(50) );
-    GO
+CREATE TYPE EmployeeTableType AS TABLE 
+( Employee_ID INT,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    SocialSecurityNumber NVARCHAR(50) );
+GO
 ```
 
 Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella, @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
 
 ```sql
-    MERGE Employee AS target
-    USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
-    AS source ([FirstName], [LastName], [SocialSecurityNumber])
-    ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-    WHEN MATCHED THEN 
-    UPDATE SET
-    target.FirstName = source.FirstName, 
-    target.LastName = source.LastName
-    WHEN NOT MATCHED THEN
-       INSERT ([FirstName], [LastName], [SocialSecurityNumber])
-       VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+MERGE Employee AS target
+USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+AS source ([FirstName], [LastName], [SocialSecurityNumber])
+ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
+WHEN MATCHED THEN 
+UPDATE SET
+target.FirstName = source.FirstName, 
+target.LastName = source.LastName
+WHEN NOT MATCHED THEN
+    INSERT ([FirstName], [LastName], [SocialSecurityNumber])
+    VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 ```
 
 Per altre informazioni, vedere la documentazione e gli esempi relativi all'istruzione MERGE. Anche se la stessa operazione può essere eseguita in una chiamata di stored procedure in più passaggi con le operazioni INSERT e UPDATE, l'istruzione MERGE è più efficiente. Il codice del database può anche creare chiamate Transact-SQL che usano l'istruzione MERGE direttamente senza richiedere due chiamate di database per INSERT e UPDATE.

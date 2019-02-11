@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097300"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820216"
 ---
 # <a name="web-api"></a>API Web
 
@@ -47,7 +47,7 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identità utente delegato con OpenID Connect
 
-1. Un utente esegue l'accesso all'applicazione Web usando Azure AD (vedere la sezione precedente [Da Web browser ad applicazione Web](#web-browser-to-web-application) ). Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Questo processo di consenso è valido solo per le applicazioni multi-tenant, non per le applicazioni con un singolo tenant, perché l'applicazione avrà già le autorizzazioni necessarie. Quando l'utente ha eseguito l'accesso, l'applicazione Web ha ricevuto un token ID con le informazioni relative all'utente, nonché un codice di autorizzazione.
+1. Un utente esegue l'accesso all'applicazione Web usando Azure AD (consultare la sezione precedente Da Web browser ad applicazione Web). Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Questo processo di consenso è valido solo per le applicazioni multi-tenant, non per le applicazioni con un singolo tenant, perché l'applicazione avrà già le autorizzazioni necessarie. Quando l'utente ha eseguito l'accesso, l'applicazione Web ha ricevuto un token ID con le informazioni relative all'utente, nonché un codice di autorizzazione.
 1. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
 1. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.
 1. Su HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016912"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658030"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per il servizio collegato di Oracle sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Oracle**. | Yes |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo di connessione supportato**: per identificare il database, è possibile usare il **SID Oracle** o il **nome del servizio Oracle**:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
+| type | La proprietà type deve essere impostata su **Oracle**. | Sì |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. <br><br>**Tipo di connessione supportato**: per identificare il database, è possibile usare il **SID Oracle** o il **nome del servizio Oracle**:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 >[!TIP]
@@ -126,16 +126,44 @@ Per il servizio collegato di Oracle sono supportate le proprietà seguenti.
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+**Esempio: archiviare la password in Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle.
 
 Per copiare dati da e in Oracle, impostare la proprietà type del set di dati su **OracleTable**. Sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **OracleTable**. | Yes |
-| tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. | Yes |
+| type | La proprietà type del set di dati deve essere impostata su **OracleTable**. | Sì |
+| tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. | Sì |
 
 **Esempio:**
 
@@ -164,9 +192,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia su **OracleSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **OracleSource**. | Yes |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **OracleSource**. | Sì |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`. | No  |
 
 Se non si specifica "oracleReaderQuery", le colonne definite nella sezione "structure" del set di dati vengono usate per creare una query (`select column1, column2 from mytable`) da eseguire nel database Oracle. Se la definizione del set di dati non include "structure", vengono selezionate tutte le colonne della tabella.
@@ -207,9 +235,9 @@ Se non si specifica "oracleReaderQuery", le colonne definite nella sezione "stru
 
 Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su **OracleSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **OracleSink**. | Yes |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **OracleSink**. | Sì |
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No  |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No  |
@@ -255,7 +283,7 @@ Quando si copiano dati da e in Oracle, vengono usati i mapping seguenti tra i ti
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
 | CHAR |string |
 | CLOB |string |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
 | LONG |string |
@@ -266,7 +294,7 @@ Quando si copiano dati da e in Oracle, vengono usati i mapping seguenti tra i ti
 | NVARCHAR2 |string |
 | RAW |Byte[] |
 | ROWID |string |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |string |
 | TIMESTAMP WITH TIME ZONE |string |
 | UNSIGNED INTEGER |NUMBER |

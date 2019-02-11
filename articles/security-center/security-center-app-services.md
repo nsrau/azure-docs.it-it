@@ -3,7 +3,7 @@ title: Protezione dei servizi app nel Centro sicurezza di Azure | Microsoft Docs
 description: Questo articolo illustra come iniziare a proteggere i servizi app nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491944"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteggere il servizio app con il Centro sicurezza di Azure
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare e proteggere le applicazioni in esecuzione sul servizio app.
@@ -65,6 +65,7 @@ Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro 
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): Informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): Informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Servizi app](security-center-virtual-machine-protection.md#app-services):  Visualizzare un elenco degli ambienti del servizio app con riepiloghi sull'integrità.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): Domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.

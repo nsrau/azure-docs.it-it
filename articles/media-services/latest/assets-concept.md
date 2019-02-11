@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969576"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745997"
 ---
 # <a name="assets"></a>Asset
 
@@ -27,25 +27,8 @@ Un asset viene mappato a un contenitore BLOB nell'[account di archiviazione di A
 
 Il livello di archiviazione **archivio** è consigliato solo per file di origine di dimensioni molto estese già codificati e con l'output del processo di codifica inserito in un contenitore BLOB di output. I BLOB nel contenitore di output che si vuole associare a un asset e usare per trasmettere o analizzare il contenuto, devono esistere in un livello di archiviazione ad **accesso frequente** o ad **accesso sporadico**.
 
-## <a name="asset-definition"></a>Definizione di asset
-
-Nella tabella seguente vengono illustrate le proprietà di un asset e le relative definizioni.
-
-|NOME|DESCRIZIONE|
-|---|---|
-|id|ID di risorsa completo per la risorsa.|
-|name|Nome della risorsa.|
-|properties.alternateId |ID alternativo dell'asset.|
-|properties.assetId |ID dell'asset.|
-|properties.container |Nome del contenitore BLOB dell'asset.|
-|properties.created |Data di creazione dell'asset.<br/> La data/ora è sempre in formato UTC.|
-|properties.description|Descrizione dell'asset.|
-|properties.lastModified |Data dell'ultima modifica dell'asset. <br/> La data/ora è sempre in formato UTC.|
-|properties.storageAccountName |Nome dell'account di archiviazione.|
-|properties.storageEncryptionFormat |Formato di crittografia dell'asset. None oppure MediaStorageEncryption.|
-|type|Tipo di risorsa.|
-
-Per una definizione completa, vedere [Assets](https://docs.microsoft.com/rest/api/media/assets) (Asset).
+> [!NOTE]
+> Le proprietà dell'asset di tipo Datetime sono sempre in formato UTC.
 
 ## <a name="upload-digital-files-into-assets"></a>Caricare i file digitali negli asset
 
@@ -104,113 +87,7 @@ Per un esempio completo, vedere [Creare un input del processo da un file locale]
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
-Servizi multimediali supporta le opzioni di query OData seguenti per gli asset: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Descrizione dell'operatore:
-
-* Eq = uguale a
-* Ne = diverso da
-* Ge = maggiore o uguale a
-* Le = minore o uguale a
-* Gt = maggiore di
-* Lt = minore di
-
-### <a name="filteringordering"></a>Filtri/Ordinamento
-
-La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà di un asset: 
-
-|NOME|Filtro|Ordine|
-|---|---|---|
-|id|||
-|name|Supporta: Eq, Gt, Lt|Supporta: Crescente e decrescente|
-|properties.alternateId |Supporta: Eq||
-|properties.assetId |Supporta: Eq||
-|properties.container |||
-|properties.created|Supporta: Eq, Gt, Lt| Supporta: Crescente e decrescente|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|type|||
-
-L'esempio C# seguente applica il filtro alla data di creazione:
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>Paginazione
-
-La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è 1000.
-
-> [!TIP]
-> Usare sempre il collegamento seguente per enumerare la raccolta e non dipendere da una determinata dimensione di pagina.
-
-Se la risposta di una query contiene molti elementi, il servizio restituisce una proprietà "\@odata.nextLink" per ottenere la pagina di risultati successiva. Questa proprietà può essere usata per scorrere l'intero set di risultati. Non è possibile configurare la dimensione della pagina. 
-
-Se gli asset vengono creati o eliminati durante il paging della raccolta, le modifiche vengono riflesse nei risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata). 
-
-#### <a name="c-example"></a>Esempio in C#
-
-L'esempio C# seguente illustra come enumerare tutti gli asset nell'account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>Esempio REST
-
-Si consideri l'esempio seguente per vedere dove viene usato $skiptoken. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
-
-Se si richiede un elenco degli asset simile al seguente:
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-La risposta ottenuta sarà simile a questa:
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-Si può quindi richiedere la pagina successiva inviando una richiesta get per:
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-Per altri esempi REST, vedere [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list) (Asset - Elenco)
+Consultare [Filtering, ordering, paging of Media Services entities](entities-overview.md) (Filtrare, ordinare ed eseguire il paging delle entità di Servizi multimediali).
 
 ## <a name="storage-side-encryption"></a>Crittografia lato archiviazione
 
@@ -228,6 +105,6 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
-
-[Differenze tra Servizi multimediali v2 e v3](migrate-from-v2-to-v3.md)
+* [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
+* [Utilizzo di un DVR cloud](live-event-cloud-dvr.md)
+* [Differenze tra Servizi multimediali v2 e v3](migrate-from-v2-to-v3.md)

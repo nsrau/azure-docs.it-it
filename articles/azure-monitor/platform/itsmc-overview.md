@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262881"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813127"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -44,7 +44,7 @@ Con Connettore di Gestione dei servizi IT, è possibile
 È possibile iniziare a usare Connettore di Gestione dei servizi IT seguendo questa procedura:
 
 1.  [Aggiungere la soluzione Connettore di Gestione dei servizi IT](#adding-the-it-service-management-connector-solution)
-2.  [Creare una connessione di Gestione dei servizi IT](#creating-an-itsm-connection)
+2.  Creare una connessione di Gestione dei servizi IT
 3.  [Usare la connessione](#using-the-solution)
 
 
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Created By (Creato da)
 - Resolved By (Risolto da)
 - Closed By (Chiuso da)
-- Sorgente
+- Source (Sorgente)
 - Assegnato a 
 - Categoria
 - Title
@@ -211,10 +211,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID Service Desk
 - Created By (Creato da)
 - Closed By (Chiuso da)
-- Sorgente
+- Source (Sorgente)
 - Assegnato a 
 - Title
-- type
+- Type
 - Categoria
 - Stato
 - Riassegnazione
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
-| Type_s|  type |
+| Type_s|  Type |
 | Category_s|  Categoria |
 | CRState_s|  Stato|
 | Urgency_s|  Urgenza |

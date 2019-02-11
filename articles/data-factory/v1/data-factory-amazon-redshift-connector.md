@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022020"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817336"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022020"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore Amazon Redshift nella versione 2](../connector-amazon-redshift.md).
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da Amazon Redshift. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia. 
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da Amazon Redshift. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 Attualmente Data Factory supporta solo lo spostamento di dati da Amazon Redshift a un [archivio dati sink consentito](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Lo spostamento di dati da altri archivi dati ad Amazon Redshift non è supportato.
 
@@ -44,15 +44,15 @@ Attualmente Data Factory supporta solo lo spostamento di dati da Amazon Redshift
 
 Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata, vedere [Esercitazione: Creare una pipeline usando la copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile creare una pipeline usando il portale di Azure, Visual Studio, Azure PowerShell o altri strumenti. Per creare la pipeline, è possibile usare anche modelli di Azure Resource Manager, l'API .NET o l'API REST. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+È anche possibile creare una pipeline usando il portale di Azure, Visual Studio, Azure PowerShell o altri strumenti. Per creare la pipeline, è possibile usare anche modelli di Azure Resource Manager, l'API .NET o l'API REST. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i servizi collegati per collegare gli archivi dati di input e output alla data factory.
-2. Creare i set di dati per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una pipeline con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i set di dati per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una pipeline con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la Copia guidata, le definizioni JSON per queste entità di Data Factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. L'esempio di [JSON: Copia i dati da Amazon Redshift alla risorsa di archiviazione BLOB di Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra le definizioni JSON per le entità di Data Factory usate per copiare i dati da un archivio dati Amazon Redshift.
+Quando si usa la Copia guidata, le definizioni JSON per queste entità di Data Factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. La sezione Esempio di JSON: Copiare i dati da Amazon Redshift alla risorsa di Archiviazione BLOB di Azure mostra le definizioni JSON per le entità di Data Factory usate per copiare i dati da un archivio dati Amazon Redshift.
 
 Le sezioni seguenti descrivono le proprietà JSON che vengono usate per definire le entità di Data Factory per Amazon Redshift.
 
@@ -60,22 +60,22 @@ Le sezioni seguenti descrivono le proprietà JSON che vengono usate per definire
 
 La tabella seguente include le descrizioni degli elementi JSON specifici di un servizio collegato Amazon Redshift.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Yes |
-| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Yes |
+| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Sì |
+| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
-| **database** |Nome del database Amazon Redshift. |Yes |
-| **username** |Nome dell'utente che ha accesso al database. |Yes |
-| **password** |La password per l'account utente. |Yes |
+| **database** |Nome del database Amazon Redshift. |Sì |
+| **username** |Nome dell'utente che ha accesso al database. |Sì |
+| **password** |La password per l'account utente. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md). Le sezioni **structure**, **availability** e **policy** sono simili per tutti i tipi di set di dati. Tra gli esempi di tipi di set di dati sono inclusi gli archivi di Azure SQL, gli archivi BLOB di Azure e gli archivi tabelle di Azure.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sul percorso dei dati nell'archivio. La sezione **typeProperties** per un set di dati di tipo **RelationalTable**, che include il set di dati Amazon Redshift, ha le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **tableName** |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -85,7 +85,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **query** | Usare la query personalizzata per leggere i dati. |No (se è specificata la proprietà **tableName** di un set di dati) |
 | **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No  |
@@ -94,7 +94,7 @@ Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, 
 
 In alternativa, è possibile usare il tipo **RelationalSource**, che include Amazon Redshift, con la proprietà seguente nella sezione **typeProperties**. Si noti che questo tipo di origine non supporta il comando **UNLOAD** di Redshift.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. | No (se è specificata la proprietà **tableName** di un set di dati) |
 
@@ -139,7 +139,7 @@ Per questo caso d'uso di esempio, l'attività di copia scarica prima i dati da A
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Esempio di JSON: copiare i dati da Amazon Redshift alla risorsa di archiviazione BLOB di Azure
-Questo esempio illustra come copiare dati da un database Amazon Redshift in Archiviazione BLOB di Azure. I dati possono essere copiati direttamente in un [sink supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia.  
+Questo esempio illustra come copiare dati da un database Amazon Redshift in Archiviazione BLOB di Azure. I dati possono essere copiati direttamente in un [sink supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia.
 
 L'esempio include le entità di Data Factory seguenti:
 
@@ -162,7 +162,7 @@ L'esempio copia i dati dai risultati di una query in Amazon Redshift a un BLOB d
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -339,8 +339,8 @@ Quando l'attività di copia converte i dati da un tipo Amazon Redshift a un tipo
 | BOOLEAN |string |
 | CHAR |string |
 | VARCHAR |string |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXT |string |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
@@ -350,7 +350,7 @@ Per informazioni su come eseguire il mapping delle colonne del set di dati di or
 Quando si copiano dati da un archivio dati relazionale è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare la proprietà **policy** di ripetizione per un set di dati per poter rieseguire una sezione in caso di errore. Assicurarsi che vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Verificare anche che vengano letti gli stessi dati indipendentemente da come viene rieseguita la sezione. Per altre informazioni, vedere [Letture ripetibili da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
-Per informazioni sui fattori chiave che influiscono sulle prestazioni dell'attività di copia e sui modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md). 
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dell'attività di copia e sui modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate sulla creazione di una pipeline con l'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

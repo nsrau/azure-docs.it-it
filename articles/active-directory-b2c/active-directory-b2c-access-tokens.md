@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172987"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768344"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Richiesta di token di accesso
 
@@ -78,8 +78,15 @@ Quando si richiede un token di accesso, l'applicazione client deve specificare l
 > [!NOTE]
 > Attualmente i domini personalizzati non sono supportati insieme ai token di accesso. È necessario usare il dominio NomeTenant.onmicrosoft.com nell'URL della richiesta.
 
+Nell'esempio seguente, sostituire questi valori:
+
+- `<tenant-name>`: il nome del tenant di Azure AD B2C.
+- `<policy-name>`: il nome del flusso utente o dei criteri personalizzati.
+- `<application-ID>`: l'identificatore applicazione dell'applicazione client registrata.
+- `<redirect-uri>`: l'**URI di reindirizzamento** immesso al momento della registrazione dell'applicazione client.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Per acquisire più autorizzazioni nella stessa richiesta, è possibile aggiungere più voci nell'unico parametro **scope**, separato da spazi. Ad esempio: 

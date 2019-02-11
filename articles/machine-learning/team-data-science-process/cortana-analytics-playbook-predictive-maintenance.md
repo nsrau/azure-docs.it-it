@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816646"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -325,7 +325,7 @@ Quando le serie temporali sono fisse e facili da stimare, sia l'approccio casual
 ### <a name="time-dependent-split"></a>Suddivisione dipendente dal tempo
 In questa sezione sono descritte le procedure consigliate per l'implementazione della suddivisione dipendente dal tempo. Una suddivisione bidirezionale dipendente dal tempo tra set di training e di test è descritta di seguito.
 
-Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazioni da diversi sensori. Definire le funzioni e le etichette degli esempi di training e test in base a intervalli di tempo che contengono più eventi. Ad esempio, per la classificazione binaria, creare le funzioni in base agli eventi passati e le etichette in base agli eventi futuri entro "X" unità di tempo future (vedere le sezioni relative a [progettazione delle funzioni](#Feature-engineering) e [tecniche di modellazione](#Modeling-techniques-applied-to-PdM-use-cases)). Quindi, l'intervallo di tempo dell'assegnazione di etichette è successivo all'intervallo di tempo delle relative funzioni.
+Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazioni da diversi sensori. Definire le funzioni e le etichette degli esempi di training e test in base a intervalli di tempo che contengono più eventi. Ad esempio, per la classificazione binaria, creare le funzioni in base agli eventi passati e le etichette in base agli eventi futuri entro "X" unità di tempo future (consultare le sezioni relative a [progettazione delle funzioni](#Feature-engineering) e tecniche di modellazione). Quindi, l'intervallo di tempo dell'assegnazione di etichette è successivo all'intervallo di tempo delle relative funzioni.
 
 Per la suddivisione dipendente dal tempo, selezionare un _tempo limite per il training T<sub>c</sub>_ in cui eseguire il training di un modello, con iperparametri ottimizzati usando dati cronologici fino a T<sub>c</sub>. Per impedire la perdita delle etichette future che si trovano oltre T<sub>c</sub> nei dati di training, scegliere l'ultimo intervallo di tempo per l'assegnazione di etichette agli esempi di training impostando X unità prima di T<sub>c</sub>. Nell'esempio illustrato nella figura 7, ogni quadratino rappresenta un record nel set di dati in cui le funzioni e le etichette vengono calcolate come descritto in precedenza. La figura mostra i record che dovranno essere inseriti nei set di training e di test per X=2 e W=3:
 

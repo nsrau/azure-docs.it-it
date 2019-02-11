@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301595"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753096"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -58,9 +58,9 @@ Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale
 >[!NOTE]
 >
 > - For il **Brasile meridionale** è possibile eseguire la replica e il failover in ina delle seguenti aree: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali. Si noti che Azure Site Recovery consente di usare solo il Brasile meridionale come area di origine da cui è possibile proteggere le macchine virtuali. **Non può essere usata come area di ripristino di emergenza (DR) di destinazione** per aree di Azure quali, ad esempio gli Stati Uniti centro-meridionali. A causa della latenza osservata per la distanza geografica, si consiglia di selezionare qualsiasi altra area dell'America che non sia il Brasile meridionale.
-> 
+>
 > - Se **non è possibile vedere una regione** in cui si desidera **creare un insieme di credenziali** assicurarsi che la sottoscrizione abbia accesso alla creazione di risorse in tale area. Ad esempio:  Se non si è in grado di creare l'insieme di credenziali in Francia meridionale la sottoscrizione non ha accesso all'area della Francia meridionale. Compilare un ticket di supporto definendo il problema in Gestione della sottoscrizione e Domande generali, quindi specificando l'oggetto Sottoscrizione all'elenco elementi consentiti per l'area XXX di Azure
-> 
+>
 > - Se **non si è in grado di vedere un'area** all'interno di un cluster geografico **durante l'abilitazione della replica**, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. Ad esempio:  Se si sta provando a proteggere le macchine virtuali dall'area Francia centrale alla Francia meridionale e non viene visualizzata Francia meridionale l'area di elenco a discesa dell'area, la sottoscrizione non ha accesso per la distribuzione della macchina virtuale in quell'area. Compilare un ticket di supporto definendo il problema in Gestione della sottoscrizione e Domande generali, quindi specificando l'oggetto Sottoscrizione all'elenco elementi consentiti per l'area XXX di Azure
 > - Nei cluster geografici indicati in precedenza non è possibile selezionare le aree.
 
@@ -123,7 +123,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | 9.18, 9.19, 9.20, 9.21 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19, 9.20, 9.21, 9.22 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | Da 3.16.0-4-amd64 a 3.16.0-7-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.7-amd64 |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.72 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.21 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.72 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.69 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.140-94.42 predefinita |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.138-94.39 predefinita |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Computer replicati - File system/archiviazione guest Linux
@@ -186,7 +186,7 @@ Disco dati - Account di archiviazione Standard | Supportato |
 Disco dati - Account di archiviazione Premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione Standard e Premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione.
 Managed Disks - Standard | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
 Managed Disks - Premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
-SSD Standard | Non supportato |
+SSD Standard | Supportato |
 Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica.<br/><br/> L'archiviazione con ridondanza della zona non è supportata.
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |
@@ -195,8 +195,8 @@ Crittografia dischi di Azure (ADE) per sistema operativo Windows | Le macchine v
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
 Esclusione disco | Non supportate|   Il disco temporaneo è escluso per impostazione predefinita.
-Spazi di archiviazione diretta  | Non supportate|
-File server di scalabilità orizzontale  | Non supportate|
+Spazi di archiviazione diretta  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
+File server di scalabilità orizzontale  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 Archiviazione con ridondanza locale | Supportato |
 Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |

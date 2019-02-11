@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473205"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746304"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Per configurare la registrazione e le metriche dell'account di archiviazione tra
 
 Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-1. Usare il cmdlet [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) per aggiungere l'account utente di Azure alla finestra di PowerShell:
+1. Usare il cmdlet [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. Nella finestra di **accesso a Microsoft Azure** digitare l'indirizzo di posta elettronica e la password associati all'account. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
@@ -110,7 +110,7 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Abilitare la registrazione di archiviazione per il servizio BLOB:

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817825"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566154"
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
 
@@ -33,7 +33,7 @@ La registrazione del dispositivo con un hub di notifica viene eseguita tramite u
 
 ### <a name="registrations"></a>Registrazioni
 
-La registrazione associa l'handle del servizio di notifica della piattaforma (PNS) per un dispositivo con tag ed eventualmente un modello. L'handle PNS può essere un valore di ChannelURI, un token di dispositivo o un ID di registrazione GCM. I tag vengono usati per instradare le notifiche al set corretto di handle di dispositivo. Per altre informazioni, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md). I modelli vengono usati per implementare una trasformazione a livello di singola registrazione. Per altre informazioni, vedere [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
+La registrazione associa l'handle del servizio di notifica della piattaforma (PNS) per un dispositivo con tag ed eventualmente un modello. L'handle PNS può essere un valore di ChannelURI, un token di dispositivo o un ID di registrazione FCM. I tag vengono usati per instradare le notifiche al set corretto di handle di dispositivo. Per altre informazioni, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md). I modelli vengono usati per implementare una trasformazione a livello di singola registrazione. Per altre informazioni, vedere [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Hub di notifica di Azure supporta un massimo di 60 tag per registrazione.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

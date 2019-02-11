@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636691"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750563"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
 
@@ -64,7 +64,7 @@ demo_make_series1
     - `byOsVer`: partizionare in base al sistema operativo
 - L'effettiva struttura di dati di una serie temporale è una matrice numerica del valore aggregato per ogni intervallo temporale. Per la visualizzazione viene usato `render timechart`.
 
-Nella tabella precedente sono presenti tre partizioni. È possibile creare una serie temporale distinta per ogni versione del sistema operativo, ovvero Windows 10 (rosso), 7 (blu) e 8.1 (verde), come illustrato nel grafico:
+Nella tabella precedente sono presenti tre partizioni. È possibile creare una serie temporale distinta: Windows 10 (rosso), 7 (blu) e 8.1 (verde), come illustrato nel grafico:
 
 ![Partizioni di serie temporali](media/time-series-analysis/time-series-partition.png)
 
@@ -77,8 +77,8 @@ Dopo la creazione di un set di serie temporali, in Esplora dati di Azure è disp
 
 L'applicazione di filtri è una pratica comune nell'elaborazione dei segnali ed è utile per le attività di elaborazione delle serie temporali, ad esempio lo smorzamento di un segnale di disturbo o il rilevamento di modifiche.
 - Sono presenti due funzioni di filtro generiche:
-    - [`series_fir()`](/azure/kusto/query/series-firfunction): applicazione del filtro FIR. Usato per il calcolo semplice della media mobile e della differenziazione della serie temporale per il rilevamento di modifiche.
-    - [`series_iir()`](/azure/kusto/query/series-iirfunction): applicazione del filtro IIR. Usato per lo smorzamento esponenziale e la somma cumulativa.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Applicazione del filtro FIR. Usato per il calcolo semplice della media mobile e della differenziazione della serie temporale per il rilevamento di modifiche.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Applicazione del filtro IIR. Usato per lo smorzamento esponenziale e la somma cumulativa.
 - `Extend` viene usato per estendere il set di serie temporali aggiungendo alla query una nuova serie a media mobile costituita da cinque intervalli (denominata *ma_num*):
 
 ```kusto
@@ -103,7 +103,7 @@ Esempio delle funzioni `series_fit_line()` e `series_fit_2lines()` in una query 
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Regressione della serie temporale](media/time-series-analysis/time-series-regression.png)
@@ -206,7 +206,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Serie temporale su larga scala](media/time-series-analysis/time-series-at-scale.png)
@@ -217,7 +217,7 @@ Quante serie temporali è possibile creare?
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
@@ -232,7 +232,7 @@ A questo punto, si crea un set di 23115 serie temporali della metrica di contegg
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
 | render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
@@ -246,17 +246,17 @@ Visualizzare le istanze:
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | slope |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | slope |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 In meno di due minuti, Esplora dati di Azure ha analizzato più di 20.000 serie temporali e ha rilevato due serie temporali anomale in cui il conteggio delle letture è calato improvvisamente.
 

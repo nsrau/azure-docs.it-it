@@ -11,23 +11,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fb451ab3a28ecca42fc05edad14cd513c4fe1f68
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155341"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820488"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](how-to-connect-install-express.md) non soddisfa la distribuzione o la topologia.
 
 Prima di avviare l'installazione di Azure AD Connect, assicurarsi di [scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e completare i passaggi obbligatori illustrati in [Azure AD Connect: hardware e prerequisiti](how-to-connect-install-prerequisites.md). Verificare anche che siano disponibili gli account obbligatori descritti in [Autorizzazioni e account di Azure AD Connect](reference-connect-accounts-permissions.md).
 
-Se le impostazioni personalizzate non corrispondono alla topologia, ad esempio per aggiornare DirSync, vedere la [documentazione correlata](#related-documentation) per altri scenari.
+Se le impostazioni personalizzate non corrispondono alla topologia, ad esempio per aggiornare DirSync, vedere la documentazione correlata per altri scenari.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Installazione di Impostazioni personalizzate di Azure AD Connect
 ### <a name="express-settings"></a>Impostazioni rapide

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813420"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
@@ -34,13 +34,13 @@ I filtri sono regole lato server che consentono ai clienti di eseguire operazion
 - Distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
 - Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
 
-Questo argomento spiega i [concetti](#concepts) e [include le definizioni dei filtri](#definitions). Fornisce inoltre dettagli sugli [scenari comuni](#common-scenarios). Alla fine dell'articolo, sono disponibili collegamenti che spiegano come creare filtri in modo programmatico.  
+Questo argomento descrive i [concetti](#concepts) e illustra le definizioni dei filtri. Fornisce inoltre dettagli sugli scenari comuni. Alla fine dell'articolo, sono disponibili collegamenti che spiegano come creare filtri in modo programmatico.  
 
 ## <a name="concepts"></a>Concetti
 
 ### <a name="dynamic-manifests"></a>Manifesti dinamici
 
-Servizi multimediali offre **manifesti dinamici** basati su [filtri](#filters) predefiniti. Dopo aver definito i filtri, i client possono usarli per trasmettere un determinato rendering o clip secondarie di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming. 
+Servizi multimediali offre **manifesti dinamici** basati su filtri predefiniti. Dopo aver definito i filtri, i client possono usarli per trasmettere un determinato rendering o clip secondarie di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming. 
 
 Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 

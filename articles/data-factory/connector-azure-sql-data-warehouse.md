@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c429945d4832710125a419b4e9a9b9165869ca97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bed076ac1bd81d90d367d18315a4d0de12468ec8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888686"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660205"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -58,8 +58,8 @@ Per il servizio collegato di Azure SQL Data Warehouse sono supportate le proprie
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureSqlDW**. | Yes |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà **connectionString**. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| type | La proprietà type deve essere impostata su **AzureSqlDW**. | Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà **connectionString**. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password/chiave identità servizio in Azure Key Vault e, se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare le credenziali in Azure Key Vault) per altri dettagli. | Sì |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
@@ -87,6 +87,35 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Password in Azure Key Vault:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -215,7 +244,7 @@ Per copiare dati da o in Azure SQL Data Warehouse, impostare la proprietà **typ
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Yes |
+| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì |
 | tableName | Nome della tabella o vista nell'istanza di Azure SQL Data Warehouse a cui fa riferimento il servizio collegato. | No per l'origine, Sì per il sink |
 
 #### <a name="dataset-properties-example"></a>Esempio di proprietà dei set di dati
@@ -247,7 +276,7 @@ Per copiare dati da Azure SQL Data Warehouse, impostare la proprietà **type** n
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Yes |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì |
 | SqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No  |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No  |
@@ -350,7 +379,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Yes |
+| type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì |
 | allowPolyBase | Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> È consigliabile caricare dati in SQL Data Warehouse tramite PolyBase. Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse).<br/><br/>I valori consentiti sono **True** e **False** (predefinito).  | No  |
 | polyBaseSettings | Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. | No  |
 | rejectValue | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo.<br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione Argomenti in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>I valori consentiti sono 0 (predefinito), 1, 2 e così via. |No  |

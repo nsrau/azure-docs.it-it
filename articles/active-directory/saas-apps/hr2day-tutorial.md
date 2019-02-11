@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149255"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces
 
@@ -88,11 +88,11 @@ Per stabilire la relazione, in HR2day by Merces assegnare il valore del **nome u
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con HR2day by Merces, è necessario completare i blocchi predefiniti seguenti:
 
-1. [Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on): abilitare gli utenti all'uso di questa funzionalità.
-1. [Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user): testare l'accesso Single Sign-On di Azure AD con Britta Simon.
-1. [Creare un utente di test di HR2day by Merces](#creating-an-hr2day-by-merces-test-user): creare una controparte di Britta Simon in HR2day by Merces collegata alla rappresentazione dell'utente in Azure AD.
-1. [Assegnare l'utente di test di Azure AD](#assigning-the-azure-ad-test-user): abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. [Testare l'accesso Single Sign-On](#testing-single-sign-on): verificare se la configurazione funziona.
+1. Configurare l'accesso Single Sign-On di Azure AD: abilitare gli utenti all'uso di questa funzionalità.
+1. Creare un utente test di Azure AD: testare l'accesso Single Sign-On di Azure AD con Britta Simon.
+1. Creare un utente test di HR2day by Merces: creare una controparte di Britta Simon in HR2day by Merces collegata alla rappresentazione dell'utente in Azure AD.
+1. Assegnare l'utente test di Azure AD: abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. Testare l'accesso Single Sign-On: verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171797"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822766"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -34,11 +34,11 @@ Vi sono tre principali modi con cui un utente può accedere a un'applicazione pu
 
 -   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'amministratore**. Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
 
-Per risolvere il problema, iniziare dalla sezione [Aree generali da considerare per i problemi di accesso alle applicazioni](#general-problem-areas-with-application-access-to-consider) e quindi leggere la [Procedura dettagliata: passaggi per risolvere i problemi di accesso alle applicazioni Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) per maggiori dettagli.
+Per risolvere il problema, iniziare dalla sezione [Aree generali da considerare per i problemi di accesso alle applicazioni](#general-problem-areas-with-application-access-to-consider) e per altri dettagli consultare Procedura dettagliata: Passaggi per risolvere i problemi di accesso alle applicazioni Microsoft.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Aree generali da considerare per i problemi di accesso alle applicazioni
 
-Di seguito è riportato un elenco delle aree problematiche generali che è possibile esaminare se si ha un'idea del punto da cui iniziare. Per procedere rapidamente è tuttavia consigliabile leggere [Walkthrough: passaggi per risolvere i problemi di accesso alle applicazioni Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Di seguito è riportato un elenco delle aree problematiche generali che è possibile esaminare se si ha un'idea del punto da cui iniziare. Per procedere rapidamente è tuttavia consigliabile leggere Procedura dettagliata: Passaggi per risolvere i problemi di accesso alle applicazioni Microsoft.
 
 -   [Problemi relativi all'account dell'utente](#problems-with-the-users-account)
 
@@ -180,7 +180,7 @@ Per abilitare la reimpostazione self-service delle password, eseguire questa pro
 
 -   [Consentire agli utenti di reimpostare le password di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Controllare lo stato di autenticazione a più fattori di un utente
 
@@ -204,7 +204,7 @@ Per controllare lo stato di autenticazione a più fattori di un utente, seguire 
 
 9.  Selezionare l'utente nell'elenco di utenti e scegliere **Abilita**, **Disabilita** o **Applica** per l'autenticazione a più fattori nel modo desiderato.
 
-  * **Nota**: Se lo stato di un utente è impostato su Applicato, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
+  * **Nota**: Se lo stato di un utente è impostato su **Applicato**, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Controllare le informazioni di contatto per l'autenticazione di un utente
 

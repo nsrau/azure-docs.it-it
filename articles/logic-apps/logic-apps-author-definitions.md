@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128661"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732924"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
 
@@ -24,7 +24,8 @@ Quando si creano soluzioni di integrazione a livello aziendale con flussi di lav
 Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Alcune funzionalità di App per la logica di Azure, ad esempio la definizione di parametri e di più trigger nelle definizioni di app per la logica, sono disponibili solo in JSON e non in Progettazione app per la logica. Pertanto, per queste attività è necessario lavorare nella visualizzazione Codice o in un altro editor.
+> Alcune funzionalità di App per la logica di Azure, ad esempio la definizione di parametri e di più trigger nelle definizioni di app per la logica, sono disponibili solo in JSON e non in Progettazione app per la logica.
+> Pertanto, per queste attività è necessario lavorare nella visualizzazione Codice o in un altro editor.
 
 ## <a name="edit-json---azure-portal"></a>Modificare JSON - Portale di Azure
 
@@ -38,7 +39,7 @@ Per usare le definizioni di app per la logica in JSON, aprire l'editor della vis
 
 ## <a name="edit-json---visual-studio"></a>Modificare JSON - Visual Studio
 
-Prima di usare la definizione dell'app per logica in Visual Studio, assicurarsi di avere [installato gli strumenti richiesti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Per creare un'app per la logica con Visual Studio, vedere [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) (Guida introduttiva: Automatizzare attività e processi con App per la logica di Azure - Visual Studio).
+Prima di usare la definizione dell'app per logica in Visual Studio, assicurarsi di avere [installato gli strumenti richiesti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Per creare un'app per la logica con Visual Studio, consultare [Avvio rapido: Automatizzare attività e processi con App per la logica di Azure - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 In Visual Studio è possibile aprire le app per la logica che sono state create e distribuite direttamente dal portale di Azure o come progetti di Azure Resource Manager da Visual Studio.
 
@@ -58,7 +59,7 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 ## <a name="parameters"></a>Parametri
 
-I parametri consentono di riutilizzare i valori in tutta l'app per la logica e sono ideali per la sostituzione dei valori che si potrebbero modificare spesso. Se ad esempio si ha un indirizzo di posta elettronica che si vuole usare in più posizioni, è consigliabile definirlo come parametro. 
+I parametri consentono di riutilizzare i valori in tutta l'app per la logica e sono ideali per la sostituzione dei valori che si potrebbero modificare spesso. Se ad esempio si ha un indirizzo di posta elettronica che si vuole usare in più posizioni, è consigliabile definirlo come parametro.
 
 I parametri sono utili anche quando è necessario eseguire l'override dei parametri in ambienti diversi. Per altre informazioni, vedere i [parametri per la distribuzione](#deployment-parameters) e la [documentazione sull'API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ Nella [prima app per la logica di esempio](../logic-apps/quickstart-create-first
 1. Nella visualizzazione codice trovare l'oggetto `parameters : {}` e aggiungere un oggetto `currentFeedUrl`:
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. Nell'azione `When_a_feed-item_is_published` trovare la sezione `queries` e sostituire il valore della query con `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. Nell'azione `When_a_feed-item_is_published` trovare la sezione `queries` e sostituire il valore della query con `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Prima**
    ``` json
@@ -84,7 +85,7 @@ Nella [prima app per la logica di esempio](../logic-apps/quickstart-create-first
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **Dopo**
@@ -93,13 +94,13 @@ Nella [prima app per la logica di esempio](../logic-apps/quickstart-create-first
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    Per unire due o più stringhe, è inoltre possibile usare la funzione `concat`. 
    Ad esempio, `"@concat('#',parameters('currentFeedUrl'))"` funziona come l'esempio precedente.
 
-3.  Al termine dell'operazione, scegliere **Salva**. 
+3.  Al termine dell'operazione, scegliere **Salva**.
 
 Ora è possibile modificare il feed RSS del sito Web passando un URL diverso attraverso l'oggetto `currentFeedURL`.
 
@@ -107,9 +108,9 @@ Ora è possibile modificare il feed RSS del sito Web passando un URL diverso att
 
 ## <a name="deployment-parameters-for-different-environments"></a>Parametri di distribuzione per diversi ambienti
 
-I cicli di vita delle distribuzioni hanno in genere ambienti per lo sviluppo, lo staging e la produzione. È possibile, ad esempio, usare la stessa definizione di app per la logica in tutti questi ambienti, ma usare database diversi. In modo analogo, è possibile usare la stessa definizione in aree diverse ai fini della disponibilità elevata, ma fare in modo che ogni istanza dell'app per la logica usi il database di quell'area. 
+I cicli di vita delle distribuzioni hanno in genere ambienti per lo sviluppo, lo staging e la produzione. È possibile, ad esempio, usare la stessa definizione di app per la logica in tutti questi ambienti, ma usare database diversi. In modo analogo, è possibile usare la stessa definizione in aree diverse ai fini della disponibilità elevata, ma fare in modo che ogni istanza dell'app per la logica usi il database di quell'area.
 
-> [!NOTE] 
+> [!NOTE]
 > Questo scenario è diverso da quello in cui si accettano i parametri in *fase di esecuzione*, dove è consigliabile usare invece la funzione `trigger()`.
 
 Di seguito è riportata una definizione di base:
@@ -157,13 +158,13 @@ Nella richiesta `PUT` effettiva per le app per la logica è possibile fornire il
     },
     "location": "westus"
 }
-``` 
+```
 
 Per altre informazioni, vedere la [documentazione sull'API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>Elaborare le stringhe con le funzioni
 
-App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad esempio, di voler passare un nome di società da un ordine a un altro sistema. Tuttavia, non si è certi di come gestire correttamente la codifica dei caratteri. Si potrebbe eseguire la codifica Base 64 su questa stringa, ma, per evitare caratteri di escape nell'URL, è invece possibile sostituire alcuni caratteri. È inoltre necessario ottenere solo una sottostringa del nome della società, perché i primi cinque caratteri non vengono usati. 
+App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad esempio, di voler passare un nome di società da un ordine a un altro sistema. Tuttavia, non si è certi di come gestire correttamente la codifica dei caratteri. Si potrebbe eseguire la codifica Base 64 su questa stringa, ma, per evitare caratteri di escape nell'URL, è invece possibile sostituire alcuni caratteri. È inoltre necessario ottenere solo una sottostringa del nome della società, perché i primi cinque caratteri non vengono usati.
 
 ``` json
 {
@@ -200,7 +201,7 @@ App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad 
 
 I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio, a partire dall'interno verso l'esterno:
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio,
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Eseguire il mapping degli elementi di elenco ai valori delle proprietà, quindi usare le mappe come parametri
 
-Per ottenere risultati diversi in base al valore di una proprietà, è possibile creare una mappa che associa ogni valore della proprietà a un risultato, quindi usare tale mappa come parametro. 
+Per ottenere risultati diversi in base al valore di una proprietà, è possibile creare una mappa che associa ogni valore della proprietà a un risultato, quindi usare tale mappa come parametro.
 
 Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e una mappa che associa tali categorie a un URL specifico. Il flusso di lavoro ottiene prima di tutto un elenco degli articoli, quindi usa la mappa per trovare l'URL corrispondente alla categoria per ogni articolo.
 
@@ -302,13 +303,13 @@ Per ottenere i dati da un'origine dati che non supporta i *trigger* in modo nati
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Dall'azione `order` estrarre `startTime`. 
+1. Dall'azione `order` estrarre `startTime`.
 2. Ottenere l'ora corrente con `utcNow()`.
 3. Sottrarre un secondo:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   È possibile usare altre unità di tempo, ad esempio `minutes` o `hours`. 
+   È possibile usare altre unità di tempo, ad esempio `minutes` o `hours`.
 
 3. È ora possibile confrontare questi due valori. 
 
@@ -365,7 +366,6 @@ Per formattare le date, è possibile usare formattatori di stringa. Per ottenere
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

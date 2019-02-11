@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331646"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812090"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -176,7 +176,7 @@ Punti da notare:
 >
 >
 
-Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i [casi d'uso di esempio](#case-study-use-parallel-copy). Per usare il comportamento predefinito non è necessario configurare **parallelCopies** . Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.
+Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i casi d'uso di esempio. Per usare il comportamento predefinito non è necessario configurare **parallelCopies** . Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.
 
 ### <a name="billing-impact"></a>Impatto della fatturazione
 È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Se un processo di copia impiegava un'ora con una unità cloud e ora richiede 15 minuti con quattro unità cloud, la fattura complessiva rimane pressoché identica. Si prenda ad esempio un utilizzo di quattro unità cloud. La prima unità cloud impiega 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti, tutto in un'unica esecuzione dell'attività di copia. Verrà addebitato il tempo totale dell'operazione di copia, ovvero di spostamento dei dati, che è pari a 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sulla fatturazione.
@@ -297,7 +297,7 @@ Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di *
 
 * **Modello di dati**: Lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
 * **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia per recuperare i dati in modo più efficiente.
-* Per i **database relazionali locali** come SQL Server e Oracle, in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-on-data-management-gateway).
+* Per i **database relazionali locali** come SQL Server e Oracle, in cui è necessario usare **Gateway di gestione dati**, vedere la sezione Considerazioni su Gateway di gestione dati.
 
 ## <a name="considerations-for-the-sink"></a>Considerazioni sul sink
 ### <a name="general"></a>Generale

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094242"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813807"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -28,7 +28,7 @@ Strumenti di base di Funzioni di Azure consente di sviluppare e testare le funzi
 
 Sono disponibili due versioni degli strumenti di base di Funzioni di Azure. La versione in uso dipende dall'ambiente di sviluppo locale, [dalla scelta della lingua](supported-languages.md) e dal livello di supporto richiesto:
 
-+ [Versione 1.x](#v1): supporta la versione 1.x del runtime. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://docs.npmjs.com/getting-started/what-is-npm). Con questa versione, è possibile creare funzioni nei linguaggi sperimentali che non sono ufficialmente supportati. Per altre informazioni, vedere [Linguaggi supportati nelle Funzioni di Azure](supported-languages.md)
++ Versione 1.x: supporta la versione 1.x del runtime. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://docs.npmjs.com/getting-started/what-is-npm). Con questa versione, è possibile creare funzioni nei linguaggi sperimentali che non sono ufficialmente supportati. Per altre informazioni, vedere [Linguaggi supportati nelle Funzioni di Azure](supported-languages.md)
 
 + [Versione 2.x](#v2): supporta la [versione 2.x del runtime](functions-versions.md). Questa versione supporta [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). Usa gestori di pacchetti specifici della piattaforma o npm per l'installazione.
 

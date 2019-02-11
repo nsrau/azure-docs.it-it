@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018537"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744842"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -51,11 +51,11 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 
 Le proprietà di sistema identificano contenuto e origine dei messaggi. 
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | contentType | stringa | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
 | contentEncoding | stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
-| connectionDeviceId | stringa | Questo valore viene impostato dall'hub IoT e identifica l'origine dei messaggi. Potrebbe trattarsi di messaggi di telemetria dei dispositivi, le notifiche di modifica del dispositivo gemello o degli eventi relativi al ciclo di vita dei dispositivo. Non è possibile eseguire una query. |
+| iothub-connection-device-id | stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
 | iothub-enqueuedtime | stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.

@@ -11,29 +11,29 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466593"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731853"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
+# <a name="azure-sql-database-data-discovery--classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la  & **protezione** dei dati sensibili presenti nel database.
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la **protezione** dei dati sensibili presenti nei database.
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati riservati e rafforzare la sicurezza di questi.
 
-Individuazione dati e classificazione fa parte dell'offerta [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md), che è un pacchetto unificato per le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
+Individuazione dati e classificazione fa parte dell'offerta [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md) (ADS), un pacchetto unificato che raccoglie le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
 > Questo documento si riferisce solo al database SQL di Azure. Per SQL Server (locale), vedere [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999) (Individuazione e classificazione dei dati SQL).
 
-## <a id="subheading-1"></a>Che cosa è Individuazione dati e classificazione
+## <a id="subheading-1"></a>Informazioni su Individuazione dati e classificazione
 
 Individuazione dati e classificazione introduce un set di servizi avanzati e nuove funzionalità SQL, che formano un nuovo paradigma di Information Protection per SQL finalizzato a proteggere i dati e non solo il database:
 
@@ -64,7 +64,7 @@ La classificazione include due attributi di metadati:
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definire e personalizzare la tassonomia di classificazione
 
-Individuazione dati e classificazione SQL include un set predefinito di etichette di riservatezza e un set predefinito di tipi di informazioni e la logica di individuazione. Ora è possibile personalizzare la tassonomia e definire un set e una classificazione di pertinenza di costrutti di classificazione in modo specifico per l'ambiente.
+Individuazione dati e classificazione SQL include un set predefinito di etichette di riservatezza e un set predefinito di tipi di informazioni e logica di individuazione. Ora è possibile personalizzare la tassonomia e definire un set e una classificazione di pertinenza di costrutti di classificazione in modo specifico per l'ambiente.
 
 La definizione e la personalizzazione della tassonomia di classificazione viene eseguita in un'unica posizione centrale per l'intero tenant di Azure. Si trova nel [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) come parte dei criteri di sicurezza. Solo chi è in possesso dei diritti amministrativi per il gruppo di gestione radice di Tenant può eseguire questa attività.
 
@@ -77,7 +77,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Selezionare per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)**.
+2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)**.
 
    ![Eseguire l'analisi di un database](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 ## <a id="subheading-5"></a>Passaggi successivi
 
-- Altre informazioni su [Sicurezza dei dati avanzata di SQL](sql-advanced-threat-protection.md).
+- Altre informazioni su [Advanced data security](sql-database-advanced-data-security.md) (Sicurezza dei dati avanzata).
 - Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

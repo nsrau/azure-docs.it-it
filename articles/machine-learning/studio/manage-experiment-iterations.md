@@ -1,8 +1,21 @@
 ---
-title: Gestire iterazioni dell'esperimento in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio. È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Gestire iterazioni dell'esperimento in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio. È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488437"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestire iterazioni dell'esperimento in Azure Machine Learning Studio
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.

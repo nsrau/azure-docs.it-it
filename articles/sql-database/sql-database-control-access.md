@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6153fbdb6e085d1c817fac5db5eddb5e2c6ae7fa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465442"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729925"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controllo di accesso per il database SQL di Azure e SQL Data Warehouse
 
@@ -69,5 +69,5 @@ In genere, solo gli amministratori hanno necessità di accedere al database `mas
 - Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md).
 - Per altre informazioni sulle regole del firewall, vedere [Regole del firewall](sql-database-firewall-configure.md).
 - Per informazioni su utenti e account di accesso, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md). 
-- Per informazioni sul monitoraggio proattivo, vedere [controllo del database ](sql-database-auditing.md) e [Rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
+- Per informazioni sul monitoraggio proattivo, consultare [Controllo del database ](sql-database-auditing.md) e [Rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
 - Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479137"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754644"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -63,6 +63,9 @@ I due componenti di scalabilità automatica possono essere usati insieme e spess
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Creare un cluster AKS e abilitare il componente di scalabilità automatica del cluster
 
 Se è necessario creare un cluster AKS, usare il comando [az aks create][az-aks-create]. Specificare una *--kubernetes-version* che soddisfi o superi il numero di versione minima richiesto, come descritto nella sezione [Prima di iniziare](#before-you-begin) precedente. Per abilitare e configurare il componente di scalabilità automatica del cluster, usare il parametro *--enable-cluster-autoscaler* e specificare un *--min-count* e un *--max-count* di nodi.
+
+> [!IMPORTANT]
+> Il ridimensionamento automatico del cluster è un componente di Kubernetes. Anche se il cluster AKS usa un set di scalabilità per i nodi di macchine virtuali, non abilitare o modificare manualmente le impostazioni di scalabilità per il ridimensionamento automatico nel portale di Azure o tramite la CLI di Azure. Consentire il ridimensionamento automatico del cluster Kubernetes di gestire le impostazioni di scalabilità necessaria. Per altre informazioni, consultare [È possibile modificare le risorse del servizio Azure Kubernetes nel gruppo di risorse MC_*?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 Nell'esempio seguente viene creato un cluster AKS con set di scalabilità di macchine virtuali e componente di scalabilità automatica del cluster abilitati e viene utilizzato un minimo di *1* e un massimo di *3* nodi:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 81e9ad5affda7b5e246bd7eb3406a40fd7f24dbb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339111"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814021"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -176,7 +176,7 @@ Il Centro sicurezza abiliterà la corretta soluzione nell'area di lavoro in base
 È possibile rimuovere manualmente Microsoft Monitoring Agent. Questa operazione non è consigliata perché limita le raccomandazioni e gli avvisi del Centro sicurezza.
 
 > [!NOTE]
-> Se la raccolta di dati è abilitata, il Centro sicurezza reinstallerà l'agente dopo la rimozione.  È necessario disabilitare la raccolta di dati prima di rimuovere manualmente l'agente. Per istruzioni sulla disabilitazione della raccolta di dati, vedere [Come si interrompono l'installazione automatica dell'agente e la creazione automatica dell'area di lavoro?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?).
+> Se la raccolta di dati è abilitata, il Centro sicurezza reinstallerà l'agente dopo la rimozione.  È necessario disabilitare la raccolta di dati prima di rimuovere manualmente l'agente. Consultare "Come si interrompono l'installazione automatica dell'agente e la creazione automatica dell'area di lavoro?" per istruzioni sulla disabilitazione della raccolta di dati.
 >
 >
 

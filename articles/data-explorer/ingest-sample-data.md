@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394579"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733400"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Inserire i dati di esempio in Esplora dati di Azure
 
 Questo articolo illustra come inserire (caricare) i dati di esempio in un database di Esplora dati di Azure. Esistono [diversi modi per inserire i dati](ingest-data-overview.md); questo articolo è incentrato su un approccio di base adatto a scopo di test.
 
 > [!NOTE]
-> Si dispone già di questi dati se è stato completato [Avvio rapido: inserire dati usando la libreria Python di Esplora dati di Azure](python-ingest-data.md).
+> Si dispone già di questi dati se i passaggi elencati in [Avvio rapido sono stati completati: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +32,7 @@ Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [N
 
 1. Accedere a [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. In alto a sinistra dell'applicazione, selezionare **Aggiungi cluster**.
+1. In alto a sinistra nell'applicazione selezionare **Add cluster** (Aggiungi cluster).
 
 1. Nella finestra di dialogo **Add cluster** (Aggiungi cluster) immettere l'URL del cluster nel modulo`https://<ClusterName>.<Region>.kusto.windows.net/`, quindi selezionare **Aggiungi**.
 
@@ -57,6 +57,11 @@ Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [N
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scrivere query](write-queries.md)
+> [!div class="nextstepaction"]
+> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
 
-[Inserimento dati in Esplora dati di Azure](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [Scrivere query](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Inserimento dati in Esplora dati di Azure](ingest-data-overview.md)

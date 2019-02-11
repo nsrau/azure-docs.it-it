@@ -2,18 +2,18 @@
 title: Eseguire il backup di una farm di SharePoint con Azure Stack
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint in Azure Stack. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: adigan
+ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751898"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811155"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Eseguire il backup di una farm di SharePoint con Azure Stack
 Per eseguire il backup di una farm di SharePoint in Azure con Azure Stack usare il server di Backup di Microsoft Azure (MABS) come per eseguire il backup di altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. Offre inoltre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
@@ -22,13 +22,13 @@ Per eseguire il backup di una farm di SharePoint in Azure con Azure Stack usare 
 Backup di Azure per MABS supporta gli scenari seguenti:
 
 | Carico di lavoro | Versione | Distribuzione di SharePoint | Protezione e ripristino |
-| --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint distribuito come un server fisico o macchina virtuale Hyper-V o VmWare <br> -------------- <br> SQL AlwaysOn | Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
+| --- | --- | --- | --- |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint distribuito come macchina virtuale di Azure Stack <br> -------------- <br> SQL AlwaysOn | Opzioni di protezione di ripristino di farm di SharePoint: farm di ripristino, database e file o elemento di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
 ## <a name="before-you-start"></a>Prima di iniziare
 È necessario verificare alcuni aspetti prima di eseguire il backup di una farm di SharePoint in Azure.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di procedere, assicurarsi di avere [installato e preparato il server di Backup di Azure](backup-mabs-install-azure-stack.md) per proteggere i carichi di lavoro.
 
 ### <a name="protection-agent"></a>Agente protezione
@@ -219,14 +219,14 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 4. Fare clic sull'oggetto di SharePoint visualizzato nella scheda **Ripristino** di MABS per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento e scegliere **Ripristina**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. A questo punto seguire i [passaggi di ripristino illustrati precedentemente in questo articolo](#restore-a-sharepoint-item-from-disk-using-dpm) per ripristinare il database del contenuto di SharePoint dal disco.
+5. A questo punto seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.
 
 ## <a name="faqs"></a>Domande frequenti
-D: è possibile ripristinare un elemento di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn (con protezione su disco)?<br>
+D: È possibile ripristinare un elemento di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn (con protezione su disco)?<br>
 R: Sì, l'elemento può essere ripristinato nel sito originale di SharePoint.
 
-D: è possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?<br>
-R: poiché i database di SharePoint sono configurati con SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza MABS non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
+D: È possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?<br>
+R: Poiché i database di SharePoint sono configurati in SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza MABS non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

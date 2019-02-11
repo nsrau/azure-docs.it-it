@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: acc8929dc3476e9590e8e4d9526b38b7c0719570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108199"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809062"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Effettuare il failover di un dispositivo fisico StorSimple sullo stesso dispositivo
 
@@ -32,7 +32,7 @@ Per altre informazioni sul failover dei dispositivi e su come viene usato per il
 Per effettuare il failover di un dispositivo fisico su un altro dispositivo fisico, vedere [Fail over to the same StorSimple physical device](storsimple-8000-device-failover-physical-device.md) (Failover sullo stesso dispositivo fisico StorSimple). Per effettuare il failover di un dispositivo fisico StorSimple su un'appliance cloud StorSimple, vedere [Fail over to a StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Failover su un'appliance cloud StorSimple).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di aver esaminato le considerazioni relative al failover dei dispositivi. Per altre informazioni, vedere [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Considerazioni comuni per il failover dei dispositivi).
 
@@ -50,7 +50,7 @@ Per effettuare il failover sullo stesso dispositivo, seguire questa procedura.
 4. Configurare il dispositivo e registrarlo di nuovo nel servizio Gestione dispositivi StorSimple. Il dispositivo appena registrato verrà visualizzato come **Pronto per la configurazione**. Il nuovo dispositivo avrà lo stesso nome del dispositivo precedente, ma con l'aggiunta di un valore numerico per indicare il ripristino delle impostazioni predefinite e la nuova registrazione.
 
     ![Dispositivo appena registrato pronto per la configurazione](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. Completare la configurazione del nuovo dispositivo. Per altre informazioni, vedere [Passaggio 4: Completare la configurazione minima del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Nel pannello **Dispositivi** lo stato del dispositivo passa a **Online**.
+5. Completare la configurazione del nuovo dispositivo. Per altre informazioni, consultare [Passaggio 4: Completare la configurazione minima del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Nel pannello **Dispositivi** lo stato del dispositivo passa a **Online**.
 
    > [!IMPORTANT]
    > **Completare prima la configurazione minima, altrimenti il ripristino di emergenza potrebbe non riuscire.**
@@ -61,7 +61,7 @@ Per effettuare il failover sullo stesso dispositivo, seguire questa procedura.
 
     ![Riepilogo del failover](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    Per istruzioni dettagliate, fare riferimento a [Failover su un altro dispositivo fisico](#fail-over-to-another-physical-device).
+    Per istruzioni dettagliate, consultare Failover su un altro dispositivo fisico.
 
 7. Verrà creato un processo di ripristino del dispositivo che è possibile monitorare dal pannello **Processi**.
 

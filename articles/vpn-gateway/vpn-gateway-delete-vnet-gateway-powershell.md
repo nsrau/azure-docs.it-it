@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: a23a969f1381e3a10c81a903793bad2870b436f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603641"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507927"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminare un gateway di rete virtuale usando PowerShell
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 
 Per eliminare un gateway di rete virtuale per una configurazione da sito a sito, è necessario innanzitutto eliminare ogni risorsa che riguarda il gateway di rete virtuale. Le risorse devono essere eliminate in un determinato ordine a causa delle dipendenze. Quando si usano gli esempi seguenti, alcuni valori devono essere specificati, mentre altri sono un risultato di output. Negli esempi vengono usati i seguenti valori specifici a scopo dimostrativo:
 
-Nome VNet: VNet1<br>
+Nome della rete virtuale: VNet1<br>
 Nome del gruppo di risorse: RG1<br>
 Nome del gateway di rete virtuale: GW1<br>
 
@@ -149,7 +149,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 Per eliminare un gateway di rete virtuale per una configurazione V2V, è necessario innanzitutto eliminare ogni risorsa che riguarda il gateway di rete virtuale. Le risorse devono essere eliminate in un determinato ordine a causa delle dipendenze. Quando si usano gli esempi seguenti, alcuni valori devono essere specificati, mentre altri sono un risultato di output. Negli esempi vengono usati i seguenti valori specifici a scopo dimostrativo:
 
-Nome VNet: VNet1<br>
+Nome della rete virtuale: VNet1<br>
 Nome del gruppo di risorse: RG1<br>
 Nome del gateway di rete virtuale: GW1<br>
 
@@ -237,7 +237,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 Per eliminare un gateway di rete virtuale per una configurazione P2S, è necessario innanzitutto eliminare ogni risorsa che riguarda il gateway di rete virtuale. Le risorse devono essere eliminate in un determinato ordine a causa delle dipendenze. Quando si usano gli esempi seguenti, alcuni valori devono essere specificati, mentre altri sono un risultato di output. Negli esempi vengono usati i seguenti valori specifici a scopo dimostrativo:
 
-Nome VNet: VNet1<br>
+Nome della rete virtuale: VNet1<br>
 Nome del gruppo di risorse: RG1<br>
 Nome del gateway di rete virtuale: GW1<br>
 

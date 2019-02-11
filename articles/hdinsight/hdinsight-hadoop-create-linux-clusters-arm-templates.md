@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819808"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ Nel modello si definiscono le risorse necessarie per l'applicazione. È anche po
 
 È possibile trovare modelli di HDInsight di esempio in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Usare lo strumento multipiattaforma [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) con l'[estensione per Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor di testo per salvare il modello in un file sulla workstation. 
 
-Per altre informazioni sui modelli di Resource Manager, vedere gli articoli seguenti:
+Per altre informazioni sui modelli di Resource Manager, consultare gli articoli e gli esempi seguenti:
 
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Distribuire un'applicazione con i modelli di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-* Informazioni di riferimento sul modello [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
+* Informazioni di riferimento sul modello [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
+* [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Generare modelli
 
@@ -51,7 +52,6 @@ Gestione risorse consente di esportare un modello di Gestione risorse dalle riso
 - Portale di Azure: vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: vedere [Esportare modelli di Azure Resource Manager con PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - Interfaccia della riga di comando classica di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## <a name="deploy-using-the-portal"></a>Distribuire tramite il portale
 

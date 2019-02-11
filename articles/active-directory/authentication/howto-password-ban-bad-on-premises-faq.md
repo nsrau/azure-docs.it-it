@@ -5,40 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078696"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663299"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Anteprima: protezione password di Azure AD locale - Domande frequenti
 
 |     |
 | --- |
-| La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| La protezione password di Azure AD è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="general-questions"></a>Domande generali
 
 **D: quando sarà disponibile a livello generale la protezione password di Azure AD?**
 
-La data di disponibilità generale non è ancora stata annunciata.
+La versione disponibile a livello generale è prevista per il primo trimestre del 2019 (prima della fine del mese di marzo 2019). Grazie a tutti coloro che ad oggi hanno fornito commenti e suggerimenti sulla funzionalità - lo apprezziamo molto!
 
 **D: la protezione password di Azure AD locale è supportata nei cloud non pubblici?**
 
-No, la protezione password di AD Azure locale è supportata solo nel cloud pubblico.
+No, la protezione password di Azure AD locale è supportata solo nel cloud pubblico.
 
-**D: come è possibile applicare i vantaggi della protezione password di Azure AD a un sottoinsieme di utenti in locale?**
+**D: in che modo è possibile applicare i vantaggi della protezione password di Azure AD a un sottoinsieme di utenti in locale?**
 
-Non supportati. Dopo la distribuzione e l'abilitazione, la protezione password di Azure AD non discrimina e tutti gli utenti ottengono uguali vantaggi per la sicurezza.
+Non supportati. Dopo la distribuzione e l'abilitazione, la protezione password di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
-**D: è supportata l'installazione della protezione password di Azure AD in affiancamento ad altri prodotti basati su filtri password?**
+**D: l'installazione della protezione password di Azure AD è supportata in affiancamento ad altri prodotti basati su filtri password?**
 
 Sì. Il supporto di più DLL di filtro password registrate è una funzionalità di base di Windows e non è specifico della protezione password di Azure AD. Tutte le DLL di filtro password registrate devono concordare, prima che venga accettata una password.
 

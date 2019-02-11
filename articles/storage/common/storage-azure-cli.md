@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464569"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816850"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -38,7 +38,7 @@ Questa guida si presuppone che si conoscano i concetti di base dell'archiviazion
 Scaricare e installare l'interfaccia della riga di comando di Azure seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Se si riscontrano problemi con l'installazione, consultare la sezione [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) (Risoluzione dei problemi di installazione) dell'articolo e la guida [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Risoluzione dei problemi di installazione) su GitHub.
+> Se si riscontrano problemi con l'installazione, consultare la sezione [Installation Troubleshooting](/cli/azure/install-az-cli2) (Risoluzione dei problemi di installazione) dell'articolo e la guida [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Risoluzione dei problemi di installazione) su GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Uso dell'interfaccia della riga di comando
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Gestire gli account di archiviazione
 
 ### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
-Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer per [connettersi alla sottoscrizione](#connect-to-your-azure-subscription), è possibile creare un nuovo account di Archiviazione di Azure.
+Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer affinché si connetta alla sottoscrizione, è possibile creare un nuovo account di Archiviazione di Azure.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 
-Elencare i BLOB in un contenitore con il comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Elencare i BLOB in un contenitore con il comando [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli
 az storage blob list \

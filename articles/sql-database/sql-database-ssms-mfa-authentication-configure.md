@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 06/13/2018
-ms.openlocfilehash: 1761c7040becf0bfe63caf12d8f5ea7b15e9b88b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162934"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564817"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurare Multi-Factor Authentication per SQL Server Management Studio e Azure AD
 
@@ -63,8 +63,8 @@ Al termine della procedura di verifica, di norma SSMS stabilisce la connessione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica dell'autenticazione a più fattori per il database SQL di Azure, vedere [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](sql-database-ssms-mfa-authentication.md).  
-- Concedere ad altri utenti l'accesso al database: [Autenticazione e autorizzazione per il database SQL: concessione dell'accesso](sql-database-manage-logins.md)  
-- Verificare che altri utenti possano connettersi tramite il firewall: [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)  
+- Concedere ad altri utenti l'accesso al database: [Autenticazione e autorizzazione per il database SQL: Concessione dell'accesso](sql-database-manage-logins.md)  
+- Verificare che altri utenti possano connettersi attraverso il firewall: [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)  
 - Quando si usa l'autenticazione **Active Directory - Universale con supporto MFA**, la traccia ADAL è disponibile a partire da [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Disattivata per impostazione predefinita, la traccia ADAL può essere attivata usando il menu **Strumenti**, **Opzioni** in **Servizi di Azure**, **Cloud di Azure**, **Livello di traccia della finestra di output di ADAL** e quindi abilitando **Output** nel menu **Visualizza**. Le tracce sono disponibili nella finestra di output quando si seleziona l'**opzione Azure Active Directory**.   
 
 
