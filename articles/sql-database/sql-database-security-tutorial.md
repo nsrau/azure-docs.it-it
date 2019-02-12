@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461203"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752518"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Esercitazione: Proteggere un database autonomo o in pool
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, verificare di avere i prerequisiti seguenti
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Un server e un database SQL di Azure
-  - Per crearli, usare il [portale di Azure](sql-database-get-started-portal.md), l'[interfaccia della riga di comando](sql-database-cli-samples.md) o [PowerShell](sql-database-powershell-samples.md)
+  - Per crearli, usare il [portale di Azure](sql-database-single-database-get-started.md), l'[interfaccia della riga di comando](sql-database-cli-samples.md) o [PowerShell](sql-database-powershell-samples.md)
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -64,7 +64,7 @@ La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Ser
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>Configurare le regole del firewall per il server di database SQL
 
-Le regole del firewall a livello di server si applicano a tutti i database all'interno dello stesso server di database SQL.
+Le regole del firewall IP a livello di server si applicano a tutti i database all'interno dello stesso server di database SQL.
 
 Per configurare una regola del firewall a livello di server:
 
@@ -231,7 +231,7 @@ Per copiare una stringa di connessione sicura:
 
 ## <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
 
-Il database SQL di Azure include funzionalità di sicurezza accessibili dal portale di Azure. Queste funzionalità sono disponibili sia per il database che per il server, ad eccezione della maschera dei dati, che è disponibile solo nel database. Per altre informazioni, vedere [Sicurezza dei dati avanzata](sql-advanced-threat-protection.md), [controllo](sql-database-auditing.md), [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
+Il database SQL di Azure include funzionalità di sicurezza accessibili dal portale di Azure. Queste funzionalità sono disponibili sia per il database che per il server, ad eccezione della maschera dei dati, che è disponibile solo nel database. Per altre informazioni, vedere [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md), [controllo](sql-database-auditing.md), [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Sicurezza dei dati avanzata
 

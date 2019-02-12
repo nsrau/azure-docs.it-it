@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902466"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Esercitazione: Integrazione di Azure Active Directory con G Suite
 
@@ -75,11 +75,11 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
     R: Per questa configurazione, l'attributo di posta elettronica viene richiesto agli utenti per effettuare l'accesso. Non è possibile impostare manualmente questo attributo.
 
-    L'attributo di posta elettronica viene compilato automaticamente per tutti gli utenti con una licenza valida di Exchange. Se l'utente non è abilitato alla posta elettronica, verrà visualizzato questo errore perché l'applicazione deve ottenere questo attributo per concedere l'accesso.
+    L'attributo di posta elettronica viene compilato automaticamente per tutti gli utenti con una licenza valida di Exchange. Se l'utente non è abilitato alla posta elettronica, si riceverà questo errore in quanto l'applicazione deve ottenere questo attributo per concedere l'accesso.
 
-    Per assegnare una licenza di Exchange, passare a portal.office.com con un account amministratore, quindi fare clic su Fatturazione e su Abbonamenti nell'interfaccia di amministrazione, selezionare l'abbonamento a Office 365 e infine fare clic su Assegna agli utenti, selezionare gli utenti di cui si vuole controllare l'abbonamento e nel riquadro destro fare clic per modificare le licenze.
+    È possibile passare a portal.office.com con un account amministratore, quindi fare clic nell'interfaccia di amministrazione, fatturazione e sottoscrizioni, selezionare l'abbonamento a Office 365 e quindi fare clic su Assegna a utenti, selezionare gli utenti di cui si desidera controllare la sottoscrizione e nel riquadro destro fare clic su modifica licenze.
 
-    Dopo l'assegnazione della licenza di Exchange, potrebbero trascorrere alcuni minuti prima che venga applicata. Successivamente, l'attributo user.mail sarà compilato automaticamente e il problema dovrebbe essere risolto.
+    Una volta assegnata la licenza O365, l'applicazione potrebbe richiedere alcuni minuti. Successivamente, l'attributo user.mail sarà compilato automaticamente e il problema dovrebbe essere risolto.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -115,7 +115,7 @@ Per configurare l'integrazione di G Suite in Azure AD, è necessario aggiungere 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con G Suite usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in G Suite.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con G Suite, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con G Suite, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di G Suite](#configure-g-suite-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -142,30 +142,47 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+4. Nella sezione **Configurazione SAML di base**, per eseguire la configurazione per **Gmail**, seguire questa procedura:
 
     ![Informazioni su URL e dominio per Single Sign-On di G Suite](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto del client G Suite](https://www.google.com/contact/).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto del client G Suite](https://www.google.com/contact/).
 
-5. L'applicazione G Suite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il valore predefinito di **Identificatore univoco dell'utente** è **user.userprincipalname**, ma G Suite prevede che venga mappato all'indirizzo di posta elettronica dell'utente. A tale scopo è possibile usare l'attributo **user.mail** dall'elenco oppure usare il valore di attributo appropriato in base alla configurazione dell'organizzazione.
+5. Nella sezione **Configurazione SAML di base**, per eseguire la configurazione per **Google Cloud Platform**, seguire questa procedura:
+
+    ![Informazioni su URL e dominio per Single Sign-On di G Suite](common/sp-identifier.png)
+
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto del client G Suite](https://www.google.com/contact/).
+
+6. L'applicazione G Suite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il valore predefinito di **Identificatore univoco dell'utente** è **user.userprincipalname**, ma G Suite prevede che venga mappato all'indirizzo di posta elettronica dell'utente. A tale scopo è possibile usare l'attributo **user.mail** dall'elenco oppure usare il valore di attributo appropriato in base alla configurazione dell'organizzazione.
 
     ![image](common/edit-attribute.png)
 
-6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
+7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute |
+    | Nome | Attributo di origine |
     | ---------------| --------------- |
     | Identificatore univoco dell'utente | User.mail |
 
@@ -187,11 +204,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     g. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-8. Nella sezione **Configura G Suite** copiare gli URL appropriati in base alle proprie esigenze.
+9. Nella sezione **Configura G Suite** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
 ### <a name="configure-g-suite-single-sign-on"></a>Configurare l'accesso Single Sign-On di G Suite
 
-1. Aprire una nuova scheda nel browser e accedere a [Console di amministrazione di G Suite](https://admin.google.com/) usando l'account amministratore.
+1. Aprire una nuova scheda nel browser e accedere a [Console di amministrazione di G Suite](http://admin.google.com/) usando l'account amministratore.
 
 2. Fare clic su **Security**. Se non viene visualizzato il collegamento, può essere nascosto sotto il menu **More Controls** nella parte inferiore della schermata.
 
@@ -219,11 +236,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     a. Selezionare **Setup SSO with third party identity provider** (Configurare l'accesso SSO con un provider di terze parti).
 
-    b. Nel campo **Sign-in page URL** (URL pagina di accesso) di G Suite incollare il valore dell' **URL di accesso** copiato dal portale di Azure.
+    b. Nel campo **Sign-in page URL** (URL pagina di accesso) di G Suite incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di G Suite incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
+    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di G Suite incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Nel campo **Change password URL** (URL di modifica della password) di G Suite incollare il valore dell' **URL di modifica della password** copiato dal portale di Azure.
+    d. Nel campo **Change password URL** (URL di modifica della password) di G Suite incollare il valore di **URL di modifica della password** copiato dal portale di Azure.
 
     e. In G Suite, per il **certificato di verifica**, caricare il certificato che è stato scaricato dal portale di Azure.
 

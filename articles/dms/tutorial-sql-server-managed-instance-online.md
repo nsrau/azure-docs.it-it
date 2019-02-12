@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718181"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700860"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza locale di SQL Server a [Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md) con tempi di inattività minimi. Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
@@ -135,6 +135,15 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
    ![Dettagli origine](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Selezionare **Salva**.
+
+4. Nella schermata **Seleziona database di origine** selezionare il database **AdventureWorks2012** per la migrazione.
+
+   ![Selezionare i database di origine](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > Se si usa SQL Server Integration Services (SSIS), Servizio Migrazione del database non supporta attualmente la migrazione del database del catalogo dei progetti/pacchetti SSIS (database di SQL Server Integration Services) da SQL Server a Istanza gestita di database SQL di Azure. È però possibile effettuare il provisioning di SSIS in Azure Data Factory (ADF) e ridistribuire i progetti/pacchetti SSIS nel database di SQL Server Integration Services di destinazione ospitato da Istanza gestita di database SQL di Azure. Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+
+5. Selezionare **Salva**.
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 

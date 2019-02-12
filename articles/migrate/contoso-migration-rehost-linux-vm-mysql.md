@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 2a7e7f13b68f06bb6c0e9be4730c7346e43e8e5b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346576"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698965"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migrazione di Contoso: eseguire il rehosting di un'app Linux in locale in macchine virtuali di Azure e Azure MySQL
 
@@ -25,15 +25,15 @@ Questo documento fa parte di una serie di articoli che descrivono in che modo la
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire l'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile
 [Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel360 locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
-[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
-[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in un'istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
+[Articolo 5: Effettuare il rehosting di un'app nelle macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app SmartHotel360. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app in un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile 
-[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery | Disponibile
-Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Questo articolo
-[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
-[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
-[Articolo 11: effettuare il refactoring di Team Foundation Server nei servizi di Azure DevOps](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery | Disponibile
+Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e Azure MySQL | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Questo articolo
+[Articolo 9: Effettuare il refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
+[Articolo 10: Effettuare il refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
+[Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
+[Articolo 12: Riprogettare un'app nei contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui il servizio app di Azure, servizio Azure Kubernetes, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
 [Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
@@ -46,9 +46,9 @@ In questo articolo Contoso esegue la migrazione di un'app Service Desk PHP MySQL
 
 Il team di responsabili IT ha lavorato a stretto contatto con i partner di business per comprenderne le effettive esigenze:
 
-- **Gestire la crescita aziendale**: Contoso è in crescita e di conseguenza l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
+- **Stare al passo con la crescita del business**: Contoso è in espansione e di conseguenza l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
 - **Limitare i rischi**: l'app Service Desk è fondamentale a livello aziendale. L'obiettivo è spostare l'app in Azure senza correre alcun rischio.
-- **Estendere**: Contoso non desidera sostituire l'app subito, semplicemente, intende mantenere stabili le app.
+- **Estendere**:  Contoso non vuole sostituire l'app subito, semplicemente, intende mantenere stabili le app.
 
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
@@ -125,12 +125,12 @@ Ecco i requisiti che Contoso dovrà soddisfare per questo scenario.
 Ecco come gli amministratori di Contoso eseguiranno la migrazione:
 
 > [!div class="checklist"]
-> * **Passaggio 1: Preparare Azure per Site Recovery**. Crea un account di archiviazione di Azure in cui memorizzare i dati replicati e un insieme di credenziali dei Servizi di ripristino.
-> * **Passaggio 2: Preparare VMware in locale per Site Recovery**. Prepara gli account per l'individuazione di VM e l'installazione dell'agente, poi prepara la connessione alle VM di Azure dopo il failover.
- * **Passaggio 3: Eseguire il provisioning del database**. In Azure, eseguire il provisioning di un'istanza del database MySQL di Azure.
-> * **Passaggio 4: Replicare le macchine virtuali**. Configurare l'ambiente di origine e di destinazione di Site Recovery, impostare i criteri di replica e avviare la replica delle macchine virtuali nell'archiviazione di Azure.
-> * **Passaggio 5: Eseguire la migrazione del database**. Configurare la migrazione con gli strumenti di MySQL.
-> * **Passaggio 6: Eseguire la migrazione delle VM con Site Recovery**. Nell'ultimo passaggio, effettuare un failover di test per verificare che tutto funzioni come previsto e un failover completo per migrare le VM ad Azure.
+> * **Passaggio 1: Preparare Azure per Site Recovery**: viene creato un account di archiviazione di Azure per i dati replicati e un insieme di credenziali di Servizi di ripristino.
+> * **Passaggio 2: Preparare l'ambiente VMware locale per Site Recovery**: vengono preparati gli account per l'individuazione delle macchine virtuali e l'installazione dell'agente, in preparazione alla connessione alle macchine virtuali di Azure dopo il failover.
+ * **Passaggio 3: Effettuare il provisioning del database]**: In Azure, eseguire il provisioning di un'istanza del database MySQL di Azure.
+> * **Passaggio 4: Replicare le macchine virtuali**: configurare l'ambiente di origine e di destinazione di Site Recovery, impostare i criteri di replica e avviare la replica delle macchine virtuali nell'archiviazione di Azure.
+> * **Passaggio 5: eseguire la migrazione del database**. Viene configurata la migrazione con gli strumenti di MySQL.
+> * **Passaggio 6: Eseguire la migrazione delle macchine virtuali con Site Recovery**: infine, vengono effettuati un failover di test per verificare che tutto funzioni come previsto e un failover completo per eseguire la migrazione delle macchine virtuali ad Azure.
 
 
 
@@ -207,7 +207,7 @@ Dopo il failover in Azure, in Contoso si intende connettersi alle macchine virtu
 - [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation) sulla creazione di un account per l'installazione push del servizio Mobility.
 
 
-## <a name="step-3-provision-azure-database-for-mysql"></a>Passaggio 3: Eseguire il provisioning del database di Azure per MySQL
+## <a name="step-3-provision-azure-database-for-mysql"></a>Passaggio 3: eseguire il provisioning del database di Azure per MySQL
 
 In Contoso gli amministratori eseguono il provisioning di un'istanza del database MySQL nell'area primaria Stati Uniti orientali 2.
 
@@ -307,7 +307,7 @@ Dopo che l'origine e la destinazione sono impostate, gli amministratori di Conto
 
 1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa** vengono creati i criteri **ContosoMigrationPolicy**.
 2. Usa le impostazioni predefinite:
-    - **Soglia RPO**. Impostazione predefinita di 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
+    - **Soglia RPO**: Il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
     - **Conservazione del punto di ripristino**. Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
     - **Frequenza snapshot coerenti con l'app**. Impostazione predefinita di un'ora. Questo valore specifica la frequenza di creazione di snapshot coerenti con l'applicazione.
  
@@ -474,7 +474,7 @@ Occorre a questo punto eseguire le operazioni seguenti:
 
 Con l'app in esecuzione, occorre rendere pienamente operativa e sicura la nuova infrastruttura.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Il team di sicurezza di Contoso esamina la macchina virtuale e il database per determinare eventuali problemi di sicurezza.
 
@@ -482,13 +482,13 @@ Il team di sicurezza di Contoso esamina la macchina virtuale e il database per d
 - Il team considera di proteggere i dati sui dischi della macchina virtuale usando Crittografia dischi e Azure KeyVault.
 - La comunicazione tra la macchina virtuale e l'istanza del database non è configurata per SSL. Sarà necessario eseguire questa operazione per proteggere il traffico del database.
 
-[Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sulle procedure di sicurezza per le macchine virtuali.
+[Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) sulle procedure di sicurezza per le macchine virtuali.
 
 ### <a name="bcdr"></a>BCDR
 
 Per la continuità aziendale e il ripristino di emergenza, Contoso esegue le azioni seguenti:
 
-- **Mantenere i dati al sicuro**: Contoso esegue il backup dei dati nella macchina virtuale dell'app usando il servizio Backup di Azure. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Non è necessario configurare il backup per il database. Database di Azure per MySQL crea e archivia automaticamente i backup del server. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione.
+- **Proteggere i dati**: Contoso esegue il backup dei dati nell'app delle macchine virtuali usando il servizio Backup di Azure. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Non è necessario configurare il backup per il database. Database di Azure per MySQL crea e archivia automaticamente i backup del server. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione.
 - **Mantenere le app in esecuzione**: Contoso esegue la replica delle macchine virtuali dell'app in Azure in un'area secondaria usando Site Recovery. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 

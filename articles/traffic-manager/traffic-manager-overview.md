@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 1698b89cd32fd7fd90a178ece25ee6869c1aa3e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229694"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486011"
 ---
 # <a name="what-is-traffic-manager"></a>Gestione traffico di Azure
 Gestione traffico di Azure è un servizio di bilanciamento del carico basato su DNS che consente di distribuire il traffico in modo ottimale ai servizi nelle aree globali di Azure, offrendo al tempo stesso disponibilità e velocità di risposta elevate.
@@ -28,7 +28,7 @@ Gestione traffico usa DNS per indirizzare le richieste client all'endpoint di se
 >[!NOTE]
 > Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Per la terminazione del protocollo Transport Layer Security (TLS) ("offload SSL"), la richiesta per HTTP/HTTPS o l'elaborazione a livello di applicazione, vedere [Gateway di applicazione](../application-gateway/application-gateway-introduction.md). Se si vuole ottenere il bilanciamento a livello di area, vedere [Load Balancer](../load-balancer/load-balancer-overview.md). Gli scenari end-to-end potrebbero trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
 
-Le funzionalità seguenti sono incluse in Gestione traffico:
+Gestione traffico offre le funzionalità seguenti:
 
 ## <a name="increase-application-availability"></a>Migliorare la disponibilità dell'applicazione
 
@@ -40,7 +40,7 @@ Azure consente di eseguire servizi cloud o siti Web in datacenter di tutto il mo
 
 ## <a name="perform-service-maintenance-without-downtime"></a>Eseguire la manutenzione dei servizi senza tempi di inattività
 
-È possibile eseguire le operazioni pianificate di manutenzione delle applicazioni senza tempi di inattività. Durante l'esecuzione delle operazioni di manutenzione, Gestione traffico indirizza il traffico verso endpoint alternativi.
+È possibile eseguire le operazioni pianificate di manutenzione delle applicazioni senza tempi di inattività. Durante l'esecuzione delle operazioni di manutenzione, Gestione traffico può indirizzare il traffico verso endpoint alternativi.
 
 ## <a name="combine-hybrid-applications"></a>Combinare applicazioni ibride
 
@@ -48,7 +48,7 @@ Gestione traffico supporta anche endpoint esterni, non di Azure, e può quindi e
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>Distribuire il traffico per distribuzioni complesse
 
-Usando i [profili di Gestione traffico annidati](traffic-manager-nested-profiles.md) è possibile combinare metodi di routing del traffico per creare regole sofisticare e flessibili in grado di adattarsi alle esigenze di distribuzioni più complesse e di maggiori dimensioni.
+Usando i [profili di Gestione traffico annidati](traffic-manager-nested-profiles.md) è possibile combinare più metodi di routing del traffico per creare regole sofisticare e flessibili in grado di adattarsi alle esigenze di distribuzioni più complesse e di maggiori dimensioni.
 
 ## <a name="pricing"></a>Prezzi
 

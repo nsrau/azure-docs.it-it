@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321478"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809800"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -249,7 +249,7 @@ Per creare una connessione da punto a sito da un computer client diverso da quel
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Per aggiungere un certificato radice attendibile
 
-In Azure è possibile aggiungere fino a 20 file CER di certificato radice trusted. Per istruzioni, vedere [Caricare il file CER del certificato radice](#upload-the-root-certificate-.cer-file).
+In Azure è possibile aggiungere fino a 20 file CER di certificato radice trusted. Per istruzioni, vedere Caricare il file CER del certificato radice.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Per rimuovere un certificato radice attendibile
 
@@ -290,7 +290,7 @@ Dopo aver completato l'aggiornamento, il certificato non può più essere usato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/). 
 
 - Per altre informazioni sulla rete e sulle macchine virtuali Linux, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/network-overview.md).
 

@@ -3,7 +3,7 @@ title: Esercitazione per Centro sicurezza di Azure - Protezione delle risorse co
 description: Questa esercitazione illustra come configurare i criteri di accesso JIT alle macchine virtuali e i criteri di controllo delle applicazioni.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,16 +14,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839348"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490260"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
-Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT alle macchine virtuali (VM) riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
+Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT (Just-in-Time) alle macchine virtuali (VM) riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
 
 In questa esercitazione si apprenderà come:
 
@@ -41,7 +41,7 @@ L'accesso JIT alle macchine virtuali può essere usato per bloccare il traffico 
 
 Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Devono essere aperte solo durante la connessione alla macchina virtuale, ad esempio per eseguire attività di gestione o manutenzione. Quando la funzionalità JIT è abilitata, Centro sicurezza usa le regole del gruppo di sicurezza di rete (NSG), che limitano l'accesso alle porte di gestione per impedire che possano essere attaccate da utenti malintenzionati.
 
-1. Nel menu principale del Centro sicurezza di Azure selezionare **Accesso Just-In-Time alla VM** in **DIFESA CLOUD AVANZATA**.
+1. Nel menu principale del Centro sicurezza selezionare **Accesso Just-In-Time alla VM** in **DIFESA CLOUD AVANZATA**.
 
   ![Accesso Just-In-Time alla VM][1]
 
@@ -128,7 +128,7 @@ In questa esercitazione è stato descritto come limitare l'esposizione a minacce
 Passare all'esercitazione successiva per informazioni su come rispondere agli eventi imprevisti relativi alla sicurezza.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
+> [Esercitazione: Rispondere agli eventi imprevisti relativi alla sicurezza](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

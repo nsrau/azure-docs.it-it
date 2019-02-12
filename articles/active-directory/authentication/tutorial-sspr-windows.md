@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474871"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694024"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -33,6 +33,7 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
    * [Aggiunti ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
 * Se i dispositivi Windows 10 sono protetti da un firewall o un server proxy, è necessario aggiungere gli URL `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` al proprio elenco di URL consentiti per il traffico HTTPS (porta 443).
+* Esaminare le limitazioni seguenti prima di provare questa funzionalità nel proprio ambiente.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurare il collegamento di reimpostazione della password con Intune
 
@@ -106,6 +107,8 @@ Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul 
 
 ![Reimpostazione della password nella schermata di accesso di esempio nel log di controllo di Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
+Quando gli utenti reimpostano la password dalla schermata di accesso di un dispositivo Windows 10, viene creato un account temporaneo con privilegi limitati chiamato "defaultuser1". Questo account viene usato per proteggere il processo di reimpostazione della password. Lo stesso account ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente avrà reimpostato la password. Possono esistere più profili "defaultuser", ma è possibile tranquillamente ignorarli.
+
 ## <a name="limitations"></a>Limitazioni
 
 Durante il test di questa funzionalità con Hyper-V, il collegamento "Reimposta password" non viene visualizzato.
@@ -116,7 +119,9 @@ Quando si esegue il test di questa funzionalità con Desktop remoto o una sessio
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
-Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche della schermata di blocco sono disattivate **Reimposta password** non funziona.
+Se i criteri richiedono la combinazione Ctrl + Alt + Canc nelle versioni di Windows 10 precedenti alla 1809, **Reimposta password** non funziona.
+
+Se le notifiche della schermata di blocco sono disattivate **Reimposta password** non funziona.
 
 È noto che le impostazioni di criteri seguenti interferiscono con la capacità di reimpostare le password
 
@@ -128,7 +133,7 @@ Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche dell
 
 Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
 
-Per gli scenari di identità ibrida aggiunta a un dominio, esiste uno scenario in cui si completerà il flusso di lavoro SSPR senza la necessità di un controller di dominio Active Directory. Per usare la nuova password per la prima volta è necessaria una connessione con un controller di dominio.
+Per gli scenari di identità ibrida aggiunta a un dominio, il flusso di lavoro SSPR verrà completato correttamente senza la necessità di un controller di dominio Active Directory. Se un utente ha completato il processo di reimpostazione della password quando la comunicazione con un controller di dominio Active Directory non è disponibile, ad esempio quando si lavora in remoto, non riuscirà ad accedere al dispositivo finché questo non potrà comunicare con un controller di dominio e aggiornare le credenziali memorizzate nella cache. **Per usare la nuova password per la prima volta è necessaria una connessione con un controller di dominio**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

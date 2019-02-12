@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298348"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814249"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -32,7 +32,7 @@ Effettuare il pull di immagini da un registro contenitori di Azure a varie desti
 
 Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un registro contenitori da uno strumento di distribuzione e integrazione continua, quale [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) o [Jenkins](https://jenkins.io/).
 
-Configurare [attività di Registro Azure Container](#azure-container-registry-build) per ricompilare automaticamente le immagini delle applicazioni quando vengono aggiornate le immagini di base. Usare le attività di Registro Azure Container per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT.
+Configurare le attività del Registro Azure Container per ricreare automaticamente le immagini delle applicazioni quando vengono aggiornate le immagini di base. Usare le attività di Registro Azure Container per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT.
 
 ## <a name="key-concepts"></a>Concetti chiave
 

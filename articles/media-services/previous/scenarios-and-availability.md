@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352815"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819349"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -26,7 +26,7 @@ Servizi multimediali di Microsoft Azure (AMS) consente di caricare, archiviare e
 
 Servizi multimediali di Azure è compatibile con svariati data center in tutto il mondo. Questi datacenter sono raggruppati in aree geografiche, per lasciare l'utente libero di scegliere dove creare le applicazioni. Per conoscerle, è possibile consultare l' [elenco delle aree e le relative posizioni](https://azure.microsoft.com/regions/). 
 
-Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o [on demand](#vod_scenarios) e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
+Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o su richiesta. e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
 
 ## <a name="overview"></a>Panoramica
 
@@ -174,7 +174,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-|NOME|Status|Data center
+|NOME|Stato|Data center
 |---|---|---|
 |Standard|GA|Tutti|
 |Premium|GA|Tutti|
@@ -183,7 +183,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-È disponibile in tutti i data center tranne Germania, Brasile meridionale, India occidentale, India meridionale e India centrale. 
+Sono disponibili in tutti i data center, ad eccezione di Germania, Brasile meridionale, India occidentale, India meridionale e India centrale. 
 
 ### <a name="encoding-media-processors"></a>Processori di contenuti multimediali di codifica
 
@@ -191,7 +191,7 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Status|Data center
+|Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Codificatore multimediale standard|GA|Tutti|
 |Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
@@ -202,17 +202,17 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Status|Data center
+|Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Rilevamento multimediale volti di Azure|Preview|Tutti|
-|Azure Media Hyperlapse|Preview|Tutti|
+|Rilevamento multimediale volti di Azure|Anteprima|Tutti|
+|Azure Media Hyperlapse|Anteprima|Tutti|
 |Azure Media Indexer|GA|Tutti|
-|Rilevatore multimediale di movimento Azure|Preview|Tutti|
-|Riconoscimento ottico dei caratteri multimediale di Azure|Preview|Tutti|
-|Azure Media Redactor|Preview|Tutti|
-|Azure Media Stabilizer|Preview|Tutti|
-|Anteprime video multimediali di Azure|Preview|Tutti|
-|Azure Media Indexer 2|Preview|Tutti tranne Cina e area Governo federale|
+|Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
+|Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
+|Azure Media Redactor|Anteprima|Tutti|
+|Azure Media Stabilizer|Anteprima|Tutti|
+|Anteprime video multimediali di Azure|Anteprima|Tutti|
+|Azure Media Indexer 2|Anteprima|Tutti tranne Cina e area Governo federale|
 
 ### <a name="protection"></a>Protezione
 
@@ -220,7 +220,7 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 #### <a name="availability"></a>Disponibilità
 
-|Crittografia|Status|Data center|
+|Crittografia|Stato|Data center|
 |---|---|---| 
 |Archiviazione|GA|Tutti|
 |Chiavi AES-128|GA|Tutti|
@@ -240,13 +240,13 @@ Sono disponibili in tutti i data center.
 
 ### <a name="reserved-unit-ru-type"></a>Tipo di unità riservata
 
-Un account Servizi multimediali è associato a un tipo di unità riservata che determina la velocità delle attività di elaborazione di contenuti multimediali. È possibile scegliere uno dei tipi di unità riservata seguenti: S1, S2 o S3.
+Un account Servizi multimediali è associato a un tipo di unità riservata che determina la velocità delle attività di elaborazione di contenuti multimediali. È possibile scegliere uno dei seguenti tipi di unità riservata: S1, S2 o S3.
 
 Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome tipo di unità riservata|Status|Data center
+|Nome tipo di unità riservata|Stato|Data center
 |---|---|---|
 |S1|GA|Tutti|
 |S2|GA|Tutti tranne Brasile meridionale e India occidentale|

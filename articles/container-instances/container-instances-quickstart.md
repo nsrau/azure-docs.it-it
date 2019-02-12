@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189609"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562063"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Avvio rapido: Eseguire un'applicazione in esecuzione in un contenitore in Istanze di Azure Container con l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Dopo aver creato il gruppo di risorse, è possibile eseguire un contenitore in Azure. Per creare un'istanza di contenitore con l'interfaccia della riga di comando di Azure, specificare il nome del gruppo di risorse, il nome dell'istanza di contenitore e l'immagine del contenitore Docker nel comando [az container create][az-container-create]. È possibile esporre i contenitori in Internet specificando una o più porte da aprire, un'etichetta del nome DNS o entrambi. In questa guida introduttiva si distribuisce un contenitore con un'etichetta del nome DNS che ospita un'app Web di piccole dimensioni scritta in Node.js.
+Dopo aver creato il gruppo di risorse, è possibile eseguire un contenitore in Azure. Per creare un'istanza di contenitore con l'interfaccia della riga di comando di Azure, specificare il nome del gruppo di risorse, il nome dell'istanza di contenitore e l'immagine del contenitore Docker nel comando [az container create][az-container-create]. In questa guida introduttiva si usa l'immagine `microsoft/aci-helloworld` del registro dell'hub Docker pubblico. In questa immagine è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
+
+È possibile esporre i contenitori in Internet specificando una o più porte da aprire, un'etichetta del nome DNS o entrambi. In questa guida introduttiva si distribuisce un contenitore con un'etichetta del nome DNS in modo che l'app Web sia raggiungibile pubblicamente.
 
 Eseguire il comando seguente per avviare un'istanza di contenitore. Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza. Se si riceve il messaggio di errore "L'etichetta del nome DNS non è disponibile", provare con un'etichetta del nome DNS diversa.
 
@@ -143,9 +145,9 @@ az group delete --name myResourceGroup
 In questa guida introduttiva è stata creata un'istanza di contenitore di Azure tramite un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
-> [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+> [Esercitazione su Istanze di Azure Container](./container-instances-tutorial-prepare-app.md)
 
-Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la guida introduttiva per [Service Fabric][service-fabric] o il [servizio Azure Kubernetes][container-service].
+Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la [guida introduttiva per il servizio Azure Kubernetes][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestr
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

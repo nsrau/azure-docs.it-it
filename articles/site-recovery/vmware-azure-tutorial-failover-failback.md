@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973171"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822477"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -56,7 +56,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
 
-3. In **Calcolo e rete** è possibile modificare il nome Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e le [impostazioni del disco gestito](#managed-disk-considerations)
+3. In **Calcolo e rete** è possibile modificare le impostazioni relative a nome, gruppo di risorse, dimensioni di destinazione, [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e dischi gestiti di Azure.
 
 4. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un'app .NET Core con il database SQL - Servizio app di Azure | Microsoft Docs
+title: Creare un’app .NET Core con il database SQL - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app .NET Core da usare nel Servizio app di Azure, con connessione a un database SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721853"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510698"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Creare un'app .NET Core e database SQL nel servizio app di Azure
 
@@ -366,6 +366,37 @@ Dopo aver completato `git push`, passare all'app del servizio app e provare la n
 ![App Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Tutte le attività esistenti rimangono visualizzate. Quando si pubblica nuovamente l'app .NET Core, i dati esistenti nel database SQL non vengono persi. Inoltre le migrazioni di Entity Framework Core modificano solo lo schema dei dati lasciando intatti i dati esistenti.
+
+## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
+
+Mentre l'app ASP.NET Core è in esecuzione nel servizio app di Azure, è possibile fare in modo che i log di console siano inviati tramite pipe a Cloud Shell. Ciò consente di ottenere gli stessi messaggi di diagnostica per il debug degli errori dell'applicazione.
+
+Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) con due modifiche della configurazione:
+
+- Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
+
+Per impostare il [livello di registrazione](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) di ASP.NET Core nel Servizio app su `Information` dal livello predefinito `Warning`, usare il comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> Il livello di registrazione del progetto è già impostato su `Information` in *appsettings.json*.
+> 
+
+Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Dopo avere avviato lo streaming dei log, aggiornare l'app di Azure nel browser per ricevere traffico Web. I log di console vengono inviati tramite pipe al terminale. Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.
+
+Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
+
+Per altre informazioni sulla personalizzazione dei logo di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507818"
 ---
 # <a name="time-series-model"></a>Modello Time Series
 
@@ -152,9 +152,11 @@ Nell'esempio precedente ID1 e ID4 vengono visualizzati come parte della gerarchi
 
 Le istanze sono le serie temporali stesse. Nella maggior parte dei casi, *deviceId* o *assetId* è l'identificatore univoco dell'asset nell'ambiente. Alle istanze sono associate informazioni descrittive denominate proprietà delle istanze. Come minimo, le proprietà delle istanze includono informazioni sulla gerarchia. Possono includere anche utili dati descrittivi, ad esempio il produttore, l'operatore o la data dell'ultimo utilizzo.
 
-Le istanze vengono definite da *timeSeriesId*, *typeId*, *hierarchyId* e *instanceFields*. Ogni istanza esegue il mapping a un solo *tipo* e a una o più gerarchie. Le istanze ereditano tutte le proprietà dalle gerarchie ed è possibile aggiungere altri *instanceFields* per definire ulteriormente le proprietà delle istanze.
+Le istanze vengono definite da *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds* e *instanceFields*. Ogni istanza esegue il mapping a un solo *tipo* e a una o più gerarchie. Le istanze ereditano tutte le proprietà dalle gerarchie ed è possibile aggiungere altri *instanceFields* per definire ulteriormente le proprietà delle istanze.
 
 Gli elementi *instanceFields* sono proprietà di un'istanza e dei dati statici che definiscono un'istanza. Definiscono i valori delle proprietà non di gerarchia o di gerarchia, supportando anche l'indicizzazione per eseguire operazioni di ricerca.
+
+La proprietà *name* è facoltativa e fa distinzione tra maiuscole e minuscole. Se *name* è non disponibile, per impostazione predefinita sarà l'ID serie temporale. Se viene specificata una proprietà *name*, l'ID serie temporale sarà comunque disponibile nel Well (la griglia sotto i grafici nell'explorer). 
 
 ## <a name="time-series-model-instance-json-example"></a>Esempio JSON di istanza di modello serie temporale
 
@@ -164,6 +166,7 @@ Esempio:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

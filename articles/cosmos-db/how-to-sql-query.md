@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459027"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822409"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -1365,29 +1365,29 @@ Le funzioni matematiche eseguono un calcolo basato su valori di input passati co
 
 | Uso | DESCRIZIONE |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
-| [CEILING (num_expr)](#bk_ceiling) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
-| [FLOOR (num_expr)](#bk_floor) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
-| [EXP (num_expr)](#bk_exp) | Restituisce l'esponente dell'espressione numerica specificata. |
+| [ABS (num_expr) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
+| CEILING (num_expr) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
+| FLOOR (num_expr) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
+| EXP (num_expr) | Restituisce l'esponente dell'espressione numerica specificata. |
 | [LOG (num_expr [,base])](#bk_log) | Restituisce il logaritmo naturale dell'espressione numerica specificata oppure il logaritmo usando la base specificata |
-| [LOG10 (num_expr)](#bk_log10) | Restituisce il valore logaritmico in base 10 dell'espressione numerica specificata. |
-| [ROUND (num_expr)](#bk_round) | Restituisce un valore numerico, arrotondato al valore integer più vicino. |
-| [TRUNC (num_expr)](#bk_trunc) | Restituisce un valore numerico, troncato al valore integer più vicino. |
-| [SQRT (num_expr)](#bk_sqrt) | Restituisce la radica quadrata dell'espressione numerica specificata. |
-| [SQUARE (num_expr)](#bk_square) | Restituisce il quadrato dell'espressione numerica specificata. |
+| LOG10 (num_expr) | Restituisce il valore logaritmico in base 10 dell'espressione numerica specificata. |
+| ROUND (num_expr) | Restituisce un valore numerico, arrotondato al valore integer più vicino. |
+| TRUNC (num_expr) | Restituisce un valore numerico, troncato al valore integer più vicino. |
+| SQRT (num_expr) | Restituisce la radica quadrata dell'espressione numerica specificata. |
+| SQUARE (num_expr) | Restituisce il quadrato dell'espressione numerica specificata. |
 | [POWER (num_expr, num_expr)](#bk_power) | Restituisce la potenza dell'espressione numerica specificata al valore specificato. |
-| [SIGN (num_expr)](#bk_sign) | Restituisce il valore del segno (-1, 0, 1) dell'espressione numerica specificata. |
-| [ACOS (num_expr)](#bk_acos) | Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. Denominato anche arcocoseno. |
-| [ASIN (num_expr)](#bk_asin) | Restituisce l'angolo, espresso in radianti, il cui seno è l'espressione numerica specificata. Questa funzione è detta anche arcoseno. |
-| [ATAN (num_expr)](#bk_atan) | Restituisce l'angolo, espresso in radianti, la cui tangente è l'espressione numerica specificata. Detta anche arcotangente. |
-| [ATN2 (num_expr)](#bk_atn2) | Restituisce l'angolo, espresso in radianti, tra l'asse x positivo e il raggio dall'origine al punto (y, x), dove x e y sono i valori delle due espressioni float specificate. |
-| [COS (num_expr)](#bk_cos) | Restituisce il coseno trigonometrico dell'angolo specificato, espresso in radianti, nell'espressione specificata. |
-| [COT (num_expr)](#bk_cot) | Restituisce la cotangente trigonometrica dell'angolo specificato, espresso in radianti, nell'espressione numerica specificata. |
-| [DEGREES (num_expr)](#bk_degrees) | Restituisce l'angolo corrispondente in gradi di un angolo specificato in radianti. |
-| [PI ()](#bk_pi) | Restituisce il valore costante di pi greco. |
-| [RADIANS (num_expr)](#bk_radians) | Restituisce radianti quando viene immessa un'espressione numerica, espresso in gradi. |
-| [SIN (num_expr)](#bk_sin) | Restituisce il seno trigonometrico dell'angolo specificato, espresso in radianti, nell'espressione specificata. |
-| [TAN (num_expr)](#bk_tan) | Restituisce la tangente dell'espressione di input nell'espressione specificata. |
+| SIGN (num_expr) | Restituisce il valore del segno (-1, 0, 1) dell'espressione numerica specificata. |
+| ACOS (num_expr) | Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. Denominato anche arcocoseno. |
+| ASIN (num_expr) | Restituisce l'angolo, espresso in radianti, il cui seno è l'espressione numerica specificata. Questa funzione è detta anche arcoseno. |
+| ATAN (num_expr) | Restituisce l'angolo, espresso in radianti, la cui tangente è l'espressione numerica specificata. Detta anche arcotangente. |
+| ATN2 (num_expr) | Restituisce l'angolo, espresso in radianti, tra l'asse x positivo e il raggio dall'origine al punto (y, x), dove x e y sono i valori delle due espressioni float specificate. |
+| COS (num_expr) | Restituisce il coseno trigonometrico dell'angolo specificato, espresso in radianti, nell'espressione specificata. |
+| COT (num_expr) | Restituisce la cotangente trigonometrica dell'angolo specificato, espresso in radianti, nell'espressione numerica specificata. |
+| GRADI (num_expr) | Restituisce l'angolo corrispondente in gradi di un angolo specificato in radianti. |
+| PI () | Restituisce il valore costante di pi greco. |
+| RADIANTI (num_expr) | Restituisce radianti quando viene immessa un'espressione numerica, espresso in gradi. |
+| SIN (num_expr) | Restituisce il seno trigonometrico dell'angolo specificato, espresso in radianti, nell'espressione specificata. |
+| TAN (num_expr) | Restituisce la tangente dell'espressione di input nell'espressione specificata. |
 
 Ad esempio, è ora possibile eseguire query come illustrato nell'esempio seguente:
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474803"
+ms.locfileid: "55507774"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -130,13 +130,13 @@ Le librerie client di archiviazione includono metodi che possono essere chiamati
 
 Per altre informazioni sulla crittografia lato client, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md) .
 
-## <a name="replication"></a>Replica
+## <a name="redundancy"></a>Ridondanza
 
-Per assicurare che i dati siano durevoli, Archiviazione di Azure esegue la replica di più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la creazione dell'account di archiviazione. 
+Per assicurare che i dati siano durevoli, Archiviazione di Azure esegue la replica di più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Per informazioni sul ripristino di emergenza, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](storage-disaster-recovery-guidance.md).
+Per altre informazioni sul ripristino di emergenza, consultare [Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Trasferimento dei dati da e verso Archiviazione di Azure
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465405"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511140"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilare un'app .NET Core e database SQL nel servizio app di Azure in Linux
 
@@ -359,6 +359,35 @@ Dopo aver completato `git push`, passare all'app Azure e provare la nuova funzio
 ![App Azure dopo la migrazione Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Tutte le attività esistenti rimangono visualizzate. Quando si pubblica nuovamente l'app .NET Core, i dati esistenti nel database SQL non vengono persi. Inoltre le migrazioni di Entity Framework Core modificano solo lo schema dei dati lasciando intatti i dati esistenti.
+
+## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
+
+Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) con due modifiche della configurazione:
+
+- Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
+
+> [!NOTE]
+> Il livello di registrazione del progetto è impostato su `Information` in *appsettings.json*.
+> 
+
+Nel servizio app in Linux, le app vengono eseguite all'interno di un contenitore da un'immagine Docker predefinita. È possibile accedere ai log della console generati dall'interno del contenitore. Per ottenere i log, attivare prima la registrazione del contenitore eseguendo il comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Dopo aver attivato la registrazione, guardare il flusso di log eseguendo il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Dopo avere avviato lo streaming dei log, aggiornare l'app di Azure nel browser per ricevere traffico Web. I log di console vengono inviati tramite pipe al terminale. Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.
+
+Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
+
+Per altre informazioni sulla personalizzazione dei logo di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 

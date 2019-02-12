@@ -7,13 +7,13 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248181"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692854"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure (anteprima)
 
@@ -45,7 +45,7 @@ Prima di poter configurare la rete WAN virtuale, è necessario registrare la sot
 
 **Considerazioni sull'anteprima:**
 
-* Disponibilità a livello di area: Stati Uniti centro-occidentali
+* Aree di disponibilità: Stati Uniti centro-occidentali
 * Il circuito ExpressRoute deve essere abilitato in un paese che supporta il servizio [Copertura globale di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Crea rete virtuale
@@ -71,12 +71,12 @@ In un browser passare al [portale di Azure (anteprima)](https://aka.ms/azurevirt
 1. Selezionare la rete WAN virtuale e in **Virtual WAN Architecture** (Architettura di rete WAN virtuale) selezionare **Circuiti ExpressRoute**.
 2. Se il circuito ExpressRoute è nella stessa sottoscrizione della rete WAN virtuale, fare clic su **Select ExpressRoute circuit** (Seleziona circuito ExpressRoute) nella sottoscrizione in uso. 
 3. Usando il menu a discesa, selezionare il circuito ExpressRoute da associare all'hub.
-4. Se il circuito ExpressRoute non è nella stessa sottoscrizione o sono stati forniti [una chiave di autorizzazione e un ID peer](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selezionare **Find a circuit redeeming an authorization key** (Trova un circuito riscattando una chiave di autorizzazione).
+4. Se il circuito ExpressRoute non è nella stessa sottoscrizione o sono stati forniti [una chiave di autorizzazione e un ID peer](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selezionare **Trovare un circuito riscattando una chiave di autorizzazione**.
 5. Immettere i dettagli seguenti:
 * **Chiave di autorizzazione** - Generata dal proprietario del circuito come descritto in precedenza
 * **URI del circuito peer** - URI del circuito fornito dal proprietario del circuito che costituisce l'identificatore univoco per il circuito
-* **Peso del routing** - [Peso del routing](../expressroute/expressroute-optimize-routing.md) consente di preferire determinati percorsi quando allo stesso hub sono connessi più circuiti da diverse località di peering
-6. Fare clic su **Find circuit** (Trova circuito) e selezionare il circuito, se disponibile.
+* **Peso del routing** - [Peso del routing](../expressroute/expressroute-optimize-routing.md) consente di preferire determinati percorsi quando allo stesso hub sono connessi più circuiti da diverse località peer
+6. Fare clic su **Trova circuito** e selezionare il circuito, se disponibile.
 7. Selezionare uno o più hub dall'elenco a discesa e fare clic su **Salva**
 
 ## <a name="vnet"></a>5. Connettere la rete virtuale a un hub

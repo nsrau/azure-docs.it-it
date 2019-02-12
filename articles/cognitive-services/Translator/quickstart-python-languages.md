@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: c99dbdb95c4dd7a6e078fd6e9ee15a590c8c40c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458296"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692223"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene impostato come `base_url`. `path` imposta la route `languages` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `languages` e identifica che si vuole usare la versione 3 dell'API.
 
 >[!NOTE]
 > Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814121"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Esercitazione: Integrazione di Azure Active Directory con Slack
 
@@ -75,7 +75,7 @@ Per configurare l'integrazione di Slack in Azure AD, è necessario aggiungere Sl
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Slack con un utente di test di nome **Britta Simon**.
 Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Slack.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Slack](#configure-slack-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -106,12 +106,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Slack](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL accesso** digitare l'URL usando il modello seguente: `https://<companyname>.slack.com`.
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.slack.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** aggiornare il valore con l'URL di accesso. Questo è il dominio dell'area di lavoro. Ad esempio: `https://contoso.slack.com`.
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://slack.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Slack](https://slack.com/help/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore dell'URL di accesso non è reale. È necessario aggiornare il valore con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Slack](https://slack.com/help/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione Slack prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute |
+    | Nome | Attributo di origine |
     | --- | --- |
     | first_name | user.givenname |
     | last_name | user.surname |

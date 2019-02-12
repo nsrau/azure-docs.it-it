@@ -4,7 +4,7 @@ description: Questa esercitazione illustra la procedura di creazione di un accou
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
@@ -12,42 +12,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/01/2018
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: da190bf2418f1cfb8ea952b69d3bf1d76258da5f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 32e81b4c5c551f5fe7fd8ccda3e1b9a4e7d3b26f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342328"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565939"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creare un account Servizi multimediali di Azure con il portale di Azure
-> [!div class="op_single_selector"]
-> * [Portale](media-services-portal-create-account.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
-> 
-> [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
 
-Nel portale di Azure è possibile creare rapidamente un account di Servizi multimediali di Azure (AMS). È possibile utilizzare l'account per accedere ai servizi multimediali che consentono di archiviare, crittografare, codificare, gestire e distribuire in streaming contenuti multimediali in Azure. Durante la creazione di un account di Servizi multimediali, viene creato l'account di archiviazione associato (se non si desidera utilizzarne uno esistente) nella stessa area geografica dell'account di Servizi multimediali. 
+Nel portale di Azure è possibile creare rapidamente un account di Servizi multimediali di Azure (AMS). È possibile utilizzare l'account per accedere ai servizi multimediali che consentono di archiviare, crittografare, codificare, gestire e distribuire in streaming contenuti multimediali in Azure. Durante la creazione di un account di Servizi multimediali, viene creato anche l'account di archiviazione associato (se non si desidera usarne uno esistente). Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
 
 L'account di archiviazione primario può essere per utilizzo generico versione 1 o versione 2. Attualmente, il portale di Azure consente di selezionare solo v1 ma è possibile aggiungere v2 durante la creazione dell'account usando l'API o Powershell. Per altre informazioni sui tipi di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-Questo articolo illustra alcuni concetti comuni e come creare un account Servizi multimediali con il portale di Azure.
+L'account di Servizi multimediali e tutti gli account di archiviazione associati devono far parte della stessa sottoscrizione di Azure. È consigliabile usare account di archiviazione nella stessa posizione dell'account di Servizi multimediali.
+
+Questo articolo illustra come creare un account di Servizi multimediali usando il portale di Azure.
 
 > [!NOTE]
 > Per informazioni sulla disponibilità delle funzionalità di Servizi multimediali di Azure nelle diverse aree, vedere la [disponibilità delle funzionalità di AMS nei data center](scenarios-and-availability.md#availability).
 
-## <a name="concepts"></a>Concetti
-Per accedere a Servizi multimediali è necessario disporre di due account associati:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Account di Servizi multimediali. L'account consente di accedere a un set di risorse di Servizi multimediali basati su cloud disponibili in Azure. In un account di Servizi multimediali non è possibile archiviare contenuti multimediali effettivi, ma è possibile archiviare i metadati relativi al contenuto multimediale e i processi di elaborazione dei file multimediali. Al momento della creazione dell'account, è necessario selezionare un'area di Servizi multimediali disponibile. L'area selezionata è un data center in cui sono archiviati i record dei metadati per l'account.
-  
-* Un account di archiviazione di Azure. Gli account di archiviazione devono trovarsi nella stessa area geografica dell'account Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
+Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="create-an-ams-account"></a>Creare un account AMS
+
 I passaggi descritti in questa sezione illustrano come creare un account Servizi multimediali di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -75,7 +67,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
    
 ## <a name="to-manage-your-ams-account"></a>Per gestire l'account AMS
 
-Selezionare **Impostazioni** a sinistra del portale per gestire l'account AMS, ad esempio connettersi all'API AMS a livello di codice, caricare video, codificare asset, configurare la protezione del contenuto e monitorare lo stato del processo. Da **Impostazioni** passare a uno dei pannelli disponibili, ad esempio **Accesso all'API**, **Asset**, **Processi** e **Protezione del contenuto**.
+Selezionare **Impostazioni** a sinistra del portale per gestire l'account AMS, ad esempio connettersi all'API AMS a livello di codice, caricare video, codificare asset, configurare la protezione del contenuto e monitorare lo stato del processo. Da **Impostazioni** passare a uno dei pannelli disponibili, ad esempio: **Accesso all'API**, **Asset**, **Processi** e **Protezione del contenuto**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

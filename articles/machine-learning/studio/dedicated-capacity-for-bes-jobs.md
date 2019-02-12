@@ -1,14 +1,30 @@
 ---
-title: Servizio Azure Batch per processi di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Panoramica dei servizi di Azure Batch per i processi di Machine Learning. L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
+title: Servizio Azure Batch per processi di Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning. L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697501"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servizio Azure Batch per processi di Azure Machine Learning Studio
 
 L'elaborazione di pool di Batch in Machine Learning fornisce la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica per l'apprendimento automatico avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
 
 L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch. Vengono controllati le dimensioni del pool e il pool specifico a cui viene inviato il processo. Il processo BES viene eseguito nel proprio spazio di elaborazione, assicurando prestazioni di elaborazione prevedibili e la possibilità di creare pool di risorse corrispondenti al carico di elaborazione inviato.
+
+> [!NOTE]
+> È necessario disporre di un nuovo Resource Manager basato su servizio Web di Machine Learning per creare un pool. Una volta creato, è possibile eseguire qualsiasi servizio Web BES per il pool: quello nuovo basato su Resource Manager o quello classico.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Procedura: Usare l'elaborazione di pool Batch
 
@@ -23,7 +39,7 @@ Dopo avere creato l'account, usare l'URL del servizio pool e la chiave di autori
 
 ![Architettura del servizio pool Batch.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Creare i pool chiamando l'operazione di creazione dei pool per l'URL del servizio pool fornito dal Supporto tecnico. Quando si crea un pool, specificare il numero di VM e l'URL del file swagger.json di un nuovo servizio Web di Machine Learning basato su Resource Manager. Questo servizio Web viene fornito per definire l'associazione al piano di fatturazione. ll servizio pool Batch usa il file swagger.json per associare il pool a un piano di fatturazione. È possibile eseguire qualsiasi servizio Web BES scelto per il pool: quello nuovo basato su Resource Manager o quello classico.
+Creare i pool chiamando l'operazione di creazione dei pool per l'URL del servizio pool fornito dal Supporto tecnico. Quando si crea un pool, specificare il numero di VM e l'URL del file swagger.json di un nuovo servizio Web di Machine Learning basato su Resource Manager. Questo servizio Web viene fornito per definire l'associazione al piano di fatturazione. ll servizio pool Batch usa il file swagger.json per associare il pool a un piano di fatturazione. È possibile eseguire qualsiasi servizio Web BES per il pool: quello nuovo basato su Resource Manager o quello classico.
 
 È possibile usare qualsiasi nuovo servizio Web basato su Resource Manager, ma tenere presente che la fatturazione per i processi viene addebitata in base al piano di fatturazione associato al servizio scelto. È consigliabile creare un servizio Web e un nuovo piano di fatturazione specifici per l'esecuzione dei processi di pool Batch.
 

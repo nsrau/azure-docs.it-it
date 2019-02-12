@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911354"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694619"
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 
 > [!IMPORTANT]
-> Le immagini di Ubuntu diventano disponibili per la nuova creazione del cluster HDInsight entro 3 mesi dalla pubblicazione. A partire da gennaio 2019, le patch **non** sono applicate automaticamente ai cluster in esecuzione. I clienti devono usare azioni script o altri meccanismi per applicare patch a un cluster in esecuzione.
+> Le immagini di Ubuntu diventano disponibili per la nuova creazione del cluster HDInsight entro 3 mesi dalla pubblicazione. A partire da gennaio 2019, le patch **non** sono applicate automaticamente ai cluster in esecuzione. I clienti devono usare azioni script o altri meccanismi per applicare patch a un cluster in esecuzione. I cluster appena creati avranno sempre gli ultimi aggiornamenti disponibili, incluse le patch di sicurezza più recenti.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Procedura per configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster HDInsight basati su Linux
-Le macchine virtuali in un cluster HDInsight devono essere riavviate di tanto in tanto in modo che sia possibile installare le patch di sicurezza importanti. A partire dal 1° agosto 2016, i nuovi cluster HDInsight basati su Linux (versione 3.4 o successive) verranno riavviati in base alla pianificazione seguente:
-
-1. Una macchina virtuale nel cluster può solo riavviare il computer per le patch al massimo una volta in un periodo di 30 giorni.
-2. Il riavvio avviene a partire da mezzanotte (UTC).
-3. Il processo di riavvio è scaglionato tra le macchine virtuali del cluster, pertanto il cluster è ancora disponibile durante il processo di riavvio.
-4. Il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster.
+Le macchine virtuali in un cluster HDInsight devono essere riavviate di tanto in tanto in modo che sia possibile installare le patch di sicurezza importanti. 
 
 Tramite l'azione di script descritta in questo articolo, è possibile modificare la pianificazione dell'applicazione delle patch al sistema operativo come segue:
 1. Abilitare o disabilitare il riavvio automatico

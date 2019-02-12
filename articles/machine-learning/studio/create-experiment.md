@@ -1,10 +1,22 @@
 ---
-title: Esperimento semplice titleSuffix: Descrizione di Azure Machine Learning Studio: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
+title: Esperimento semplice
+titleSuffix: Azure Machine Learning Studio
+description: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488381"
 ---
-
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Esercitazione: Creare il primo esperimento data science in Azure Machine Learning Studio
 
 Questa esercitazione è destinata agli utenti che non hanno mai usato **Azure Machine Learning Studio**.

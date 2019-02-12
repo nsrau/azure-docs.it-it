@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298722"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730765"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -78,7 +78,7 @@ Azure Migrate crea una macchina virtuale locale definita appliance dell'agente d
     > [!NOTE]
     > L'appliance per l'individuazione una tantum è ora deprecata poiché questo metodo si basava sulle impostazioni delle statistiche del server vCenter relative alla disponibilità dei punti dati delle prestazioni e raccoglieva i contatori delle prestazioni medie, determinando così un sottodimensionamento delle macchine virtuali per la migrazione ad Azure.
 
-    **Risultati immediati:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, se si vogliono ottenere risultati immediati è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
+    **Valutazioni rapide:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, se si vogliono ottenere valutazioni rapide, è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
 
     L'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale, ad esempio l'aggiunta e l'eliminazione di macchine virtuali, l'aggiunta di dischi e così via. Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
 
@@ -185,7 +185,7 @@ Importare il file scaricato nel server vCenter.
     - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) ai quali accede l'agente di raccolta.
 
       > [!NOTE]
-      > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
+      > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
 
     - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
     - Scaricare e installare VMware PowerCLI.
@@ -196,7 +196,7 @@ Importare il file scaricato nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. [Altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente più grande.
 
 7. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
-8. In **Visualizza lo stato della raccolta** monitorare lo stato di individuazione. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
+8. In **Visualizza lo stato della raccolta** monitorare lo stato di individuazione. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
 
 > [!NOTE]
 > Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti).

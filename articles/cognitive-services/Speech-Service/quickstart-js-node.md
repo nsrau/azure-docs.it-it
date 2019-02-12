@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: c9f83368a540003e8bcc35282c664ec23e4ff068
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226503"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747273"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Node.js
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Questo articolo spiega come creare un progetto Node.js usando il binding JavaScript di Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa su [Speech SDK di Servizi cognitivi](https://aka.ms/csspeech/npmpackage) Microsoft.
+Questo articolo illustra come creare un progetto Node.js usando il binding JavaScript di Speech SDK per i Servizi cognitivi di Azure per la trascrizione del riconoscimento vocale.
+L'applicazione si basa su [Speech SDK per JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,48 +31,48 @@ L'applicazione si basa su [Speech SDK di Servizi cognitivi](https://aka.ms/csspe
 
 ## <a name="create-a-new-project"></a>Creare un nuovo progetto
 
-Creare una nuova cartella e inizializzare il progetto.
+Creare una nuova cartella e inizializzare il progetto:
 
 ```sh
 npm init -f
 ```
 
-In questo modo i file package.json verranno inizializzati con i valori predefiniti. Probabilmente si vorrà modificare questo file in un secondo momento.
+Questo comando inizializza i file **package.json** con i valori predefiniti. Probabilmente si vorrà modificare questo file in un secondo momento.
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Aggiungere Speech SDK al progetto Node.js.
+Aggiungere Speech SDK al progetto Node.js:
 
 ```
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-L'ultima versione di Speech SDK con i prerequisiti necessari verrà scaricata e installata da npmjs. L'SDK verrà installato nella directory `node_modules` all'interno della cartella di progetto.
+Questo comando scarica e installa l'ultima versione di Speech SDK con i prerequisiti necessari da **npmjs**. L'SDK viene installato nella directory `node_modules` all'interno della cartella di progetto.
 
 ## <a name="use-the-speech-sdk"></a>Usare Speech SDK
 
 Creare un nuovo file nella cartella denominato `index.js` e aprirlo con un editor di testo.
 
 > [!NOTE]
-> Si noti che in Node.js Speech SDK non supporta il microfono o il tipo di dati File. Entrambi sono supportati solo nei browser. In alternativa, usare l'interfaccia Stream per Speech SDK, tramite `AudioInputStream.createPushStream()` o `AudioInputStream.createPullStream()`.
+> In Node.js, Speech SDK non supporta il microfono o il tipo di dati **File**. Entrambi sono supportati solo nei browser. In alternativa, usare l'interfaccia **Stream** per Speech SDK, tramite `AudioInputStream.createPushStream()` o `AudioInputStream.createPullStream()`.
 
-In questo esempio si userà l'interfaccia `PushAudioInputStream`.
+In questo esempio si usa l'interfaccia `PushAudioInputStream`.
 
-Aggiungere il codice JavaScript seguente:
+Aggiungere questo codice JavaScript:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-Per avviare l'app, adattare `YourSubscriptionKey`, `YourServiceRegion` e `YourAudioFile.wav` alla propria configurazione. È quindi possibile eseguirlo chiamando il comando seguente:
+Per aprire l'app, adattare `YourSubscriptionKey`, `YourServiceRegion` e `YourAudioFile.wav` alla propria configurazione. Quindi eseguirla chiamando questo comando:
 
 ```sh
 node index.js
 ```
 
-Il comando attiverà un riconoscimento con il nome file specificato e presenterà il risultato nella console.
+Il comando attiva un riconoscimento con il nome del file specificato. Quindi, presenta l'output nella console.
 
-Di seguito è riportato l'output dell'esecuzione di `index.js` dopo l'aggiornamento della chiave di sottoscrizione, usando il file `whatstheweatherlike.wav`.
+Questo esempio è l'output che si ottiene quando si esegue `index.js` dopo aver aggiornato la chiave di sottoscrizione e usato il file `whatstheweatherlike.wav`:
 
 ```json
 SpeechRecognitionResult {
@@ -94,35 +94,35 @@ SpeechRecognitionResult {
 
 ## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installare e usare Speech SDK con Visual Studio Code
 
-È possibile eseguire l'esempio anche da Visual Studio Code. Seguire questi passaggi per installare, aprire ed eseguire il progetto di avvio rapido:
+È anche possibile eseguire l'esempio da Visual Studio Code. Seguire questi passaggi per installare, aprire ed eseguire il progetto di avvio rapido:
 
-1. Avviare Visual Studio Code e fare clic su "Apri cartella", quindi passare alla cartella del progetto di avvio rapido
+1. Avviare Visual Studio Code. Selezionare **Apri cartella**. Cercare quindi la cartella di avvio rapido.
 
-   ![Screenshot di Apri cartella](media/sdk/qs-js-node-01-open_project.png)
+   ![Aprire la cartella](media/sdk/qs-js-node-01-open_project.png)
 
-1. Aprire una finestra del terminale in Visual Studio Code
+1. Aprire una finestra del terminale in Visual Studio Code.
 
-   ![Screenshot della finestra del terminale](media/sdk/qs-js-node-02_open_terminal.png)
+   ![Finestra del terminale](media/sdk/qs-js-node-02_open_terminal.png)
 
-1. Eseguire npm per installare le dipendenze
+1. Eseguire `npm` per installare le dipendenze.
 
-   ![Screenshot di npm install](media/sdk/qs-js-node-03-npm_install.png)
+   ![npm install](media/sdk/qs-js-node-03-npm_install.png)
 
-1. È ora possibile aprire `index.js`e impostare un punto di interruzione
+1. È ora possibile aprire `index.js`e impostare un punto di interruzione.
 
-   ![Screenshot di index.js con un punto di interruzione alla riga 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
+   ![index.js con un punto di interruzione alla riga 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
-1. Per avviare il debug, premere F5 o selezionare Debug/Avvia debug dal menu
+1. Per avviare il debug, premere F5 o selezionare **Debug/Avvia debug** dal menu.
 
-   ![Screenshot del menu di debug](media/sdk/qs-js-node-05-start_debugging.png)
+   ![Menu di debug](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. Quando viene raggiunto un punto di interruzione, è possibile esaminare le variabili e lo stack di chiamate
+1. Quando viene raggiunto un punto di interruzione, è possibile esaminare le variabili e lo stack di chiamate.
 
-   ![Screenshot del debugger](media/sdk/qs-js-node-06-hit_breakpoint.png)
+   ![Debugger](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
-1. L'output verrà visualizzato nella finestra della console di debug
+1. L'output viene visualizzato nella finestra della console di debug.
 
-   ![Screenshot della console di debug](media/sdk/qs-js-node-07-debug_output.png)
+   ![Console di debug](media/sdk/qs-js-node-07-debug_output.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

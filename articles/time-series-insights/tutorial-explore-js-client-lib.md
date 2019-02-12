@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540379"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812073"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Esercitazione: Esplorare la libreria client JavaScript per Azure Time Series Insights
 
@@ -147,7 +147,7 @@ Il popolamento e il rendering dei controlli grafico seguono un modello generale.
    | `splitByObject`   | Proprietà stringa in base alla quale eseguire la divisione (facoltativa, può essere null). | `{property: 'Station', type: 'String'}` |
    | `color`         | Colore degli oggetti di cui eseguire il rendering. | `'pink'` |
    | `alias`           | Nome descrittivo per l'espressione di aggregazione. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Matrice di azioni da associare agli oggetti serie temporale in una visualizzazione (facoltativa). | Per altre informazioni, vedere [Menu di scelta rapida popup nella sezione Funzionalità avanzate](#popup-context-menus) |
+   | `contextMenuActions` | Matrice di azioni da associare agli oggetti serie temporale in una visualizzazione (facoltativa). | Per altre informazioni, vedere Menu di scelta rapida popup nella sezione Funzionalità avanzate. |
 
 3. Chiamare una query Time Series Insights usando le API `TsiClient.Server` per richiedere i dati aggregati:
 
@@ -232,7 +232,7 @@ Visivamente, le finestre popup/i marcatori a forma di rombo usati per indicare g
 
 Un altro esempio di funzionalità avanzate è rappresentato dai menu di scelta rapida personalizzati. I menu di scelta rapida personalizzati sono utili per l'attivazione di azioni e passaggi logici successivi nell'ambito dell'applicazione.
 
-Osservare il codice sottostante alla sezione del codice HTML sotto il commento `// Example 13/14/15`. Questo codice esegue inizialmente il rendering di un grafico a linee sotto il titolo "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu contestuale per creare un grafico a torta/a barre) e il grafico è associato all'elemento `<div>` con valore di ID `chart13`. Usando i menu di scelta rapida, il grafico a linee offre la possibilità di creare in modo dinamico un grafico a torta e un grafico a barre, associati a elementi `<div>` con ID `chart14` e `chart15`. Inoltre, i grafici a torta e i grafici a barre usano i menu a scelta rapida anche per abilitare funzionalità proprie: la possibilità rispettivamente di copiare dati dal grafico a torta al grafico a barre e stampare i dati del grafico a barre nella finestra della console del browser.
+Osservare il codice sottostante alla sezione del codice HTML sotto il commento `// Example 13/14/15`. Questo codice esegue inizialmente il rendering di un grafico a linee sotto il titolo "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu di scelta rapida per creare il grafico a torta/a barre) e il grafico è associato all'elemento `<div>` con valore di ID `chart13`. Usando i menu di scelta rapida, il grafico a linee offre la possibilità di creare in modo dinamico un grafico a torta e un grafico a barre, associati a elementi `<div>` con ID `chart14` e `chart15`. Inoltre, i grafici a torta e i grafici a barre usano i menu a scelta rapida anche per abilitare funzionalità proprie: la possibilità rispettivamente di copiare dati dal grafico a torta al grafico a barre e stampare i dati del grafico a barre nella finestra della console del browser.
 
 1. Prima di tutto, viene definita una serie di azioni personalizzate. Ogni azione contiene una matrice con uno o più elementi. Ogni elemento definisce una singola voce di menu di scelta rapida:
 
@@ -260,7 +260,7 @@ Lo screenshot mostra i grafici, con i rispettivi menu di scelta rapida popup. I 
 
 I pennelli vengono usati per definire l'ambito di un intervallo di tempo, in modo da stabilire azioni come l'ingrandimento e l'esplorazione.
 
-Il codice usato per illustrare i pennelli viene mostrato nell'esempio "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu di scelta rapida per creare il grafico a torta/a barre) precedente, che descrive i [menu di scelta rapida popup](#popup-context-menus-section).
+Il codice usato per illustrare i pennelli viene mostrato nell'esempio "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu di scelta rapida per creare il grafico a torta/a barre) precedente, che descrive i menu di scelta rapida popup.
 
 1. Le azioni dei pennelli sono simili a quelle dei menu di scelta rapida, per il fatto che definiscono una serie di azioni personalizzate per il pennello. Ogni azione contiene una matrice con uno o più elementi. Ogni elemento definisce una singola voce di menu di scelta rapida:
    - `name`: Il testo che viene usato per la voce di menu: "Stampa parametri nella console".

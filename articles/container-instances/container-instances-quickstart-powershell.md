@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87cf0f09cbeeee90492e070b25b713546c6631e5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438865"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565854"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Guida introduttiva: Eseguire un'applicazione in esecuzione in un contenitore in Istanze di Azure Container con Azure PowerShell
 
@@ -39,7 +39,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Dopo aver creato il gruppo di risorse, è possibile eseguire un contenitore in Azure. Per creare un'istanza di contenitore con Azure PowerShell, specificare il nome del gruppo di risorse, il nome dell'istanza di contenitore e l'immagine del contenitore Docker con il cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. È possibile esporre i contenitori in Internet specificando una o più porte da aprire, un'etichetta del nome DNS o entrambi. In questa guida introduttiva si distribuisce un contenitore con un'etichetta del nome DNS che ospita IIS (Internet Information Services) in esecuzione in Nano Server.
+Dopo aver creato il gruppo di risorse, è possibile eseguire un contenitore in Azure. Per creare un'istanza di contenitore con Azure PowerShell, specificare il nome del gruppo di risorse, il nome dell'istanza di contenitore e l'immagine del contenitore Docker con il cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. In questa guida introduttiva si usa l'immagine `microsoft/iis:nanoserver` di Windows del registro dell'hub Docker pubblico. Questa immagine include Internet Information Services (IIS) per l'esecuzione in Nano Server.
+
+È possibile esporre i contenitori in Internet specificando una o più porte da aprire, un'etichetta del nome DNS o entrambi. In questa guida introduttiva si distribuisce un contenitore con un'etichetta del nome DNS in modo che IIS sia raggiungibile pubblicamente.
 
 Eseguire il comando seguente per avviare un'istanza di contenitore. Il valore `-DnsNameLabel` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza. Se si riceve il messaggio di errore "L'etichetta del nome DNS non è disponibile", provare con un'etichetta del nome DNS diversa.
 

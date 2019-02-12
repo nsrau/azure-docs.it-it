@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688729"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486827"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -54,7 +54,7 @@ Le attività più comuni relative agli account di archiviazione che possono esse
 
 Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
 
-* **Account di archiviazione generati automaticamente** : come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Account di archiviazione generati automaticamente** : come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere [Passaggio 1: Creare un nuovo servizio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Account di archiviazione nella sottoscrizione del servizio** : sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). 
 * **Account di archiviazione esterni alla sottoscrizione al servizio** : sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
 

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667218"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810815"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Esercitazione: creare un'applicazione con un servizio front-end API Web Java e un servizio back-end con stato su Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Esercitazione: Creare un'applicazione con un servizio front-end API Web Java e un servizio back-end con stato su Service Fabric
 
 Questa è la prima di una serie di esercitazioni. Al termine sarà disponibile un'applicazione Voting con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Questa serie di esercitazioni presuppone un computer di sviluppo con Mac OSX o Linux. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente per l'applicazione completa](https://github.com/Azure-Samples/service-fabric-java-quickstart) e passare direttamente a [Descrizione dettagliata dell'applicazione di voto di esempio](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 Il listener di comunicazione HTTP funge da controller che configura il server HTTP ed espone le API che definiscono le azioni di voto. Fare clic con il pulsante destro del mouse sul pacchetto *statelessservice* nella cartella *VotingWeb/src/statelessservice* e quindi scegliere **New (Nuovo) ->File**.  Denominare il file *HttpCommunicationListener.java* e fare clic su **Finish** (Fine).
 
-Sostituire il contenuto del file con il codice seguente e quindi salvare le modifiche.  Nella sezione [Aggiornare il file HttpCommunicationListener.java](#updatelistener_anchor) disponibile più avanti, questo file viene modificato per eseguire il rendering, leggere e scrivere i dati di voto dal servizio back-end.  Per il momento, il listener restituisce semplicemente il codice HTML statico per l'app Voting.
+Sostituire il contenuto del file con il codice seguente e quindi salvare le modifiche.  Nella sezione Aggiornare il file HttpCommunicationListener.java, disponibile più avanti, questo file viene modificato per eseguire il rendering, leggere e scrivere i dati di voto dal servizio back-end.  Per il momento, il listener restituisce semplicemente il codice HTML statico per l'app Voting.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ A questo punto, l'applicazione è pronta per essere distribuita in un cluster di
 
 2. Eseguire il cluster locale di Service Fabric. Questo passaggio dipende dall'ambiente di sviluppo (Mac o Linux).
 
-    Se si usa un computer Mac, eseguire il cluster locale con il comando seguente. Sostituire il comando passato nel parametro **-v** con il percorso della propria area di lavoro.
+    Se si usa un Mac, eseguire il cluster locale con il comando seguente: Sostituire il comando passato nel parametro **-v** con il percorso della propria area di lavoro.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

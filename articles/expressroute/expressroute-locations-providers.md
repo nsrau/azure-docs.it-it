@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: pareshmu
-ms.openlocfilehash: f01e68a33be767f49c9ec87919c190bebf0b12c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 457eb6335c5a67d381250861a4009225cf04fc25
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152009"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488051"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -173,7 +173,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 ## <a name="c1partners"></a>Connettività con provider di servizi aggiuntivi
 | **Posizione** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
 | **Città del Capo** | Teraco | MTN |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |

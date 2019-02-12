@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7156042243b1ba28cea712dc3722600b9fc46c42
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360641"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490670"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
 
@@ -47,7 +47,7 @@ I servizi Backup di Azure e Azure Site Recovery contribuiscono entrambi al perse
 
 I due servizi offrono funzionalità complementari ma differenti.
 
-- **Azure Site Recovery**: Site Recovery fornisce una soluzione di ripristino di emergenza per i computer locali e per le VM di Azure. I computer vengono replicati da una posizione primaria a una secondaria. In caso di emergenza, viene eseguito il failover dei computer nella seconda posizione, da cui risultano accessibili. Quando viene ripristinata la normale operatività, viene eseguito il failback dei computer nel sito primario per il recupero.
+- **Azure Site Recovery**: Site Recovery fornisce una soluzione di ripristino di emergenza per i computer locali e per le VM di Azure. I computer vengono replicati da una posizione primaria a una secondaria. In caso di emergenza, viene eseguito il failover dei computer nella seconda posizione, da cui risultano accessibili. Quando viene ripristinata la normale operatività, viene eseguito il failback dei computer nel sito primario per il ripristino.
 - **Backup di Azure**: il servizio Backup di Azure esegue i backup dei dati da computer locali e da VM di Azure. È possibile eseguire il backup e il ripristino dei dati a livello granulare, includendo file, cartelle, stato del sistema e dati con riconoscimento delle app. Backup di Azure gestisce i dati a livello più granulare rispetto a Site Recovery. Se ad esempio una presentazione in un computer portatile risulta danneggiata, è possibile usare Backup di Azure per ripristinarla. Se si vogliono mantenere i dati e le configurazioni delle VM al sicuro e accessibili, è possibile usare Site Recovery.  
 
 Consultare la tabella seguente per identificare le proprie esigenze ai fini della strategia BCDR. 
@@ -85,7 +85,7 @@ L'esecuzione di un backup prima in DPM/MABS e poi in un insieme di credenziali o
 
 ## <a name="what-can-be-backed-up"></a>Cosa può essere sottoposto a backup?
 
-**Computer** | **Server di backup** | **Backup**
+**Computer** | **Server di backup** | **Eseguire il backup**
 --- | --- | ---
 VM Windows locali | Backup non eseguito in DPM o MABS | Backup di file, cartelle, stato del sistema.
 VM di Azure (Windows e Linux) | Backup non eseguito in DPM o MABS | Backup di file, cartelle, stato del sistema.<br/><br/> I backup sono con riconoscimento delle app per i computer Windows e con riconoscimento dei file per i computer Linux.

@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474983"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728046"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati ad Archiviazione code di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -24,9 +24,12 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
+Se si usa l'interfaccia della riga di comando di Azure o Azure PowerShell nel computer locale invece di usare Cloud Shell nel portale di Azure, assicurarsi di avere le versioni seguenti dell'interfaccia della riga di comando di Azure e di Azure PowerShell. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Interfaccia della riga di comando di Azure versione 2.0.56 o successiva. Per istruzioni sull'installazione della versione più recente dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- Azure PowerShell versione 1.1.0 o successiva. Scaricare l'ultima versione di Azure PowerShell nel computer Windows da [Download di Azure - Strumenti da riga di comando](https://azure.microsoft.com/downloads/). 
+
+Questo articolo elenca i comandi utili per l'uso dell'interfaccia della riga di comando di Azure. 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in cui vengono pubblicati gli eventi. L'esempio seguente crea l'argomento personalizzato nel gruppo di risorse. Sostituire `<topic_name>` con un nome univoco per l'argomento personalizzato. Il nome dell'argomento della griglia di eventi deve essere univoco perché è rappresentato da una voce DNS.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

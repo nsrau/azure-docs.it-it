@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: ac9af046675cf868f158ee3af71e6c968c6ba98a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 084a5c8113e73590e3e7b9603542a0d866606f96
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818958"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 Per creare condivisioni file di Azure, è possibile usare il  [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
-* [Come creare una condivisione file di Azure usando il portale di Azure](#create-file-share-through-the-azure-portal)
+* Come creare una condivisione file di Azure usando il portale di Azure
 * [Come creare una condivisione file di Azure usando PowerShell](#create-file-share-through-powershell)
 * [Come creare una condivisione file di Azure usando l'interfaccia della riga di comando](#create-file-share-through-command-line-interface-cli)
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462342"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747493"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
@@ -62,7 +62,7 @@ Quando si elimina un data warehouse, SQL Data Warehouse Crea uno snapshot finale
 > Se si elimina un'istanza logica del server SQL, vengono eliminati anche tutti i database appartenenti all'istanza e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
 >
 
-## <a name="geo-backups"></a>Backup geografici
+## <a name="geo-backups-and-disaster-recovery"></a>Backup geografico e ripristino di emergenza
 SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui sia supportato SQL Data Warehouse. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere ai punti di ripristino nell'area primaria.
 
 I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è di prima generazione, è possibile [scegliere di disattivarli](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy). Non è possibile scegliere di disattivare i backup geografici di seconda generazione, in quanto la protezione dei dati è una garanzia integrata.

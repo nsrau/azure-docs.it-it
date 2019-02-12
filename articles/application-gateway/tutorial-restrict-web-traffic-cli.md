@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 92e4f93f3bf384ef8ec75a6f65d49a7b81e0925b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: db95ec05d7c2a61a75c0051b65d9c9c9943b732c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432325"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753657"
 ---
-# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Esercitazione: abilitare il web application firewall tramite l'interfaccia della riga di comando di Azure
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Esercitazione: Abilitare il web application firewall usando l'interfaccia della riga di comando di Azure
 
 È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Creare un gateway applicazione con un WAF
 
-È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza.
+È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza.
 
 ```azurecli-interactive
 az network application-gateway create \

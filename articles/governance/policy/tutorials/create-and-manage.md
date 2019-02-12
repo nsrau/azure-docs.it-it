@@ -4,17 +4,17 @@ description: Usare Criteri di Azure per applicare gli standard, soddisfare i req
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845623"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730272"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -322,7 +322,7 @@ Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri pred
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Creare e assegnare una definizione di iniziativa
 
-Una definizione di iniziativa consente di raggruppare più definizioni di criteri per raggiungere un obiettivo globale. Viene creata una definizione dell'iniziativa per convalidare che le risorse incluse nell'ambito della definizione siano conformi alle definizioni dei criteri che costituiscono la definizione dell'iniziativa. Per altre informazioni sulle definizioni delle iniziative, vedere l'articolo [Azure Policy overview](../overview.md) (Cenni preliminari su Criteri di Azure).
+Una definizione di iniziativa consente di raggruppare più definizioni di criteri per raggiungere un obiettivo globale. Un'iniziativa valuta le risorse nell'ambito dell'assegnazione per la conformità ai criteri inclusi. Per altre informazioni sulle definizioni delle iniziative, vedere l'articolo [Azure Policy overview](../overview.md) (Cenni preliminari su Criteri di Azure).
 
 ### <a name="create-an-initiative-definition"></a>Creare una definizione di iniziativa
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468904"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657774"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
@@ -32,7 +32,7 @@ Per configurare la replica geografica attiva tramite il portale di Azure, è nec
 * Un database SQL di Azure: il database primario che si vuole replicare in una area geografica diversa.
 
 > [!Note]
-La replica geografica attiva deve essere avvenire tra database della stessa sottoscrizione.
+Con il portale di Azure è possibile creare solo un database secondario nella stessa sottoscrizione del database primario. Se il database secondario deve trovarsi in una sottoscrizione diversa, usare [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creare database API REST) oppure [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Aggiungere un database secondario
 

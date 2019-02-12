@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382805"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486810"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Distribuzione Azure Resource Manager o classica: Comprendere i modelli di distribuzione e lo stato delle risorse
 
@@ -30,6 +30,8 @@ In questo articolo si apprenderanno informazioni sui modelli di distribuzione cl
 Per semplificare la distribuzione e la gestione delle risorse, è consigliabile usare Resource Manager per tutte le nuove risorse e, se possibile, ridistribuire le risorse esistenti con Resource Manager.
 
 Se non si conosce Resource Manager, è opportuno vedere prima la terminologia definita in [Panoramica di Azure Resource Manager](resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>Cronologia dei modelli di distribuzione
 In origine, Azure metteva a disposizione solo il modello di distribuzione classica. In questo modello ogni risorsa era indipendente, non era possibile raggruppare le risorse correlate. Era invece necessario verificare manualmente quali risorse componessero la soluzione o l'applicazione e ricordare di gestirle in un approccio coordinato. Per distribuire una soluzione è necessario creare ogni risorsa singolarmente con il portale oppure creare uno script che distribuisca tutte le risorse nell'ordine corretto. Per eliminare una soluzione era necessario eliminare ogni risorsa singolarmente. Non era semplice applicare e aggiornare i criteri di controllo di accesso per le risorse correlate. Non era infine possibile applicare i tag alle risorse per etichettarle con i termini che consentono di monitorare le risorse e gestire la fatturazione.
@@ -57,7 +59,7 @@ Per le macchine virtuali, gli account di archiviazione e le reti virtuali, se la
 In alcuni casi, un comando di Resource Manager può recuperare informazioni su una risorsa creata con la distribuzione classica o può eseguire attività amministrative, come lo spostamento di una risorsa classica in un altro gruppo di risorse, ma non per questo il tipo supporta le operazioni di Resource Manager. Si supponga ad esempio di avere un gruppo di risorse che contiene una macchina virtuale creata con la distribuzione classica. Se si esegue questo comando PowerShell di Resource Manager:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 Verrà restituita la macchina virtuale:
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-Il cmdlet **Get-AzureRmVM** di Resource Manager restituisce tuttavia solo le macchine virtuali distribuite con Resource Manager. Il comando seguente non restituisce la macchina virtuale creata tramite distribuzione classica.
+Il cmdlet **Get-AzVM** di Resource Manager restituisce tuttavia solo le macchine virtuali distribuite con Resource Manager. Il comando seguente non restituisce la macchina virtuale creata tramite distribuzione classica.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Solo le risorse create tramite il tag di supporto di Gestione risorse. Non è possibile applicare i tag alle risorse classiche.

@@ -4,17 +4,17 @@ description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320685"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566965"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -76,7 +76,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -135,7 +135,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -155,7 +155,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -183,7 +183,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -211,7 +211,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -297,7 +297,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -320,14 +320,14 @@ Dopo aver aggiunto gli elementi al progetto, è possibile pubblicare il progetto
 - URI DELL'API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 Il valore per `{BlueprintVersion}` è una stringa di lettere, numeri e trattini (senza spazi o altri caratteri speciali) con una lunghezza massima di 20 caratteri. Usare un nome univoco e informativo, ad esempio **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Assegnare un progetto
 
-Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione. Il **corpo della richiesta** specifica il progetto da assegnare, fornisce il nome e la località per tutti i gruppi di risorse nella definizione del progetto e fornisce tutti i parametri definiti nel progetto e usati da uno o più elementi collegati.
+Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione. Se il progetto viene salvato in una sottoscrizione, può essere assegnato solo a tale sottoscrizione. Il **corpo della richiesta** specifica il progetto da assegnare, fornisce il nome e la località per tutti i gruppi di risorse nella definizione del progetto e fornisce tutti i parametri definiti nel progetto e usati da uno o più elementi collegati.
 
 1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID entità servizio varia in base al tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
 
@@ -342,7 +342,7 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
    - URI DELL'API REST
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -395,7 +395,7 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
 - URI DELL'API REST
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="delete-a-blueprint"></a>Eliminare un progetto
@@ -405,7 +405,7 @@ Per rimuovere il progetto stesso, usare l'operazione API REST seguente:
 - URI DELL'API REST
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185971"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765680"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
-L'agente di Azure Log Analytics (OMS), precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti per Windows e Linux si collegano a un'area di lavoro di Log Analytics per raccogliere dati da origini diverse, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. 
+L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti per Windows e Linux si collegano a un'area di lavoro di Log Analytics per raccogliere dati da origini diverse, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. 
 
 Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.   
 
@@ -41,7 +41,7 @@ L'agente per Linux e Windows non serve solo per la connessione a Log Analytics, 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) o versione successiva
+* Windows Server 2008 R2 o versione successiva
 * Windows 7 SP1 e versioni successive.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
@@ -78,10 +78,10 @@ Di seguito viene riportato un elenco delle informazioni di configurazione del pr
 
 |Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Yes |  
-|*.oms.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Yes |  
-|*.blob.core.windows.net |Porta 443 |In ingresso e in uscita|Yes |  
-|*.azure-automation.net |Porta 443 |In ingresso e in uscita|Yes |  
+|*.ods.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
+|*.oms.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
+|*.blob.core.windows.net |Porta 443 |In ingresso e in uscita|Sì |  
+|*.azure-automation.net |Porta 443 |In ingresso e in uscita|Sì |  
 
 
 Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
@@ -111,7 +111,7 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Installare e configurare l'agente 
 La connessione dei computer nella sottoscrizione di Azure o nell'ambiente ibrido direttamente con Azure Log Analytics può essere eseguita usando metodi diversi a seconda dei requisiti. Nella tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.
 
-|Sorgente | Metodo | DESCRIZIONE|
+|Source (Sorgente) | Metodo | DESCRIZIONE|
 |-------|-------------|-------------|
 |Macchina virtuale di Azure| - Estensione della macchina virtuale di Log Analytics per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) tramite l'interfaccia della riga di comando di Azure oppure con un modello di Azure Resource Manager<br>- [Manualmente dal portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | L'estensione installa l'agente di Log Analytics nelle macchine virtuali di Azure e le registra in un'area di lavoro di Log Analytics esistente.|
 | Computer Windows ibrido|- [Installazione manuale](agent-windows.md)<br>- [Automation DSC per Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modello di Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installare Microsoft Monitoring Agent dalla riga di comando o usando un metodo automatizzato, ad esempio Automation DSC per Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) oppure con un modello di Azure Resource Manager se nel data center è stato distribuito Microsoft Azure Stack.| 

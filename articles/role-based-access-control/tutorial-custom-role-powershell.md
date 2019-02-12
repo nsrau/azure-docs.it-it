@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427288"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699979"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Esercitazione: Creare un ruolo personalizzato con Azure PowerShell
 
@@ -34,12 +34,14 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario:
 
 - Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
-- Avere [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installato in locale
+- Avere [Azure PowerShell](/powershell/azure/install-az-ps) installato in locale
 
 ## <a name="sign-in-to-azure-powershell"></a>Accedere ad Azure PowerShell
 
@@ -49,10 +51,10 @@ Accedere ad [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Il modo più semplice per creare un ruolo personalizzato è quello di iniziare con un ruolo predefinito, modificarlo e quindi creare un nuovo ruolo.
 
-1. In PowerShell usare il comando [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) per ottenere l'elenco delle operazioni del provider di risorse Microsoft.Support. È utile conoscere le operazioni disponibili per creare le autorizzazioni. È anche possibile visualizzare un elenco di tutte le operazioni in [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell usare il comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) per ottenere l'elenco delle operazioni del provider di risorse Microsoft.Support. È utile conoscere le operazioni disponibili per creare le autorizzazioni. È anche possibile visualizzare un elenco di tutte le operazioni in [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
     ```
     
     ```Output
@@ -63,10 +65,10 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. Usare il comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per ottenere il ruolo [Lettore](built-in-roles.md#reader) in formato JSON.
+1. Usare il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) per ottenere il ruolo [Lettore](built-in-roles.md#reader) in formato JSON.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
 1. Aprire il file **ReaderSupportRole.json** in un editor.
@@ -75,34 +77,28 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
-        "Actions":  [
-                        "*/read"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/"
-                             ]
+      "Name": "Reader",
+      "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "IsCustom": false,
+      "Description": "Lets you view everything, but not make any changes.",
+      "Actions": [
+        "*/read"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/"
+      ]
     }
     ```
     
 1. Modificare il file JSON per aggiungere l'operazione `"Microsoft.Support/*"` alla proprietà `Actions`. Assicurarsi di includere una virgola dopo l'operazione di lettura. Questa azione consente all'utente di creare ticket di supporto.
 
-1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 1. In `AssignableScopes` aggiungere l'ID sottoscrizione con il formato seguente: `"/subscriptions/00000000-0000-0000-0000-000000000000"`
@@ -117,32 +113,26 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
-1. Per creare il nuovo ruolo personalizzato, usare il comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) e specificare il file di definizione del ruolo JSON.
+1. Per creare il nuovo ruolo personalizzato, usare il comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) e specificare il file di definizione del ruolo JSON.
 
     ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
     ```
 
     ```Output
@@ -161,10 +151,10 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
 
-- Per elencare tutti i ruoli personalizzati, usare il comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+- Per elencare tutti i ruoli personalizzati, usare il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
     ```Output
@@ -181,10 +171,10 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
 Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o usare l'oggetto `PSRoleDefinition`.
 
-1. Per aggiornare il file JSON, usare il comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per ottenere il ruolo personalizzato in formato JSON.
+1. Per aggiornare il file JSON, usare il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) per ottenere il ruolo personalizzato in formato JSON.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
+    Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
 
 1. Aprire il file in un editor.
@@ -195,34 +185,28 @@ Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o u
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "Id": "22222222-2222-2222-2222-222222222222",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
-1. Per aggiornare il ruolo personalizzato, usare il comando [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) e specificare il file JSON aggiornato.
+1. Per aggiornare il ruolo personalizzato, usare il comando [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) e specificare il file JSON aggiornato.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    Set-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
     ```
 
     ```Output
@@ -237,10 +221,10 @@ Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o u
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. Per aggiornare il ruolo personalizzato con l'oggetto `PSRoleDefintion`, usare innanzitutto il comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per ottenere il ruolo.
+1. Per aggiornare il ruolo personalizzato con l'oggetto `PSRoleDefintion`, usare prima di tutto il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) per ottenere il ruolo.
 
     ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
+    $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
 1. Chiamare il metodo `Add` per aggiungere l'operazione alle impostazioni di diagnostica di lettura.
@@ -249,10 +233,10 @@ Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o u
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
     ```
 
-1. Usare il comando [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) per aggiornare il ruolo.
+1. Usare il comando [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) per aggiornare il ruolo.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
+    Set-AzRoleDefinition -Role $role
     ```
     
     ```Output
@@ -270,16 +254,16 @@ Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o u
     
 ## <a name="delete-a-custom-role"></a>Eliminare un ruolo personalizzato
 
-1. Usare il comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per ottenere l'ID del ruolo personalizzato.
+1. Usare il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) per ottenere l'ID del ruolo personalizzato.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    Get-AzRoleDefinition "Reader Support Tickets"
     ```
 
-1. Usare il comando [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) e specificare l'ID ruolo per eliminare il ruolo personalizzato.
+1. Usare il comando [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) e specificare l'ID ruolo per eliminare il ruolo personalizzato.
 
     ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
+    Remove-AzRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
     ```
 
     ```Output

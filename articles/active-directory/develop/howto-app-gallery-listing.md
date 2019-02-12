@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102035"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663282"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102035"
 
 - Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
 
-- Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare uno qualsiasi dei protocolli di federazione descritti in precedenza. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
+- Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 

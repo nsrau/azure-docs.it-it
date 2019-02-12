@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725811"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691032"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sezione outputs nei modelli di Azure Resource Manager
+
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
 
 ## <a name="define-and-use-output-values"></a>Definire e usare i valori di output
@@ -39,7 +40,7 @@ L'esempio seguente illustra come restituire l'ID risorsa per un indirizzo IP pub
 Dopo la distribuzione, è possibile recuperare il valore con uno script. Per PowerShell, usare:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 Per l'interfaccia della riga di comando di Azure usare:
@@ -77,10 +78,11 @@ L'esempio seguente illustra la struttura di una definizione di output:
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
-| outputName |Yes |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
-| type |Yes |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. |
-| value |Yes |Espressione del linguaggio di modello valutata e restituita come valore di output. |
+| outputName |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
+| type |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. |
+| value |Sì |Espressione del linguaggio di modello valutata e restituita come valore di output. |
 
+Per informazioni sull'aggiunta di commenti, vedere [Commenti nei modelli](resource-group-authoring-templates.md#comments).
 
 ## <a name="example-templates"></a>Modelli di esempio
 

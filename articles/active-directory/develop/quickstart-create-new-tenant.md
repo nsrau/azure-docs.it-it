@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101261"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692138"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Guida introduttiva: Configurare un ambiente di sviluppo
 
@@ -64,8 +64,11 @@ Se all'account non è associato un tenant, verrà visualizzato un GUID sotto il 
 Se non si dispone ancora di un tenant di Azure AD o se ne vuole creare uno nuovo per lo sviluppo, seguire l'[esperienza di creazione della directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Per creare il nuovo tenant, sarà necessario specificare le informazioni seguenti:
 
 - **Nome organizzazione**
-- **Dominio iniziale**: farà parte di *.onmicrosoft.com. È possibile personalizzare il dominio in un secondo momento. 
+- **Dominio iniziale**: farà parte di *.onmicrosoft.com. È possibile personalizzare il dominio in un secondo momento.
 - **Paese o area geografica**
+
+> [!NOTE]
+> Quando si assegna un nome al tenant, usare caratteri alfanumerici. I caratteri speciali non sono consentiti. Il nome non deve superare 256 caratteri.
 
 ## <a name="social-and-local-accounts"></a>Account di social e locali
 

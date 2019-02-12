@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: eseguire un'applicazione in Istanze di Azure Container - Portale"
-description: In questo avvio rapido si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in un contenitore isolato di Istanze di Azure Container
+title: "Guida introduttiva: Eseguire un'applicazione in Istanze di Azure Container - Portale"
+description: In questa guida introduttiva si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in un contenitore isolato di Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190289"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566097"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Avvio rapido: Eseguire un'applicazione in esecuzione in Istanze di Azure Container nel portale di Azure
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Guida introduttiva: Eseguire un'applicazione contenitore in Istanze di Azure Container nel portale di Azure
 
 Istanze di Azure Container consente di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
 
@@ -41,7 +41,7 @@ Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immag
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
-Istanze di Azure Container permette di creare contenitori Windows e Linux. Per questa guida introduttiva, lasciare l'impostazione predefinita **Linux** per distribuire l'immagine `microsoft/aci-helloworld` basata su Linux.
+Per questa guida introduttiva non modificare l'impostazione predefinita **Pubblico** per distribuire l'immagine `microsoft/aci-helloworld` dal registro dell'hub Docker pubblico. In questa immagine è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
 
 In **Configurazione** specificare un'**Etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`.
 
@@ -90,7 +90,7 @@ Selezionare **Sì** quando viene visualizzata la finestra di dialogo di conferma
 In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
-> [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+> [Esercitazione su Istanze di Azure Container](./container-instances-tutorial-prepare-app.md)
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png

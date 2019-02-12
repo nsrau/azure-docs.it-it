@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167088"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814232"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -238,7 +238,7 @@ Riabilitare l'utilità di pianificazione della sincronizzazione predefinita:
 ## <a name="step-8-verify-the-result"></a>Passaggio 8: Verificare il risultato
 A questo punto è necessario verificare la configurazione e abilitarla per gli utenti.
 
-1. Aggiungere l'area all'attributo selezionato per un utente. L'elenco di aree geografiche disponibili è indicato in [questa tabella](#enable-synchronization-of-preferreddatalocation).  
+1. Aggiungere l'area all'attributo selezionato per un utente. L'elenco di aree geografiche disponibili è indicato in questa tabella.  
 ![Screenshot dell'attributo AD aggiunto a un utente](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Attendere che l'attributo sia sincronizzato con Azure AD.
 3. Usare il servizio PowerShell di Exchange Online per verificare che l'area della cassetta postale sia stata impostata correttamente.  

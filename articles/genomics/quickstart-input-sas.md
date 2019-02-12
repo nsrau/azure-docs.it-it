@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733498"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749019"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Inviare un flusso di lavoro a Genomica di Microsoft usando una firma di accesso condiviso invece di una chiave dell'account di archiviazione 
 
@@ -32,12 +32,12 @@ Per ogni flusso di lavoro inviato al servizio Genomica di Microsoft sono necessa
 
 La firma di accesso condiviso per i file di input deve avere le proprietà seguenti:
 1.  Ambito (account, contenitore o BLOB): BLOB
-2.  Scadenza: 48 ore dalla data/ora corrente
+2.  Scadenza: 48 ore da adesso
 3.  Autorizzazioni: lettura
 
 La firma di accesso condiviso per il contenitore di output deve avere le proprietà seguenti:
 1.  Ambito (account, contenitore o BLOB): contenitore
-2.  Scadenza: 48 ore dalla data/ora corrente
+2.  Scadenza: 48 ore da adesso
 3.  Autorizzazioni: lettura, scrittura, eliminazione
 
 
@@ -45,18 +45,18 @@ La firma di accesso condiviso per il contenitore di output deve avere le proprie
 Esistono due modi per creare un token di firma di accesso condiviso, ovvero tramite Azure Storage Explorer o a livello di codice.  Usando il codice è possibile creare manualmente la firma di accesso condiviso oppure usare Azure Storage SDK nel linguaggio preferito.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configurazione: Creare una firma di accesso condiviso usando Azure Storage Explorer
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configurazione: Creare una firma di accesso condiviso con Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è uno strumento che consente di gestire le risorse presenti in Archiviazione di Azure.  Altre informazioni sull'uso di Azure Storage Explorer sono disponibili [qui](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-La firma di accesso condiviso per i file di input deve avere come ambito lo specifico file di input (BLOB). Per creare una firma di accesso condiviso, seguire [questa procedura](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Dopo aver creato la firma di accesso condiviso, vengono forniti l'URL completo con la stringa di query e la stringa di query stessa ed è possibile copiarli dalla schermata.
+La firma di accesso condiviso per i file di input deve avere come ambito lo specifico file di input (BLOB). Per creare una firma di accesso condiviso, seguire [questa procedura](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Dopo aver creato la firma di accesso condiviso, vengono forniti l'URL completo con la stringa di query e la stringa di query stessa ed è possibile copiarli dalla schermata.
 
  ![Storage Explorer per la firma di accesso condiviso di Genomica](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Storage Explorer per la firma di accesso condiviso di Genomica")
 
 
 ### <a name="set-up-create-a-sas-programattically"></a>Configurazione: Creare una firma di accesso condiviso a livello di codice
 
-Per creare una firma di accesso condiviso con Azure Storage SDK, vedere la documentazione esistente per diversi linguaggi, tra cui [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Per creare una firma di accesso condiviso con Azure Storage SDK, vedere la documentazione esistente per diversi linguaggi, tra cui [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Per creare una firma di accesso condiviso senza un SDK, è possibile costruire direttamente la stringa di query della firma di accesso condiviso, con tutte le informazioni necessarie per autenticare la firma stessa. Questi [istruzioni](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) descrivono nei dettagli i componenti della stringa di query della firma di accesso condiviso e come costruire la stringa. La firma di accesso condiviso necessaria viene creata tramite la generazione di un codice HMAC con le informazioni di autenticazione del BLOB/contenitore, come illustrato in queste [istruzioni](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

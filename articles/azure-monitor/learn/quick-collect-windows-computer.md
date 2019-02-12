@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193703"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752979"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Windows in un ambiente ibrido
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) può raccogliere dati direttamente dai computer Windows fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi.  Per le macchine virtuali Windows di Azure, vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -83,7 +83,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi e dai contatori de
 4. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi fare clic sul segno **+**.  
 5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
 6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
-7. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
+7. Selezionare **Contatori delle prestazioni di Windows** per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
 8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.<br> ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 9. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 

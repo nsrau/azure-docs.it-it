@@ -4,21 +4,19 @@ description: Descrive la sezione dei parametri dei modelli di Azure Resource Man
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722143"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695646"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parameters dei modelli di Azure Resource Manager
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, la stessa posizione e le stesse proprietà.
@@ -85,15 +83,15 @@ L'esempio precedente mostra solo alcune delle proprietà che è possibile usare 
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
-| parameterName |Yes |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Yes |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
+| parameterName |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
+| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | defaultValue |No  |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No  |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No  |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
 | maxValue |No  |Il valore massimo per i parametri di tipo int, questo valore è inclusivo. |
 | minLength |No  |Lunghezza minima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
 | maxLength |No  |Lunghezza massima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
-| description |No  |Descrizione del parametro visualizzato agli utenti nel portale. |
+| description |No  |Descrizione del parametro visualizzato agli utenti nel portale. Per altre informazioni, consultare la sezione [Comments in templates](resource-group-authoring-templates.md#comments) (Commenti nel modello). |
 
 ## <a name="template-functions-with-parameters"></a>Funzioni di modello con parametri
 

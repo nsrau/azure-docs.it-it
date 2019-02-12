@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450218"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491740"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory 
 Azure Active Directory (Azure AD) è il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. Azure AD consente ai dipendenti di connettersi e accedere alle risorse nei contesti seguenti:
@@ -72,7 +72,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, esa
 |Amministrazione globale di Azure AD|Questo ruolo di amministratore viene assegnato automaticamente a chiunque abbia creato il tenant di Azure AD. Gli amministratori globali possono eseguire tutte le funzioni amministrative per Azure AD ed eventuali servizi federati con Azure AD, come Exchange Online, SharePoint Online e Skype for Business Online. È possibile avere più amministratori globali ma solo gli amministratori globali possono assegnare ruoli di amministratore, inclusi altri ruoli di amministratore globale, agli utenti.<br><br>**Nota**<br>Questo ruolo di amministratore è definito Amministratore globale nel portale di Azure, ma è definito **Amministratore società** nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell.<br><br>Per altre informazioni sui diversi ruoli di amministratore, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Account Microsoft|Account personali che forniscono l'accesso ai prodotti e ai servizi cloud Microsoft destinati agli utenti privati, ad esempio Outlook, OneDrive, Xbox LIVE oppure Office 365. L'account Microsoft viene creato e archiviato nel sistema di account delle identità degli utenti gestito da Microsoft.|
 
-## <a name="what-features-work-in-azure-ad"></a>Funzionalità disponibili in Azure AD
+## <a name="which-features-work-in-azure-ad"></a>Funzionalità disponibili in Azure AD
 Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a tutte le funzionalità seguenti per l'organizzazione:
 
 |Categoria|DESCRIZIONE|

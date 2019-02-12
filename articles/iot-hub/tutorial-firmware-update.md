@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: bc1887ef3cdbc56732317aea15be7a618c35847e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003577"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729813"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 

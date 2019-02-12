@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558380"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810662"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
@@ -37,6 +37,9 @@ Quando si crea un hub eventi, è possibile abilitare l'acquisizione facendo clic
 L'intervallo di tempo predefinito è di 5 minuti. Il valore minimo è 1, quello massimo 15. La finestra **Dimensione** ha un intervallo compreso tra 10 e 500 MB.
 
 ![Intervallo di tempo per l'acquisizione][1]
+
+> [!NOTE]
+> È possibile abilitare o disabilitare la creazione di file vuoti quando non si verificano eventi durante l'intervallo di acquisizione. 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Acquisire i dati un account Azure Data Lake Store
 

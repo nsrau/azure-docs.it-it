@@ -1,24 +1,24 @@
 ---
 title: Panoramica di Mappe di Azure | Microsoft Docs
 description: Introduzione a Mappe di Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 02/04/2019
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104268"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768580"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
-Mappe di Azure è una raccolta di servizi geospaziali supportati da dati di mappa aggiornati che consente di fornire un contesto geografico preciso alle applicazioni Web e per dispositivi mobili. Contiene le API REST per il rendering delle mappe e la ricerca di punti di interesse. Le API possono anche trovare gli itinerari per i punti di interesse, le condizioni del traffico, i fusi orari e un percorso da un indirizzo IP. È possibile usare queste API con strumenti già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Insieme alle API REST viene fornito anche il [controllo mappa JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) basato sul Web che rende lo sviluppo semplice, flessibile e compatibile con più supporti.
+Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa più aggiornati disponibili che fornisce un contesto geografico preciso alle applicazioni Web e ai dispositivi mobili. Mappe di Azure consiste in API REST per il rendering delle **mappe** in più stili e immagini satellitari, la **ricerca** di indirizzi, luoghi e punti di interesse in tutto il mondo; il **routing** point-to-point, multipoint, ottimizzazione multipoint, isocrono, veicoli commerciali, influenzato dal traffico e il routing di matrici; la visualizzazione ottimale di flusso del traffico e incidenti; stabilire la posizione dell'utente attraverso la **georilevazione**; infine, la conversione della posizione in **fusi orari** oltre che il recupero dell'orario di una posizione. In più, Mappe di Azure offre servizi per **geofencing**, archiviazione dei **dati** sulle mappe, ospitando informazioni sulla posizione in Azure, e **Operazioni spaziali** che offrono informazioni sulla posizione attraverso dati analitici geospaziali. I servizi di Mappe di Azure sono disponibili direttamente come API REST o attraverso un **Web SDK** o **Android SDK**. Questi strumenti consentono agli sviluppatori di sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure dal cloud di Azure. Per iniziare subito a sviluppare, iscriversi per ottenere un [account gratuito di Mappe di Azure](https://azure.microsoft.com/services/azure-maps/).
 
 Il video seguente spiega Mappe di Azure in modo approfondito:
 

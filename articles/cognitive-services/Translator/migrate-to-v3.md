@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227778"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699925"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 
@@ -109,12 +109,12 @@ Globale
 
 Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione della traduzione automatica neurale](custom-translator/overview.md)
 
-La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, testo, generalnn).
+La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, tecnologia, generalnn).
 
 | |Endpoint|    Conformità al processore GDPR|  Usare l'Hub di Translator| Usare il traduttore personalizzato (anteprima)|
 |:-----|:-----|:-----|:-----|:-----|
-|API Traduzione testuale versione 2| api.microsofttranslator.com|    No   |Yes    |No |
-|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Yes|    No | Yes|
+|API Traduzione testuale versione 2| api.microsofttranslator.com|    No   |Sì    |No |
+|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Sì|    No | Sì|
 
 **API Traduzione testuale versione 3**
 * È disponibile a livello generale e completamente supportata.

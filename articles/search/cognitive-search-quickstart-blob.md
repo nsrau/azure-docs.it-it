@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015273"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564562"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -147,15 +147,19 @@ La procedura guidata in genere è in grado di dedurre un indice predefinito. In 
 
 Per questa Guida introduttiva, la procedura guidata ha imposta valori predefiniti ragionevoli in modo efficace: 
 
-+ Il nome predefinito è *azureblob-index*.
++ Il nome predefinito è *azureblob-index* in base al tipo di origine dati. 
+
++ I campi predefiniti si basano sul campo dati di origine iniziale (`content`) e i campi di output ( `people`, `organizations` e `locations`) creati dalla pipeline cognitiva. I tipi di dati predefiniti vengono dedotti dai metadati e dal campionamento dei dati.
+
 + La chiave predefinita è *metadata_storage_path* (questo campo contiene valori univoci).
-+ Gli attributi e i tipi di dati predefiniti sono validi per gli scenari di ricerca full-text.
 
-Provare a cancellare **Recuperabile** dal campo `content`. Nei BLOB, questo campo può estendersi a migliaia di righe. È facile immaginare quanto sarebbe difficile visualizzare file con molto contenuto, ad esempio documenti di Word o presentazioni di PowerPoint come JSON in un elenco di risultati della ricerca. 
-
-Poiché è stato definito un set di competenze, la procedura guidata presume che si vogliano il campo dati di origine iniziale e i campi di output creati dalla pipeline cognitiva. Per questo motivo, il portale aggiunge campi di indice per `content`, `people`, `organizations` e `locations`. Si noti che la procedura guidata abilita automaticamente **Recuperabile** e **Ricercabile** per questi campi. **Ricercabile** indica un campo in cui è possibile eseguire ricerche. **Recuperabile** significa che può essere restituito nei risultati. 
++ Gli attributi predefiniti per questi campi sono **Recuperabile** e **Ricercabile**. **Ricercabile** indica un campo in cui è possibile eseguire ricerche. **Recuperabile** significa che può essere restituito nei risultati. La procedura guidata presuppone che si voglia rendere questi campi recuperabili e ricercabili perché sono stati creati con un insieme di competenze.
 
   ![Campi indice](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Osservare il testo barrato e il punto interrogativo sull'attributo **Recuperabile** accanto al campo `content`. Per i documenti BLOB a elevato utilizzo di testo, il campo `content` contiene la maggior parte del contenuto del file, eseguito potenzialmente in migliaia di righe. Se è necessario passare il contenuto del file al codice client, assicurarsi che il campo **Recuperabile** resti selezionato. In caso contrario, prendere in considerazione la cancellazione di questo attributo in `content` se gli elementi estratti (`people`, `organizations` e `locations`) sono sufficienti per gli scopi desiderati.
+
+Contrassegnare un campo come **Recuperabile** non significa che il campo *debba* essere presente nei risultati della ricerca. È possibile controllare con precisione la composizione dei risultati della ricerca usando il parametro di query **$select** per specificare i campi da includere. Per i campi con grandi quantità di testo come `content`, il parametro **$select** è la soluzione per fornire risultati della ricerca gestibili agli utenti umani dell'applicazione, garantendo allo stesso tempo che il codice abbia accesso a tutte le informazioni necessarie attraverso l'attributo **Recuperabile**.
   
 Passare alla pagina successiva.
 

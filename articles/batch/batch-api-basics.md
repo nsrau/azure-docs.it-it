@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754068"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818584"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -62,7 +62,7 @@ Alcune delle risorse seguenti, ovvero account, nodi di calcolo, pool, processi e
   * [Attività di avvio](#start-task)
   * [Attività di gestione dei processi](#job-manager-task)
   * [Attività di preparazione e rilascio dei processi](#job-preparation-and-release-tasks)
-  * [Attività a istanze multiple (MPI)](#multi-instance-tasks)
+  * Attività a istanze multiple (MPI)
   * [Dipendenze dell'attività](#task-dependencies)
 * [Pacchetti dell'applicazione](#application-packages)
 
@@ -153,7 +153,7 @@ Per i requisiti e i passaggi dettagliati, vedere [Usare un'immagine personalizza
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Supporto dei contenitori nei pool di macchine virtuali
 
-Quando si crea un pool Configurazione macchina virtuale usando le API di Batch, è possibile impostare il pool per eseguire attività in contenitori Docker. Attualmente è necessario creare il pool usando un'immagine che supporti contenitori Docker. Usare l'immagine Windows Server 2016 Datacenter con contenitori di Azure Marketplace oppure specificare un'immagine di VM personalizzata che includa Docker Community Edition o Enterprise Edition e tutti i driver necessari. Le impostazioni del pool devono includere una [configurazione del contenitore](/rest/api/batchservice/pool/add#definitions_containerconfiguration) che copia le immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento a immagini del contenitore e opzioni di esecuzione del contenitore.
+Quando si crea un pool Configurazione macchina virtuale usando le API di Batch, è possibile impostare il pool per eseguire attività in contenitori Docker. Attualmente è necessario creare il pool usando un'immagine che supporti contenitori Docker. Usare l'immagine Windows Server 2016 Datacenter con contenitori di Azure Marketplace oppure specificare un'immagine di VM personalizzata che includa Docker Community Edition o Enterprise Edition e tutti i driver necessari. Le impostazioni del pool devono includere una [configurazione del contenitore](/rest/api/batchservice/pool/add) che copia le immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento a immagini del contenitore e opzioni di esecuzione del contenitore.
 
 Per altre informazioni, vedere [Eseguire applicazioni contenitore Docker in Azure Batch](batch-docker-container-workloads.md).
 
@@ -215,7 +215,7 @@ L' *attività di avvio* facoltativa viene eseguita in ogni nodo aggiunto al pool
 
 ### <a name="network-configuration"></a>Configurazione di rete
 
-È possibile specificare la subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure in cui devono essere creati i nodi di calcolo del pool. Per altre informazioni, vedere la sezione [Pool della configurazione di rete](#pool-network-configuration).
+È possibile specificare la subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure in cui devono essere creati i nodi di calcolo del pool. Per altre informazioni, vedere la sezione Pool della configurazione di rete.
 
 
 ## <a name="job"></a>Processo
@@ -271,7 +271,7 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 * [Attività di avvio](#start-task)
 * [Attività di gestione dei processi](#job-manager-task)
 * [Attività di preparazione e rilascio dei processi](#job-preparation-and-release-tasks)
-* [Attività a istanze multiple (MPI)](#multi-instance-tasks)
+* Attività a istanze multiple (MPI)
 * [Dipendenze dell'attività](#task-dependencies)
 
 ### <a name="start-task"></a>Attività di avvio
@@ -357,7 +357,7 @@ La directory radice contiene la struttura di directory seguente:
 
 * **shared**: questa directory fornisce l'accesso in lettura/scrittura a *tutte* le attività eseguite in un nodo. Le attività eseguite nel nodo possono creare, leggere, aggiornare ed eliminare file in questa directory. Le attività possono accedere a questa directory facendo riferimento alla variabile di ambiente `AZ_BATCH_NODE_SHARED_DIR`.
 * **startup**: questa directory viene usata da un'attività di avvio come directory di lavoro. Tutti i file scaricati nel nodo dall'attività di avvio vengono archiviati qui. L'attività di avvio può creare, leggere, aggiornare ed eliminare file in tale directory. Le attività possono accedere a questa directory facendo riferimento alla variabile di ambiente `AZ_BATCH_NODE_STARTUP_DIR`.
-* **Tasks** (Attività): viene creata una directory per ogni attività in esecuzione nel nodo. La directory è accessibile tramite un riferimento alla variabile di ambiente `AZ_BATCH_TASK_DIR`.
+* **Tasks** (Attività): viene creata una directory per ogni attività in esecuzione nel nodo. accessibile tramite un riferimento alla variabile di ambiente `AZ_BATCH_TASK_DIR`.
 
     All'interno di ogni directory di attività, il servizio Batch crea una directory di lavoro (`wd`), il cui percorso univoco viene specificato dalla variabile di ambiente `AZ_BATCH_TASK_WORKING_DIR`. Questa directory fornisce l'accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory. Questa directory viene mantenuta in base al vincolo *RetentionTime* specificato per l'attività.
 

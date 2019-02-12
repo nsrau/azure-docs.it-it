@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301459"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756870"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -105,7 +105,7 @@ Nel comando seguente sostituire il segnaposto `<function_app>` con il nome univo
 
 ## <a name="configure-the-function-app"></a>Configurare l'app per le funzioni
 
-La funzione richiede la stringa di connessione per connettersi all'account di archiviazione BLOB. Il codice della funzione distribuito in Azure nel passaggio seguente cerca la stringa di connessione nell'impostazione myblobstorage_STORAGE dell'app e cerca il nome del contenitore dell'immagine di anteprima nell'impostazione myContainerName dell'app. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Configurare l'impostazione dell'applicazione con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+La funzione richiede la stringa di connessione per connettersi all'account di archiviazione BLOB. Il codice della funzione distribuito in Azure nel passaggio seguente cerca la stringa di connessione nell'impostazione myblobstorage_STORAGE dell'app e cerca il nome del contenitore dell'immagine di anteprima nell'impostazione myContainerName dell'app. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account). Configurare l'impostazione dell'applicazione con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 Nei comandi seguenti dell'interfaccia della riga di comando `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato nell'esercitazione precedente.
 
@@ -128,7 +128,7 @@ Nei comandi seguenti dell'interfaccia della riga di comando `<blob_storage_accou
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-La funzione di ridimensionamento di esempio mediante script C# (CSX) è disponibile in [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+La funzione di ridimensionamento di esempio mediante script C# (CSX) è disponibile in [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
 Nel comando seguente `<function_app>` è il nome dell'app per le funzioni creata in precedenza.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-La funzione di ridimensionamento di esempio Node.js è disponibile in [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
+La funzione di ridimensionamento di esempio Node.js è disponibile in [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 Nel comando seguente `<function_app>` è il nome dell'app per le funzioni creata in precedenza.
 
@@ -184,8 +184,12 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Tipi di evento** | Blob created (BLOB creato) | Deselezionare tutti i tipi diversi da **Blob created** (BLOB creato). Solo i tipi di evento `Microsoft.Storage.BlobCreated` vengono passati alla funzione.| 
     | **Tipo di sottoscrittore** |  generato automaticamente |  Predefinito come webhook. |
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
-4. *Facoltativo:* nel caso in cui sia necessario creare altri contenitori nello stesso archivio BLOB per scopi diversi in futuro, è possibile usare le funzionalità di **filtro per l'oggetto** nella scheda **Filtri** per definire in modo più granulare le destinazioni di eventi BLOB e assicurarsi che l'app per le funzioni venga chiamata solo quando i BLOB vengono aggiunti specificamente al contenitore **images**. 
-5. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
+4. Passare alla scheda **Filtro** ed eseguire le azioni seguenti:     
+    1. Selezionare l'opzione **Abilita filtro per l'oggetto**.
+    2. Per **L'oggetto inizia con** immettere il valore seguente: **/blobServices/default/containers/images/blobs/**.
+
+        ![Specificare un filtro per la sottoscrizione di eventi](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Selezionare **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore `images`. La funzione ridimensiona le immagini e le aggiunge al contenitore `thumbnails`.
 
 Ora che i servizi back-end sono stati configurati, testare la funzione di ridimensionamento delle immagini nell'applicazione Web di esempio. 
 

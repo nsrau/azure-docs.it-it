@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902656"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691406"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Informazioni su come creare e gestire le repliche in lettura nel portale di Azure
 
@@ -141,7 +141,7 @@ In alternativa, è possibile eliminarlo dalla finestra Replica.
 
 ## <a name="monitor-a-replica"></a>Monitorare una replica
 ### <a name="max-lag-across-replicas"></a>Max Lag Across Replicas (Ritardo massimo tra repliche)
-La metrica **Max lag across replicas** (Ritardo massimo tra repliche) indica il tempo di ritardo che intercorre tra il master e la replica più in ritardo. 
+La metrica **Max lag across replicas** (Ritardo massimo tra repliche) indica il ritardo in byte che intercorre tra il master e la replica più in ritardo. 
 
 1.  Nel portale di Azure selezionare il server Database di Azure per PostgreSQL **master**.
 

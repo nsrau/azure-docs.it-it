@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077658"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769852"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -32,7 +32,9 @@ In questa guida introduttiva si apprende come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'analisi dei costi è disponibile per tutti i clienti con [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sull'assegnazione dell'accesso ai dati di Gestione costi, vedere [Assign access to data](assign-access-acm-data.md) (Assegnare l'accesso ai dati).
+Analisi dei costi supporta un'ampia gamma di tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i dati relativi ai costi, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
+
+I clienti con [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) devono avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi.
 
 - Account di fatturazione
 - department
@@ -41,13 +43,15 @@ L'analisi dei costi è disponibile per tutti i clienti con [Contratto Enterprise
 - Sottoscrizione
 - Gruppo di risorse
 
+Per altre informazioni sull'assegnazione dell'accesso ai dati di Gestione costi, vedere [Assign access to data](assign-access-acm-data.md) (Assegnare l'accesso ai dati).
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 - Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Esaminare i costi nell'analisi dei costi
 
-Per esaminare i costi con analisi dei costi, nel portale di Azure, passare a **Gestione costi + Fatturazione** &gt; **Gestione costi** &gt; **Cambia ambito**, scegliere un ambito e quindi fare clic su **Selezionare**.
+Per esaminare i costi con analisi dei costi, nel portale di Azure, passare a **Gestione costi + Fatturazione** &gt; **Analisi dei costi**. Selezionare **Ambito: _ScopeName_**, scegliere un ambito e quindi fare clic su **Selezionare**.
 
 L'ambito selezionato viene usato attraverso Gestione costi per fornire il consolidamento dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti non vengono multi-selezionati. Invece, si seleziona un ambito più ampio a cui altri utenti si avvicinano e quindi si filtra in basso ciò che si vuole. È importante comprendere questo perché alcuni utenti non devono avere accesso a un ambito padre a cui si avvicinano gli ambiti figlio.
 
@@ -94,7 +98,8 @@ Ecco una visualizzazione dei costi dei servizi di Azure nell'ultimo mese.
 
 ![Visualizzazione giornaliera accumulata raggruppata che mostra i costi dei servizi di Azure di esempio per il mese scorso](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-I grafici pivot nel grafico principale mostrano diversi raggruppamenti per offrire un quadro più ampio dei costi complessivi per il periodo di tempi e i filtri selezionati. Selezionare una proprietà o un tag per visualizzare i costi aggregati per qualsiasi dimensione. Il set completo di dati per la visualizzazione totale è visibile nella parte inferiore della schermata, espandendo il menu **Dati** o selezionando **Esporta > Scarica CSV** nella parte superiore della schermata. Di seguito è riportato un esempio del menu dati per i gruppi di risorse.
+I grafici pivot nel grafico principale mostrano diversi raggruppamenti per offrire un quadro più ampio dei costi complessivi per il periodo di tempi e i filtri selezionati. Selezionare una proprietà o un tag per visualizzare i costi aggregati per qualsiasi dimensione.
+
 
 ![Dati completi per la visualizzazione corrente che mostrano il nome del gruppo di risorse](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ L'immagine precedente mostra i nomi dei gruppi di risorse. Anche se è possibile
 Quando si raggruppano i costi in base a un attributo specifico, vengono visualizzati in ordine decrescente i primi 10 gruppi di risorse che hanno contribuito maggiormente ai costi. Se sono presenti più di 10 gruppi, vengono visualizzati i primi nove gruppi, oltre a un gruppo **Others** (Altri), che riunisce tutti gli altri gruppi. Quando si raggruppa in base ai tag, è anche possibile visualizzare un gruppo **Senza tag** a cui non è applicata la chiave del tag. **Senza tag** è sempre ultimo, anche se esistono più costi senza tag che costi con tag. Se sono presenti dieci o più valori di tag, i costi senza tag faranno parte del gruppo **Altri**.
 
 Le macchine virtuali, le risorse di rete e le risorse di archiviazione *classiche* (Gestione dei servizi di Azure o ASM) non condividono dati di fatturazione dettagliati. Tali risorse vengono unite nel gruppo **Classic services** (Servizi classici) quando si raggruppano i costi.
+
+È possibile visualizzare il set di dati completo per tutte le viste. Le selezioni effettuate o i filtri applicati influiscono sui dati presentati. Per visualizzare il set di dati completo, fare clic sull'elenco del **tipo di grafico** e quindi fare clic sulla vista **Tabella**.
+
+![Dati per la visualizzazione corrente in vista tabella](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Scaricare i dati dell'analisi dei costi

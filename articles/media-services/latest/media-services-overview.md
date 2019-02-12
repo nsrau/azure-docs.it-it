@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/14/2019
+ms.date: 02/05/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 31bf120b590ad8de3263e2d3a553f1d5fcfcd7f9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352122"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756887"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
 
@@ -76,11 +76,13 @@ Vedere l'esempio incluso in [Ottenere i criteri di chiave simmetrica - .NET](get
 
 ## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3?
 
-Gli sviluppatori possono usare l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) di Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati.  
+Gli sviluppatori possono usare l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API Servizi multimediali v3 è basata sulla [specifica OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (in precedenza nota come Swagger).
 
-Servizi multimediali offre un [file Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) che è possibile usare per la generazione degli SDK per la tecnologia o il linguaggio preferito.  
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice alla base di AMSE è destinato ai clienti che hanno l'esigenza di sviluppare con Servizi multimediali e vogliono vedere codice di qualità produzione.
 
-Microsoft genera e supporta le librerie client seguenti: 
+AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare opencode@microsoft.com per eventuali altre domande o commenti.
+ 
+Servizi multimediali di Azure supporta le librerie client seguenti: 
 
 |Informazioni di riferimento sulle API|SDK/Strumenti|Esempi|
 |---|---|---|---|

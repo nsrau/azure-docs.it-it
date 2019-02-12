@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301729"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696779"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -32,6 +32,8 @@ In questa esercitazione si apprenderà come:
 > * Rimuovere un accesso
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -79,10 +81,10 @@ Per assegnare un ruolo sono necessari un utente, un gruppo o un entità servizio
 
 Si usa un gruppo di risorse per illustrare come assegnare un ruolo a un ambito di gruppo di risorse.
 
-1. Ottenere un elenco delle località dell'area con il comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+1. Ottenere un elenco delle località dell'area con il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Selezionare una località vicina e assegnarla a una variabile.
@@ -91,10 +93,10 @@ Si usa un gruppo di risorse per illustrare come assegnare un ruolo a un ambito d
    $location = "westus"
    ```
 
-1. Creare un nuovo gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+1. Creare un nuovo gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -107,12 +109,12 @@ Si usa un gruppo di risorse per illustrare come assegnare un ruolo a un ambito d
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) per assegnare un ruolo. È necessario specificare l'entità di sicurezza, la definizione del ruolo e l'ambito.
+Per concedere l'accesso all'utente, si usa il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) per assegnare un ruolo. È necessario specificare l'entità di sicurezza, la definizione del ruolo e l'ambito.
 
-1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -131,7 +133,7 @@ Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment
 1. Assegnare il ruolo [Lettore](built-in-roles.md#reader) all'utente nell'ambito della sottoscrizione.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -151,7 +153,7 @@ Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment
 1. Assegnare il ruolo [Collaboratore](built-in-roles.md#contributor) all'utente nell'ambito del gruppo di risorse.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -170,10 +172,10 @@ Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment
 
 ## <a name="list-access"></a>Elencare l'accesso
 
-1. Per verificare l'accesso alla sottoscrizione, usare il comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) per elencare le assegnazioni dei ruoli.
+1. Per verificare l'accesso alla sottoscrizione, usare il comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) per elencare le assegnazioni dei ruoli.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
     ```
 
     ```Example
@@ -190,10 +192,10 @@ Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment
 
     Nell'output si può vedere che il ruolo di lettore è stato assegnato all'utente dell'esercitazione sul controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 
-1. Per verificare l'accesso al gruppo di risorse, usare il comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) per elencare le assegnazioni dei ruoli.
+1. Per verificare l'accesso al gruppo di risorse, usare il comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) per elencare le assegnazioni dei ruoli.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -232,12 +234,12 @@ Per concedere l'accesso all'utente, si usa il comando [New-AzureRmRoleAssignment
 
 ## <a name="remove-access"></a>Rimuovere un accesso
 
-Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) per rimuovere l'assegnazione di un ruolo.
+Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) per rimuovere l'assegnazione di un ruolo.
 
 1. Usare il comando seguente per rimuovere l'assegnazione del ruolo di collaboratore per l'utente nell'ambito del gruppo di risorse.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -245,7 +247,7 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare [Remove-AzureRm
 1. Usare il comando seguente per rimuovere l'assegnazione del ruolo di lettore per l'utente nell'ambito della sottoscrizione.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -254,10 +256,10 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare [Remove-AzureRm
 
 Per pulire le risorse create con questa esercitazione, eliminare il gruppo di risorse e l'utente.
 
-1. Eliminare il gruppo di risorse usando il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+1. Eliminare il gruppo di risorse usando il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381659"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822706"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -72,6 +72,7 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -87,6 +88,7 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -132,9 +134,9 @@ Mapping dei servizi ottiene i dati da Microsoft Dependency Agent. Dependency Age
 
 | Origine connessa | Supportato | DESCRIZIONE |
 |:--|:--|:--|
-| Agenti di Windows | Yes | Mapping dei servizi analizza e raccoglie i dati dai computer Windows. <br><br>Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Agenti Linux | Yes | Mapping dei servizi analizza e raccoglie i dati dai computer Linux. <br><br>Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Gruppo di gestione di System Center Operations Manager | Yes | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. |
+| Agenti di Windows | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Windows. <br><br>Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
+| Agenti Linux | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Linux. <br><br>Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
+| Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. |
 | Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
 In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente è chiamato agente System Center Operations Manager, agente di Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
@@ -383,11 +385,11 @@ Se l'installazione di Dependency Agent è stata completata correttamente, ma nel
 **Windows**: cercare il servizio denominato "Microsoft Dependency Agent".<br>
 **Linux**: cercare il processo in esecuzione "microsoft-dependency-agent".
 
-* L'utente dispone del [piano tariffario gratuito di Log Analytics/Operations Management Suite](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi. Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
+* L'utente dispone del [piano tariffario gratuito di Log Analytics/Operations Management Suite](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi. Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
 
 * Il server invia il log e i dati delle prestazioni a Log Analytics? Passare a Ricerca log ed eseguire la query seguente per il computer: 
 
-    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'agente di Log Analytics funziona correttamente e comunica con Log Analytics. In caso contrario, controllare l'agente sul server: [Risoluzione dei problemi dell'agente di Log Analytics per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) o [Risoluzione dei problemi dell'agente di Log Analytics per Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

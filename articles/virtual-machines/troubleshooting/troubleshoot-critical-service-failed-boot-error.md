@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071030"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813790"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
 Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata esecuzione di un servizio critico, che può verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Illustra inoltre i passaggi da seguire per risolvere i problemi. 
 
 > [!NOTE] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra il modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra il modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
 
 ## <a name="symptom"></a>Sintomo 
 
 La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot di avvio in [Diagnostica di avvio](./boot-diagnostics.md), viene visualizzato un messaggio di errore simile ai seguenti su una schermata blu:
 
 - "Si è verificato un problema ed è necessario riavviare il PC. È possibile riavviare. Per altre informazioni su questo problema e sulle possibili correzioni, visitare http://windows.com/stopcode. Se si chiama un addetto del supporto tecnico, fornire queste informazioni: Codice di arresto: CRITICAL SERVICE FAILED" 
-- "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente. Per saperne di più, è possibile cercare online informazioni questo errore in un secondo momento: CRITICAL_SERVICE_FAILED"
+- "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente. Per saperne di più, è possibile cercare online informazioni su questo errore in un secondo momento: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
 
@@ -93,7 +93,7 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](troubleshoot-recovery-disks-portal-windows.md). La macchina virtuale verrà avviata in modalità provvisoria. Se l'errore persiste, eseguire il [passaggio facoltativo](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](troubleshoot-recovery-disks-portal-windows.md). La macchina virtuale verrà avviata in modalità provvisoria. Se l'errore persiste, eseguire il passaggio facoltativo.
 3. Aprire la casella **Esegui** ed eseguire **verifier** per avviare Driver Verifier Manager.
 4. Fare clic su **Seleziona automaticamente i driver non firmati** e quindi su **Avanti**.
 5. Si otterrà l'elenco dei file di driver non firmati. Prendere nota dei nomi dei file.

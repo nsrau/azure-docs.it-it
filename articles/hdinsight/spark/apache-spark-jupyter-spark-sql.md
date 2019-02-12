@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un cluster Spark in HDInsight usando un modello'
+title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando un modello'
 description: Questa guida introduttiva illustra come usare il modello di Resource Manager per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
 services: azure-hdinsight
 author: hrasheed-msft
@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7ef45061207bed28c1b3c16b7cefbcc9bfc49959
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814973"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Avvio rapido: Creare un cluster Apache Spark HDInsight usando un modello
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Guida introduttiva: Creare un cluster Apache Spark HDInsight usando un modello
 
 Informazioni su come creare un cluster [Apache Spark](https://spark.apache.org/) in Azure HDInsight ed eseguire query Spark SQL sulle tabelle [Apache Hive](https://hive.apache.org/). Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
-In questa guida introduttiva si userà un modello di Resource Manager per creare un cluster Spark HDInsight. Il cluster usa i BLOB del servizio di archiviazione di Azure come archiviazione cluster. Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Avvio rapido: Impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+In questa guida introduttiva si userà un modello di Resource Manager per creare un cluster Spark HDInsight. Modelli simili sono disponibili in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Le informazioni di riferimento per il modello sono disponibili [qui](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+
+Il cluster usa i BLOB del servizio di archiviazione di Azure come archiviazione cluster. Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Avvio rapido: Impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 > [!IMPORTANT]  
 > La fatturazione dei cluster HDInsight viene calcolata al minuto, indipendentemente dal fatto che siano in uso o meno. Assicurarsi di eliminare il cluster dopo aver finito di usarlo. Per altre informazioni, vedere la sezione [Pulire le risorse](#clean-up-resources) di questo articolo.

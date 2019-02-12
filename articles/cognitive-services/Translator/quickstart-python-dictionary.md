@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458267"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691471"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Python
 
 In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene impostato come `base_url`. `path` imposta la route `dictionary/lookup` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `dictionary/lookup` e identifica che si vuole usare la versione 3 dell'API.
 
 `params` viene usato per impostare le lingue di origine e di output. In questo esempio vengono usate le lingue inglese e spagnolo: `en` e `es`.
 

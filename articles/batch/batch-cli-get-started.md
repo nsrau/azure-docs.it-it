@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812362"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -63,7 +63,7 @@ Per usare l'interfaccia della riga di comando di Azure con Batch, è necessario 
 Per accedere ad Azure è possibile procedere in diversi modi, descritti nel dettaglio nell'articolo [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Accedere modo interattivo](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Accedere in modo interattivo quando si eseguono comandi dell'interfaccia della riga di comando di Azure direttamente dalla riga di comando.
-2. [Accedere con un'entità servizio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
+2. [Accedere con un'entità servizio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
 
 Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) nella riga di comando:
 
@@ -76,7 +76,7 @@ Il comando `az login` restituisce un token che può essere usato per eseguire l'
 
 ![Accedere ad Azure](./media/batch-cli-get-started/az-login.png)
 
-Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell-scripts) mostrano anche come avviare la sessione dell'interfaccia della riga di comando di Azure eseguendo l'accesso ad Azure in modo interattivo. Dopo aver eseguito l'accesso, è possibile chiamare i comandi per usare le risorse di gestione Batch, inclusi i pacchetti di applicazioni, le chiavi, le quote e gli account Batch.  
+Gli esempi riportati nella sezione Script della shell di esempio mostrano anche come avviare la sessione dell'interfaccia della riga di comando di Azure eseguendo l'accesso ad Azure in modo interattivo. Dopo aver eseguito l'accesso, è possibile chiamare i comandi per usare le risorse di gestione Batch, inclusi i pacchetti di applicazioni, le chiavi, le quote e gli account Batch.  
 
 ### <a name="log-in-to-your-batch-account"></a>Accedere all'account Batch
 
@@ -110,7 +110,7 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell-scripts) mostrano come accedere all'account Batch con l'interfaccia della riga di comando di Azure usando sia Azure AD che la chiave condivisa.
+Gli esempi riportati nella sezione Script della shell di esempio mostrano come accedere all'account Batch con l'interfaccia della riga di comando di Azure usando sia Azure AD che la chiave condivisa.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Usare i comandi per l'estensione dell'interfaccia della riga di comando di Azure Batch
 
@@ -168,7 +168,7 @@ I suggerimenti riportati di seguito possono contribuire alla risoluzione di prob
 
 * Usare `-h` per visualizzare il **testo della Guida** per qualsiasi comando dell'interfaccia della riga di comando.
 * Usare `-v` e `-vv` per visualizzare l'output del comando **verbose**. Quando il flag `-vv` è incluso, l'interfaccia della riga di comando di Azure visualizza le richieste REST e le risposte effettive. Queste opzioni sono utili per visualizzare l'output completo degli errori.
-* È possibile visualizzare l'**output del comando in formato JSON** con l'opzione `--json`. Ad esempio, `az batch pool show pool001 --json` visualizza le proprietà di pool001 in formato JSON. È quindi possibile copiare e modificare tale output per l'uso in un `--json-file` (vedere [File JSON](#json-files) più indietro in questo articolo).
+* È possibile visualizzare l'**output del comando in formato JSON** con l'opzione `--json`. Ad esempio, `az batch pool show pool001 --json` visualizza le proprietà di pool001 in formato JSON. È quindi possibile copiare e modificare tale output per l'uso in un `--json-file` (vedere File JSON più indietro in questo articolo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Passaggi successivi

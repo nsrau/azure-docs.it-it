@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks | Microsoft Docs'
+title: 'Avvio rapido: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks | Microsoft Docs'
 description: Informazioni su come eseguire un processo Spark in Azure Databricks usando il portale di Azure e un account di archiviazione di Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239920"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694168"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -29,15 +29,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Esaminare l'account di archiviazione
-
-Saranno necessari il nome dell'account di archiviazione e l'URI di un endpoint del file system.
+## <a name="get-the-name-of-your-storage-account"></a>Ottenere il nome dell'account di archiviazione
 
 Per ottenere il nome dell'account di archiviazione nel portale di Azure, scegliere **tutti i servizi** e filtrare in base al termine *archiviazione*. Quindi, selezionare **Account di archiviazione** e individuare il proprio account di archiviazione.
 
-Per ottenere l'URI dell'endpoint del file system, scegliere il riquadro **Proprietà**, quindi trovare il valore del campo **Primary ADLS FILE SYSTEM ENDPOINT**.
-
-Incollare entrambi questi valori in un file di testo. Saranno necessari a breve.
+Incollare il nome in un file di testo. Sarà presto necessario.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Incollare entrambi questi valori in un file di testo. Saranno necessari a breve.
 
 Creare un'entità servizio seguendo le indicazioni fornite in questo argomento: [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Ecco alcune operazioni specifiche che è necessario eseguire seguendo i passaggi descritti in questo articolo.
-
-:heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Creare un'applicazione Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) dell'articolo, assicurarsi di impostare il campo **URL di accesso** della finestra di dialogo **Crea** sull'URI dell'endpoint appena ottenuto.
+Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
 
 :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare l'applicazione al **Ruolo di collaboratore di archiviazione Blob**.
 
@@ -136,7 +130,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
     > [!NOTE]
     > Questo blocco di codice accede direttamente all'endpoint Data Lake Gen2 usando OAuth, ma è possibile connettere in altri modi l'area di lavoro di Databricks all'account di Data Lake Storage Gen2. È ad esempio possibile montare il file system usando OAuth oppure usare un accesso diretto con Chiave condivisa. <br>Per alcuni esempi di questi approcci, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sul sito Web di Azure Databricks.
 
-5. In questo blocco di codice, sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori ottenuti dopo aver completato i passaggi descritti nelle sezioni [Esaminare l'account di archiviazione](#config) e [Creare un'entità servizio](#service-principal) di questo articolo.  Impostare il valore segnaposto `file-system-name` sul nome che si vuole assegnare al file system.
+5. In questo blocco di codice, sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori ottenuti dopo aver completato i passaggi descritti nelle sezioni [Ottenere il nome dell'account di archiviazione](#config) e [Creare un'entità servizio](#service-principal) di questo articolo.  Impostare il valore segnaposto `file-system-name` sul nome che si vuole assegnare al file system.
 
 6. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 

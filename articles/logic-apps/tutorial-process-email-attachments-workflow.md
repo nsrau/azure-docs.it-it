@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121724"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508607"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -64,7 +64,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | **Modello di distribuzione** | Resource Manager | [Modello di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) per la gestione della distribuzione delle risorse | 
    | **Tipo di account** | Scopo generico | [Tipo di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Posizione** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di archiviazione | 
-   | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Replica](../storage/common/storage-introduction.md#replication). | 
+   | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](../storage/common/storage-redundancy-lrs.md). | 
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Trasferimento sicuro necessario** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
@@ -274,8 +274,8 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       | Impostazione | Valore | DESCRIZIONE | 
       | ------- | ----- | ----------- | 
-      | **Con allegato** | Yes | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. | 
-      | **Includi allegati** | Yes | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
+      | **Con allegato** | Sì | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. | 
+      | **Includi allegati** | Sì | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
       | **Filtro oggetto** | ```Business Analyst 2 #423501``` | Testo da trovare nell'oggetto del messaggio di posta elettronica | 
       |  |  |  | 
 

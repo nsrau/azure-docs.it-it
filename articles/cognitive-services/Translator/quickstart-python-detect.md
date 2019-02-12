@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Rilevare la lingua del testo, Python - API Traduzione testuale'
+title: 'Guida introduttiva: Rilevare la lingua del testo, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come identificare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213804"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692740"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene impostato come `base_url`. `path` imposta la route `detect` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `detect` e identifica che si vuole usare la versione 3 dell'API.
 
 >[!NOTE]
 > Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Rileva](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).

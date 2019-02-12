@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054759"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488095"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -61,22 +61,23 @@ Gli indirizzi IP pubblici vengono creati con uno degli SKU seguenti:
 Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono indirizzi IP pubblici con SKU Basic. Con l'introduzione degli SKU, è possibile specificare lo SKU per l'indirizzo IP pubblico. Gli indirizzi con SKU Basic sono:
 
 - Assegnati con il metodo di allocazione statica o dinamica.
+- Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
 - Sono aperti per impostazione predefinita.  I gruppi di sicurezza di rete sono consigliati ma facoltativi per limitare il traffico in ingresso o in uscita.
 - Assegnati a qualsiasi risorsa di Azure a cui può essere assegnato un indirizzo IP pubblico, ad esempio interfacce di rete, gateway VPN e servizi di bilanciamento del carico con connessione Internet.
-- Assegnabili a una zona specifica.
-- Senza ridondanza della zona. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Non supportano gli scenari di Zona di disponibilità.  È necessario usare l'indirizzo IP pubblico dello SKU Standard per scenari di Zona di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>Standard
 
 Gli indirizzi IP pubblici con SKU Standard sono:
 
-- Assegnati solo con il metodo di allocazione statica.
+- Assegnati sempre con il metodo di allocazione statica.
+- Caratterizzati da un timeout di inattività per i flussi in ingresso e in uscita modificabile di 4-66 minuti, con un valore predefinito di 4 minuti.
 - Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
-- Assegnato a interfacce di rete, servizi pubblici di bilanciamento del carico standard, gateway applicazione o gateway VPN. Per altre informazioni sui servizi di bilanciamento del carico Standard di Azure, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Con ridondanza della zona per impostazione predefinita. Può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assegnato a interfacce di rete, servizi pubblici di bilanciamento del carico standard, gateway applicazione o gateway VPN. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Con ridondanza della zona per impostazione predefinita e facoltativamente di zona (può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> La comunicazione con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
+> La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
@@ -127,10 +128,10 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Yes |Yes |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
-| gateway VPN |Configurazione IP del gateway |Yes |Yes |
-| gateway applicazione |Configurazione front-end |Yes |Yes |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
+| gateway VPN |Configurazione IP del gateway |Sì |Sì |
+| gateway applicazione |Configurazione front-end |Sì |Sì |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse di Azure di comunicare con altre risorse in una [rete virtuale](virtual-networks-overview.md) o in una rete locale tramite un gateway VPN o un circuito ExpressRoute, senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -175,9 +176,9 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Yes |Yes |
-| Bilanciamento del carico |Configurazione front-end |Yes |Yes |
-| gateway applicazione |Configurazione front-end |Yes |Yes |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
+| Bilanciamento del carico |Configurazione front-end |Sì |Sì |
+| gateway applicazione |Configurazione front-end |Sì |Sì |
 
 ## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.

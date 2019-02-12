@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095695"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814016"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web (anteprima)
 
@@ -116,7 +116,7 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
 
 1. Tornare al tenant di Azure AD, selezionare nuovamente **Registrazioni app** e quindi trovare e selezionare l'applicazione client che si vuole configurare.
-1. Ripetere la procedura illustrata in [Configurare un'applicazione client per l'accesso ad API Web](#configure-a-client-application-to-access-web-apis).
+1. Ripetere la procedura illustrata in Configurare un'applicazione client per l'accesso ad API Web.
 1. Quando si arriva al passaggio per **selezionare un'API**, selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
 
 ## <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260126"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821304"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, è necessario quanto segue:
 
   Se non si ha un server Jenkins, completare questa procedura nel portale di Azure: [Creare un server Jenkins in una macchina virtuale Linux di Azure](/azure/jenkins/install-jenkins-solution-template)
 
-* Un account [GitHub](https://github.com) per ottenere una copia di lavoro ([fork](#fork)) per l'app Web Java di esempio. 
+* Un account [GitHub](https://github.com) per ottenere una copia di lavoro (fork) per l'app Web Java di esempio. 
 
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), che è possibile eseguire dalla riga di comando locale o da [Azure Cloud Shell](/azure/cloud-shell/overview)
 

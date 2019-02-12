@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9b09982e5552a85ce5800059b114f30b5f4bfad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178580"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756547"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group#create).
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group).
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella località *eastus*.
 
@@ -78,7 +78,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#create) per creare il gateway applicazione. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza. 
+È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) per creare il gateway applicazione. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,8 +106,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-backend-pools"></a>Aggiungere i pool back-end
 
-Aggiungere i pool back-end necessari in cui includere i server back-end usando [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address_pool_create).
-
+Aggiungere i pool back-end necessari in cui includere i server back-end usando [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -122,7 +121,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>Aggiungere i listener back-end
 
-Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
+Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +145,7 @@ az network application-gateway http-listener create \
 
 Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
-In questo esempio si creano due nuove regole e si elimina la regola predefinita che è stata creata al momento della creazione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway).
+In questo esempio si creano due nuove regole e si elimina la regola predefinita che è stata creata al momento della creazione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -223,7 +222,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Creare un record CNAME nel dominio
 
-Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. 
+Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. 
 
 ```azurecli-interactive
 az network public-ip show \

@@ -11,33 +11,28 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f06269b937a645a5334c1a8015528ad00adb66e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c68e50d02a27097c9fa8a699468ce679162240a1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154491"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561298"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
-Il servizio Visione artificiale basato sul cloud consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni. Visione artificiale usa i formati di immagine più diffusi, ad esempio JPEG e PNG. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di Visione artificiale consentono di analizzare il contenuto di un'immagine in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o audace o può individuare tutti i visi in un'immagine.
+Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o audace o può individuare tutti i visi umani in un'immagine.
 
-È possibile usare Visione artificiale nell'applicazione usando le [librerie client](quickstarts-sdk/csharp-analyze-sdk.md) per richiamare il servizio o chiamando direttamente l'[API REST](vision-api-how-to-topics/howtocallvisionapi.md) per:
+È possibile usare Visione artificiale nell'applicazione usando un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
 
-- [Analizzare le immagini per ottenere informazioni dettagliate](#analyzing-images-for-insight)
-- [Estrarre testo dalle immagini](#extracting-text-from-images)
-- [Moderare i contenuti nelle immagini](#moderating-content-in-images)
+## <a name="analyze-images-for-insight"></a>Analizzare le immagini per ottenere informazioni dettagliate
 
-## <a name="analyzing-images-for-insight"></a>Analisi di immagini per ottenere informazioni dettagliate
-
-È possibile analizzare le immagini usando Visione artificiale per rilevare e fornire informazioni dettagliate sugli elementi visivi e sulle caratteristiche delle immagini. È possibile caricare i contenuti di un'immagine per analizzare le immagini locali oppure specificare l'URL di un'immagine per analizzare immagini remote.
-
-Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'immagine:
+È possibile analizzare le immagini per rilevare e fornire informazioni dettagliate sugli elementi visivi e sulle caratteristiche. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisi dell'immagine).
 
 | Azione | DESCRIZIONE |
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|Identificare e assegnare tag agli elementi visivi di un'immagine in base a un set di migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o non di conoscenza comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di uno scenario noto. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Rilevare gli oggetti](concept-object-detection.md)**| Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisce le coordinate del rettangolo di selezione per ogni tag applicato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare ulteriormente le relazioni tra gli oggetti in un'immagine. Questa funzionalità consente anche di sapere quando sono presenti più istanze dello stesso tag in un'immagine.|
+|**[Rilevare i marchi](concept-brand-detection.md)**|È possibile identificare i marchi commerciali in immagini o video da un database di migliaia di logo globali. È ad esempio possibile usare questa funzionalità per individuare i marchi più popolari sui social media o quelli più prevalenti nel posizionamento dei prodotti multimediali.|
 |**[Classificare un'immagine](concept-categorizing-images.md)**|È possibile identificare e classificare un'intera immagine usando una [tassonomia di categorie](Category-Taxonomy.md) con gerarchie ereditarie di tipo padre/figlio. Le categorie possono essere usate singolarmente o con i nuovi modelli di assegnazione di tag.<br/>L'inglese è attualmente l'unica lingua supportata per l'assegnazione di tag e la classificazione di immagini.|
 |**[Descrivere un'immagine](concept-describing-images.md)**|È possibile generare una descrizione di un'intera immagine in un linguaggio leggibile dall'utente, con frasi complete. Gli algoritmi di Visione artificiale generano descrizioni diverse in base agli oggetti identificati nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.|
 |**[Rilevare visi](concept-detecting-faces.md)** |È possibile rilevare visi in un'immagine e fornire informazioni su ogni viso rilevato. Visione artificiale restituisce le coordinate, un rettangolo, il sesso e l'età per ogni viso rilevato.<br/>Visione artificiale fornisce un sottoinsieme delle funzionalità disponibili in [Viso](/azure/cognitive-services/face/) ed è possibile usare il servizio Viso per ottenere analisi più dettagliate, ad esempio l'identificazione dei visi e il rilevamento della posa.|
@@ -47,17 +42,18 @@ Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'imm
 |**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
 |**[Ottenere l'area di interesse](concept-generating-thumbnails.md#area-of-interest)**|Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area di interesse*. Questa funzione corrisponde a quella usata per generare un'anteprima, ma invece di ritagliare l'immagine Visione artificiale restituisce le coordinate del rettangolo di selezione dell'area, in modo che l'applicazione chiamante possa modificare l'immagine originale in base alle esigenze.|
 
-## <a name="extracting-text-from-images"></a>Estrazione di testo dalle immagini
+
+## <a name="extract-text-from-images"></a>Estrarre testo dalle immagini
 
 È possibile usare Visione artificiale per [estrarre testo mediante OCR](concept-extracting-text-ocr.md) da un'immagine in un flusso di caratteri leggibile dal computer. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto, espresso in gradi, intorno all'asse orizzontale dell'immagine e fornisce le coordinate del frame per ogni parola. OCR supporta 25 lingue e rileva automaticamente la lingua del testo estratto.
 
 È anche possibile [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) in un'immagine. Visione artificiale può rilevare ed estrarre testo stampato e scritto a mano da immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster, biglietti da visita, lettere e lavagne. La funzionalità di riconoscimento di testo stampato e scritto a mano è attualmente disponibile in anteprima e l'inglese è l'unica lingua supportata.  
 
-## <a name="moderating-content-in-images"></a>Moderazione di contenuti nelle immagini
+## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 
 È possibile usare Visione artificiale per [rilevare contenuti per adulti e audaci](concept-detecting-adult-content.md) in un'immagine, determinando la probabilità che l'immagine contenga contenuti per adulti o audaci e generando un punteggio di attendibilità per entrambi. Il filtro per il rilevamento del contenuto audace e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.
 
-## <a name="using-containers"></a>Uso dei contenitori
+## <a name="use-containers"></a>Usare i contenitori
 
 [Usare i contenitori di Visione artificiale](computer-vision-how-to-install-containers.md) per riconoscere testo stampato e scritto a mano in locale installando un contenitore Docker standardizzato più vicino ai dati.
 
@@ -67,8 +63,8 @@ Visione artificiale può analizzare immagini che rispettano i requisiti seguenti
 
 - L'immagine deve essere presentata in formato JPEG, PNG, GIF o BMP
 - Le dimensioni del file dell'immagine devono essere minori di 4 megabyte (MB)
-- Le dimensioni dell'immagine devono essere superiori a 50 x 50 pixel  
-  Per l'OCR, le dimensioni dell'immagine devono essere comprese tra 50 x 50 e 4200 x 4200 pixel
+- Le dimensioni dell'immagine devono essere superiori a 50 x 50 pixel
+  - Per l'OCR, le dimensioni dell'immagine devono essere comprese tra 50 x 50 e 4200 x 4200 pixel
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 
@@ -76,8 +72,8 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'introduzione a Visione artificiale, vedere le guide introduttive seguenti:
+Per un'introduzione a Visione artificiale, seguire una guida introduttiva:
 
-- [Analizzare un'immagine](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Estrarre testo scritto a mano](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Generare un'anteprima](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Guida introduttiva: Analizzare un'immagine](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Guida introduttiva: Estrarre testo scritto a mano](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Guida introduttiva: Generare un'anteprima](quickstarts-sdk/csharp-thumb-sdk.md)

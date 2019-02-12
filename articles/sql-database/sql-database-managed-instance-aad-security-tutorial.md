@@ -1,6 +1,6 @@
 ---
-title: Garantire la sicurezza di Istanza gestita di database SQL di Azure con gli account di accesso di Azure AD | Microsoft Docs
-description: Informazioni sulle tecniche e le funzionalità per proteggere Istanza gestita nel database SQL di Azure e usare gli account di accesso di Azure AD.
+title: Garantire la sicurezza dell'istanza gestita di database SQL di Azure con gli account di accesso di Azure AD | Microsoft Docs
+description: Informazioni sulle tecniche e le funzionalità per proteggere un'istanza gestita nel database SQL di Azure e usare gli account di accesso di Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,28 +9,28 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229135"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732771"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Esercitazione: Garantire la sicurezza di Istanza gestita nel database SQL di Azure con gli account di accesso di Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita nel database SQL di Azure con gli account di accesso di Azure AD
 
-Istanza gestita di database SQL di Azure offre quasi tutte le funzionalità di sicurezza incluse nella versione più recente del motore di database di SQL Server locale (Enterprise Edition):
+L'istanza gestita offre quasi tutte le funzionalità di sicurezza incluse nella versione più recente del motore di database di SQL Server locale (Enterprise Edition):
 
 - Limitazione dell'accesso in un ambiente isolato
 - Uso di meccanismi di autenticazione che verificano l'identità (Azure AD, Autenticazione SQL)
-- Concessione di autorizzazioni tramite appartenenze e autorizzazioni basate sui ruoli
-- Abilitazione delle funzionalità di sicurezza
+- Concedere autorizzazioni tramite appartenenze e autorizzazioni basate sui ruoli
+- Abilitare le funzionalità di sicurezza
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> - Creare un account di accesso di Azure Active Directory (AD) per Istanza gestita
-> - Concedere le autorizzazioni agli account di accesso di Azure AD in Istanza gestita
+> - Creare un account di accesso di Azure Active Directory (AD) per un'istanza gestita
+> - Concedere le autorizzazioni agli account di accesso di Azure AD in un'istanza gestita
 > - Creare utenti di Azure AD da account di accesso di Azure AD
 > - Assegnare autorizzazioni a utenti di Azure AD e alla sicurezza del database gestito
 > - Usare la rappresentazione con utenti di Azure AD
@@ -38,9 +38,9 @@ In questa esercitazione si apprenderà come:
 > - Informazioni sulle funzionalità di sicurezza come la protezione da minacce, il controllo, il data masking e la crittografia
 
 > [!NOTE]
-> Gli account di accesso di Azure AD per Istanza gestita di database SQL sono disponibili in versione **anteprima pubblica**.
+> Gli account di accesso di Azure AD per le istanze gestite sono disponibili in **anteprima pubblica**.
 
-Per altre informazioni, vedere gli articoli sulla [panoramica](sql-database-managed-instance-index.yml) e sulle [capacità](sql-database-managed-instance.md) di Istanza gestita di database SQL di Azure.
+Per altre informazioni, vedere gli articoli sulla [panoramica](sql-database-managed-instance-index.yml) e sulle [capacità](sql-database-managed-instance.md) dell'istanza gestita di database SQL di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,30 +48,30 @@ Per completare questa esercitazione, verificare di avere i prerequisiti seguenti
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Istanza gestita di database SQL di Azure
-    - Consultare questo articolo: [Guida introduttiva: Creare un'Istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md)
-- Possibilità di accedere a Istanza gestita di database SQL di Azure e di effettuare il [provisioning di un amministratore Azure AD per Istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Per altre informazioni, vedere:
-    - [Connettere un'applicazione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md) 
-    - [Architettura della connettività di Istanza gestita di database SQL di Azure](sql-database-managed-instance-connectivity-architecture.md)
+  - Consultare questo articolo: [Guida introduttiva: Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md)
+- Possibilità di accedere all'istanza gestita e di effettuare il [provisioning di un amministratore Azure AD per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Per altre informazioni, vedere:
+    - [Connettere l'applicazione a un'istanza gestita](sql-database-managed-instance-connect-app.md) 
+    - [Architettura della connettività delle istanze gestite](sql-database-managed-instance-connectivity-architecture.md)
     - [Configurare e gestire l'autenticazione di Azure Active Directory con SQL](sql-database-aad-authentication-configure.md)
 
-## <a name="limiting-access-to-your-managed-instance"></a>Limitazione dell'accesso a Istanza gestita
+## <a name="limiting-access-to-your-managed-instance"></a>Limitazione dell'accesso all'istanza gestita
 
-Istanza gestita è accessibile solo tramite un indirizzo IP privato. Non sono disponibili endpoint di servizio per la connessione a Istanza gestita dall'esterno della rete di Istanza gestita. Analogamente a quanto avviene con un ambiente locale Server isolato, le applicazioni o gli utenti devono accedere alla rete di Istanza gestita (rete virtuale) prima di poter stabilire una connessione. Per altre informazioni, vedere l'articolo [Connettere un'applicazione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md).
+Le istanze gestite sono accessibili solo tramite un indirizzo IP privato. Non sono disponibili endpoint di servizio per la connessione a un'istanza gestita dall'esterno della rete dell'istanza gestita. Analogamente a quanto avviene con un ambiente locale Server isolato, le applicazioni o gli utenti devono accedere alla rete dell'istanza gestita (rete virtuale) prima di poter stabilire una connessione. Per altre informazioni, vedere l'articolo [Connettere l'applicazione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
-> Dal momento che Istanza gestita è accessibile solo all'interno della relativa rete virtuale, le [regole del firewall del database SQL](sql-database-firewall-configure.md) non vengono applicate. Istanza gestita include un [firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Dal momento che le istanze gestite sono accessibili solo all'interno della relativa rete virtuale, le [regole del firewall del database SQL](sql-database-firewall-configure.md) non vengono applicate. L'istanza gestita include un [firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Creare un account di accesso di Azure AD per Istanza gestita con SQL Server Management Studio
+## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Creare un account di accesso di Azure AD per un'istanza gestita con SQL Server Management Studio
 
-Il primo account di accesso di Azure AD deve essere creato dall'account di SQL Server standard (non Azure AD) che è un `sysadmin`. Per esempi relativi alla connessione a Istanza gestita, vedere gli articoli seguenti:
+Il primo account di accesso di Azure AD deve essere creato dall'account di SQL Server standard (non Azure AD) che è un `sysadmin`. Per esempi relativi alla connessione all'istanza gestita, vedere gli articoli seguenti:
 
-- [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md)
-- [Guida introduttiva: Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md)
+- [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita](sql-database-managed-instance-configure-vm.md)
+- [Guida introduttiva: Configurare una connessione da punto a sito a un'istanza gestita da un computer locale](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> L'amministratore di Azure AD usato per configurare Istanza gestita non può essere usato per creare un account di accesso di Azure AD all'interno di Istanza gestita. È necessario creare il primo account di accesso di Azure AD usando un account di SQL Server che è un `sysadmin`. Si tratta di una limitazione temporanea che verrà rimossa quando gli account di accesso di Azure AD saranno disponibili a livello generale. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> L'amministratore di Azure AD usato per configurare l'istanza gestita non può essere usato per creare un account di accesso di Azure AD all'interno dell'istanza gestita. È necessario creare il primo account di accesso di Azure AD usando un account di SQL Server che è un `sysadmin`. Si tratta di una limitazione temporanea che verrà rimossa quando gli account di accesso di Azure AD saranno disponibili a livello generale. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Accedere a Istanza gestita usando un account di SQL Server standard (non Azure AD) che è un `sysadmin`, usando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Accedere all'istanza gestita con un account di SQL Server standard (non Azure AD) che è un `sysadmin`, usando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -107,11 +107,11 @@ Il primo account di accesso di Azure AD deve essere creato dall'account di SQL S
 
 Per altre informazioni, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Concessione delle autorizzazioni per consentire l a creazione di account di accesso di Istanza gestita
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Concessione delle autorizzazioni per consentire l a creazione di account di accesso dell'istanza gestita
 
 Per creare altri account di accesso di Azure AD, è necessario concedere autorizzazioni o ruoli di SQL Server all'entità di sicurezza (SQL o Azure AD).
 
-### <a name="sql-authentication"></a>Autenticazione SQL
+### <a name="sql-authentication"></a>Autenticazione in SQL
 
 - Se l'account di accesso è un'entità di sicurezza SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono usare il comando per creare gli account di accesso per un account Azure AD.
 
@@ -120,11 +120,11 @@ Per creare altri account di accesso di Azure AD, è necessario concedere autoriz
 - Per consentire all'account di accesso di Azure AD appena creato di creare altri account di accesso per altri utenti, gruppi o applicazioni di Azure AD, concedere all'account di accesso il ruolo del server `sysadmin` o `securityadmin`. 
 - Per consentire all'account di accesso di Azure AD di creare altri account di accesso di Azure AD, è necessario concedere almeno l'autorizzazione **ALTER ANY LOGIN**. 
 - Per impostazione predefinita, le autorizzazioni standard concesse agli account di accesso di Azure AD appena creati nel database master sono: **CONNECT SQL** e **VIEW ANY DATABASE**.
-- Il ruolo del server `sysadmin` può essere concesso a più account di accesso AD Azure all'interno di Istanza gestita.
+- Il ruolo del server `sysadmin` può essere concesso a più account di accesso AD Azure all'interno di un'istanza gestita.
 
 Per aggiungere l'account di accesso al ruolo del server `sysadmin`:
 
-1. Accedere di nuovo a Istanza gestita oppure usare la connessione esistente con un'entità di sicurezza SQL che è un `sysadmin`.
+1. Accedere di nuovo all'istanza gestita oppure usare la connessione esistente con un'entità di sicurezza SQL che è un `sysadmin`.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -146,7 +146,7 @@ Per aggiungere l'account di accesso al ruolo del server `sysadmin`:
 
 Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di `sysadmin`, tale account può creare altri account di accesso usando la clausola **FROM EXTERNAL PROVIDER** con **CREATE LOGIN**.
 
-1. Connettersi al server di Istanza gestita con l'account di accesso di Azure AD usando SQL Server Management Studio. Immettere il nome del server di Istanza gestita. Per l'autenticazione in SSMS è possibile scegliere tra tre opzioni quando si esegue l'accesso con un account Azure AD:
+1. Connettersi all'istanza gestita con l'account di accesso di Azure AD usando SQL Server Management Studio. Immettere il nome dell'istanza gestita. Per l'autenticazione in SSMS è possibile scegliere tra tre opzioni quando si esegue l'accesso con un account Azure AD:
 
     - Active Directory - Universale con supporto MFA
     - Active Directory - Password
@@ -172,7 +172,7 @@ Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di
 
     Questo esempio mostra come creare un account di accesso per l'utente di Azure AD bob@aadsqlmi.net, il cui dominio aadsqlmi.net è federato con l'istanza aadsqlmi.onmicrosoft.com di Azure AD.
 
-    Eseguire il comando T-SQL seguente. Gli account Azure AD federati sono le sostituzioni di Istanza gestita per account di accesso e utenti Windows locali.
+    Eseguire il comando T-SQL seguente. Gli account Azure AD federati sono le sostituzioni dell'istanza gestita per account di accesso e utenti Windows locali.
 
     ```sql
     USE master
@@ -181,7 +181,7 @@ Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di
     GO
     ```
 
-1. Creare un database in Istanza gestita usando la sintassi [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Questo database verrà usato per testare gli account di accesso nella sezione successiva.
+1. Creare un database nell'istanza gestita usando la sintassi [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Questo database verrà usato per testare gli account di accesso nella sezione successiva.
     1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
     1. Nella finestra di query usare la sintassi seguente per creare un database denominato **MyMITestDB**.
 
@@ -190,7 +190,7 @@ Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di
         GO
         ```
 
-1. Creare un account di accesso di Istanza gestita per un gruppo in Azure AD. Il gruppo deve essere già presente in Azure AD prima di poter aggiungere l'account di accesso a Istanza gestita. Vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Creare un gruppo _mygroup_ e aggiungere membri a tale gruppo.
+1. Creare un account di accesso dell'istanza gestita per un gruppo in Azure AD. Il gruppo deve essere già presente in Azure AD prima di poter aggiungere l'account di accesso all'istanza gestita. Vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Creare un gruppo _mygroup_ e aggiungere membri a tale gruppo.
 
 1. Aprire una nuova finestra di query in SQL Server Management Studio.
 
@@ -203,7 +203,7 @@ Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di
     GO
     ```
 
-1. A scopo di test, accedere a Istanza gestita con l'account di accesso o il gruppo appena creato. Aprire una nuova connessione a Istanza gestita e usare il nuovo account di accesso per l'autenticazione.
+1. A scopo di test, accedere all'istanza gestita con l'account di accesso o il gruppo appena creato. Aprire una nuova connessione all'istanza gestita e usare il nuovo account di accesso per l'autenticazione.
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** per la nuova connessione.
 1. Per verificare le autorizzazioni del server per l'account di accesso di Azure AD appena creato, eseguire il comando seguente:
 
@@ -213,13 +213,13 @@ Dopo aver creato l'account di accesso di Azure AD e aver concesso i privilegi di
     ```
 
 > [!NOTE]
-> Gli utenti guest di Azure AD sono supportati per gli account di accesso di Istanza gestita solo quando vengono aggiunti in un gruppo di Azure AD. Per utente guest di Azure AD si intende un account invitato da un'altra istanza di Azure AD all'istanza di Azure AD cui appartiene Istanza gestita. Ad esempio, è possibile aggiungere joe@contoso.com (account Azure AD) o steve@outlook.com (account MSA) a un gruppo nell'istanza aadsqlmi di Azure AD. Dopo aver aggiunto gli utenti a un gruppo, è possibile creare un account di accesso nel database **master** di Istanza gestita per il gruppo usando la sintassi **CREATE LOGIN**. Gli utenti guest che fanno parte di questo gruppo possono connettersi a Istanza gestita usando gli account di accesso correnti, ad esempio joe@contoso.com o steve@outlook.com.
+> Gli utenti guest di Azure AD sono supportati per gli account di accesso dell'istanza gestita solo quando vengono aggiunti in un gruppo di Azure AD. Per utente guest di Azure AD si intende un account invitato da un'altra istanza di Azure AD all'istanza di Azure AD cui appartiene l'istanza gestita. Ad esempio, è possibile aggiungere joe@contoso.com (account Azure AD) o steve@outlook.com (account MSA) a un gruppo nell'istanza aadsqlmi di Azure AD. Dopo aver aggiunto gli utenti a un gruppo, è possibile creare un account di accesso nel database **master** dell'istanza gestita per il gruppo usando la sintassi **CREATE LOGIN**. Gli utenti guest che fanno parte di questo gruppo possono connettersi all'istanza gestita usando gli account di accesso correnti, ad esempio joe@contoso.com o steve@outlook.com.
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Creare un utente di Azure AD dall'account di accesso di Azure AD e concedere le autorizzazioni
 
-Il funzionamento delle autorizzazioni per i singoli database in Istanza gestita è analogo a quello di SQL Server locale. È possibile creare un utente da un account di accesso esistente in un database e concedere le autorizzazioni per il database oppure aggiungerlo a un ruolo del database.
+Il funzionamento delle autorizzazioni per i singoli database nell'istanza gestita è analogo a quello di SQL Server locale. È possibile creare un utente da un account di accesso esistente in un database e concedere le autorizzazioni per il database oppure aggiungerlo a un ruolo del database.
 
-A questo punto, dopo aver creato un database denominato **MyMITestDB** e un account di accesso che dispone solo delle autorizzazioni predefinite, il passaggio successivo consiste nel creare un utente da tale account di accesso. Al momento, l'account di accesso può connettersi a Istanza gestita e visualizzare tutti i database, ma non può interagire con essi. Se si accede con l'account Azure AD con le autorizzazioni predefinite e si prova a espandere il database appena creato, verrà visualizzato l'errore seguente:
+A questo punto, dopo aver creato un database denominato **MyMITestDB** e un account di accesso che dispone solo delle autorizzazioni predefinite, il passaggio successivo consiste nel creare un utente da tale account di accesso. Al momento, l'account di accesso può connettersi all'istanza gestita e visualizzare tutti i database, ma non può interagire con essi. Se si accede con l'account Azure AD con le autorizzazioni predefinite e si prova a espandere il database appena creato, verrà visualizzato l'errore seguente:
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
@@ -227,7 +227,7 @@ Per altre informazioni sulla concessione delle autorizzazioni per i database, ve
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Creare un utente di Azure AD e una tabella di esempio
 
-1. Accedere a Istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
+1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 1. Nella finestra di query usare la sintassi seguente per creare un utente di Azure AD da un account di accesso di Azure AD:
 
@@ -292,7 +292,7 @@ Per altre informazioni sulla concessione delle autorizzazioni per i database, ve
 
 Per consentire all'utente di visualizzare i dati nel database, è possibile concedergli i [ruoli a livello di database](/sql/relational-databases/security/authentication-access/database-level-roles).
 
-1. Accedere a Istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
+1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -322,7 +322,7 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
     GO
     ```
 
-1. Creare una nuova connessione a Istanza gestita con l'utente che è stato aggiunto al ruolo `db_datareader`.
+1. Creare una nuova connessione all'istanza gestita con l'utente che è stato aggiunto al ruolo `db_datareader`.
 1. Espandere il database in **Esplora oggetti** per visualizzare la tabella.
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
@@ -340,11 +340,11 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
 
 ## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Rappresentazione delle entità di livello server di Azure AD (account di accesso)
 
-Istanza gestita supporta la rappresentazione di entità di livello server (account di accesso) di Azure AD.
+L'istanza gestita supporta la rappresentazione di entità di livello server (account di accesso) di Azure AD.
 
 ### <a name="test-impersonation"></a>Testare la rappresentazione
 
-1. Accedere a Istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
+1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -381,11 +381,11 @@ Istanza gestita supporta la rappresentazione di entità di livello server (accou
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Uso di query tra database in Istanza gestita
+## <a name="using-cross-database-queries-in-managed-instances"></a>Uso di query tra database nelle istanze gestite
 
 Le query tra database sono supportate per gli account Azure AD con account di accesso di Azure AD. Per testare una query tra database con un gruppo di Azure AD, è necessario creare un altro database e un'altra tabella. È possibile non creare un altro database e un'altra tabella se esistono già.
 
-1. Accedere a Istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
+1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 1. Nella finestra di query usare il comando seguente per creare un database denominato **MyMITestDB2** e una tabella denominata **TestTable2**:
 
@@ -414,7 +414,7 @@ Le query tra database sono supportate per gli account Azure AD con account di ac
     GO
     ```
 
-1. Accedere a Istanza gestita usando SQL Server Management Studio come membro del gruppo di Azure AD _mygroup_. Aprire una nuova finestra di query ed eseguire l'istruzione SELECT tra database:
+1. Accedere all'istanza gestita usando SQL Server Management Studio come membro del gruppo di Azure AD _mygroup_. Aprire una nuova finestra di query ed eseguire l'istruzione SELECT tra database:
 
     ```sql
     USE MyMITestDB
@@ -439,18 +439,18 @@ Le query tra database sono supportate per gli account Azure AD con account di ac
 
 ### <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
 
-Vedere l'articolo seguente sulle [funzionalità di sicurezza delle capacità di Istanza gestita](sql-database-managed-instance.md#azure-sql-database-security-features) per un elenco completo di soluzioni per proteggere il database. Sono illustrate le funzionalità di sicurezza seguenti:
+Vedere l'articolo seguente sulle [funzionalità di sicurezza delle istanze gestite](sql-database-managed-instance.md#azure-sql-database-security-features) per un elenco completo di soluzioni per proteggere il database. Sono illustrate le funzionalità di sicurezza seguenti:
 
-- [Controllo di Istanza gestita](sql-database-managed-instance-auditing.md) 
+- [Controllo delle istanze gestite](sql-database-managed-instance-auditing.md) 
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
-- [Rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) 
-- [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)
+- [Introduzione al rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) 
+- [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) 
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Capacità di Istanza gestita
+### <a name="managed-instance-capabilities"></a>Funzionalità dell'istanza gestita
 
-Per una panoramica completa delle capacità di Istanza gestita di database SQL di Azure, vedere:
+Per una panoramica completa delle funzionalità delle istanze gestite, vedere:
 
 > [!div class="nextstepaction"]
 > [Capacità di Istanza gestita](sql-database-managed-instance.md)

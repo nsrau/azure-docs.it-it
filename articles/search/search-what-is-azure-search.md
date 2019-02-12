@@ -1,20 +1,20 @@
 ---
 title: Informazioni sul servizio Ricerca di Azure - Ricerca di Azure
-description: Ricerca di Azure è un servizio di ricerca interamente ospitato sul cloud. Descrizioni delle funzionalità, flusso di lavoro di sviluppo, confronto tra Ricerca di Azure e altri prodotti per la ricerca e informazioni per iniziare.
+description: Ricerca di Azure è un servizio di ricerca interamente ospitato sul cloud da Microsoft. Descrizioni delle funzionalità, flusso di lavoro di sviluppo, confronto tra Ricerca di Azure e altri prodotti per la ricerca di Microsoft e informazioni per iniziare.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630402"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562794"
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
 Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Le query vengono eseguite su un indice definito dall'utente.

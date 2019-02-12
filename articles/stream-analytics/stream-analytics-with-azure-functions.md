@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810797"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -40,10 +40,10 @@ Questa sezione illustra come configurare un processo di Analisi di flusso per es
 
 Per eseguire questa attività sono necessari i passaggi seguenti:
 * [Creare un processo di Analisi di flusso con Hub eventi come input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Creare un'istanza di Azure Cache per Redis ](#create-an-azure-redis-cache-instance)  
-* [Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* Creare un'istanza di Azure Cache per Redis  
+* Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis    
 * [Aggiornare il processo di Analisi di flusso con la funzione come output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Controllare i risultati in Azure Cache per Redis](#check-azure-redis-cache-for-results)  
+* Controllare i risultati in Azure Cache per Redis  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creare un processo di Analisi di flusso con Hub eventi come input
 

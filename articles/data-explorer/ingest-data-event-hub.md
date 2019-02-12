@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478451"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729738"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questa guida introduttiva verrà creato un hub eventi, a cui ci si connetterà da Esplora dati di Azure per visualizzare il flusso di dati attraverso il sistema.
 
@@ -129,7 +129,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | Sono supportati i formati JSON e CSV. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
 

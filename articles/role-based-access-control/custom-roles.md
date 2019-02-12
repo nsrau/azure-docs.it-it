@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412049"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697130"
 ---
 # <a name="custom-roles-in-azure"></a>Ruoli personalizzati in Azure
 
@@ -32,36 +32,30 @@ Di seguito è riportato come viene visualizzato un ruolo personalizzato in forma
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -73,12 +67,12 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
 1. Determinare le autorizzazioni necessarie
 
-    Quando si crea un ruolo personalizzato, occorre conoscere le operazioni del provider di risorse disponibili per definire le autorizzazioni. Per visualizzare l'elenco delle operazioni, è possibile usare il comando [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+    Quando si crea un ruolo personalizzato, occorre conoscere le operazioni del provider di risorse disponibili per definire le autorizzazioni. Per visualizzare l'elenco delle operazioni, è possibile usare il comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
     Per specificare le autorizzazioni per il ruolo personalizzato, occorre aggiungere le operazioni alla proprietà `Actions` o `NotActions` della [definizione del ruolo](role-definitions.md). Se si tratta di operazioni sui dati, aggiungerle alla proprietà `DataActions` o `NotDataActions`.
 
 2. Creare il ruolo personalizzato
 
-    Per creare il ruolo personalizzato è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. In genere si parte da un ruolo predefinito esistente e lo si modifica in base alle esigenze. Si usa quindi il comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) per creare il ruolo personalizzato. Per creare un ruolo personalizzato, occorre avere l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` su tutti i `AssignableScopes`, come [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+    Per creare il ruolo personalizzato è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. In genere si parte da un ruolo predefinito esistente e lo si modifica in base alle esigenze. Si usa quindi il comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) per creare il ruolo personalizzato. Per creare un ruolo personalizzato, occorre avere l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` su tutti i `AssignableScopes`, come [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
 
 3. Testare il ruolo personalizzato
 
@@ -90,17 +84,17 @@ Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere 
 
 Un ruolo personalizzato ha le proprietà descritte di seguito.
 
-| Proprietà | Obbligatoria | type | DESCRIZIONE |
+| Proprietà | Obbligatoria | Type | DESCRIZIONE |
 | --- | --- | --- | --- |
-| `Name` | Yes | string | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è una risorsa a livello di sottoscrizione, una definizione di ruolo può essere usata in più sottoscrizioni che condividono la stessa directory di Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
-| `Id` | Yes | string | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
-| `IsCustom` | Yes | string | Indica se questo è un ruolo personalizzato. Impostare su `true` per i ruoli personalizzati. |
-| `Description` | Yes | string | Descrizione del ruolo personalizzato. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 1024. |
-| `Actions` | Yes | String[] | Matrice di stringhe che specifica le operazioni di gestione che il ruolo consente di eseguire. Per altre informazioni, vedere [Azioni](role-definitions.md#actions). |
+| `Name` | Sì | string | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è una risorsa a livello di sottoscrizione, una definizione di ruolo può essere usata in più sottoscrizioni che condividono la stessa directory di Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
+| `Id` | Sì | string | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
+| `IsCustom` | Sì | string | Indica se questo è un ruolo personalizzato. Impostare su `true` per i ruoli personalizzati. |
+| `Description` | Sì | string | Descrizione del ruolo personalizzato. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 1024. |
+| `Actions` | Sì | String[] | Matrice di stringhe che specifica le operazioni di gestione che il ruolo consente di eseguire. Per altre informazioni, vedere [Azioni](role-definitions.md#actions). |
 | `NotActions` | No  | String[] | Matrice di stringhe che specifica le operazioni di gestione che sono escluse dalle `Actions` consentite. Per altre informazioni, vedere [notActions](role-definitions.md#notactions). |
 | `DataActions` | No  | String[] | Matrice di stringhe che specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Per altre informazioni, vedere [dataActions (anteprima)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | No  | String[] | Matrice di stringhe che specifica le operazioni sui dati che sono escluse dalle `DataActions` consentite. Per altre informazioni, vedere [notDataActions (anteprima)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Yes | String[] | Matrice di stringhe che specifica gli ambiti in cui il ruolo personalizzato può essere assegnato. Attualmente non è possibile impostarlo sull'ambito radice (`"/"`) o su un ambito del gruppo di gestione. Per altre informazioni, vedere [AssignableScopes](role-definitions.md#assignablescopes) e [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Sì | String[] | Matrice di stringhe che specifica gli ambiti in cui il ruolo personalizzato può essere assegnato. Attualmente non è possibile impostarlo sull'ambito radice (`"/"`) o su un ambito del gruppo di gestione. Per altre informazioni, vedere [AssignableScopes](role-definitions.md#assignablescopes) e [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Chi può creare, eliminare, aggiornare o visualizzare un ruolo personalizzato
 

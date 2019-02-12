@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685355"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745810"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -75,7 +75,7 @@ Per recuperare la stringa di connessione per **MyTestDevice**, fare clic su di e
 
 Per simulare l'invio dei dati di telemetria da **MyTestDevice** all'hub IoT, eseguire l'applicazione del dispositivo simulato di Node.js scaricata in precedenza.
 
-In una finestra del terminale nel computer di sviluppo passare alla cartella radice del progetto di esempio di Node.js scaricato. Passare quindi alla cartella **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+In una finestra del terminale nel computer di sviluppo passare alla cartella radice del progetto di esempio di Node.js scaricato. Passare quindi alla cartella **iot-hub\Tutorials\ConnectivityTests**.
 
 Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie ed eseguire l'applicazione del dispositivo simulato. Usare la stringa di connessione del dispositivo annotata quando il dispositivo è stato aggiunto nel portale.
 

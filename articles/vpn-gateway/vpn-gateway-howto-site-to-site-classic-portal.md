@@ -1,5 +1,5 @@
 ---
-title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito (distribuzione classica): portale | Microsoft Docs'
+title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito (classica): Portale | Microsoft Docs'
 description: Creare una connessione IPsec dalla rete locale a una rete virtuale di Azure classica tramite la rete Internet pubblica.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477897"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695605"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)
 
@@ -31,7 +31,7 @@ Questo articolo illustra come usare il portale di Azure per creare una connessio
 > [!div class="op_single_selector"]
 > * [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Interfaccia della riga di comando](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 
 >
@@ -60,13 +60,13 @@ Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi
   * 10.12.0.0/16 (facoltativo per questo esercizio)
 * **Subnet:**
   * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (facoltativo per questo esercizio)
+  * BackEnd: 10.12.0.0/24 (facoltativa per questo esercizio)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Gruppo di risorse:** TestRG1
 * **Località:** Stati Uniti orientali
-* **DNS Server:** 10.11.0.3 (facoltativo per questo esercizio)
+* **Server DNS:** 10.11.0.3 (facoltativa per questo esercizio)
 * **Nome del sito locale:** Site2
-* **Spazio indirizzi client:** spazio di indirizzi nel sito locale.
+* **Spazio indirizzi client**: spazio di indirizzi nel sito locale.
 
 ## <a name="CreatVNet"></a>1. Crea rete virtuale
 
@@ -129,7 +129,7 @@ In genere il sito locale fa riferimento alla posizione locale. Contiene l'indiri
 4. Fare clic su **Sito locale - Configurare le impostazioni necessarie** per aprire la pagina **Sito locale**. Configurare le impostazioni e quindi fare clic su **OK** per salvarle.
   - **Nome:** creare un nome per il sito locale per semplificarne l'identificazione.
   - **Indirizzo IP del gateway VPN:** questo è l'indirizzo IP pubblico del dispositivo VPN per la rete locale. Per il dispositivo VPN è necessario usare un indirizzo IP IPv4 pubblico. Specificare un indirizzo IP pubblico valido per il dispositivo VPN a cui ci si vuole connettere. Non può essere protetto da NAT e deve essere raggiungibile da Azure. Se non si conosce l'indirizzo IP del dispositivo VPN, è possibile inserire un valore segnaposto, purché sia nel formato di un indirizzo IP pubblico valido, e quindi modificarlo in un secondo momento.
-  - **Spazio indirizzi client:** elencare gli intervalli di indirizzi IP che devono essere indirizzati alla rete locale tramite il gateway. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati qui non si sovrappongano a quelli di altre reti a cui si connette la rete virtuale oppure agli intervalli di indirizzi della rete virtuale stessa.
+  - **Spazio indirizzi client**: elencare gli intervalli di indirizzi IP che devono essere indirizzati alla rete locale tramite il gateway. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati qui non si sovrappongano a quelli di altre reti a cui si connette la rete virtuale oppure agli intervalli di indirizzi della rete virtuale stessa.
 
   ![Sito locale](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurare il sito locale")
 
@@ -208,7 +208,7 @@ Quando si usa PowerShell e il modello di distribuzione classica, a volte i nomi 
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Quando viene creata la connessione, il risultato è **Stato: Operazione completata**.
+Quando viene creata la connessione, il risultato è: **Stato: operazione completata**.
 
 ## <a name="verify"></a>9. Verificare la connessione
 
@@ -226,5 +226,5 @@ Per la procedura da seguire per modificare uno SKU del gateway, vedere la sezion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/).
 * Per informazioni sul tunneling forzato, vedere [Informazioni sul tunneling forzato](vpn-gateway-about-forced-tunneling.md).

@@ -1,147 +1,105 @@
 ---
-title: 'Guida introduttiva: API Ricerca entità Bing, C#'
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#"
 titlesuffix: Azure Cognitive Services
-description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca entità Bing.
+description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con C# e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62f260b11e4012b440fea51020b17590fece93fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 63890d916f80fbfac7173abd0df9e559bcd0b76b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187029"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754932"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-c"></a>Guida introduttiva all'API Ricerca entità Bing con C# 
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 
-Questo articolo spiega come usare l'[API Ricerca entità Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) con C#.
+Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
+
+L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
+* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
+* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="search-entities"></a>Entità di ricerca
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Per eseguire l'applicazione seguire questa procedura.
+## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare un nuovo progetto C# nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
-4. Eseguire il programma.
+1. creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale.
+    
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    ```
 
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
+2. Creare una nuova classe, quindi aggiungere le variabili per l'endpoint API, la chiave della sottoscrizione e la query della ricerca.
 
-namespace EntitySearchSample
-{
-    class Program
+    ```csharp
+    namespace EntitySearchSample
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/entities";
-
-        static string market = "en-US";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string query = "italian restaurant near me";
-
-        async static void Search()
+        class Program
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
-
-            HttpResponseMessage response = await client.GetAsync(uri);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
+            static string host = "https://api.cognitive.microsoft.com";
+            static string path = "/bing/v7.0/entities";
+    
+            static string market = "en-US";
+    
+            // NOTE: Replace this example key with a valid subscription key.
+            static string key = "ENTER YOUR KEY HERE";
+    
+            static string query = "italian restaurant near me";
+        //...
         }
-
-        static void Main(string[] args)
-        {
-            Search();
-            Console.ReadLine();
-        }
-
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
-
     }
-}
-```
+    ```
 
-**Risposta**
+## <a name="send-a-request-and-get-the-api-response"></a>Inviare una richiesta e ottenere la risposta dell'API
+
+1. All'interno della classe creare una funzione denominata `Search()`. Creare un nuovo oggetto `HttpClient` e aggiungere la chiave della sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
+
+    1. Creare l'URI per la richiesta combinando l'host e il percorso. Quindi aggiungere il proprio mercato e codificare la query con l'URL.
+    2. Aspettare il risultato di `client.GetAsync()` per ottenere una risposta HTTP, quindi archiviare la risposta JSON aspettando `ReadAsStringAsync()`.
+    3. Stampare la stringa nella console.
+
+    ```csharp
+    async static void Search()
+    {
+        //...
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+
+        HttpResponseMessage response = await client.GetAsync(uri);
+
+        string contentString = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(JsonPrettyPrint(contentString));
+    }
+    ```
+
+2. Nel metodo main dell'applicazione chiamare la funzione `Search()`.
+    
+    ```csharp
+    static void Main(string[] args)
+    {
+        Search();
+        Console.ReadLine();
+    }
+    ```
+
+
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
@@ -206,11 +164,10 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 }
 ```
 
-[Torna all'inizio](#HOLTop)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione su Ricerca entità Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Panoramica su Ricerca entità Bing](../search-the-web.md )
-> [Informazioni di riferimento per l'API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Informazioni sull'API Ricerca entità Bing](../overview.md )
+* [Riferimento API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

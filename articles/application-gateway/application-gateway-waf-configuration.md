@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353193"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492930"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione
 
@@ -45,7 +45,7 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione:
    * XML
    * JSON
 
-È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query o, facoltativamente, è possibile specificare corrispondenze parziali.
+È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query.  In alternativa, è possibile specificare facoltativamente corrispondenze parziali. L'esclusione è sempre in un campo di intestazione, mai sul relativo valore. Le regole di esclusione hanno ambito globale e si applicano a tutte le pagine e regole.
 
 Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 

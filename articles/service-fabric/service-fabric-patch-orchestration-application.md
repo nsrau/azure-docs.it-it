@@ -3,7 +3,7 @@ title: Patch Orchestration Application di Azure Service Fabric | Microsoft Docs
 description: Applicazione per automatizzare l'applicazione di patch ai sistemi operativi in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155307"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732312"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -131,7 +131,7 @@ Per abilitare il servizio di gestione della riparazione:
     ],
     ```
 
-3. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [Creare un cluster autonomo in esecuzione su Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Quando il cluster è in esecuzione con il manifesto del cluster aggiornato, è possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster, denominato `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi del sistema in Service Fabric Explorer.
+3. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [Creare un cluster autonomo in esecuzione su Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Quando il cluster è in esecuzione con il manifesto del cluster aggiornato, è possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster, denominato `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi del sistema in Service Fabric Explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Disabilitare la connessione automatica a Windows Update su tutti i nodi
 
@@ -154,9 +154,9 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: 1024)               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
 | WUQuery               | stringa<br>(Valore predefinito: "IsInstalled=0")                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Boolean <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
-| WUOperationTimeOutInMinutes | int <br>(Valore predefinito: 90)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
-| WURescheduleCount     | int <br> (Valore predefinito: 5)                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
-| WURescheduleTimeInMinutes | int <br>(Valore predefinito: 30) | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
+| WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: 90)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
+| WURescheduleCount     | Int <br> (Valore predefinito: 5)                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
+| WURescheduleTimeInMinutes | Int <br>(Valore predefinito: 30) | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
 | WUFrequency           | Stringa separata da virgole (Valore predefinito: "Weekly, Wednesday, 7:00:00")     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32.<br>I valori consentiti per il campo DD (day) sono i numeri compresi nell'intervallo 1-28 e "last". <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
@@ -413,3 +413,6 @@ Un amministratore deve intervenire e stabilire perché l'applicazione o il clust
 - Correzione della regressione per cui POA 1.3.0 non funziona in Windows Server 2012 R2 o versione precedente a causa di un errore durante la disabilitazione degli aggiornamenti automatici. 
 - Correzione di un bug per cui la configurazione di InstallWindowsOSOnlyUpdates risulta sempre true.
 - Modifica del valore predefinito di InstallWindowsOSOnlyUpdates su False.
+
+### <a name="version-132"></a>Versione 1.3.2
+- Correzione di un problema che interessava il ciclo di vita dell'applicazione di patch su un nodo nel caso in cui sono presenti nodi con il nome come subset del nome del nodo corrente. Per tali nodi, è possibile che l'applicazione di patch non sia stata eseguita o il riavvio sia in sospeso. 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912834"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819162"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Scrivere in Apache Hadoop HDFS da Apache Storm in HDInsight
 
@@ -45,7 +45,7 @@ Le variabili di ambiente seguenti possono essere impostate quando si installa Ja
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Procedura per usare HdfsBolt con HDInsight
 
 > [!IMPORTANT]  
-> Prima di usare HdfsBolt con Storm in HDInsight, è necessario usare l'azione script per copiare i file .jar richiesti in `extpath` per Storm. Per altre informazioni, vedere la sezione [Configurare il cluster](#configure).
+> Prima di usare HdfsBolt con Storm in HDInsight, è necessario usare l'azione script per copiare i file .jar richiesti in `extpath` per Storm. Per altre informazioni, vedere la sezione Configurare il cluster.
 
 HdfsBolt usa lo schema file specificato dall'utente per capire come scrivere in HDFS. Per HDInsight, usare uno dei seguenti schemi:
 

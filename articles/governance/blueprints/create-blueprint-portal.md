@@ -4,17 +4,17 @@ description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315299"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566313"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -42,10 +42,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    ![Crea progetto](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**.  Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) in cui si vuole salvare il progetto e fare clic su **Seleziona**.
-
-   > [!NOTE]
-   > Le definizioni di progetto possono essere salvate solo in gruppi di gestione. Per creare il primo gruppo di gestione, completare [questi passaggi](../management-groups/create.md).
+1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**.  Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
 
 1. Verificare che le informazioni siano corrette (i campi **Nome progetto** e **Percorso della definizione** non potranno essere modificati successivamente) e fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
@@ -154,7 +151,7 @@ La pubblicazione rende disponibile il progetto per l'assegnazione a una sottoscr
 
 ## <a name="assign-a-blueprint"></a>Assegnare un progetto
 
-Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione.
+Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione. Se il progetto viene salvato in una sottoscrizione, può essere assegnato solo a tale sottoscrizione.
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 

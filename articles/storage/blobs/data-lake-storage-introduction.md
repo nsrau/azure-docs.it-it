@@ -1,6 +1,6 @@
 ---
-title: Versione di anteprima di Azure Data Lake Storage Gen2 - Introduzione
-description: Offre una panoramica della creazione di un'anteprima di Azure Data Lake Storage Gen2
+title: Introduzione ad Azure Data Lake Storage Gen2
+description: Offre una panoramica di Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250113"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809437"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Anteprima di Azure Data Lake Storage Gen2 - Introduzione
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduzione ad Azure Data Lake Storage Gen2
 
-‎L'anteprima di Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in [Archiviazione BLOB di Azure](storage-blobs-introduction.md). È il risultato della convergenza delle funzionalità di due servizi di archiviazione Microsoft esistenti, Archiviazione BLOB di Azure e Azure Data Lake Storage Gen1. Le funzionalità di [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), ad esempio la semantica dei file system, la sicurezza a livello di directory e file e la scalabilità, vengono combinate con le funzionalità di archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza di [Archiviazione BLOB di Azure](storage-blobs-introduction.md).
+‎Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in [Archiviazione BLOB di Azure](storage-blobs-introduction.md). È il risultato della convergenza delle funzionalità di due servizi di archiviazione Microsoft esistenti, Archiviazione BLOB di Azure e Azure Data Lake Storage Gen1. Le funzionalità di [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), ad esempio la semantica dei file system, la sicurezza a livello di directory e file e la scalabilità, vengono combinate con le funzionalità di archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza di [Archiviazione BLOB di Azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Progettato per l'analisi dei Big Data Enterprise
 

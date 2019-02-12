@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461237"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700265"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene impostato come `base_url`. `path` imposta la route `transliterate` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `transliterate` e identifica che si vuole usare la versione 3 dell'API.
 
 `params` viene usato per impostare la lingua di input e gli script di input e output. In questo esempio viene traslitterato un testo dal giapponese all'alfabeto latino.
 

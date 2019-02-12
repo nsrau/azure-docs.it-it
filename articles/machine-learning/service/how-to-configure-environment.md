@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247409"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812906"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -27,7 +27,7 @@ Gli unici requisiti per l'ambiente di sviluppo sono Python 3, Conda (per gli amb
 
 Questo articolo è incentrato sugli strumenti e ambienti seguenti:
 
-* [Azure Notebooks](#aznotebooks): un servizio di Jupyter Notebook ospitato nel cloud di Azure. Si tratta del modo più semplice per iniziare perché l'SDK di Azure Machine Learning è già installato.
+* Azure Notebooks: un servizio di Jupyter Notebook ospitato nel cloud di Azure. Si tratta del modo più semplice per iniziare perché l'SDK di Azure Machine Learning è già installato.
 
 * [Data Science Virtual Machine (DSVM)](#dsvm): un ambiente di sviluppo o sperimentazione preconfigurato nel cloud di Azure che è stato progettato per l'ambito data science e può essere distribuito in istanze di macchina virtuale con sola CPU o basate su GPU. Python 3, Conda, Jupyter Notebook e l'SDK di Azure Machine Learning sono già installati. La macchina virtuale viene fornita con i framework, gli strumenti e gli editor di Machine Learning e Deep Learning più diffusi per lo sviluppo di soluzioni di Machine Learning. Si tratta probabilmente dell'ambiente di sviluppo di Machine Learning più completo nella piattaforma Azure.
 

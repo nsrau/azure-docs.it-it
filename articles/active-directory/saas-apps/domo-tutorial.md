@@ -4,118 +4,111 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
+ms.topic: tutorial
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: e0be067195e6bac1df2206c396faaf4d907f7469
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b11daa7cd078fe8f828d39b7da34bb19d3970a74
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152622"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
 Questa esercitazione descrive come integrare Domo con Azure Active Directory (Azure AD).
-
 L'integrazione di Domo con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Domo
-- È possibile abilitare gli utenti per l'accesso automatico a Domo (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Domo.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Domo con gli account Azure AD.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Domo, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Domo abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di Domo abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Domo dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Domo supporta l'accesso SSO avviato da **SP**
+
+* Domo supporta il provisioning utenti **JIT**
 
 ## <a name="adding-domo-from-the-gallery"></a>Aggiunta di Domo dalla raccolta
+
 Per configurare l'integrazione di Domo in Azure AD, è necessario aggiungere Domo dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Domo dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Domo**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/tutorial_domo_search.png)
+4. Nella casella di ricerca digitare **Domo**, selezionare **Domo** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Domo**, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+     ![Domo nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/tutorial_domo_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Domo mediante un utente test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Domo usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Domo.
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere quale utente di Domo corrisponde a un determinato utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Domo.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Domo, è necessario completare le procedure di base seguenti:
 
-Per stabilire la relazione di collegamento, in Domo assegnare il valore di **nome utente** di Azure AD come valore dell'attributo **Username** (Nome utente).
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Domo ](#configure-domo-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Domo](#create-domo-test-user)**: per avere una controparte di Britta Simon in Domo collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Domo, è necessario completare i blocchi predefiniti seguenti:
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di Domo](#creating-a-domo-test-user)**: per avere una controparte di Britta Simon in Domo collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa procedura:
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Domo.
+1. Nella pagina di integrazione dell'applicazione **Domo** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-**Per configurare Single Sign-On di Azure AD con Domo, seguire questa procedura:**
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella pagina di integrazione dell'applicazione **Domo** del portale di Azure fare clic su **Single Sign-On**.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-    ![Configure Single Sign-On][4]
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_samlbase.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-1. Nella sezione **URL e dominio Domo** seguire questa procedura:
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_url.png)
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.domo.com`
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Domo](common/sp-identifier.png)
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando i criteri seguenti:     
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.domo.com`
 
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
     | |
     |--|    
     | `https://<companyname>.domo.com` |
@@ -129,141 +122,124 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.local.domo.com` |       
     | `https://<companyname>.qa.domo.com` |
     | `https://<companyname>.stage.domo.com` |
-    
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Domo](mailto:support@domo.com).
 
-1. L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Lo screenshot seguente illustra un esempio di questa configurazione. 
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Domo](mailto:support@domo.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_attributes.png)
-    
-1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
-    
-    | Nome attributo | Valore attributo |
-    | ------------------- | -------------------- |    
+5. L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+
+    ![image](common/edit-attribute.png)
+
+6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
+
+    | Nome | Attributo di origine|
+    | ---------------| --------------- |
+    | nameidentifier | user.userprinicipalname |
     | name | user.displayname |
     | email | user.mail |
-    
-    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_attribute_04.png)
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
-    
-    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
-    
-    d. Fare clic su **OK**. 
- 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_certificate.png) 
+    c. Lasciare vuota la casella **Spazio dei nomi**.
 
-1. Fare clic sul pulsante **Salva** .
+    d. Per Origine selezionare **Attributo**.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_general_400.png)
+    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
+    f. Fare clic su **Ok**
 
-1. Nella sezione **Configurazione di Domo** fare clic su **Configura Domo** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**   
+    g. Fare clic su **Save**.
 
-   ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_configure.png) 
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-1. Per configurare l'accesso Single Sign-On sul lato **Domo**, passare all'articolo della Knowledge Base di Domo disponibile [qui](http://knowledge.domo.com?cid=azuread) e seguire le istruzioni.
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+8. Nella sezione **Set up Domo** (Configura Domo) copiare gli URL appropriati in base alle esigenze.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
+    a. URL di accesso
+
+    b. Identificatore Azure AD
+
+    c. URL di chiusura sessione
+
+### <a name="configure-domo-single-sign-on"></a>Configurare l'accesso Single Sign-On per Domo
+
+Per configurare l'accesso Single Sign-On sul lato **Domo**, passare all'articolo della Knowledge Base di Domo disponibile [qui](http://knowledge.domo.com?cid=azuread) e seguire le istruzioni.
+
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/create_aaduser_01.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/create_aaduser_03.png) 
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/domo-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
-
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-domo-test-user"></a>Creazione di un utente test di Domo
 
-L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Domo. Domo supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
-
-Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Domo viene creato un nuovo utente, se questo non esiste già.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Domo.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Domo**.
 
-**Per assegnare Britta Simon a Domo, seguire questa procedura:**
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco delle applicazioni selezionare **Domo**.
 
-    ![Assegna utente][201] 
+    ![Collegamento di Domo nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nell'elenco delle applicazioni selezionare **Domo**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_app.png) 
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Assegna utente][202] 
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![Assegna utente][203]
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+### <a name="create-domo-test-user"></a>Creare l'utente di test di Domo
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in Domo. Domo supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Domo, ne viene creato uno nuovo dopo l'autenticazione.
+
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
-Quando si fa clic sul riquadro Domo nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Domo.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro di Domo nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Domo per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/domo-tutorial/tutorial_general_01.png
-[2]: ./media/domo-tutorial/tutorial_general_02.png
-[3]: ./media/domo-tutorial/tutorial_general_03.png
-[4]: ./media/domo-tutorial/tutorial_general_04.png
-
-[100]: ./media/domo-tutorial/tutorial_general_100.png
-
-[200]: ./media/domo-tutorial/tutorial_general_200.png
-[201]: ./media/domo-tutorial/tutorial_general_201.png
-[202]: ./media/domo-tutorial/tutorial_general_202.png
-[203]: ./media/domo-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475706"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820403"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate con il protocollo SMB 3 standard di settore tramite macOS El Capitan 10.11 e versioni successive. Questo articolo descrive due diversi modi di montare una condivisione file di Azure in macOS: con l'interfaccia utente del Finder e usando il terminale.
@@ -38,7 +38,7 @@ ms.locfileid: "55475706"
 1. **Aprire Finder**: per impostazione predefinita, il Finder è aperto in macOS, ma per verificare che sia l'applicazione attualmente selezionata fare clic sull'icona con il volto di macOS sul Dock:  
     ![Icona con il volto di macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selezionare "Connetti a server" dal menu "Vai"**: usando il percorso UNC dei [prerequisiti](#preq), convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento deve apparire come segue: ![Finestra di dialogo "Connetti al server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selezionare "Connetti a server" dal menu "Vai"**: usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento deve apparire come segue: ![Finestra di dialogo "Connetti al server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Usare il nome dell'account di archiviazione e la chiave dell'account di archiviazione quando vengono richiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti a server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
 

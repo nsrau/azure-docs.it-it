@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229213"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770283"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Distribuire il modello di soluzione Ansible per Azure in CentOS
 Il modello di soluzione Ansible per Azure è progettato per configurare un'istanza di Ansible in una macchina virtuale CentOS insieme ad Ansible e a una suite di strumenti configurati per funzionare con Azure. Gli strumenti comprendono:
@@ -53,7 +53,7 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 1. Nella scheda **Impostazioni aggiuntive** immettere le informazioni necessarie:
 
     - **Dimensioni** -per impostazione predefinita, le dimensioni del portale di Azure sono standard. Per specificare una dimensione diversa che si adatti allo scenario specifico, selezionare la freccia per visualizzare un elenco di dimensioni diverse.
-    - **VM disk size** (Dimensioni disco VM): selezionare **SSD** (Premium Solid-State Drive) o **HDD** (Hard Disk Drive). A scopo dimostrativo, è selezionato **SSD** per i vantaggi offerti in termini di prestazioni. Per altre informazioni su questi tipi di archiviazione su disco, vedere gli articoli seguenti:
+    - **VM disk type** (Tipo disco VM): selezionare **SSD** (Premium Solid-State Drive) o **HDD** (Hard Disk Drive). A scopo dimostrativo, è selezionato **SSD** per i vantaggi offerti in termini di prestazioni. Per altre informazioni su questi tipi di archiviazione su disco, vedere gli articoli seguenti:
         - [Archiviazione Premium a prestazioni elevate e dischi gestiti per le macchine virtuali](/azure/virtual-machines/windows/premium-storage)
         - [Managed Disks SSD Standard per carichi di lavoro delle macchine virtuali di Azure](/azure/virtual-machines/windows/disks-standard-ssd)
     - **Indirizzo IP pubblico**: specificare questa impostazione se si vuole comunicare con la macchina virtuale dall'esterno della stessa. Il valore predefinito è un nuovo indirizzo IP pubblico con il nome `ansible-pip`. Per specificare un indirizzo IP diverso, selezionare la freccia e specificare gli attributi, ad esempio nome, SKU e assegnazione, di quell'indirizzo IP. 

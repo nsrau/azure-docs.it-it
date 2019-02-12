@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure'
+title: 'Avvio rapido: Inserire BLOB di Azure in Esplora dati di Azure'
 description: In questa guida introduttiva verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
 services: data-explorer
 author: radennis
@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 8b56203b700d42f3fdec1b066ed05caf92eb53f1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462036"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743686"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure tramite una sottoscrizione delle notifiche di Griglia di eventi
 
@@ -40,7 +40,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
     | NOME | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
-    | Risorsa argomento | *gridteststorage* | Il nome dell'account di archiviazione. |
+    | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
     | Esegui la sottoscrizione di tutti i tipi di eventi | *Deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
     | Tipi di evento definiti | *Blob created* (BLOB creato) | Gli eventi specifici per cui ricevere notifiche. |
     | Tipo di endpoint | *Hub eventi* | Il tipo di endpoint a cui vengono inviati gli eventi. |
@@ -111,7 +111,7 @@ A questo punto è possibile connettersi a Griglia di eventi da Esplora dati di A
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | Sono supportati i formati JSON e CSV. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
 

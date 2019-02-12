@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467136"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700700"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Guida introduttiva ad Azure Dev Spaces con .NET Core
 
@@ -99,13 +99,7 @@ Per gli sviluppatori di .NET Core e Node.js che usano VS Code sono disponibili f
 In questa sezione si creerà un'app Web ASP.NET Core e si eseguirà tale app in un contenitore in Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
-Se è installato [.NET Core](https://www.microsoft.com/net), si può creare rapidamente un'app Web ASP.NET Core in una cartella denominata `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-In alternativa, **scaricare il codice di esempio da GitHub** passando a https://github.com/Azure/dev-spaces e selezionando **Clone or Download (Clona o scarica)** per scaricare il repository GitHub nell'ambiente locale. Il codice per questa guida è disponibile in `samples/dotnetcore/getting-started/webfrontend`.
+Clonare o scaricare l'[applicazione di esempio di Azure Dev Spaces](https://github.com/Azure/dev-spaces). In questo articolo viene usato il codice nella directory *samples/dotnetcore/getting-started/webfrontend*.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparazione del codice per lo sviluppo Docker e Kubernetes
 Fino a questo punto, si ha un'app Web di base che è possibile eseguire in locale. Ora si tratta di racchiuderla in un contenitore mediante la creazione di asset che definiscono il contenitore dell'applicazione e la modalità con cui verrà distribuita a Kubernetes. Questa operazione è semplice da eseguire con Azure Dev Spaces: 
@@ -245,4 +239,4 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sui team di sviluppo](team-development-netcore.md)
+> [Informazioni sullo sviluppo multiservizio](multi-service-netcore.md)

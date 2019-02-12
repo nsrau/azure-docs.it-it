@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678441"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700571"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -78,7 +78,7 @@ Usare PowerShell
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Verificare la presenza di un gruppo di sicurezza di rete quando si usano IP pubblici e SKU Standard** Quando si usano uno SKU Standard e IP pubblici, è necessario che esistano un gruppo di sicurezza di rete e una regola esplicita per consentire il traffico verso l'appliance virtuale di rete.
+**Verificare la presenza di un gruppo di sicurezza di rete quando si usano IP pubblici e SKU Standard** Quando si usano uno SKU Standard e IP pubblici, è necessario che esistano un gruppo di sicurezza di rete e una regola esplicita per consentire l'indirizzamento del traffico all'appliance virtuale di rete.
 
 **Controllare se il traffico può essere indirizzato all'appliance virtuale di rete**
 

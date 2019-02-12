@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884946"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509915"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
@@ -19,7 +19,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| DomainServices | Yes | 
+| DomainServices | Sì | 
 | DomainServices/oucontainer | No  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -68,13 +68,13 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
+| servers | Sì | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | reportFeedback | No  | 
-| service | Yes | 
+| service | Sì | 
 | validateServiceName | No  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -100,10 +100,10 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| automationAccounts | Yes | 
-| automationAccounts/configurations | Yes | 
+| automationAccounts | Sì | 
+| automationAccounts/configurations | Sì | 
 | automationAccounts/jobs | No  | 
-| automationAccounts/runbooks | Yes | 
+| automationAccounts/runbooks | Sì | 
 | automationAccounts/softwareUpdateConfigurations | No  | 
 | automationAccounts/webhooks | No  | 
 
@@ -118,19 +118,19 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| b2cDirectories | Yes | 
+| b2cDirectories | Sì | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| registrations | Yes | 
+| registrations | Sì | 
 | registrations/customerSubscriptions | No  | 
 | registrations/products | No  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| batchAccounts | Yes | 
+| batchAccounts | Sì | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Tipo di risorsa | Tag supportati |
@@ -189,13 +189,13 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| mapApis | Yes | 
+| mapApis | Sì | 
 | updateCommunicationPreference | No  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| BizTalk | Yes | 
+| BizTalk | Sì | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo di risorsa | Tag supportati |
@@ -211,14 +211,14 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| botServices | Yes | 
+| botServices | Sì | 
 | botServices/channels | No  | 
 | botServices/connections | No  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Redis | Yes | 
+| Redis | Sì | 
 | RedisConfigDefinition | No  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -244,8 +244,8 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | edgenodes | No  | 
-| Profili | Yes | 
-| profiles/endpoints | Yes | 
+| Profili | Sì | 
+| profiles/endpoints | Sì | 
 | profiles/endpoints/customdomains | No  | 
 | profiles/endpoints/origins | No  | 
 | validateProbe | No  | 
@@ -253,7 +253,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| certificateOrders | Yes | 
+| certificateOrders | Sì | 
 | certificateOrders/certificates | No  | 
 | validateCertificateRegistrationInformation | No  | 
 
@@ -314,7 +314,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Tipo di risorsa | Tag supportati |
@@ -325,18 +325,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| availabilitySets | Yes | 
-| disks | Yes | 
-| images | Yes | 
-| restorePointCollections | Yes | 
+| availabilitySets | Sì | 
+| disks | Sì | 
+| images | Sì | 
+| restorePointCollections | Sì | 
 | restorePointCollections/restorePoints | No  | 
-| sharedVMImages | Yes | 
-| sharedVMImages/versions | Yes | 
-| snapshots | Yes | 
-| virtualMachines | Yes | 
+| sharedVMImages | Sì | 
+| sharedVMImages/versions | Sì | 
+| snapshots | Sì | 
+| virtualMachines | Sì | 
 | virtualMachines/diagnosticSettings | No  | 
-| virtualMachines/extensions | Yes | 
-| virtualMachineScaleSets | Yes | 
+| virtualMachines/extensions | Sì | 
+| virtualMachineScaleSets | Sì | 
 | virtualMachineScaleSets/extensions | No  | 
 | virtualMachineScaleSets/networkInterfaces | No  | 
 | virtualMachineScaleSets/publicIPAddresses | No  | 
@@ -369,17 +369,17 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| containerGroups | Yes | 
+| containerGroups | Sì | 
 | serviceAssociationLinks | No  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| registries | Yes | 
+| registries | Sì | 
 | registries/builds | No  | 
 | registries/builds/cancel | No  | 
 | registries/builds/getLogLink | No  | 
-| registries/buildTasks | Yes | 
+| registries/buildTasks | Sì | 
 | registries/buildTasks/steps | No  | 
 | registries/eventGridFilters | No  | 
 | registries/getBuildSourceUploadUrl | No  | 
@@ -388,39 +388,39 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | registries/queueBuild | No  | 
 | registries/regenerateCredential | No  | 
 | registries/regenerateCredentials | No  | 
-| registries/replications | Yes | 
+| registries/replications | Sì | 
 | registries/runs | No  | 
 | registries/runs/cancel | No  | 
 | registries/scheduleRun | No  | 
-| registries/tasks | Yes | 
+| registries/tasks | Sì | 
 | registries/updatePolicies | No  | 
-| registries/webhooks | Yes | 
+| registries/webhooks | Sì | 
 | registries/webhooks/getCallbackConfig | No  | 
 | registries/webhooks/ping | No  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| containerServices | Yes | 
-| managedClusters | Yes | 
+| containerServices | Sì | 
+| managedClusters | Sì | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| scala Web | Yes | 
+| scala Web | Sì | 
 | updateCommunicationPreference | No  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | Avvisi | No  | 
 | BillingAccounts | No  | 
-| Connettori | Yes | 
+| Connettori | Sì | 
 | Departments | No  | 
 | Dimensioni | No  | 
 | EnrollmentAccounts | No  | 
@@ -432,7 +432,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| hubs | Yes | 
+| hubs | Sì | 
 | hubs/authorizationPolicies | No  | 
 | hubs/connectors | No  | 
 | hubs/connectors/mappings | No  | 
@@ -449,42 +449,42 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| jobs | Yes | 
+| jobs | Sì | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | Yes | 
+| DataBoxEdgeDevices | Sì | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| aree di lavoro | Yes | 
+| aree di lavoro | Sì | 
 | workspaces/virtualNetworkPeerings | No  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| catalogs | Yes | 
+| catalogs | Sì | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| connectionManagers | Yes | 
+| connectionManagers | Sì | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| dataFactories | Yes | 
+| dataFactories | Sì | 
 | dataFactories/diagnosticSettings | No  | 
 | dataFactorySchema | No  | 
-| factories | Yes | 
+| factories | Sì | 
 | factories/integrationRuntimes | No  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 | accounts/dataLakeStoreAccounts | No  | 
 | accounts/storageAccounts | No  | 
 | accounts/storageAccounts/containers | No  | 
@@ -492,34 +492,34 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 | accounts/eventGridFilters | No  | 
 | accounts/firewallRules | No  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| services | Yes | 
-| services/projects | Yes | 
+| services | Sì | 
+| services/projects | Sì | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
+| servers | Sì | 
 | servers/recoverableServers | No  | 
 | servers/virtualNetworkRules | No  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
+| servers | Sì | 
 | servers/recoverableServers | No  | 
 | servers/virtualNetworkRules | No  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| servers | Yes | 
+| servers | Sì | 
 | servers/advisors | No  | 
 | servers/queryTexts | No  | 
 | servers/recoverableServers | No  | 
@@ -530,34 +530,34 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Hub IoT | Yes | 
+| Hub IoT | Sì | 
 | IotHubs/eventGridFilters | No  | 
-| ProvisioningServices | Yes | 
+| ProvisioningServices | Sì | 
 | usages | No  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| controllers | Yes | 
+| controllers | Sì | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| labs | Yes | 
-| labs/serviceRunners | Yes | 
-| labs/virtualMachines | Yes | 
-| schedules | Yes | 
+| labs | Sì | 
+| labs/serviceRunners | Sì | 
+| labs/virtualMachines | Sì | 
+| schedules | Sì | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | databaseAccountNames | No  | 
-| databaseAccounts | Yes | 
+| databaseAccounts | Sì | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| domains | Yes | 
+| domains | Sì | 
 | domains/domainOwnershipIdentifiers | No  | 
 | generateSsoRequest | No  | 
 | topLevelDomains | No  | 
@@ -573,18 +573,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| domains | Yes | 
+| domains | Sì | 
 | domains/topics | No  | 
 | eventSubscriptions | No  | 
 | extensionTopics | No  | 
-| topics | Yes | 
+| topics | Sì | 
 | topicTypes | No  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| clusters | Yes | 
-| spazi dei nomi | Yes | 
+| clusters | Sì | 
+| spazi dei nomi | Sì | 
 | namespaces/authorizationrules | No  | 
 | namespaces/disasterrecoveryconfigs | No  | 
 | namespaces/eventhubs | No  | 
@@ -622,18 +622,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| hanaInstances | Yes | 
+| hanaInstances | Sì | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| clusters | Yes | 
+| clusters | Sì | 
 | clusters/applications | No  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| jobs | Yes | 
+| jobs | Sì | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo di risorsa | Tag supportati |
@@ -647,14 +647,14 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| actiongroups | Yes | 
-| activityLogAlerts | Yes | 
-| alertrules | Yes | 
+| actiongroups | Sì | 
+| activityLogAlerts | Sì | 
+| alertrules | Sì | 
 | automatedExportSettings | No  | 
-| autoscalesettings | Yes | 
+| autoscalesettings | Sì | 
 | baseline | No  | 
 | calculatebaseline | No  | 
-| components | Yes | 
+| components | Sì | 
 | components/events | No  | 
 | components/pricingPlans | No  | 
 | components/query | No  | 
@@ -666,14 +666,15 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | logDefinitions | No  | 
 | logprofiles | No  | 
 | logs | No  | 
+| metricAlerts | Sì |
 | migrateToNewPricingModel | No  | 
 | myWorkbooks | No  | 
 | query | No  | 
 | rollbackToLegacyPricingModel | No  | 
-| scheduledqueryrules | Yes | 
+| scheduledqueryrules | Sì | 
 | vmInsightsOnboardingStatuses | No  | 
-| webtests | Yes | 
-| workbooks | Yes | 
+| webtests | Sì | 
+| workbooks | Sì | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Tipo di risorsa | Tag supportati |
@@ -684,25 +685,25 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| IoTApps | Yes | 
+| IoTApps | Sì | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| Grafico | Yes | 
+| Grafico | Sì | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | deletedVaults | No  | 
-| insiemi di credenziali | Yes | 
+| insiemi di credenziali | Sì | 
 | vaults/accessPolicies | No  | 
 | vaults/secrets | No  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| clusters | Yes | 
+| clusters | Sì | 
 | clusters/databases | No  | 
 | clusters/databases/dataconnections | No  | 
 | clusters/databases/eventhubconnections | No  | 
@@ -710,18 +711,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| labaccounts | Yes | 
+| labaccounts | Sì | 
 | users | No  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo di risorsa | Tag supportati |
@@ -731,42 +732,42 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| integrationAccounts | Yes | 
-| flussi di lavoro | Yes | 
+| integrationAccounts | Sì | 
+| flussi di lavoro | Sì | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| commitmentPlans | Yes | 
-| webServices | Yes | 
-| Aree di lavoro | Yes | 
+| commitmentPlans | Sì | 
+| webServices | Sì | 
+| Aree di lavoro | Sì | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
-| accounts/workspaces | Yes | 
-| accounts/workspaces/projects | Yes | 
-| teamAccounts | Yes | 
-| teamAccounts/workspaces | Yes | 
-| teamAccounts/workspaces/projects | Yes | 
+| account | Sì | 
+| accounts/workspaces | Sì | 
+| accounts/workspaces/projects | Sì | 
+| teamAccounts | Sì | 
+| teamAccounts/workspaces | Sì | 
+| teamAccounts/workspaces/projects | Sì | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| aree di lavoro | Yes | 
+| aree di lavoro | Sì | 
 | workspaces/computes | No  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | Identities | No  | 
-| userAssignedIdentities | Yes | 
+| userAssignedIdentities | Sì | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Tipo di risorsa | Tag supportati |
@@ -780,7 +781,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 | accounts/eventGridFilters | No  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -800,7 +801,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| classicDevServices | Yes | 
+| classicDevServices | Sì | 
 | updateCommunicationPreference | No  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -812,18 +813,18 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| mediaservices | Yes | 
+| mediaservices | Sì | 
 | mediaservices/accountFilters | No  | 
 | mediaservices/assets | No  | 
 | mediaservices/assets/assetFilters | No  | 
 | mediaservices/contentKeyPolicies | No  | 
 | mediaservices/eventGridFilters | No  | 
 | mediaservices/liveEventOperations | No  | 
-| mediaservices/liveEvents | Yes | 
+| mediaservices/liveEvents | Sì | 
 | mediaservices/liveEvents/liveOutputs | No  | 
 | mediaservices/liveOutputOperations | No  | 
 | mediaservices/streamingEndpointOperations | No  | 
-| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/streamingEndpoints | Sì | 
 | mediaservices/streamingLocators | No  | 
 | mediaservices/streamingPolicies | No  | 
 | mediaservices/transforms | No  | 
@@ -832,21 +833,21 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| projects | Yes | 
+| projects | Sì | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| applicationGateways | Yes | 
-| applicationSecurityGroups | Yes | 
+| applicationGateways | Sì | 
+| applicationSecurityGroups | Sì | 
 | azureFirewallFqdnTags | No  | 
-| azureFirewalls | Yes | 
+| azureFirewalls | Sì | 
 | bgpServiceCommunities | No  | 
-| connections | Yes | 
-| ddosCustomPolicies | Yes | 
-| ddosProtectionPlans | Yes | 
+| connections | Sì | 
+| ddosCustomPolicies | Sì | 
+| ddosProtectionPlans | Sì | 
 | dnsOperationStatuses | No  | 
-| dnszones | Yes | 
+| dnszones | Sì | 
 | dnszones/A | No  | 
 | dnszones/AAAA | No  | 
 | dnszones/all | No  | 
@@ -859,47 +860,47 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | dnszones/SOA | No  | 
 | dnszones/SRV | No  | 
 | dnszones/TXT | No  | 
-| expressRouteCircuits | Yes | 
+| expressRouteCircuits | Sì | 
 | expressRouteServiceProviders | No  | 
-| frontdoors | Yes | 
-| frontdoorWebApplicationFirewallPolicies | Yes | 
+| frontdoors | Sì | 
+| frontdoorWebApplicationFirewallPolicies | Sì | 
 | getDnsResourceReference | No  | 
-| interfaceEndpoints | Yes | 
+| interfaceEndpoints | Sì | 
 | internalNotify | No  | 
-| loadBalancers | Yes | 
-| localNetworkGateways | Yes | 
-| natGateways | Yes | 
-| networkIntentPolicies | Yes | 
-| networkInterfaces | Yes | 
-| networkProfiles | Yes | 
-| networkSecurityGroups | Yes | 
-| networkWatchers | Yes | 
-| networkWatchers/connectionMonitors | Yes | 
-| networkWatchers/lenses | Yes | 
-| networkWatchers/pingMeshes | Yes | 
-| privateLinkServices | Yes | 
-| publicIPAddresses | Yes | 
-| publicIPPrefixes | Yes | 
-| routeFilters | Yes | 
-| routeTables | Yes | 
-| serviceEndpointPolicies | Yes | 
+| loadBalancers | Sì | 
+| localNetworkGateways | Sì | 
+| natGateways | Sì | 
+| networkIntentPolicies | Sì | 
+| networkInterfaces | Sì | 
+| networkProfiles | Sì | 
+| networkSecurityGroups | Sì | 
+| networkWatchers | Sì | 
+| networkWatchers/connectionMonitors | Sì | 
+| networkWatchers/lenses | Sì | 
+| networkWatchers/pingMeshes | Sì | 
+| privateLinkServices | Sì | 
+| publicIPAddresses | Sì | 
+| publicIPPrefixes | Sì | 
+| routeFilters | Sì | 
+| routeTables | Sì | 
+| serviceEndpointPolicies | Sì | 
 | trafficManagerGeographicHierarchies | No  | 
-| trafficmanagerprofiles | Yes | 
+| trafficmanagerprofiles | Sì | 
 | trafficmanagerprofiles/heatMaps | No  | 
-| virtualHubs | Yes | 
-| virtualNetworkGateways | Yes | 
-| virtualNetworks | Yes | 
-| virtualNetworkTaps | Yes | 
-| virtualWans | Yes | 
-| vpnGateways | Yes | 
-| vpnSites | Yes | 
-| webApplicationFirewallPolicies | Yes | 
+| virtualHubs | Sì | 
+| virtualNetworkGateways | Sì | 
+| virtualNetworks | Sì | 
+| virtualNetworkTaps | Sì | 
+| virtualWans | Sì | 
+| vpnGateways | Sì | 
+| vpnSites | Sì | 
+| webApplicationFirewallPolicies | Sì | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
-| namespaces/notificationHubs | Yes | 
+| spazi dei nomi | Sì | 
+| namespaces/notificationHubs | Sì | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo di risorsa | Tag supportati |
@@ -907,7 +908,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | devices | No  | 
 | linkTargets | No  | 
 | storageInsightConfigs | No  | 
-| aree di lavoro | Yes | 
+| aree di lavoro | Sì | 
 | workspaces/dataSources | No  | 
 | workspaces/linkedServices | No  | 
 | workspaces/query | No  | 
@@ -916,9 +917,9 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | managementassociations | No  | 
-| managementconfigurations | Yes | 
-| solutions | Yes | 
-| Viste | Yes | 
+| managementconfigurations | Sì | 
+| solutions | Sì | 
+| Viste | Sì | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo di risorsa | Tag supportati |
@@ -932,34 +933,34 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | consoles | No  | 
-| dashboards | Yes | 
+| dashboards | Sì | 
 | userSettings | No  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| workspaceCollections | Yes | 
+| workspaceCollections | Sì | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| capacities | Yes | 
+| capacities | Sì | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
+| account | Sì | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | backupProtectedItems | No  | 
-| insiemi di credenziali | Yes | 
+| insiemi di credenziali | Sì | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
+| spazi dei nomi | Sì | 
 | namespaces/authorizationrules | No  | 
 | namespaces/hybridconnections | No  | 
 | namespaces/hybridconnections/authorizationrules | No  | 
@@ -1004,20 +1005,20 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| scala Web | Yes | 
+| scala Web | Sì | 
 | saasresources | No  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| flows | Yes | 
-| jobcollections | Yes | 
+| flows | Sì | 
+| jobcollections | Sì | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | resourceHealthMetadata | No  | 
-| searchServices | Yes | 
+| searchServices | Sì | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo di risorsa | Tag supportati |
@@ -1063,7 +1064,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
+| spazi dei nomi | Sì | 
 | namespaces/authorizationrules | No  | 
 | namespaces/disasterrecoveryconfigs | No  | 
 | namespaces/eventgridfilters | No  | 
@@ -1078,37 +1079,37 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| clusters | Yes | 
+| clusters | Sì | 
 | clusters/applications | No  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| scala Web | Yes | 
-| gateways | Yes | 
-| networks | Yes | 
-| chiavi private | Yes | 
-| volumes | Yes | 
+| scala Web | Sì | 
+| gateways | Sì | 
+| networks | Sì | 
+| chiavi private | Sì | 
+| volumes | Sì | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| SignalR | Yes | 
+| SignalR | Sì | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| applianceDefinitions | Yes | 
-| appliances | Yes | 
-| applicationDefinitions | Yes | 
-| scala Web | Yes | 
-| jitRequests | Yes | 
+| applianceDefinitions | Sì | 
+| appliances | Sì | 
+| applicationDefinitions | Sì | 
+| scala Web | Sì | 
+| jitRequests | Sì | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| managedInstances | Yes |
-| managedInstances/databases | Yes |
+| managedInstances | Sì |
+| managedInstances/databases | Sì (vedere la nota seguente) |
 | managedInstances/databases/backupShortTermRetentionPolicies | No  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No  |
 | managedInstances/databases/vulnerabilityAssessments | No  |
@@ -1117,27 +1118,31 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | managedInstances/keys | No  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No  |
 | managedInstances/vulnerabilityAssessments | No  |
-| servers | Yes | 
+| servers | Sì | 
 | servers/administrators | No  | 
 | servers/communicationLinks | No  | 
-| servers/databases | Yes | 
+| servers/databases | Sì (vedere la nota seguente) | 
 | servers/encryptionProtector | No  | 
 | servers/keys | No  | 
 | servers/restorableDroppedDatabases | No  | 
 | servers/serviceobjectives | No  | 
 | servers/tdeCertificates | No  | 
 
+> [!NOTE]
+> Il database master non supporta i tag, ma altri database supportano i tag.
+
+
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | Yes | 
+| SqlVirtualMachineGroups | Sì | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | No  | 
-| SqlVirtualMachines | Yes | 
+| SqlVirtualMachines | Sì | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| storageAccounts | Yes | 
+| storageAccounts | Sì | 
 | storageAccounts/blobServices | No  | 
 | storageAccounts/fileServices | No  | 
 | storageAccounts/queueServices | No  | 
@@ -1148,7 +1153,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| storageSyncServices | Yes | 
+| storageSyncServices | Sì | 
 | storageSyncServices/registeredServers | No  | 
 | storageSyncServices/syncGroups | No  | 
 | storageSyncServices/syncGroups/cloudEndpoints | No  | 
@@ -1158,13 +1163,16 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| managers | Yes | 
+| managers | Sì | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| streamingjobs | Yes | 
+| streamingjobs | Sì (vedere la nota seguente) | 
 | streamingjobs/diagnosticSettings | No  | 
+
+> [!NOTE]
+> Impossibile aggiungere un tag quando streamingjobs è in esecuzione. Interrompere la risorsa per aggiungere un tag.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Tipo di risorsa | Tag supportati |
@@ -1181,23 +1189,23 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| providerRegistrations | Yes | 
-| resources | Yes | 
+| providerRegistrations | Sì | 
+| resources | Sì | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| environments | Yes | 
+| environments | Sì | 
 | environments/accessPolicies | No  | 
-| environments/eventsources | Yes | 
-| environments/referenceDataSets | Yes | 
+| environments/eventsources | Sì | 
+| environments/referenceDataSets | Sì | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| account | Yes | 
-| account/extension | Yes | 
-| account/project | Yes | 
+| account | Sì | 
+| account/extension | Sì | 
+| account/project | Sì | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo di risorsa | Tag supportati |
@@ -1213,13 +1221,13 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | apiManagementAccounts/connectionAcls | No  | 
 | apiManagementAccounts/connections | No  | 
 | billingMeters | No  | 
-| certificates | Yes | 
-| connectionGateways | Yes | 
-| connections | Yes | 
-| customApis | Yes | 
+| certificates | Sì | 
+| connectionGateways | Sì | 
+| connections | Sì | 
+| customApis | Sì | 
 | deletedSites | No  | 
 | functions | No  | 
-| hostingEnvironments | Yes | 
+| hostingEnvironments | Sì | 
 | hostingEnvironments/multiRolePools | No  | 
 | hostingEnvironments/multiRolePools/instances | No  | 
 | hostingEnvironments/workerPools | No  | 
@@ -1228,17 +1236,17 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | raccomandazioni di film | No  | 
 | resourceHealthMetadata | No  | 
 | runtimes | No  | 
-| serverFarms | Yes | 
+| serverFarms | Sì | 
 | serverFarms/workers | No  | 
-| siti | Yes | 
+| siti | Sì | 
 | sites/domainOwnershipIdentifiers | No  | 
 | sites/hostNameBindings | No  | 
 | sites/instances | No  | 
 | sites/instances/extensions | No  | 
-| sites/premieraddons | Yes | 
+| sites/premieraddons | Sì | 
 | sites/recommendations | No  | 
 | sites/resourceHealthMetadata | No  | 
-| sites/slots | Yes | 
+| sites/slots | Sì | 
 | sites/slots/hostNameBindings | No  | 
 | sites/slots/instances | No  | 
 | sites/slots/instances/extensions | No  | 
@@ -1255,7 +1263,7 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| DeviceServices | Yes | 
+| DeviceServices | Sì | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Tipo di risorsa | Tag supportati |
