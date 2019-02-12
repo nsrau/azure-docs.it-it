@@ -126,7 +126,7 @@ items:
     href: how-to-event-domains.md
   - name: Implementare il failover lato client
     href: custom-disaster-recovery.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/eventgrid
@@ -155,6 +155,8 @@ items:
       href: event-schema-resource-groups.md
     - name: Bus di servizio
       href: event-schema-service-bus.md
+    - name: Mappe di Azure
+      href: event-schema-azure-maps.md
   - name: Risorse del modello
     items:
     - name: Sottoscrizioni di eventi
@@ -175,9 +177,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-eventgrid
-ms.openlocfilehash: e88de075666f8565be9f977d24b038899604970d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ac839b3f9eca6a4abee95e55be3679d4f854eb48
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692894"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989220"

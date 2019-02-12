@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872935"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998943"
 ---
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
@@ -316,7 +316,6 @@ ms.locfileid: "55872935"
                         <p><a href="/azure/cognitive-services/speech-service">API servizio Voce</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API Riconoscimento vocale Bing&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Traduzione vocale&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
                      </div>
                 </div>
