@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 7f70ab407e38797aae24530ea8fa5193e4fffda1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260908"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567299"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Come eseguire l'onboarding di Monitoraggio di Azure per contenitori  
 Questo articolo descrive come configurare Monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/).
@@ -79,7 +79,7 @@ Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti pr
 È possibile abilitare il monitoraggio di un cluster servizio Azure Kubernetes già distribuito usando l'interfaccia della riga di comando di Azure, dal portale o con il modello di Azure Resource Manager fornito usando il cmdlet di PowerShell `New-AzureRmResourceGroupDeployment`. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Abilitare il monitoraggio usando l'interfaccia della riga di comando di Azure
-La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-<GUID>-<Region>*.  
+La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-\<GUID>-\<Region>*.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  

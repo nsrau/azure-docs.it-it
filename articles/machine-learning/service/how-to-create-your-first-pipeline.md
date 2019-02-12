@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3d1e0f591e5ce9f56e79ffecf72599ed1d894dc9
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251657"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746201"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -104,6 +104,9 @@ output_data1 = PipelineData(
 
 In Azure Machine Learning il termine __ambiente di calcolo__ (o __destinazione di calcolo__) si riferisce ai computer o ai cluster che eseguono i passaggi di calcolo nella pipeline di Machine Learning.   Consultare l'articolo sulle[destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md) per un elenco completo delle destinazioni di calcolo e per informazioni su come crearle e collegarle all'area di lavoro.  Il processo per la creazione e il collegamento di una destinazione di calcolo è lo stesso indipendentemente dal fatto che si stia eseguendo il passaggio di una pipeline o il training di un modello. Dopo aver creato e collegato la destinazione di calcolo, usare l'oggetto `ComputeTarget` nel [passaggio pipeline](#steps).
 
+> [!IMPORTANT]
+> L'esecuzione di operazioni di gestione su destinazioni di calcolo non è supportata all'interno di processi remoti. Poiché le pipeline di Machine Learning vengono inviate come processo remoto, non usare le operazioni di gestione in destinazioni di calcolo all'interno della pipeline.
+
 Di seguito sono riportati esempi di creazione e collegamento di destinazioni di calcolo per:
 
 * Ambiente di calcolo di Azure Machine Learning
@@ -114,27 +117,27 @@ Di seguito sono riportati esempi di creazione e collegamento di destinazioni di 
 
 È possibile creare un ambiente di calcolo di Azure Machine Learning per eseguire i passaggi.
 
-    ```python
-    compute_name = "aml-compute"
-     if compute_name in ws.compute_targets:
-        compute_target = ws.compute_targets[compute_name]
-        if compute_target and type(compute_target) is AmlCompute:
-            print('Found compute target: ' + compute_name)
-    else:
-        print('Creating a new compute target...')
-        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                    min_nodes = 1, 
-                                                                    max_nodes = 4)
-         # create the compute target
-        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-        
-        # Can poll for a minimum number of nodes and for a specific timeout. 
-        # If no min node count is provided it will use the scale settings for the cluster
-        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-        
-         # For a more detailed view of current cluster status, use the 'status' property    
-        print(compute_target.status.serialize())
-    ```
+```python
+compute_name = "aml-compute"
+ if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('Found compute target: ' + compute_name)
+else:
+    print('Creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                min_nodes = 1, 
+                                                                max_nodes = 4)
+     # create the compute target
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # Can poll for a minimum number of nodes and for a specific timeout. 
+    # If no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
+```
 
 ### <a id="databricks"></a>Azure Databricks
 

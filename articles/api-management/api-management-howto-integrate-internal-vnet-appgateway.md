@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444616"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493446"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -60,12 +60,12 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Elementi necessari per creare un'integrazione tra Gestione API e il gateway applicazione
 
 * **Pool di server back-end:** costituisce l'indirizzo IP virtuale interno del servizio Gestione API.
-* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni vengono applicate a tutti i server nel pool.
-* **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico che raggiunge questa porta viene reindirizzato a uno dei server back-end.
-* **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+* **Impostazioni del pool di server back-end:** Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni vengono applicate a tutti i server nel pool.
+* **Porta front-end:** questa è la porta pubblica aperta sul gateway applicazione. Il traffico che raggiunge questa porta viene reindirizzato a uno dei server back-end.
+* **Listener:** ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
 * **Regola:** associa un listener a un pool di server back-end.
-* **Probe di integrità personalizzato:** per impostazione predefinita, il gateway applicazione usa probe basati su indirizzi IP per individuare i server attivi in BackendAddressPool. Poiché il servizio Gestione API risponde solo alle richieste dotate di intestazione host corretta, i probe predefiniti non riescono. È necessario definire un probe di integrità personalizzato per consentire al gateway applicazione di determinare che il servizio è attivo e deve inoltrare le richieste.
-* **Certificati di dominio personalizzati:** per accedere a Gestione API da Internet, è necessario creare un mapping CNAME del nome host del servizio al nome DNS del front-end del gateway applicazione. Ciò garantisce che l'intestazione del nome host e il certificato inviati al gateway applicazione e inoltrati a Gestione API siano riconoscibili come validi da Gestione API. In questo esempio vengono usati due certificati, uno per il back-end e uno per il portale per sviluppatori.  
+* **Probe di integrità personalizzato:** il gateway applicazione, per impostazione predefinita, usa probe basati su indirizzi IP per individuare quali server di BackendAddressPool sono attivi. Poiché il servizio Gestione API risponde solo alle richieste dotate di intestazione host corretta, i probe predefiniti non riescono. È necessario definire un probe di integrità personalizzato per consentire al gateway applicazione di determinare che il servizio è attivo e deve inoltrare le richieste.
+* **Certificati di dominio personalizzato:** per accedere a Gestione API da Internet è necessario creare un mapping CNAME del nome host al nome DNS del front-end del gateway applicazione. Ciò garantisce che l'intestazione del nome host e il certificato inviati al gateway applicazione e inoltrati a Gestione API siano riconoscibili come validi da Gestione API. In questo esempio vengono usati due certificati, uno per il back-end e uno per il portale per sviluppatori.  
 
 ## <a name="overview-steps"> </a> Passaggi necessari per l'integrazione di Gestione API e il gateway applicazione
 
@@ -82,7 +82,7 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 In questa guida verrà esposto il **portale per sviluppatori** anche a destinatari esterni tramite il gateway applicazione. È necessario completare passaggi aggiuntivi per creare il listener, il probe, le impostazioni e le regole del portale per sviluppatori. Tutti i dettagli vengono forniti nei rispettivi passaggi.
 
 > [!WARNING]
-> Nella configurazione descritta del portale per sviluppatori cui accede il gateway applicazione possono verificarsi problemi con l'autenticazione di AAD e di terze parti.
+> Se si usa Azure AD o un'autenticazione di terze parti, attivare la funzionalità [affinità di sessione basata su cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) nel gateway applicazione.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 

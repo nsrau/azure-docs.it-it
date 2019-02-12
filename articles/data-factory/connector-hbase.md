@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019453"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566840"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiare dati da HBase usando Azure Data Factory 
 
@@ -39,13 +39,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato HBase sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **HBase** | Yes |
-| host | Indirizzo IP o nome host del server HBase, (ovvero  `[clustername].azurehdinsight.net`， `192.168.222.160·)  | Yes |
+| type | La proprietà type deve essere impostata su: **HBase** | Sì |
+| host | Indirizzo IP o nome host del server HBase, (ovvero `[clustername].azurehdinsight.net`, 192.168.222.160·) | Sì |
 | port | Porta TCP che l'istanza di HBase usa per l'ascolto delle connessioni client. Il valore predefinito è 9090. Se ci si connette a Azure HDInsights, specificare la porta come 443. | No  |
 | httpPath | URL parziale corrispondente al server HBase, ad esempio `/hbaserest0` quando si usa un cluster HDInsights. | No  |
-| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Basic** | Yes |
+| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Basic** | Sì |
 | username | Nome utente usato per connettersi all'istanza di HBase.  | No  |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No  |
@@ -71,8 +71,8 @@ Per il servizio collegato HBase sono supportate le proprietà seguenti:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true
         },
@@ -98,8 +98,8 @@ Per il servizio collegato HBase sono supportate le proprietà seguenti:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true,
             "trustedCertPath" : "<trustedCertPath>",
@@ -114,15 +114,15 @@ Per il servizio collegato HBase sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati HBase.
 
 Per copiare dati da HBase, impostare la proprietà type del set di dati su **HBaseObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **HBaseObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **HBaseObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -149,9 +149,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HBase, impostare il tipo di origine nell'attività di copia su **HBaseSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HBaseSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HBaseSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

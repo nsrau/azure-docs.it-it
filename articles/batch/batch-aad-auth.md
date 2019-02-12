@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477599"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812845"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -91,7 +91,7 @@ L'ID tenant identifica il tenant di Azure AD che offre servizi di autenticazione
 
 Per eseguire l'autenticazione con l'autenticazione integrata, è necessario concedere le autorizzazioni per l'applicazione per connettersi all'API del servizio Batch. Questo passaggio consente all'applicazione di autenticare le chiamate all'API del servizio Batch con Azure AD.
 
-Dopo aver [registrato l'applicazione](#register-your-application-with-an-azure-ad-tenant), seguire questi passaggi nel portale di Azure per concedere l'accesso al servizio Batch:
+Dopo aver registrato l'applicazione, seguire questi passaggi nel portale di Azure per concedere l'accesso al servizio Batch:
 
 1. Nel riquadro di spostamento a sinistra del portale di Azure scegliere **Tutti i servizi**. Fare clic su **Registrazioni per l'app**.
 2. Cercare il nome dell'applicazione nell'elenco di registrazioni di app:

@@ -1,27 +1,28 @@
 ---
 title: Gestione di asset di Servizi multimediali in più account di archiviazione | Microsoft Docs
-description: Questo articolo fornisce informazioni sulle modalità per gestire asset di Servizi multimediali su più account di archiviazione.
+description: Questo articolo fornisce materiale sussidiario sulle modalità per gestire asset di Servizi multimediali in più account di archiviazione.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886340"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565905"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione
-A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
+
+È possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
 
 * Bilanciamento del carico degli asset tra più account di archiviazione.
 * Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
@@ -29,12 +30,13 @@ A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare 
 Questo articolo illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
 
 ## <a name="considerations"></a>Considerazioni
+
 Quando si collegano più account di archiviazione a un account di Servizi multimediali, tenere presente quanto segue:
 
-* Tutti gli account di archiviazione collegati a un account di Servizi multimediali devono trovarsi nello stesso data center dell'account di Servizi multimediali.
+* L'account di Servizi multimediali e tutti gli account di archiviazione associati devono far parte della stessa sottoscrizione di Azure. È consigliabile usare account di archiviazione nella stessa posizione dell'account di Servizi multimediali.
 * Non è possibile scollegare un account di archiviazione dopo che è stato collegato a un account di Servizi multimediali.
 * L'account di archiviazione principale è quello indicato durante la procedura di creazione dell'account di Servizi multimediali. Attualmente non è possibile modificare l'account di archiviazione predefinito. 
-* Attualmente, se si desidera aggiungere un account di archiviazione offline sicura all'account Servizi multimediali di Azure (AMS), l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
+* Se si vuole aggiungere un account di archiviazione ad accesso sporadico all'account Servizi multimediali di Azure, l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
 
 Altre considerazioni:
 

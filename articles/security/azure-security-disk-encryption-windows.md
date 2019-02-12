@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0051c7ca66d30730e6fc25b8b9d3edec91c43f07
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bfd90b3a8fc72bbb261f05e445ce543228d9fb83
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548647"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728163"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Windows
 
@@ -73,10 +73,10 @@ Usare il cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurer
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Disabilitare la crittografia del disco:** per disabilitare la crittografia, usare il cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+- **Disabilitare la crittografia del disco:** per disabilitare la crittografia, usare il cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia su tutti i dischi usando il parametro -VolumeType "Tutto" per PowerShell, altrimenti il comando disable avrà esito negativo.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Abilitare la crittografia in macchine virtuali esistenti o in esecuzione con l'interfaccia della riga di comando di Azure
@@ -103,10 +103,10 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia su tutti i dischi usando il parametro -volumeType "Tutto" per l'interfaccia della riga di comando, altrimenti il comando disable avrà esito negativo.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -180,8 +180,12 @@ Usare il cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurer
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
+
+   >[!NOTE]
+   > La sintassi per il valore del parametro disk-encryption-keyvault è la stringa identificatore completa: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintassi per il valore del parametro key-encryption-key è l'URI della chiave di crittografia della chiave, come in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 - **Ottenere lo stato della crittografia per un set di scalabilità di macchine virtuali:** usare il cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
     
@@ -225,6 +229,10 @@ Usare [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
+     
+   >[!NOTE]
+   > La sintassi per il valore del parametro disk-encryption-keyvault è la stringa identificatore completa: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintassi per il valore del parametro key-encryption-key è l'URI della chiave di crittografia della chiave, come in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
 - **Ottenere lo stato della crittografia per un set di scalabilità di macchine virtuali:** usare [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
@@ -330,7 +338,7 @@ New-AzureRmVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
 
 
 ## <a name="disable-encryption"></a>Disabilitare la crittografia
-È possibile disabilitare la crittografia usando Azure PowerShell, l'interfaccia della riga di comando di Azure oppure un modello di Resource Manager. La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+È possibile disabilitare la crittografia usando Azure PowerShell, l'interfaccia della riga di comando di Azure oppure un modello di Resource Manager. La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia su tutti i dischi usando il parametro -VolumeType "Tutto" per PowerShell oppure --volume-type "All" per l'interfaccia della riga di comando, altrimenti il comando disable avrà esito negativo. 
 
 - **Disabilitare la crittografia dei dischi con Azure PowerShell:** per disabilitare la crittografia, usare il cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). 
      ```azurepowershell-interactive

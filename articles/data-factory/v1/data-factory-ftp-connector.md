@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 20f1d8ca67a38a9dc262845d87b77e2bc3fc9fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025437"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810585"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 È possibile copiare dati da un server FTP a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un server FTP ad altri archivi dati, non da altri archivi dati a un server FTP. Supporta i server FTP locali e cloud.
 
 > [!NOTE]
-> L'attività di copia non elimina il file di origine dopo che è stato correttamente copiato nella destinazione. Se è necessario eliminare il file di origine dopo una copia con esito positivo, creare un'attività personalizzata per eliminare il file e usare l'attività nella pipeline. 
+> L'attività di copia non elimina il file di origine dopo che è stato correttamente copiato nella destinazione. Se è necessario eliminare il file di origine dopo una copia con esito positivo, creare un'attività personalizzata per eliminare il file e usare l'attività nella pipeline.
 
 ## <a name="enable-connectivity"></a>Abilitare la connettività
 Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad esempio in Archiviazione BLOB di Azure, installare e usare Gateway di gestione dati. Gateway di gestione dati è un agente client installato nel computer locale, che consente ai servizi cloud di connettersi alla risorsa locale. Per informazioni dettagliate, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md). Per istruzioni dettagliate sulla configurazione e sull'uso del gateway, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md). Il gateway consente di connettersi a un server FTP anche se il server si trova in una macchina virtuale (VM) di infrastruttura distribuita come servizio (IaaS) di Azure.
@@ -63,11 +63,11 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente descrive gli elementi JSON specifici di un servizio collegato FTP.
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| type |Impostare su FtpServer. |Yes |&nbsp; |
-| host |Specificare il nome o indirizzo IP del server FTP. |Yes |&nbsp; |
-| authenticationType |Specificare il tipo di autenticazione. |Yes |Di base, anonimo |
+| type |Impostare su FtpServer. |Sì |&nbsp; |
+| host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
+| authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
 | username |Specificare l'utente che ha accesso al server FTP. |No  |&nbsp; |
 | password |Specificare la password per l'utente (nome utente). |No  |&nbsp; |
 | encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No  |&nbsp; |
@@ -86,7 +86,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
     "name": "FTPLinkedService",
     "properties": {
         "type": "FtpServer",
-        "typeProperties": {        
+        "typeProperties": {
             "authenticationType": "Anonymous",
               "host": "myftpserver.com"
         }
@@ -99,7 +99,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
 ```JSON
 {
     "name": "FTPLinkedService",
-      "properties": {
+    "properties": {
     "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
@@ -107,7 +107,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
             "username": "Admin",
             "password": "123456"
         }
-      }
+    }
 }
 ```
 
@@ -120,7 +120,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
         "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
-            "authenticationType": "Basic",    
+            "authenticationType": "Basic",
             "username": "Admin",
             "password": "123456",
             "port": "21",
@@ -144,18 +144,18 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
             "gatewayName": "mygateway"
         }
-      }
+    }
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce informazioni specifiche del tipo di set di dati. La sezione **typeProperties** per un set di dati di tipo **FileShare** presenta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Yes |
+| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>Data.<Guid>.txt (esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No  |
 | partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No  |
@@ -188,7 +188,7 @@ In questo esempio {Slice} viene sostituito con il valore della variabile di sist
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -209,7 +209,7 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No  |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio di JSON: Copiare dati da un server FTP a BLOB di Azure
-Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.  
+Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.
 
 Gli esempi seguenti specificano le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
@@ -235,14 +235,14 @@ Per i diversi tipi di autenticazione disponibili, vedere la sezione relativa al 
 {
     "name": "FTPLinkedService",
     "properties": {
-    "type": "FtpServer",
-    "typeProperties": {
-        "host": "myftpserver.com",           
-        "authenticationType": "Basic",
-        "username": "Admin",
-        "password": "123456"
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "username": "Admin",
+            "password": "123456"
+        }
     }
-  }
 }
 ```
 ### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025794"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812787"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -32,7 +32,7 @@ Azure crea automaticamente route di sistema e assegna le route a ogni subnet in 
 Ogni route contiene un prefisso degli indirizzi e il tipo di hop successivo. Quando il traffico in uscita da una subnet viene inviato a un indirizzo IP compreso nel prefisso degli indirizzi di una route, la route che contiene il prefisso è quella usata da Azure. Vedere in che modo [Azure seleziona una route](#how-azure-selects-a-route) quando più route contengono lo stesso prefisso oppure prefissi che si sovrappongono. Quando si crea una rete virtuale, Azure crea automaticamente le route di sistema predefinite seguenti per ogni subnet della rete virtuale:
 
 
-|Sorgente |Prefissi degli indirizzi                                        |Tipo hop successivo  |
+|Source (Sorgente) |Prefissi degli indirizzi                                        |Tipo hop successivo  |
 |-------|---------                                               |---------      |
 |Predefinito|Univoco per la rete virtuale                           |Rete virtuale|
 |Predefinito|0.0.0.0/0                                               |Internet       |
@@ -57,7 +57,7 @@ I tipi di hop successivi elencati nella tabella precedente rappresentano il modo
 
 Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, ma solo se si abilitano queste funzionalità. A seconda della funzionalità, Azure aggiunge route predefinite facoltative a subnet specifiche o a tutte le subnet della rete virtuale. Le route di sistema aggiuntive e i tipi di hop successivi che Azure può aggiungere quando si abilitano le funzionalità sono:
 
-|Sorgente                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
+|Source (Sorgente)                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
 |-----                  |----                                   |---------                    |--------|
 |Predefinito                |Univoco per la rete virtuale, ad esempio: 10.1.0.0/16|Peering reti virtuali                 |Tutti|
 |Gateway di rete virtuale|Prefissi annunciati dall'ambiente locale tramite BGP o configurati nel gateway di rete locale     |Gateway di rete virtuale      |Tutti|
@@ -91,7 +91,7 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
     È possibile definire una route con 0.0.0.0/0 come prefisso degli indirizzi e un tipo di hop successivo Appliance virtuale, per consentire all'appliance di ispezionare il traffico e determinare se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente che contiene il prefisso degli indirizzi 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route).
 
-- **Gateway di rete virtuale**: consente di specificare quando si vuole che il traffico destinato a prefissi degli indirizzi specifici venga indirizzato a un gateway di rete virtuale. Il gateway di rete virtuale deve essere creato con il tipo **VPN**. Non è possibile specificare un gateway di rete virtuale creato come tipo **ExpressRoute** in una route definita dall'utente perché con ExpressRoute è necessario usare [BGP](#border-gateway-protocol-routes) per le route personalizzate. È possibile definire una route che indirizzi il traffico destinato al prefisso degli indirizzi 0.0.0.0/0 a un gateway di rete virtuale [basato su route](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Nell'ambiente locale può essere presente un dispositivo che ispeziona il traffico e determina se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente per il prefisso di indirizzo 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route). Invece di configurare una route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0, è possibile annunciare una route con il prefisso 0.0.0.0/0 tramite BGP, se è stato [abilitato BGP per un gateway di rete virtuale VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Gateway di rete virtuale**: consente di specificare quando si vuole che il traffico destinato a prefissi degli indirizzi specifici venga indirizzato a un gateway di rete virtuale. Il gateway di rete virtuale deve essere creato con il tipo **VPN**. Non è possibile specificare un gateway di rete virtuale creato come tipo **ExpressRoute** in una route definita dall'utente perché con ExpressRoute è necessario usare BGP per le route personalizzate. È possibile definire una route che indirizzi il traffico destinato al prefisso degli indirizzi 0.0.0.0/0 a un gateway di rete virtuale [basato su route](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Nell'ambiente locale può essere presente un dispositivo che ispeziona il traffico e determina se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente per il prefisso di indirizzo 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route). Invece di configurare una route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0, è possibile annunciare una route con il prefisso 0.0.0.0/0 tramite BGP, se è stato [abilitato BGP per un gateway di rete virtuale VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Nessuno**: consente di specificare quando si vuole eliminare il traffico verso un prefisso degli indirizzi, invece di inoltrarlo a una destinazione. Se una funzionalità non è completamente configurata, Azure può elencare *Nessuno* per alcune delle route di sistema facoltative. Se ad esempio è indicato *Nessuno* come **Indirizzo IP hop successivo** con **Tipo hop successivo** *Gateway di rete virtuale* o *Appliance virtuale*, è possibile che il dispositivo non sia in esecuzione o non sia completamente configurato. Azure crea [route predefinite](#default) di sistema per i prefissi degli indirizzi riservati con tipo hop successivo **Nessuno**.
 - **Rete virtuale**: consente di specificare quando si intende eseguire l'override del routing predefinito in una rete virtuale. Vedere [Esempio di routing](#routing-example) per un esempio che illustra perché creare una route con il tipo di hop **Rete virtuale**.
 - **Internet**: consente di specificare quando si vuole instradare esplicitamente a Internet il traffico destinato a un prefisso degli indirizzi oppure se si vuole che il traffico destinato ai servizi di Azure con indirizzi IP pubblici resti all'interno della rete backbone di Azure.
@@ -139,7 +139,7 @@ Se più route contengono lo stesso prefisso degli indirizzi, Azure seleziona il 
 Una tabella di route contiene ad esempio le route seguenti:
 
 
-|Sorgente   |Prefissi degli indirizzi  |Tipo hop successivo           |
+|Source (Sorgente)   |Prefissi degli indirizzi  |Tipo hop successivo           |
 |---------|---------         |-------                 |
 |Predefinito  | 0.0.0.0/0        |Internet                |
 |Utente     | 0.0.0.0/0        |Gateway di rete virtuale |
@@ -205,7 +205,7 @@ Le frecce indicano il flusso del traffico.
 
 La tabella di route per *Subnet1* rappresentata nell'immagine contiene le route seguenti:
 
-|ID  |Sorgente |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
+|ID  |Source (Sorgente) |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinito|Non valido|10.0.0.0/16         |Rete virtuale        |                   |              |
 |2   |Utente   |Attivo |10.0.0.0/16         |Appliance virtuale      |10.0.100.4         |Within-VNet1  |
@@ -239,7 +239,7 @@ Di seguito è riportata la spiegazione di ogni ID route:
 
 La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route seguenti:
 
-|Sorgente  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
+|Source (Sorgente)  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
 |------- |-------|------              |-------                   |--------           
 |Predefinito |Attivo |10.0.0.0/16         |Rete virtuale           |                   |
 |Predefinito |Attivo |10.1.0.0/16         |Peering reti virtuali              |                   |

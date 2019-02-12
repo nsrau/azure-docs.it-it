@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332609"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811087"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -79,14 +79,14 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Yes |ND |
-| type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipo di set di dati](#Type). |Yes |ND |
+| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
+| type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipo di set di dati](#Type). |Sì |ND |
 | structure |Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere [Struttura del set di dati](#Structure). |No  |ND |
-| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#Type). |Yes |ND |
+| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#Type). |Sì |ND |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. Se il set di dati di input per un'attività non viene generato dalla pipeline corrente, impostare questo flag su true. Impostare questo flag su true per il set di dati di input della prima attività nella pipeline.  |No  |false |
-| Disponibilità | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere [Disponibilità dei set di dati](#Availability). <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Yes |ND |
+| Disponibilità | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere Disponibilità dei set di dati. <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |ND |
 | policy |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). |No  |ND |
 
 ## <a name="dataset-example"></a>Esempio di set di dati
@@ -191,9 +191,9 @@ structure:
 
 Ogni colonna della struttura contiene le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| name |Nome della colonna. |Yes |
+| name |Nome della colonna. |Sì |
 | type |Tipo di dati della colonna.  |No  |
 | culture |Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. |No  |
 | format |Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. |No  |
@@ -233,10 +233,10 @@ Viene prodotto il set di dati di output ogni ora entro gli orari di inizio e fin
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
-| Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Yes |ND |
-| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Yes |ND |
+| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Sì |ND |
+| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |ND |
 | style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequency** è impostata su **Month** e **style** è impostata su **EndOfInterval**, la sezione viene generata l'ultimo giorno del mese. Se **style** è impostata su **StartOfInterval**, la sezione viene generata il primo giorno del mese.<br/><br/>Se **frequency** è impostata su **Day** e **style** è impostata su **EndOfInterval**, la sezione viene generata nell'ultima ora del giorno.<br/><br/>Se **frequency** è impostata su **Hour** e **style** è impostata su **EndOfInterval**, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No  |EndOfInterval |
 | anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>Si noti che se questa proprietà include parti della data più granulari rispetto alla frequenza specificata, le parti più granulari vengono ignorate. Ad esempio, se l'**intervallo** è **orario** (frequency: hour e interval: 1) e **AnchorDateTime** contiene **minuti e secondi**, le parti minuti e secondi di **AnchorDateTime** vengono ignorate. |No  |01/01/0001 |
 | offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>Notare che se si specifica sia **anchorDateTime** che **offset**, il risultato sarà lo spostamento combinato. |No  |ND |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151805"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Esercitazione: Integrazione di Azure Active Directory con Infinite Campus
 
@@ -111,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-5. Nella sezione **Configurazione SAML di base**, se è disponibile un **file di metadati di un provider di servizi** (passaggio **11.c**), seguire questa procedura:
+4. Nella sezione **Configurazione SAML di base**, se è disponibile un **file di metadati del provider di servizi**, completare i passaggi da 4.a a 4.d quindi andare al passaggio 11.c. Se non si dispone di un file di metadati del provider di servizi, andare al passaggio 5.
 
     a. Fare clic su **Carica il file di metadati**.
 
@@ -127,10 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Nella casella di testo **URL di accesso** digitare l'URL usando il criterio seguente (il dominio varia in funzione del modello di hosting): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Il **file di metadati del provider di servizi** sarà disponibile nella pagina di configurazione del provider di servizi SSO di Infinite Campus, come spiegato più avanti nell'esercitazione. Se si inizia con una nuova configurazione di provider di servizi SAML in Infinite Campus, andare al **passaggio 11** per completare l'esportazione del file di metadati del provider di servizi.
-
-6. Se non è disponibile un **file di metadati del provider di servizi**, seguire questa procedura (si noti che il dominio varierà con il modello di hosting):
+5. Se non si dispone di un **file di metadati del provider di servizi**, seguire la procedura seguente (si noti che il dominio varierà con il modello di hosting):
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

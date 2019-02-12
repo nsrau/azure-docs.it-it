@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814317"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "33765637"
 
 Il [servizio di archiviazione BLOB](../storage/common/storage-introduction.md#blob-storage) in Archiviazione di Azure è una delle diverse origini basate su Azure integrate nella rete per la distribuzione di contenuti (CDN) di Azure. Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive vari modi in cui è possibile impostare l'intestazione `Cache-Control` in un BLOB in Archiviazione di Azure.
 
-È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle [regole di memorizzazione nella cache della rete CDN](#setting-cache-control-headers-by-using-caching-rules). Se si crea una regola di memorizzazione nella cache e si imposta il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
+È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle regole di memorizzazione nella cache della rete CDN. Se si crea una regola di memorizzazione nella cache e si imposta il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > È possibile scegliere di non impostare alcuna durata (TTL) per un BLOB. In questo caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni, a meno che non siano state configurate le regole di memorizzazione nella cache nel portale di Azure. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.

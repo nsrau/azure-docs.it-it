@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336901"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753471"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
 Un *hub attività* in [Funzioni permanenti](durable-functions-overview.md) è un contenitore logico per le risorse di Archiviazione di Microsoft Azure che vengono usate per le orchestrazioni. Le funzioni attività e di orchestrazione possono interagire tra loro solo quando appartengono allo stesso hub attività.
 
-Ogni app per le funzioni dispone di un hub attività distinto. Se più app per le funzioni condividono un account di archiviazione, tale account include più hub attività. Nel diagramma seguente è illustrato un hub attività per app per le funzioni in account di archiviazione condivisi e dedicati.
+Se molteplici app per le funzioni condividono un account di archiviazione, ogni app per le funzioni *deve* essere configurata con un nome di hub attività separato. Un account di archiviazione può contenere molteplici hub attività. Nel diagramma seguente è illustrato un hub attività per app per le funzioni in account di archiviazione condivisi e dedicati.
 
 ![Diagramma che illustra gli account di archiviazione condivisi e dedicati.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ Gli hub attività sono identificati mediante un nome dichiarato nel file *host.j
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ Gli hub attività sono identificati mediante un nome dichiarato nel file *host.j
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ Di seguito è riportata la configurazione necessaria per JavaScript. La propriet
 I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome predefinito è **DurableFunctionsHub**.
 
 > [!NOTE]
-> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare nomi diversi per ogni hub attività nei file *host.json*.
+> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare in modo esplicito nomi diversi per ogni hub attività nei file *host.json*. In caso contrario, le diverse app per le funzioni competeranno tra loro per i messaggi, causando eventualmente un comportamento indefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

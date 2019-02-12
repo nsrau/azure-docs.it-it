@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474004"
+ms.locfileid: "55490255"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ Il codice nell'applicazione client elimina e ricrea immediatamente un contenitor
 L'applicazione client deve utilizzare nomi univoci per i contenitori ogni volta che crea nuovi contenitori se il pattern delete/recreate è comune.
 
 ### <a name="metrics-show-low-percent-success"></a>Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors
-La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite correttamente in base al relativo codice di stato HTTP. Le operazioni con codici di stato 2XX hanno avuto esito positivo, mentre le operazioni con codici 3XX, 4XX e 5XX hanno avuto esito negativo e riducono il valore della metrica **PercentSucess** . Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**.
+La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite correttamente in base al relativo codice di stato HTTP. Le operazioni con codici di stato 2XX hanno avuto esito positivo, mentre le operazioni con codici di stato compresi negli intervalli 3XX, 4XX e 5XX hanno avuto esito negativo e riducono il valore della metrica **PercentSuccess**. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**.
 
 È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni eseguite correttamente ma che possono restituire codici di stato HTTP negativi sono:
 

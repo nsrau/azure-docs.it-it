@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477853"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563831"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
 
@@ -33,7 +33,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Connettività di rete**
 
-- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA. Di conseguenza, i clienti non sono soggetti a costi aggiuntivi oltre al collegamento ExpressRoute da locale ad Azure.
+- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Di conseguenza, i clienti non sono soggetti a costi aggiuntivi oltre al collegamento ExpressRoute da locale ad Azure.
 
 **Sistema operativo**
 

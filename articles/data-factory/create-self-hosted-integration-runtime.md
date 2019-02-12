@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331810"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493593"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - I certificati con nome alternativo del soggetto non sono consigliati perché viene usato solo l'ultimo elemento del nome, mentre tutti gli altri vengono ignorati a causa delle limitazioni attuali. Se ad esempio si dispone di un certificato con nome alternativo del soggetto i cui nomi sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare tale certificato solo in un computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Il certificato deve supportare tutte le dimensioni della chiave supportate da Windows Server 2012 R2 per i certificati SSL.
 - I certificati che usano chiavi CNG non sono supportati.  
+
+> [!NOTE]
+> Questo certificato viene usato per crittografare le porte nel nodo runtime di integrazione self-hosted, usato per la **comunicazione da nodo a nodo** (per la sincronizzazione dello stato) e durante l'**uso di PowerShell cmdlet per l'impostazione di credenziali di servizio collegate**  dalla rete locale. È consigliabile usare questo certificato se l'ambiente di rete privato non è protetto o se si vuole proteggere la comunicazione tra nodi anche all'interno della rete privata. Lo spostamento dati in transito dal runtime di integrazione self-hosted ad altri archivi dati avviene sempre tramite un canale crittografato, indipendentemente dal fatto che il certificato sia stato impostato o meno. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Condivisione del runtime di integrazione self-hosted in più data factory
 

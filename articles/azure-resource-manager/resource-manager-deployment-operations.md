@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103860"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770215"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualizzare le operazioni di distribuzione con Azure Resource Manager
 
@@ -26,7 +26,10 @@ ms.locfileid: "54103860"
 
 È possibile risolvere i problemi relativi alla distribuzione esaminando i log di controllo o le operazioni di distribuzione. Questo articolo illustra entrambi i metodi. Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>Portale
+
 Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguente:
 
 1. Per il gruppo di risorse coinvolte nella distribuzione, si noti lo stato dell'ultima distribuzione. È possibile selezionare questo stato per ottenere altri dettagli.
@@ -53,28 +56,28 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
     ![vedere eventi](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Per ottenere lo stato complessivo di una distribuzione, usare il comando **Get-AzureRmResourceGroupDeployment** . 
+1. Per ottenere lo stato complessivo di una distribuzione, usare il comando **Get-AzResourceGroupDeployment**. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    In alternativa, è possibile filtrare i risultati per visualizzare solo le distribuzioni con esito negativo.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. Per ottenere l'ID di correlazione, usare:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Che restituisce più operazioni, ognuna nel formato seguente:
@@ -92,7 +95,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 1. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Vengono restituite tutte le operazioni non riuscite, ognuna nel formato seguente:
@@ -115,7 +118,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 1. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Che restituisce:
@@ -130,9 +133,9 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -157,7 +160,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 
 ## <a name="rest"></a>REST
 
-1. Ottenere informazioni su una distribuzione con l'operazione [Ottenere informazioni su una distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
+1. Ottenere informazioni su una distribuzione con l'operazione [Ottenere informazioni su una distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments).
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -180,7 +183,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   }
   ```
 
-2. Per informazioni sulle distribuzioni, vedere l'[elenco di tutte le operazioni di distribuzione di modelli](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Per informazioni sulle distribuzioni, vedere l'[elenco di tutte le operazioni di distribuzione di modelli](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

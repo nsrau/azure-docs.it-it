@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312029"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751379"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indici per **SQL Server in macchine virtuali di Azure** (o in breve **VM di SQL Azure**) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza. 
 
-**Durata attività:** circa 30 minuti, presumendo di avere già installato un certificato nella macchina virtuale.
+Le connessioni da Ricerca di Azure a SQL Server in una VM costituiscono una connessione Internet pubblica. Tutte le misure di sicurezza da seguire in genere per queste connessioni, sono applicabili anche per:
+
++ Ottenere un certificato da un [provider dell'autorità di certificazione](https://en.wikipedia.org/wiki/Certificate_authority#Providers) per il nome di dominio completo dell'istanza di SQL Server nella VM di Azure.
++ Installare il certificato nella macchina virtuale, abilitare e configurare le connessioni crittografate nella VM seguendo le istruzioni riportate in questo articolo.
 
 ## <a name="enable-encrypted-connections"></a>Abilitare le connessioni crittografate
 Ricerca di Azure richiede un canale crittografato per tutte le richieste di indicizzatori su una connessione Internet pubblica. Questa sezione elenca i passaggi necessari per eseguire questa operazione.
 
 1. Controllare le proprietà del certificato per verificare che il nome del soggetto sia il nome di dominio completo (FQDN) della VM di Azure. È possibile usare uno strumento come CertUtils o lo snap-in Certificati per visualizzare le proprietà. È possibile ottenere il nome FQDN dalla sezione Informazioni di base del pannello dei servizi della VM nel campo **Etichetta Indirizzo IP pubblico/Nome DNS** del [portale di Azure](https://portal.azure.com/).
    
-   * Per le macchine virtuali create con il nuovo modello di **Gestione risorse**, il nome FQDN segue la formattazione `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Per le macchine virtuali meno recenti create come VM **classica**, il nome FQDN segue la formattazione `<your-cloud-service-name.cloudapp.net>`. 
+   * Per le VM create con il nuovo modello di **Gestione risorse**, il nome FQDN segue la formattazione `<your-VM-name>.<region>.cloudapp.azure.com`
+   * Per le macchine virtuali meno recenti create come VM **classica**, il nome FQDN segue la formattazione `<your-cloud-service-name.cloudapp.net>`.
+
 2. Configurare SQL Server per l'uso del certificato con l'editor del Registro di sistema (regedit). 
    
     Anche se Gestione configurazione SQL Server viene usato spesso per questa attività, non è possibile usarlo per questo scenario. Non troverà il certificato importato perché il nome FQDN della VM in Azure non corrisponde al nome FQDN determinato dalla VM. Identifica il dominio come computer locale o come dominio di rete a cui è aggiunto. Quando i nomi non corrispondono, usare regedit per specificare il certificato.
@@ -38,9 +42,11 @@ Ricerca di Azure richiede un canale crittografato per tutte le richieste di indi
    * Impostare il valore della chiave **Certificate** sull'**identificazione personale** del certificato SSL importato nella macchina virtuale.
      
      È possibile ottenere l'identificazione personale in diversi modi, alcuni dei quali preferibili ad altri. Se la si copia dallo snap-in **Certificati** in MMC, esiste il rischio di selezionare un carattere iniziale invisibile, [come illustrato in questo articolo del supporto](https://support.microsoft.com/kb/2023869/), e di ottenere un errore quando si prova a stabilire una connessione. Esistono diverse soluzioni alternative per risolvere il problema. La più semplice consiste nel premere il tasto BACKSPACE e quindi nel digitare di nuovo il primo carattere dell'identificazione personale per rimuovere il carattere iniziale nel campo del valore della chiave in regedit. In alternativa, è possibile usare un altro strumento per copiare l'identificazione personale.
+
 3. Concedere autorizzazioni all'account del servizio. 
    
     Assicurarsi che l'account del servizio SQL Server riceva l'autorizzazione appropriata per la chiave privata del certificato SSL. Se si ignora questo passaggio, SQL Server non verrà avviato. È possibile usare lo snap-in **Certificates** o **CertUtils** per questa attività.
+    
 4. Riavviare il servizio SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurare la connettività di SQL Server nella VM

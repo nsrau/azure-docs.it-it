@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015832"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822426"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -172,7 +172,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
       4. Nella finestra di dialogo **Impostazione credenziali** specificare il tipo di autenticazione, il nome utente e la password e fare clic su **OK**. Se la connessione viene stabilita correttamente, le credenziali crittografate vengono archiviate nel file JSON e la finestra di dialogo si chiude.
       5. Chiudere la scheda del browser vuota usata per avviare la finestra di dialogo se non viene chiusa automaticamente e tornare alla scheda con il portale di Azure.
 
-         Nel computer gateway queste credenziali vengono **crittografate** con un certificato di proprietà del servizio Data Factory. Se invece si intende usare il certificato associato al gateway di gestione dati, vedere le informazioni su come [impostare le credenziali in modo sicuro](#set-credentials-and-security).    
+         Nel computer gateway queste credenziali vengono **crittografate** con un certificato di proprietà del servizio Data Factory. Se invece si intende usare il certificato associato al gateway di gestione dati, vedere le informazioni su come impostare le credenziali in modo sicuro.    
    3. Fare clic su **Distribuisci** nella barra dei comandi per distribuire il servizio collegato di SQL Server. Verrà visualizzato il servizio collegato nella visualizzazione albero.
 
       ![Servizio collegato SQL Server nella visualizzazione albero](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

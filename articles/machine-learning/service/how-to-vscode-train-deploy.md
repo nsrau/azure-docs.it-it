@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240115"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753113"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Usare Visual Studio Code per eseguire il training e la distribuzione di modelli di Machine Learning
 
@@ -108,9 +108,9 @@ Per usare una destinazione di calcolo remota durante il training, è necessario 
 
 #### <a name="the-conda-dependencies-file"></a>File delle dipendenze Conda
 
-Per impostazione predefinita, viene creato automaticamente un nuovo ambiente Conda e vengono gestite le dipendenze dell'installazione. È tuttavia necessario specificare le dipendenze nel file `aml_config/conda_dependencies.yml`.
+Per impostazione predefinita, viene creato automaticamente un nuovo ambiente Conda e vengono gestite le dipendenze dell'installazione. È tuttavia necessario specificare le dipendenze e le relative versioni nel file `aml_config/conda_dependencies.yml`. 
 
-Di seguito è riportato un frammento del file "aml_config/conda_dependencies.yml" predefinito.
+Di seguito è riportato un frammento del file "aml_config/conda_dependencies.yml" predefinito. Ad esempio, è possibile specificare "tensorflow = 1.12.0" come mostrato sotto. Se non si specifica la versione della dipendenza, verrà usata la versione più recente.  
 È possibile inserire dipendenze aggiuntive nel file di configurazione.
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

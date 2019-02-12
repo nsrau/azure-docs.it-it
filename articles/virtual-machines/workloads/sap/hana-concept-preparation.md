@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492829"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822545"
 ---
 # <a name="disaster-recovery-principles"></a>Principi relativi al ripristino di emergenza
 
@@ -48,7 +48,7 @@ Nei casi in cui si usi la replica del sistema HANA come funzionalità a disponib
 
 
 >[!NOTE]
->La funzionalità di replica dell'archiviazione di HANA in istanze Large esegue il mirroring e la replica degli snapshot di archiviazione. Se non si eseguono snapshot di archiviazione come descritto nella sezione [Backup e ripristino](#backup-and-restore) di questo articolo, non è possibile eseguire alcuna replica nel sito di ripristino di emergenza. L'esecuzione di snapshot di archiviazione è un prerequisito per la replica di archiviazione nel sito di ripristino di emergenza.
+>La funzionalità di replica dell'archiviazione di HANA in istanze Large esegue il mirroring e la replica degli snapshot di archiviazione. Se non si eseguono snapshot di archiviazione come descritto nella sezione Backup e ripristino di questo articolo, non è possibile eseguire alcuna replica nel sito di ripristino di emergenza. L'esecuzione di snapshot di archiviazione è un prerequisito per la replica di archiviazione nel sito di ripristino di emergenza.
 
 
 
@@ -81,7 +81,7 @@ Successivamente, configurare o regolare la pianificazione del backup dello snaps
 - Per il volume di backup del log delle transazioni (tipo di snapshot **log**) impostare la replica ogni tre minuti nelle destinazioni dei volumi di archiviazione equivalenti nel sito di ripristino di emergenza.
 
 Per ridurre al minimo l'obiettivo del punto di ripristino, impostare quanto segue:
-- Eseguire uno snapshot di archiviazione di tipo **hana** (vedere il "Passaggio 7: Eseguire gli snapshot") ogni 30/60 minuti.
+- Eseguire uno snapshot di archiviazione di tipo **hana** (vedere "Passaggio 7: eseguire gli snapshot") ogni 30 minuti fino a 1 ora.
 - Eseguire i backup del log delle transazioni SAP HANA ogni cinque minuti.
 - Eseguire uno snapshot di archiviazione di tipo **logs** ogni 5-15 minuti. Con questo intervallo, dovrebbe essere possibile ottenere un valore RPO di circa 15-25 minuti.
 

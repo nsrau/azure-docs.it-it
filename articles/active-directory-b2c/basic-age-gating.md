@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153267"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562437"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
@@ -103,7 +103,7 @@ Dopo che il tenant è stato configurato per l'uso del controllo dell'accesso in 
 1. Creare un flusso utente con il controllo dell'accesso in base all'età abilitato.
 2. Dopo aver creato il flusso utente, selezionare **Proprietà** nel menu.
 3. Nella sezione **Controllo dell'accesso in base all'età** selezionare **Abilitato**.
-4. È quindi possibile decidere in che modo gestire gli utenti che si identificano come minori. Per la **registrazione o l'accesso** selezionare `Allow minors to access your application` o `Block minors from accessing your application`. Se è selezionato il blocco dei minori, selezionare `Send a JSON bcak to the application` o `Show an error message`. 
+4. È quindi possibile decidere in che modo gestire gli utenti che si identificano come minori. Per la **registrazione o l'accesso** selezionare `Allow minors to access your application` o `Block minors from accessing your application`. Se è selezionato il blocco dei minori, selezionare `Send a JSON back to the application` o `Show an error message`. 
 
 
 

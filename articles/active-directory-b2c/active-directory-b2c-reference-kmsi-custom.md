@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163416"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812303"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -150,7 +150,7 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 2. Aprire il nuovo file e aggiornare l'attributo **PolicyId** per il **TrustFrameworkPolicy** con un valore univoco. Questo è il nome dei criteri. Ad esempio: `SignUpOrSignInWithKmsi`.
 3. Modificare l'attributo **ReferenceId** per l'elemento **DefaultUserJourney** per corrispondere all'identificatore del nuovo percorso utente creato. Ad esempio: `SignUpOrSignInWithKmsi`.
 
-    KMSI è configurato usando l'elemento **UserJourneyBehaviors**. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo. 
+    Il server di gestione delle chiavi è configurato usando l'elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** e **SessionExpiryInSeconds** come suoi primi elementi figlio. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo. 
 
     Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**). 
     

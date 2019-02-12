@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c105c64b65d50b9d6bf6477e47d08f415b3a9a31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 22f9daedf1438af30006bce48826d842942309ea
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018722"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660001"
 ---
-# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiare dati dal Database di Azure per PostgreSQL usando Azure Data Factory 
+# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiare dati dal Database di Azure per PostgreSQL usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati dal Database di Azure per PostgreSQL. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -39,10 +39,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per il servizio collegato Database di Azure per PostgreSQL sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzurePostgreSql** | Yes |
-| connectionString | Stringa di connessione ODBC per la connessione al Database di Azure per PostgreSQL. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **AzurePostgreSql** | Sì |
+| connectionString | Stringa di connessione ODBC per la connessione al Database di Azure per PostgreSQL.<br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Altre proprietà che è possibile impostare per il case:
@@ -61,23 +61,48 @@ Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.co
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+                "type": "SecureString",
+                "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         }
     }
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+**Esempio: archiviare la password in Azure Key Vault**
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "properties": {
+        "type": "AzurePostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati del Database di Azure per PostgreSQL.
 
 Per copiare dati dal Database di Azure per PostgreSQL, impostare la proprietà type del set di dati su **AzurePostgreSqlTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzurePostgreSqlTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **AzurePostgreSqlTable** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -104,9 +129,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare i dati da un Database di Azure per PostgreSQL, impostare il tipo di origine nell'attività di copia su **AzurePostgreSqlSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzurePostgreSqlSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzurePostgreSqlSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -140,58 +165,6 @@ Per copiare i dati da un Database di Azure per PostgreSQL, impostare il tipo di 
     }
 ]
 ```
-
-## <a name="data-type-mapping-for-azure-database-for-postgresql"></a>Mapping dei tipi di dati per Database di Azure per PostgreSQL
-
-Quando si copiano dati da Database di Azure per PostgreSQL, vengono usati i mapping seguenti tra i tipi di dati PostgreSQL e i tipi di dati provvisori di Azure Data Factory. Vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md) per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink.
-
-| Tipo di dati di PostgreSQL | Alias PostgresSQL | Tipo di dati provvisori di Data Factory |
-|:--- |:--- |:--- |
-| `abstime` |&nbsp; |`String` |
-| `bigint` | `int8` | `Int64` |
-| `bigserial` | `serial8` | `Int64` |
-| `bit [1]` |&nbsp; | `Boolean` |
-| `bit [(n)], n>1` |&nbsp; | `Byte[]` |
-| `bit varying [(n)]` | `varbit` |`Byte[]` |
-| `boolean` | `bool` | `Boolean` |
-| `box` |&nbsp; | `String` |
-| `bytea` |&nbsp; | `Byte[], String` |
-| `character [(n)]` | `char [(n)]` | `String` |
-| `character varying [(n)]` | `varchar [(n)]` | `String` |
-| `cid` |&nbsp; | `Int32` |
-| `cidr` |&nbsp; | `String` |
-| `circle` |&nbsp; |` String` |
-| `date` |&nbsp; |`Datetime` |
-| `daterange` |&nbsp; |`String` |
-| `double precision` |`float8` |`Double` |
-| `inet` |&nbsp; |`String` |
-| `intarray` |&nbsp; |`String` |
-| `int4range` |&nbsp; |`String` |
-| `int8range` |&nbsp; |`String` |
-| `integer` | `int, int4` |`Int32` |
-| `interval [fields] [(p)]` | | `String` |
-| `json` |&nbsp; | `String` |
-| `jsonb` |&nbsp; | `Byte[]` |
-| `line` |&nbsp; | `Byte[], String` |
-| `lseg` |&nbsp; | `String` |
-| `macaddr` |&nbsp; | `String` |
-| `money` |&nbsp; | `String` |
-| `numeric [(p, s)]`|`decimal [(p, s)]` |`String` |
-| `numrange` |&nbsp; |`String` |
-| `oid` |&nbsp; |`Int32` |
-| `path` |&nbsp; |`String` |
-| `pg_lsn` |&nbsp; |`Int64` |
-| `point` |&nbsp; |`String` |
-| `polygon` |&nbsp; |`String` |
-| `real` |`float4` |`Single` |
-| `smallint` |`int2` |`Int16` |
-| `smallserial` |`serial2` |`Int16` |
-| `serial` |`serial4` |`Int32` |
-| `text` |&nbsp; |`String` |
-| `timewithtimezone` |&nbsp; |`String` |
-| `timewithouttimezone` |&nbsp; |`String` |
-| `timestampwithtimezone` |&nbsp; |`String` |
-| `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

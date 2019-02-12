@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470536"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809519"
 ---
 # <a name="design-for-data-modification"></a>Progettazione per la modifica dei dati
-Questo articolo esamina le considerazioni relative alla progettazione per ottimizzare inserimenti, aggiornamenti ed eliminazioni. In alcuni casi, sarà necessario valutare il compromesso tra progettazioni che ottimizzano le query e progettazioni che ottimizzano la modifica dei dati, come avviene per le progettazioni per i database relazionali (anche se le tecniche per gestire i compromessi tra progettazioni sono diverse in un database relazionale). La sezione [Modelli di progettazione tabelle](#table-design-patterns) descrive in dettaglio alcuni modelli di progettazione per il servizio tabelle ed evidenzia alcuni di questi compromessi. In pratica si vedrà che molte progettazioni ottimizzate per le query delle entità vanno bene anche per la modifica delle entità.  
+Questo articolo esamina le considerazioni relative alla progettazione per ottimizzare inserimenti, aggiornamenti ed eliminazioni. In alcuni casi, sarà necessario valutare il compromesso tra progettazioni che ottimizzano le query e progettazioni che ottimizzano la modifica dei dati, come avviene per le progettazioni per i database relazionali (anche se le tecniche per gestire i compromessi tra progettazioni sono diverse in un database relazionale). La sezione Modelli di progettazione tabella descrive in dettaglio alcuni schemi progettuali per il servizio tabelle ed evidenzia alcuni di questi compromessi. In pratica si vedrà che molte progettazioni ottimizzate per le query delle entità vanno bene anche per la modifica delle entità.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Ottimizzare le prestazioni delle operazioni di inserimento, aggiornamento ed eliminazione
 Per aggiornare o eliminare un'entità, è necessario poterla identificare usando i valori **PartitionKey** e **RowKey**. In questo senso la scelta di **PartitionKey** e **RowKey** per modificare le entità deve seguire criteri simili a quelli usati per la scelta di supportare le query di tipo punto, perché l'obiettivo è identificare le entità nel modo più efficiente possibile. Si vuole evitare di usare una scansione di tabella o di partizione inefficiente per trovare un'entità e poter individuare i valori **PartitionKey** e **RowKey** necessari per aggiornarla o eliminarla.  
 
-I modelli seguenti nella sezione [Modelli di progettazione tabelle](#table-design-patterns) consentono di ottimizzare le prestazioni delle operazioni di inserimento, aggiornamento ed eliminazione:  
+I modelli seguenti nella sezione Modelli di progettazione tabella consentono di ottimizzare le prestazioni delle operazioni di inserimento, aggiornamento ed eliminazione:  
 
 * [Modello di eliminazione volume elevato](table-storage-design-patterns.md#high-volume-delete-pattern) - Abilita l'eliminazione di un volume elevato di entità mediante l'archiviazione di tutte le entità per l'eliminazione simultanea nella relativa tabella separata. Per eliminare le entità, eliminare la tabella.  
 * [Modello di serie di dati](table-storage-design-patterns.md#data-series-pattern) - Archivia serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.  

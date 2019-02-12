@@ -1,7 +1,7 @@
 ---
-title: Accesso ai dati negli archivi dati per il training
+title: Accedere ai dati negli archivi dati/BLOB per il training
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare gli archivi dati per accedere alle risorse di archiviazione dei dati di accesso durante il training con il servizio Azure Machine Learning
+description: Informazioni su come usare gli archivi dati per accedere alle risorse di archiviazione dati BLOB durante il training con il servizio Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252116"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769896"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Accedere ai dati durante il training dagli archivi dati
 Usare un archivio dati per interagire con i dati nei flussi di lavoro di Azure Machine Learning e accedervi.
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 È anche possibile ottenere tutti gli archivi dati per area di lavoro:
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

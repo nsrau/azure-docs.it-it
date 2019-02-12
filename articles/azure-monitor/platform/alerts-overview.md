@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156412"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486301"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -174,7 +174,7 @@ La pagina dei dettagli dell'avviso include le sezioni seguenti.
 
 La funzionalità di invio avvisi del log attività e delle metriche di Monitoraggio di Azure prima del giugno 2018 è denominata "Avvisi (classici)". 
 
-Per altre informazioni, vedere [Avvisi classici](./../../azure-monitor/platform/alerts-classic.overview.md).
+Per altre informazioni, consultare [Avvisi classici](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
