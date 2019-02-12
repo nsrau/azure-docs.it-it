@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856911"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818262"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -43,7 +43,7 @@ Passare allo spazio dei nomi del bus di servizio, selezionare **Controllo di acc
 Il bus di servizio attualmente invia eventi per due scenari:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Il bus di servizio usa inoltre i [meccanismi di autenticazione](https://docs.microsoft.com/azure/event-grid/security-authentication) e la sicurezza standard di Griglia di eventi.
 
@@ -115,7 +115,7 @@ Se si vogliono ottenere eventi solo da una coda o una sottoscrizione nello spazi
 
 È possibile creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio in tre diversi modi:
 
-* Nel [portale di Azure](#portal-instructions)
+* Nel portale di Azure
 * Nell'[interfaccia della riga di comando di Azure](#azure-cli-instructions)
 * In [PowerShell](#powershell-instructions)
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-A questo punto è possibile esplorare le altre opzioni di configurazione oppure [testare che gli eventi vengano trasmessi](#test-that-events-are-flowing).
+A questo punto è possibile esplorare le altre opzioni di configurazione oppure testare che gli eventi vengano trasmessi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

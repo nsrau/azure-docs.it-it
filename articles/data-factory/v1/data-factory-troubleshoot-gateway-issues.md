@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022539"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813841"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -138,7 +138,7 @@ Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il 
 Questo errore si verifica quando il gateway si trova in un ambiente che richiede un proxy HTTP per accedere alle risorse Internet oppure quando la password di autenticazione del proxy viene modificata, ma non aggiornata di conseguenza nel gateway.
 
 #### <a name="resolution"></a>Risoluzione
-Seguire le istruzioni indicate nella sezione [Considerazioni sui server proxy](#proxy-server-considerations) di questo documento e configurare le impostazioni del proxy con Gestione configurazione di Gateway di gestione dati.
+Seguire le istruzioni indicate nella sezione Considerazioni sui server proxy di questo articolo e configurare le impostazioni del proxy con Gestione configurazione di Gateway di gestione dati.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Il gateway è online con funzionalità limitate
 ### <a name="1-problem"></a>1. Problema
@@ -169,8 +169,8 @@ Il gateway non può connettersi al servizio cloud tramite il bus di servizio.
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
 1. Consentire le regole in uscita degli indirizzi IP nel computer gateway e nel firewall aziendale. È possibile trovare gli indirizzi IP nel log eventi di Windows (ID == 401): Si è verificato un tentativo di accesso a un socket in modalità non consentite dalle relative autorizzazioni di accesso XX.XX.XX.XX:9350.
-* Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione [Considerazioni sui server proxy](#proxy-server-considerations).
-* Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione [Porte e firewall](#ports-and-firewall). Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
+* Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione Considerazioni sui server proxy.
+* Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione Porte e firewall. Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
 
 ### <a name="3-problem"></a>3. Problema
 Viene visualizzato l'errore seguente:

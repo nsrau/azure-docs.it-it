@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095856"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816272"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -64,7 +64,7 @@ Questa procedura illustra l'installazione e la configurazione della pipeline di 
 
 Se invece si preferisce scaricare questo progetto Visual Studio di esempio, attenersi alla procedura seguente:
 1. [Scaricare il progetto in GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Procedere direttamente al [passaggio di configurazione](#configure-your-webconfig-and-register-an-application) per configurare l'esempio di codice prima di eseguirlo.
+1. Procedere direttamente al passaggio di configurazione per configurare l'esempio di codice prima dell'esecuzione.
 
 ## <a name="step-2-create-your-aspnet-project"></a>Passaggio 2: Creare un progetto ASP.NET
 

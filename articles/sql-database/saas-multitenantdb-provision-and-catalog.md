@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055306"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562896"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL partizionato multi-tenant di Azure
 
@@ -28,7 +28,7 @@ L'articolo presenta due parti principali:
 - [Descrizione concettuale](#goto_2_conceptual) del provisioning e della catalogazione di nuovi tenant.
 
 - [Esercitazione](#goto_1_tutorial) che presenta il codice dello script di PowerShell che effettua il provisioning e la catalogazione.
-    - L'esercitazione utilizza l'applicazione SaaS Wingtip Tickets, adattata al modello di database partizionato multi-tenant.
+  - L'esercitazione utilizza l'applicazione SaaS Wingtip Tickets, adattata al modello di database partizionato multi-tenant.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ Questa sezione contiene un elenco delle azioni principali per il provisioning es
 
 Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisioning che si esegue:
 
-- **Calcolare la nuova chiave del tenant**: viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
-- **Controllare se la chiave del tenant esiste già**: il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
-- **Inizializzare il tenant nel database del tenant predefinito**: il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.  
+- **Calcolare la nuova chiave del tenant**: Viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
+- **Controllare se la chiave del tenant esiste già**: Il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
+- **Inizializzare il tenant nel database tenant predefinito**: Il database tenant viene aggiornato per aggiungere le nuove informazioni del tenant.  
 - **Registrare il tenant nel catalogo**: il mapping tra la chiave del nuovo tenant e il database tenants1 esistente viene aggiunto al catalogo. 
-- **Aggiungere il nome del tenant a una tabella di estensione del catalogo**: il nome della sede viene aggiunto alla tabella dei tenant nel catalogo.  Questa aggiunta illustra in che modo è possibile estendere il database Catalogo perché sia in grado di supportare dati aggiuntivi specifici dell'applicazione.
-- **Aprire la pagina degli eventi per il nuovo tenant**: la pagina degli eventi *Bushwillow Blues* si apre nel browser.
+- **Aggiungere il nome del tenant a una tabella di estensione del catalogo**: Il nome dell'evento viene aggiunto alla tabella Tenant nel catalogo.  Questa aggiunta illustra in che modo è possibile estendere il database Catalogo perché sia in grado di supportare dati aggiuntivi specifici dell'applicazione.
+- **Aprire la pagina Eventi per il nuovo tenant**: la pagina degli eventi *Bushwillow Blues* si apre nel browser.
 
    ![eventi](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di te
    - **$VenueType** = **blues**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
    - **$DemoScenario** = **1** per eseguire il provisioning di un tenant in un database condiviso con altri tenant.
 
-2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 38 contenente il testo: *New-Tenant `* e premere **F9**.
+2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi della riga 38 contenente il testo: *New-Tenant `*, quindi premere **F9**.
 
    ![punto di interruzione](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Per altre informazioni sul debug degli script di PowerShell, vedere [Suggeriment
 
 Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisioning che si esegue quando si tiene traccia dello script:
 
-- **Calcolare la nuova chiave del tenant**: viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
-- **Controllare se la chiave del tenant esiste già**: il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
-- **Creare un nuovo database del tenant**: il database viene creato copiando il database *basetenantdb* tramite un modello di Resource Manager.  Il nuovo nome del database si basa sul nome del tenant.
-- **Aggiungere il database al catalogo**: il nuovo database tenant è registrato come una partizione nel catalogo.
-- **Inizializzare il tenant nel database del tenant predefinito**: il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.  
-- **Registrare il tenant nel catalogo**: il mapping tra la nuova chiave del tenant e il database *sequoiasoccer* viene aggiunto al catalogo.
-- **Il nome del tenant viene aggiunto al catalogo**: il nome della sede viene aggiunto alla tabella di estensione Tenants nel catalogo.
-- **Aprire la pagina degli eventi per il nuovo tenant**: la pagina degli eventi *Sequoia Soccer* si apre nel browser.
+- **Calcolare la nuova chiave del tenant**: Viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
+- **Controllare se la chiave del tenant esiste già**: Il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
+- **Creare un nuovo database tenant**: Il database viene creato copiando il database *basetenantdb* tramite un modello di Resource Manager.  Il nuovo nome del database si basa sul nome del tenant.
+- **Aggiungere il database al catalogo**: Il nuovo database tenant è registrato come una partizione nel catalogo.
+- **Inizializzare il tenant nel database tenant predefinito**: Il database tenant viene aggiornato per aggiungere le nuove informazioni del tenant.  
+- **Registrare il tenant nel catalogo**: il mapping tra la chiave del nuovo tenant e il database *sequoiasoccer* viene aggiunto al catalogo.
+- **Il nome del tenant viene aggiunto al catalogo**: Il nome dell'evento viene aggiunto alla tabella di estensione Tenant nel catalogo.
+- **Aprire la pagina Eventi per il nuovo tenant**: la pagina degli eventi *Sequoia Soccer* si apre nel browser.
 
    ![eventi](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

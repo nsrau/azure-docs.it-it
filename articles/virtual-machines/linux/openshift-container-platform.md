@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085887"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730714"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuire OpenShift Container Platform in Azure
 
@@ -269,10 +269,10 @@ Questa opzione è la più semplice, ma è limitata in termini di funzionalità d
 - **Nodi**: il numero di nodi è configurabile (compreso tra 2 e 9) così come il tipo di istanza.
 - **Tipo di disco**: vengono usati dischi gestiti.
 - **Rete**: supporto per rete nuova o esistente così come per intervallo CIDR personalizzato.
-- **Nomi comuni**: è possibile abilitare i nomi comuni.
+- **NOMI COMUNI**: è possibile abilitare i nomi comuni.
 - **Metriche**: è possibile abilitare le metriche.
 - **Registrazione**: è possibile abilitare la registrazione.
-- **Provider di servizi Cloud di Azure**: può essere abilitato.
+- **Provider di servizi cloud di Azure**: può essere abilitato.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile rimuovere il gruppo di risorse, il cluster OpenShift e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az_group_delete).
+Quando non servono più, è possibile rimuovere il gruppo di risorse, il cluster OpenShift e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group).
 
 ```azurecli 
 az group delete --name openshiftrg

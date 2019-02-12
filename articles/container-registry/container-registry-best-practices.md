@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857704"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810763"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
@@ -46,7 +46,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Gruppo di risorse dedicato
 
-Poiché i registri contenitori sono risorse usate in più host contenitori, un registro contenitori deve trovarsi nel proprio gruppo di risorse.
+Poiché i registri contenitori sono risorse usate in più host contenitori, un registro deve trovarsi nel relativo gruppo di risorse.
 
 Anche se è possibile provare con un tipo di host specifico, come le istanze di contenitori di Azure, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
@@ -54,7 +54,7 @@ Anche se è possibile provare con un tipo di host specifico, come le istanze di 
 
 Quando si esegue l'autenticazione con Registro Azure Container, esistono due scenari principali: autenticazione singola e autenticazione di servizio (o "headless"). La tabella seguente fornisce una breve panoramica di questi scenari e il metodo di autenticazione consigliato per ognuno.
 
-| type | Scenario di esempio | Metodo consigliato |
+| Type | Scenario di esempio | Metodo consigliato |
 |---|---|---|
 | Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
@@ -63,7 +63,7 @@ Per informazioni dettagliate sull'autenticazione a Registro Azure Container, ved
 
 ## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
 
-I vincoli di archiviazione di ogni SKU del [registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **Standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
+I vincoli di archiviazione di ogni [SKU del registro contenitori][container-registry-skus] devono allinearsi a uno scenario tipico: **Basic** per operazioni preliminari, **Standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
 
 Usare il comando dell'interfaccia della riga di comando di Azure [az acr show-usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro:
 

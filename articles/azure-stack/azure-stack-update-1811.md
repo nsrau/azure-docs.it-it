@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766096"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099140"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -118,6 +118,18 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
 - I dischi gestiti è ora abilitata per impostazione predefinita durante la creazione di macchine virtuali usando il portale di Azure Stack. Vedere le [problemi noti](#known-issues-post-installation) sezione per i passaggi aggiuntivi necessari per Managed Disks per evitare errori durante la creazione della macchina virtuale.
 
 - Questa versione introduce avviso **Repair** azioni per l'operatore di Azure Stack. Alcuni avvisi in 1811 forniscono un **Repair** pulsante nell'avviso che è possibile selezionare per risolvere il problema. Per altre informazioni, vedere [monitorare l'integrità e gli avvisi in Azure Stack](azure-stack-monitor-health.md).
+
+- Aggiornamenti per l'esperienza di aggiornamento in Azure Stack. L'aggiornamento i miglioramenti includono: 
+    - Schede suddividere gli aggiornamenti dalla cronologia degli aggiornamenti per una migliore rilevamento aggiornamenti in corso e completati gli aggiornamenti.
+    - Visualizzazioni di stato avanzate nella sezione essentials con nuove icone e il layout per le versioni correnti e OEM, nonché di ultima data dell'aggiornamento.
+    - **Visualizzazione** collegamento per la colonna di note sulla versione accetta direttamente all'utente la documentazione specifica di tale aggiornamento anziché la pagina di un aggiornamento generico.
+    - Il **cronologia aggiornamenti** scheda utilizzata per determinare i tempi di esecuzione per ognuno degli aggiornamenti, nonché funzionalità di filtraggio avanzate.  
+    - Unità di scala Azure Stack connessi riceveranno comunque automaticamente **aggiornamento disponibile** appena diventano disponibili.
+    - Unità di scala Azure Stack che non sono connessi può importare gli aggiornamenti esattamente come prima. 
+    - Sono state apportate modifiche al processo per scaricare i log JSON dal portale. Operatori di Azure Stack verranno visualizzato l'espansione di passaggi che esprime lo stato di avanzamento.
+
+    Per altre informazioni, vedere [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Problemi risolti
 

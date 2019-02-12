@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437793"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814892"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
 Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. È quindi possibile utilizzare Visual Studio 2017 per distribuire l'app per la condivisione file in modo che sia possibile eseguirla sulla macchina virtuale nel lab.  
@@ -57,7 +57,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
     ![Selezionare il lab della macchina virtuale](media/test-app-in-azure/select-lab-vm.png)
 2. Selezionare **Connetti** sulla barra degli strumenti per connettersi alla macchina virtuale. 
 3. [Installare Azure PowerShell](https://azure.microsoft.com/downloads/) usando il link **Windows install** nella sezione **Strumento da riga di comando**. Per altre modalità di installazione di Azure PowerShell, vedere [questo articolo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Seguire le istruzioni nella sezione [Montare la condivisione file](#mount-the-file-share). 
+4. Seguire le istruzioni nella sezione Montare la condivisione file. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Pubblicare l'app Web da Visual Studio
 In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una macchina virtuale di test nel cloud.

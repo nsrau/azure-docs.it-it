@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810542"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -37,7 +37,7 @@ Vengono illustrati i prerequisiti per l'esecuzione del provisioning di un array 
 Prima di iniziare, verificare che:
 
 * Tutti i passaggi sulla [preparazione del portale per StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)siano stati completati.
-* L'immagine dell'array virtuale per Hyper-V è stata scaricata dal portale di Azure. Per altre informazioni, vedere **Passaggio 3: Scaricare l'immagine dell'array virtuale** nella [guida alla preparazione del portale per l'array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
+* L'immagine dell'array virtuale per Hyper-V è stata scaricata dal portale di Azure. Per altre informazioni, vedere il **Passaggio 3: Scaricare l'immagine dell'array virtuale** della [Guida alla preparazione del portale per l'array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > Il software in esecuzione nell'array virtuale StorSimple può essere usato solo in combinazione con il servizio Gestione dispositivi StorSimple.
@@ -205,7 +205,7 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
        >
        >
 
-Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Fare riferimento ai requisiti di configurazione minimi nel Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

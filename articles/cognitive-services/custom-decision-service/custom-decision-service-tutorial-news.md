@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212226"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819774"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Esercitazione: Personalizzazione degli articoli per i processi decisionali contestuali
 
@@ -44,7 +44,7 @@ Ogni feed fornisce un elenco di articoli. In RSS ciascuno è specificato da un e
 </channel></rss>
 ```
 
-L'ordine degli articoli è importante. Specifica la classificazione predefinita, ovvero l'ordinamento più probabile degli articoli. La classificazione predefinita è usata quindi per il confronto delle prestazioni nel [dashboard](#performance-dashboard).
+L'ordine degli articoli è importante. Specifica la classificazione predefinita, ovvero l'ordinamento più probabile degli articoli. La classificazione predefinita viene quindi usata per il confronto delle prestazioni nel dashboard.
 
 Per altre informazioni sul formato di feed, vedere le [informazioni di riferimento per l'API](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 

@@ -1,147 +1,104 @@
 ---
-title: "Esercitazione: concedere l'accesso a un'API Web ASP.NET da un'app Web usando Azure Active Directory B2C | Microsoft Docs"
-description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web ASP.NET e chiamarla da un'app Web ASP.NET.
+title: "Esercitazione: Concedere l'accesso a un'API Web ASP.NET - Azure Active Directory B2C | Microsoft Docs"
+description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web ASP.NET e chiamarla da un'applicazione Web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.author: davidmu
-ms.date: 11/30/2018
+ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d57a1b5d8e6fee52e617ccffdcf80fa5a04bc64f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158231"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756343"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET da un'app Web usando Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET con Azure Active Directory B2C
 
-Questa esercitazione illustra come chiamare da un'app Web ASP.NET una risorsa API Web protetta da Azure Active Directory (Azure AD) B2C.
+Questa esercitazione illustra come chiamare una risorsa API Web protetta in Azure Active Directory (Azure AD) B2C da un'applicazione Web ASP.NET.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Registrare un'API Web nel tenant di Azure AD B2C
-> * Definire e configurare gli ambiti per un'API Web
-> * Concedere le autorizzazioni per l'app all'API Web
-> * Aggiornare il codice di esempio per l'uso di Azure AD B2C per proteggere un'API Web
+> * Aggiungere un'applicazione API Web
+> * Configurare gli ambiti per un'API Web
+> * Concedere le autorizzazioni per l'API Web
+> * Configurare l'esempio per l'uso dell'applicazione
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completare l'esercitazione [Usare Azure Active Directory B2C per l'autenticazione degli utenti in un'app Web ASP.NET](active-directory-b2c-tutorials-web-app.md).
-* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
+Completare i passaggi e i prerequisiti riportati in [Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
-## <a name="register-web-api"></a>Registrare l'API Web
+## <a name="add-a-web-api-application"></a>Aggiungere un'applicazione API Web
 
-Le risorse API Web devono essere registrate nel tenant prima che possano accettare e rispondere a [richieste di risorse protette](../active-directory/develop/developer-glossary.md#resource-server) da parte di [applicazioni client](../active-directory/develop/developer-glossary.md#client-application) che presentano un [token di accesso](../active-directory/develop/developer-glossary.md#access-token) di Azure Active Directory. La registrazione stabilisce l'[oggetto applicazione ed entità servizio](../active-directory/develop/developer-glossary.md#application-object) nel tenant. 
+Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
 
-Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Selezionare **Applicazioni** e quindi **Aggiungi**.
+5. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
+6. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
+7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
+8. Per **URI ID app** immettere l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. Ad esempio: `https://contosotenant.onmicrosoft.com/api`.
+9. Fare clic su **Create**(Crea).
+10. Nella pagina delle proprietà prendere nota dell'ID applicazione, che verrà usato durante la configurazione dell'applicazione Web.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+## <a name="configure-scopes"></a>Configurare gli ambiti
 
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo. A questo punto, dovrebbe essere in uso il tenant creato nell'esercitazione precedente.
+Gli ambiti consentono di regolamentare l'accesso alle risorse protette. Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Ad esempio, gli utenti dell'API Web possono avere accesso sia in lettura sia in scrittura oppure possono avere solo accesso in lettura. In questa esercitazione vengono usati gli ambiti per definire autorizzazioni di lettura e scrittura per l'API Web.
 
-2. Selezionare **Applicazioni** e quindi **Aggiungi**.
+1. Selezionare **Applicazioni** e quindi *webapi1*.
+2. Selezionare **Ambiti pubblicati**.
+3. Immettere `Hello.Read` come **ambito** e `Read access to hello` come descrizione.
+4. Immettere `Hello.Write` come **ambito** e `Write access to hello` come descrizione.
+5. Fare clic su **Save**.
 
-    Per registrare l'API Web di esempio nel tenant, usare le impostazioni seguenti.
-    
-    ![Aggiungere una nuova API](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
-    
-    | Impostazione      | Valore consigliato  | Descrizione                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | API Web di esempio | Immettere un **nome** che descriva l'API Web agli sviluppatori. |
-    | **Includi app Web/API Web** | Yes | Selezionare **Sì** per un'API Web. |
-    | **Consenti il flusso implicito** | Yes | Selezionare **Sì** perché l'API usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
-    | **URL di risposta** | `https://localhost:44332` | Gli URL di risposta sono gli endpoint a cui Azure AD B2C restituisce eventuali token richiesti dall'API. In questa esercitazione, l'API Web di esempio viene eseguita in locale (localhost) ed è in ascolto sulla porta 44332. |
-    | **URI ID app** | myAPISample | L'URI identifica l'API in modo univoco nel tenant. In questo modo è possibile registrare più API per ogni tenant. Gli [ambiti](../active-directory/develop/developer-glossary.md#scopes) regolano l'accesso alla risorsa API protetta e vengono definiti per ogni URI ID app. |
-    | **Client nativo** | No  | Trattandosi di un'API Web e non un client nativo, selezionare No. |
-    
-3. Fare clic su **Crea** per registrare l'API.
+Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client l'autorizzazione per l'API Web.
 
-Le API registrate vengono visualizzate nell'elenco di applicazioni per il tenant Azure AD B2C. Selezionare l'API Web dall'elenco. Viene visualizzato il riquadro delle proprietà dell'API Web.
+## <a name="grant-permissions"></a>Concedere le autorizzazioni
 
-![Proprietà dell'API Web](./media/active-directory-b2c-tutorials-web-api/b2c-web-api-properties.png)
+Per chiamare un'API Web protetta da un'applicazione, è necessario concedere all'applicazione le autorizzazioni per l'API. Nell'esercitazione preliminare è stata creata un'applicazione Web denominata *webapp1* in Azure AD B2C. Questa applicazione client verrà usata per chiamare l'API Web.
 
-Annotare l'**ID client applicazione**. L'ID identifica l'API in modo univoco ed è necessario per configurare l'API più avanti nell'esercitazione.
-
-La registrazione dell'API Web con Azure AD B2C definisce una relazione di trust. L'API è registrata con B2C, quindi può ora considerare attendibili i token di accesso B2C ricevuti da altre applicazioni.
-
-## <a name="define-and-configure-scopes"></a>Definire e configurare gli ambiti
-
-Gli [ambiti](../active-directory/develop/developer-glossary.md#scopes) consentono di regolare l'accesso alle risorse protette. Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Ad esempio, gli utenti dell'API Web possono avere accesso sia in lettura sia in scrittura oppure possono avere solo accesso in lettura. In questa esercitazione vengono usati gli ambiti per definire autorizzazioni di lettura e scrittura per l'API Web.
-
-### <a name="define-scopes-for-the-web-api"></a>Definire gli ambiti per l'API Web
-
-Le API registrate vengono visualizzate nell'elenco di applicazioni per il tenant Azure AD B2C. Selezionare l'API Web dall'elenco. Viene visualizzato il riquadro delle proprietà dell'API Web.
-
-Fare clic su **Ambiti pubblicati (anteprima)**.
-
-Per configurare gli ambiti per l'API, aggiungere le voci seguenti. 
-
-![Ambiti definiti nell'API Web](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
-
-| Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Ambito** | Hello.Read | Accesso in lettura a Hello |
-| **Ambito** | Hello.Write | Accesso in scrittura a Hello |
-
-Fare clic su **Save**.
-
-Gli ambiti pubblicati possono essere usati per concedere a un'app client autorizzazioni per l'API Web.
-
-### <a name="grant-app-permissions-to-web-api"></a>Concedere autorizzazioni all'app per l'API Web
-
-Per chiamare un'API Web protetta da un'app, è necessario concedere all'app le autorizzazioni per l'API. In questa esercitazione si usa l'app Web creata nell'esercitazione [Usare Azure Active Directory B2C per l'autenticazione degli utenti in un'app Web ASP.NET](active-directory-b2c-tutorials-web-app.md). 
-
-1. Nel portale selezionare **Azure AD B2C** dall'elenco dei servizi e fare clic su **Applicazioni** per visualizzare l'elenco delle app registrate.
-
-2. Selezionare **App Web di esempio** dall'elenco di app e fare clic su **Accesso all'API (anteprima)** e quindi su **Aggiungi**.
-
-3. Nell'elenco a discesa **Seleziona API** selezionare l'API Web registrata, ovvero **API Web di esempio**.
-
-4. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti nella registrazione dell'API Web.
-
-    ![Selezione degli ambiti per l'app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
-
+1. Selezionare **Applicazioni** e quindi *webapp1*.
+2. Selezionare **Accesso all'API** e quindi **Aggiungi**.
+3. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
+4. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti **Hello.Read** e **Hello.Write** definiti in precedenza.
 5. Fare clic su **OK**.
 
-L'**App Web di esempio** è registrata per chiamare l'**API Web di esempio** protetta. Un utente esegue l'[autenticazione](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C per usare l'app Web. L'app Web ottiene una [concessione di autorizzazione](../active-directory/develop/developer-glossary.md#authorization-grant) da Azure AD B2C per l'accesso all'API Web protetta.
+L'applicazione viene registrata per la chiamata dell'API Web protetta. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione. L'applicazione ottiene una concessione di autorizzazione da Azure AD B2C per l'accesso all'API Web protetta.
 
-## <a name="update-code"></a>Aggiornare il codice
+## <a name="configure-the-sample"></a>Configurare l'esempio
 
-Ora che l'API Web è registrata e sono stati definiti gli ambiti, è necessario configurare il codice dell'API Web per l'uso del tenant di Azure AD B2C. In questa esercitazione si configura un'API Web di esempio. 
-
-L'API Web di esempio è inclusa nel progetto scaricato nell'esercitazione preliminare: [Usare Azure Active Directory B2C per l'autenticazione degli utenti in un'app Web ASP.NET](active-directory-b2c-tutorials-web-app.md). Se l'esercitazione preliminare non è stata completata, completarla prima di continuare.
+Dopo la registrazione dell'API Web e la definizione degli ambiti, si configura l'API Web per l'uso del tenant di Azure AD B2C. In questa esercitazione si configura un'API Web di esempio. L'API Web di esempio è inclusa nel progetto scaricato nell'esercitazione preliminare.
 
 La soluzione di esempio contiene due progetti:
 
-**App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti con un indirizzo e-mail.
+I due progetti inclusi nella soluzione di esempio sono i seguenti:
 
-**App di esempio dell'API Web (TaskService):** API Web che supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
+- **TaskWebApp** crea e modifica un elenco attività. L'esempio usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
+- **TaskService** supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API è protetta da Azure AD B2C e viene chiamata da TaskWebApp.
 
-L'app Web e l'API Web di esempio definiscono i valori di configurazione come impostazioni dell'app nel file Web.config di ogni progetto.
+### <a name="configure-the-web-application"></a>Configurare l'applicazione Web
 
-Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
-
-### <a name="configure-the-web-app"></a>Configurare l'app Web
-
-1. Aprire **Web.config** nel progetto **TaskWebApp**.
-
-2. Per eseguire l'API in locale, usare l'impostazione localhost per **api:TaskServiceUrl**. Modificare il file Web.config come segue: 
+1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
+2. Aprire **Web.config** nel progetto **TaskWebApp**.
+3. Per eseguire l'API in locale, usare l'impostazione localhost per **api:TaskServiceUrl**. Modificare il file Web.config come segue: 
 
     ```C#
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Configurare l'URI dell'API. Si tratta dell'URI usato dall'app Web per eseguire la richiesta API. Configurare anche le autorizzazioni richieste.
+3. Configurare l'URI dell'API. È l'URI usato dall'applicazione Web per effettuare la richiesta API. Configurare anche le autorizzazioni richieste.
 
     ```C#
-    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -149,7 +106,6 @@ Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
 ### <a name="configure-the-web-api"></a>Configurare l'API Web
 
 1. Aprire **Web.config** nel progetto **TaskService**.
-
 2. Configurare l'API per l'uso del tenant.
 
     ```C#
@@ -159,13 +115,13 @@ Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
 3. Per l'ID client usare l'ID dell'applicazione registrata per l'API.
 
     ```C#
-    <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
+    <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Aggiornare l'impostazione del flusso utente con il nome generato al momento della creazione del flusso utente di iscrizione e di accesso.
+4. Aggiornare l'impostazione del flusso utente con il nome del flusso utente di iscrizione e accesso.
 
     ```C#
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Configurare l'impostazione degli ambiti in modo che corrisponda a quella creata nel portale.
@@ -180,24 +136,26 @@ Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
 È necessario eseguire entrambi i progetti, ovvero **TaskWebApp** e **TaskService**. 
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio...**. 
-2. Selezionare il pulsante di opzione **Progetti di avvio multipli**.
+2. Selezionare **Progetti di avvio multipli**.
 3. Modificare il valore di **Azione** in entrambi i progetti in **Avvia**.
-4. Fare clic su OK per salvare la configurazione.
-5. Premere **F5** per eseguire entrambe le applicazioni. Ogni applicazione si apre in una scheda del browser separata. `https://localhost:44316/` è l'app Web.
+4. Fare clic su **OK** per salvare la configurazione.
+5. Premere **F5** per eseguire entrambe le applicazioni. Ogni applicazione viene aperta in una scheda del browser separata. `https://localhost:44316/` è l'applicazione Web.
     `https://localhost:44332/` è l'API Web.
 
-6. Nell'app Web fare clic sul collegamento di iscrizione/accesso nel banner dei menu per eseguire l'iscrizione all'applicazione Web. Usare l'account creato nell'[esercitazione relativa all'app Web](active-directory-b2c-tutorials-web-app.md). 
-7. Una volta effettuato l'accesso, fare clic sul collegamento **Elenco attività** e creare un elemento per l'elenco.
+6. Nell'applicazione Web fare clic su **sign-up / sign-in** per accedere all'applicazione Web. Usare l'account creato in precedenza. 
+7. Dopo l'accesso fare clic su **To-do list** e creare un elemento elenco attività.
 
-Quando si crea un elemento dell'elenco attività, l'app Web invia una richiesta all'API Web per la generazione dell'elemento. L'app Web protetta chiama l'API Web protetta nel tenant di Azure AD B2C.
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-È possibile usare il tenant di Azure AD B2C se si prevede di provare altre esercitazioni relative ad Azure AD B2C. Quando non è più necessario, è possibile [eliminare il tenant di Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Quando si crea un elemento elenco attività, l'applicazione Web invia una richiesta all'API Web per la generazione dell'elemento. L'applicazione Web protetta chiama l'API Web protetta nel tenant di Azure AD B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata descritta la protezione di un'API Web ASP.NET tramite la registrazione e la definizione degli ambiti in Azure AD B2C. Per altre informazioni sullo sviluppo di questo scenario, incluse informazioni dettagliate sul codice, passare all'esercitazione successiva.
+Questa esercitazione illustra come:
+
+> [!div class="checklist"]
+> * Aggiungere un'applicazione API Web
+> * Configurare gli ambiti per un'API Web
+> * Concedere le autorizzazioni per l'API Web
+> * Configurare l'esempio per l'uso dell'applicazione
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C](tutorial-add-identity-providers.md)

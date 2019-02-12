@@ -2,18 +2,18 @@
 title: Gestire i backup delle macchine virtuali distribuite con Resource Manager
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali distribuite con Resource Manager
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635766"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564137"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestire i backup delle macchine virtuali di Azure
 
@@ -50,7 +50,7 @@ Molte attività di gestione per il backup di una macchina virtuale iniziano con 
    > Se si aggiunge un insieme di credenziali al dashboard di Azure, sarà immediatamente accessibile quando si apre il portale di Azure. Per aggiungere un insieme di credenziali al dashboard, nell'elenco di insiemi di credenziali fare clic con il pulsante destro del mouse sull'insieme desiderato e scegliere **Aggiungi al dashboard**.
    >
    >
-3. Nell'elenco di insiemi di credenziali selezionare quello per cui si vuole aprire il dashboard. Quando si seleziona l'insieme di credenziali, vengono aperti il dashboard corrispondente e il relativo pannello **Impostazioni**. Nella figura seguente è evidenziato il dashboard **Contoso-vault**.
+3. Nell'elenco di insiemi di credenziali selezionare quello per cui si vuole aprire il dashboard. Quando si seleziona l'insieme di credenziali, vengono aperti il dashboard corrispondente e il relativo pannello **Impostazioni** . Nella figura seguente è evidenziato il dashboard **Contoso-vault** .
 
     ![Aprire il dashboard dell'insieme di credenziali e il pannello Impostazioni](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
@@ -73,7 +73,7 @@ Nella procedura precedente è stato aperto il dashboard dell'insieme di credenzi
 
     ![Riquadro Elementi di backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    Verranno visualizzati il dashboard dell'elemento dell'insieme di credenziali e il relativo pannello **Impostazioni**.
+    Verranno visualizzati il dashboard dell'elemento dell'insieme di credenziali e il relativo pannello **Impostazioni** .
 
     ![Dashboard degli elementi di backup con il pannello Impostazioni](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
@@ -128,19 +128,21 @@ Per attivare un backup su richiesta di una macchina virtuale:
 
     ![Pulsante Esegui backup ora](./media/backup-azure-manage-vms/backup-now-button.png)
 
-    Il portale richiede di confermare l'avvio del processo di backup su richiesta. Per avviarlo, fare clic su **Sì**.
+    Il portale richiede di confermare l'avvio del processo di backup su richiesta. Per avviarlo, fare clic su **Sì** .
 
     ![Pulsante Esegui backup ora](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    Il processo di backup crea un punto di ripristino. L'intervallo di conservazione del punto di ripristino è uguale a quello specificato nei criteri associati alla macchina virtuale. Per tenere traccia dello stato di avanzamento del processo, nel dashboard dell'insieme di credenziali fare clic sul riquadro **Processi di backup**.  
+    Il processo di backup crea un punto di ripristino. L'intervallo di conservazione del punto di ripristino è uguale a quello specificato nei criteri associati alla macchina virtuale. Per tenere traccia dello stato di avanzamento del processo, nel dashboard dell'insieme di credenziali fare clic sul riquadro **Processi di backup** .  
 
 ## <a name="stop-protecting-virtual-machines"></a>Arrestare la protezione delle macchine virtuali
 Se si sceglie di arrestare la protezione di una macchina virtuale, viene chiesto se si vogliono mantenere i punti di ripristino. Per arrestare la protezione delle macchine virtuali è possibile procedere in due modi:
 
-* interrompere tutti i processi di backup futuri ed eliminare tutti i punti di ripristino oppure
-* interrompere tutti i processi di backup futuri mantenendo però i punti di ripristino.
+* Arrestare tutti i processi di backup futuri ed eliminare tutti i punti di ripristino oppure
+* Interrompere tutti i processi di backup futuri mantenendo però i punti di ripristino
 
 Al mantenimento dei punti di ripristino nella risorsa di archiviazione è associato un costo. Tuttavia, la possibilità di mantenere i punti di ripristino per ripristinare la macchina virtuale in un secondo momento, se necessario, costituisce un vantaggio. Per informazioni sul costo associato al mantenimento dei punti di ripristino, vedere [Dettagli prezzi](https://azure.microsoft.com/pricing/details/backup/). Se si sceglie di eliminare tutti i punti di ripristino, non sarà possibile ripristinare la macchina virtuale.
+
+Ogni volta che si interrompe il backup con conservazione dei dati, i punti di ripristino scadranno in base ai criteri di conservazione, ma Backup di Azure manterrà sempre un ultimo punto di ripristino fino a quando non si eliminano in modo esplicito i dati di backup. Allo stesso modo se si elimina un'origine dati senza eseguire l'interruzione del backup, i nuovi backup avranno esito negativo e i vecchi punti di ripristino scadranno in base ai criteri di conservazione, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si esegue l'interruzione del backup con eliminazione dei dati.
 
 Per arrestare la protezione per una macchina virtuale:
 
@@ -158,7 +160,7 @@ Per arrestare la protezione per una macchina virtuale:
 
     ![Arresta verifica](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Interrompi backup**.
+    Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Interrompi backup** .
 4. L'aggiunta di un **motivo** o **commento** è facoltativa.
 5. Per interrompere il processo di backup per l'elemento corrente, fare clic sul pulsante ![Interrompi backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
@@ -200,14 +202,14 @@ Per eliminare i dati di backup in una macchina virtuale con il *backup disabilit
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    Verrà visualizzato il pannello **Elimina dati di backup**.
+    Verrà visualizzato il pannello **Elimina dati di backup** .
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/delete-backup-blade.png)
 2. È necessario digitare il nome dell'elemento per confermare l'eliminazione dei punti di ripristino.
 
     ![Arresta verifica](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Elimina dati backup**.
+    Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzarlo. Il nome dell'elemento si trova anche nella parte superiore del pannello **Elimina dati backup** .
 3. L'aggiunta di un **motivo** o **commento** è facoltativa.
 4. Per eliminare i dati di backup per l'elemento corrente, fare clic sul pulsante ![Interrompi backup](./media/backup-azure-manage-vms/delete-button.png)
 

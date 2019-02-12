@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227416"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736283"
 ---
 Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessario raccogliere i file di log del servizio nelle macchine virtuali non appena si verificano i problemi. È possibile usare l'estensione AzureLogCollector su richiesta per eseguire una raccolta occasionale di log da una o più macchine virtuali del servizio cloud (da ruoli Web e ruoli di lavoro) e trasferire i file raccolti in un account di archiviazione di Azure, senza accedere in modalità remota ad alcuna macchina virtuale.
 
@@ -31,9 +31,9 @@ Sono disponibili due modalità di raccolta a seconda dei tipi di file da raccogl
 
 In entrambe le modalità di raccolta, è possibile specificare cartelle di raccolta dati aggiuntive usando una raccolta con la struttura seguente:
 
-* **Nome**: nome della raccolta, usato come nome della sottocartella all'interno del file ZIP con i file raccolti.
-* **Percorso**: percorso della cartella nella macchina virtuale in cui si trovano i file da raccogliere.
-* **Modello di ricerca**: modello dei nomi di file da raccogliere. Il valore predefinito è "\*"
+* **Nome**: il nome della raccolta, usato come nome della sottocartella all'interno del file ZIP con i file raccolti.
+* **Località**: il percorso della cartella nella macchina virtuale in cui si trovano i file da raccogliere.
+* **SearchPattern**: il modello dei nomi di file da raccogliere. Il valore predefinito è "\*"
 * **Ricorsiva**: se i file da raccogliere si trovano in modo ricorsivo nel percorso specificato.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -174,14 +174,14 @@ param (
 )
 ```
 
-* **ServiceName**: nome del servizio cloud.
-* **Roles**: elenco di ruoli, ad esempio "WebRole1" o "WorkerRole1".
-* **Istances**: elenco di nomi di istanze del ruolo separati da virgole; usare la stringa con caratteri jolly ("*") per tutte le istanze del ruolo.
+* **ServiceName**: il nome del servizio cloud.
+* **Roles**: un elenco di ruoli, ad esempio "WebRole1" o "WorkerRole1".
+* **Instances**: un elenco di nomi di istanze del ruolo separati da virgole; usare la stringa con caratteri jolly ("*") per tutte le istanze del ruolo.
 * **Slot**: nome dello slot. "Production" o "Staging".
-* **Mode**: modalità di raccolta. "Full" o "GA".
+* **Modalità**: modalità di raccolta. "Full" o "GA".
 * **StorageAccountName**: nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
 * **StorageAccountKey**: nome della chiave dell'account di archiviazione di Azure.
-* **AdditionalDataLocationList**: elenco con la struttura seguente:
+* **AdditionalDataLocationList**: un elenco della struttura seguente:
 
   ```powershell
   {
@@ -256,12 +256,12 @@ param (
 )
 ```
 
-* **ServiceName**: nome del servizio cloud.
-* **VMName**: nome della macchina virtuale.
-* **Mode**: modalità di raccolta. "Full" o "GA".
+* **ServiceName**: il nome del servizio cloud.
+* **VMName**: Nome della macchina virtuale.
+* **Modalità**: modalità di raccolta. "Full" o "GA".
 * **StorageAccountName**: nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
 * **StorageAccountKey**: nome della chiave dell'account di archiviazione di Azure.
-* **AdditionalDataLocationList**: elenco con la struttura seguente:
+* **AdditionalDataLocationList**: un elenco della struttura seguente:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

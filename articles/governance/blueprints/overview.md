@@ -4,17 +4,17 @@ description: Azure Blueprint è un servizio disponibile in Azure usato per crear
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246246"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563372"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -56,17 +56,14 @@ Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente l
 
 |Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
 |---------|---------|---------|
-|Gruppi di risorse     | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager.         |
-|Modello di Azure Resource Manager      | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro di Log Analytics. |
-|Assegnazione dei criteri     | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o iniziative devono rientrare nell'ambito del progetto (nel gruppo di gestione del progetto o sotto). Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso.       |
-|Assegnazione di ruolo   | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
+|Gruppi di risorse | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
+|Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro di Log Analytics. |
+|Assegnazione dei criteri | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o le iniziative devono trovarsi nell'ambito della posizione della definizione di progetto. Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso. |
+|Assegnazione di ruolo | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
 
-### <a name="blueprints-and-management-groups"></a>Progetti e gruppi di gestione
+### <a name="blueprint-definition-locations"></a>Posizioni delle definizioni di progetto
 
-Durante la creazione di una definizione di progetto, viene definita la posizione di salvataggio del progetto. Attualmente, i progetti possono essere salvati solo in un [gruppo di gestione](../management-groups/overview.md) a cui si ha accesso come **collaboratore**. Il progetto è disponibile per l'assegnazione a qualsiasi sottoscrizione figlio del gruppo di gestione.
-
-> [!IMPORTANT]
-> Se non si ha accesso a un gruppo di gestione esistente o configurato, il caricamento dell'elenco delle definizioni di progetto mostrerà che nessun gruppo è disponibile. Facendo clic su **Ambito** si aprirà una finestra con un avviso relativo al recupero dei gruppi di gestione. Per risolvere questo problema, assicurarsi che la sottoscrizione a cui si ha accesso faccia parte del [gruppo di gestione](../management-groups/overview.md).
+Durante la creazione di una definizione di progetto, viene definita la posizione di salvataggio del progetto. I progetti possono essere salvati in un [gruppo di gestione](../management-groups/overview.md) o una sottoscrizione a cui si ha accesso come **collaboratore**. Se la posizione è un gruppo di gestione, il progetto è assegnabile a qualsiasi sottoscrizione figlio di tale gruppo di gestione.
 
 ### <a name="blueprint-parameters"></a>Parametri di progetto
 
@@ -101,7 +98,7 @@ Per eliminare i progetti l'account necessita delle seguenti autorizzazioni:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Dato che le definizioni di progetto vengono create in un gruppo di gestione, le autorizzazioni per la definizione di progetto devono essere concesse nell'ambito di un gruppo di gestione o essere ereditate nell'ambito di un gruppo di gestione.
+> Le autorizzazioni per la definizione di progetto devono essere concesse o ereditate nell'ambito del gruppo di gestione o della sottoscrizione in cui è stato eseguito il salvataggio.
 
 Per assegnare o annullare l'assegnazione di un progetto l'account necessita delle seguenti autorizzazioni:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817785"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 Questo argomento descrive la procedura per risolvere i problemi di sincronizzazione dell'hash delle password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti.
@@ -237,7 +237,7 @@ Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire qu
 
 5. Se non viene visualizzato alcun heartbeat o non si sono trovate altre soluzioni al problema, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords). Eseguire lo script una sola volta.
 
-6. Vedere la sezione [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#one-object-is-not-synchronizing-passwords).
+6. Vedere la sezione Risolvere i problemi relativi a un oggetto che non sincronizza le password.
 
 ### <a name="connectivity-problems"></a>Problemi di connettività
 
@@ -303,7 +303,7 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 
     ![Dettagli del log dell'oggetto](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Se il log dell'oggetto è vuoto, Azure AD Connect non è stato in grado di leggere l'hash della password da Active Directory. Continuare la risoluzione dei problemi con [Errori di connettività](#connectivity-errors). Se viene visualizzato un valore diverso da **success**, fare riferimento alla tabella [Log di sincronizzazione delle password](#password-sync-log).
+    Se il log dell'oggetto è vuoto, Azure AD Connect non è stato in grado di leggere l'hash della password da Active Directory. Continuare la risoluzione dei problemi con Errori di connettività. Se viene visualizzato un valore diverso da **success**, fare riferimento alla tabella [Log di sincronizzazione delle password](#password-sync-log).
 
     h. Selezionare la scheda **Lineage** (Derivazione) e verificare che almeno una regola di sincronizzazione nella colonna **PasswordSync** (Sincronizzazione password) sia impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **In from AD - User AccountEnabled**.  
 

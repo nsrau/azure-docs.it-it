@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903996"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657876"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Repliche in lettura in Database di Azure per PostgreSQL
 
@@ -20,7 +20,9 @@ ms.locfileid: "54903996"
 
 La funzionalità relativa alle repliche in lettura consente di replicare i dati da Database di Azure per PostgreSQL (master) in un massimo di cinque server di sola lettura (repliche in lettura) nella stessa area di Azure. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
 
-Le repliche sono nuovi server che possono essere gestiti in modo analogo ai server di Database di Azure per PostgreSQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, rispettivamente in vCore e in GB/mese.
+Le repliche sono nuovi server che possono essere gestiti in modo analogo ai server di Database di Azure per PostgreSQL. Per ogni replica di lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
+
+Visitare la pagina [Informazioni su come creare e gestire le repliche](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>Quando usare le repliche in lettura
 La funzionalità di replica in lettura è progettata per migliorare prestazioni e scalabilità dei carichi di lavoro con utilizzo elevato della lettura. Ad esempio, i carichi di lavoro di lettura possono essere confinati alle repliche, mentre i carichi di lavoro di scrittura possono essere indirizzati al master.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Quando richiesto, immettere la password per l'account dell'utente.
 
 ## <a name="monitoring-replication"></a>Monitoraggio della replica
-In Monitoraggio di Azure è disponibile la metrica **Max Lag Across Replicas** (Ritardo massimo tra repliche). Questa metrica è disponibile solo nel server master. La metrica indica il tempo che intercorre tra il master e la replica più in ritardo. 
+In Monitoraggio di Azure è disponibile la metrica **Max Lag Across Replicas** (Ritardo massimo tra repliche). Questa metrica è disponibile solo nel server master. La metrica indica il tempo in byte che intercorre tra il master e la replica più in ritardo. 
 
 In Monitoraggio di Azure è disponibile anche la metrica **Replica Lag** (Ritardo replica). Questa metrica è disponibile per solo le repliche. 
 
@@ -101,7 +103,7 @@ Assicurarsi che la replica abbia tutti i dati necessari prima di arrestare la re
 Il parametro **azure.replication_support** deve essere impostato su REPLICA nel server master prima di poter creare una replica. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. Questo parametro si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
-Quando si sceglie di arrestare la replica tra un master e la replica, la replica verrà riavviata per applicare tali modifiche. In seguito, questo server non può essere di nuovo impostato come replica.
+Se si sceglie di arrestare la replica tra un master e una replica, la replica verrà riavviata per applicare tale modifica. La replica quindi diventerà un server di lettura/scrittura. In seguito, questo server non può essere di nuovo impostato come replica.
 
 ### <a name="replicas-are-new-servers"></a>Le repliche sono nuovi server
 Le repliche vengono create come nuovi server di Database di Azure per PostgreSQL. I server esistenti non possono essere trasformati in repliche.

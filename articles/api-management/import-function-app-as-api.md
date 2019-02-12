@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129761"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810780"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -160,7 +160,7 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 
 È anche possibile chiamare le operazioni dal portale per sviluppatori per testare le API. 
 
-1. Selezionare l'API creata in [Importare e pubblicare un'API back-end](#create-api).
+1. Selezionare l'API creata nella sezione relativa all'importazione e alla pubblicazione di un'API back-end.
 
 2. Selezionare **Portale per sviluppatori**.
 

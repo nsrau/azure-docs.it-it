@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821287"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Esercitazione: Eseguire il failover manuale per un hub IoT (anteprima pubblica)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Esercitazione: Effettuare il failover manuale per un hub IoT (anteprima pubblica)
 
 Il failover manuale è una funzionalità del servizio hub IoT che consente ai clienti di eseguire il [failover](https://en.wikipedia.org/wiki/Failover) delle attività dell'hub da un'area primaria all'area geografica associata di Azure corrispondente. Il failover manuale può essere eseguito in caso di emergenza a livello di area o in eseguito a un'interruzione del servizio estesa. È anche possibile eseguire un failover pianificato per testare le funzionalità di ripristino di emergenza, anche se è consigliabile usare un hub IoT di test, invece di uno in esecuzione nell'ambiente di produzione. La funzionalità di failover manuale viene offerta ai clienti senza costi aggiuntivi.
 
@@ -112,7 +112,7 @@ Il failback viene eseguito esattamente come un failover manuale. Questa è la pr
 
    ![Screenshot della richiesta di failback manuale](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   Vengono visualizzati i banner, come spiegato nella sezione [Eseguire un failover](#perform-a-failover). Dopo aver completato il failback, `westus2` viene visualizzata di nuovo come località primaria e `WestCentralUS` come località secondaria, come da impostazioni originali.
+   Vengono visualizzati i banner, come descritto nella sezione relativa all'esecuzione di un failover. Dopo aver completato il failback, `westus2` viene visualizzata di nuovo come località primaria e `WestCentralUS` come località secondaria, come da impostazioni originali.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 

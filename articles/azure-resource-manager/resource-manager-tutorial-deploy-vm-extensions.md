@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7e0b3fff0ed60d5eb77194e7f9081d35f2e38571
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869638"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492788"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager
+# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire le estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
-Questo articolo illustra come usare le [estensioni di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md) per eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. In questa esercitazione si distribuisce un'estensione script personalizzato da un modello di Resource Manager per eseguire uno script di PowerShell in una VM Windows.  Lo script installa un server Web nella VM.
+Questo articolo illustra come usare le [estensioni di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md) per eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. In questa esercitazione si distribuisce un'estensione di script personalizzati da un modello di Azure Resource Manager per eseguire uno script PowerShell in una macchina virtuale Windows.  Lo script installa un server Web nella VM.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -39,45 +39,44 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager.  Visualizzare [installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager. Vedere [Installare l'estensione](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="prepare-a-powershell-script"></a>Preparare uno script di PowerShell
 
-Uno script di PowerShell con il contenuto seguente è condiviso in un [account di archiviazione di Azure con accesso pubblico](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
+Uno script di PowerShell con il contenuto seguente è condiviso da un [account di archiviazione di Azure con accesso pubblico](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare l'elemento [fileUri] del modello più avanti in questa esercitazione.
+Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare l'elemento `fileUri` del modello più avanti in questa esercitazione.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+I modelli di avvio rapido di Azure costituiscono un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
-2. In **Nome file** incollare l'URL seguente:
+1. In Visual Studio Code selezionare **File** > **Apri file**.
+1. Nella casella **Nome file** incollare l'URL seguente: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
-    ```
-3. Selezionare **Apri** per aprire il file.
-4. Sono presenti cinque risorse definite dal modello:
+1. Selezionare **Apri** per aprire il file.  
+    Il modello definisce cinque risorse:
 
-    * `Microsoft.Storage/storageAccounts`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * `Microsoft.Network/publicIPAddresses`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * `Microsoft.Network/virtualNetworks`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * `Microsoft.Network/networkInterfaces`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * `Microsoft.Compute/virtualMachines`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+    * **Microsoft.Storage/storageAccounts**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * **Microsoft.Network/publicIPAddresses**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * **Microsoft.Network/virtualNetworks**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * **Microsoft.Network/networkInterfaces**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * **Microsoft.Compute/virtualMachines**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
     Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
-5. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+
+1. Salvare una copia del file nel computer locale con il nome *azuredeploy.json* selezionando **File** > **Salva con nome**.
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
@@ -107,35 +106,38 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
 }
 ```
 
-Per altre informazioni sulla definizione di questa risorsa, vedere le [informazioni di riferimento sulle estensioni](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
+Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
 * **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Risorse figlio](./resource-manager-templates-resources.md#child-resources).
-* **dependsOn**: la risorsa estensione deve essere creata dopo che è stata creata la macchina virtuale.
-* **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare i file forniti, è necessario aggiornare i valori.
-* **commandToExecute**: comando per richiamare lo script.  
+* **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.
+* **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
+* **commandToExecute**: questo comando avvia lo script.  
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Vedere la sezione [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per la procedura di distribuzione. È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
+Per la procedura di distribuzione, vedere la sezione "Distribuire il modello" di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere la sezione [Prerequisiti](#prerequisites) di questo articolo.
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
-Nel portale selezionare la VM e nella relativa panoramica usare **Fare clic per copiare** a destra dell'indirizzo IP per copiarlo e incollarlo in una scheda del browser. Verrà visualizzata la pagina iniziale di IIS predefinita, che avrà l'aspetto seguente:
+1. Selezionare la macchina virtuale nel portale di Azure.
+1. Nella panoramica della macchina virtuale copiare l'indirizzo IP selezionando **Fare clic per copiare** e quindi incollarlo in una scheda del browser.  
+   Si aprirà la pagina iniziale predefinita di Internet Information Services (IIS):
 
-![Distribuzione di estensioni di macchina virtuale, script personalizzati e server Web IIS con Azure Resource Manager](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+![Pagina iniziale di Internet Information Services](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
 
-1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
+1. Nel portale di Azure selezionare **Gruppo di risorse** nel riquadro a sinistra.
+2. Immettere il nome del gruppo di risorse nella casella **Filtra per nome**.
+3. Selezionare il nome del gruppo di risorse.  
+    Nel gruppo di risorse vengono visualizzate sei risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state distribuite una macchina virtuale e un'estensione di macchina virtuale. L'estensione ha installato il server Web IIS nella macchina virtuale. Per informazioni su come usare l'estensione di database SQL per importare un file BACPAC, vedere:
+In questa esercitazione sono state distribuite una macchina virtuale e un'estensione di macchina virtuale. L'estensione ha installato il server Web IIS nella macchina virtuale. Per informazioni su come usare l'estensione del database SQL di Azure per importare un file BACPAC, vedere:
 
 > [!div class="nextstepaction"]
-> [](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Distribuire estensioni SQL](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)

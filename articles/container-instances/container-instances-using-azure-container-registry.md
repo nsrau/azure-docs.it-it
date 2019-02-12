@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064645"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727909"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064645"
 
 In qualsiasi scenario di produzione l'accesso a un registro contenitori di Azure deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Le entità servizio consentono di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
-In questa sezione vengono creati un insieme di credenziali delle chiavi di Azure e un'entità servizio e le credenziali dell'entità servizio vengono archiviate nell'insieme.
+Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
 ### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
@@ -134,9 +134,11 @@ Per informazioni dettagliate sul riferimento ai segreti di Azure Key Vault in un
 
 ## <a name="deploy-with-azure-portal"></a>Distribuire con il portale di Azure
 
-Se si conservano le immagini del contenitore in Registro Azure Container, è possibile creare facilmente un contenitore in Istanze di Azure Container usando il portale di Azure.
+Se si conservano le immagini del contenitore in un registro contenitori di Azure, è possibile creare facilmente un contenitore in Istanze di Azure Container usando il portale di Azure. Quando si usa il portale per distribuire un'istanza di contenitore da un registro contenitori, è necessario abilitare l'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro. L'account amministratore è pensato per consentire l'accesso al registro a un singolo utente, principalmente a scopo di test. 
 
 1. Nel portale di Azure passare al registro contenitori.
+
+1. Per confermare che l'account amministratore è abilitato, selezionare **Chiavi di accesso** e quindi in **Utente amministratore** selezionare **Abilitare**.
 
 1. Selezionare **Repository**, quindi selezionare il repository da cui si desidera eseguire la distribuzione, fare clic con il pulsante destro del mouse sul tag dell'immagine del contenitore che si vuole distribuire e selezionare **Esegui istanza**.
 

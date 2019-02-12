@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264683"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818533"
 ---
 # <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione  
 I requisiti tecnici e quelli relativi al contenuto di marketing variano in base alla vetrina, al tipo di offerta e al tipo di inserzione. Rivedere le specifiche seguenti per verificare la conformità.  
@@ -64,10 +64,10 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Servizi di consulenza | AppSource | [Requisiti: AppSource: Elenco: Servizi di consulenza](#requirements-appsource-list-consulting-services) |  
-| Servizi di consulenza | Azure Marketplace | [Requisiti: Azure Marketplace: Elenco: Servizi di consulenza](#requirements-azure-marketplace-list-consulting-services) |  
+| Servizi di consulenza | AppSource | Requirements: AppSource: Elenco: Servizi di consulenza |  
+| Servizi di consulenza | Azure Marketplace | Requirements: Azure Marketplace: Elenco: Servizi di consulenza |  
 | Contattami | AppSource | [](#) |  
-| Contattami | Azure Marketplace | [Requisiti: AppSource: Elenco: Contattami](#requirements-azure-marketplace-list-contact-me) |  
+| Contattami | Azure Marketplace | Requirements: AppSource: Elenco: Contattami |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requirements: AppSource: Elenco: Servizio di consulenza  
 
@@ -91,11 +91,11 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Versione di valutazione gratuita/SaaS | AppSource | [Requisiti del tipo di inserzione: Versione di valutazione](#listing-type-requirements-trial) |  
-| Versione di valutazione gratuita/SaaS | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Demo interattiva | AppSource | [Requisiti del tipo di inserzione: Versione di valutazione](#listing-type-requirements-trial) |  
+| Versione di valutazione gratuita/SaaS | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
+| Versione di valutazione gratuita/SaaS | Azure Marketplace | Requirements: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione SaaS |  
+| Demo interattiva | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
 | Demo interattiva | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Demo interattiva](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Requisiti del tipo di inserzione: Versione di valutazione](#listing-type-requirements-trial) |  
+| Test drive | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
 | Test drive | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requirements: Azure Marketplace: Versione di valutazione  
@@ -133,8 +133,8 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |   
 |:---        |:---        | :--- |  
-| App di Azure: App gestita | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: App di Azure: App gestita](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| App di Azure: Modello di soluzione | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: App di Azure: Modello di soluzione](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| App di Azure: App gestita | Azure Marketplace | Requirements: Azure Marketplace: Transazione: App di Azure: App gestita |  
+| App di Azure: Modello di soluzione | Azure Marketplace | Requirements: Azure Marketplace: Transazione: App di Azure: Modello di soluzione |  
 | Contenitori | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: Contenitore](#requirements-azure-marketplace-transact-container) |  
 | App SaaS  | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: App SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Macchina virtuale | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: Macchina virtuale](#requirements-azure-marketplace-transact-virtual-machine) |  

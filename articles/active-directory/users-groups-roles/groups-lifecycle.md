@@ -1,5 +1,5 @@
 ---
-title: Scadenza dei gruppi di Office 365 in Azure Active Directory | Microsoft Docs
+title: Impostare la scadenza dei gruppi di Office 365 - Azure Active Directory | Microsoft Docs
 description: Come configurare la scadenza dei gruppi di Office 365 in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166170"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658250"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -53,15 +53,16 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
   
   ![Pannello Scadenza](./media/groups-lifecycle/expiration-settings.png)
 
-4. Nel pannello **Scadenza** è possibile:
+3. Nel pannello **Scadenza** è possibile:
 
   * Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più). 
   * Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario. 
   * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **Tutti** i gruppi di Office 365, scegliere di abilitare solo i gruppi di Office 365 **Selezionati** oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
   * Al termine salvare le impostazioni facendo clic su **Salva**.
 
+## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 
-Le notifiche tramite posta elettronica di questo tipo vengono inviate ai proprietari del gruppo di Office 365 30 giorni, 15 giorni e 1 giorno prima della scadenza del gruppo.
+Le notifiche tramite posta elettronica di questo tipo vengono inviate ai proprietari del gruppo di Office 365 30 giorni, 15 giorni e 1 giorno prima della scadenza del gruppo. La lingua del messaggio di posta elettronica è determinata dalla lingua del tenant o dalla lingua preferita del proprietario dei gruppi. Se il proprietario del gruppo ha definito una lingua preferita o più proprietari hanno la stessa lingua preferita, viene utilizzata tale lingua. Per tutti gli altri casi viene usata la lingua del tenant.
 
 ![Notifica di scadenza tramite posta elettronica](./media/groups-lifecycle/expiration-notification.png)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051312"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812345"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
 
@@ -154,7 +154,7 @@ Non sono disponibili funzionalità di registrazione centralizzata per i criteri 
 ### <a name="troubleshooting-scenarios"></a>Scenari di risoluzione dei problemi
 - Accesso consentito agli account di archiviazione non specificati nei criteri degli endpoint
   - I gruppi di sicurezza di rete potrebbero consentire l'accesso a Internet o agli account di archiviazione di Azure in altre aree.
-  - I gruppi di sicurezza di rete devono essere configurati per negare tutto il traffico Internet in uscita e consentire solo il traffico per aree di Archiviazione di Azure specifiche. Per informazioni dettagliate, vedere [Gruppi di sicurezza di rete](#network-security-groups).
+  - I gruppi di sicurezza di rete devono essere configurati per negare tutto il traffico Internet in uscita e consentire solo il traffico per aree di Archiviazione di Azure specifiche. Per informazioni dettagliate, vedere la sezione relativa ai gruppi di sicurezza di rete.
 - Accesso negato per gli account specificati nei criteri degli endpoint
   - L'accesso potrebbe essere bloccato da gruppi di sicurezza di rete o filtro del firewall
   - Se la rimozione e la nuova applicazione dei criteri comporta la perdita di connettività:

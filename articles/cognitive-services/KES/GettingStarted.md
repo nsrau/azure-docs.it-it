@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208143"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819536"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introduzione a Knowledge Exploration Service
 
@@ -100,7 +100,7 @@ Una volta disponibili un file di schema e un file di dati, sarà possibile compi
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Per la creazione rapida di prototipi all'esterno di Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) è in grado di compilare in locale indici ridotti da file di dati contenenti fino a 10.000 oggetti. Per file di dati più grandi, è possibile eseguire il comando da una [macchina virtuale Windows in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) o eseguire una compilazione remota in Azure. Per i dettagli, vedere [Aumento](#scaling-up).
+Per la creazione rapida di prototipi all'esterno di Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) è in grado di compilare in locale indici ridotti da file di dati contenenti fino a 10.000 oggetti. Per file di dati più grandi, è possibile eseguire il comando da una [macchina virtuale Windows in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) o eseguire una compilazione remota in Azure. Per informazioni dettagliate, vedere la sezione relativa alla scalabilità verticale.
 
 ## <a name="use-an-xml-grammar-specification"></a>Usare una specifica di grammatica XML
 
@@ -211,7 +211,7 @@ Per la creazione rapida di prototipi, è possibile ospitare la grammatica e l'in
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Verrà avviata un'istanza locale del servizio Web. Per testare in modo interattivo il servizio, visitare `http::localhost:<port>` da un browser. Per altre informazioni, vedere [Testare il servizio](#testing-service).
+Verrà avviata un'istanza locale del servizio Web. Per testare in modo interattivo il servizio, visitare `http::localhost:<port>` da un browser. Per altre informazioni, vedere la sezione relativa al test del servizio.
 
 È anche possibile chiamare direttamente varie [API Web](WebAPI.md) per testare l'interpretazione del linguaggio naturale, il completamento delle query, la valutazione delle query strutturate e il calcolo dell'istogramma. Per arrestare il servizio, immettere "quit" al prompt dei comandi `kes.exe host_service` oppure premere CTRL+C. Di seguito sono riportati alcuni esempi:
 
@@ -220,7 +220,7 @@ Verrà avviata un'istanza locale del servizio Web. Per testare in modo interatti
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-All'esterno di Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) è limitato agli indici che comprendono fino a 10.000 oggetti. Altri limiti includono una frequenza API di 10 richieste al secondo e un totale di 1000 richieste prima che il processo termini automaticamente. Per ignorare queste restrizioni, eseguire il comando da una [macchina virtuale Windows in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) o eseguirne la distribuzione in un servizio cloud di Azure con il comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Per i dettagli, vedere [Distribuire il servizio](#deploying-service).
+All'esterno di Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) è limitato agli indici che comprendono fino a 10.000 oggetti. Altri limiti includono una frequenza API di 10 richieste al secondo e un totale di 1000 richieste prima che il processo termini automaticamente. Per ignorare queste restrizioni, eseguire il comando da una [macchina virtuale Windows in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) o eseguirne la distribuzione in un servizio cloud di Azure con il comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Per informazioni dettagliate, vedere la sezione relativa alla distribuzione del servizio.
 
 ## <a name="scale-up-to-host-larger-indices"></a>Eseguire la scalabilità verticale per ospitare indici di dimensioni superiori
 
@@ -262,7 +262,7 @@ Dopo aver distribuito il servizio, sarà anche possibile chiamare varie [API Web
 
 ## <a name="test-the-service"></a>Testare il servizio
 
-Per eseguire il debug di un servizio attivo, passare al computer host da un Web browser. Per un servizio locale distribuito con [host_service](#hosting-service), visitare `http://localhost:<port>/`.  Per un servizio cloud di Azure distribuito con [deploy_service](#deploying-service), visitare `http://<serviceName>.cloudapp.net/`.
+Per eseguire il debug di un servizio attivo, passare al computer host da un Web browser. Per un servizio locale distribuito tramite host_service, passare a `http://localhost:<port>/`.  Per un servizio cloud di Azure distribuito tramite deploy_service, passare a `http://<serviceName>.cloudapp.net/`.
 
 Questa pagina contiene un collegamento a informazioni sulle statistiche delle chiamate API di base, nonché sulla grammatica e sull'indice ospitati in questo servizio. La pagina contiene anche un'interfaccia di ricerca interattiva che illustra l'uso delle API Web. Immettere query nella casella di ricerca per visualizzare i risultati delle chiamate API [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) e [calchistogram](calchistogramMethod.md). L'origine HTML sottostante di questa pagina rappresenta anche un esempio di come integrare le API Web in un'app, al fine di creare un'esperienza di ricerca interattiva avanzata.
 

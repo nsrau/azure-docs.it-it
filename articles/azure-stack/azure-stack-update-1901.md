@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.lastreviewed: 02/09/2019
+ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993590"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100092"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -161,7 +162,7 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
 
    Si noti che anche con il supporto di AD FS, la distribuzione di cluster Kubernetes richiede l'accesso a internet.
 
-- Dopo l'installazione di aggiornamenti oppure hotfix per Azure Stack, potrebbero essere introdotte nuove funzionalità che richiedono nuove autorizzazioni da concedere a una o più applicazioni di identità. Concedere queste autorizzazioni richiede accesso amministrativo alla home directory e in modo non può essere eseguita automaticamente. Ad esempio:
+- Dopo l'installazione di aggiornamenti oppure hotfix per Azure Stack, potrebbero essere introdotte nuove funzionalità che richiedono nuove autorizzazioni da concedere a una o più applicazioni di identità. Concedere queste autorizzazioni richiede accesso amministrativo alla home directory e in modo non può essere eseguita automaticamente. Ad esempio: 
 
    ```powershell
    $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
@@ -173,7 +174,7 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
 
 - Attualmente esistono estensioni che è stata distribuita senza la necessità in modo esplicito di scaricare le estensioni tramite diffusione marketplace in Azure Stack. Le seguenti versioni di queste estensioni vengono revocate. Operatori di Azure Stack ora è necessario divulgare in modo esplicito queste estensioni dal marketplace di Azure Stack:
 
-   | Tipo                     | Versione        |
+   | Type                     | Versione        |
    |--------------------------|----------------|
    | DSC                      | 2.19.0.0       |
    | IaaSAntimalware          | 1.4.0.0        |
@@ -189,7 +190,7 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
    | OSPatchingForLinux       | 2.3.0.1        |
    | WebRole                  | 4.3000.14.0    |
 
-   È consigliabile che quando si distribuisce le estensioni, gli utenti di Azure Stack impostano `autoUpgradeMinorVersion` al **true**. Ad esempio:
+   È consigliabile che quando si distribuisce le estensioni, gli utenti di Azure Stack impostano `autoUpgradeMinorVersion` al **true**. Ad esempio: 
 
    ```json
    "type": "Extension",
@@ -299,7 +300,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- 3239127 - IS, ASDK -->
 - Nel portale di Azure Stack, quando si modifica un indirizzo IP statico per una configurazione IP che è associato a una scheda di rete collegata a un'istanza di macchina virtuale, verrà visualizzato un messaggio di avviso che indica 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...` (Indici per tabelle con ottimizzazione per la memoria).
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
 
     È possibile ignorare questo messaggio. l'indirizzo IP verrà modificato anche se l'istanza di macchina virtuale non viene riavviato.
 

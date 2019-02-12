@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402048"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567275"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -102,6 +102,10 @@ Il contenuto video o audio specificato come pubblico tramite l'impostazione di p
 
 In base alle [condizioni per i Servizi online di Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), il contenuto è interamente di proprietà dell'utente e Microsoft accederà al contenuto e ai metadati e alle informazioni dettagliate del contenuto estratti da Video Indexer solo in base a quanto stabilito dalle condizioni per i Servizi online e dall'informativa sulla privacy di Microsoft.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>I modelli personalizzati creati nell'account di Video Indexer sono disponibili per altri account?
+
+ No, i modelli personalizzati creati nell'account non sono disponibili per nessun altro account. Attualmente Video Indexer consente di creare modelli personalizzati di [marchi](customize-brands-model-overview.md), [linguaggi](customize-language-model-overview.md) e [persone](customize-person-model-overview.md) nell'account. Questi modelli sono disponibili solo nell'account in cui sono stati creati i modelli.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Il contenuto indicizzato da Video Indexer viene mantenuto all'interno dell'area di Azure in cui si usa Video Indexer?
 
 Sì, il contenuto e le informazioni dettagliate vengono mantenuti all'interno dell'area di Azure, a meno che non si abbia una configurazione manuale nella sottoscrizione di Azure che usa più aree di Azure. 
