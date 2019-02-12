@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460506"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809300"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
@@ -37,8 +37,8 @@ Le dimensioni massime della raccolta di attività che è possibile aggiungere in
 * Le API di Batch seguenti limitano la raccolta a **100 attività**. Il limite può essere inferiore a seconda delle dimensioni delle attività, ad esempio nel caso in cui l'attività includa un numero elevato di file di risorse o di variabili di ambiente.
 
     * [API REST](/rest/api/batchservice/task/addcollection)
-    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [API Node.js](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [API Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   Quando si usano queste API, è necessario specificare la logica per dividere il numero di attività in modo da rispettare il limite della raccolta e per gestire errori e tentativi in caso di errore durante l'aggiunta delle attività. Se una raccolta di attività è troppo grande per essere aggiunta, la richiesta genera un errore ed è necessario riprovare con un numero inferiore di attività.
 
@@ -55,7 +55,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 * **Dimensioni delle attività**: l'aggiunta di attività di grandi dimensioni richiede più tempo rispetto a quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente. Anziché usare un numero elevato di file di risorse, è possibile ad esempio installare le dipendenze delle attività usando un'[attività di avvio](batch-api-basics.md#start-task) nel pool oppure usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
 
-* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
+* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
  
   L'estensione dell'interfaccia della riga di comando di Azure Batch con i modelli di Batch aumenta automaticamente il numero di operazioni simultanee in base al numero di core disponibili, ma questa proprietà non è configurabile nell'interfaccia della riga di comando. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Aggiungere la raccolta di attività tramite [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Impostare il parametro `threads` per aumentare il numero di operazioni simultanee:
+Aggiungere la raccolta di attività tramite [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Impostare il parametro `threads` per aumentare il numero di operazioni simultanee:
 
 ```python
 try:
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-L'estensione di Python SDK di Batch supporta anche l'aggiunta dei parametri di attività a un processo tramite una specifica JSON per una factory delle attività. Configurare ad esempio i parametri di processo per uno sweep parametrico simile a quello dell'esempio di [modello dell'interfaccia della riga di comando di Batch](#example-batch-cli-template) riportato in precedenza:
+L'estensione di Python SDK di Batch supporta anche l'aggiunta dei parametri di attività a un processo tramite una specifica JSON per una factory delle attività. Ad esempio configurare i parametri di processo per uno sweep parametrico simile a quello nell'esempio precedente di modello di interfaccia della riga di comando di Batch:
 
 ```python
 parameter_sweep = {

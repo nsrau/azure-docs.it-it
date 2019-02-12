@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203947"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821826"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: configurare G Suite per il provisioning utenti automatico
 
@@ -127,7 +127,7 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
     e. Ripetere i passaggi precedenti per tutti i domini aggiuntivi che si desidera aggiungere a Google Apps.
      
      > [!WARNING]
-     > Se si modifica il dominio primario per il tenant di G Suite e si è già configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 in [Passaggio 2: abilitare il servizio Single Sign-On](#step-two-enable-single-sign-on).
+     > Se si modifica il dominio primario per il tenant di G Suite ed è già stato configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 illustrato in Passaggio 2: Abilitare l'accesso Single Sign-On.
        
 1. Nella [console di amministrazione di Google Apps](https://admin.google.com/) selezionare **Admin Roles** (Ruoli amministratore).
    

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241943"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002048"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione del tenant in Azure Stack
 
@@ -60,7 +60,7 @@ Per altre informazioni su Azure Stack e i profili delle API, vedere [profili del
 
 ### <a name="powershell"></a>PowerShell
 
-Usare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. Ecco un esempio di come aggiungere un tenant:
+Usare il cmdlet New-AzureRmResource per aggiungere un tenant. [Connettersi ad Azure Stack](/azure-stack-powershell-configure-admin.md)e quindi usare il cmdlet seguente da un prompt dei comandi con privilegi elevati:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -72,7 +72,7 @@ Usare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. 
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Risposta**: 201 Creato  
-**Corpo della risposta**: Empty  
+**Corpo della risposta**: Vuoto  
 
 ## <a name="list-all-registered-tenants"></a>Elenco registrati tutti i tenant
 
@@ -91,7 +91,7 @@ Ottenere un elenco di tutti i tenant che sono stati aggiunti a una registrazione
 
 ### <a name="powershell"></a>PowerShell
 
-Usare il cmdlet Get-AzureRmResource per elencare registrati tutti i tenant. Accedere ad Azure (`Add-AzureRmAccount`) usando l'account usato per la registrazione iniziale. Ecco un esempio di come aggiungere un tenant:
+Usare il cmdlet Get-AzureRmResource per elencare registrati tutti i tenant. [Connettersi ad Azure Stack](/azure-stack-powershell-configure-admin.md)e quindi usare il cmdlet seguente da un prompt dei comandi con privilegi elevati:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -99,7 +99,7 @@ Usare il cmdlet Get-AzureRmResource per elencare registrati tutti i tenant. Acce
 
 ### <a name="api-call"></a>Chiamata all'API
 
-È possibile ottenere un elenco di tutti i mapping di tenant usando l'operazione GET
+È possibile ottenere un elenco di tutti i mapping di tenant usando l'operazione GET.
 
 **Operation**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -111,15 +111,15 @@ api-version=2017-06-01 HTTP/1.1`
 ```JSON  
 {
     "value": [{
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
             "name": " cspSubscriptionId 1",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId1" }
         },
         {
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}",
             "name": " cspSubscriptionId2 ",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId2" }
         }
     ],
@@ -142,6 +142,8 @@ api-version=2017-06-01 HTTP/1.1`
 
 ### <a name="powershell"></a>PowerShell
 
+Usare il cmdlet Remove-AzureRmResource per rimuovere un tenant. [Connettersi ad Azure Stack](/azure-stack-powershell-configure-admin.md)e quindi usare il cmdlet seguente da un prompt dei comandi con privilegi elevati:
+
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
@@ -155,7 +157,7 @@ api-version=2017-06-01 HTTP/1.1`
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Risposta**: 204 No Content (Nessun contenuto)  
-**Corpo della risposta**: Empty
+**Corpo della risposta**: Vuoto
 
 ## <a name="next-steps"></a>Passaggi successivi
 

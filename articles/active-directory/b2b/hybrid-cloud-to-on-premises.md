@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082045"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817414"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -43,7 +43,7 @@ Per fornire agli utenti B2B l'accesso alle applicazioni locali protette con l'au
 
    Per lo scenario utente B2B, sono disponibili due metodi per creare gli oggetti utente guest necessari per l'autorizzazione nella directory locale:
 
-   - Microsoft Identity Manager (MIM) e l'[agente di gestione MIM per Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - Microsoft Identity Manager (MIM) e l'agente di gestione MIM per Microsoft Graph. 
    - [Script di PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). L'uso dello script è una soluzione più semplice che non richiede MIM. 
 
 Il diagramma seguente offre una panoramica generale del funzionamento combinato di Azure AD Application Proxy e della generazione dell'oggetto utente B2B nella directory locale per concedere agli utenti B2B l'accesso alle app locali di autenticazione integrata di Windows e delega vincolata Kerberos. I passaggi numerati sono descritti in dettaglio nel diagramma seguente.

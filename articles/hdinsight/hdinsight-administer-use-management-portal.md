@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632025"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811699"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire i cluster Apache Hadoop basati su Windows in HDInsight tramite il portale di Azure
 
@@ -167,7 +167,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
   * Interfaccia utente Web di Apache Storm
   * Interfaccia della riga di comando (CLI)
 
-    Per altre informazioni, fare riferimento alla [documentazione su Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Per altre informazioni, fare riferimento alla [documentazione su Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) .
 
     L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
@@ -203,7 +203,7 @@ Questo processo può essere programmato in molti modi:
 Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Modificare il nome utente del cluster
-Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight viene creato durante il processo di creazione. È anche possibile creare un account utente RDP per accedere al cluster tramite RDP. Vedere la sezione relativa all' [abilitazione di Desktop remoto](#connect-to-hdinsight-clusters-by-using-rdp).
+Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight viene creato durante il processo di creazione. È anche possibile creare un account utente RDP per accedere al cluster tramite RDP. Consultare la sezione relativa all'abilitazione di Desktop remoto.
 
 **Per modificare il nome utente e la password di un cluster HDInsight**
 

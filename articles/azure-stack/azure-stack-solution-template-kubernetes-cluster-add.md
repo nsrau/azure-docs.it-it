@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765484"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997091"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -65,15 +65,15 @@ Creare un piano, un'offerta e una sottoscrizione per l'elemento del Marketplace 
 
 Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione di identità, è necessario creare un servizio principale per gli utenti di distribuire un cluster Kubernetes.
 
-1. Creare ed esportare un certificato da usare per creare l'entità servizio. Il seguente frammento di codice seguente viene illustrato come creare un certificato autofirmato. 
+1. Creare ed esportare un certificato autofirmato utilizzato per creare l'entità servizio. 
 
     - Sono necessarie le seguenti informazioni:
 
        | Valore | DESCRIZIONE |
        | ---   | ---         |
-       | Password | La password del certificato. |
-       | Percorso del certificato locale | Il percorso e nome file del certificato. Ad esempio: `path\certfilename.pfx` |
-       | Nome del certificato | Il nome del certificato. |
+       | Password | Immettere una nuova password per il certificato. |
+       | Percorso del certificato locale | Immettere il percorso e il nome del certificato. Ad esempio: `c:\certfilename.pfx` |
+       | Nome del certificato | Immettere il nome del certificato. |
        | Percorso dell'archivio certificati |  Ad esempio: `Cert:\LocalMachine\My` |
 
     - Aprire PowerShell con privilegi elevati. Eseguire lo script seguente con i parametri aggiornati ai valori di:
@@ -82,8 +82,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Creare un'entità utilizzando il certificato del servizio.
+2.  Prendere nota dell'ID del nuovo certificato visualizzata nella sessione di PowerShell, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. L'ID verrà usato durante la creazione dell'entità servizio.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. Creare un'entità utilizzando il certificato del servizio.
 
     - Sono necessarie le seguenti informazioni:
 
        | Valore | DESCRIZIONE                     |
        | ---   | ---                             |
        | IP ERCS | In ASDK, l'endpoint con privilegi è in genere `AzS-ERCS01`. |
-       | Nome dell'applicazione | Un nome semplice dell'entità servizio dell'applicazione. |
-       | Percorso dell'archivio certificati | Il percorso nel computer in cui è memorizzato il certificato. Ad esempio: `Cert:\LocalMachine\My\<someuid>` |
+       | Nome applicazione | Immettere un nome semplice per l'entità servizio dell'applicazione. |
+       | Percorso dell'archivio certificati | Il percorso nel computer in cui è memorizzato il certificato. Ciò viene indicato con il percorso dell'archivio e l'ID certificato generato nel primo passaggio. Ad esempio: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - Aprire PowerShell con privilegi elevati. Eseguire lo script seguente con i parametri aggiornati ai valori di:
+       Quando richiesto, usare le credenziali seguenti per connettersi all'endpoint del privilegio. 
+        - Nome utente: Specificare l'account CloudAdmin, nel formato <Azure Stack domain>\cloudadmin. (Per ASDK, il nome utente è azurestack\cloudadmin).
+        - Password: Immettere la stessa password che è stata specificata durante l'installazione per l'account di amministratore di dominio AzureStackAdmin.
+
+    - Eseguire lo script seguente con i parametri aggiornati ai valori di:
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ Nel Marketplace, aggiungere l'immagine di Ubuntu Server seguente:
 
 1. Selezionare **+ Aggiungi da Azure**.
 
-1. Immettere `UbuntuServer`.
+1. Immettere `Ubuntu Server`.
 
 1. Selezionare la versione più recente del server. Controllare la versione completa e assicurarsi di avere la versione più recente:
     - **Publisher** (Editore): Canonical
@@ -239,7 +247,7 @@ Aggiunta di Kubernetes da Marketplace:
     > [!note]  
     > Può richiedere cinque minuti per l'elemento del marketplace venga visualizzato nel Marketplace.
 
-    ![kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Aggiornare o rimuovere di Kubernetes 
 

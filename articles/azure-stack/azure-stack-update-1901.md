@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978939"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993590"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -68,6 +68,35 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per Azure Stack:
 
 - Immagini gestite su enable Azure Stack le macchine virtuali in futuro è possibile creare un oggetto immagine gestita in una macchina virtuale generalizzata (sia non gestite e gestite) che può creare solo gestita su disco. Per altre informazioni, vedere [Managed Disks di Azure Stack](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Correzione di bug: `Import-AzureRmContext` per deserializzare il token salvato correttamente.  
+   * **AzureRm.Resources**  
+         Correzione di bug: `Get-AzureRmResource` al caso di query e minuscole per tipo di risorsa.  
+   * **Azure.Storage**  
+         Modulo di rollup AzureRm ora include la versione già pubblicata 4.5.0 che supportano il **api-version 2017-07-29**.  
+   * **AzureRm.Storage**  
+         Modulo di rollup AzureRm ora include la versione già pubblicata 5.0.4 che supportano il **2017-10-01 versione api-version**.  
+   * **AzureRm.Compute**  
+         Nei set di parametri semplici aggiunto `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parametro supporta la specifica immagini dell'utente.  
+   * **AzureRm.Insights**  
+         Modulo di rollup AzureRm ora include la versione già pubblicata 5.1.5 che supportano il **2018-01 01 api-version** per le metriche, i tipi di risorsa delle definizioni delle metriche.
+
+- **AzureStack 1.7.0** questa versione di una modifica sostanziale. Per informazioni dettagliate sulle modifiche sostanziali, fare riferimento a https://aka.ms/azspshmigration170
+   * **Modulo Azs.Backup.Admin**  
+         Modifica che causa un'interruzione: Backup delle modifiche alla modalità di crittografia basata su certificato. Supporto per le chiavi simmetriche è deprecato.  
+   * **Azs.Fabric.Admin Module**  
+         `Get-AzsInfrastructureVolume` è stato deprecato. Usare il nuovo cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` è stato deprecato.  Usare il nuovo cmdlet nuovo `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` è stato deprecato. Il `StorageSubSystem` oggetto contiene la proprietà di capacità.  
+   * **Modulo Azs.Compute.Admin**  
+         Correzione di bug - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: La chiamata `ConvertTo-PlatformImageObject` solo nel percorso di esito positivo.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: La chiamata a ConvertTo-VmExtensionObject solo nel percorso di esito positivo.  
+   * **Modulo Azs.Storage.Admin**  
+         Correzione di bug: nuova Quota di archiviazione Usa valori predefiniti se non specificato.
+
+Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [riferimento al modulo di Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Problemi risolti
 

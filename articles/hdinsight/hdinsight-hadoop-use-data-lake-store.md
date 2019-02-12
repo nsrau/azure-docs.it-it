@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052769"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816374"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage con cluster Azure HDInsight
 
@@ -39,11 +39,11 @@ Attualmente, solo alcuni dei tipi/versioni di cluster HDInsight supportano l'uso
 
 | Tipo di cluster HDInsight | Data Lake Storage come risorsa di archiviazione predefinita | Data Lake Storage come risorsa di archiviazione aggiuntiva| Note |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versione 3.6 | Yes | Yes | Ad eccezione di HBase|
-| HDInsight versione 3.5 | Yes | Yes | Ad eccezione di HBase|
-| HDInsight versione 3.4 | No  | Yes | |
+| HDInsight versione 3.6 | Sì | Sì | Ad eccezione di HBase|
+| HDInsight versione 3.5 | Sì | Sì | Ad eccezione di HBase|
+| HDInsight versione 3.4 | No  | Sì | |
 | HDInsight versione 3.3 | No  | No  | |
-| HDInsight versione 3.2 | No  | Yes | |
+| HDInsight versione 3.2 | No  | Sì | |
 | Storm | | |È possibile usare Data Lake Storage per scrivere dati da una topologia Storm. È anche possibile usare Data Lake Storage per archiviare dati di riferimento che possono essere letti da una topologia Storm.|
 
 > [!WARNING]  
@@ -69,7 +69,7 @@ Per poter usare Data Lake Storage come risorsa di archiviazione predefinita, è 
 - Cartella per tutte le cartelle del cluster,  ad esempio adl://mydatalakestore/clusters.
 - Cartella per il cluster,  ad esempio adl://mydatalakestore/clusters/cluster1storage.
 
-Per altre informazioni su come creare un'entità servizio e concedere l'accesso, vedere [Configurare l'accesso a Data Lake Storage](#configure-data-lake-store-access).
+Per altre informazioni su come creare un'entità servizio e concedere l'accesso, consultare la sezione Configurare l'accesso a Data Lake Storage.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Estrazione di un certificato da Azure Key Vault per l'uso nella creazione di cluster
 
@@ -117,12 +117,12 @@ Per poter usare Data Lake Storage come risorsa di archiviazione aggiuntiva, è n
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Per altre informazioni su come creare un'entità servizio e concedere l'accesso, vedere [Configurare l'accesso a Data Lake Storage](#configure-data-lake-store-access).
+Per altre informazioni su come creare un'entità servizio e concedere l'accesso, consultare la sezione Configurare l'accesso a Data Lake Storage.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Usare più account di Data Lake Storage
 
-Le operazioni di aggiunta di un account Data Lake Storage come risorsa di archiviazione aggiuntiva e di aggiunta di più account Data Lake Storage vengono eseguite assegnando al cluster HDInsight l'autorizzazione sui dati in uno o più account Data Lake Storage. Vedere [Configurare l'accesso a Data Lake Storage](#configure-data-lake-store-access).
+Le operazioni di aggiunta di un account Data Lake Storage come risorsa di archiviazione aggiuntiva e di aggiunta di più account Data Lake Storage vengono eseguite assegnando al cluster HDInsight l'autorizzazione sui dati in uno o più account Data Lake Storage. Consultare la sezione Configurare l'accesso a Data Lake Storage.
 
 ## <a name="configure-data-lake-storage-access"></a>Configurare l'accesso a Data Lake Storage
 

@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187212"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818754"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
-  > [!NOTE]
-  > Questa funzionalità è disponibile in anteprima pubblica.
-  > 
-  
+
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Elenco dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza bisogno di alcuna configurazione a parte l'installazione di un agente. Per altre informazioni, vedere la [documentazione su Elenco dei servizi]( service-map.md).
 
 Con questa integrazione tra Elenco dei servizi e System Center Operations Manager è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
@@ -43,7 +40,7 @@ L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata impo
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Configurare l'integrazione di Elenco dei servizi
-Dopo avere installato il management pack di Elenco dei servizi, nel riquadro **Amministrazione** di **Operations Management Suite** sarà presente il nuovo nodo **Elenco dei servizi**. 
+Dopo avere installato il management pack di Elenco dei servizi, nel riquadro **Amministrazione** di **Operations Management Suite** sarà presente il nuovo nodo **Elenco dei servizi**.
 
 >[!NOTE]
 >[Operations Management Suite era una raccolta di servizi](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) che includeva Log Analytics, ora incluso in [Monitoraggio di Azure](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -54,7 +51,7 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Riquadro Service Map Overview (Panoramica di Elenco dei servizi)](media/service-map-scom/scom-configuration.png)
 
-2. Nella finestra **Configurazione di connessione** immettere l'ID o il nome del tenant, l'ID applicazione (noto anche come nome utente o ClientID) e la password dell'entità servizio, quindi fare clic su **Avanti**. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
+2. Nella finestra **Configurazione di connessione** immettere l'ID o il nome del tenant, l'ID applicazione (noto anche come nome utente o ClientID) e la password dell'entità servizio, quindi fare clic su **Avanti**. Per altre informazioni, consultare Creare un'entità servizio.
 
     ![Finestra di configurazione della connessione](media/service-map-scom/scom-config-spn.png)
 
@@ -63,11 +60,11 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
     ![Area di lavoro di configurazione di Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
 4. Nella finestra **Machine Group Selection** (Selezione gruppi di computer) è possibile scegliere i gruppi di computer di Mapping dei servizi da sincronizzare con Operations Manager. Fare clic su **Add/Remove Machine Groups** (Aggiungi/Rimuovi gruppi di computer), scegliere i gruppi nell'elenco **Available Machine Groups** (Gruppi di computer disponibili) e fare clic su **Aggiungi**.  Dopo avere completato la selezione dei gruppi, fare clic su **OK** per terminare.
-    
+
     ![Gruppi di computer di configurazione di Operations Manager](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. Nella finestra **Selezione server** è possibile configurare il gruppo di server di Elenco dei servizi con i server che si desidera sincronizzare tra Operations Manager ed Elenco dei servizi. Fare clic su **Aggiungi/Rimuovi server**.   
-    
+
     Perché l'integrazione crei un diagramma applicazioni distribuite per un server, quest'ultimo deve essere:
 
     * Gestito da Operations Manager
@@ -91,7 +88,7 @@ Dopo aver connesso l'area di lavoro di Log Analytics, nel riquadro **Monitoraggi
 ![Riquadro Monitoraggio di Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 La cartella Mapping dei servizi ha quattro nodi:
-* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Log Analytics sincronizzati con Operations Manager. 
+* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Log Analytics sincronizzati con Operations Manager.
 
 * **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Mapping dei servizi.
 
@@ -120,9 +117,9 @@ Viene creata una regola _Microsoft.SystemCenter.ServiceMapImport.Rule_ per recup
 
 ![Finestra delle proprietà di override di Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: abilita/disabilita gli aggiornamenti automatici. 
+* **Enabled**: abilita/disabilita gli aggiornamenti automatici.
 * **IntervalMinutes**: reimposta l'intervallo tra gli aggiornamenti. L'intervallo predefinito è un'ora. Se si desidera sincronizzare le mappe dei server più di frequente, è possibile modificare il valore.
-* **TimeoutSeconds**: reimposta l'intervallo di tempo prima che la richiesta raggiunga il timeout. 
+* **TimeoutSeconds**: reimposta l'intervallo di tempo prima che la richiesta raggiunga il timeout.
 * **TimeWindowMinutes**: reimposta l'intervallo di tempo per eseguire query sui dati. Il valore predefinito è una finestra temporale di 60 minuti. Il valore massimo consentito da Elenco dei servizi è 60 minuti.
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
