@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Applicare la disponibilità elevata ai dati delle applicazioni in Azure | Microsoft Docs'
+title: "Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB - Archiviazione di Azure"
 description: Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510634"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Esercitazione: Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come applicare la disponibilità elevata ai dati delle applicazioni in Azure.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224242"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770436"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Eseguire un backup dei database SQL Server in Azure
 
@@ -202,6 +202,7 @@ Per una corretta esecuzione dei backup con Backup di Azure per SQL Server in mac
 
   * Spazi finali/iniziali
   * Punto esclamativo (!) finale
+  * Parentesi quadra chiusa ']'
 
 È previsto l'uso di alias per i caratteri non supportati dalle tabelle di Azure, ma è consigliabile evitare anche tali caratteri. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -721,6 +722,8 @@ Se si interrompe la protezione per un database di SQL Server, Backup di Azure ri
 * Interrompere tutti i processi di backup futuri mantenendo però i punti di recupero.
 
 Se si sceglie di interrompere il backup con conservazione dei dati, verranno eliminati i punti di ripristino in base ai criteri di backup. Ciò implica un addebito per l'esecuzione dell'istanza SQL protetta, oltre allo spazio di archiviazione utilizzato fino all'eliminazione di tutti i punti di ripristino. Per altre informazioni sui prezzi di Backup di Azure per SQL, vedere la [pagina dei prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+
+Ogni volta che si interrompe il backup con conservazione dei dati, i punti di ripristino scadranno in base ai criteri di conservazione, ma Backup di Azure manterrà sempre un ultimo punto di ripristino fino a quando non si eliminano in modo esplicito i dati di backup. Allo stesso modo se si elimina un'origine dati senza eseguire l'interruzione del backup, i nuovi backup avranno esito negativo e i vecchi punti di ripristino scadranno in base ai criteri di conservazione, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si esegue l'interruzione del backup con eliminazione dei dati.
 
 Per interrompere la protezione per un database:
 
