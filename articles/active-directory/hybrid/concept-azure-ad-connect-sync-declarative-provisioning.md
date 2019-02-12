@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193812"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812720"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
 Questo argomento illustra il modello di configurazione in Azure AD Connect. Il modello è denominato provisioning dichiarativo e consente di modificare una configurazione con facilità. Molte operazioni descritte in questo argomento sono avanzate e non necessarie per la maggior parte degli scenari dei clienti.
@@ -37,7 +37,7 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 * Origine, l'oggetto di origine
 * [Ambito](#scope), consente di trovare tutte le regole di sincronizzazione che si trovano nell'ambito
 * [Join](#join), determina la relazione tra spazio connettore e metaverse
-* [Trasformazione](#transform), calcola la modalità di trasformazione e il flusso degli attributi
+* Trasformazione, calcola la modalità di trasformazione e il flusso degli attributi
 * [Precedenza](#precedence), risolve i conflitti tra attributi
 * Destinazione, l'oggetto di destinazione
 

@@ -3,7 +3,7 @@ title: Gestione dopo la migrazione - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come gestire il database dopo la migrazione al database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478475"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751940"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -108,7 +108,7 @@ Esistono diverse tecniche a disposizione che è possibile usare per conseguire u
 
 Un firewall impedisce l'accesso al server da un'entità esterna, consentendo solo a entità specifiche l'accesso al server di database SQL. Per impostazione predefinita, vengono rifiutate tutte le connessioni e i database all'interno del server di database SQL, a eccezione delle connessioni in entrata da altri servizi di Azure. Con una regola firewall è possibile aprire l'accesso al server solo alle entità (ad esempio, un computer per sviluppatori) approvate, consentendo all'indirizzo IP del computer di attraversare il firewall. Consente anche di specificare un intervallo di indirizzi IP a cui si intende consentire l'accesso al server di database SQL. È ad esempio possibile aggiungere in una sola volta gli indirizzi IP del computer per sviluppatori specificando un intervallo nella pagina Impostazioni del firewall.
 
-È possibile creare regole firewall a livello di server o database. Le regole firewall a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules) (Creare regole firewall nel database SQL).
+È possibile creare regole firewall a livello di server o database. Le regole firewall IP a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules) (Creare regole firewall nel database SQL).
 
 #### <a name="service-endpoints"></a>Endpoint di servizio
 
@@ -132,9 +132,9 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Rilevamento delle minacce
+#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
-Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce del database SQL esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Abilitare il rilevamento delle minacce per il database SQL](sql-database-security-tutorial.md#enable-security-features).
+Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Come proteggere i dati in generale nel database SQL
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816731"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,30 +72,30 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i set di dati per rappresentare i dati di input e di output per le operazioni di copia. 
 3. Creare una pipeline con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
 
-Quando si usa la Copia guidata, le definizioni JSON per i servizi collegati, i set di dati e le entità pipeline di data factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. L'esempio di [JSON: Copiare dati da DB2 ad Archiviazione BLOB di Azure](#json-example-copy-data-from-db2-to-azure-blob) illustra le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati DB2 locale.
+Quando si usa la Copia guidata, le definizioni JSON per i servizi collegati, i set di dati e le entità pipeline di data factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. Esempio di JSON: copiare dati da DB2 ad Archiviazione BLOB di Azure consente di visualizzare le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati DB2 locale.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di Data Factory specifiche di un archivio dati DB2.
 
 ## <a name="db2-linked-service-properties"></a>Proprietà del servizio collegato DB2
 La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio collegato DB2.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Yes |
-| **server** |Il nome del server DB2. |Yes |
-| **database** |Il nome del database DB2. |Yes |
+| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
+| **server** |Il nome del server DB2. |Sì |
+| **database** |Il nome del database DB2. |Sì |
 | **schema** |Il nome dello schema nel database DB2. Questa proprietà fa distinzione tra maiuscole e minuscole. |No  |
-| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
+| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
 | **username** |Il nome dell'account utente, se si usa l'autenticazione di base o di Windows. |No  |
 | **password** |La password per l'account utente. |No  |
-| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Yes |
+| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md). Le sezioni come **struttura**, **disponibilità** e **policy** di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, archiviazione BLOB di Azure, archiviazione tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable**, che comprende il set di dati DB2, presenta la proprietà seguente:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **tableName** |Il nome della tabella nell'istanza del database DB2 a cui il servizio collegato fa riferimento. Questa proprietà fa distinzione tra maiuscole e minuscole. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -317,8 +317,8 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Data |Datetime |
-| Tempo |Intervallo di tempo |
+| Data |DateTime |
+| Tempo |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |string |
@@ -343,8 +343,8 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Data |Datetime |
-| Tempo |Intervallo di tempo |
+| Data |DateTime |
+| Tempo |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |string |

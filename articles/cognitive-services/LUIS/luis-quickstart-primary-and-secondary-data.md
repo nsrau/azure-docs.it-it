@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211407"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820981"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -239,7 +239,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. [Eseguire il training](#train) dell'app e [pubblicarla](#publish) di nuovo per usare l'elenco di frasi.
+1. Eseguire il training dell'app e pubblicarla di nuovo per usare l'elenco di frasi.
 
 1. Eseguire una nuova query sull'endpoint con la stessa espressione: `This is the lead welder paperwork.`
 

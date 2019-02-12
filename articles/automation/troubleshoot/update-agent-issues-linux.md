@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437494"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813110"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
 
@@ -28,7 +28,7 @@ L'elenco seguente indica i tre possibili stati di conformità di un computer:
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#offline).
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Vedere le istruzioni relative allo scenario offline, per risolvere i problemi di un computer non Azure.
 
 ![Pagina con l'elenco delle macchine virtuali](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ Nella pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di 
 
 ![Pagina della risoluzione dei problemi](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Al termine i risultati sono mostrati nella finestra. Le [sezioni dei diversi controlli](#pre-requisistes-checks) forniscono informazioni su ciò che ogni controllo cerca.
+Al termine i risultati sono mostrati nella finestra. Le sezioni di controllo forniscono informazioni su ciò che ogni controllo cerca.
 
 ![Pagina dei controlli dell'agente di aggiornamento](../media/update-agent-issues-linux/update-agent-checks.png)
 

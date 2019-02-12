@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810202"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Esperienza di accesso con Azure Multi-Factor Authentication
 > [!NOTE]
@@ -31,8 +31,8 @@ L'esperienza di accesso varia a seconda di ciò che si desidera usare come secon
 | --- |
 | [Con una telefonata al cellulare o al telefono dell'ufficio](#signing-in-with-a-phone-call) |
 | [Con un messaggio sul cellulare](#signing-in-with-a-text-message)
-| [Con le notifiche dell'app Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Con i codici di verifica dell'app Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Con le notifiche dell'app Microsoft Authenticator |
+| Con i codici di verifica dell'app Microsoft Authenticator |
 | [Con un metodo alternativo, perché non è possibile usare subito il metodo preferito](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Accesso tramite telefonata
@@ -87,4 +87,4 @@ In caso di problemi di accesso con la verifica in due passaggi, è possibile ott
 
 Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 
-Altre informazioni sull'[introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.
+Altre informazioni sull'[introduzione all'app Microsoft Authenticator](user-help-auth-app-download-install.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.

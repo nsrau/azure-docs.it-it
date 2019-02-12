@@ -1,8 +1,21 @@
 ---
-title: Distribuire un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e distribuirlo come servizio Web di Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/06/2017
+title: Distribuire un servizio Web di Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e distribuirlo come servizio Web di Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/06/2017
+ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493746"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.

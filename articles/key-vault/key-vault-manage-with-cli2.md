@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198899"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822494"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
@@ -247,7 +247,7 @@ Abilitazione di Key Vault per la distribuzione del modello: consente a Resource 
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Uso dei moduli di protezione hardware
 
-Per una maggiore sicurezza, è possibile importare o generare le chiavi da moduli di protezione hardware che rimangono sempre entro il limite del modulo di protezione hardware. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
+Per una maggiore sicurezza, è possibile importare o generare le chiavi da moduli di protezione hardware che rimangono sempre entro il limite del modulo di protezione hardware. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati.
 
 Per creare queste chiavi HSM protette, è necessaria una sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette.
 

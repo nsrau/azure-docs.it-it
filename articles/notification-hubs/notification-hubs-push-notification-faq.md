@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888159"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563984"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push con Hub di notifica di Azure: Domande frequenti
 
@@ -80,7 +80,7 @@ Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
 
-È supportato l'invio di notifiche push alle piattaforme [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
+È supportato l'invio di notifiche push alle piattaforme [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (tramite Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
@@ -144,7 +144,7 @@ Gli spazi dei nomi possono essere usati anche per il raggruppamento di distribuz
 
 #### <a name="geo-distribution"></a>Distribuzione geografica
 
-La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Vari PNS (ad esempio APNS o GCM) che recapitano notifiche push ai dispositivi non sono distribuiti uniformemente.
+La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Vari PNS (ad esempio APNS o FCM) che recapitano notifiche push ai dispositivi non sono distribuiti uniformemente.
 
 Se si ha un'applicazione che viene usata a livello globale, è possibile creare hub in vari spazi dei nomi tramite il servizio Hub di notifica in diverse aree di Azure nel mondo.
 
@@ -207,7 +207,7 @@ Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei 
 Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
 
 > [!NOTE]
-> La riuscita delle notifiche indica solo che le notifiche push sono state recapitate al PNS esterno, ad esempio servizio APNS per Apple, GCM per Google e così via. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
+> La riuscita delle notifiche indica solo che le notifiche push sono state recapitate al PNS esterno, ad esempio servizio APNS per Apple, FCM per Google e così via. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
 
 È disponibile anche l'opzione di esportare i dati di telemetria a livello di codice (nel livello Standard). Per informazioni dettagliate, vedere l'[esempio sulle metriche di Hub di notifica].
 

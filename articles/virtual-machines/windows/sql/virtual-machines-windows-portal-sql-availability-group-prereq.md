@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359834"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818023"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
@@ -413,7 +413,7 @@ Dopo l'avvio di ogni macchina virtuale come membro del dominio, aggiungere **COR
 
 ### <a name="setServiceAccount"></a>Impostare gli account del servizio SQL Server
 
-Impostare l'account del servizio SQL Server in ogni macchina virtuale di SQL Server. Usare gli account creati in fase di [configurazione degli account di dominio](#DomainAccounts).
+Impostare l'account del servizio SQL Server in ogni macchina virtuale di SQL Server. Usare gli account creati in fase di configurazione degli account di dominio.
 
 1. Aprire **Gestione configurazione SQL Server**.
 2. Fare clic con il pulsante destro del mouse sul servizio SQL Server e scegliere **Proprietà**.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189460"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662469"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -154,8 +154,8 @@ Come soluzione alternativa, dopo che la sottoscrizione è stata spostata, è pos
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemi noti relativi alle identità gestite assegnate dall'utente
 
-- Non è supportata la creazione di un'identità gestita assegnata dall'utente con caratteri speciali, ad esempio il carattere di sottolineatura.
-- I nomi delle identità assegnate dall'utente sono limitati a 24 caratteri. Se il nome contiene più di 24 caratteri, l'identità non potrà essere assegnata a una risorsa, ad esempio una macchina virtuale.
+- I nomi di identità assegnata dall'utente sono limitati a un minimo di 3 caratteri e un massimo di 128 caratteri. Se il nome contiene più di 128 caratteri, l'identità non potrà essere assegnata a una risorsa, ad esempio una macchina virtuale.
+- I nomi di identità assegnata dall'utente possono contenere i caratteri seguenti: a-z, A-Z, -, \_, 0-9. Non è supportata la creazione di un'identità gestita assegnata dall'utente con caratteri non inclusi in questo set di caratteri, ad esempio il carattere asterisco.
 - Se si usa l'estensione della macchina virtuale relativa alle identità gestite (la cui deprecazione è prevista a gennaio 2019), il limite supportato è di 32 identità gestite assegnate dall'utente. Senza l'estensione per macchine virtuali dell'identità gestita, il limite supportato è 512.  
 - Lo spostamento di un'identità gestita assegnata dall'utente a un gruppo di risorse diverso causerà l'interruzione dell'identità. Di conseguenza, non sarà possibile richiedere token per l'identità. 
 - Il trasferimento di una sottoscrizione a un'altra directory interromperà tutte le identità gestite assegnate dall'utente esistenti. 

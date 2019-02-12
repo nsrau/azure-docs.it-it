@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Microsoft Docs
+title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Documentazione Microsoft
 description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095570"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818703"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -195,7 +195,7 @@ Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per r
 ## <a name="configure-sizes-for-cloud-services"></a>Configurare le dimensioni per i servizi Cloud
 È possibile specificare le dimensioni di un'istanza del ruolo delle macchine virtuali nell'ambito del modello del servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
-Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standard_D2](#general-purpose-d) per un'istanza del ruolo Web:
+Ecco un esempio per impostare la dimensione di ruolo su Standard_D2 per un'istanza del ruolo Web:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

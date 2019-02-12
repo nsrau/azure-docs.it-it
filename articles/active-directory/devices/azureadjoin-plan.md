@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102737"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697692"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -126,6 +126,8 @@ L'aggiunta ad Azure AD:
 - È applicabile solo a dispositivi Windows 10. 
 
 - Non è applicabile alle versioni precedenti di Windows o ad altri sistemi operativi. Se sono presenti dispositivi Windows 7/8.1, è necessario eseguire l'aggiornamento a Windows 10 per distribuire l'aggiunta ad Azure AD.
+
+- Non è supportato nei dispositivi con TPM in modalità FIPS.
  
 **Raccomandazione:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
 
@@ -234,11 +236,11 @@ Ecco un confronto di questi tre approcci
  
 ||Configurazione self-service|Windows Autopilot|Registrazione in blocco|
 |---|---|---|---|
-|Richiesta dell'interazione dell'utente per la configurazione|Yes|Sì|No |
-|Richiesta di attività IT|No |Yes|Yes|
+|Richiesta dell'interazione dell'utente per la configurazione|Sì|Sì|No |
+|Richiesta di attività IT|No |Sì|Sì|
 |Flussi applicabili|Configurazione guidata e impostazioni|Solo Configurazione guidata|Solo Configurazione guidata|
 |Diritti di amministratore locale a un utente primario|Sì, per impostazione predefinita|Configurabile|No |
-|Richiesta del supporto dell'OEM del dispositivo|No |Yes|No |
+|Richiesta del supporto dell'OEM del dispositivo|No |Sì|No |
 |Versioni supportate|1511+|1709+|1703+|
  
 Scegliere l'approccio o gli approcci di distribuzione consultando la tabella precedente e le considerazioni seguenti per l'adozione di uno degli approcci:  

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820683"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512211"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -51,13 +51,13 @@ Prima di iniziare la distribuzione di un ruolo di lavoro ibrido per runbook, riv
 È possibile rimuovere uno o più ruoli di lavoro ibridi per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti. Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, usare la procedura seguente:
 
 1. Nel portale di Azure passare all'account di Automazione.
-2. In **Impostazioni** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**. Queste informazioni saranno necessarie per il passaggio successivo.
+2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**. Queste informazioni saranno necessarie per il passaggio successivo.
 
 ### <a name="windows"></a> Windows
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente. Per un log dettagliato del processo di rimozione, usare l'opzione **-Verbose** .
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+È possibile usare il comando `ls /var/opt/microsoft/omsagent` in ruolo di lavoro ibrido per runbook per ottenere l'ID area di lavoro. È presente una cartella nella directory in cui il nome della cartella è l'ID dell'area di lavoro.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo usando la procedura descritta in precedenza. Quindi usare la procedura seguente per rimuovere il gruppo:
 
 1. Nel portale di Azure aprire l'account di automazione.
-1. In **Automazione processi** selezionare **Gruppi di lavoro ibridi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
+2. In **Automazione processi** selezionare **Gruppi di lavoro ibridi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
 
    ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
+3. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
 
    ![Messaggio di conferma](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

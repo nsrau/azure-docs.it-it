@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151720"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813365"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Uso di un token di informazioni dettagliate per ottenere informazioni dettagliate su un'immagine
 
 L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine, un token di informazioni dettagliate, oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](overview.md). Questo articolo illustra l'uso di un token di informazioni dettagliate. Per esempi che illustrano come caricare un'immagine per ottenere informazioni dettagliate, vedere l'Avvio rapido ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
 
-Se si invia a Ricerca visiva un URL o un token di immagine, la figura seguente illustra i dati di formato che è necessario includere nel corpo del POST. I dati di formato devono includere l'intestazione Content-Disposition e il relativo parametro `name` deve essere impostato su "knowledgeRequest". Per informazioni dettagliate sull'oggetto `imageInfo`, vedere [Richiesta](#the-request).
+Se si invia a Ricerca visiva un URL o un token di immagine, la figura seguente illustra i dati di formato che è necessario includere nel corpo del POST. I dati di formato devono includere l'intestazione Content-Disposition e il relativo parametro `name` deve essere impostato su "knowledgeRequest". Per i dettagli relativi all'oggetto `imageInfo`, vedere la richiesta.
 
 ```json
 {

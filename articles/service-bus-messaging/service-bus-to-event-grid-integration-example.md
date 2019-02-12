@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409577"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821809"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure
 
 Questo articolo illustra come configurare una funzione di Azure e un'app per la logica, che ricevono entrambe messaggi in base alla ricezione di un evento da Griglia di eventi di Azure. A questo si eseguiranno le attività seguenti:
  
-* Creare una semplice [funzione di Azure di test](#test-function-setup) per il debug e la visualizzazione del flusso iniziale di eventi da Griglia di eventi. Eseguire questo passaggio indipendentemente dal fatto che si eseguano gli altri.
-* Creare una [funzione di Azure per ricevere ed elaborare i messaggi del bus di servizio](#receive-messages-using-azure-function) in base agli eventi di Griglia di eventi.
-* Utilizzare la [funzionalità App per la logica del Servizio app di Azure](#receive-messages-using-azure-logic-app).
+* Creare una semplice funzione di Azure di test per il debug e la visualizzazione del flusso iniziale di eventi da Griglia di eventi. Eseguire questo passaggio indipendentemente dal fatto che si eseguano gli altri.
+* Creare una funzione di Azure per ricevere ed elaborare i messaggi del bus di servizio in base agli eventi di Griglia di eventi.
+* Utilizzare la funzionalità App per la logica del Servizio app di Azure.
 
 Nell'esempio creato si presuppone che l'argomento del bus di servizio abbia due sottoscrizioni. Nell'esempio si presuppone anche che la sottoscrizione di Griglia di eventi sia stata creata per inviare gli eventi solo per una sottoscrizione del bus di servizio. 
 

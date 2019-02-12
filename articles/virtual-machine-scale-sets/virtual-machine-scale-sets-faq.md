@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812591"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657757"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -61,7 +61,7 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 **D.** Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
 
-**R.** Non direttamente. Per l'estensione customScript, tuttavia, lo script potrebbe attendere il completamento di un'altra estensione. Indicazioni aggiuntive per la sequenziazione delle estensioni sono disponibili nel post di blog [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sequenziazione delle estensioni nei set di scalabilità di macchine virtuali di Azure).
+**R.** Sì, è possibile usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md) nei set di scalabilità.
 
 **D.** I set di scalabilità si integrano con i set di disponibilità di Azure?
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Leggere la documentazione di Key Vault per le operazioni più recenti relative ai certificati supportate per le API in Azure.
 
-I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) e [Scenari di sicurezza di un cluster di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) e [Scenari di sicurezza di un cluster di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>È possibile specificare una coppia di chiavi SSH da usare per l'autenticazione SSH con un set di scalabilità di macchine virtuali Linux da un modello di Resource Manager?
 
@@ -230,13 +230,14 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
             }
         ]
     }
+}
 ```
 
-Nome dell'elemento linuxConfiguration | Obbligatoria | type | DESCRIZIONE
+Nome dell'elemento linuxConfiguration | Obbligatoria | Type | DESCRIZIONE
 --- | --- | --- | --- |  ---
 ssh | No  | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
-path | Yes | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
-keyData | Yes | string | Specifica una chiave pubblica SSH con codifica Base64
+path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
+keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
 
 Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -392,13 +393,13 @@ Esistono due modi per modificare la password delle VM nei set di scalabilità.
 - Reimpostare la password usando le estensioni di accesso della VM.
 
     Usare l'esempio di PowerShell seguente:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ La gestione degli avvisi per le soglie specificate offre una certa flessibilità
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 In questo esempio viene inviato un avviso a Pagerduty.com al raggiungimento di una soglia.

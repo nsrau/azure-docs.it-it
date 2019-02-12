@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104236"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820437"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -64,7 +64,7 @@ Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macch
 **Codice errore**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Messaggio di errore**: Il servizio Backup non dispone delle autorizzazioni sufficienti per Accedere a Key Vault per il backup di macchine virtuali crittografate. <br>
 
-Per la corretta esecuzione di un'operazione di backup nelle macchine virtuali crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Questa operazione può essere eseguita tramite il [portale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) o tramite [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Per la corretta esecuzione di un'operazione di backup nelle macchine virtuali crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Questa operazione può essere eseguita tramite il [portale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o tramite [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale
 
@@ -97,7 +97,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [Il servizio di backup non ha l'autorizzazione per eliminare i punti di ripristino precedenti a causa di un blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Causa 5: Il servizio di Backup di Azure non possiede l'autorizzazione per eliminare i punti di ripristino precedenti, a causa di un blocco del gruppo di risorse** <br>
 **Causa 6: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Currently Azure Backup does not support disk sizes greater than 1023GB (Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB)

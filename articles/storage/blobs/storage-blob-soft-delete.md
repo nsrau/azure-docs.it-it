@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506126"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
@@ -322,4 +322,4 @@ L'eliminazione temporanea è disponibile per i dischi non gestiti sia Standard c
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)
 * [Replica di Archiviazione di Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

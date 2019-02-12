@@ -1,9 +1,22 @@
 ---
-title: Distribuire l'area di lavoro di Studio con Azure Resource Manager titleSuffix: Descrizione di Azure Machine Learning Studio: Come distribuire un'area di lavoro di Azure Machine Learning usando il modello di Azure Resource Manager services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
+title: Distribuire l'area di lavoro di Studio con Azure Resource Manager
+titleSuffix: Azure Machine Learning Studio
+description: Come distribuire un'area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/05/2018
+ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487797"
 ---
-
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro di Azure Machine Learning Studio con Azure Resource Manager
 
 L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning, ad esempio, è necessario configurare prima un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice prevede l'uso di un modello di Azure Resource Manager per distribuire un'area di lavoro di Azure Machine Learning e tutte le dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).

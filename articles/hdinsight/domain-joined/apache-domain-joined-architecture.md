@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: acae8076350c26e7a7157fd2063f64220b167771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462430"
+ms.locfileid: "55486062"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -73,23 +73,23 @@ Se viene usata la federazione e gli hash delle password sono sincronizzati corre
 
  3. Controllare se è già stata creata l'entità servizio "Microsoft Azure Powershell"
 
-```
- $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
-```
+ ```
+  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+ ```
 
- 4. Se non esiste (ad esempio se ($powershellSPN -q $null)), creare l'entità servizio
+ 4. Se non esiste (ad esempio se ($powershellSPN -eq $null)), creare l'entità servizio
 
-```
- $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
-```
+ ```
+  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
 
  5. Creare e associare il criterio a questa entità servizio: 
 
-```
+ ```
  $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
  Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
-```
+ ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

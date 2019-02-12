@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541558"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692749"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo
 
@@ -45,7 +45,7 @@ Il log attività nel portale include diversi filtri. Di seguito sono elencati i 
 
 |Filtro  |Valore  |
 |---------|---------|
-|Categoria evento     | <ul><li>Amministrativo</li></ul>         |
+|Categoria evento     | <ul><li>Administrative</li></ul>         |
 |Operazione     | <ul><li>Crea assegnazione ruolo</li> <li>Elimina assegnazione ruolo</li> <li>Crea o aggiorna la definizione del ruolo personalizzata</li> <li>Elimina la definizione del ruolo personalizzata</li></ul>      |
 
 
@@ -53,24 +53,26 @@ Per altre informazioni sui log attività, vedere [Visualizzare eventi nel log at
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog).
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzLog](/powershell/module/az.insights/get-azlog).
 
 Questo comando elenca tutte le modifiche relative alle assegnazioni di ruolo in una sottoscrizione per gli ultimi 7 giorni:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 Questo comando elenca tutte le modifiche relative alle definizioni di ruolo in un gruppo di risorse per gli ultimi 7 giorni:
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Questo comando elenca tutte le modifiche alle assegnazioni di ruolo e alle definizioni di ruolo in una sottoscrizione per gli ultimi 7 giorni e visualizza i risultati in un elenco:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

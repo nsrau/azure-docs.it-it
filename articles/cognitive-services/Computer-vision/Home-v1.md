@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198147"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816544"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Informazioni sull'API Visione artificiale versione 1.0?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198147"
 >- [API Visione artificiale versione 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 L'API Visione artificiale basata sul cloud consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni. Caricando un'immagine o specificando l'URL di un'immagine, gli algoritmi di Visione artificiale di Microsoft possono analizzare i contenuti visivi in diversi modi in base agli input e alle scelte dell'utente. L'API Visione artificiale consente agli utenti di eseguire queste operazioni:
-* [Contrassegnare le immagini in base al contenuto.](#Tagging)
-* [Classificare le immagini.](#Categorizing)
-* [Identificare il tipo e la qualità delle immagini.](#Identifying)
+* Contrassegnare le immagini in base al contenuto.
+* Classificare le immagini.
+* Identificare il tipo e la qualità delle immagini.
 * [Rilevare visi umani e restituirne le coordinate. ](#Faces)
-* [Riconoscere contenuto specifico di dominio.](#Domain-Specific)
-* [Generare le descrizioni del contenuto.](#Descriptions)
-* [Usare il riconoscimento ottico dei caratteri per identificare testo stampato trovato nelle immagini.](#OCR)
-* [Riconoscere testo scritto a mano.](#RecognizeText)
-* [Distinguere le combinazioni di colori.](#Color)
-* [Contrassegnare il contenuto per adulti.](#Adult)
-* [Tagliare le foto da usare come anteprime.](#Thumbnails)
+* Riconoscere contenuto specifico di dominio.
+* Generare le descrizioni del contenuto.
+* Usare il riconoscimento ottico dei caratteri per identificare testo stampato trovato nelle immagini.
+* Riconoscere testo scritto a mano.
+* Distinguere le combinazioni di colori.
+* Contrassegnare il contenuto per adulti.
+* Tagliare le foto da usare come anteprime.
 
 ## <a name="requirements"></a>Requisiti
 * Metodi di input supportati: file binario di immagine non elaborato di tipo application/octet-stream o URL di immagine.

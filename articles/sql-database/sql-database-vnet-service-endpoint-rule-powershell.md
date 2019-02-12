@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945927"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566178"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
 Sia il [database SQL di Azure](sql-database-technical-overview.md) che quello di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supportano gli endpoint del servizio virtuale.
 
@@ -31,7 +31,7 @@ Questo articolo fornisce e descrive uno script di PowerShell che esegue le azion
 1. Creare un *endpoint del servizio virtuale* di Microsoft Azure nella subnet.
 2. Aggiungere l'endpoint al firewall del server di database SQL di Azure per creare una *regola della rete virtuale*.
 
-Le ragioni per la creazione di una regola sono descritte in [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r] (Endpoint del servizio virtuale per il database SQL di Azure).
+Le ragioni per la creazione di una regola sono descritte in: [Endpoint del servizio virtuale per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Se si necessita semplicemente di valutare o aggiungere l'endpoint del servizio virtuale *nome del tipo* per il database SQL alla subnet, è possibile passare direttamente a uno [script di PowerShell più diretto](#a-verify-subnet-is-endpoint-ps-100).
@@ -63,7 +63,7 @@ Lo script di PowerShell di dimostrazione è suddiviso in una sequenza di script 
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Script 1: variabili
+### <a name="script-1-variables"></a>Script 1: variables
 
 Questo primo script di PowerShell assegna valori alle variabili. Gli script successivi dipendono da queste variabili.
 
@@ -112,7 +112,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Script 2: prerequisiti
+### <a name="script-2-prerequisites"></a>Script 2: Prerequisiti
 
 Questo script è di preparazione per lo script successivo, in cui si verifica l'azione dell'endpoint. Lo script crea automaticamente gli elementi elencati di seguito, solo se ancora non esistono. Se si è certi dell'esistenza di questi elementi, è possibile ignorare lo script 2:
 
@@ -289,7 +289,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Script 4: pulizia
+## <a name="script-4-clean-up"></a>Script 4: Eliminazione
 
 Questo script finale elimina le risorse create per la dimostrazione dagli script precedenti. Tuttavia, lo script chiede conferma prima di eliminare le risorse seguenti:
 

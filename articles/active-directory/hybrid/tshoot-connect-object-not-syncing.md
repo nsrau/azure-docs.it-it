@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 4336cabd256e492981e1bbff8d1b3b9e4ef07df1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296598"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820522"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -55,7 +55,7 @@ Il processo di sincronizzazione prevede i passaggi seguenti:
 
 5. **Esportazione in Azure Active Directory:** dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Azure Active Directory in **Azure Active Directory**.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per individuare gli errori è necessario esaminare vari punti nell'ordine seguente:
 
@@ -143,7 +143,7 @@ Si può esaminare l'oggetto e individuare la regola applicata per un particolare
 La pagina Log consente di visualizzare lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto Metaverse
-In genere è preferibile iniziare la ricerca dallo [spazio connettore](#connector-space) di origine di Active Directory. Ma è anche possibile avviare la ricerca da metaverse.
+In genere è preferibile iniziare la ricerca dallo spazio connettore di origine di Active Directory. Ma è anche possibile avviare la ricerca da metaverse.
 
 ### <a name="search-for-an-object-in-the-mv"></a>Ricerca di un oggetto in MV
 In **Synchronization Service Manager**, fare clic su **Metaverse Search** (Cerca Metaverse). Creare una query che rileva l'utente. È possibile cercare gli attributi comuni, ad esempio accountName (sAMAccountName) e userPrincipalName. Per altre informazioni, vedere [Cerca Metaverse](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -195,6 +195,5 @@ Se manca il connettore in Azure AD, leggere [Attributi MV](#mv-attributes) per v
 Questa scheda consente anche di passare all'[oggetto spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
-
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+- [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md).
+- [Informazioni sull'identità ibrida](whatis-hybrid-identity.md).

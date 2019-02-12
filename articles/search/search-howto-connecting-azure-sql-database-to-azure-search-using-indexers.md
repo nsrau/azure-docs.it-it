@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633028"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752893"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -209,6 +209,9 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
     }
 
 Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate. Tuttavia, affinché le operazioni di eliminazione vengano rilevate "auto-magicamente", la chiave del documento nell'indice di ricerca deve essere la stessa della chiave primaria nella tabella SQL. 
+
+> [!NOTE]  
+> Quando si usa [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) per rimuovere un numero elevato di righe da una tabella SQL, l'indicizzatore deve essere [reimpostato](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) per reimpostare lo stato di rilevamento delle modifiche in modo che possa selezionare le righe eliminate.
 
 <a name="HighWaterMarkPolicy"></a>
 

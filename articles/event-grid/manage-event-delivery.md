@@ -7,20 +7,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474248"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731768"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Messaggi non recapitabili e criteri di ripetizione dei tentativi
 
 Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impostazioni per il recapito di tali eventi. Questo articolo illustra come configurare una posizione per gli eventi non recapitabili e personalizzare le impostazioni di ripetizione dei tentativi. Per informazioni su queste funzionalità, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).
-
-## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Impostare la posizione degli eventi non recapitabili
 
@@ -29,10 +25,6 @@ Per impostare una posizione per gli eventi non recapitabili, è necessario un ac
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 containername=testcontainer
 
 topicid=$(az eventgrid topic show --name demoTopic -g gridResourceGroup --query id --output tsv)
@@ -47,13 +39,12 @@ az eventgrid event-subscription create \
 
 Per disabilitare gli eventi non recapitabili, rieseguire il comando per creare la sottoscrizione di eventi ma non specificare un valore per `deadletter-endpoint`. Non è necessario eliminare la sottoscrizione di eventi.
 
+> [!NOTE]
+> Se si usa l'interfaccia della riga di comando di Azure nel computer locale, usare l'interfaccia della riga di comando di Azure versione 2.0.56 o successive. Per istruzioni sull'installazione della versione più recente dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
 ### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 $containername = "testcontainer"
 
 $topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -68,6 +59,9 @@ New-AzureRmEventGridSubscription `
 
 Per disabilitare gli eventi non recapitabili, rieseguire il comando per creare la sottoscrizione di eventi ma non specificare un valore per `DeadLetterEndpoint`. Non è necessario eliminare la sottoscrizione di eventi.
 
+> [!NOTE]
+> Se si usa Azure PowerShell sul computer locale, usare Azure PowerShell versione 1.1.0 o successive. Scaricare e installare la versione di Azure PowerShell più recente da [Download di Azure](https://azure.microsoft.com/downloads/).
+
 ## <a name="set-retry-policy"></a>Impostare criteri di ripetizione
 
 Quando si crea una sottoscrizione di Griglia di eventi, è possibile impostare valori per l'intervallo di tempo in cui il servizio deve provare a recapitare l'evento. Per impostazione predefinita, la Griglia di eventi effettua tentativi per 24 ore (1.440 minuti) o 30 volte. Per la sottoscrizione di Griglia di eventi è possibile impostare uno dei valori seguenti. Il valore di time-to-live degli eventi deve essere un numero intero compreso tra 1 e 1440. Il valore relativo al numero massimo di tentativi deve essere un numero intero compreso tra 1 e 30.
@@ -79,10 +73,6 @@ Non è possibile configurare la [pianificazione della ripetizione](delivery-and-
 Per impostare la durata TTL dell'evento su un valore diverso da 1440 minuti, usare il codice seguente:
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
@@ -109,10 +99,6 @@ Se si impostano entrambi `event-ttl` e `max-deliver-attempts`, la Griglia di eve
 Per impostare la durata TTL dell'evento su un valore diverso da 1440 minuti, usare il codice seguente:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 $topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
 New-AzureRmEventGridSubscription `

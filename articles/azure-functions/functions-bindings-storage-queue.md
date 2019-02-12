@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 565b4c66c98d62fdcbd23f6446f522b810db1430
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999462"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821984"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -38,6 +38,9 @@ Le associazioni di Archiviazione code sono incluse nel pacchetto NuGet [Microsof
 Le associazioni di archiviazione code sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="encoding"></a>Codifica
+Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di codifica, per preparare i dati come una stringa con codifica *base64*, devono essere implementate nel servizio di chiamata.
 
 ## <a name="trigger"></a>Trigger
 
@@ -273,7 +276,7 @@ In JavaScript, usare `context.bindings.<name>` per accedere al payload dell'elem
 
 Il trigger della coda fornisce diverse [proprietà di metadati](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Proprietà|type|DESCRIZIONE|
+|Proprietà|Type|DESCRIZIONE|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Payload della coda, se si tratta di una stringa valida. Se il payload della coda di messaggi è una stringa, `QueueTrigger` ha lo stesso valore della variabile denominata dalla proprietà `name` in *function.json*.|
 |`DequeueCount`|`int`|Il numero di volte in cui questo messaggio è stato rimosso dalla coda.|
@@ -496,7 +499,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
-È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere [Trigger - attributi](#trigger---attribute).
+È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere Trigger - attributi.
 
 ## <a name="output---configuration"></a>Output - configurazione
 

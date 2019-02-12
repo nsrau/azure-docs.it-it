@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081229"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699263"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 Il [controllo degli accessi in base al ruolo](overview.md) ha diverse definizioni di ruolo predefinite che è possibile assegnare a utenti, gruppi ed entità servizio. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse in Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md).
 
-I ruoli predefiniti sono sempre in evoluzione. Per ottenere le definizioni di ruolo più recenti, usare [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+I ruoli predefiniti sono sempre in evoluzione. Per ottenere le definizioni di ruolo più recenti, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descrizione dei ruoli predefiniti
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per vedere l'elenco di `Actions`, `NotActions`, `DataActions` e `NotDataActions` per ogni ruolo.
@@ -149,8 +149,8 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | * | È in grado di creare e gestire ogni tipo di risorsa |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruolo |
-> | Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruolo |
+> | Microsoft.Authorization/*/Delete | Eliminare ruoli e assegnazioni di ruoli |
+> | Microsoft.Authorization/*/Write | Creare ruoli e assegnazioni di ruoli |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al chiamante l'accesso di tipo Amministratore Accesso utenti a livello dell'ambito del tenant |
 > | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
@@ -1600,15 +1600,15 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossibile modificare i criteri di controllo |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Impossibile modificare le impostazioni di controllo |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Modificare i criteri di controllo |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Modificare le impostazioni di controllo |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recupera i record di controllo BLOB del database |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossibile modificare i criteri di connessione |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossibile modificare i criteri di mascheratura dei dati |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Modificare i criteri di connessione |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Modificare i criteri di mascheratura dei dati |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossibile modificare i criteri di avviso di sicurezza |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Impossibile modificare i criteri di protezione |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Modificare i criteri di avviso di sicurezza |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Modificare i criteri di protezione |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Non è in grado di modificare i criteri di controllo di server SQL |
-> | Microsoft.Sql/servers/auditingSettings/* | Non è in grado di modificare le impostazioni di controllo di SQL Server |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Non è in grado di modificare i criteri di controllo dei database di server SQL |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Non è in grado di modificare le impostazioni di controllo dei database di SQL Server |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Non può leggere i record di controllo |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Non è in grado di modificare i criteri di connessione dei database di server SQL |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Non è in grado di modificare i criteri di mascheratura dei dati dei database di server SQL |
+> | Microsoft.Sql/servers/auditingPolicies/* | Modificare i criteri di controllo di SQL Server |
+> | Microsoft.Sql/servers/auditingSettings/* | Modificare le impostazioni di controllo di SQL Server |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Modificare i criteri di controllo dei database di SQL Server |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Modificare le impostazioni di controllo dei database di SQL Server |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Legge i record di controllo |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Modificare i criteri di connessione dei database di SQL Server |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Modificare i criteri di mascheratura dei dati dei database di SQL server |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Non è in grado di modificare i criteri degli avvisi di sicurezza dei database di SQL server |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Non è in grado di modificare le metriche di protezione dei database di server SQL |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Modificare i criteri degli avvisi di sicurezza dei database di SQL Server |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Modificare le metriche di protezione dei database di SQL Server |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Non è in grado di modificare i criteri degli avvisi di sicurezza di SQL Server |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Modificare i criteri degli avvisi di sicurezza di SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Collaboratore account di archiviazione

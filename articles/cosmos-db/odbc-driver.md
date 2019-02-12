@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034473"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816629"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -71,8 +71,8 @@ Attività iniziali con il driver ODBC.
     - **Number of Retries** (Numero di tentativi): immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione di velocità del servizio.
     - **File di schema**: si dispone di una serie di opzioni.
         - Per impostazione predefinita, lasciando vuota questa voce, il driver analizzerà la prima pagina di dati di tutte le raccolte per individuare lo schema di ciascuna raccolta. L'operazione è definita Mapping raccolta. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
-        - Se si dispone già di un file di schema, probabilmente creato con l'[Editor schema](#schema-editor), è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.
-        - Per creare un nuovo schema, fare clic su **OK** e quindi su **Editor schema** nella finestra principale. Procedere quindi alle informazioni di [Editor schema](#schema-editor). Dopo la creazione del nuovo file di schema, ricordarsi di tornare alla finestra **Opzioni avanzate** per includere il file di schema appena creato.
+        - Se si dispone già di un file di schema, probabilmente creato con l'Editor schema, è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.
+        - Per creare un nuovo schema, fare clic su **OK** e quindi su **Editor schema** nella finestra principale. Andare quindi alle informazioni di Editor schema. Dopo la creazione del nuovo file di schema, ricordarsi di tornare alla finestra **Opzioni avanzate** per includere il file di schema appena creato.
 
 1. Una volta completato e chiusa la finestra **Azure Cosmos DB ODBC Driver DSN Setup** (Configurazione DSN driver ODBC di Azure Cosmos DB), il nuovo DSN utente verrà aggiunto alla scheda User DSN (DSN utente).
 

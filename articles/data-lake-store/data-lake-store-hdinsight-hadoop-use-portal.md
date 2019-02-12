@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817037"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ In questa sezione viene creato un cluster HDInsight con account Data Lake Storag
 
     ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Aggiungere l'entità servizio al cluster HDInsight")
 
-    - **Seleziona account Data Lake Store**: selezionare un account Azure Data Lake Storage Gen1 esistente. È necessario un account Azure Data Lake Storage Gen1 esistente.  Vedere [Prerequisiti](#prerequisites).
+    - **Selezionare l'account Data Lake Store**: selezionare un account esistente Data Lake Storage Gen1. È necessario un account Azure Data Lake Storage Gen1 esistente.  Vedere [Prerequisiti](#prerequisites).
     - **Percorso radice**: immettere un percorso in cui archiviare i file specifici del cluster. Nello screenshot è __/clusters/myhdiadlcluster/__, in cui la cartella __/clusters__ deve esistere e il portale crea la cartella *myhdicluster*.  *myhdicluster* è il nome del cluster.
-    - **Accesso a Data Lake Store**: configurare l'accesso tra l'account Data Lake Storage Gen1 e il cluster HDInsight. Per istruzioni, vedere [Configurare l'accesso a Data Lake Storage Gen1](#configure-data-lake-store-access).
-    - **Account archiviazione aggiuntivi**: aggiungere account di archiviazione di Azure come account di archiviazione aggiuntivi per il cluster. Per aggiungere altri account Data Lake Storage Gen1, assegnare al cluster le autorizzazioni per i dati in più account Data Lake Storage Gen1 durante la configurazione di un account Data Lake Storage Gen1 come tipo di archiviazione primario. Vedere [Configurare l'accesso a Data Lake Storage Gen1](#configure-data-lake-store-access).
+    - **Accesso a Data Lake Store**: configurare l'accesso tra l'account Data Lake Storage Gen1 e il cluster HDInsight. Per le istruzioni, vedere Configurare l'accesso a Data Lake Storage Gen1.
+    - **Account di archiviazione aggiuntivi**: aggiungere account di archiviazione di Azure come account di archiviazione aggiuntivi per il cluster. Per aggiungere altri account Data Lake Storage Gen1, assegnare al cluster le autorizzazioni per i dati in più account Data Lake Storage Gen1 durante la configurazione di un account Data Lake Storage Gen1 come tipo di archiviazione primario. Vedere Configurare l'accesso a Data Lake Storage Gen1.
 
 4. In **Accesso a Data Lake Store** fare clic su **Seleziona** e continuare con la creazione del cluster come descritto in [Creare cluster Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 

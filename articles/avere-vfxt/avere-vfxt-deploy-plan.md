@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298926"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744657"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
@@ -37,6 +37,9 @@ Seguire queste linee guida per la pianificazione dell'infrastruttura di rete del
 * Posizionare i sistemi di calcolo client vicino al cluster vFXT. L'archiviazione back-end può avere una posizione più remota.  
 
 * Per semplicità, posizionare il cluster vFXT e la macchina virtuale controller del cluster nella stessa rete virtuale e nello stesso gruppo di risorse. Devono usare anche lo stesso account di archiviazione. Il controller del cluster consente di creare il cluster e può essere usato anche per la gestione del cluster da riga di comando.  
+
+  > [!NOTE] 
+  > Il modello di creazione del cluster può creare un nuovo gruppo di risorse e un nuovo account di archiviazione per il cluster. È possibile specificare un gruppo di risorse esistente, ma deve essere vuoto.
 
 * Il cluster deve essere posizionato nella relativa subnet per evitare conflitti di indirizzi IP con i client o le risorse di calcolo. 
 
@@ -117,7 +120,7 @@ Per informazioni dettagliate su queste opzioni, vedere la [documentazione di Ret
 
 Se si imposta un indirizzo IP pubblico nel controller del cluster, è possibile usarlo come host di collegamento per contattare il cluster Avere vFXT dall'esterno della subnet privata. Tuttavia, poiché il controller ha privilegi di accesso per la modifica dei nodi del cluster, si presenta un lieve rischio per la sicurezza.  
 
-Per migliorare la sicurezza con un indirizzo IP pubblico, usare un gruppo di sicurezza di rete per consentire l'accesso in ingresso solo tramite la porta 22.
+Per migliorare la sicurezza con un indirizzo IP pubblico, usare un gruppo di sicurezza di rete per consentire l'accesso in ingresso solo tramite la porta 22. Facoltativamente, è possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi IP di origine, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
 
 Quando si crea il cluster, è possibile scegliere se creare un indirizzo IP pubblico nel controller del cluster. 
 

@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157243"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818686"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Ottenere informazioni dettagliate sulle immagini con l'API Ricerca immagini Bing
 
@@ -221,7 +221,7 @@ I valori del rettangolo sono relativi alla larghezza e altezza dell'immagine ori
 -   Lato destro: 290/300 = 0,9667...  
 -   Lato inferiore: 150/200 = 0,75  
 
-È possibile usare l'area che Bing restituisce nelle chiamate successive di insights. Ad esempio, per ottenere immagini visivamente simili dell'entità riconosciuta. Per altre informazioni, vedere [Ritaglio di immagini da usare con moduli di riconoscimento di entità e visivamente simili](#croppingimages). Di seguito è mostrato il mapping tra i campi area e i parametri di query che si userebbero per ritagliare le immagini.  
+È possibile usare l'area che Bing restituisce nelle chiamate successive di insights. Ad esempio, per ottenere immagini visivamente simili dell'entità riconosciuta. Per altre informazioni, vedere Ritaglio di immagini da usare con moduli di riconoscimento di entità e visivamente simili. Di seguito è mostrato il mapping tra i campi area e i parametri di query che si userebbero per ritagliare le immagini.  
 
 -   Il mapping del lato sinistro è con [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Il mapping del lato superiore è con [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

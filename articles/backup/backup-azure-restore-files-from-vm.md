@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: ripristinare file e cartelle da un backup di macchine virtuali di Azure'
+title: 'Backup di Azure: Ripristinare file e cartelle da un backup di macchine virtuali di Azure'
 description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
 services: backup
 author: pvrk
@@ -8,13 +8,13 @@ keywords: ripristino a livello di elemento; ripristino di file da un backup di V
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
-ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pvrk
+ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638308"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488493"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -202,7 +202,7 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 
 Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
 
-|Componente | Version  |
+|Componente | Versione  |
 | --------------- | ---- |
 | bash | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
@@ -214,10 +214,10 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 
 | Messaggio di errore/scenario | Possibile causa | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
-| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
-| Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
-| Output di file exe: *Questo script non è valido perché è necessario smontare i dischi tramite il portale/è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
-| Nella macchina virtuale in cui viene eseguito il file con estensione exe: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non sono stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
-| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
+| Output del file EXE: *Eccezione di connessione alla destinazione* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
+| Output del file EXE: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
+| Output del file EXE: *Questo script non è valido perché è stato necessario smontare i dischi tramite il portale o è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
+| Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non sono stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
+| Output del file EXE: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta |
 | Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderlo online facendo clic con il pulsante destro del mouse sul disco e fare clic su "Online"|

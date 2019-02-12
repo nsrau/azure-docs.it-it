@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 91c4bc76a7753c7d51310fbe9b807f0969ca900c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 942d9a7b4160189d14ecdd85b21b2537d1a2a8d3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467289"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656363"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Guida introduttiva ad Azure Dev Spaces con Node.js
 
@@ -101,7 +101,7 @@ In questa sezione si creerà un'app Web Node.js e si eseguirà tale app in un co
 ### <a name="create-a-nodejs-web-app"></a>Creare un'app Web Node.js
 Scaricare il codice da GitHub passando a https://github.com/Azure/dev-spaces e selezionando **Clone or Download** (Clona o scarica) per scaricare il repository GitHub nell'ambiente locale. Il codice per questa guida è disponibile in `samples/nodejs/getting-started/webfrontend`.
 
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparazione del codice per lo sviluppo Docker e Kubernetes
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparare il codice per lo sviluppo in Docker e Kubernetes
 Fino a questo punto, si ha un'app Web di base che è possibile eseguire in locale. Ora si tratta di racchiuderla in un contenitore mediante la creazione di asset che definiscono il contenitore dell'applicazione e la modalità con cui verrà distribuita a Kubernetes. Questa operazione è semplice da eseguire con Azure Dev Spaces: 
 
 1. Avviare VS Code e aprire la cartella `webfrontend`. Le richieste, visualizzate per impostazione predefinita, di aggiungere risorse di debug o di ripristinare il progetto possono essere ignorate.
@@ -278,5 +278,5 @@ In questa configurazione, il contenitore è configurato per avviare *nodemon*. Q
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sui team di sviluppo](team-development-nodejs.md)
+> [Informazioni sullo sviluppo multiservizio](multi-service-nodejs.md)
 

@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3228783b3f827ddb0dce947c9c1894110bf41fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054827"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818771"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
@@ -317,6 +317,7 @@ Crea uno spazio dei nomi di tipo **EventHub** con un hub eventi e abilita anche 
             "partitionCount": "[parameters('partitionCount')]",
             "captureDescription": {
               "enabled": "true",
+              "skipEmptyArchives": false,
               "encoding": "[parameters('captureEncodingFormat')]",
               "intervalInSeconds": "[parameters('captureTime')]",
               "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -364,6 +365,7 @@ Crea uno spazio dei nomi di tipo **EventHub** con un hub eventi e abilita anche 
                         "path": "[parameters('eventHubName')]",
                         "captureDescription": {
                             "enabled": "true",
+                            "skipEmptyArchives": false,
                             "encoding": "[parameters('archiveEncodingFormat')]",
                             "intervalInSeconds": "[parameters('captureTime')]",
                             "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -383,6 +385,9 @@ Crea uno spazio dei nomi di tipo **EventHub** con un hub eventi e abilita anche 
         }
     ]
 ```
+
+> [!NOTE]
+> È possibile abilitare o disabilitare la creazione di file vuoti quando non si verificano eventi durante l'intervallo di acquisizione mediante la proprietà **skipEmptyArchives**. 
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
 

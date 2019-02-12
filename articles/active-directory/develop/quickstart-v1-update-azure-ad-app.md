@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093309"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819094"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Guida introduttiva: Aggiornare un'applicazione in Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Avvio rapido: Aggiornare un'applicazione in Azure Active Directory
 
 Gli sviluppatori aziendali e i provider di software-as-a-service (SaaS) che hanno effettuato la registrazione delle applicazioni con Azure Active Directory (Azure AD) potrebbero dover configurare le applicazioni per accedere ad altre risorse, ad esempio le API Web, renderle disponibili in altre organizzazioni e altro ancora.
 
@@ -156,7 +156,7 @@ Quando si registra un'applicazione in Azure AD, potrebbe essere necessario conse
 È importante notare le differenze tra un'applicazione a tenant singolo e un'applicazione multi-tenant:  
 
 - Un'applicazione a tenant singolo è destinata all'uso in un'organizzazione. In genere si tratta di un'applicazione line-of-business scritta da uno sviluppatore aziendale. Un'applicazione a tenant singolo è accessibile solo dagli utenti che hanno un account nello stesso tenant in cui l'applicazione è registrata. Di conseguenza è necessario eseguirne il provisioning solo in una directory.
-- Un'applicazione multi-tenant è destinata all'uso in più organizzazioni. È indicata come applicazione Web SaaS (Software-as-a-Service) ed è scritta in genere da un fornitore di software indipendente (ISV). Per le applicazioni multi-tenant è necessario eseguirne il provisioning in ogni tenant a cui gli utenti devono accedere. Per i tenant diversi da quello in cui l'applicazione è registrata, è richiesto il consenso dell'utente o dell'amministratore per la loro registrazione. Si noti che, per impostazione predefinita, le applicazioni client native sono multi-tenant perché sono installate nel dispositivo del proprietario della risorsa. Per altri dettagli sul framework di consenso, vedere la precedente sezione [Panoramica del framework di consenso](#overview-of-the-consent-framework).
+- Un'applicazione multi-tenant è destinata all'uso in più organizzazioni. È indicata come applicazione Web SaaS (Software-as-a-Service) ed è scritta in genere da un fornitore di software indipendente (ISV). Per le applicazioni multi-tenant è necessario eseguirne il provisioning in ogni tenant a cui gli utenti devono accedere. Per i tenant diversi da quello in cui l'applicazione è registrata, è richiesto il consenso dell'utente o dell'amministratore per la loro registrazione. Si noti che, per impostazione predefinita, le applicazioni client native sono multi-tenant perché sono installate nel dispositivo del proprietario della risorsa. Per altri dettagli sul framework di consenso, vedere la precedente sezione Panoramica del framework di consenso.
 
 Per ottenere che un'applicazione diventi multi-tenant, sono necessarie sia modifiche alla registrazione dell'applicazione sia modifiche all'applicazione Web stessa. Le sezioni seguenti trattano entrambe le procedure.
 
@@ -184,7 +184,7 @@ Il supporto per le applicazioni multi-tenant si basa principalmente sul framewor
 L'applicazione Web può offrire anche:
 
 - La possibilità per gli amministratori di "iscriversi alla società". Questa esperienza, detta "consenso dell'amministratore", dà a un amministratore la possibilità di concedere il consenso per conto di *tutti gli utenti* della propria organizzazione. Solo un utente che esegue l'autenticazione con un account che appartiene al ruolo Amministratore globale può fornire il consenso dell'amministratore; gli altri riceveranno un errore.
-- Esperienza di iscrizione per gli utenti. È previsto che sia fornito all'utente il pulsante "iscrizione" che reindirizzerà il browser all'endpoint `/authorize` OAuth 2.0 di Azure AD o a un endpoint `/userinfo` OpenID Connect. Questi endpoint consentono all'applicazione di ottenere informazioni sul nuovo utente controllando il valore id_token. Durante la fase di iscrizione viene presentata all'utente una richiesta di consenso simile a quella visualizzata nella sezione [Panoramica del framework di consenso](#overview-of-the-consent-framework).
+- Esperienza di iscrizione per gli utenti. È previsto che sia fornito all'utente il pulsante "iscrizione" che reindirizzerà il browser all'endpoint `/authorize` OAuth 2.0 di Azure AD o a un endpoint `/userinfo` OpenID Connect. Questi endpoint consentono all'applicazione di ottenere informazioni sul nuovo utente controllando il valore id_token. Durante la fase di iscrizione viene presentata all'utente una richiesta di consenso simile a quella visualizzata nella sezione Panoramica del framework di consenso.
 
 Per altre informazioni sulle modifiche dell'applicazione necessarie per supportare l'accesso multi-tenant e le esperienze di accesso/iscrizione, vedere:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105237"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822562"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -260,7 +260,7 @@ L'impostazione `databases` può essere configurata solo durante la creazione del
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Per altre informazioni sulla proprietà `databases`, vedere [Configurazione predefinita del server Cache Redis di Azure](cache-configure.md#default-redis-server-configuration). Per altre informazioni sulla creazione di una cache con il cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0), vedere la sezione precedente [Come creare una cache Redis di Azure](#to-create-a-redis-cache).
+Per altre informazioni sulla proprietà `databases`, vedere [Configurazione predefinita del server Cache Redis di Azure](cache-configure.md#default-redis-server-configuration). Per altre informazioni sulla creazione di una cache con il cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0), vedere la sezione precedente Come creare una cache Redis di Azure.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Come aggiornare un'istanza di Cache Redis di Azure
 Le nuove istanze della Cache Redis di Azure vengono aggiornate con il cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0).

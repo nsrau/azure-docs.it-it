@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184543"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497418"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Risoluzione degli errori di registrazione del provider di risorse
 
 Questo articolo descrive gli errori che potrebbero verificarsi quando si usa un provider di risorse che non è già stato usato nella sottoscrizione.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Sintomo
 
@@ -53,28 +55,28 @@ Questi errori vengono visualizzati per uno di questi tre motivi:
 
 ## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 
-Per visualizzare lo stato della registrazione in PowerShell usare **Get-AzureRmResourceProvider**.
+Per visualizzare lo stato della registrazione in PowerShell usare **Get-AzResourceProvider**.
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-Per registrare un provider, usare **Register-AzureRmResourceProvider** e specificare il nome del provider di risorse da registrare.
+Per registrare un provider, usare **Register-AzResourceProvider** e specificare il nome del provider di risorse da registrare.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 Per ottenere i percorsi supportati per un tipo di risorsa particolare è possibile usare:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 Per ottenere le versioni di API supportate per un tipo di risorsa particolare è possibile usare:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## <a name="solution-2---azure-cli"></a>Soluzione 2: interfaccia della riga di comando di Azure

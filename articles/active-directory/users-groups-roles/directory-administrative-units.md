@@ -1,5 +1,5 @@
 ---
-title: Anteprima della gestione delle unità amministrative in Azure Active Directory
+title: Gestione delle unità amministrative (anteprima) - Azure Active Directory | Microsoft Docs
 description: Utilizzo delle unità amministrative per la delega più granulare delle autorizzazioni in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/17/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52b71e557ade54cdefd349b8981100210833185a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181198"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508454"
 ---
-# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gestione delle unità amministrative in Azure AD - Anteprima pubblica
-Questo articolo descrive le unità amministrative, un nuovo contenitore di risorse di Azure Active Directory che può essere usato per la delega di autorizzazioni amministrative su subset di utenti e per l'applicazione di criteri a un subset di utenti. In Azure Active Directory, le unità amministrative consentono agli amministratori centrali di delegare le autorizzazioni agli amministratori regionali o di impostare criteri a livello dettagliato.
+# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gestione delle unità amministrative in Azure Active Directory (anteprima pubblica)
+
+Questo articolo descrive le unità amministrative, un nuovo contenitore di risorse di Azure Active Directory (Azure AD) che può essere usato per la delega di autorizzazioni amministrative su subset di utenti e per l'applicazione di criteri a un subset di utenti. In Azure Active Directory, le unità amministrative consentono agli amministratori centrali di delegare le autorizzazioni agli amministratori regionali o di impostare criteri a livello dettagliato.
 
 Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, una grande università è costituita da molte scuole autonome (facoltà di gestione aziendale, facoltà di ingegneria, ecc.) indipendenti tra loro. Tali divisioni dispongono dei propri amministratori IT che controllano l'accesso, gestiscono gli utenti e impostano i criteri in modo specifico per la propria facoltà. Gli amministratori centrali desiderano essere in grado di concedere a questi amministratori di divisione autorizzazioni sugli utenti delle proprie divisioni. In particolare, utilizzando questo esempio, un amministratore centrale può, ad esempio, creare un'unità amministrativa per una facoltà particolare (facoltà di gestione aziendale) e popolarla con solo gli utenti della facoltà. Quindi un amministratore centrale può aggiungere il personale IT della facoltà di gestione aziendale a un ruolo con ambito, ovvero, concedere al personale IT della facoltà di gestione aziendale autorizzazioni amministrative solo per l'unità amministrativa della facoltà.
 

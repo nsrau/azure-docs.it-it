@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199631"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693788"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
@@ -135,7 +135,7 @@ Un endpoint il cui stato è Degraded non viene restituito nella risposta alle qu
 * **Ponderato**. Viene scelto in modo casuale uno degli endpoint disponibili, in base ai pesi assegnati e ai pesi degli altri endpoint disponibili.
 * **Prestazioni**. Viene restituito l'endpoint più vicino all'utente finale. Se l'endpoint non è disponibile, Gestione traffico sposta il traffico sugli endpoint dell'area di Azure più vicina. È possibile configurare piani di failover alternativi per il routing del traffico con il metodo Prestazioni usando [profili di Gestione traffico nidificati](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografico**. Viene restituito l'endpoint mappato per fornire la posizione geografica in base all'IP della richiesta di query. Se tale endpoint non è disponibile, non verrà selezionato un altro endpoint per eseguire il failover, poiché un'area geografica può essere mappata solo a un endpoint in un profilo. Per altre informazioni, vedere le [domande frequenti](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method). Come procedura consigliata, quando si usa il routing geografico, si consiglia ai clienti di usare profili di Gestione traffico annidati con più di un endpoint come endpoint del profilo.
-* **Multivalore**. Vengono restituiti più endpoint mappati agli indirizzi IPv4 e IPv6. Quando viene ricevuta una query per questo profilo, vengono restituiti gli endpoint integri in base al valore specificato per **Numero massimo di record nella risposta**. Il numero predefinito di risposte è due endpoint.
+* **MultiValue**. Vengono restituiti più endpoint associati agli indirizzi IPv4 e IPv6. Quando viene ricevuta una query per questo profilo, vengono restituiti gli endpoint integri in base al valore specificato per **Numero massimo di record nella risposta**. Il numero predefinito di risposte è due endpoint.
 * **Subnet**. Viene restituito l'endpoint mappato a un set di intervalli di indirizzi IP. Quando viene ricevuta una richiesta dall'indirizzo IP, l'endpoint restituito è quello mappato per tale indirizzo IP. 
 
 Per altre informazioni, vedere [Metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).

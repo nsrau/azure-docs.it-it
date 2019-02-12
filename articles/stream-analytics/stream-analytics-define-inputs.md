@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099733"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694636"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -26,7 +26,7 @@ Analisi di flusso si integra perfettamente con i flussi dei dati di Azure come i
 Queste risorse di input possono trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.
 
 ### <a name="compression"></a>Compressione
-Analisi di flusso supporta la compressione tra tutte le origini di input del flusso dei dati. I tipi riferimento attualmente supportati sono: compressione GZip, Deflate e nessuna. Il supporto per la compressione non è disponibile per i dati di riferimento. Se il formato di input è dati Avro compressi, viene gestito in modo trasparente. Non è necessario specificare il tipo di compressione con la serializzazione Avro. 
+Analisi di flusso supporta la compressione tra tutte le origini di input del flusso dei dati. Tipi di compressione attualmente supportati: compressione GZip, Deflate e nessuna. Il supporto per la compressione non è disponibile per i dati di riferimento. Se il formato di input è dati Avro compressi, viene gestito in modo trasparente. Non è necessario specificare il tipo di compressione con la serializzazione Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
 È possibile usare il [portale di Azure](https://portal.azure.com) per [creare nuovi input](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) dai dati di esempio. Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Quando si usa Hub eventi come un endpoint delle route dell'hub IoT, è possibile accedere ai metadati dell'hub IoT usando la funzione [GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> Quando si usa Hub eventi come un endpoint delle route dell'hub IoT, è possibile accedere ai metadati dell'hub IoT usando la [funzione GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Dati del flusso dall'hub IoT

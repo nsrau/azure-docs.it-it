@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720663"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754558"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -29,7 +29,7 @@ In altre esercitazioni l'applicazione Azure Vote viene distribuita nel cluster, 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare dall'[Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
+Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro Azure Container. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare dall'[Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
 
 Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
@@ -67,10 +67,10 @@ Ottenere prima l'ID della risorsa di Registro Azure Container usando [az acr sho
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Per concedere l'accesso corretto al cluster servizio Azure Kubernetes per l'uso delle immagini archiviate in Registro Azure Container, creare un'assegnazione di ruolo usando il comando [az role assignment create][]. Sostituire `<appId`> e `<acrId>` con i valori raccolti nei due passaggi precedenti.
+Per concedere l'accesso corretto al cluster del servizio Azure Kubernetes per eseguire il pull delle immagini archiviate in Registro Azure Container, assegnare il ruolo `AcrPull` usando il comando [az role assignment create][]. Sostituire `<appId`> e `<acrId>` con i valori raccolti nei due passaggi precedenti.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Creare un cluster Kubernetes
@@ -103,7 +103,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Connettersi al cluster usando kubectl
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. L'esempio seguente ottiene le credenziali per il cluster AKS denominato *myAKSCluster* in *myResourceGroup*:
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][]. L'esempio seguente ottiene le credenziali per il cluster AKS denominato *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -146,5 +146,5 @@ Passare all'esercitazione successiva per informazioni su come distribuire un'app
 [az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
 [az servizio Azure Kubernetes create]: /cli/azure/aks#az-aks-create
 [az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli

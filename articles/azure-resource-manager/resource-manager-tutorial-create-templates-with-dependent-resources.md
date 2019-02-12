@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9565401ba40f9a87db4f62e66f3d1ea6d0d2b954
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614651"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491757"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -35,6 +35,8 @@ Questa esercitazione illustra le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
@@ -45,7 +47,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -145,8 +147,8 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazion
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
@@ -157,7 +159,7 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazion
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     Il nome della macchina virtuale è hardcoded come **SimpleWinVM** nel modello.

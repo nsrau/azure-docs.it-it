@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669478"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809164"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montare il cluster Avere vFXT  
 
 Seguire questa procedura per connettere i computer client al cluster vFXT.
 
 1. Decidere come bilanciare il carico del traffico client tra i nodi del cluster. Leggere [Bilanciare il carico del client](#balance-client-load) di seguito per maggiori dettagli. 
-1. Identificare l'[indirizzo IP e il percorso di giunzione](#identify-ip-addresses-and-paths-to-mount) da montare.
+1. Identificare l'indirizzo IP e il percorso di giunzione da montare.
 1. Eseguire il [comando mount](#mount-command-arguments) con gli argomenti appropriati.
 
 ## <a name="balance-client-load"></a>Bilanciare il carico del client
@@ -68,7 +68,7 @@ Dal client, il comando ``mount`` esegue il mapping del server virtuale (vserver)
 
 Il comando mount è costituito da tre elementi: 
 
-* percorso vFXT - combinazione di indirizzo IP e percorso della giunzione dello spazio dei nomi descritta [di seguito](#junction-and-ip-address)
+* percorso vFXT - combinazione di indirizzo IP e percorso della giunzione dello spazio dei nomi descritta di seguito
 * percorso locale - percorso nel client 
 * opzioni del comando mount - elencate in [Argomenti del comando mount](#mount-command-arguments)
 

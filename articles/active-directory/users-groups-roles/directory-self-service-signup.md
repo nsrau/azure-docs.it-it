@@ -1,5 +1,5 @@
 ---
-title: Iscrizione self-service o di prova in Azure Active Directory | Microsoft Docs
+title: Aggiungere utenti tramite l'iscrizione self-service o di prova - Azure Active Directory | Microsoft Docs
 description: Usare l'iscrizione self-service in un tenant di Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195818"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506771"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
+
 Questo articolo descrive il processo di iscrizione self-service e come supportarlo in Azure Active Directory (Azure AD). Se si intende sostituire un nome di dominio da un tenant di Azure AD non gestito, vedere [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Sostituire una directory non gestita come amministratore).
 
 ## <a name="why-use-self-service-signup"></a>Perché usare l'iscrizione self-service?

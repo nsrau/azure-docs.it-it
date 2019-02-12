@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542833"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813909"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
@@ -66,7 +66,7 @@ Il livello di elevazione dei privilegi dell'account utente indica se un'attivit�
 
 Per impostazione predefinita, in Batch le attività vengono eseguite con un account utente automatico, come utente standard senza accesso con privilegi elevati e con un ambito di attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
 
-L'alternativa all'ambito di attività è l'ambito di pool. Quando per l'ambito di pool è configurata la specifica di utente automatico, l'attività viene eseguita con un account di questo tipo disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito di pool, vedere la sezione [Eseguire un'attività con l'account utente automatico con ambito di pool](#run-a-task-as-the-autouser-with-pool-scope).   
+L'alternativa all'ambito di attività è l'ambito di pool. Quando per l'ambito di pool è configurata la specifica di utente automatico, l'attività viene eseguita con un account di questo tipo disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito di pool, vedere la sezione Eseguire un'attività come utente automatico con ambito di pool.   
 
 L'ambito predefinito è diverso in nodi Windows e Linux:
 

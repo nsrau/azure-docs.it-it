@@ -11,25 +11,30 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822613"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a Internet tramite il gateway di Log Analytics
+
+>[!NOTE]
+>In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, il gateway OMS verrà denominato gateway di Log Analytics. 
+>
+
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway di Log Analytics quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway di Log Analytics, ovvero un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e a Log Analytics per conto dei computer.  
 
-Il gateway di Log Analytics supporta quanto segue:
+Il gateway di Log Analytics gli elementi seguenti:
 
 * Invio di informazioni alle stesse quattro aree di lavoro di Log Analytics con cui sono configurati gli agenti dietro il gateway  
 * Funzionalità Hybrid Runbook Workers di Automazione di Azure  
 * Computer Windows con Microsoft Monitoring Agent direttamente connesso a un'area di lavoro di Log Analytics
 * Computer Linux con l'agente di Log Analytics per Linux direttamente connesso a un'area di lavoro di Log Analytics  
-* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, Operations Manager 2016 e il gruppo di gestione di Operations Manager versione 1801 integrato con Log Analytics.  
+* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, Operations Manager 2016 o gruppo di gestione successivo integrato con Log Analytics.  
 
 Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, ad esempio dispositivi POS o server che supportano servizi IT, ma è necessario connetterli ad Automazione di Azure o Log Analytics per gestirli e monitorarli, è possibile configurarli in modo che comunichino direttamente con il gateway di Log Analytics per ricevere la configurazione e inoltrare i dati per conto dei computer.  Se tali computer sono configurati con l'agente di Log Analytics in modo che si connettano direttamente a un'area di lavoro di Log Analytics, tutti i computer comunicheranno invece con il gateway di Log Analytics.  Il gateway trasferisce i dati dagli agenti direttamente al servizio senza analizzare i dati in transito.
 
@@ -146,7 +151,7 @@ Per conoscere i requisiti e la procedura di installazione dell'agente di Log Ana
 
 Dopo aver installato l'agente nel server gateway, è possibile configurarlo in modo da inviare informazioni agli agenti delle aree di lavoro che comunicano con il gateway. Se l'agente di Log Analytics per Windows non è installato nel gateway, nel **log del gateway OMS** viene scritto l'evento 300 per segnalare che è necessaria l'installazione. Se l'agente è installato ma non è configurato per inviare informazioni alla stessa area di lavoro degli agenti che comunicano attraverso di esso, nello stesso registro eventi viene scritto l'evento 105 per indicare che l'agente nel gateway deve essere configurato in modo da inviare informazioni alla stessa area di lavoro degli agenti che comunicano con il gateway.
 
-Al termine della configurazione, è necessario riavviare il servizio **Gateway OMS** per rendere effettive le modifiche. In caso contrario, il gateway rifiuterà gli agenti che provano a comunicare con Log Analytics e segnalerà l'ID evento 105 nel **log del gateway OMS**. Questo vale anche quando si aggiunge o si rimuove un'area di lavoro nel file di configurazione dell'agente nel server gateway.   
+Al termine della configurazione, è necessario riavviare il servizio **Gateway OMS** per rendere effettive le modifiche. In caso contrario, il gateway rifiuterà gli agenti che provano a comunicare con Log Analytics e segnalerà l'ID evento 105 nel log eventi **Log del gateway OMS**. Questo vale anche quando si aggiunge o si rimuove un'area di lavoro nel file di configurazione dell'agente nel server gateway.   
 
 Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md).
 

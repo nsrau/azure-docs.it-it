@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26578874"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822307"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
@@ -34,7 +34,7 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 I volumi di StorSimple possono essere:
 
 * **Volumi aggiunti in locale**: i dati in questi volumi rimangono sempre nel dispositivo StorSimple locale.
-* **Volumi a livelli**: i dati in questi volumi essere distribuiti nel cloud.
+* **Volumi a livelli**: i dati in questi volumi possono essere distribuiti nel cloud.
 
 Un volume di archivio è un tipo di volume a livelli. La maggiore dimensione del blocco di deduplicazione usata per i volumi di archivio consente al dispositivo di trasferire nel cloud segmenti di dati più grandi.
 
@@ -120,9 +120,9 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host). Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
+    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Create**(Crea). Verrà creato un volume con le impostazioni specificate.
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Fare clic su Crea](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 Il volume è pronto per l'utilizzo.
 
@@ -303,7 +303,7 @@ Completare la procedura seguente per eliminare un volume.
    > [!NOTE]
    > Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio Gestione dispositivi StorSimple aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.
    >
-   > Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+   >  Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
 
 ## <a name="monitor-a-volume"></a>Monitorare a volume
 

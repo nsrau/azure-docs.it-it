@@ -1,6 +1,6 @@
 ---
 title: Come bloccare l’autenticazione legacy per Azure Active Directory (Azure AD) con l’accesso condizionale | Microsoft Docs
-description: Informazioni su come configurare un criterio di accesso condizionale in Azure Active Directory (Azure AD) per i tentativi di accesso da reti non attendibili.
+description: Informazioni su come migliorare il comportamento di sicurezza, bloccando l'autenticazione legacy tramite l'accesso condizionale di Azure AD.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076844"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562981"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l’autenticazione legacy per Azure AD con accesso condizionale   
 
 Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. Tuttavia, i protocolli legacy non supportano l'autenticazione a più fattori (MFA). La MFA è in molti ambienti un requisito comune contro il furto di identità di indirizzo. 
+
 
 Se l'ambiente è pronto per bloccare l'autenticazione legacy per migliorare la protezione dei tenant, è possibile farlo con l’accesso condizionale. Questo articolo spiega come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per i tenant.
 
@@ -119,8 +120,7 @@ Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
 È possibile selezionare tutti i controlli di concessione disponibili per l'altra condizione dei client; tuttavia, l'esperienza dell’utente finale è sempre la stessa, l'accesso è bloccato.
 
-È possibile configurare tutte le altre condizioni accanto alla condizione degli altri client.
-Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
+Se si blocca l'autenticazione legacy usando l'altra condizione dei client, è anche possibile impostare la condizione della piattaforma e del percorso del dispositivo. Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
 
 - Android
 

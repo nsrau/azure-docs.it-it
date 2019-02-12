@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: database SQL di Azure - Archivio certificati di Windows | Documentazione Microsoft'
+title: 'Always Encrypted: Database SQL di Azure - Archivio certificati di Windows | Microsoft Docs'
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database usando la procedura guidata Always Encrypted di SQL Server Management Studio (SSMS). Descrive anche l'archiviazione delle chiavi di crittografia nell'archivio certificati di Windows.
 keywords: crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva
 services: sql-database
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231720"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754872"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteggere i dati sensibili e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
@@ -47,7 +47,7 @@ Per questa esercitazione occorrono:
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa** > **Dati + Archiviazione** > **Database SQL**.
-3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate sulla creazione di un database nel portale di Azure, vedere [Primo database SQL di Azure](sql-database-get-started-portal.md).
+3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate sulla creazione di un database nel portale di Azure, vedere [Primo database SQL di Azure](sql-database-single-database-get-started.md).
    
     ![Creazione di un database vuoto](./media/sql-database-always-encrypted/create-database.png)
 
@@ -98,7 +98,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
    
     ![Crittografa colonne](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
+La procedura guidata Always Encrypted contiene le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
 
 ### <a name="column-selection"></a>Selezione colonne
 Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne**. In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) da usare.

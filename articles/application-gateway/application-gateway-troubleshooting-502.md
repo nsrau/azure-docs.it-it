@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356036"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819451"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
@@ -28,11 +28,11 @@ Informazioni su come risolvere gli errori di gateway non valido (502) ricevuti d
 
 ## <a name="overview"></a>Panoramica
 
-Dopo aver configurato un gateway applicazione, uno degli errori che gli utenti possono riscontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Questo errore può verificarsi a causa dei principali motivi seguenti:
+Dopo aver configurato un gateway applicazione, uno degli errori che si possono riscontrare è "Errore del Server: 502 - Il server Web, in funzione come gateway o proxy, ha ricevuto una risposta non valida". Questo errore può verificarsi a causa dei principali motivi seguenti:
 
 * Un gruppo di sicurezza di rete, una route definita dall'utente o un DNS personalizzato sta bloccando l'accesso ai membri del pool back-end.
-* Le macchine virtuali back-end o le istanze del set di scalabilità di macchine virtuali [non rispondono al probe di integrità predefinito](#problems-with-default-health-probe.md).
-* [Configurazione dei probe di integrità personalizzati](#problems-with-custom-health-probe.md) non valida o inappropriata.
+* Le macchine virtuali back-end o le istanze del set di scalabilità di macchine virtuali non rispondono al probe di integrità predefinito.
+* Configurazione non valida o inappropriata dei probe di integrità personalizzati.
 * Il [pool back-end del gateway applicazione di Azure non è configurato o è vuoto](#empty-backendaddresspool).
 * Nessuna delle macchine virtuali o delle istanze nel [set di scalabilità di macchine virtuali è integra](#unhealthy-instances-in-backendaddresspool).
 * [Problemi di timeout della richiesta o di connettività](#request-time-out) con le richieste degli utenti.

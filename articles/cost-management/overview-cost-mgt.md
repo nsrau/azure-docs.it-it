@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997114"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768658"
 ---
 # <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
 
-Gestione costi è il processo con consente di pianificare e controllare i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni con contratti Microsoft Enterprise (EA) di pianificare tenendo in considerazione i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
+Gestione costi è il processo con consente di pianificare e controllare i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni di pianificare tenendo presenti i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
 
 Anche se correlate, le operazioni di fatturazione e di gestione dei costi sono differenti. La fatturazione è il processo di invio di fatture ai clienti per di merci o servizi e di gestione delle relazioni commerciali.  I team di approvvigionamento e quello finanziario svolgono solitamente le attività di fatturazione.
 

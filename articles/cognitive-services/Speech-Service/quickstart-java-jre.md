@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 86a57704b20790628a89bce0f8cda4e0599fd103
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9185d8d236b2a3283cf5a542002adadd0ac74686
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220570"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820539"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -41,6 +41,10 @@ Se si esegue Ubuntu 16.04/18.04, assicurarsi che queste dipendenze siano install
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ```
+
+Se si esegue Windows (64 bit) assicurarsi di avere installato Microsoft Visual C++ Redistributable per la piattaforma in uso.
+* [Scaricare Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
 
 ## <a name="create-and-configure-project"></a>Creare e configurare un progetto
 

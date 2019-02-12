@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966827"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700741"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -53,7 +53,7 @@ Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP
 |---|---|---|
 |Macchine virtuali| L'associazione di IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si tratta di inserire nell'elenco elementi consentiti gli indirizzi IP di un firewall. È possibile consentire un intero prefisso con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. [Associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Servizi di bilanciamento del carico | L'associazione di indirizzi IP pubblici da un prefisso alla configurazione IP del front-end o la regola in uscita di un Load Balancer garantisce la semplificazione dello spazio di indirizzi IP pubblici di Azure. È possibile semplificare lo scenario preparando le connessioni in uscita in modo che siano originate da un intervallo di indirizzi IP contigui definito dal prefisso IP pubblico. | Per associare gli indirizzi IP da un prefisso a un Load Balancer: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si crea il Load Balancer, selezionare o aggiornare l'indirizzo IP creato nel passaggio 2 precedente come indirizzo IP front-end del Load Balancer. |
-| Firewall di Azure | È possibile usare un indirizzo IP pubblico da un prefisso per lo SNAT in uscita. Ciò significa che tutto il traffico della rete virtuale in uscita viene traslato nell'indirizzo IP pubblico [Firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Poiché questo indirizzo IP proviene da un prefisso predeterminato, è molto semplice sapere in anticipo quale sarà l'aspetto del footprint dell'IP pubblico in Azure. | 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si [distribuisce il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), assicurarsi di selezionare l'indirizzo IP antecedentemente allocato dal prefisso.|
+| Firewall di Azure | È possibile usare un indirizzo IP pubblico da un prefisso per lo SNAT in uscita. Ciò significa che tutto il traffico della rete virtuale in uscita viene traslato nell'indirizzo IP pubblico [Firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Poiché questo indirizzo IP proviene da un prefisso predeterminato, è molto semplice sapere in anticipo quale sarà l'aspetto del footprint dell'IP pubblico in Azure. | 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si [distribuisce il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), assicurarsi di selezionare l'indirizzo IP allocato in precedenza dal prefisso.|
 
 ## <a name="constraints"></a>Vincoli
 

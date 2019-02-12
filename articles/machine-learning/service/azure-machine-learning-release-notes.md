@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1cf2f25ab96fde342244c99029db6a96c72a5681
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473103"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564341"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -52,6 +52,7 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
     - Box plot
     - Grafico a dispersione
     - Grafico a bolle
++ Il portale a questo punto genera in modo dinamico i report per gli esperimenti. Quando un utente invia un'esecuzione a un esperimento, verrà generato automaticamente un report contenente i grafici e le metriche registrate per consentire il confronto tra diverse esecuzioni. 
 
 ## <a name="2019-01-14"></a>14-01-2019
 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191252"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817547"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
@@ -42,7 +42,7 @@ La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sinc
 | Importa connettore |Non usare. |
 | Aggiorna connettore |Non usare. |
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
-| [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e [seguire un oggetto e i relativi dati attraverso il sistema](#follow-an-object-and-its-data-through-the-system). |
+| [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e seguire un oggetto e i relativi dati attraverso il sistema. |
 
 ### <a name="delete"></a>Delete
 L'azione di eliminazione viene usata per due scopi diversi.  

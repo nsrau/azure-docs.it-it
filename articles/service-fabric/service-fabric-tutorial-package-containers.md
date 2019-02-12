@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255558"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512366"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
 Questa è la seconda di una serie di esercitazioni. In questa esercitazione viene usato uno strumento generatore di modelli (Yeoman) per generare una definizione di applicazione di Service Fabric. Questa applicazione può quindi essere usata per distribuire i contenitori in Service Fabric. In questa esercitazione si apprenderà come:
 
@@ -70,7 +70,7 @@ Service Fabric offre gli strumenti di scaffolding per la creazione di applicazio
     ```
 2. Digitare "TestContainer" per assegnare un nome all'applicazione.
 3. Digitare "azurevotefront" per assegnare un nome al servizio dell'applicazione.
-4. Specificare il percorso dell'immagine del contenitore nel Registro contenitori di Azure del repository frontend, ad esempio '\<acrName>.azurecr.io/azure-vote-front:v1'. Il valore del campo \<acrName> deve essere uguale a quello usato nell'esercitazione precedente.
+4. Specificare il percorso dell'immagine del contenitore in Registro Azure Container del repository frontend, ad esempio '\<acrName&gt;.azurecr.io/azure-vote-front:v1'. Il valore del campo \<acrName> deve essere uguale a quello usato nell'esercitazione precedente.
 5. Premere INVIO per lasciare vuota la sezione dei comandi.
 6. Specificare 1 come numero di istanze.
 
@@ -227,28 +227,53 @@ A questo punto dell'esercitazione il modello di un'applicazione del pacchetto di
 
 ## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
 
-Per distribuire l'applicazione in un cluster di Azure, creare un cluster personale.
+Per distribuire l'applicazione in Azure, è necessario un cluster di Service Fabric per eseguire l'applicazione. I comandi seguenti creano un cluster con cinque nodi in Azure.  Creano inoltre un certificato autofirmato, lo aggiungono a un insieme di credenziali delle chiavi e lo scaricano in locale come file PEM. Il nuovo certificato viene usato per proteggere il cluster in fase di distribuzione e per l'autenticazione dei client.
 
-I party cluster sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure. Sono gestiti dal team di Service Fabric e consentono a chiunque di distribuirvi applicazioni e imparare a usare la piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](https://aka.ms/tryservicefabric).
+```azurecli
+#!/bin/bash
 
-Per eseguire operazioni di gestione sul cluster di entità sicuro, è possibile usare Service Fabric Explorer, l'interfaccia della riga di comando o PowerShell. Per usare Service Fabric Explorer, sarà necessario scaricare il file PFX dal sito Web del cluster di entità e importare il certificato nell'archivio certificati (Windows o Mac) oppure nel browser stesso (Ubuntu). Non sono previste password per i certificati autofirmati dal cluster di entità.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Per eseguire operazioni di gestione con PowerShell o con l'interfaccia della riga di comando, sarà necessario il file PFX (PowerShell) o il file PEM (interfaccia della riga di comando). Per convertire il file PFX in un file PEM, eseguire il comando seguente:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+> [!Note]
+> Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 80. Per impostazione predefinita, la porta 80 è aperta nelle VM del cluster e nel servizio di bilanciamento del carico di Azure.
+>
+
+Per altre informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Compilare e distribuire l'applicazione nel cluster
 
 È possibile distribuire l'applicazione nel cluster di Azure usando l'interfaccia della riga di comando di Service Fabric. Se l'interfaccia della riga di comando di Service Fabric non è installata nel computer, seguire le istruzioni indicate [qui](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) per installarla.
 
-Connettersi al cluster di Service Fabric in Azure. Sostituire l'endpoint di esempio con il proprio. L'endpoint deve essere un URL completo, simile al seguente.
+Connettersi al cluster di Service Fabric in Azure. Sostituire l'endpoint di esempio con il proprio. L'endpoint deve essere un URL completo, simile al seguente.  Il file PEM è il certificato autofirmato creato in precedenza.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Usare lo script di installazione fornito nella directory **TestContainer** per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo e creare un'istanza dell'applicazione.
@@ -257,11 +282,11 @@ Usare lo script di installazione fornito nella directory **TestContainer** per c
 ./install.sh
 ```
 
-Aprire un Web browser e passare a Service Fabric Explorer in http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Espandere il nodo delle applicazioni, nel quale sarà presente una voce per il tipo di applicazione e un'altra per l'istanza.
+Aprire un Web browser e passare a Service Fabric Explorer in http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Espandere il nodo delle applicazioni, nel quale sarà presente una voce per il tipo di applicazione e un'altra per l'istanza.
 
 ![Service Fabric Explorer][sfx]
 
-Per connettersi all'applicazione in esecuzione, aprire un Web browser e passare all'URL del cluster, ad esempio http://lin0823ryf2he.cloudapp.azure.com:80. Viene visualizzata l'applicazione di voto nell'interfaccia utente Web.
+Per connettersi all'applicazione in esecuzione, aprire un Web browser e passare all'URL del cluster, ad esempio http://containertestcluster.eastus.cloudapp.azure.com:80. Viene visualizzata l'applicazione di voto nell'interfaccia utente Web.
 
 ![votingapp][votingapp]
 

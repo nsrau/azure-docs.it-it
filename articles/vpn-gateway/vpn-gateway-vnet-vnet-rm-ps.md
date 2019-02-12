@@ -1,5 +1,5 @@
 ---
-title: "Connettere una rete virtuale di Azure a un'altra rete virtuale tramite una connessione da rete virtuale a rete virtuale: PowerShell | Microsoft Docs"
+title: "Connettere una rete virtuale Azure a un'altra rete virtuale con una connessione da rete virtuale a rete virtuale: PowerShell | Microsoft Docs"
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686960"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695516"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -68,11 +68,11 @@ La differenza principale tra le due è costituita dal fatto che quando si config
 
 Per questo esercizio è possibile combinare le configurazioni oppure sceglierne una da usare. Tutte le configurazioni usano il tipo di connessione da rete virtuale a rete virtuale. Il traffico di rete viene trasmesso tra le reti virtuali connesse direttamente tra loro. In questo esercizio, il traffico da TestVNet4 non viene indirizzato a TestVNet5.
 
-* [Reti virtuali che si trovano nella stessa sottoscrizione](#samesub): la procedura per questa configurazione usa TestVNet1 e TestVNet4.
+* [Reti virtuali che si trovano nella stessa sottoscrizione](#samesub): Nei passaggi per questa configurazione si usano TestVNet1 e TestVNet4.
 
   ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Reti virtuali che si trovano in sottoscrizioni diverse](#difsub): la procedura per questa configurazione usa TestVNet1 e TestVNet5.
+* [Reti virtuali che si trovano in sottoscrizioni diverse](#difsub): nei passaggi per questa configurazione si usano TestVNet1 e TestVNet5.
 
   ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -92,8 +92,8 @@ Negli esempi vengono usati i valori seguenti:
 
 * Nome della rete virtuale: TestVNet1
 * Gruppo di risorse: TestRG1
-* Location: Stati Uniti orientali
-* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+* Percorso: Stati Uniti orientali
+* TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
@@ -101,18 +101,18 @@ Negli esempi vengono usati i valori seguenti:
 * IP pubblico: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5 (per reti virtuali in diverse sottoscrizioni)
+* Connection(1to5): VNet1toVNet5 (per reti virtuali in sottoscrizioni diverse)
 * ConnectionType: VNet2VNet
 
 **Valori per TestVNet4:**
 
 * Nome della rete virtuale: TestVNet4
-* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 e 10.42.0.0/16
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Gruppo di risorse: TestRG4
-* Località: Stati Uniti occidentali
+* Percorso: Stati Uniti occidentali
 * GatewayName: VNet4GW
 * IP pubblico: VNet4GWIP
 * VPNType: RouteBased
@@ -305,7 +305,7 @@ In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che 
 
 * Nome della rete virtuale: TestVNet5
 * Gruppo di risorse: TestRG5
-* Ubicazione: Giappone orientale
+* Percorso: Giappone orientale
 * TestVNet5: 10.51.0.0/16 e 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
@@ -476,5 +476,5 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://docs.microsoft.com/azure/) .
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816425"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 
@@ -45,13 +45,13 @@ Questa esercitazione illustra i passaggi seguenti:
 > [!NOTE] 
 > È possibile creare entità di messaggistica e uno spazio dei nomi del bus di servizio anche usando [PowerShell](/powershell/azure/get-started-azureps). Per altre informazioni, vedere [Gestire le risorse del bus di servizio di Azure con PowerShell](service-bus-manage-with-ps.md).
 
-Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio, passare alla sezione [Creare una coda usando il portale di Azure](#2-create-a-queue-using-the-azure-portal).
+Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio, passare alla sezione Creare una coda usando il portale di Azure.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-queue-using-the-azure-portal"></a>Creare una coda usando il portale di Azure
 
-Se è già stata creata una coda del bus di servizio, passare alla sezione [Inviare messaggi alla coda](#3-send-messages-to-the-queue).
+Se è già stata creata una coda del bus di servizio, passare alla sezione Inviare messaggi alla coda.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 

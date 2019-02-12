@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6e9ad6f74970b6c72b96ae142f02bee6b07fb558
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455474"
+ms.locfileid: "55491910"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
 Invece di inserire un valore protetto (ad esempio una password) direttamente nel file dei parametri, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una distribuzione. Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa rispetto al gruppo di risorse in cui si sta eseguendo la distribuzione.
 
-Per eseguire un'esercitazione, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deploy-key-vaults-and-secrets"></a>Distribuire Key Vault e segreti
+## <a name="deploy-key-vaults-and-secrets"></a>Distribuire insiemi di credenziali delle chiavi e segreti
 
 Per creare Key Vault e aggiungere i segreti, vedere:
 

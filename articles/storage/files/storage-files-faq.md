@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457021"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562386"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -104,7 +104,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="afs-storage-redundancy"></a>
 **L'archiviazione con ridondanza geografica è supportata per Sincronizzazione file di Azure?**  
-    Sì. File di Azure supporta sia l'archiviazione con ridondanza locale (LRS) che l'archiviazione con ridondanza geografica (GRS). In caso di failover dell'archiviazione con ridondanza geografica tra aree abbinate, è consigliabile considerare la nuova area solo come backup dei dati. Sincronizzazione file di Azure non avvia automaticamente la sincronizzazione con la nuova area primaria. 
+    Sì. File di Azure supporta sia l'archiviazione con ridondanza locale (LRS) che l'archiviazione con ridondanza geografica (GRS). Se si avvia un failover dell'account di archiviazione tra aree associate da un account configurato per l'archiviazione con ridondanza geografica, Microsoft consiglia di considerare la nuova area solo come backup dei dati. Sincronizzazione file di Azure non avvia automaticamente la sincronizzazione con la nuova area primaria. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure?**  
@@ -116,7 +116,6 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="afs-recall-file"></a>**Un file da usare è stato archiviato a livelli. Come è possibile richiamare il file su disco per usarlo in locale?**  
  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Come è possibile forzare l'archiviazione a livelli di un file o una directory?**  
@@ -242,7 +241,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="data-compliance-policies"></a>
 **Quali criteri di conformità dei dati sono supportati da File di Azure?**  
 
-   L'esecuzione di File di Azure si basa sulla stessa architettura di archiviazione usata in altri servizi di archiviazione in Archiviazione di Azure. File di Azure applica gli stessi criteri di conformità dei dati usati in altri servizi di archiviazione di Azure. Per ulteriori informazioni sulla conformità dei dati di Archiviazione di Azure, è possibile fare riferimento a [Offerte di conformità dell’archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e al [Centro protezione Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+   L'esecuzione di File di Azure si basa sulla stessa architettura di archiviazione usata in altri servizi di archiviazione in Archiviazione di Azure. File di Azure applica gli stessi criteri di conformità dei dati usati in altri servizi di archiviazione di Azure. Per ulteriori informazioni sulla conformità dei dati di Archiviazione di Azure, è possibile fare riferimento a [Offerte di conformità dell’archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e al [Centro protezione Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Accesso locale
 * <a id="expressroute-not-required"></a>
