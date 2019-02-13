@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246435"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207123"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione di Azure Stack firewall
-È consigliabile utilizzare un dispositivo firewall per consentire sicuro Azure Stack. Anche se i firewall può essere utile con elementi quali gli attacchi di distributed denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per i servizi di archiviazione di Azure, ad esempio BLOB, tabelle e code.
+È consigliabile utilizzare un dispositivo firewall per consentire sicuro Azure Stack. I firewall possono difesa contro le cose come gli attacchi distributed denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto. Tuttavia, possono anche diventare un collo di bottiglia della velocità effettiva per i servizi di archiviazione di Azure, ad esempio BLOB, tabelle e code.
 
-Basate sul modello di identità Azure Active Directory (Azure AD) o Windows Server Active Directory Federation Services (ADFS), potrebbe essere necessario per pubblicare l'endpoint di AD FS. Se viene utilizzata una modalità di distribuzione disconnesso, è necessario pubblicare l'endpoint di AD FS. Per altre informazioni, vedere la [articolo di identità di integrazione di Data Center](azure-stack-integrate-identity.md).
+ Se viene utilizzata una modalità di distribuzione disconnesso, è necessario pubblicare l'endpoint di AD FS. Per altre informazioni, vedere la [articolo di identità di integrazione di Data Center](azure-stack-integrate-identity.md).
 
-Il Azure Resource Manager (amministratore), portale per gli amministratori e gli endpoint di Key Vault (amministratore) non richiedono necessariamente pubblicazione esterna. Ad esempio, come provider di servizi, è possibile limitare la superficie di attacco e amministrare solo Azure Stack all'interno della rete e non da internet.
+Il Azure Resource Manager (amministratore), portale per gli amministratori e gli endpoint di Key Vault (amministratore) non richiedono necessariamente pubblicazione esterna. Come provider di servizi, ad esempio, è possibile limitare la superficie di attacco dall'amministrazione di Azure Stack da solo all'interno della rete e non da internet.
 
-Per le organizzazioni aziendali, la rete esterna può essere la rete azienda esistente. In questo caso, è necessario pubblicare questi endpoint per il funzionamento di Azure Stack dalla rete aziendale.
+Per le organizzazioni aziendali, la rete esterna può essere la rete azienda esistente. In questo scenario, è necessario pubblicare gli endpoint per il funzionamento di Azure Stack dalla rete aziendale.
 
 ### <a name="network-address-translation"></a>Network Address Translation
-Network Address Translation (NAT) è il metodo consigliato per consentire la macchina virtuale di distribuzione (DVM) per accedere a internet durante la distribuzione e le risorse esterne, nonché le macchine virtuali alla Console di ripristino di emergenza (ERCS) o con privilegi punto finale (PEP) durante registrazione e risoluzione dei problemi.
+Network Address Translation (NAT) è il metodo consigliato per consentire la macchina virtuale di distribuzione (DVM) per accedere alle risorse esterne e internet durante la distribuzione, nonché le macchine virtuali alla Console di ripristino di emergenza (ERCS) o Privileged punto finale (PEP) durante registrazione e risoluzione dei problemi.
 
-NAT può essere anche un'alternativa per gli indirizzi IP pubblici nella rete esterna o degli indirizzi VIP pubblici. Tuttavia, è consigliabile non eseguire questa operazione, perché consente di limitare l'esperienza utente di tenant e aumenta la complessità. Le due opzioni sarebbe una conversione NAT 1:1 necessita di un indirizzo IP pubblico per ogni indirizzo IP utente nel pool o a numerose colonne: 1 NAT che richiede una regola NAT per ogni utente VIP che contiene le associazioni a tutte le porte utilizzabili dall'utente.
+NAT può essere anche un'alternativa per gli indirizzi IP pubblici nella rete esterna o degli indirizzi VIP pubblici. Tuttavia, è consigliabile non eseguire questa operazione, perché consente di limitare l'esperienza utente di tenant e aumenta la complessità. Un'opzione potrebbe essere un dispositivo NAT da uno a uno che richiede comunque un indirizzo IP pubblico per ogni indirizzo IP utente nel pool. Un'altra opzione è molti-a NAT che richiede una regola NAT per ogni utente VIP per tutte le porte utilizzabili dall'utente.
 
 Alcuni degli svantaggi dell'uso di NAT per indirizzo VIP pubblico sono:
 - NAT aggiunge un overhead quando si gestiscono le regole del firewall perché gli utenti di controllare i propri endpoint e le proprie regole di pubblicazione definita dal software (SDN) dello stack di rete. Gli utenti devono contattare l'operatore di Azure Stack per ottenere i VIP nei servizi pubblicate e per aggiornare l'elenco di porte.
@@ -48,7 +48,7 @@ Alcuni degli svantaggi dell'uso di NAT per indirizzo VIP pubblico sono:
 ## <a name="edge-firewall-scenario"></a>Scenario di firewall perimetrale
 In una distribuzione edge, Azure Stack viene distribuito direttamente dietro il firewall o il router perimetrale. In questi scenari, è supportata per il firewall deve essere sopra il bordo (Scenario 1) in cui supporta sia le configurazioni di firewall attivo-attivo e attivo-passivo o che agisce come dispositivo di bordo (Scenario 2) in cui supporta solo firewall attivo-attivo configurazione di basarsi su uguale Cost Multi Path ECMP () con BGP o con routing statico per il failover.
 
-In genere, gli indirizzi IP instradabili pubblici vengono specificati per il pool di indirizzi VIP pubblico dalla rete esterna in fase di distribuzione. In uno scenario di edge, è consigliabile non usare indirizzi IP instradabili pubblici su qualsiasi altro tipo di rete per motivi di sicurezza. Questo scenario consente a un utente provare l'esperienza del cloud controllato in autonomia completo come in un cloud pubblico come Azure.  
+Gli indirizzi IP instradabili pubblici vengono specificati per il pool di indirizzi VIP pubblico dalla rete esterna in fase di distribuzione. In uno scenario di edge, è consigliabile non usare indirizzi IP instradabili pubblici su qualsiasi altro tipo di rete per motivi di sicurezza. Questo scenario consente a un utente provare l'esperienza del cloud controllato in autonomia completo come in un cloud pubblico come Azure.  
 
 ![Esempio di Azure Stack edge firewall](./media/azure-stack-firewall/firewallScenarios.png)
 

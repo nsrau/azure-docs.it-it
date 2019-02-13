@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251878"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207535"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di datacenter per i sistemi integrati di Azure Stack
-Se è interessati a un sistema integrato Azure Stack, è necessario comprendere alcune delle principali considerazioni di pianificazione alla distribuzione e come il sistema si inserisce nel tuo Data Center. Questo articolo fornisce una panoramica generale di queste considerazioni che consentono di prendere decisioni importanti dell'infrastruttura per il sistema a più nodi di Azure Stack. Consente di comprendere queste considerazioni quando si lavora con il fornitore dell'hardware OEM quando si distribuisce Azure Stack nel tuo Data Center.  
+Se è interessati a un sistema integrato Azure Stack, è necessario comprendere le principali considerazioni sulla pianificazione alla distribuzione e come il sistema si inserisce nel tuo Data Center. Questo articolo fornisce una panoramica generale di queste considerazioni che consentono di prendere decisioni importanti dell'infrastruttura per il sistema a più nodi di Azure Stack. Consente di comprendere queste considerazioni quando si lavora con il fornitore dell'hardware OEM quando si distribuisce Azure Stack nel tuo Data Center.  
 
 > [!NOTE]
 > Sistemi a più nodi di Azure Stack possono essere acquistati solo dai fornitori di hardware autorizzati. 
@@ -53,8 +53,6 @@ Quando un livello superiore di accesso è necessaria per la risoluzione dei prob
 
 ### <a name="choose-identity-provider"></a>Scegliere il provider di identità
 È necessario prendere in considerazione quali provider di identità da usare per la distribuzione di Azure Stack, Azure AD o AD FS. Dopo la distribuzione senza ridistribuzione completa del sistema non è possibile passare i provider di identità. Se non si è proprietari di account di Azure AD e si usa un account fornito da Provider di servizi Cloud e, se si decide di passare i provider e usare un Azure AD diverso dell'account, a questo punto sarà necessario contattare il provider di soluzioni per ridistribuire la soluzione f oppure i costi.
-
-
 
 La scelta di provider di identità non ha alcun effetto su macchine virtuali tenant, il sistema di identità e degli account che usano, se possano essere aggiunte a un dominio di Active Directory e così via. Ciò è separato.
 
@@ -110,9 +108,9 @@ Per ulteriori informazioni su quali PKI sono richiesti certificati per la distri
 
 
 ## <a name="time-synchronization"></a>Sincronizzazione degli orari
-È necessario scegliere un orario specifico server con viene usato per la sincronizzazione di Azure Stack.  Symbolization tempo è fondamentale per Azure Stack e i relativi ruoli di infrastruttura, perché viene usato per generare i ticket Kerberos che vengono usati per autenticare i servizi interni tra loro.
+È necessario scegliere un orario specifico server con viene usato per la sincronizzazione di Azure Stack.  Sincronizzazione dell'ora è fondamentale per Azure Stack e i relativi ruoli di infrastruttura, perché viene usato per generare i ticket Kerberos che vengono usati per autenticare i servizi interni tra loro.
 
-È necessario specificare che un indirizzo IP per il server di sincronizzazione di tempo, anche se la maggior parte dei componenti dell'infrastruttura possa risolvere un URL, alcune può supportare solo gli indirizzi IP. Se si sono utilizza l'opzione di distribuzione disconnesso, è necessario specificare un server nella rete aziendale che si è certi raggiungibili dalla rete dell'infrastruttura in Azure Stack.
+È necessario specificare che un indirizzo IP per il server di sincronizzazione di tempo, anche se la maggior parte dei componenti dell'infrastruttura possa risolvere un URL, alcune può supportare solo gli indirizzi IP. Se si usa l'opzione di distribuzione disconnesso, è necessario specificare un server nella rete aziendale che si è certi raggiungibili dalla rete dell'infrastruttura in Azure Stack.
 
 ## <a name="connect-azure-stack-to-azure"></a>Connettere Azure Stack in Azure
 

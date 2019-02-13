@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203812"
 ---
 # <a name="validate-azure-stack-system-state"></a>Convalidare lo stato del sistema Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Un operatore di Azure Stack, di avere la possibilità di conoscere l'integrità e lo stato del sistema on demand è essenziale. Lo strumento di convalida di Azure Stack (**Test-AzureStack**) è un cmdlet di PowerShell che consente di eseguire una serie di test nel sistema per identificare gli errori, se presente. Verrà in genere richiesto per eseguire questo strumento il [privileged punto finale (PEP)](azure-stack-privileged-endpoint.md) quando si contatta il supporto di servizi clienti Microsoft (CSS) con un problema. Con l'integrità di sistema e informazioni sullo stato in questione, CSS possa raccogliere e analizzare i log dettagliati, lo stato attivo sull'area in cui si è verificato l'errore e lavorare con te per risolvere il problema.
+Un operatore di Azure Stack, è essenziale la possibilità di determinare l'integrità e lo stato del sistema su richiesta. Lo strumento di convalida di Azure Stack (**Test-AzureStack**) è un cmdlet di PowerShell che consente di eseguire una serie di test nel sistema per identificare gli errori, se presente. Verrà in genere richiesto per eseguire questo strumento il [privileged punto finale (PEP)](azure-stack-privileged-endpoint.md) quando si contatta il supporto di servizi clienti Microsoft (CSS) con un problema. Con l'integrità di sistema e informazioni sullo stato in questione, CSS possa raccogliere e analizzare i log dettagliati, lo stato attivo sull'area in cui si è verificato l'errore e lavorare con te per risolvere il problema.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Eseguire lo strumento di convalida e l'accesso ai risultati
 
@@ -93,7 +93,6 @@ Questi test a basso impatto a livello di infrastruttura di lavoro e forniscono i
 
 Oltre ai test infrastruttura precedente, è la possibilità di eseguire i test di scenario di cloud di verifica della funzionalità tra i componenti dell'infrastruttura. Per eseguire i test perché comportano la distribuzione di risorse sono necessarie credenziali di amministratore di cloud. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 I seguenti scenari di cloud sono testati tramite lo strumento di convalida:

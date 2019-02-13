@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 38b5ac475667013da463bbd1871bcd380e02a744
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d00eaf0ab24fbd754ba5ad2c79e9630d69d28eb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245304"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200514"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Attività di valutazione di Azure Stack Development Kit avanzate
 Dopo che acquisite familiarità con le caratteristiche di servizio di Azure Stack Development Kit (ASDK) basic, è possibile approfondire la comprensione di Azure Stack ulteriormente verificando gli scenari più avanzati. Queste attività di valutazione più avanzate sono documentate completamente nella documentazione di Azure Stack operatore.
