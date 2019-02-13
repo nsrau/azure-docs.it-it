@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243182"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175388"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure connessa di distribuzione di prendere decisioni per Azure Stack
-Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
+Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
 Distribuire Azure Stack, connesso ad Azure significa che è possibile avere Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) per l'archivio identità. È anche possibile scegliere da una modello di fatturazione: come è a pagamento o basato sulla capacità. Una distribuzione connesso è l'opzione predefinita in quanto consente ai clienti di ottenere il massimo valore dai Azure Stack, in particolare per scenari di cloud ibrido che prevedono di Azure e Azure Stack. 
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245151"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176351"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Pianificazione della capacità archiviazione di Azure Stack
 Le sezioni seguenti riportano Azure Stack capacità di archiviazione informazioni sulla pianificazione per facilitare la pianificazione per esigenze di archiviazione di soluzioni.
@@ -48,9 +48,6 @@ Un breve riepilogo della configurazione di archiviazione di Azure Stack e spazi 
 - Ogni file system ReFS avrà BitLocker è abilitato per la crittografia dei dati inattivi. 
 
 I-i dischi virtuali creati automaticamente e le relative capacità sono i seguenti:
-
-
-
 
 |NOME|Calcolo della capacità|DESCRIZIONE|
 |-----|-----|-----|

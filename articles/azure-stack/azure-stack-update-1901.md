@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100092"
+ms.locfileid: "56115709"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -89,7 +89,7 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
          Modifica che causa un'interruzione: Backup delle modifiche alla modalità di crittografia basata su certificato. Supporto per le chiavi simmetriche è deprecato.  
    * **Azs.Fabric.Admin Module**  
          `Get-AzsInfrastructureVolume` è stato deprecato. Usare il nuovo cmdlet `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` è stato deprecato.  Usare il nuovo cmdlet nuovo `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` è stato deprecato.  Usare il nuovo cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` è stato deprecato. Il `StorageSubSystem` oggetto contiene la proprietà di capacità.  
    * **Modulo Azs.Compute.Admin**  
          Correzione di bug - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: La chiamata `ConvertTo-PlatformImageObject` solo nel percorso di esito positivo.  
@@ -134,7 +134,7 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
 - Risolto un problema quando si imposta il valore delle quote di Managed Disks sotto [tipi di quota di calcolo](azure-stack-quota-types.md#compute-quota-types) su 0, è equivalente al valore predefinito di 2048 GiB. A questo punto il valore zero quota viene rispettato.
 
 <!-- 2724873 - IS --> 
-- Risolto un problema quando si usano i cmdlet di PowerShell **Start-AzsScaleUnitNode** oppure **Stop-AzsScaleunitNode** per gestire le unità di scala, in cui il primo tentativo di avviare o arrestare l'unità di scala potrebbe non riuscire.
+- Risolto un problema quando si usano i cmdlet di PowerShell **Start-AzsScaleUnitNode** oppure **Stop-AzsScaleUnitNode** per gestire le unità di scala, in cui il primo tentativo di avviare o arrestare l'unità di scala potrebbe non riuscire.
 
 <!-- 2724961- IS ASDK --> 
 - Risolto un problema in cui è registrato il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creato una macchina virtuale Windows con Guest OS diagnostica è abilitata, ma non viene visualizzato il grafico della percentuale di CPU nella pagina di panoramica della macchina virtuale dati delle metriche. I dati ora vengono correttamente visualizzano.

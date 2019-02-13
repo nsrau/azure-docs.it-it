@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247647"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172400"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Aggiungere nodi di unità di scalabilità aggiuntiva in Azure Stack
 
-Operatori di Azure Stack possono aumentare la capacità complessiva di un'unità di scalabilità esistente mediante l'aggiunta di un computer fisico aggiuntivo. Il computer fisico è detta anche un nodo di unità di scala. Ciascun nuovo nodo di unità di scala che si aggiunge deve essere omogenea nel tipo di CPU, memoria e numero del disco & dimensioni nei nodi che sono già presenti nell'unità di scala.
-
-> [!NOTE]  
-È necessario eseguire la scalabilità aggiuntiva di Azure Stack 1807 o versione successiva per aggiungere nodi di unità.
+Operatori di Azure Stack possono aumentare la capacità complessiva di un'unità di scalabilità esistente mediante l'aggiunta di un computer fisico aggiuntivo. Il computer fisico è detta anche un nodo di unità di scala. Ciascun nuovo nodo di unità di scala che si aggiunge deve essere omogenea nel tipo di CPU, memoria e numero di disco e delle dimensioni per i nodi che sono già presenti nell'unità di scala.
 
 Per aggiungere un nodo di unità di scala, è agire in Azure Stack ed eseguire gli strumenti dalla casa produttrice dell'hardware (OEM). Strumenti dell'OEM viene eseguita sull'host del ciclo di vita dell'hardware (HLH) per assicurarsi che il nuovo computer fisico corrisponda allo stesso livello del firmware nodi esistenti.
 

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977748"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117275"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -49,7 +49,7 @@ Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono 
 |Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Key Vault (utente)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Key Vault (amministratore)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Coda archiviazione|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Coda di archiviazione|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabella di archiviazione|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Archiviazione BLOB|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Provider di risorse SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
@@ -66,7 +66,7 @@ Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono 
 Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire gli URL e le porte seguenti per le comunicazioni in uscita:
 
 > [!Note]  
-> Azure Stack non supporta l'uso di Expressroute per raggiungere i servizi di Azure elencati nella tabella seguente.
+> Azure Stack non supporta l'uso di ExpressRoute per raggiungere i servizi di Azure elencati nella tabella seguente.
 
 |Scopo|URL di destinazione|Protocollo|Porte|Rete di origine|
 |---------|---------|---------|---------|---------|
@@ -74,8 +74,8 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 |Diffusione di Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 pubblici|
 |Aggiorna & patch|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 pubblici|
 |Registrazione|https://management.azure.com|HTTPS|443|VIP - /27 pubblici|
-|Utilizzo|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 pubblici|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 pubblici|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
 |NTP|(Server IP di NTP fornito per deployment)|UDP|123|VIP - /27 pubblici|
 |DNS|(Server DNS dell'indirizzo IP fornito per deployment)|TCP<br>UDP|53|VIP - /27 pubblici|
 |CRL|(URL sotto i punti di distribuzione CRL nel certificato)|HTTP|80|VIP - /27 pubblici|

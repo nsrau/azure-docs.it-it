@@ -11,22 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3063a3f3f199a591fa94c3a665ea9ecc5457e502
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6eaba728b794c0102ec4e28791b218efa28b51b5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247596"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160765"
 ---
 # <a name="create-mysql-databases"></a>Creare i database MySQL
+Un utente di Azure Stack, sottoscritto un'offerta che include il servizio di database MySQL, è possibile creare e gestire self-servizi di database MySQL nel portale per gli utenti.
 
-È possibile creare e gestire i database nel portale per gli utenti self-servizi. Un utente di Azure Stack deve avere una sottoscrizione con un'offerta che include il servizio di database MySQL.
-
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testare la distribuzione tramite la creazione di un database MySQL
+## <a name="create-a-mysql-database"></a>Creare un database MySQL
 
 1. Accedere al portale utenti di Azure Stack.
 2. Selezionare **+ crea una risorsa** > **Data + Storage** > **MySQL Database** > **Add**.

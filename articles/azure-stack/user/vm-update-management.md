@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768546"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168143"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Aggiornamento dello Stack della macchina virtuale e gestione di Azure
 È possibile usare le seguenti funzionalità di soluzione di automazione di Azure per gestire le macchine virtuali Linux distribuite con Azure Stack e Windows:
@@ -100,4 +100,4 @@ Le macchine virtuali di Azure Stack può ora essere inclusi nelle distribuzioni 
 Se si dispone di un numero elevato di macchine virtuali di Azure Stack, è possibile usare [questo modello di Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) per distribuire più facilmente la soluzione in macchine virtuali. Il modello distribuisce l'estensione Microsoft Monitoring Agent in una VM di Azure Stack esistente e lo aggiunge a un'area di lavoro di log Analytics di Azure esistente.
  
 ## <a name="next-steps"></a>Passaggi successivi
-[Ottimizzare le prestazioni di SQL Server](azure-stack-sql-server-vm-considerations.md)
+[Ottimizzare le prestazioni delle VM di SQL Server](azure-stack-sql-server-vm-considerations.md)

@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239673"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164023"
 ---
 # <a name="azure-stack-administration-basics"></a>Nozioni fondamentali sull'amministrazione di Azure Stack
-Esistono diversi aspetti da sapere se si ha familiarità con amministrazione di Azure Stack. Questa guida fornisce una panoramica del ruolo operatore di Azure Stack e cosa occorre per informare gli utenti per loro diventare rapidamente produttivi.
+Esistono diversi aspetti da sapere se si ha familiarità con amministrazione di Azure Stack. Questo articolo fornisce una panoramica del ruolo operatore di Azure Stack e cosa occorre per informare gli utenti per loro diventare rapidamente produttivi.
 
 ## <a name="understand-the-builds"></a>Comprendere le compilazioni
 
 ### <a name="integrated-systems"></a>Sistemi integrati
 
-Se si usa un sistema integrato Azure Stack, le versioni aggiornate dello Stack di Azure vengono distribuite attraverso i pacchetti di aggiornamento. È possibile importare i pacchetti e applicarle usando il riquadro di aggiornamenti nel portale di amministrazione.
+Se si usa un sistema integrato Azure Stack, le versioni aggiornate dello Stack di Azure vengono distribuite attraverso i pacchetti di aggiornamento. È possibile importare i pacchetti e applicarle usando il riquadro di aggiornamenti nel portale di amministrazione. Non è supportata per le installazioni ASDK degli aggiornamenti. 
  
 ### <a name="development-kit"></a>Kit di sviluppo
 

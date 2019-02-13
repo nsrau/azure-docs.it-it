@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182851"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrazione di Data Center Azure Stack - DNS
 Per poter accedere agli endpoint di Azure Stack (**portal**, **adminportal**, **gestione**, **adminmanagement**e così via.)  dall'esterno di Azure Stack, è necessario integrare i servizi DNS di Azure Stack con il server DNS che ospitano le zone DNS da usare in Azure Stack.
@@ -114,9 +114,9 @@ Usando i valori di esempio, il FQDN per il DNS Server sono:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Questa informazione viene anche creata alla fine di tutte le distribuzioni di Azure Stack in un file denominato `AzureStackStampDeploymentInfo.json`. Questo file si trova nel `C:\CloudDeployment\logs` cartella della macchina virtuale la distribuzione. Se non si conosce quali valori sono stati usati per la distribuzione di Azure Stack, è possibile ottenere i valori da qui.
+Questa informazione viene anche creata alla fine di tutte le distribuzioni di Azure Stack in un file denominato `AzureStackStampInformation.json`. Questo file si trova nel `C:\CloudDeployment\logs` cartella della macchina virtuale la distribuzione. Se non si conosce quali valori sono stati usati per la distribuzione di Azure Stack, è possibile ottenere i valori da qui.
 
-Se la macchina virtuale di distribuzione non è più disponibile o è inaccessibile, è possibile ottenere i valori per la connessione all'endpoint con privilegi e l'esecuzione di `Get-AzureStackInfo` cmdlet di PowerShell. Per altre informazioni, vedere [privileged endpoint](azure-stack-privileged-endpoint.md).
+Se la macchina virtuale di distribuzione non è più disponibile o è inaccessibile, è possibile ottenere i valori per la connessione all'endpoint con privilegi e l'esecuzione di `Get-AzureStackStampInformation` cmdlet di PowerShell. Per altre informazioni, vedere [privileged endpoint](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configurazione di inoltro condizionale in Azure Stack
 
