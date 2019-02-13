@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691168"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210782"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure distribuzione disconnessa pianificazione decisioni per Azure Stack
-Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
+Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
-È possibile distribuire e usare Azure Stack senza una connessione a internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. Poiché la multi-tenancy richiede l'uso di Azure Active Directory, multi-tenancy non è supportato per le distribuzioni disconnesse. 
+È possibile distribuire e usare Azure Stack senza una connessione a internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. Poiché la multi-tenancy richiede l'uso di Azure Active Directory (Azure AD), multi-tenancy non è supportato per le distribuzioni disconnesse. 
 
 Scegliere questa opzione se si:
 - Disporre di sicurezza o altre restrizioni che richiedono di distribuire Azure Stack in un ambiente non connesso a Internet.
@@ -34,9 +34,9 @@ Scegliere questa opzione se si:
 - Da usare Azure Stack esclusivamente come una soluzione di cloud privato che viene distribuita per la rete Intranet aziendale e non è interessati in scenari ibridi.
 
 > [!TIP]
-> In alcuni casi, questo tipo di ambiente viene anche considerato uno scenario"sottomarino".
+> In alcuni casi, questo tipo di ambiente viene anche definito come un *scenario sottomarino*.
 
-Una distribuzione disconnessa non significa necessariamente che è in un secondo momento non è possibile connettere l'istanza di Azure Stack in Azure per scenari di macchine Virtuali tenant ibrido. Ciò significa che non è disponibile connettività ad Azure durante la distribuzione o non si desidera usare Azure Active Directory come archivio di identità.
+Una distribuzione disconnessa non impedisce all'utente in un secondo momento ci si connette l'istanza di Azure Stack in Azure per scenari di macchine Virtuali tenant ibrido. Ciò significa che non è disponibile connettività ad Azure durante la distribuzione o non si desidera usare Azure AD come archivio di identità.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funzionalità che sono compromesse o non disponibile nelle distribuzioni disconnesse 
 Azure Stack è stato progettato per funzionare meglio quando si è connessi ad Azure, pertanto è importante notare che esistono alcune caratteristiche e funzionalità che sono compromesse o completamente non disponibile in modalità disconnessa. 

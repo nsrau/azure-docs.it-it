@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107345"
 documentType: LandingData
 title: Documentazione delle applicazioni gestite di Azure
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
-  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
-  ms.locfileid: "27779568"
 abstract:
   description: Le applicazioni gestite di Azure consentono di offrire soluzioni cloud a clienti interni ed esterni. Si definiscono l'infrastruttura per la soluzione e le condizioni per la gestione continuativa della soluzione. Gli addebiti relativi alla soluzione vengono gestiti tramite la fatturazione di Azure.
 sections:
@@ -42,14 +42,14 @@ sections:
     items:
     - html: <a href="/azure/managed-applications/publish-service-catalog-app">Pubblicare un'applicazione gestita per gli utenti interni</a>
     - html: <a href="/azure/managed-applications/publish-marketplace-app">Pubblicare un'applicazione gestita per gli utenti esterni</a>
-- title: Riferimento
+- title: riferimento
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Riga di comando
-      html: <p><a href="/cli/azure/managedapp">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+      html: <p><a href="/cli/azure/managedapp">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
     - title: API REST
       html: <p><a href="/rest/api/resources/">REST</a></p>
     - title: Interfaccia utente

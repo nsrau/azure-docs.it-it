@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246586"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182018"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>I modelli di connessione di sistemi integrati di Azure Stack
-Se si è interessati a un sistema integrato Azure Stack, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema possa essere inserito nel tuo Data Center. Inoltre, è necessario decidere esattamente come si integrerà Azure Stack nell'ambiente cloud ibrido. Questo articolo offre una panoramica di queste decisioni principali, inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.
+Se si è interessati all'acquisto di un sistema integrato Azure Stack, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema possa essere inserito nel tuo Data Center. Inoltre, è necessario decidere come si integrerà Azure Stack nell'ambiente cloud ibrido. Questo articolo offre una panoramica di queste decisioni principali, inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.
 
 Se si decide di acquistare un sistema integrato, il fornitore dell'hardware (OEM) original equipment manufacturer Guida l'utente attraverso la maggior parte del processo di pianificazione in modo più dettagliato. Si eseguirà anche la distribuzione effettiva.
 

@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239469"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210527"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 
-È possibile ospitare un'istanza di SQL in una macchina virtuale (VM) nella [Azure Stack](azure-stack-poc.md), o in una macchina virtuale all'esterno dell'ambiente Azure Stack, a condizione che il provider di risorse SQL può connettersi all'istanza.
+È possibile creare database di SQL Server che ospita i server in una macchina virtuale (VM) in [Azure Stack](azure-stack-poc.md), o in una macchina virtuale all'esterno dell'ambiente Azure Stack, a condizione che il provider di risorse SQL può connettersi all'istanza.
 
 > [!NOTE]
-> Database SQL devono essere creati nel server del provider di risorse SQL. Il provider di risorse SQL deve essere creato nella sottoscrizione del provider predefinito mentre i server di hosting SQL devono essere creati in una sottoscrizione fatturabile, di utente. Non usare server del provider di risorse per ospitare i database utente.
+> Il provider di risorse SQL deve essere creato nella sottoscrizione del provider predefinito mentre i server di hosting SQL devono essere creati in una sottoscrizione fatturabile, di utente. Non usare server del provider di risorse per ospitare i database utente.
 
 ## <a name="overview"></a>Panoramica
 
