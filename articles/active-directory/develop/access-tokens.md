@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080566"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811563"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
@@ -239,6 +239,8 @@ I token di aggiornamento possono essere invalidati in qualsiasi momento per vari
 > Un accesso "Non basato su password" si ha quando l'utente non digita alcuna password per accedere. Ad esempio, con il riconoscimento facciale di Windows Hello, una chiave FIDO o un PIN. 
 >
 > Vi è un problema noto con il token di aggiornamento primario di Windows. Se quest'ultimo viene ottenuto tramite una password e quindi l'utente esegue l'accesso tramite Hello, non si modifica l'origine del token di aggiornamento primario e questo verrà revocato se l'utente modifica la password.
+>
+> I token di aggiornamento non vengono invalidati o revocati quando vengono utilizzati per recuperare un nuovo token di accesso e token di aggiornamento.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

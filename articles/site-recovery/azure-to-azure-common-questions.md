@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449555"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770487"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Domande frequenti: Replica da Azure ad Azure
 
 Questo articolo fornisce le risposte alle domande frequenti relative all'implementazione del ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure tramite Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum di Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>Contenuto dell'articolo 
+1.  **[Domande generali su Azure ad Azure](#general)** 
+1.  **[Replica](#replication)** 
+1.  **[Criteri di replica](#replication-policy)** 
+1.  **[Coerenza tra più macchine virtuali](#multi-vm-consistency)** 
+1.  **[Piano di ripristino](#recovery-plan)** 
+1.  **[Riprotezione e failback](#reprotection-and-failback)** 
+1.  **[Sicurezza](#security)** 
+
+
 ## <a name="general"></a>Generale
+
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
 Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 
@@ -198,7 +209,7 @@ Dipende dalla situazione. Se ad esempio la macchina virtuale dell'area di origin
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo richiede l'esecuzione di un failback?
 Dopo la riprotezione, la quantità di tempo per il failback è in genere simile al tempo per il failover dall'area primaria a un'area secondaria. 
 
-## <a name="security"></a>Security
+## <a name="a-namesecuritysecurity"></a><a name="security">Sicurezza
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali. Al servizio Site Recovery vengono inviati solo i metadati necessari per gestire la replica e il failover.  
 Site Recovery è certificato ISO 27001:2013, 27018, HIPAA e DPA e le valutazioni SOC2 e FedRAMP JAB sono in fase di completamento.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285726"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736273"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Dischi gestiti SSD Ultra (anteprima) per carichi di lavoro delle macchine virtuali di Azure
 
@@ -21,11 +21,11 @@ Le unità SSD Ultra di Azure (anteprima) offrono una velocità effettiva elevata
 
 ## <a name="ultra-ssd-features"></a>Caratteristiche delle unità SSD Ultra
 
-**Dischi gestiti**: le unità SSD Ultra sono disponibili solo come dischi gestiti. Le unità SSD Ultra non possono essere distribuite come dischi non gestiti o BLOB di pagine. Quando si crea un disco gestito, si specifica UltraSSD_LRS come tipo di SKU del disco e si indicano le dimensioni del disco, le operazioni di I/O al secondo e la velocità effettiva necessarie, quindi Azure crea e gestisce automaticamente il disco.  
+**Dischi gestiti**: le unità Ultra SSD sono disponibili solo come dischi gestiti. Le unità SSD Ultra non possono essere distribuite come dischi non gestiti o BLOB di pagine. Quando si crea un disco gestito, si specifica UltraSSD_LRS come tipo di SKU del disco e si indicano le dimensioni del disco, le operazioni di I/O al secondo e la velocità effettiva necessarie, quindi Azure crea e gestisce automaticamente il disco.  
 
-**Macchine virtuali**: le unità SSD ultra sono progettate per funzionare con tutti gli SKU di macchina virtuale di Azure abilitati per Premium SSD. Tuttavia, trattandosi di una funzionalità attualmente in anteprima, le macchine virtuali vengono impostate con le dimensioni ES/DS v3.
+**Macchine virtuali**: le unità Ultra SSD sono progettate per funzionare con tutti gli SKU di macchina virtuale di Azure abilitati per SSD Premium. Tuttavia, trattandosi di una funzionalità attualmente in anteprima, le macchine virtuali vengono impostate con le dimensioni ES/DS v3.
 
-**Configurazione dinamica delle prestazioni**: le unità SSD Ultra consentono di modificare dinamicamente le prestazioni (operazioni di I/O al secondo e velocità effettiva) del disco in base alle esigenze dei carichi di lavoro, senza riavviare le macchine virtuali.
+**Configurazione dinamica delle prestazioni**: le unità Ultra SSD permettono di modificare dinamicamente le prestazioni (operazioni di I/O al secondo e velocità effettiva) del disco in base alle esigenze dei carichi di lavoro, senza dover riavviare le macchine virtuali.
 
 ## <a name="scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni
 
@@ -33,9 +33,9 @@ Quando si effettua il provisioning di un'unità SSD Ultra, è possibile configur
 
 Ecco alcune delle caratteristiche principali delle unità SSD Ultra:
 
-- Capacità del disco: le unità SSD Ultra permettono di scegliere tra una gamma di dimensioni dei dischi diverse, da 4 GiB fino a 64 TiB.
-- Operazioni di I/O al secondo (IOPS) del disco: le unità SSD Ultra supportano limiti di operazioni di I/O al secondo pari a 300 IOPS/GiB, fino a un massimo di 160.000 IOPS per disco. Per ottenere la quantità di operazioni di I/O al secondo di cui è stato effettuato il provisioning, assicurarsi che il numero di operazioni di I/O al secondo del disco selezionato sia inferiore al numero di operazioni di I/O al secondo della macchina virtuale. Il numero minimo di operazioni di I/O al secondo del disco è 100.
-- Velocità effettiva del disco: con le unità SSD Ultra, il limite di velocità effettiva di un singolo disco è di 256 KiB/s per le operazioni di I/O al secondo di cui è stato effettuato il provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10^6 byte al secondo). La velocità effettiva minima del disco è di 1 MiB.
+- Capacità del disco: le unità Ultra SSD permettono di scegliere tra una gamma di dimensioni dei dischi diverse, da 4 GiB fino a 64 TiB.
+- Operazioni di I/O al secondo (IOPS) del disco: le unità Ultra SSD supportano limiti di operazioni di I/O al secondo pari a 300 IOPS/GiB, fino a un massimo di 160.000 IOPS per disco. Per ottenere la quantità di operazioni di I/O al secondo di cui è stato effettuato il provisioning, assicurarsi che il numero di operazioni di I/O al secondo del disco selezionato sia inferiore al numero di operazioni di I/O al secondo della macchina virtuale. Il numero minimo di operazioni di I/O al secondo del disco è 100.
+- Velocità effettiva del disco: con le unità Ultra SSD, il limite di velocità effettiva di un singolo disco è di 256 KiB/s per le operazioni di I/O al secondo di cui è stato effettuato il provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10^6 byte al secondo). La velocità effettiva minima del disco è di 1 MiB.
 
 La tabella seguente riepiloga le diverse configurazioni supportate per le diverse dimensioni dei dischi:  
 
@@ -74,7 +74,7 @@ Le operazioni di I/O al secondo (IOPS) indicano il numero di richieste inviate d
 
 La velocità effettiva indica la quantità di dati che l'applicazione invia ai dischi in un intervallo specifico, misurata in byte/secondo. Se l'applicazione esegue operazioni di input/output di grandi dimensioni, necessita di una velocità effettiva elevata.  
 
-Come illustrato dalla formula seguente, c'è una relazione tra la velocità effettiva e le operazioni di I/O al secondo: IOPS x dimensioni I/O = Velocità effettiva
+Come illustrato dalla formula seguente, esiste una relazione tra la velocità effettiva e le operazioni di I/O al secondo (IOPS):  IOPS x dimensioni I/O = velocità effettiva
 
 È quindi importante determinare i valori ottimali per la velocità effettiva e IOPS richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. È consigliabile partire da una velocità effettiva corrispondente alle dimensioni I/O di 16 KiB e apportare modifiche se è necessaria una velocità effettiva maggiore.
 

@@ -3,23 +3,24 @@ title: Uso di Azure Key Vault con le applicazioni gestite di Azure | Microsoft D
 description: Illustra come usare i segreti di accesso in Azure Key Vault durante la distribuzione delle applicazioni gestite
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725013"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492675"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
 
-Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md). Per accedere a Key Vault durante la distribuzione delle applicazione gestite è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Questo articolo descrive come configurare Key Vault per lavorare con le applicazioni gestite.
+Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md). Per accedere a Key Vault durante la distribuzione delle applicazione gestite è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Il servizio Applicazioni gestite usa questa identità per eseguire le operazioni. Per recuperare correttamente un valore da un insieme di credenziali delle chiavi durante la distribuzione, l'entità servizio deve essere in grado di accedere all'insieme di credenziali delle chiavi.
+
+Questo articolo descrive come configurare Key Vault per lavorare con le applicazioni gestite.
 
 ## <a name="enable-template-deployment"></a>Abilitare la distribuzione di modelli
 

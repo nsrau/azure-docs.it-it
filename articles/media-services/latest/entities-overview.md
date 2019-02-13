@@ -1,6 +1,6 @@
 ---
-title: Panoramica delle entità di Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica sulle entità di Servizi multimediali di Azure.
+title: Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali di Azure - Azure | Microsoft Docs
+description: Questo articolo illustra come filtrare, ordinare e restituire in più pagine le entità di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,301 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f3322245983508e374d081e5d7905f67344ad7a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912647"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745097"
 ---
-# <a name="azure-media-services-entities-overview"></a>Panoramica delle entità di Servizi multimediali di Azure
+# <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
-Questo articolo offre una breve panoramica delle entità di Servizi multimediali di Azure e rimanda ad altri articoli per altre informazioni sull'uso di ogni entità nei flussi di lavoro di Servizi multimediali. 
+## <a name="overview"></a>Panoramica
 
-| Argomento | DESCRIZIONE |
-|---|---|
-| [Filtri account e filtri asset](filters-dynamic-manifest-overview.md)|Quando si distribuiscono contenuti ai clienti (streaming di eventi live o di video on demand) il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) e i [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters). Quindi, usare **Manifesti dinamici** in base ai filtri predefiniti. |
-| [Asset](assets-concept.md)|Un'entità [Asset](https://docs.microsoft.com/rest/api/media/assets) contiene file digitali (tra cui video, audio, immagini, raccolte di anteprima, tracce di testo e file di sottotitoli codificati) e i relativi metadati. Una volta caricati in un asset, i file digitali possono essere usati nei flussi di lavoro di codifica, trasmissione e analisi di Servizi multimediali di Azure.|
-| [Criteri di chiave simmetrica](content-key-policy-concept.md)|È possibile usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati.|
-| [Eventi live e output live](live-events-outputs-concept.md)|Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in Servizi multimediali v3, è necessario conoscere [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) e [Output live](https://docs.microsoft.com/rest/api/media/liveoutputs).|
-| [Endpoint di streaming](streaming-endpoint-concept.md)|Un [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione del lettore client o a una rete CDN (Content Delivery Network) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da una risorsa video on demand associata all'account di Servizi multimediali. Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Nell'account è possibile creare altri endpoint di streaming. Per avviare lo streaming di video, è necessario avviare l'endpoint di streaming da cui si desidera trasmettere il video. |
-| [Localizzatori di streaming](streaming-locators-concept.md)|Per rendere disponibile ai client un URL da usare per riprodurre file audio o video codificati, è necessario creare un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e compilare gli URL di streaming.|
-| [Criteri di streaming](streaming-policy-concept.md)| I [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire protocolli di streaming e opzioni di crittografia per StreamingLocators. È possibile assegnare un nome ai criteri di streaming creati oppure usare uno dei criteri di streaming predefiniti offerti da Servizi multimediali. <br/><br/>Se si usano criteri di streaming personalizzati, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che è necessario usare gli stessi protocolli e le stesse opzioni di crittografia. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.|
-| [Trasformazioni e processi](transforms-jobs-concept.md)|Usare [Trasformazioni](https://docs.microsoft.com/rest/api/media/transforms) per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni **trasformazione** descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio.<br/><br/>Un [processo](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare la **trasformazione** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video di input mediante: URL HTTPS, URL di firma di accesso condiviso o un asset.|
+Servizi multimediali supporta le opzioni di query OData seguenti per le entità di Servizi multimediali v3: 
+
+* $filter 
+* $orderby 
+* $top 
+* $skiptoken 
+
+Descrizione dell'operatore:
+
+* Eq = uguale a
+* Ne = diverso da
+* Ge = maggiore o uguale a
+* Le = minore o uguale a
+* Gt = maggiore di
+* Lt = minore di
+
+Le proprietà delle entità di tipo Datetime sono sempre in formato UTC.
+
+## <a name="page-results"></a>Restituire i risultati in più pagine
+
+Se la risposta di una query contiene molti elementi, il servizio restituisce una proprietà "\@odata.nextLink" per ottenere la pagina di risultati successiva. Questa proprietà può essere usata per restituire in più pagine l'intero set di risultati. Non è possibile configurare la dimensione delle pagine. La dimensione varia in base al tipo di entità. Per informazioni dettagliate, leggere le singole sezioni seguenti.
+
+Se vengono create o eliminate entità durante la restituzione delle pagine della raccolta, le modifiche si riflettono sui risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata). 
+
+> [!TIP]
+> Usare sempre il collegamento seguente per enumerare la raccolta e non dipendere da una determinata dimensione di pagina.
+
+## <a name="assets"></a>Asset
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come le opzioni di filtro e ordinamento possono essere applicate alle proprietà dell'[asset](https://docs.microsoft.com/rest/api/media/assets): 
+
+|NOME|Filtro|Ordine|
+|---|---|---|
+|id|||
+|name|eq, gt, lt| crescente e decrescente|
+|properties.alternateId |eq||
+|properties.assetId |eq||
+|properties.container |||
+|properties.created| eq, gt, lt| crescente e decrescente|
+|properties.description |||
+|properties.lastModified |||
+|properties.storageAccountName |||
+|properties.storageEncryptionFormat | ||
+|type|||
+
+L'esempio C# seguente applica il filtro alla data di creazione:
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+### <a name="pagination"></a>Paginazione 
+
+La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è 1000.
+
+#### <a name="c-example"></a>Esempio in C#
+
+L'esempio C# seguente illustra come enumerare tutti gli asset nell'account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+#### <a name="rest-example"></a>Esempio REST
+
+Si consideri l'esempio seguente per vedere dove viene usato $skiptoken. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
+
+Se si richiede un elenco degli asset simile al seguente:
+
+```
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+La risposta ottenuta sarà simile a questa:
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+Si può quindi richiedere la pagina successiva inviando una richiesta get per:
+
+```
+https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+Per altri esempi REST, vedere [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list) (Asset - Elenco)
+
+## <a name="content-key-policies"></a>Criteri di chiave simmetrica
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei [criteri di chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies): 
+
+|NOME|Filtro|Ordine|
+|---|---|---|
+|id|||
+|name|eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.created |eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.description |eq, ne, ge, le, gt, lt||
+|properties.lastModified|eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.options |||
+|properties.policyId|eq, ne||
+|type|||
+
+### <a name="pagination"></a>Paginazione
+
+La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è pari a 10.
+
+Il seguente esempio in C# illustra come enumerare tutti i **criteri di chiave simmetrica** nell'account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Per esempi di REST, vedere [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list) (Criteri di chiave simmetrica - Elenco)
+
+## <a name="jobs"></a>Processi
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei [processi](https://docs.microsoft.com/rest/api/media/jobs): 
+
+| NOME    | Filtro                        | Ordine |
+|---------|-------------------------------|-------|
+| name                    | eq            | crescente e decrescente|
+| properties.state        | eq, ne        |                         |
+| properties.created      | gt, ge, lt, le| crescente e decrescente|
+| properties.lastModified | gt, ge, lt, le | crescente e decrescente| 
+
+
+### <a name="pagination"></a>Paginazione
+
+La paginazione dei processi è supportata in Servizi multimediali v3.
+
+Il seguente esempio in C# illustra come enumerare i processi nell'account.
+
+```csharp            
+List<string> jobsToDelete = new List<string>();
+var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
+
+bool exit;
+do
+{
+    foreach (Job j in pageOfJobs)
+    {
+        jobsToDelete.Add(j.Name);
+    }
+
+    if (pageOfJobs.NextPageLink != null)
+    {
+        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
+        exit = false;
+    }
+    else
+    {
+        exit = true;
+    }
+}
+while (!exit);
+
+```
+
+Per esempi di REST, vedere [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list) (Processi - Elenco)
+
+## <a name="streaming-locators"></a>Localizzatori di streaming
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei localizzatori di streaming: 
+
+|NOME|Filtro|Ordine|
+|---|---|---|
+|id |||
+|name|eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.alternativeMediaId  |||
+|properties.assetName   |||
+|properties.contentKeys |||
+|properties.created |eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.defaultContentKeyPolicyName |||
+|properties.endTime |eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.startTime   |||
+|properties.streamingLocatorId  |||
+|properties.streamingPolicyName |||
+|type   |||
+
+### <a name="pagination"></a>Paginazione
+
+La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è pari a 10.
+
+Il seguente esempio in C# illustra come enumerare tutti i localizzatori di streaming nell'account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Per esempi REST, vedere [Localizzatori di streaming - Elenco](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+
+## <a name="streaming-policies"></a>Criteri di streaming
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei criteri di streaming: 
+
+|NOME|Filtro|Ordine|
+|---|---|---|
+|id|||
+|name|eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.commonEncryptionCbcs|||
+|properties.commonEncryptionCenc|||
+|properties.created |eq, ne, ge, le, gt, lt|crescente e decrescente|
+|properties.defaultContentKeyPolicyName |||
+|properties.envelopeEncryption|||
+|properties.noEncryption|||
+|type|||
+
+### <a name="pagination"></a>Paginazione
+
+La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è pari a 10.
+
+L'esempio C# seguente illustra come enumerare tutti i criteri di streaming nell'account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Per esempi REST, vedere [Criteri di streaming - Elenco](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+
+
+## <a name="transform"></a>Trasformare
+
+### <a name="filteringordering"></a>Filtri/Ordinamento
+
+La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà delle [trasformazioni](https://docs.microsoft.com/rest/api/media/transforms): 
+
+| NOME    | Filtro                        | Ordine |
+|---------|-------------------------------|-------|
+| name                    | eq            | crescente e decrescente|
+| properties.created      | gt, ge, lt, le| crescente e decrescente|
+| properties.lastModified | gt, ge, lt, le | crescente e decrescente|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

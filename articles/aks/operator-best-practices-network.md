@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101973"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699126"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -21,44 +21,44 @@ Quando si creano e si gestiscono cluster nel servizio Azure Kubernetes, viene fo
 Questo articolo sulle procedure consigliate è incentrato sulla sicurezza e la connettività di rete per gli operatori del cluster. In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
-> * Confrontare le modalità di rete di base e avanzate nel servizio Azure Kubernetes
+> * Confrontare le modalità di rete kubenet e Azure CNI nel servizio Azure Kubernetes
 > * Pianificare la connettività e gli indirizzi IP necessari
 > * Distribuire il traffico usando servizi di bilanciamento del carico, controller di ingresso o web application firewall (WAF)
 > * Connettersi in modo sicuro ai nodi del cluster
 
 ## <a name="choose-the-appropriate-network-model"></a>Scegliere il modello di rete appropriato
 
-**Suggerimento per la procedura consigliata**: per consentire l'integrazione con reti virtuali esistenti o locali, usare le funzionalità di rete avanzate nel servizio Azure Kubernetes. Questo modello di rete consente inoltre una maggiore separazione delle risorse e dei controlli in un ambiente aziendale.
+**Suggerimento per la procedura consigliata**: per consentire l'integrazione con le reti locali o con le reti virtuali esistenti, usare le funzionalità di rete Azure CNI nel servizio Azure Kubernetes. Questo modello di rete consente inoltre una maggiore separazione delle risorse e dei controlli in un ambiente aziendale.
 
 Le reti virtuali forniscono la connettività di base per consentire ai clienti e ai nodi del servizio Azure Kubernetes di accedere alle applicazioni. Esistono due diversi modi per distribuire i cluster del servizio Azure Kubernetes nelle reti virtuali:
 
-* **Funzionalità di rete di base**: Azure gestisce le risorse di rete virtuale durante la distribuzione del cluster e usa il plug-in Kubernetes [kubenet][kubenet].
-* **Funzionalità di rete avanzate**: la distribuzione avviene in una rete virtuale esistente e si usa il plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking]. Ai pod vengono assegnati IP singoli che possono essere instradati ad altri servizi di rete o a risorse locali.
+* **Funzionalità di rete kubenet**: Azure gestisce le risorse di rete virtuale durante la distribuzione del cluster e usa il plug-in [kubenet][kubenet] di Kubernetes.
+* **Funzionalità di rete Azure CNI**: la distribuzione avviene in una rete virtuale esistente e viene usato il plug-in [Azure Container Networking Interface (CNI)][cni-networking] di Kubernetes. Ai pod vengono assegnati IP singoli che possono essere instradati ad altri servizi di rete o a risorse locali.
 
 Container Networking Interface (CNI) è un protocollo indipendente dal fornitore che consente al runtime del contenitore di indirizzare le richieste a un provider di rete. Azure CNI assegna gli indirizzi IP ai pod e ai nodi e offre funzionalità di gestione degli indirizzi IP (IPAM) durante la connessione a reti virtuali Azure esistenti. A ogni risorsa di nodi e pod viene assegnato un indirizzo IP nella rete virtuale di Azure e non è necessario alcun routing aggiuntivo per comunicare con altri servizi o risorse.
 
 ![Diagramma che illustra due nodi ognuno dei quali è connesso da bridge a una singola rete virtuale di Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Per la maggior parte delle distribuzioni di produzione, è consigliabile usare le funzionalità di rete avanzate. Questo modello di rete consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete avanzate consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
+Per la maggior parte delle distribuzioni di produzione, è consigliabile usare le funzionalità di rete Azure CNI. Questo modello di rete consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete Azure CNI consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
 
-Quando si usano le funzionalità di rete avanzate, la risorsa di rete virtuale si trova in un gruppo di risorse separato rispetto al cluster del servizio Azure Kubernetes. Delegare le autorizzazioni per consentire all'entità servizio del servizio Azure Kubernetes di accedere e gestire queste risorse. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale si trova in un gruppo di risorse separato rispetto al cluster del servizio Azure Kubernetes. Delegare le autorizzazioni per consentire all'entità servizio del servizio Azure Kubernetes di accedere e gestire queste risorse. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation].
 
-Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti al numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete di base che con quelle avanzate. Per gestire eventi di aumento o aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata.
+Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire eventi di aumento o aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata.
 
-Per calcolare l'indirizzo IP richiesto, vedere [Configurare funzionalità di rete avanzate nel servizio Kubernetes di Azure (AKS)][advanced-networking].
+Per calcolare l'indirizzo IP richiesto, vedere [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][advanced-networking] (Configurare le funzionalità di rete Azure CNI nel servizio Azure Kubernetes).
 
-### <a name="basic-networking-with-kubenet"></a>Funzionalità di rete di base con Kubenet
+### <a name="kubenet-networking"></a>Funzionalità di rete kubenet
 
-Anche se con le funzionalità di rete di base non è necessario configurare le reti virtuali prima della distribuzione del cluster, questo metodo presenta alcuni svantaggi:
+Anche se con kubenet non è necessario configurare le reti virtuali prima della distribuzione del cluster, questo metodo presenta alcuni svantaggi:
 
-* Nodi e pod vengono inseriti in subnet IP diverse. Per instradare il traffico tra pod e nodi, si usano il routing definito dall'utente e l'inoltro IP. Questo routing aggiuntivo implica una riduzione delle prestazioni di rete.
-* Le connessioni alle reti locali esistenti o l'associazione con altre reti virtuali di Azure sono operazioni complesse.
+* Nodi e pod vengono inseriti in subnet IP diverse. Per instradare il traffico tra pod e nodi, si usano il routing definito dall'utente e l'inoltro IP. Questo routing aggiuntivo può comportare una riduzione delle prestazioni di rete.
+* Le connessioni alle reti locali esistenti o le operazioni di peering con altre reti virtuali di Azure possono risultare complesse.
 
-Le funzionalità di rete di base sono adatte per carichi di lavoro di sviluppo o di test di dimensioni ridotte, in quanto non è necessario creare separatamente la rete virtuale e le subnet rispetto al cluster del servizio Azure Kubernetes. Anche i siti Web semplici con traffico ridotto o il trasferimento in modalità lift-and-shift dei carichi di lavoro in contenitori possono sfruttare la semplicità dei cluster del servizio Azure Kubernetes distribuiti con le funzionalità di rete di base. Per la maggior parte delle distribuzioni di produzione, è possibile pianificare e usare le funzionalità di rete avanzate.
+Kubenet è adatto per carichi di lavoro di sviluppo o di test di dimensioni ridotte, in quanto non è necessario creare la rete virtuale e le subnet separatamente rispetto al cluster del servizio Azure Kubernetes. Anche i siti Web semplici con traffico ridotto o il trasferimento in modalità lift-and-shift dei carichi di lavoro nei contenitori possono sfruttare la semplicità dei cluster del servizio Azure Kubernetes distribuiti con le funzionalità di rete kubenet. Per la maggior parte delle distribuzioni di produzione, è consigliabile effettuare la pianificazione e usare le funzionalità di rete Azure CNI. È anche possibile [configurare gli intervalli di indirizzi IP e le reti virtuali usando kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuire il traffico in ingresso
 
@@ -155,4 +155,5 @@ Questo articolo è stato incentrato sulla sicurezza e la connettività di rete. 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

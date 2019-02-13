@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820420"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Eseguire esempi di MapReduce in HDInsight basato su Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Molte persone preferiscono oggi Apache Hive e Apache Pig rispetto a MapReduce.  
 ## <a name="hdinsight-sample-wordcount"></a>Conteggio delle parole: Java
 Per inviare un progetto MapReduce, è necessario prima creare una definizione del processo MapReduce. Nella definizione del processo specificare il file con estensione jar del programma MapReduce e il relativo percorso, ovvero **wasb:///example/jars/hadoop-mapreduce-examples.jar**, nonché il nome della classe e gli argomenti.  Il programma MapReduce per il conteggio delle parole accetta due argomenti: il file di origine usato per contare le parole e il percorso di output.
 
-Il codice sorgente è disponibile nell' [Appendice A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Il codice sorgente è disponibile nell'Appendice A.
 
 Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare programmi MapReduce Java per Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Nel frattempo il reducer raccoglie gli output basati su riga dal flusso [stdout]
 
 **Per inviare un processo di conteggio delle parole di un flusso in C#**
 
-* Seguire la procedura descritta in [Conteggio delle parole: Java](#word-count-java) sostituendo la definizione del processo con la riga seguente:
+* Seguire la procedura descritta in Conteggio delle parole: Java sostituendo la definizione del processo con la riga seguente:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Lo script fornito per questo esempio invia un processo jar Hadoop ed è configur
 
 **Per inviare un processo di calcolo del Pi greco**
 
-* Seguire la procedura descritta in [Conteggio delle parole: Java](#word-count-java) sostituendo la definizione del processo con la riga seguente:
+* Seguire la procedura descritta in Conteggio delle parole: Java sostituendo la definizione del processo con la riga seguente:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ L'esempio richiede tre attività, ognuna delle quali corrisponde a uno dei progr
 
 **Per inviare i processi**
 
-* Seguire la procedura descritta in [Conteggio delle parole: Java](#word-count-java) usando le definizioni di processo seguenti:
+* Seguire la procedura descritta in Conteggio delle parole: Java usando le definizioni di processo seguenti:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

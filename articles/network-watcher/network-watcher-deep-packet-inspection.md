@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568727"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818363"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
 
@@ -61,7 +61,7 @@ Per visualizzare più facilmente i primi due pacchetti nell'handshake a tre live
 
 Per applicare il filtro in WireShark, espandere il segmento "Transmission Control Protocol" di un pacchetto [SYN] nell'acquisizione ed esaminare i flag impostati nell'intestazione TCP.
 
-Poiché si vogliono filtrare i pacchetti [SYN] e [SYN, ACK], nei flag seguenti verificare che il bit Syn sia impostato su 1, quindi fare clic con il pulsante destro del mouse sul bit Syn -> Apply as Filter (Applica come filtro) -> Selezionato.
+Poiché si vogliono filtrare tutti i pacchetti [SYN] e [SYN, ACK], nei flag seguenti verificare che il bit Syn sia impostato su 1, quindi fare clic con il pulsante destro del mouse sul bit Syn -> Applica come filtro -> Selezionato.
 
 ![Figura 7][7]
 

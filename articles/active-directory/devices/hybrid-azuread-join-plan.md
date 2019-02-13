@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100173"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746422"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -111,7 +111,7 @@ Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita aut
 
 L'aggiunta ad Azure AD ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale con Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. In questo caso, vedere [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md).
 
-Se i dispositivi aggiunti a un dominio di Windows 10 sono già [registrati in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) nel tenant, è opportuno valutare la possibilità di rimuovere questo stato prima di abilitare l'aggiunta ad Azure AD ibrido. Lo stato doppio per un dispositivo, ovvero aggiunto ad Azure AD ibrido e registrato in Azure AD, non è supportato. Dalla versione 1809 di Windows 10 sono state introdotte le modifiche seguenti per evitare questo stato doppio: 
+Se i dispositivi aggiunti a un dominio di Windows 10 sono già [registrati in Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) nel tenant, è consigliabile rimuovere questo stato prima di abilitare l'aggiunta ad Azure AD ibrido. Dalla versione 1809 di Windows 10 sono state introdotte le modifiche seguenti per evitare questo stato doppio: 
  - L'eventuale stato esistente di registrato in Azure AD viene rimosso automaticamente dopo l'aggiunta del dispositivo ad Azure AD ibrido. 
  - È possibile evitare che il dispositivo aggiunto a un dominio venga registrato in Azure AD aggiungendo questa chiave del Registro di sistema: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -145,20 +145,20 @@ A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedur
 - [Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti](hybrid-azuread-join-managed-domains.md)
 
 
- Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Supporto per ID di accesso alternativo nell'aggiunta ad Azure AD ibrido
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Supporto dei nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido
 
-L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi:
+I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli di Azure AD. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
 
- - ID di accesso alternativo instradabili: un ID di accesso alternativo instradabile ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario, contoso.org e contoso.co.uk sono domini validi di proprietà di Contoso e [verificati in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - Nome dell'entità utente instradabile: ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
  
- - ID di accesso alternativo non instradabili: un ID di accesso alternativo non instradabile non ha un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario, contoso.local non è un dominio verificabile in Internet, ma viene utilizzato nella rete di Contoso.
+ - Nome dell'entità utente non instradabile: non ha un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.local è il dominio primario in AD locale, ma non è un dominio verificabile in Internet e viene usato solo nella rete di Contoso.
  
-La tabella seguente contiene informazioni sul supporto per questi ID di accesso alternativo nell'aggiunta ad Azure AD ibrido di Windows 10
+La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-|Tipo di ID di accesso alternativo|Tipo di dominio|Versione di Windows 10|DESCRIZIONE|
+|Tipo di nome dell'entità utente di AD locale|Tipo di dominio|Versione di Windows 10|DESCRIZIONE|
 |-----|-----|-----|-----|
 |Instradabile|Federato |Dalla versione 1703|Disponibile a livello generale|
 |Instradabile|Gestito|Dalla versione 1709|Attualmente in anteprima privata. La reimpostazione della password self-service di Azure AD non è supportata |

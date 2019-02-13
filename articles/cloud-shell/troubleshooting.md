@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334398"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568533"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -29,7 +29,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="early-timeouts-in-firefox"></a>Timeout anticipati in FireFox
 
-- **Dettagli**: Cloud Shell utilizza una connessione WebSocket aperta per passare input/output al browser. FireFox ha criteri predefiniti che possono chiudere la connessione WebSocket in modo anomalo causando timeout anticipati in Cloud Shell.
+- **Dettagli**: Cloud Shell utilizza una connessione WebSocket aperta per passare dati di input/output al browser. FireFox ha criteri predefiniti che possono chiudere la connessione WebSocket in modo anomalo causando timeout anticipati in Cloud Shell.
 - **Risoluzione**: aprire FireFox e digitare "about:config" nella casella URL per accedere alla schermata corrispondente. Cercare "network.websocket.timeout.ping.request" e modificare il valore da 0 a 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Disabilitazione di Cloud Shell in un ambiente di rete bloccato
@@ -39,7 +39,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
 
-- **Dettagli**: quando si crea un account di archiviazione tramite Azure Cloud Shell, il processo non riesce a causa di criteri di Azure inseriti dall'amministratore. Il messaggio di errore includerà il messaggio seguente:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Dettagli**: quando si crea un account di archiviazione tramite Azure Cloud Shell, il processo non riesce a causa di criteri di Azure definiti dall'amministratore. Il messaggio di errore includerà il messaggio seguente:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Risoluzione**: contattare l'amministratore di Azure per rimuovere o aggiornare i criteri di Azure che impediscono di creare l'archiviazione.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Finestra di dialogo archiviazione - Errore: 400 DisallowedOperation
@@ -47,12 +47,12 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 - **Dettagli**: quando si usa una sottoscrizione di Azure Active Directory, non è possibile creare la risorsa di archiviazione.
 - **Risoluzione**: usare una sottoscrizione di Azure in grado di creare le risorse di archiviazione. Le sottoscrizioni di Azure Active Directory non sono in grado di creare le risorse di Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Output del terminale - Errore: impossibile effettuare la connessione del terminale: non è possibile stabilire una connessione websocket. Premere `Enter` per ristabilire la connessione.
-- **Dettagli**: Cloud Shell richiede la possibilità di stabilire una connessione websocket all'infrastruttura di Cloud Shell.
-- **Risoluzione**: verificare di aver configurato le impostazioni di rete per abilitare l'invio di richieste https e di richieste websocket ai domini in *.console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Output del terminale - Errore: connessione del terminale non riuscita: non è possibile stabilire una connessione WebSocket. Premere `Enter` per ristabilire la connessione.
+- **Dettagli**: Cloud Shell richiede la possibilità di stabilire una connessione WebSocket all'infrastruttura di Cloud Shell.
+- **Risoluzione**: verificare di aver configurato le impostazioni di rete per abilitare l'invio di richieste https e di richieste WebSocket ai domini in *.console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Impostare la connessione di Cloud Shell per supportare l'uso di TLS 1.2
- - **Dettagli**: per definire la versione di TLS per la connessione a Cloud Shell, è necessario impostare impostazioni specifiche del browser.
+ - **Dettagli**: per specificare la versione di TLS per la connessione a Cloud Shell, è necessario definire impostazioni specifiche del browser.
  - **Risoluzione**: passare alle impostazioni di sicurezza del browser e selezionare la casella di controllo accanto a "Usa TLS 1.2".
 
 ## <a name="bash-troubleshooting"></a>Risoluzione dei problemi di Bash
@@ -60,7 +60,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 ### <a name="cannot-run-the-docker-daemon"></a>Non è possibile eseguire il daemon Docker
 
 - **Dettagli**: Cloud Shell prevede l'uso di un contenitore per ospitare l'ambiente della shell, pertanto l'esecuzione del daemon non è consentita.
-- **Risoluzione**: usare [docker-machine](https://docs.docker.com/machine/overview/), installato per impostazione predefinita, per gestire i contenitori Docker da un host Docker remoto.
+- **Risoluzione**: utilizzare [docker-machine](https://docs.docker.com/machine/overview/), installato per impostazione predefinita, per gestire i contenitori Docker da un host Docker remoto.
 
 ## <a name="powershell-troubleshooting"></a>Risoluzione dei problemi di PowerShell
 
@@ -73,12 +73,12 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 > [!NOTE]
 > Le macchine virtuali di Azure devono avere un indirizzo IP pubblico.
 
-- **Dettagli**: a causa delle impostazioni predefinite di Windows Firewall per la gestione remota Windows, all'utente può comparire l'errore seguente: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Risoluzione**: eseguire `Enable-AzureRmVMPSRemoting` per abilitare tutti gli aspetti della comunicazione remota di PowerShell nel computer di destinazione.
+- **Dettagli**: a causa delle impostazioni predefinite di Windows Firewall per Gestione remota Windows, è possibile che venga restituito l'errore seguente: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Risoluzione**:  eseguire `Enable-AzureRmVMPSRemoting` per abilitare tutti gli aspetti della comunicazione remota di PowerShell nel computer di destinazione.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` non memorizza il risultato nell'unità Azure
 
-- **Dettagli**: per impostazione predefinita, i risultati di `dir` vengono memorizzati nell'unità Azure per ottimizzare l'esperienza utente.
+- **Dettagli**: per impostazione predefinita, i risultati di `dir` vengono memorizzati nell'unità di Azure per ottimizzare l'esperienza utente.
 - **Risoluzione**: dopo aver creato, aggiornato o rimosso una risorsa di Azure, eseguire `dir -force` per aggiornare i risultati nell'unità Azure.
 
 ## <a name="general-limitations"></a>Limitazioni generali
@@ -143,7 +143,7 @@ Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'un
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Non sono supportati i comandi che creano elementi popup GUI
 
-Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD` o `Connect-AzureRmAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD`, `Connect-AzureRmAccount` o `Connect-AzAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Il completamento della scheda può dare luogo a un'eccezione PSReadline
 

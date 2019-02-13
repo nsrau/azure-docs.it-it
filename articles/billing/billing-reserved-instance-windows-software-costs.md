@@ -1,6 +1,6 @@
 ---
-title: Costi del software Windows per la prenotazione di Azure | Microsoft Docs
-description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
+title: Costi del software per la prenotazione di Azure | Microsoft Docs
+description: Informazioni sui contatori relativi al software non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902662"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744981"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software Windows non inclusi nelle istanze di macchina virtuale riservate di Azure
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
-Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchina virtuale riservate in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
+Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchina virtuale riservate in uso, i costi verranno addebitati in base ai contatori relativi al software elencati nelle sezioni seguenti.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software Windows non inclusi nella prenotazione
 
@@ -50,6 +50,22 @@ Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchi
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Istanze riservate di Windows Server (256 core) | Tutte tranne Serie B |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Istanze riservate di Windows Server (96 core) | Tutte tranne Serie B |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software dei servizi cloud non inclusi nella prenotazione
+
+| ID contatore | Nome del contatore nel file di uso |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Licenza vCPU servizi cloud 1|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Licenza vCPU servizi cloud 2|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Licenza vCPU servizi cloud 4|
+|13103090-ca72-4825-ab12-7f16c4931d95|Licenza vCPU servizi cloud 8|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Licenza vCPU servizi cloud 16|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Licenza vCPU servizi cloud 20|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|Licenza vCPU servizi cloud 32|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Licenza vCPU servizi cloud 64|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Licenza vCPU servizi cloud 80|
+
+## <a name="rates-for-azure-meters"></a>Tariffe per i contatori di Azure
+
 È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -65,6 +81,3 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

@@ -1,29 +1,29 @@
 ---
-title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
-description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
+title: Ridondanza dei dati in Archiviazione di Azure | Microsoft Docs
+description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di ridondanza includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455508"
+ms.locfileid: "55506788"
 ---
-# <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
+# <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
-I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. La replica di Archiviazione di Azure copia i dati in modo che siano protetti da eventi pianificati e non pianificati, ad esempio errori hardware temporanei, interruzioni della rete o dell'alimentazione, forti calamità naturali e così via. È possibile scegliere di replicare i dati nello stesso data center, tra data center di zona nella stessa area e persino tra aree.
+I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. Archiviazione di Azure copia i dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e forti calamità naturali. È possibile scegliere di replicare i dati nello stesso data center, tra data center di zona nella stessa area o tra aree separate geograficamente.
 
 Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori. Altre informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure sono reperibili nel Contratto di servizio.
 
-## <a name="choosing-a-replication-option"></a>Scelta di un'opzione di replica
+## <a name="choosing-a-redundancy-option"></a>Selezione di un'opzione di ridondanza
 
-Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di replica seguenti:
+Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di ridondanza seguenti:
 
 * [Archiviazione con ridondanza locale (LRS)](storage-redundancy-lrs.md)
 * [Archiviazione con ridondanza della zona (ZRS).](storage-redundancy-zrs.md)
@@ -34,10 +34,10 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 
 | Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | Archiviazione con ridondanza geografica                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Mancata disponibilità di un nodo in un data center                                                                 | Yes                             | Sì                              | Sì                                  | Yes                                  |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Yes                              | Sì                                  | Yes                                  |
-| Interruzione a livello di area                                                                                     | No                               | No                                | Yes                                  | Yes                                  |
-| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Yes                                  |
+| Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Sì                              | Sì                                  | Sì                                  |
+| Interruzione a livello di area                                                                                     | No                               | No                                | Sì                                  | Sì                                  |
+| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Sì                                  |
 | Replica progettata per fornire una durabilità di \_\_ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2                             | GPv2, GPv1, BLOB                     | GPv2, GPv1, BLOB                     |
 | Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,99% (99,9% per livello di accesso sporadico) |
@@ -63,8 +63,8 @@ Se si passa da GRS a LRS non sono previsti costi aggiuntivi, ma i dati replicati
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
-- [Archiviazione con ridondanza della zona (ZRS): Applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
+- [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
+- [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
 - [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
 - [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)

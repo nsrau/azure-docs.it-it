@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510324"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -30,26 +30,32 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.7.2**         |
 | | | | 
 | **Raccolta automatica di**        |                 |                   |               
-| &bull; Richieste                     | Yes             | Yes               | 
-| &bull; Eccezioni                   | Yes             | Yes               | 
+| &bull; Richieste                     | Sì             | Sì               | 
+| &bull; Eccezioni                   | Sì             | Sì               | 
+| &bull; Contatori delle prestazioni         | Sì             |                   |
 | &bull; Dipendenze                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sì               | 
 | | | | 
 | **Funzionalità supportate**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Yes             | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Yes               | 
-| &bull; Campionamento                     | Yes             | Yes               | 
-| &bull; Heartbeat                   |                 | Yes               | 
+| &bull; QuickPulse/LiveMetrics       | Sì             | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Sì               | 
+| &bull; Campionamento                     | Sì             | Sì               | 
+| &bull; Heartbeat                   |                 | Sì               | 
 | | | | 
 | **Correlazione**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Yes               | 
-| &bull; EventHub                       |                   | Yes               | 
+| &bull; ServiceBus                     |                   | Sì               | 
+| &bull; EventHub                       |                   | Sì               | 
 | | | | 
 | **Configurabile**                      |                   |                   |           
-| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Yes                   | 
+| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Sì                   | 
+
+
+## <a name="performance-counters"></a>Contatori delle prestazioni
+
+La raccolta automatica dei contatori delle prestazioni funziona solo sui computer Windows.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>Metriche attive e canale di controllo sicuro

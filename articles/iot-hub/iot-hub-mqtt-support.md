@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul supporto MQTT dell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sul supporto MQTT dell'hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Supporto per dispositivi che si connettono a un endpoint che usa dispositivi dell'hub IoT con il protocollo MQTT. Sono incluse informazioni sul supporto MQTT integrato in Azure IoT SDK per dispositivi.
 author: rezasherafat
 manager: ''
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913573"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660239"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -60,17 +60,17 @@ Quando si esegue questa operazione, controllare gli elementi seguenti:
 * AMQP restituisce errori per diverse condizioni, mentre MQTT termina la connessione. Di conseguenza, la logica di gestione delle eccezioni potrebbe richiedere alcune modifiche.
 * MQTT non supporta le operazioni di *rifiuto* quando si ricevono [messaggi da cloud a dispositivo][lnk-messaging]. Se l'app back-end deve ricevere una risposta dall'app per dispositivo, considerare la possibilità di usare [metodi diretti][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Uso del protocollo MQTT direttamente
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Uso diretto del protocollo MQTT (come dispositivo)
 
 Se un dispositivo non può usare gli SDK per dispositivi, può comunque connettersi agli endpoint pubblici del dispositivo tramite il protocollo MQTT sulla porta 8883. Nel pacchetto **CONNECT** il dispositivo deve usare i valori seguenti:
 
 * Per il campo **ClientId** usare **deviceId**.
 
-* Per il campo **Username** usare `{iothubhostname}/{device_id}/api-version=2018-06-30`, dove `{iothubhostname}` rappresenta il record CName completo dell'hub IoT.
+* Per il campo **Username** usare `{iothubhostname}/{device_id}/?api-version=2018-06-30`, dove `{iothubhostname}` rappresenta il record CName completo dell'hub IoT.
 
     Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:
 
@@ -108,6 +108,16 @@ Per Device Explorer:
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** . Questo evento contiene informazioni aggiuntive che consentono di risolvere i problemi di connettività.
 
 L'app per dispositivo può specificare un messaggio **Will** nel pacchetto **CONNECT**. L'app per dispositivo deve usare `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come nome di argomento **Will** per definire i messaggi **Will** da inoltrare come messaggi di telemetria. In questo caso, se la connessione di rete viene chiusa, ma il dispositivo non ha prima ricevuto un pacchetto **DISCONNECT**, l'hub IoT invia il messaggio **Will** specificato nel pacchetto **CONNECT** al canale di telemetria. Quest'ultimo può essere l'endpoint **Events** predefinito o un endpoint personalizzato definito dal routing dell'hub IoT. Alla proprietà **iothub-MessageType** del messaggio è assegnato un valore **Will**.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Uso diretto del protocollo MQTT (come modulo)
+
+La connessione all'hub IoT tramite MQTT con un'identità modulo è simile a quella in cui viene usato un dispositivo (come descritto [sopra](#using-the-mqtt-protocol-directly-as-a-device)), ma è necessario soddisfare i requisiti seguenti:
+* Impostare l'ID client su `{device_id}/{module_id}`.
+* Se si esegue l'autenticazione con nome utente e password, impostare il nome utente `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` e usare il token di firma di accesso condiviso associato all'identità modulo come password.
+* Usare `devices/{device_id}/modules/{module_id}/messages/events/` come argomento per la pubblicazione dei dati di telemetria.
+* Usare `devices/{device_id}/modules/{module_id}/messages/events/` come argomento WILL.
+* Gli argomenti relativi ai comandi PATCH e GET per i dispositivi gemelli sono identici anche per i moduli.
+* L'argomento relativo allo stato dei dispositivi gemelli è identico anche per i moduli.
 
 ### <a name="tlsssl-configuration"></a>Configurazione TLS/SSL
 

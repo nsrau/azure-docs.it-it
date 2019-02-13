@@ -4,17 +4,17 @@ description: Informazioni sulle opzioni di blocco per proteggere le risorse dura
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309434"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696985"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -22,28 +22,39 @@ La creazione di ambienti coerenti su larga scala è davvero efficace solo se esi
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
-Modalità di blocco si applica all'assegnazione del progetto e presenta solo due opzioni: **Nessuna** oppure **Tutte le risorse**. La modalità di blocco viene configurata durante l'assegnazione di progetto e non può essere modificato una volta che l'assegnazione è stata correttamente applicata alla sottoscrizione.
+La modalità di blocco si applica all'assegnazione del progetto e presenta tre opzioni: **Non bloccare**, **Sola lettura** e **Non eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
+Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blueprints.
 
-Le risorse create da artefatti in un'assegnazione progetto hanno tre stati: **Non bloccato**, **Sola lettura** o **Impossibile modificare/eliminare**. Ogni elemento può essere nello stato **Non bloccato**. Tuttavia, gli artefatti di gruppi non corrispondenti a risorsa hanno lo stato **Sola lettura** e i gruppi di risorse gli stati **Impossibile modificare/eliminare**. Questa differenza è una distinzione importante per la modalità di gestione di queste risorse.
+Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-Lo stato **Sola lettura** è perfettamente descritto dalla sua definizione : non è possibile modificare la risorsa in alcun modo, non è consentita nessuna modifica e non può essere eliminata. Lo stato **Impossibile modificare/eliminare** presenta più sfumature a causa della natura a "contenitore" del gruppo di risorse. L'oggetto gruppo di risorse è di sola lettura, ma è possibile apportare modifiche alle risorse non bloccate all'interno del gruppo di risorse.
+|Modalità|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|-|-|-|-|
+|Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
+|Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
+|Sola lettura|Diverso da gruppo di risorse|Sola lettura|Non è possibile modificare la risorsa in alcun modo: non sono consentite modifiche e la risorsa non può essere eliminata.|
+|Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
 ## <a name="overriding-locking-states"></a>Sostituzione degli stati di blocco
 
-È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo tipo di accesso non è appropriato quando si applica il blocco ai progetti come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Blocca**, neanche la sottoscrizione di proprietario può modificare le risorse incluse.
+È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo tipo di accesso non è appropriato quando si applica il blocco ai progetti come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura**  o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
 
 Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'ambiente che è stato progettato per creare a partire da eliminazioni accidentali o programmatiche.
 
 ## <a name="removing-locking-states"></a>Eliminazione degli stati di blocco
 
-In caso di necessità di eliminazione delle risorse create da un'assegnazione, un modo per eseguire questa operazione è rimuovere in primo luogo l'assegnazione. Quando viene rimossa l'assegnazione, vengono rimossi i blocchi creati da Blueprint. La risorsa viene tuttavia tralasciata e dovrà essere eliminati in modo normale.
+Se si rende necessario modificare o eliminare una risorsa protetta da un'assegnazione, è possibile procedere in due modi.
+
+- Aggiornare l'assegnazione del progetto impostando **Non bloccare** come modalità di blocco
+- Eliminare l'assegnazione del progetto
+
+Quando viene rimossa l'assegnazione, vengono rimossi i blocchi creati da Blueprint. La risorsa viene tuttavia tralasciata e dovrà essere eliminati in modo normale.
 
 ## <a name="how-blueprint-locks-work"></a>Funzionamento dei blocchi progetto
 
-Un ruolo RBAC `denyAssignments` viene applicato alle risorse artefatte durante l'assegnazione di un progetto, se l'assegnazione ha selezionato l'opzione **Blocca**. Il ruolo viene aggiunto dall'identità gestita dell'assegnazione di progetto e può essere eliminato dalle risorse artefatte solo dalla stessa identità gestita. Questa misura di sicurezza consente di applicare il meccanismo di blocco e impedisce di eliminare il blocco di progetto al di fuori di Blueprint. L'eliminazione del ruolo e del blocco è possibile solo tramite l'eliminazione dell'assegnazione di progetto, che può essere eseguita solo da utenti con autorizzazioni appropriate.
+In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza consente di applicare il meccanismo di blocco e impedisce di eliminare il blocco di progetto al di fuori di Blueprint.
 
 > [!IMPORTANT]
-> Azure Resource Manager memorizza nella cache i dettagli di assegnazione di ruolo per un massimo di 30 minuti. Di conseguenza, `denyAssignments` nelle risorse del progetto può non essere attivo completamente attivo con effetto immediato. Durante questo periodo di tempo, potrebbe essere possibile eliminare una risorsa che deve essere protetta da blocchi di progetto.
+> Azure Resource Manager memorizza nella cache i dettagli di assegnazione di ruolo per un massimo di 30 minuti. Di conseguenza, le azioni di negazione assegnazioni per le risorse del progetto potrebbero non essere completamente attive con effetto immediato. Durante questo periodo di tempo, potrebbe essere possibile eliminare una risorsa che deve essere protetta da blocchi di progetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

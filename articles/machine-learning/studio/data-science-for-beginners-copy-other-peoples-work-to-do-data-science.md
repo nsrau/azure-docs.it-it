@@ -1,8 +1,21 @@
 ---
-title: Copiare gli esempi di data science altrui titleSuffix: Descrizione di Azure Machine Learning Studio: "Segreto commerciale della data science: Fare svolgere ad altri il proprio lavoro. Esempi di machine learning dalla Azure AI Gallery".
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
+title: Copiare gli esempi di data science altrui
+titleSuffix: Azure Machine Learning Studio
+description: 'Segreto commerciale della data science: Fare svolgere ad altri il proprio lavoro. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492998"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti

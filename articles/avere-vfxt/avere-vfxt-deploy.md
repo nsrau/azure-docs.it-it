@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296376"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745436"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -39,11 +39,11 @@ Per altre informazioni sulla procedura di distribuzione e sulla pianificazione d
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Creare Avere vFXT per Azure
 
-Accedere al modello di creazione nel portale di Azure cercando Avere e selezionando "Avere vFXT for Azure Deployment". <!-- xxx update if that name changes xxx --> 
+Accedere al modello di creazione nel portale di Azure cercando Avere e selezionando "Avere vFXT ARM Deployment" (Distribuzione ARM di Avere vFXT). 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Finestra del browser in cui è visualizzato il portale di Azure con il percorso di navigazione "Nuovo > Marketplace > Tutto". Nella pagina Tutto il campo di ricerca contiene il termine "avere" e il secondo risultato, "Avere vFXT ARM Deployment" (Distribuzione ARM di Avere vFXT) è evidenziato da un riquadro rosso.](media/avere-vfxt-template-choose.png)
 
-Fare clic su **Crea** per iniziare. 
+Dopo avere letto i dettagli nella pagina Avere vFXT ARM Deployment (Distribuzione ARM di Avere vFXT), fare clic su **Crea** per iniziare. 
 
 ![Azure Marketplace con la prima pagina del modello di distribuzione](media/avere-vfxt-deploy-first.png)
 
@@ -80,7 +80,7 @@ Specificare le informazioni seguenti:
 
 * **Sottoscrizione**: selezionare la sottoscrizione per Avere vFXT. 
 
-* **Gruppo di risorse**: selezionare il gruppo di risorse per il cluster Avere vFXT o fare clic su "Crea nuovo" e immettere il nome di un nuovo gruppo di risorse. 
+* **Gruppo di risorse**: selezionare un gruppo di risorse vuoto esistente per il cluster Avere vFXT oppure creare un nuovo gruppo di risorse facendo clic su "Crea nuovo" e immettendo un nome. 
 
 * **Località**: selezionare la località di Azure relativa al cluster e alle risorse.
 
@@ -123,9 +123,11 @@ La seconda pagina del modello di distribuzione consente di configurare le dimens
 
 * **Subnet**: scegliere una subnet da una rete virtuale esistente oppure crearne una nuova. 
 
-* **Use blob storage** (Usa l'archiviazione BLOB): scegliere se creare o meno un nuovo contenitore BLOB di Azure e configurarlo come risorsa da archiviazione back-end per il nuovo cluster Avere vFXT. Se si sceglie di creare un nuovo contenitore, è necessario specificare l'account di archiviazione relativo al contenitore. Se invece si sceglie di non creare un nuovo contenitore BLOB, dopo aver creato il cluster è necessario collegare la risorsa di archiviazione (per informazioni, vedere [Configurare l'archivio](avere-vfxt-add-storage.md)). Impostare questo campo su **false** se non si vuole creare un nuovo contenitore.
+* **Use blob storage** (Usa l'archiviazione BLOB): scegliere **true** per creare un nuovo contenitore BLOB di Azure e configurarlo come risorsa di archiviazione back-end per il nuovo cluster Avere vFXT. Questa opzione inoltre crea un nuovo account di archiviazione nello stesso gruppo di risorse del cluster. 
 
-* **Storage account** (Account di archiviazione): se si crea un nuovo contenitore BLOB di Azure, immettere il nome dell'account di archiviazione. L'account di archiviazione deve essere un account di tipo v2 standard per utilizzo generico, configurato con archiviazione con ridondanza locale e un livello di accesso frequente. L'articolo [Configurare l'archivio](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) presenta informazioni più dettagliate sui requisiti dell'account di archiviazione.
+  Impostare questo campo su **false** se non si vuole creare un nuovo contenitore. In questo caso è necessario associare e configurare la risorsa di archiviazione dopo la creazione del cluster. Per le istruzioni, leggere [Configurare l'archivio](avere-vfxt-add-storage.md). 
+
+* **Account di archiviazione**: se si crea un nuovo contenitore BLOB di Azure, immettere un nome per il nuovo account di archiviazione. 
 
 ## <a name="validation-and-purchase"></a>Convalida e acquisto
 
@@ -161,7 +163,7 @@ Per trovare queste informazioni, seguire questa procedura:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Creare un endpoint di archiviazione (se si usa l'archiviazione BLOB di Azure)
 
-Se si usa l'archiviazione BLOB di Azure per l'archivio dati back-end, è necessario creare un endpoint di servizio di archiviazione nella rete virtuale. Questo [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico BLOB di Azure in locale invece di instradarlo tramite Internet.
+Se si usa l'archiviazione BLOB di Azure per l'archivio dati back-end, è necessario creare un endpoint di servizio di archiviazione nella rete virtuale. Questo [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico BLOB di Azure in locale invece di instradarlo al di fuori della rete virtuale.
 
 1. Nel portale fare clic su **Reti virtuali** a sinistra.
 1. Selezionare la rete virtuale per il controller. 

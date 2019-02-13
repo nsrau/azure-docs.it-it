@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827500"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700078"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Procedure consigliate per proteggere e gestire i carichi di lavoro migrati ad Azure
 
@@ -400,8 +400,7 @@ Le macchine virtuali di Azure vengono archiviate come BLOB di pagine in Archivia
 - [Informazioni](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) su come creare uno snapshot BLOB.
 - [Esaminare uno scenario di esempio](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) per il backup di archiviazione BLOB.
 - [Informazioni](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sull'eliminazione temporanea.
-- [Consultare](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Cosa fare se si verifica un'interruzione di Archiviazione di Azure?
-
+- [Ripristino di emergenza e failover forzato (anteprima) in Archiviazione di Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Backup di terze parti
 
@@ -517,7 +516,7 @@ Sono disponibili varie opzioni diverse, ognuna inerente alla perdita di dati, ai
 - [Leggere](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 Disaster Recovery (Ripristino di emergenza 101 dei database SQL di Azure).
 - [Panoramica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) dei gruppi di failover e della replica geografica attiva.
 - [Informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) sulla progettazione per il ripristino di emergenza.
-- [Procedure consigliate](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) per gruppi di failover.
+- [Procedure consigliate](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) per gruppi di failover.
 - [Procedure consigliate](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) per la sicurezza dopo il failover o il ripristino geografico.
 - [Informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) sulla ridondanza della zona
 - [Informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) su come eseguire un'esercitazione per il ripristino di emergenza del database SQL.

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare flussi utente in Azure Active Directory B2C | Microsoft Docs'
+title: 'Esercitazione: Creare flussi utente - Azure Active Directory B2C | Microsoft Docs'
 description: Informazioni su come creare flussi utente per le applicazioni in Azure Active Directory B2C mediante il portale di Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845598"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750291"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Il flusso utente di iscrizione e accesso consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti dell'applicazione vengono indirizzati sul percorso corretto a seconda del contesto.
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
 
     ![Passare alla directory della sottoscrizione](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-3. Selezionare **Flussi utente** nel menu a sinistra e quindi selezionare **Nuovo flusso utente**.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Selezionare **Flussi utente** nel menu a sinistra e quindi selezionare **Nuovo flusso utente**.
 
     ![Selezionare Nuovo flusso utente](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Nella scheda Consigliati selezionare il flusso utente **Iscrizione e accesso**.
+5. Nella scheda Consigliati selezionare il flusso utente **Iscrizione e accesso**.
 
     ![Selezionare il flusso utente di iscrizione e accesso](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Immettere un **nome** per il flusso utente. Ad esempio, *signupsignin1*.
-6. Per **Provider di identità** selezionare **Iscrizione posta elettronica**.
+6. Immettere un **nome** per il flusso utente. Ad esempio, *signupsignin1*.
+7. Per **Provider di identità** selezionare **Iscrizione posta elettronica**.
 
     ![Impostare le proprietà del flusso](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. Per **Attributi e attestazioni utente**, scegliere le attestazioni e gli attributi che si vogliono raccogliere e inviare all'utente durante l'iscrizione. Ad esempio, selezionare **Mostra altro**, quindi **Paese/Area**, **Nome visualizzato**, e **Codice postale**. Fare clic su **OK**.
+8. Per **Attributi e attestazioni utente**, scegliere le attestazioni e gli attributi che si vogliono raccogliere e inviare all'utente durante l'iscrizione. Ad esempio, selezionare **Mostra altro**, quindi **Paese/Area**, **Nome visualizzato**, e **Codice postale**. Fare clic su **OK**.
 
     ![Selezionare attributi e attestazioni utente](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Fare clic su **Crea** per aggiungere il flusso utente. Un prefisso *B2C_1* viene automaticamente aggiunto al nome.
+9. Fare clic su **Crea** per aggiungere il flusso utente. Un prefisso *B2C_1* viene automaticamente aggiunto al nome.
 
 ### <a name="test-the-user-flow"></a>Testare il flusso utente
 
@@ -123,4 +124,4 @@ In questo articolo si è appreso come:
 > * Creare un flusso utente di reimpostazione delle password
 
 > [!div class="nextstepaction"]
-> [Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C](tutorial-add-identity-providers.md)

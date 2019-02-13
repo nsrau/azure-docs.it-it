@@ -1,19 +1,19 @@
 ---
 title: Aggiornamenti di Azure Site Recovery | Microsoft Docs
-description: Fornisce una panoramica degli aggiornamenti del servizio e della procedura per aggiornare i componenti usati in Azure Site Recovery.
+description: Offre una panoramica degli aggiornamenti del servizio e della procedura di aggiornamento dei componenti usati in Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229297"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746966"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Aggiornamenti del servizio in Azure Site Recovery
 Un'organizzazione deve sapere come si intende proteggere i dati e preservare l'esecuzione di applicazioni e carichi di lavoro quando si verificano interruzioni pianificate e impreviste. Azure Site Recovery contribuisce al buon esito della strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo le app in esecuzione nelle macchine virtuali e nei server fisici disponibili in caso di arresto di un sito. Site Recovery replica i carichi di lavoro in esecuzione in macchine virtuali e server fisici in modo che rimangano disponibili in una posizione secondaria se il sito primario non è raggiungibile. Ripristina i carichi di lavoro nel sito primario quando è di nuovo attivo.
@@ -97,10 +97,13 @@ Se si è scelto di gestire manualmente gli aggiornamenti, seguire questa procedu
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Tra un sito fisico o VMware locale e Azure
 
-1. In primo luogo, installare l'aggiornamento nel server di gestione locale. Si tratta del server con i ruoli di server di configurazione e di server di elaborazione. 
-2. Se si dispone di server di elaborazione con scalabilità orizzontale (scale-out), aggiornarli successivamente.
-3. Passare al portale di Azure e quindi alla pagina **Elementi protetti** > **Elementi replicati**.
-Selezionare una macchina virtuale in questa pagina. Selezionare il pulsante **Update Agent** (Aggiorna agente) che viene visualizzato nella parte inferiore della pagina per ogni macchina virtuale. In questo modo l'agente del servizio Mobility viene aggiornato in tutte le macchine virtuali protette.
+Prima di procedere con gli aggiornamenti, vedere la [dichiarazione relativa al supporto per Site Recovery](#support-statement-for-azure-site-recovery) per comprendere il percorso di aggiornamento.
+
+1. In base alla versione corrente e alla dichiarazione relativa al supporto sopra riportata, prima installare l'aggiornamento nel server di gestione locale seguendo le linee guida riportate [qui](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Si tratta del server con i ruoli di server di configurazione e di server di elaborazione.
+2. Se si dispone di server di elaborazione con scalabilità orizzontale, aggiornarli successivamente seguendo le linee guida riportate [qui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Quindi, per aggiornare l'agente di mobilità per ogni elemento protetto, accedere al portale di Azure e quindi passare alla pagina **Elementi protetti** > **Elementi replicati**. Selezionare una macchina virtuale in questa pagina. Selezionare il pulsante **Update Agent** (Aggiorna agente) che viene visualizzato nella parte inferiore della pagina per ogni macchina virtuale. In questo modo l'agente del servizio Mobility viene aggiornato in tutte le macchine virtuali protette.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Riavvio della macchina di origine dopo l'aggiornamento dell'agente di mobilità
 
 È consigliabile eseguire un riavvio dopo ogni aggiornamento dell'agente di Mobility per essere certi che tutte le modifiche più recenti vengano caricate nella macchina di origine. È tuttavia **non obbligatorio**. Se la differenza tra la versione dell'agente durante l'ultimo riavvio e la versione corrente è superiore a 4, è obbligatorio eseguire un riavvio. Per una spiegazione dettagliata, fare riferimento alla tabella seguente.
 
@@ -111,14 +114,12 @@ Selezionare una macchina virtuale in questa pagina. Selezionare il pulsante **Up
 | 9.16 | 9.20 | Non obbligatorio
  | 9.16 | 9.21 | Sì. Eseguire prima l'aggiornamento alla versione 9.20 e quindi effettuare il riavvio prima di eseguire l'aggiornamento alla versione 9.21 perché la differenza tra le versioni (la versione 9.16 dove è stato eseguito l'ultimo riavvio e la versione di destinazione 9.21) è >4.
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>Collegamenti agli aggiornamenti cumulativi attualmente supportati
-
 
 |Aggiornamento cumulativo  |Provider  |Installazione unificata| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Aggiornamento cumulativo 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Aggiornamento cumulativo 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Aggiornamento cumulativo 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Aggiornamento cumulativo 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

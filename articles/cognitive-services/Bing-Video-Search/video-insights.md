@@ -1,27 +1,25 @@
 ---
-title: Ottenere informazioni dettagliate sui video - Ricerca video Bing
+title: Ottenere informazioni dettagliate sui video con l'API Ricerca video Bing
 titlesuffix: Azure Cognitive Services
-description: Spiega come usare l'API Ricerca video Bing per ottenere altre informazioni su un video.
+description: Informazioni su come usare l'API Ricerca video Bing per ottenere altre informazioni sui video, ad esempio i video correlati.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9c36208a35d66fcd6df6ac2ccd4a28c55ed92937
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5abc5ee96c503bed9509e3d35b442ea5e0330ac7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170782"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568210"
 ---
 # <a name="get-insights-about-a-video"></a>Ottenere informazioni dettagliate su un video
 
-Ogni video include un ID video che è possibile usare per ottenere altre informazioni sul video, ad esempio i video correlati.  
-  
-Per ottenere informazioni dettagliate su un video, acquisire il relativo token [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) nella risposta. 
+Ogni video restituito dall'API Ricerca video Bing include un ID che è possibile usare per ottenere altre informazioni su di esso, ad esempio i video correlati. Per ottenere informazioni dettagliate su un video, identificare il relativo token [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) nella risposta dell'API. 
 
 ```json
     "value" : [
@@ -36,9 +34,9 @@ Per ottenere informazioni dettagliate su un video, acquisire il relativo token [
     ],
 ```
 
-Successivamente, inviare la richiesta GET seguente all'endpoint dei dettagli video. Impostare il parametro di query [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) sul token `videoId`. Per specificare le informazioni dettagliate che si vuole ottenere, impostare il parametro di query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested). Per ottenere tutte le informazioni dettagliate, impostare `modules` su All. La risposta include tutte le informazioni dettagliate richieste, se disponibili.
+Inviare quindi una richiesta GET all'endpoint dei dettagli video con l'ID. Impostare il parametro di query [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) sul token `videoId`. Per specificare le informazioni dettagliate che si vuole ottenere, impostare il parametro di query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested). Per ottenere tutte le informazioni dettagliate, impostare `modules` su All. La risposta include tutte le informazioni dettagliate richieste, se disponibili.
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -50,9 +48,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Ottenere informazioni dettagliate sui video correlati  
 
-Per ottenere video correlati al video specificato, impostare il parametro di query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) su RelatedVideos.
+Per ottenere i video correlati a quello specificato, impostare il parametro di query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) su `RelatedVideos`.
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -61,10 +59,10 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+La risposta a questa richiesta avrà un oggetto [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) di livello superiore anziché un oggetto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos).  
   
-Di seguito è indicata la risposta alla richiesta precedente. L'oggetto di massimo livello è un oggetto [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) anziché un oggetto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos).  
-  
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {
@@ -95,3 +93,9 @@ Di seguito è indicata la risposta alla richiesta precedente. L'oggetto di massi
     }
 }
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Cercare i video di tendenza](trending-videos.md)
+

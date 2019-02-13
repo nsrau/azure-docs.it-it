@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296172"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700384"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
 **D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure? Oppure perché il proprietario del dispositivo è contrassegnato come N/D per i dispositivi ibridi aggiunti ad Azure Active Directory (Azure AD)?**
 
 **R:** I dispositivi ibridi di Windows 10 aggiunti ad Azure AD non vengono visualizzati tra i **Dispositivi utente**.
-Usare la visualizzazione **Tutti i dispositivi** nel portale di Azure. In alternativa, è possibile usare un cmdlet [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
+Usare la visualizzazione **Tutti i dispositivi** nel portale di Azure. In alternativa, è possibile usare un cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
 
 Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 
@@ -176,7 +176,7 @@ Questo comportamento non è applicabile ad altri utenti che accedono al disposit
 
 **D: Perché viene visualizzata una finestra di dialogo di *errore* quando si tenta di aggiungere il PC ad Azure AD?**
 
-**R:** La finestra di errore viene visualizzata quando si registra Azure Active Directory con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
+**R:** La finestra di errore viene visualizzata quando si registra Azure Active Directory con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 
@@ -221,6 +221,12 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 **D: Perché gli utenti riscontrano problemi con i dispositivi aggiunti ad Azure AD ibrido di Windows 10 dopo aver modificato il proprio UPN?**
 
 **R:** Attualmente, non viene ancora offerto il supporto completo delle modifiche degli UPN sui dispositivi aggiunti ad Azure AD ibrido. Dopo aver modificato il proprio UPN, gli utenti potranno accedere al dispositivo e alle applicazioni locali, ma l'autenticazione ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. Per risolvere il problema, è necessario separare il dispositivo da Azure AD (eseguire "dsregcmd /leave" con privilegi elevati) e aggiungerlo di nuovo (operazione eseguita automaticamente). Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
+
+---
+
+**D: I dispositivi aggiunti ad Azure AD ibrido di Windows 10 richiedono la comunicazione diretta con il controller di dominio per avere accesso alle risorse cloud?**
+
+**R:** No. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Se una password viene modificata all'esterno della rete aziendale, ad esempio mediante la reimpostazione della password self-service di Azure AD, l'utente deve avere la comunicazione diretta con il controller di dominio prima di poter eseguire l'accesso al dispositivo con la nuova password. In caso contrario, l'utente può accedere solo con la password precedente, la quale però viene invalidata da Azure AD, il che impedisce l'accesso Single Sign-On. Questo problema tuttavia non si verifica quando si usa Windows Hello for Business. Gli utenti che accedono con Windows Hello for Business continueranno ad avere l'accesso Single Sign-On alle applicazioni Azure AD dopo la modifica della password, anche se non hanno la comunicazione diretta con il controller di dominio. 
 
 ---
 

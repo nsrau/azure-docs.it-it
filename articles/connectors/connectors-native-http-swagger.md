@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123173"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817751"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chiamare gli endpoint REST con il connettore HTTP + Swagger in App per la logica di Azure
 
@@ -40,7 +40,7 @@ Di seguito è riportato un esempio di come usare l'operazione HTTP + Swagger com
 4. Digitare l'URL per un documento di Swagger:
    
    * Per funzionare dalla finestra di progettazione app per la logica, l'URL deve essere un endpoint HTTPS e avere CORS abilitato.
-   * Se il documento di Swagger non soddisfa questo requisito, è possibile usare [Archiviazione di Azure con CORS abilitato](#hosting-swagger-from-storage) per archiviare il documento.
+   * Se il documento di Swagger non soddisfa questo requisito, è possibile usare Archiviazione di Azure con CORS abilitato per archiviare il documento.
 5. Fare clic su **Avanti** per leggere e visualizzare il documento di Swagger.
 6. Aggiungere i parametri richiesti per la chiamata HTTP.
    
@@ -72,14 +72,14 @@ Ecco i passaggi per creare, configurare e archiviare i documenti di Swagger in A
 Di seguito sono riportati i dettagli per i trigger e le azioni supportati da questo connettore HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Trigger HTTP + Swagger
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md) Il connettore HTTP + Swagger supporta un solo trigger.
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md)  Il connettore HTTP + Swagger supporta un solo trigger.
 
 | Trigger | DESCRIZIONE |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
 ## <a name="http--swagger-actions"></a>Azioni HTTP + Swagger
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md) Il connettore HTTP + Swagger supporta una sola azione possibile.
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md)  Il connettore HTTP + Swagger supporta una sola azione possibile.
 
 | Azione | DESCRIZIONE |
 | --- | --- |

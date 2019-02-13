@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223358"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733468"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Ottenere Speech Devices SDK di Servizi cognitivi
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 Completare i passaggi seguenti per aggiungersi ad Azure AD con l'indirizzo e-mail fornito durante la registrazione. Questo processo consente di accedere al [sito di download](https://shares.datatransfer.microsoft.com/) di Speech Devices SDK.
 
-1. Fare clic su **Configurazione iniziale** nel messaggio di posta elettronica ricevuto. Se l'organizzazione è già cliente di Office 365, verrà richiesto di eseguire l'accesso ed è possibile passare al passaggio 8.
+1. Fare clic su **Configurazione iniziale** nel messaggio di posta elettronica ricevuto. Se l'organizzazione è già cliente di Office 365, verrà richiesto di eseguire l'accesso ed è possibile passare al passaggio 7.
 
 2. Nella finestra del browser che si apre, selezionare **Avanti**.
 

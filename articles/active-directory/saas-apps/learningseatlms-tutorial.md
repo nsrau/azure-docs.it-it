@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197994"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Learning Seat LMS
 
@@ -89,7 +89,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Learning Seat
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente di test di Learning Seat LMS](#creating-a-learnconnect-test-user)**: per avere una controparte di Britta Simon in Learning Seat LMS collegata alla rappresentazione dell'utente in Azure AD.
+1. **Creazione di un utente di test di Learning Seat LMS**: per avere una controparte di Britta Simon in Learning Seat LMS collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 

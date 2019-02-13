@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con PowerShell
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice di PowerShell
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364371"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657502"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -80,7 +77,7 @@ Per verificare che in un insieme di credenziali delle chiavi sia abilitata la fu
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Eliminazione di un insieme di credenziali delle chiavi protetto dalla funzione di eliminazione temporanea
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Eliminazione di un insieme di credenziali delle chiavi protetto dalla funzione di eliminazione temporanea
 
 Il comportamento del comando per eliminare un insieme di credenziali delle chiavi è diverso a seconda che l'eliminazione temporanea sia abilitata o meno.
 
@@ -97,7 +94,7 @@ Con la funzione di eliminazione temporanea abilitata:
 
 - Un insieme di credenziali delle chiavi viene rimosso dal relativo gruppo di risorse e inserito in uno spazio dei nomi riservato associato al percorso in cui è stato creato. 
 - Gli oggetti eliminati, come chiavi, segreti e certificati, risultano non accessibili finché l'insieme di credenziali delle chiavi in cui sono contenuti è in stato "eliminato". 
-- Il nome DNS per un insieme di credenziali delle chiavi eliminato è riservato e non è quindi possibile creare un nuovo insieme di credenziali delle chiavi con lo stesso nome.  
+- Il nome DNS per un insieme di credenziali delle chiavi eliminato è riservato e non è quindi possibile creare un nuovo insieme di credenziali delle chiavi con lo stesso nome.  
 
 È possibile visualizzare gli insiemi di credenziali delle chiavi in stato "eliminato" associati alla propria sottoscrizione usando il comando seguente:
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 Quando viene recuperato un insieme di credenziali delle chiavi, viene creata una nuova risorsa con l'ID risorsa originale dell'insieme di credenziali delle chiavi. Se il gruppo di risorse originale viene rimosso, ne deve essere creato uno con lo stesso nome prima di tentare il recupero.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Oggetti di Key Vault ed eliminazione temporanea
+## <a name="deleting-and-purging-key-vault-objects"></a>Eliminazione e pulizia di oggetti di insiemi di credenziali delle chiavi
 
 Il comando seguente elimina la chiave 'ContosoFirstKey' in un insieme di credenziali delle chiavi denominato 'ContosoVault' in cui è abilitata l'eliminazione temporanea:
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>Eliminazione definitiva e insiemi di credenziali delle chiavi
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Pulizia di un insieme di credenziali delle chiavi protetto dalla funzione di eliminazione temporanea
 
-### <a name="key-vault-objects"></a>Oggetti nell'insieme di credenziali delle chiavi
+> [!IMPORTANT]
+> Dopo l'operazione di pulizia, un insieme di credenziali delle chiavi o un oggetto dell'insieme non è più recuperabile.
 
-Dopo essere stato eliminato in modo definitivo, una chiave, un segreto o un certificato non è più recuperabile. L'insieme di credenziali delle chiavi che conteneva l'oggetto eliminato rimarrà tuttavia invariato, così come qualsiasi altro oggetto presente nell'insieme di credenziali delle chiavi. 
+La funzione di pulizia viene usata per eliminare in modo permanente un oggetto dell'insieme di credenziali delle chiavi, o un intero insieme, che in precedenza è stato eliminato temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
 
-### <a name="key-vaults-as-containers"></a>Insiemi di credenziali delle chiavi come contenitori
-Quando un insieme di credenziali delle chiavi viene ripulito, ne viene eliminato in modo definitivo l'intero contenuto, inclusi certificati, chiavi e segreti. Per eliminare in modo definitivo un insieme di credenziali delle chiavi, usare il comando `Remove-AzureRmKeyVault` con l'opzione `-InRemovedState` e specificare il percorso dell'insieme di credenziali delle chiavi eliminato con l'argomento `-Location location`. È possibile trovare il percorso di un insieme di credenziali delle chiavi eliminato usando il comando `Get-AzureRmKeyVault -InRemovedState`.
+- **Attivo**: prima dell'eliminazione.
+- **Eliminato temporaneamente**: dopo l'eliminazione, può essere recuperato e ripristinato allo stato attivo.
+- **Eliminato definitivamente**: dopo la pulizia, non può più essere recuperato.
 
->[!IMPORTANT]
->Dopo essere stato eliminato in modo definitivo, un insieme di credenziali delle chiavi non è più recuperabile.
+Lo stesso vale per l'insieme di credenziali delle chiavi. Per eliminare in modo definitivo un insieme di credenziali delle chiavi eliminato temporaneamente e il relativo contenuto, è necessario ripulire l'intero insieme di credenziali delle chiavi.
+
+### <a name="purging-a-key-vault"></a>Pulizia di un insieme di credenziali delle chiavi
+
+Quando un insieme di credenziali delle chiavi viene ripulito, ne viene eliminato in modo definitivo l'intero contenuto, inclusi certificati, chiavi e segreti. Per ripulire un insieme di credenziali delle chiavi eliminato temporaneamente, usare il comando `Remove-AzureRmKeyVault` con l'opzione `-InRemovedState` e specificare il percorso dell'insieme di credenziali delle chiavi eliminato con l'argomento `-Location location`. È possibile trovare il percorso di un insieme di credenziali delle chiavi eliminato usando il comando `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

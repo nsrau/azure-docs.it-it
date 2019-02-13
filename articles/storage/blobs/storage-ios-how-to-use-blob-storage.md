@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244761"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811665"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
@@ -162,7 +162,7 @@ L'esempio seguente mostra come creare un contenitore con autorizzazioni di acces
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Caricare un BLOB in un contenitore
-Come accennato nella sezione [Concetti del servizio BLOB](#blob-service-concepts) , l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. La libreria iOS di Archiviazione di Azure supporta tutti e tre i tipi di BLOB. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
+Come accennato nella sezione Concetti del servizio BLOB, l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. La libreria iOS di Archiviazione di Azure supporta tutti e tre i tipi di BLOB. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
 
 L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in questo contenitore esiste già un BLOB con lo stesso nome, i contenuti del BLOB verranno sovrascritti.
 

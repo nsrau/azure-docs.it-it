@@ -4,17 +4,17 @@ description: Comprendere come i moduli e dispositivi IoT Edge possano funzionare
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096945"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699347"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio (anteprima)
 
@@ -25,7 +25,7 @@ Azure IoT Edge supporta operazioni offline per periodi prolungati nei dispositiv
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Quando un dispositivo IoT Edge passa alla modalità offline, l'hub Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT. 
+Quando un dispositivo IoT Edge passa alla modalità offline, l'hub di IoT Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT. 
 
 L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità offline:
 
@@ -39,7 +39,7 @@ L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità
 
 3. **Disconnettersi.**
 
-   Mentre si è disconnessi dall'hub IoT, il dispositivo IoT Edge, i moduli distribuiti e tutti i dispositivi IoT figlio possono operare a tempo indeterminato. I moduli e i dispositivi figlio possono essere avviati e riavviati eseguendo l'autenticazione con l'hub di Edge mentre sono in modalità offline. I dati di telemetria previsti per l'invio upstream all'hub IoT vengono archiviati in locale. La comunicazione tra i moduli o tra i dispositivi IoT figlio viene gestita tramite metodi diretti o messaggi. 
+   Mentre si è disconnessi dall'hub IoT, il dispositivo IoT Edge, i moduli distribuiti e tutti i dispositivi IoT figlio possono operare a tempo indeterminato. I moduli e i dispositivi figlio possono essere avviati e riavviati eseguendo l'autenticazione con l'hub di IoT Edge mentre è attiva la modalità offline. I dati di telemetria previsti per l'invio upstream all'hub IoT vengono archiviati in locale. La comunicazione tra i moduli o tra i dispositivi IoT figlio viene gestita tramite metodi diretti o messaggi. 
 
 4. **Ristabilire la connessione e ripetere la sincronizzazione con l'hub IoT.**
 
@@ -55,7 +55,7 @@ Solo i dispositivi non IoT Edge possono essere aggiunti come dispositivi figlio.
 
 I dispositivi IoT Edge e i dispositivi figlio assegnati possono funzionare offline per un periodo illimitato dopo la sincronizzazione iniziale, una tantum. L'archiviazione dei messaggi dipende tuttavia dall'impostazione della durata (TTL) e dallo spazio disponibile su disco per archiviare i messaggi. 
 
-## <a name="set-up-an-edge-device"></a>Configurare un dispositivo Edge
+## <a name="set-up-an-iot-edge-device"></a>Configurare un dispositivo IoT Edge
 
 Per estendere le funzionalità offline per periodi prolungati ai dispositivi IoT figlio di un dispositivo IoT Edge, è necessario dichiarare le relazioni padre-figlio nel portale di Azure.
 
@@ -71,7 +71,7 @@ I dispositivi padre possono avere più dispositivi figlio, ma un dispositivo fig
 
 Per migliorare l'affidabilità, si consiglia di specificare gli indirizzi server DNS usati nell'ambiente. In Linux, ad esempio, aggiornare **/etc/docker/daemon.json** (è possibile che sia necessario creare il file) in modo da includere:
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -82,13 +82,13 @@ Se si usa un server DNS locale, sostituire 1.1.1.1 con l'indirizzo IP del server
 
 ## <a name="optional-offline-settings"></a>Impostazioni facoltative per la modalità offline
 
-Se si prevede che i dispositivi possano sperimentare lunghi periodi di tempo offline, dopo i quali si vuole raccogliere tutti i messaggi che sono stati generati, configurare l'hub Edge in modo che possa archiviare tutti i messaggi. Esistono due modifiche che è possibile apportare all'hub Edge per abilitare l'archiviazione a lungo termine dei messaggi. Prima di tutto aumentare l'impostazione della durata (TTL) e quindi aggiungere ulteriore spazio su disco per l'archiviazione dei messaggi. 
+Se si prevede di raccogliere tutti i messaggi generati dai dispositivi durante lunghi periodi di tempo offline, configurare l'hub di IoT Edge in modo che possa archiviare tutti i messaggi. Sono due le modifiche che è possibile apportare all'hub di IoT Edge per abilitare l'archiviazione a lungo termine dei messaggi. Prima di tutto aumentare l'impostazione della durata (TTL) e quindi aggiungere altro spazio su disco per l'archiviazione dei messaggi. 
 
 ### <a name="time-to-live"></a>Durata (TTL)
 
 L'impostazione della durata (TTL) è la quantità di tempo (in secondi) di attesa per il recapito di un messaggio prima che scada. Il valore predefinito è 7200 secondi (due ore). 
 
-Questa impostazione è una proprietà desiderata dell'hub Edge, che viene archiviata nel modulo gemello. È possibile configurarla nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge** oppure direttamente nel manifesto della distribuzione. 
+Questa impostazione è una proprietà desiderata dell'hub di IoT Edge, che viene archiviata nel modulo gemello. È possibile configurarla nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge** oppure direttamente nel manifesto della distribuzione. 
 
 ```json
 "$edgeHub": {
@@ -104,16 +104,25 @@ Questa impostazione è una proprietà desiderata dell'hub Edge, che viene archiv
 
 ### <a name="additional-offline-storage"></a>Spazio di archiviazione aggiuntivo per la modalità offline
 
-Per impostazione predefinita, i messaggi vengono archiviati nel file system del contenitore dell'hub Edge. Se tale quantità di spazio di archiviazione non è sufficiente per le esigenze per la modalità offline, è possibile dedicare spazio di archiviazione locale nel dispositivo IoT Edge. È necessario creare una variabile di ambiente per l'hub Edge che punta a una cartella di archiviazione nel contenitore. Usare quindi le opzioni di creazione per associare tale cartella di archiviazione a una cartella nel computer host. 
+Per impostazione predefinita, i messaggi vengono archiviati nel file system del contenitore dell'hub di IoT Edge. Se tale quantità di spazio di archiviazione non è sufficiente per le esigenze per la modalità offline, è possibile dedicare spazio di archiviazione locale nel dispositivo IoT Edge. Per l'hub di IoT Edge creare una variabile di ambiente che punti a una cartella di archiviazione nel contenitore. Usare quindi le opzioni di creazione per associare tale cartella di archiviazione a una cartella nel computer host. 
 
-È possibile configurare le variabili di ambiente e le opzioni di creazione per il modulo dell'hub Edge nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge**, oppure direttamente nel manifesto della distribuzione. 
+È possibile configurare le variabili di ambiente e le opzioni di creazione per il modulo dell'hub di IoT Edge nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge**, oppure direttamente nel manifesto della distribuzione. 
 
 ```json
 "edgeHub": {
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -125,7 +134,11 @@ Per impostazione predefinita, i messaggi vengono archiviati nel file system del 
 }
 ```
 
-Sostituire `<HostStoragePath>` e `<ModuleStoragePath>` con i percorsi di archiviazione dell'host e del modulo. Entrambi devono essere percorsi assoluti.  Ad esempio, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` significa che il percorso host `/etc/iotedge/storage` viene mappato al percorso contenitore `/iotedge/storage/`.  Per informazioni più dettagliate su createOptions, vedere i [documenti su Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Sostituire `<HostStoragePath>` e `<ModuleStoragePath>` con i percorsi di archiviazione dell'host e del modulo. Entrambi devono essere percorsi assoluti. Nelle opzioni di creazione associare tra loro i percorsi di archiviazione dell'host e del modulo e quindi creare una variabile di ambiente che punti al percorso di archiviazione del modulo.  
+
+Ad esempio, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` indica che la directory **/etc/iotedge/storage** nel sistema host è mappata alla directory **/iotedge/storage/** nel contenitore. Un altro esempio per i sistemi Windows è `"Binds":["C:\\temp:C:\\contemp]"` e indica che la directory **C:\\temp** nel sistema host è mappata alla directory **C:\\contemp** nel contenitore. 
+
+Per informazioni più dettagliate sulle opzioni di creazione, vedere i [documenti su Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

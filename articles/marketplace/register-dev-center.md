@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179838"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815237"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -78,7 +78,7 @@ Per assicurarsi di non essere connessi a un account personale aprire una nuova s
     | Modello di fatturazione | Passaggi successivi |  
     |:--- |:--- |  
     | Gratuito | Passare al portale Cloud Partner.<ul> <li>Per pubblicare in Azure Marketplace, visitare la pagina del portale Cloud Partner all'indirizzo [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Commerciale (transazione) | Aggiornare le informazioni sull'account.<ul> <li>Per altre informazioni sull'aggiunta di informazioni sull'account, visitare la sezione [How to Add bank and tax information](#how-to-add-bank-and-tax-information) (Come aggiungere le informazioni bancarie e fiscali).</li> </ul> |  
+    | Commerciale (transazione) | Aggiornare le informazioni sull'account.<ul> <li>Per altre informazioni sull'aggiunta di informazioni sull'account, visitare la sezione [How to Add bank and tax information](#add-bank-information) (Come aggiungere le informazioni bancarie e fiscali).</li> </ul> |  
 
     *   Un esempio di un'offerta commerciale è un'offerta di VM con un modello di fatturazione oraria.  
 
@@ -98,7 +98,7 @@ Se si hanno problemi con la registrazione in Dev Center, attenersi alla seguente
     
     Fare clic sul pulsante Start email (Inizia messaggio di posta elettronica).  
 1.  Nella pagina di accesso, accedere con qualsiasi ID Microsoft. Se non si dispone di un ID Microsoft, crearne uno.  
-    *   Per altre informazioni per la creazione di un ID Microsoft, visitare la sezione [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) (Linee guida per la creazione di un ID Microsoft per la gestione di un account di Azure Marketplace).  
+    *   Per altre informazioni per la creazione di un ID Microsoft, visitare la sezione Guidelines for creating a Microsoft ID to manage an Azure Marketplace account (Linee guida per la creazione di un ID Microsoft per la gestione di un account di Azure Marketplace).  
 2.  Inserire i dettagli del problema.  
 3.  Per inviare il ticket, fare clic sul pulsante Invia. 
 
@@ -146,7 +146,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 > Gli autori che pubblicano con il tipo di inserzione transazione: macchina virtuale, app di Azure: modelli di soluzione e app gestite.  
 
 *   **Perché è necessario disporre di un account Dev Center?**
-> L'account Dev Center consente a Microsoft di fatturare al cliente per conto del server di pubblicazione in base al tipo di elenco delle transazioni. La registrazione dell'account Dev Center consente a Microsoft di convalidare le informazioni legali, fiscali e bancarie dell'azienda del cliente. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+> L'account Dev Center consente a Microsoft di fatturare al cliente per conto del server di pubblicazione in base al tipo di elenco delle transazioni. La registrazione dell'account Dev Center consente a Microsoft di convalidare le informazioni legali, fiscali e bancarie dell'azienda del cliente. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 *   **Come si avvia la registrazione al Dev Center?**
 > Per evitare duplicazioni, verificare prima di tutto che la propria società non abbia già registrato un account Dev Center. È necessario eseguire l'accesso con l'account Microsoft che si vuole associare all'account per sviluppatore. Se non si dispone già di un account Microsoft, è possibile crearne uno nuovo [qui](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1), ad esempio contoso_marketplace@live.com. Per accedere e registrarsi, andare alla pagina https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 > Assegnare un nome di società temporaneo, contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e inviare i documenti di registrazione della propria società.
 
 *   **Come si aggiungono le informazioni relative a proventi e imposte?**
-> Non è possibile pubblicare offerte di transazione se prima non sono state inserite tutte le informazioni fiscali e bancarie nell'account Dev Center.  Per altre informazioni sull'aggiunta di informazioni relative all'account, visitare le sezioni relative a [come aggiungere le informazioni bancarie e fiscali](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
+> Non è possibile pubblicare offerte di transazione se prima non sono state inserite tutte le informazioni fiscali e bancarie nell'account Dev Center.  Per altre informazioni sull'aggiunta di informazioni relative all'account, visitare le sezioni relative a [come aggiungere le informazioni bancarie e fiscali](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 *   **È possibile modificare l'account Microsoft di accesso a Dev Center?**
 >  No. Dopo aver creato un account Dev Center, l'account del proprietario non può essere modificato. È necessario ricominciare con un account Dev Center completamente nuovo usando l'account Microsoft desiderato.

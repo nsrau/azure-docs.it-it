@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818737"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorare lo stato della replica di Active Directory con Log Analytics
 
@@ -127,7 +127,7 @@ R: Attualmente non è possibile.
 R: No, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro di Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Log Analytics.
 
 **D: Non si vuole aggiungere controller di dominio all'area di lavoro di Log Analytics. È possibile usare comunque la soluzione Stato replica di Active Directory?**
-R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Per abilitare un controller non di dominio per l'invio di dati di Active Directory a Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere Per abilitare un controller non di dominio per l'invio di dati di Active Directory a Log Analytics.
 
 **D: Qual è il nome del processo che esegue la raccolta di dati?**
 R: AdvisorAssessment.exe
@@ -149,7 +149,7 @@ Per raccogliere i dati, il pacchetto della soluzione Stato replica di Active Dir
 
 Se occorre assistenza per la connessione di uno dei controller di dominio è possibile vedere il documento [Connettere computer Windows a Log Analytics](../../azure-monitor/platform/om-agents.md). In alternativa, se il controller di dominio è già connesso a un ambiente System Center Operations Manager esistente, è possibile vedere il documento [Connettere System Center Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-Se non si intende connettere i controller di dominio direttamente a Log Analytics o a System Center Operations Manager, vedere [Per abilitare un controller non di dominio per l'invio di dati di Active Directory a Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Se non si intende connettere i controller di dominio direttamente a Log Analytics o a System Center Operations Manager, vedere Per abilitare un controller non di dominio per l'invio di dati di Active Directory a Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [ricerche nei log in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167564"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567163"
 ---
 # <a name="object-detection"></a>Rilevamento di oggetti
 
@@ -87,6 +87,15 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 }
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="limitations"></a>Limitazioni
 
-Concetti relativi alla [classificazione delle immagini](concept-categorizing-images.md) e alla [descrizione delle immagini](concept-describing-images.md).
+È importante tenere presenti le limitazioni della funzionalità di rilevamento degli oggetti in modo da evitare o mitigare gli effetti dei falsi negativi (oggetti non rilevati) e dei dettagli limitati.
+* Gli oggetti non vengono in genere rilevati se sono molto piccoli (di dimensione inferiore al 5% dell'immagine).
+* Gli oggetti non vengono in genere rilevati se sono molto ravvicinati (ad esempio, una pila di piatti).
+* Gli oggetti non vengono differenziati in base alla marca o ai nomi di prodotto (ad esempio, diversi tipi di bibite su uno scaffale di un supermercato). È tuttavia possibile ottenere informazioni sul marchio presente in un'immagine usando la funzionalità per il [rilevamento del marchio](concept-brand-detection.md).
+
+## <a name="use-the-api"></a>Usare l'API
+La funzionalità per il rilevamento di oggetti fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Quando si riceve la risposta JSON completa, è sufficiente analizzare la stringa per individuare il contenuto della sezione `"objects"`.
+
+* [Guida introduttiva: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Guida introduttiva: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

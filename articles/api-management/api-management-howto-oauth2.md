@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967930"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746728"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 
@@ -51,9 +51,9 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. La sezione successiva del modulo contiene le impostazioni relative a **Authorization code grant types**, **Authorization endpoint URL** e **Authorization request method**.
+4. La sezione successiva del modulo contiene le impostazioni relative a **Tipi di concessione di autorizzazione**, **URL dell'endpoint di autorizzazione** e **Metodo di richiesta dell'autorizzazione**.
 
-    Selezionare i tipi desiderati in **Authorization code grant types** . **Authorization code** è specificato per impostazione predefinita.
+    Selezionare i tipi desiderati in **Tipi di concessione di autorizzazione**. **Authorization code** è specificato per impostazione predefinita.
 
     Immettere il valore relativo a **Authorization endpoint URL**. Per Azure Active Directory, questo URL sarà simile all'URL seguente, dove `<client_id>` viene sostituito dall'ID client che identifica l'applicazione in uso nel server OAuth 2.0.
 
@@ -75,7 +75,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Se **Authorization code grant types** è impostato su **Resource owner password**, la sezione **Resource owner password credentials** viene usata per specificare le credenziali; in caso contrario è possibile lasciarla vuota.
+    Se **Tipi di concessione di autorizzazione** è impostato su **Password del proprietario della risorsa**, la sezione **Credenziali password del proprietario della risorsa** viene usata per specificare le credenziali; in caso contrario è possibile lasciarla vuota.
 
     Dopo aver completato il modulo, fare clic su **Crea** per salvare la configurazione del server di autorizzazione OAuth 2.0 di Gestione API. Dopo aver salvato la configurazione del server, è possibile configurare le API in modo che usino questa configurazione, come illustrato nella sezione successiva.
 

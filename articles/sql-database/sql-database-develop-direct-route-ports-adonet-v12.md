@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260024"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560890"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
+
 In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ In questo argomento viene descritto il comportamento di connessione del database
 >
 
 ## <a name="outside-vs-inside"></a>Esterno rispetto all'interno
+
 Per le connessioni al database SQL di Azure, è necessario prima chiedere se il programma client viene eseguito *all'esterno* o *all'interno* del limite del cloud di Azure. Nelle sottosezioni vengono illustrati due scenari comuni.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*Esterno:* il client è in esecuzione nel computer desktop
+
 La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'applicazione client del database SQL.
 
-#### <a name="inside-client-runs-on-azure"></a>*All'interno:* il client è in esecuzione in Azure
+#### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
+
 Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server del database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
 
 La sequenza è la seguente:
@@ -75,7 +79,7 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 
 * [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
-* [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
-* [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
+* [Firewall di database SQL di Azure](sql-database-firewall-configure.md)
+* [Procedura: configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)
 
 

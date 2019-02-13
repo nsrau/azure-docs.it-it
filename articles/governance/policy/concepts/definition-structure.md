@@ -4,17 +4,17 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296663"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698293"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -46,7 +46,8 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ I parametri consentono di semplificare la gestione dei criteri, riducendone il n
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
 
 > [!NOTE]
-> La definizione dei parametri per una definizione dei criteri o di un'iniziativa può essere configurata solo durante la creazione iniziale dei criteri o dell'iniziativa. La definizione dei parametri non può essere modificata in un secondo momento.
-> In questo modo le assegnazioni esistenti dei criteri o dell'iniziativa non possono essere rese indirettamente non valide.
+> I parametri possono essere aggiunti a una definizione esistente e assegnata. Il nuovo parametro deve includere la proprietà **defaultValue**. In questo modo le assegnazioni esistenti dei criteri o dell'iniziativa non possono essere rese indirettamente non valide.
 
 Ad esempio, è possibile definire un criterio per limitare le posizioni in cui le risorse possono essere distribuite.
 Durante la creazione del criterio dichiarare i parametri seguenti:
@@ -101,7 +101,8 @@ Durante la creazione del criterio dichiarare i parametri seguenti:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```
@@ -221,7 +222,7 @@ Sono supportati i seguenti campi:
 - `location`
   - Usare **global** per le risorse che sono indipendenti dalla posizione. Per un esempio, vedere [Esempi - Posizioni consentite](../samples/allowed-locations.md).
 - `identity.type`
-  - Restituisce il tipo di [Identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
+  - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`
 - `tags.<tagName>`
   - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.

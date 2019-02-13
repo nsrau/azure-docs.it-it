@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238612"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746491"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
@@ -26,7 +26,8 @@ Questo articolo consente di trovare e correggere errori o guasti riscontrati dur
 
 **Messaggio di errore: Impossibile installare "PyYAML"**
 
-Azure Machine Learning SDK per Python: PyYAML è un progetto installato da Distutils. Pertanto, non è possibile stabilire in modo accurato quali file appartengono ad esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
+Azure Machine Learning SDK per Python: PyYAML è un progetto installato da Distutils. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ Errore di compilazione di immagini durante la distribuzione del servizio Web. Un
 
 ## <a name="deployment-failure"></a>Errore di distribuzione
 
-Se si riceve un messaggio simile a 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' interrotto con <Signals.SIGKILL: 9 >, modificare lo SKU delle macchine virtuali usate nella distribuzione usandone altre con maggiore quantità di memoria.
+Se si osserva `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, modificare lo SKU delle macchine virtuali usate nella distribuzione specificandone uno con maggiore quantità di memoria.
 
 ## <a name="fpgas"></a>FPGA
 Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richiesta e approvata la quota FPGA. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richie
 
 Problemi di Databricks e Azure Machine Learning.
 
-1. Errore di installazione di AML SDK in Databricks quando sono installati altri pacchetti.
+1. Errori di installazione di Azure Machine Learning SDK in Databricks quando sono installati altri pacchetti.
 
    Alcuni pacchetti, come `psutil`, possono causare conflitti. Per evitare errori di installazione, installare i pacchetti con versione lib di blocco. Questo problema è correlato a Databricks e non all'SDK del servizio Azure Machine Learning: è possibile incontrarlo anche con altre librerie. Esempio:
    ```python
@@ -58,9 +59,9 @@ Problemi di Databricks e Azure Machine Learning.
    ```
    In alternativa, è possibile usare gli script di inizializzazione se si riscontrano problemi di installazione con le librerie Python. Questo approccio non è supportato ufficialmente. È possibile fare riferimento a [questo documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Quando si usa Machine Learning automatizzata in Databricks e si desidera annullare un'esecuzione per avviare un nuova esecuzione dell'esperimento, riavviare il cluster Azure Databricks.
+2. Quando si usa Machine Learning automatizzato in Databricks e si vuole annullare un'esecuzione per avviare una nuova esecuzione dell'esperimento, riavviare il cluster di Azure Databricks.
 
-3. Quando si dispone di inferiore a 10 iterazioni nelle impostazioni di machine learning automatizzata, impostare show_output come False durante l'invio dell'esecuzione.
+3. Nelle impostazioni di Machine Learning automatizzato, se sono presenti più di 10 iterazioni, impostare `show_output` su `False` quando si invia l'esecuzione.
 
 
 ## <a name="azure-portal"></a>Portale di Azure
@@ -73,6 +74,20 @@ Qui si trovano i file di log:
 ## <a name="resource-quotas"></a>Quote di risorse
 
 Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero incontrare quando si lavora con Azure Machine Learning.
+
+## <a name="authentication-errors"></a>Errori di autenticazione
+
+Se si esegue un'operazione di gestione in una destinazione di calcolo da un processo remoto, si riceverà uno degli errori seguenti:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
 
 ## <a name="get-more-support"></a>Richiedere supporto tecnico
 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462019"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728403"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -35,12 +35,12 @@ Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo 
 
 ### <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
-Gli [Endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) estendono la connettività della rete virtuale tramite il backbone di Azure e il database SQL di Azure per identificare la subnet della rete virtuale che origina il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../virtual-network/security-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
+Gli [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) estendono la connettività della rete virtuale sul backbone di Azure e consentono al database SQL di Azure di identificare la subnet della rete virtuale da cui ha origine il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../virtual-network/security-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
 
-Le [regole della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate dalle subnet all'interno di una rete virtuale.
+Le [regole della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
 
 > [!NOTE]
-> Il controllo dell'accesso con regole del firewall *non* si applica a **Istanza gestita di database SQL di Azure**. Per altre informazioni sulla configurazione di rete necessaria, vedere [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md)
+> Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Per altre informazioni sulla configurazione di rete necessaria, vedere l'articolo sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
 
 ## <a name="access-management"></a>gestione degli accessi
 
@@ -64,7 +64,7 @@ L'autenticazione è il processo atto a dimostrare che l'utente sia effettivament
     Altre opzioni di autenticazione di Azure AD disponibili sono le connessioni [Autenticazione universale di Active Directory per SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) che includono [Autenticazione a più fattori](../active-directory/authentication/concept-mfa-howitworks.md) e [ Accesso condizionale](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md). Il controllo dell'accesso con regole del firewall *non* si applica a **Istanza gestita di database SQL di Azure**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per ulteriori informazioni sulla configurazione di rete necessaria.
+> La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md). Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per altre informazioni sulla configurazione di rete necessaria.
 
 L'autorizzazione fa riferimento alle autorizzazioni assegnate a un utente all'interno di un database SQL di Azure e determina le operazioni che l'utente è autorizzato a eseguire. Le autorizzazioni sono controllate mediante l'aggiunta degli account utente ai [ruoli del database](/sql/relational-databases/security/authentication-access/database-level-roles) che definiscono le autorizzazioni a livello di database o che consentono all'utente determinate [autorizzazioni a livello di oggetto](/sql/relational-databases/security/permissions-database-engine). Per altre informazioni, vedere [Accessi e utenti](sql-database-manage-logins.md)
 
@@ -86,11 +86,11 @@ Il database SQL protegge i dati dei clienti fornendo funzionalità di controllo 
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Controllo di SQL in Log Analytics e Hub eventi
 
-Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di garantire la conformità alle normative di sicurezza tramite la registrazione di eventi del database in un log di controllo nell'account di archiviazione di Azure, di proprietà del cliente. Il servizio di controllo consente agli utenti di monitorare le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
+Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di garantire la conformità agli standard di sicurezza tramite la registrazione degli eventi del database in un log di controllo in un account di archiviazione di Azure, di proprietà del cliente. Il servizio di controllo consente agli utenti di monitorare le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>Rilevamento delle minacce a SQL
+### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
-Il rilevamento delle minacce migliora il controllo analizzando i log di controllo in cerca di comportamenti anomali e potenzialmente dannosi di accesso o sfruttamento dei database. Gli avvisi vengono creati per le attività sospette o i criteri di accesso anomali, ad esempio attacchi SQL injection, potenziali infiltrazioni di dati e attacchi di forza bruta alle password. Gli avvisi di rilevamento delle minacce vengono visualizzati nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e consigli per altre indagini insieme alle azioni da intraprendere per ridurre la minaccia. La funzionalità Rilevamento delle minacce ha un costo di $15/server/mese È gratuita per i primi 60 giorni. Per altre informazioni, vedere l' [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
+Il rilevamento delle minacce migliora il controllo analizzando i log di controllo in cerca di comportamenti anomali e di tentativi potenzialmente dannosi di accesso o sfruttamento dei database. Gli avvisi vengono creati per le attività sospette o i criteri di accesso anomali, ad esempio attacchi SQL injection, potenziali infiltrazioni di dati e attacchi di forza bruta alle password. Gli avvisi di rilevamento delle minacce vengono visualizzati nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e consigli per altre indagini insieme alle azioni da intraprendere per mitigare la minaccia. La funzionalità di rilevamento delle minacce ha un costo di 15 USD per server al mese. È gratuita per i primi 60 giorni. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,19 +137,19 @@ La [Maschera dati statica](/sql/relational-databases/security/static-data-maskin
 
 ## <a name="security-management"></a>Gestione della sicurezza
 
-### <a name="sql-vulnerability-assessment"></a>Valutazione della vulnerabilità di SQL
+### <a name="vulnerability-assessment"></a>Valutazione della vulnerabilità
 
-[Valutazione della vulnerabilità di SQL](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, monitorare e risolvere potenziali vulnerabilità del database, con l'obiettivo di migliorare in modo proattivo la sicurezza generale del database. La Valutazione della vulnerabilità (VA) fa parte dell'offerta Sicurezza dei dati avanzata (ADS) di SQL, un pacchetto unificato per le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Valutazione della vulnerabilità tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
+[Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database, con l'obiettivo di migliorare in modo proattivo la sicurezza generale del database. Valutazione della vulnerabilità fa parte dell'offerta Sicurezza dei dati avanzata, che è un pacchetto unificato per le funzionalità di sicurezza avanzate SQL. È possibile accedere e gestire Valutazione della vulnerabilità tramite il portale centrale di Sicurezza dei dati avanzata SQL.
 
 ### <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione e la protezione dei dati sensibili presenti nel database, nonché per l'aggiunta di etichette a tali dati. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione e la protezione dei dati sensibili presenti nei database, nonché per l'aggiunta di etichette a tali dati. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza.
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
 
-Per altre informazioni, vedere [Get started with SQL DB Data Discovery & Classification](sql-database-data-discovery-and-classification.md) (Introduzione a Individuazione dati e classificazione dei database SQL).
+Per altre informazioni, vedere [Introduzione a Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Conformità
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854100"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770602"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 
@@ -39,7 +39,7 @@ Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni
 | URI del servizio | L'URI in cui il webhook deve inviare le notifiche POST. |
 | Intestazioni personalizzate | Le intestazioni che si vuole passare insieme alla richiesta POST. Devono essere nel formato "chiave: valore". |
 | Azioni trigger | Le azioni che attivano il webhook. Attualmente i webhook possono essere attivati tramite azioni di push e/o eliminazione di immagini. |
-| Status | Lo stato del webhook dopo che è stato creato. Questa opzione è abilitata per impostazione predefinita. |
+| Stato | Lo stato del webhook dopo che è stato creato. Questa opzione è abilitata per impostazione predefinita. |
 | Scope | L'ambito in cui viene applicato il webhook. Per impostazione predefinita, l'ambito comprende tutti gli eventi del registro. Può essere limitato a un repository o un tag usando il formato "repository:tag". |
 
 Modulo di webhook di esempio:
@@ -74,7 +74,7 @@ Per testare un webhook di Registro Azure Container con l'interfaccia della riga 
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Per visualizzare i risultati, usare il comando [az acr webhook list-events](/cli/azure/acr/webhook#list-events).
+Per visualizzare i risultati, usare il comando [az acr webhook list-events](/cli/azure/acr/webhook).
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -98,10 +98,10 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 Per informazioni dettagliate sul formato e sulle proprietà dei payload degli eventi JSON generati da Registro Azure Container, vedere le informazioni di riferimento per lo schema di webhook:
 
-[Informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md)
+[Informazioni di riferimento sullo schema del webhook di Registro Azure Container](container-registry-webhook-reference.md)
 
 ### <a name="event-grid-events"></a>Eventi di Griglia di eventi
 
 Oltre agli eventi di webhook del registro nativo descritti in questo articolo, Registro Azure Container può trasmettere eventi a Griglia di eventi:
 
-[Guida introduttiva: inviare eventi del registro contenitori a Griglia di eventi ](container-registry-event-grid-quickstart.md)
+[Guida introduttiva: Inviare eventi del registro contenitori a Griglia di eventi](container-registry-event-grid-quickstart.md)

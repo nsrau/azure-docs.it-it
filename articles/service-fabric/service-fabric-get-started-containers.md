@@ -4,7 +4,7 @@ description: Creare la prima applicazione contenitore Windows in Azure Service F
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172954"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562505"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro Azure Container](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
+Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric in esecuzione sul computer locale. Si condividerà anche l'applicazione in contenitore tramite [Registro Azure Container](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
 
 > [!NOTE]
 > Questo articolo si applica a un ambiente di sviluppo Windows.  Il runtime del cluster di Service Fabric e il runtime di Docker devono essere in esecuzione nello stesso sistema operativo.  Non è possibile eseguire contenitori Windows su un cluster Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * Un computer di sviluppo che esegue:
   * Visual Studio 2015 o Visual Studio 2017.
   * [SDK e strumenti di Service Fabric](service-fabric-get-started.md).
@@ -41,10 +43,10 @@ Per eseguire un'applicazione esistente in un contenitore Windows in un cluster d
 
   Per questo articolo, la versione (build) di Windows Server con contenitori in esecuzione nei nodi del cluster deve corrispondere a quella nel computer di sviluppo. Questo è dovuto al fatto che l'immagine Docker viene compilata nel computer di sviluppo e sono presenti vincoli compatibilità tra le versioni del sistema operativo del contenitore e il sistema operativo host in cui è distribuito. Per altre informazioni, vedere [Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host](#windows-server-container-os-and-host-os-compatibility). 
   
-  Per determinare la versione di Windows Server con contenitori necessaria per il cluster, eseguire il comando `ver` dal prompt dei comandi di Windows nel computer di sviluppo:
+Per determinare la versione di Windows Server con contenitori necessaria per il cluster, eseguire il comando `ver` dal prompt dei comandi di Windows nel computer di sviluppo:
 
-  * Se la versione contiene *x.x.14323.x*, selezionare *WindowsServer 2016-Datacenter-with-Containers* per il sistema operativo quando si [crea un cluster](service-fabric-cluster-creation-via-portal.md). È anche possibile [provare Service Fabric gratuitamente](https://aka.ms/tryservicefabric) con un party cluster.
-  * Se la versione contiene *x.x.16299.x*, selezionare *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* per il sistema operativo quando si [crea un cluster](service-fabric-cluster-creation-via-portal.md). Non è tuttavia possibile usare un party cluster.
+* Se la versione contiene *x.x.14323.x*, selezionare *WindowsServer 2016-Datacenter-with-Containers* per il sistema operativo quando si [crea un cluster](service-fabric-cluster-creation-via-portal.md).
+  * Se la versione contiene *x.x.16299.x*, selezionare *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* per il sistema operativo quando si [crea un cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Un registro all'interno di Registro Azure Container. A questo scopo, [creare un registro contenitori](../container-registry/container-registry-get-started-portal.md) nella sottoscrizione di Azure.
 
@@ -57,6 +59,7 @@ Per eseguire un'applicazione esistente in un contenitore Windows in un cluster d
 > 
 
 ## <a name="define-the-docker-container"></a>Definire il contenitore Docker
+
 Compilare un'immagine in base all'[immagine Python](https://hub.docker.com/_/python/) disponibile nell'hub Docker.
 
 Specificare il contenitore Docker in un Dockerfile. Il Dockerfile è costituito da istruzioni per la configurazione dell'ambiente all'interno del contenitore, il caricamento dell'applicazione da eseguire e il mapping delle porte. Il file Dockerfile rappresenta l'input per il comando `docker build` che crea l'immagine.
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>Effettuare il push dell'immagine nel registro contenitori
+
 Dopo aver verificato l'esecuzione del contenitore nel computer di sviluppo, effettuare il push dell'immagine nel registro all'interno di Registro Azure Container.
 
 Eseguire ``docker login`` per accedere al registro contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md).
@@ -257,6 +261,7 @@ Configurare una porta dell'host per la comunicazione con il contenitore. Il bind
 > È possibile aggiungere altri PortBinding per un servizio dichiarando elementi PortBinding aggiuntivi con valori della proprietà applicabili.
 
 ## <a name="configure-container-registry-authentication"></a>Configurare l'autenticazione del registro contenitori
+
 Configurare l'autenticazione del registro contenitori aggiungendo `RepositoryCredentials` a `ContainerHostPolicies` nel file ApplicationManifest.xml. Aggiungere l'account e la password per il contenitore myregistry.azurecr.io, per consentire al servizio di scaricare l'immagine del contenitore dal repository.
 
 ```xml
@@ -448,7 +453,8 @@ L'applicazione è pronta quando è in stato ```Ready```: ![Pronto][2]
 Aprire un browser e passare a http://containercluster.westus2.cloudapp.azure.com:8081. Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
-Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](service-fabric-cluster-delete.md). I [party cluster](https://try.servicefabric.azure.com/) vengono eliminati automaticamente dopo alcune ore.
+
+Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](service-fabric-cluster-delete.md).
 
 Dopo aver effettuato il push dell'immagine nel registro contenitori, è possibile eliminare l'immagine locale dal computer di sviluppo:
 

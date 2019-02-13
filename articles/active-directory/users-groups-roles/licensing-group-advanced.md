@@ -1,25 +1,25 @@
 ---
-title: Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory | Microsoft Docs
+title: Scenari aggiuntivi relativi alle licenze basate sui gruppi - Azure Active Directory | Microsoft Docs
 description: Altri scenari relativi alle licenze basate sui gruppi in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: ''
+ms.openlocfilehash: a7937e6a532883c2808160fd88096bdfc1b4f4c2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195157"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508641"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 

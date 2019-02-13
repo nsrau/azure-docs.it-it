@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818125"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -57,7 +57,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Ignora esempi trigger](#trigger---attributes)
+Ignorare esempi trigger
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Ignora esempi trigger](#trigger---attributes)
+Ignorare esempi trigger
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
@@ -131,7 +131,7 @@ Ecco il codice script C#:
     }
 ```
 
-[Ignora esempi trigger](#trigger---attributes)
+Ignorare esempi trigger
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
@@ -199,7 +199,7 @@ Ecco il codice Java:
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBTrigger` per i parametri il cui valore deriva da Cosmos DB.  Questa annotazione può essere usata con i tipi Java nativi, con oggetti POJO o con valori di tipo nullable tramite Facoltativo<T>.
 
 
-[Ignora esempi trigger](#trigger---attributes)
+Ignorare esempi trigger
 
 ### <a name="trigger---python-example"></a>Trigger - Esempio di Python
 
@@ -1727,7 +1727,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Nelle funzioni C# e F#, quando la funzione termina correttamente, le modifiche apportate al documento di input tramite i parametri di input denominati vengono rese automaticamente persistenti.
 
-Nelle funzioni di JavaScript gli aggiornamenti non vengono eseguiti automaticamente al termine della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Vedere l'[esempio JavaScript](#input---javascript-example).
+Nelle funzioni di JavaScript gli aggiornamenti non vengono eseguiti automaticamente al termine della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Vedere l'esempio JavaScript.
 
 ## <a name="output"></a>Output
 

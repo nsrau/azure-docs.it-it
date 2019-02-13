@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189634"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745019"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -196,10 +196,10 @@ ms.locfileid: "43189634"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Disponibilità elevata multi-SID dell'istanza ASCS/SCS di SAP con Windows Server Failover Clustering e condivisione file in Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
-A settembre 2016, Microsoft ha rilasciato una funzionalità con cui è possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. Questa funzionalità esiste già nel servizio di bilanciamento del carico esterno di Azure.
+È possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. 
 
 Se si dispone di una distribuzione SAP, è possibile usare un servizio di bilanciamento del carico interno per creare una configurazione cluster Windows per istanze ASCS/SCS di SAP.
 
@@ -213,8 +213,10 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 >
 >Il numero massimo di istanze di SAP ASCS/SCS in un cluster WSFC è uguale al numero massimo di indirizzi IP front-end privati per ogni servizio di bilanciamento del carico interno di Azure.
 >
+> La configurazione introdotta in questa documentazione non è ancora supportata per l'uso per le [zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+> 
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
+Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager]. Considerare inoltre la possibilità di usare lo [SKU Load Balancer Standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) anziché lo SKU Basic del servizio di bilanciamento del carico di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -427,7 +429,7 @@ Assegnare le autorizzazioni *Controllo completo* sui file e sulla condivisione s
 
 ![Figura 11: Assegnare le autorizzazioni Controllo completo agli account di computer e di gruppo utenti][sap-ha-guide-figure-8022]
 
-_**Figura 11:** Assegnare le autorizzazioni "Controllo completo" agli account di computer e di gruppo utenti_
+_**Figura 11:** Assegnare il "Controllo completo" agli account di computer e di gruppo utenti_
 
 <br>
 ![Figura 12: Selezionare "Crea"][sap-ha-guide-figure-8023]
@@ -451,7 +453,7 @@ Installare i server applicazioni DBMS e SAP come descritto in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Installazione di un'istanza (A)SCS in un cluster di failover senza dischi condivisi): linee guida SAP ufficiali per la condivisione di file e la disponibilità elevata
+* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Installazione di un'istanza (A)SCS in un cluster di failover senza dischi condivisi): linee guida SAP ufficiali per una condivisione file a disponibilità elevata
 
 * [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
 

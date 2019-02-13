@@ -1,8 +1,21 @@
 ---
-title: TitleSuffix di distribuzione del servizio Web di Studio in più aree: Descrizione di Azure Machine Learning Studio: Procedura per distribuire (copiare) un nuovo servizio Web in altre aree. È possibile distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: Distribuire un servizio Web di Studio in più aree
+titleSuffix: Azure Machine Learning Studio
+description: Procedura per distribuire (copiare) un nuovo servizio Web in altre aree. È possibile distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 536a4ae0b740eae7f6072cbd23d96e199e1598e7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487070"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service-to-multiple-regions"></a>Distribuire un servizio Web di Azure Machine Learning Studio in più aree
 

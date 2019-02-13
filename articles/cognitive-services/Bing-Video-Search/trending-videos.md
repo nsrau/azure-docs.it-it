@@ -1,27 +1,31 @@
 ---
-title: 'Ricerca sul Web per video di tendenza: Ricerca video Bing'
+title: Cercare i video di tendenza sul Web con l'API Ricerca video Bing
 titlesuffix: Azure Cognitive Services
-description: Illustra come usare l'API Ricerca video Bing per cercare video di tendenza nel Web.
+description: Informazioni su come usare l'API Ricerca video Bing per cercare i video di tendenza sul Web.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203556"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566077"
 ---
-# <a name="get-trending-videos"></a>Ottenere video di tendenza  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Cercare i video di tendenza con l'API Ricerca video Bing 
 
-Per ottenere i video di tendenza più recenti, inviare la richiesta GET seguente:  
+L'API Ricerca video Bing consente di trovare i video di tendenza più recenti sul Web ed elencarli in categorie diverse. 
+
+## <a name="get-request"></a>Richiesta GET
+
+Per ottenere i video di tendenza più recenti con l'API Ricerca video Bing, inviare la richiesta GET seguente:  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -31,7 +35,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-I video di tendenza sono supportati dai mercati seguenti.  
+## <a name="market-support"></a>Mercati in cui la funzionalità è supportata
+
+I video di tendenza sono supportati sui mercati seguenti.  
  
 -   en-AU (inglese, Australia)  
 -   en-CA (inglese, Canada)  
@@ -47,10 +53,11 @@ I video di tendenza sono supportati dai mercati seguenti.
 -   en-ZA (inglese, Sudafrica)  
 -   zh-CN (cinese, Cina)
 
-  
-L'esempio seguente illustra una risposta contenente video di tendenza.  
+## <a name="example-json-response"></a>Risposta JSON di esempio  
 
-```  
+L'esempio seguente mostra una risposta dell'API che contiene i video di tendenza, elencati per categoria e sottocategoria. La risposta contiene anche video banner, ovvero i video di tendenza più diffusi, che possono provenire da una o più categorie.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ L'esempio seguente illustra una risposta contenente video di tendenza.
     ]  
 }  
   
-```  
-La risposta contiene un elenco di video per categoria e sottocategoria. Se ad esempio l'elenco delle categorie contiene una categoria Music Videos e una delle relative sottocategorie è Top, è possibile creare una categoria Top Music Videos all'interno dell'esperienza utente. È quindi possibile usare i campi `thumbnailUrl`, `displayText` e `webSearchUrl` per creare un riquadro selezionabile in ogni categoria (ad esempio, Top Music Videos). Quando l'utente fa clic sul riquadro, passa al browser dei video di Bing in cui il video viene riprodotto.
+```
 
-La risposta contiene anche video banner, i video di tendenza più diffusi. I video banner possono provenire da una o più categorie.  
-  
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+[Ottenere informazioni dettagliate su un video](video-insights.md)
