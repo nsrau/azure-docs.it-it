@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811199"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ La tabella seguente riepiloga le funzionalità principali dell'array virtuale St
 | Mobilità dei dati |Consente di ripristinare lo stesso dispositivo o eseguire il ripristino a livello di elemento (file server) |
 | Livelli di archiviazione |Archiviazione hypervisor locale e cloud |
 | Dimensione della condivisione |A livelli: fino a 20 TB; aggiunti in locale: fino a 2 TB |
-| Dimensioni del volume |A livelli: da 500 GB a 5 TB; aggiunti in locale: da 50 GB a 200 GB <br> La prenotazione locale massima per i volumi a livelli è 200 GB. |
+| Dimensioni del volume |A livelli: Da 500 GB a 5 TB; aggiunto localmente: Da 50 GB a 200 GB <br> La prenotazione locale massima per i volumi a livelli è 200 GB. |
 | Snapshot |Coerenza in caso di arresto anomalo |
 | Ripristino a livello di elemento |Sì. Gli utenti possono ripristinare dalle condivisioni |
 
@@ -76,8 +76,8 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 
 |Scenario     |Carico di lavoro     |Supportato      |Restrizioni               |
 |-------------|-------------|---------------|---------------------------|
-|Sedi remote/succursali  |Condivisione di file     |Yes      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
-|Archiviazione nel cloud  |Condivisione file di archiviazione     |Yes      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
+|Sedi remote/succursali  |Condivisione di file     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
+|Archiviazione nel cloud  |Condivisione file di archiviazione     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
 
 L'array virtuale StorSimple è particolarmente adatto per i dati ad accesso sporadico. Mentre l'array virtuale ha una cache locale per migliorare le prestazioni, gli utenti devono presupporre che il dispositivo gestisce i file al livello più basso dell'archiviazione (il cloud). Ogni array virtuale può scrivere e leggere nell'archiviazione di Azure a circa 100 Mbps. Il collegamento viene condiviso tra tutte le richieste che arrivano al dispositivo e può diventare un collo di bottiglia, come illustrato nel diagramma riportato di seguito.
 
@@ -169,7 +169,7 @@ Oltre all'array virtuale e ad altri componenti, la soluzione StorSimple usa le s
 
 * [Suddivisione automatica in livelli dell'archiviazione](#automatic-storage-tiering) 
 * [Condivisioni e volumi aggiunti in locale](#locally-pinned-shares-and-volumes)
-* [Deduplicazione e compressione dei dati a livelli o sottoposti a backup nel cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Deduplicazione e compressione dei dati a livelli o sottoposti a backup nel cloud 
 * [Backup pianificati e su richiesta](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Suddivisione automatica in livelli dell'archiviazione

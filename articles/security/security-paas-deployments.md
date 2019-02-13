@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728483"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488408"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -109,7 +109,7 @@ Usare protocolli di autenticazione standard come OAuth2 e Kerberos. Questi proto
 
 Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitigazioni dei rischi che usano le funzionalità di Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
 
-| Threat | Proprietà di sicurezza | Potenziale migrazione della piattaforma di Azure |
+| Threat | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
 | --- | --- | --- |
 | Spoofing | Authentication | Richiede connessioni HTTPS. |
 | Manomissione | Integrità | Convalida dei certificati SSL. |

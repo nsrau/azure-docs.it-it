@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412870"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694058"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -230,7 +230,7 @@ Sì. Altre informazioni:
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>È possibile creare una connessione di peering per una rete virtuale in un'area diversa?
-Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti virtuali in aree diverse. Il peering di reti virtuali globale è disponibile in tutte le aree pubbliche di Azure. Non è possibile eseguire il peering globale da aree pubbliche di Azure nei cloud nazionali. Il peering globale non è attualmente disponibile nei cloud nazionali.
+Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti virtuali in aree diverse. Il peering di reti virtuali globale è disponibile in tutte le aree pubbliche di Azure e nelle aree cloud cinesi. Non è possibile eseguire il peering globale da aree pubbliche di Azure nelle aree cloud nazionali. Il peering globale non è attualmente disponibile nei cloud per enti pubblici.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>È possibile abilitare il peering reti virtuali se le reti virtuali appartengono a sottoscrizioni all'interno di diversi tenant di Azure Active Directory?
 Sì. È possibile stabilire il peering reti virtuali (sia locale che globale) se le sottoscrizioni appartengono a tenant di Azure Active Directory diversi. Questa operazione può essere eseguita tramite PowerShell o l'interfaccia della riga di comando. L'uso del portale non è ancora supportato.
@@ -329,7 +329,7 @@ per impostazione predefinita, le risorse del servizio associate alle reti virtua
 Per proteggere i servizi di Azure in più subnet in una o più reti virtuali, è possibile abilitare gli endpoint di servizio sul lato rete in ognuna delle subnet in modo indipendente e quindi proteggere le risorse dei servizi di Azure in tutte le subnet configurando gli elenchi di controllo di accesso di rete virtuale appropriati sul lato servizio di Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>In che modo è possibile filtrare il traffico in uscita da una rete virtuale verso i servizi di Azure continuando a usare gli endpoint di servizio?
-Se si vuole verificare o filtrare il traffico destinato a un servizio di Azure da una rete virtuale, è possibile distribuire un'appliance virtuale di rete nella rete virtuale. È quindi possibile applicare gli endpoint di servizio alla subnet in cui è distribuita l'appliance virtuale di rete e proteggere le risorse del servizio di Azure solo in questa subnet tramite elenchi di controllo di accesso di rete virtuale. Questo scenario può essere utile anche se si vuole limitare l'accesso al servizio di Azure dalla rete virtuale solo a risorse di Azure specifiche, usando il filtro dell'appliance virtuale di rete. Per altre informazioni, vedere il [traffico in uscita con le appliance virtuali di rete](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se si vuole verificare o filtrare il traffico destinato a un servizio di Azure da una rete virtuale, è possibile distribuire un'appliance virtuale di rete nella rete virtuale. È quindi possibile applicare gli endpoint di servizio alla subnet in cui è distribuita l'appliance virtuale di rete e proteggere le risorse del servizio di Azure solo in questa subnet tramite elenchi di controllo di accesso di rete virtuale. Questo scenario può essere utile anche se si vuole limitare l'accesso al servizio di Azure dalla rete virtuale solo a risorse di Azure specifiche, usando il filtro dell'appliance virtuale di rete. Per altre informazioni, vedere il [traffico in uscita con le appliance virtuali di rete](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Cosa accade quando si accede a un account del servizio di Azure con un elenco di controllo di accesso (ACL) di rete virtuale abilitato dall'esterno della rete virtuale?
 Viene restituito l'errore HTTP 403 o HTTP 404.

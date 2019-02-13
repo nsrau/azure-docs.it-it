@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355314"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747527"
 ---
 # <a name="your-marketplace-benefits"></a>Vantaggi del Marketplace
 
@@ -61,7 +61,7 @@ Il supporto GTM include modelli, contenuto Web, risorse di formazione e strument
 Per accedere a questi vantaggi, sarà necessario:
 
 1. Pubblicare un'offerta in Azure Marketplace o in AppSource.
-2. Assicurarsi di aver immesso un contatto commerciale nella parte dell'offerta riservata alle **informazioni sul contatto**. Deve trattarsi di una risorsa dedicata al marketing e non di un alias generale. Evitare ad esempio di usare "support@", "info@", "marketing@" e così via.
+2. Assicurarsi di aver immesso un contatto commerciale nella parte dell'offerta riservata alle **informazioni sul contatto**. Deve trattarsi di una risorsa dedicata al marketing e non di un alias generale. Evitare ad esempio di usare "support\@", "info\@", "marketing\@" e così via.
 
 In base allo stato della soluzione, si riceverà un messaggio di posta elettronica con risorse self-help oppure un invito a una chiamata di consulenza per parlare con un engagement manager dedicato. Non è richiesta alcuna operazione per avviare la chiamata. Si verrà contattati dal team che gestisce l'onboarding nel marketplace in base alle informazioni fornite nel [portale Cloud Partner](https://cloudpartner.azure.com/).
 

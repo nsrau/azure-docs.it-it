@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166578"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822052"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -55,7 +55,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 | [Ottenere un token tramite Go](#get-a-token-using-go) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Go |
 | [Ottenere un token tramite Azure PowerShell](#get-a-token-using-azure-powershell) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client PowerShell |
 | [Ottenere un token tramite CURL](#get-a-token-using-curl) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Bash/CURL |
-| [Gestione della memorizzazione nella cache dei token](#handling-token-caching) | Indicazioni per la gestione di token di accesso scaduti |
+| Gestione della memorizzazione nella cache dei token | Indicazioni per la gestione di token di accesso scaduti |
 | [Gestione degli errori](#error-handling) | Materiale sussidiario per la gestione degli errori HTTP restituiti dall'endpoint del token delle identità gestite per risorse di Azure |
 | [ID di risorsa per servizi di Azure](#resource-ids-for-azure-services) | Come ottenere ID di risorsa per i servizi di Azure supportati |
 
@@ -373,14 +373,14 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 | Codice di stato | Tipi di errore | Descrizione dell'errore | Soluzione |
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata *\<URI\>* non è stata trovata nel tenant denominato *\<TENANT-ID\>*. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
-| 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere Richiesta di esempio nella [sezione REST precedente](#rest).|
-| 401 - Non autorizzato | unknown_source | Origine sconosciuta *\<URI\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere Richiesta di esempio nella [sezione REST precedente](#rest).|
+| 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
+| 401 - Non autorizzato | unknown_source | Origine sconosciuta *\<URI\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
 |           | invalid_request | Nella richiesta manca un parametro obbligatorio oppure la richiesta include un valore di parametro non valido, contiene uno stesso parametro più volte o non è formata in modo corretto. |  |
 |           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | La causa di questo problema è una richiesta che non ha usato il loopback locale per chiamare l'estensione o una macchina virtuale in cui le identità gestite per risorse di Azure non sono configurate correttamente. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |
-| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella [sezione REST precedente](#rest) per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
+| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere "Richiesta di esempio" nella sezione REST precedente per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
 
 ## <a name="retry-guidance"></a>Materiale sussidiario sulla ripetizione di tentativi 
 

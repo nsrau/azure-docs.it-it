@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550930"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752773"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisiti di archiviazione BLOB di Azure Data Box
 
@@ -30,7 +30,7 @@ Questo articolo elenca le versioni di API, SDK e strumenti di Azure supportati d
 |    Crittografia del servizio per dati inattivi                  |    Crittografia AES a 256 bit                             |    Crittografia AES a 256 bit |
 |    Tipo di account di archiviazione                                 |    Account di archiviazione BLOB di Azure e per uso generico    |    Solo uso generico v1|
 |    Nome del BLOB                                            |    1.024 caratteri (2.048 byte)                     |    880 caratteri (1.760 byte)|
-|    Dimensioni massime di BLOB in blocchi                              |    4,75 TB (100 MB x 50.000 blocchi)                   |    4,75 TB (100 MB x 50.000 blocchi) per Azure Data Box v 1.7 e successive.|
+|    Dimensioni massime di BLOB in blocchi                              |    4,75 TB (100 MB x 50.000 blocchi)                   |    4,75 TB (100 MB x 50.000 blocchi) per Azure Data Box v 1.8 e successive.|
 |    Dimensioni massime di BLOB di pagine                               |    8 TB                                               |    1 TB                   |
 |    Dimensioni pagina del BLOB di pagine                                  |    512 byte                                          |    4 KB                   |
 
@@ -38,8 +38,10 @@ Questo articolo elenca le versioni di API, SDK e strumenti di Azure supportati d
 
 Le versioni seguenti del servizio di Archiviazione di Azure sono supportate dall'archiviazione BLOB di Azure Data Box:
 
-Versione di anteprima pubblica (Azure Data Box 1.7 e versioni successive)
+Versione di anteprima pubblica (Azure Data Box 1.8 e versioni successive)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -60,11 +62,9 @@ Versione di anteprima pubblica (Azure Data Box 1.7 e versioni successive)
 
 ## <a name="supported-azure-client-libraries"></a>Librerie client di Azure supportate
 
-Per l'archiviazione BLOB di Azure Data Box sono disponibili librerie client specifiche e requisiti specifici per il suffisso dell'endpoint.
+Per l'archiviazione BLOB di Azure Data Box sono disponibili librerie client specifiche e requisiti specifici per il suffisso dell'endpoint. Gli endpoint di archiviazione BLOB di Data Box non sono del tutto equivalenti alla versione più recente dell'API REST di Archiviazione BLOB di Azure, vedere le [versioni supportate per Azure Data Box 1.8 e successive](#supported-api-versions). Per le librerie client di archiviazione è necessario essere a conoscenza della versione compatibile con l'API REST.
 
-Le versioni supportate di API REST per l'archiviazione BLOB di Azure Data Box sono 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08 e 2015-04-05 per la versione 1.7 di Azure Data Box e successive. Gli endpoint di archiviazione BLOB di Azure Data Box non sono del tutto equivalenti alla versione più recente dell'API REST di Archiviazione BLOB di Azure. Per le librerie client di archiviazione è necessario essere a conoscenza della versione compatibile con l'API REST.
-
-### <a name="azure-data-box-17-onwards"></a>Azure Data Box 1.7 e versioni successive
+### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 e versioni successive
 
 | Libreria client     |Versione supportata di archiviazione BLOB di Azure Data Box     | Collegamento   |     Specifica dell'endpoint      |
 |--------------------|--------------------------------------------|--------|---------------------------------|

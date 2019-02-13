@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142413"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496965"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
 
@@ -34,7 +34,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 
 * **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
 
-   **provisioningserviceowner**: criteri con tutte le autorizzazioni.
+* **provisioningserviceowner**: criteri con tutte le autorizzazioni.
 
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
@@ -86,7 +86,7 @@ I valori previsti sono i seguenti:
 
 Il frammento seguente di Node.js mostra una funzione denominata **generateSasToken** che calcola il token dagli input `resourceUri, signingKey, policyName, expiresInMins`. Nelle sezioni successive viene illustrato nel dettaglio come inizializzare gli input a seconda del caso d'uso.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Ad esempio, un servizio generato con il criterio di accesso condiviso già esist
 
 ![Creare i criteri di accesso condiviso per l'istanza del servizio di provisioning di dispositivi nel portale][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

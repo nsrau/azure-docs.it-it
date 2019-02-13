@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828180"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745385"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
@@ -33,7 +33,7 @@ Attualmente Servizi multimediali supporta i set di impostazioni di analisi prede
 
 |**Nome set di impostazioni**|**Scenario**|**Dettagli**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Sono supportate le lingua: inglese ('en-US' e 'en-GB'), spagnolo ('es-ES' ed 'es-MX'), francese ('fr-FR'), italiano ('it-IT'), giapponese ('ja-JP'), portoghese ('pt-BR'), cinese ('zh-CN'), tedesco ('de-DE'), arabo ('ar-EG'), russo ('ru-RU'), hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se la lingua non è specificata o è impostata su Null, verrà usato il rilevamento automatico della lingua. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato chiaro e percepibile. Se il rilevamento automatico della lingua non riesce a individuare la lingua, la trascrizione tornerà all'inglese.|
+|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Sono supportate le lingua: inglese ('en-US' e 'en-GB'), spagnolo ('es-ES' ed 'es-MX'), francese ('fr-FR'), italiano ('it-IT'), giapponese ('ja-JP'), portoghese ('pt-BR'), cinese ('zh-CN'), tedesco ('de-DE'), arabo ('ar-EG'), russo ('ru-RU'), hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se la lingua non è specificata o impostata su Null, il rilevamento automatico della lingua sceglierà la prima lingua rilevata e utilizzerà la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Attualmente non supporta il passaggio dinamico tra lingue dopo il rilevamento della prima lingua. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a individuare la lingua, la trascrizione tornerà all'inglese.|
 |**VideoAnalyzerPreset**|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

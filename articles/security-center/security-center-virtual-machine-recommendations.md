@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537648"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488741"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Informazioni sulle raccomandazioni delle risorse per Centro sicurezza di Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53537648"
 Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per Calcolo e Servizi app i relativi effetti in caso di applicazione.
 
 ### <a name="computers"></a>Computer
-| Raccomandazione | DESCRIZIONE |
+| Recommendation | DESCRIZIONE |
 | --- | --- |
 | [Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md) |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
 | [Abilitare la crittografia per l'account di archiviazione di Azure](security-center-enable-encryption-for-storage-account.md) | Consiglia di abilitare la crittografia del servizio Archiviazione di Azure per i dati inattivi che applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero. La crittografia del servizio Archiviazione di Azure è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).</br>La crittografia del servizio Archiviazione di Azure è supportata solo negli account di archiviazione di Resource Manager. Gli account di archiviazione classici non sono attualmente supportati. Per informazioni sui modelli di distribuzione classico e di Gestione risorse, vedere i [modelli di distribuzione di Azure](../azure-classic-rm.md). |
@@ -43,8 +43,8 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md) |Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
 | [Correggi le vulnerabilità](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Consente di visualizzare le vulnerabilità del sistema e delle applicazioni rilevate dalla soluzione di valutazione delle vulnerabilità installata nella VM. |
 
-### <a name="app-services"></a>Servizi app
-| Raccomandazione | DESCRIZIONE |
+### Servizi app <a name="app-services"></a>
+| Recommendation | DESCRIZIONE |
 | --- | --- |
 | Il servizio app deve essere accessibile solo tramite HTTPS | Consiglia di limitare l'accesso del servizio app solo tramite HTTPS. |
 | Web Socket deve essere disabilitato per l'applicazione Web| Consiglia di esaminare attentamente l'utilizzo di Web Socket all'interno delle applicazioni Web.  Il protocollo Web Socket è vulnerabile a diversi tipi di minacce alla sicurezza. |

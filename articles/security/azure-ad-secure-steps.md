@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165646"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750325"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -99,7 +99,7 @@ Le app che usano propri metodi legacy per l'autenticazione con Azure AD e l'acce
 
 1. Bloccare l'[autenticazione legacy se si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurare [SharePoint Online ed Exchange Online per l'uso dell'autenticazione moderna](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Usare [criteri di accesso condizionale per bloccare l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Usare [criteri di accesso condizionale per bloccare l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloccare punti di ingresso di autenticazione non validi
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289458"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734335"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare l'insieme di credenziali di Servizi di ripristino di Azure con l'API REST
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Creare una richiesta
 
-Per creare la richiesta *PUT* è necessario il `{subscription-id}`. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Si definiscono `{resourceGroupName}` e `{vaultName}` per le risorse, insieme al parametro `api-version`. Questo articolo usa `api-version=2016-06-01`.
+Per creare la richiesta *PUT* è necessario il `{subscription-id}`. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Si definiscono `{resourceGroupName}` e `{vaultName}` per le risorse, insieme al parametro `api-version`. Questo articolo usa `api-version=2016-06-01`.
 
 Gli argomenti seguenti sono obbligatori:
 
@@ -44,7 +44,7 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|NOME  |Obbligatoria  |type  |DESCRIZIONE  |
+|NOME  |Obbligatoria  |Type  |DESCRIZIONE  |
 |---------|---------|---------|---------|
 |eTag     |         |   string      |  eTag facoltativo       |
 |location     |  true       |string         |   Percorso risorsa      |
@@ -72,7 +72,7 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|NOME  |type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     |   [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creato     | [Insieme di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |

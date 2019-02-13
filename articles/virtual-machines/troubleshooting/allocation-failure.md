@@ -6,24 +6,24 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412044"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510477"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
 Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. Microsoft continua a investire in funzionalità e infrastrutture aggiuntive per garantire che tutti i tipi di VM supportino le richieste dei clienti. In alcuni casi possono, tuttavia, verificarsi errori di allocazione delle risorse a causa di un aumento senza precedenti delle richieste di servizi di Azure in aree specifiche. Questo problema può verificarsi quando si tenta di creare o avviare le VM in un'area e le VM visualizzano il codice di errore e il messaggio seguenti:
 
-**Codice di errore**: AllocationFailed o ZonalAllocationFailed
+**Codice errore**: AllocationFailed o ZonalAllocationFailed
 
 **Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione sono disponibili in http://aka.ms/allocation-guidance"
 
@@ -47,7 +47,7 @@ La richiesta di ridimensionamento di una VM o di aggiunta di una VM a un set di 
 Se la VM può far parte di un set di disponibilità diverso, creare una VM in un altro set di disponibilità (nella stessa area). La nuova VM può quindi essere aggiunta alla stessa rete virtuale.
 
 Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.
-Per arrestare: fare clic su Gruppi di risorse > [gruppo di risorse personale] > Risorse > [set di disponibilità personale] > Macchine virtuali > [macchina virtuale personale] > Arresta.
+Per arrestare: Fare clic su Gruppi di risorse > [il proprio gruppo di risorse] > Risorse > [il proprio set di disponibilità] > Macchine virtuali > [la propria macchina virtuale] > Arresta.
 Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su Avvia.
 Questo passaggio garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità sufficiente.
 
@@ -60,7 +60,7 @@ La deallocazione parziale significa che una o più VM in un set di disponibilit�
 ### <a name="workaround"></a>Soluzione alternativa
 
 Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.
-Per arrestare: fare clic su Gruppi di risorse > [gruppo di risorse personale] > Risorse > [set di disponibilità personale] > Macchine virtuali > [macchina virtuale personale] > Arresta.
+Per arrestare: Fare clic su Gruppi di risorse > [il proprio gruppo di risorse] > Risorse > [il proprio set di disponibilità] > Macchine virtuali > [la propria macchina virtuale] > Arresta.
 Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su Avvia.
 Questo passaggio garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità sufficiente.
 
@@ -81,7 +81,7 @@ Se la richiesta di allocazione è di grandi dimensioni (oltre 500 core), consult
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errori di allocazione per dimensioni di VM precedenti (Av1, Dv1, DSv1, D15v2, DS15v2 e così via)
 
-Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, si consiglia ai clienti che usano le macchine virtuali serie legacy di provare a passare alle VM più recenti equivalenti in base alle indicazioni seguenti: queste VM sono ottimizzate per l'hardware più recente e consentiranno di sfruttare i vantaggi offerti da prezzi e prestazioni migliori. 
+Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, consigliamo ai clienti che usano macchine virtuali serie legacy di valutare il passaggio a macchine virtuali più recenti equivalenti per i motivi seguenti: Queste macchine virtuali sono ottimizzate per l'hardware più recente e consentiranno di sfruttare un rapporto prezzo/prestazioni più vantaggioso. 
 
 |Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
 |----------------------|----------------------------|--------------------|

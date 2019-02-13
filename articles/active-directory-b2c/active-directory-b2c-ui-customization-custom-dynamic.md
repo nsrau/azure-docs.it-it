@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187080"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819248"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -155,7 +155,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
     Verrà visualizzata la finestra **Crea servizio app**, Qui è possibile iniziare a creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
 
     > [!NOTE]
-    > Per altre informazioni sulla pubblicazione, vedere [Creare un'app Web ASP.NET in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Per altre informazioni sulla pubblicazione, vedere [Creare un'app Web ASP.NET in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. Nella casella **Nome app Web** digitare un nome univoco per l'app. I caratteri validi sono a-z, A-Z, 0-9 e il trattino (-). L'URL dell'app Web è `http://<app_name>.azurewebsites.NET`, dove `<app_name>` è il nome dell'app Web. È possibile accettare il nome generato automaticamente, che è univoco.
 
@@ -247,16 +247,18 @@ Modificare lo sfondo in base a un parametro di stringa di query denominato _camp
 Aggiungere l'elemento `ContentDefinitionParameters` eseguendo questa procedura:
 1. Aprire il file *SignUpOrSignin* dei criteri, ad esempio *SignUpOrSignin.xml*.
 
-2. Cercare il nodo `<DefaultUserJourney>`. 
-
-3. Nel nodo `<DefaultUserJourney>` aggiungere il frammento di codice XML seguente:  
+2. Nel nodo `<DefaultUserJourney>` aggiungere il nodo `UserJourneyBehaviors`:  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Passaggio 8.2: Modificare il codice per accettare un parametro di stringa di query e sostituire l'immagine di sfondo

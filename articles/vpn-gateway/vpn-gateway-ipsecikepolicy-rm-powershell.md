@@ -1,5 +1,5 @@
 ---
-title: 'Configurare i criteri IPsec/IKE per le connessioni VPN da sito a sito o da rete virtuale a rete virtuale: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Configurare i criteri IPsec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c07634e7c75e166b77ecb1defab02b2601af6bb0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "31601152"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510103"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
 
@@ -196,7 +196,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 Lo script di esempio che segue crea un criterio IPsec/IKE con gli algoritmi e i parametri seguenti:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS nessuno, durata dell'associazione di sicurezza 14.400 secondi e 1024 KB
+* IPsec: AES256, SHA256, PFS nessuno, durata dell'associazione di sicurezza 14400 secondi e 102400000 kB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -282,7 +282,7 @@ Come per la connessione VPN da sito a sito, creare un criterio IPsec/IKE e quind
 
 Lo script di esempio seguente crea un criterio IPsec/IKE diverso con gli algoritmi e i parametri seguenti:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, durata dell'associazione di sicurezza 14.400 secondi e 1024 KB
+* IPsec: GCMAES128, GCMAES128, PFS14, durata dell'associazione di sicurezza 14400 secondi e 102400000 kB
 
 ```powershell
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000

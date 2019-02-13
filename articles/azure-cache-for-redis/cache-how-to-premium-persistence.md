@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105847"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819060"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
 Cache Redis di Azure include diverse offerte di cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare la persistenza in un'istanza Cache Redis Premium di Azure.
@@ -133,7 +133,7 @@ Per la persistenza sia RDB sia AOF:
 * Se si è passati a una dimensione minore che non è abbastanza grande per contenere tutti i dati del backup più recente, le chiavi verranno rimosse durante il processo di ripristino, in genere usando il criterio di rimozione [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>È possibile modificare la frequenza di backup RDB dopo avere creato la cache?
-Sì, è possibile modificare la frequenza di backup per la persistenza RDB nel pannello **Persistenza dei dati di Redis**. Per istruzioni, vedere [Configurare la persistenza di Redis](#configure-redis-persistence).
+Sì, è possibile modificare la frequenza di backup per la persistenza RDB nel pannello **Persistenza dei dati di Redis**. Per istruzioni, vedere Configurare la persistenza di Redis.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Perché trascorrono più di 60 minuti tra i backup se è stata impostata una frequenza di backup RDB di 60 minuti?
 L'intervallo di frequenza di backup della persistenza RDB inizia solo dopo il completamento del processo di backup precedente. Se la frequenza di backup è 60 minuti e per il corretto completamento del processo di backup sono richiesti 15 minuti, il backup successivo verrà avviato solo 75 minuti dopo l'ora di inizio del backup precedente.

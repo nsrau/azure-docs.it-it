@@ -1,5 +1,5 @@
 ---
-title: Delegare ruoli con privilegi minimi dall'attività in Azure Active Directory | Microsoft Docs
+title: Delegare ruoli con privilegi minimi dall'attività di amministratore - Azure Active Directory | Microsoft Docs
 description: Ruoli da delegare per attività di identità in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185211"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508216"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Ruoli di amministratore da attività di identità in Azure Active Directory
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
 In questo articolo, è possibile trovare le informazioni necessarie per limitare le autorizzazioni di amministratore dell'utente tramite l'assegnazione di ruoli con privilegi minimi in Azure Active Directory (Azure AD). Sono disponibili le attività di amministrazione organizzate in aree di funzionalità e il ruolo meno privilegiato richiesto per eseguire ogni attività, insieme ai ruoli aggiuntivi di amministratore non globale che può eseguire l'attività.
 

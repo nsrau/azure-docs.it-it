@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321178"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815074"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
 È possibile eseguire lo strumento da riga di comando di Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) in una di queste quattro modalità: 
--   [Ottenere l'elenco delle macchine virtuali (VM)](#get-vm-list-for-profiling-hyper-v-vms)
+-   Ottenere l'elenco delle macchine virtuali (VM)
 -   [Profilo](#profile-hyper-v-vms)
--   [Generare un report](#generate-report)
+-   Generare un report
 -   [Misurare la velocità effettiva](#get-throughput)
 
 Eseguire prima lo strumento per ottenere l'elenco delle VM da uno o più host Hyper-V. Eseguire quindi lo strumento in modalità di profilatura per raccogliere le operazioni di I/O al secondo e la varianza dati delle VM. Eseguire quindi lo strumento per generare il report e determinare i requisiti di larghezza di banda e archiviazione.
@@ -74,7 +74,7 @@ Lo strumento esegue query sull'host Hyper-V ogni 15 secondi per garantire l'accu
 Lo strumento gestisce facilmente la migrazione delle VM da un nodo a un altro nel cluster e la migrazione dell'archiviazione all'interno di un host.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Recupero dell'elenco delle VM da profilare
-Per creare un elenco delle VM da profilare, vedere l'operazione [GetVMList](#get-vm-list-for-profiling-hyper-v-vms).
+Per creare un elenco delle macchine virtuali da profilare, vedere l'operazione GetVMList.
 
 Dopo aver ottenuto l'elenco di macchine virtuali da profilare, è possibile eseguire lo strumento in modalità di profilatura. 
 

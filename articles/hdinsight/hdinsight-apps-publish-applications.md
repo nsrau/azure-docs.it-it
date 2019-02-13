@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653918"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814192"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Pubblicare un'applicazione HDInsight in Azure Marketplace
 È possibile installare un'applicazione Azure HDInsight in un cluster HDInsight basato su Linux. Questo articolo fornisce informazioni su come pubblicare un'applicazione HDInsight in Azure Marketplace. Per informazioni generali sulla pubblicazione in Azure Marketplace, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -75,9 +75,9 @@ Lo script di installazione deve avere le caratteristiche seguenti:
 * Se lo script avvia servizi sui nodi, i servizi sono monitorati e configurati per l'avvio automatico in caso di riavvio di un nodo.
 
 ## <a name="package-the-application"></a>Creare il pacchetto dell'applicazione
-Creare un file ZIP contenente tutti i file necessari per installare l'applicazione HDInsight. Il file ZIP verrà usato per [pubblicare l'applicazione](#publish-application). Il file ZIP include i file seguenti:
+Creare un file ZIP contenente tutti i file necessari per installare l'applicazione HDInsight. Il file ZIP verrà usato per pubblicare l'applicazione. Il file ZIP include i file seguenti:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (per un esempio, vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md))
 * Tutti gli script necessari
 
@@ -94,7 +94,7 @@ Per pubblicare un'applicazione HDInsight:
 5. Selezionare **Define some Topologies to get Started** (Definire alcune topologie per iniziare). Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione o offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. 
 6. Immettere il nome di una topologia e quindi selezionare **+**.
 7. Immettere una nuova versione e quindi selezionare **+**.
-8. Caricare il file ZIP creato quando al momento della [creazione del pacchetto dell'applicazione](#package-application).  
+8. Caricare il file ZIP creato quando al momento della creazione del pacchetto dell'applicazione.  
 9. Selezionare **Request Certification** (Richiedi certificazione). Il team di certificazione Microsoft esamina i file e certifica la topologia.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: 'Connettere le reti virtuali classiche alle reti virtuali di Azure Resource Manager: portale| Documentazione Microsoft'
+title: 'Connettere le reti virtuali classiche alle reti virtuali di Azure Resource Manager: Portale | Microsoft Docs'
 description: Procedura per connettere le reti virtuali classiche alle reti virtuali di Resource Manager usando il gateway VPN e il portale
 services: vpn-gateway
 author: cherylmc
@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405005"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508335"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -113,7 +113,7 @@ Se si dispone già di una rete virtuale con un gateway VPN, verificare che il ga
 2. Fare clic su **Configurazione gateway facoltativa** per aprire la pagina **Configurazione gateway**.
 
   ![Aprire la pagina Configurazione gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Aprire la pagina Configurazione gateway")
-3. Fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**. Il **Nome** è già configurato con il valore **GatewaySubnet** richiesto.
+3. Fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**. Il **Nome** è già configurato con il valore richiesto: **GatewaySubnet**.
 4. **Intervallo indirizzi** si riferisce all'intervallo per la subnet del gateway. Sebbene sia possibile creare una subnet del gateway con un intervallo di indirizzi /29 (3 indirizzi), è consigliabile creare una subnet del gateway che contiene più indirizzi IP. Questo la rende compatibile con configurazioni future che potrebbero richiedere più indirizzi IP disponibili. Se possibile, usare /27 o /28. Se si segue questa procedura come esercizio, è possibile usare i valori dell'[Esempio](#values). In questo esempio viene usato il nome "10.0.0.32/28". Fare clic su **OK** per creare la subnet del gateway.
 5. Nella pagina **Configurazione gateway**, **Dimensioni** si riferisce allo SKU del gateway. Selezionare lo SKU del gateway per il gateway VPN.
 6. Verificare che **Tipo di routing** sia **Dinamico** e quindi fare clic su **OK** per tornare alla pagina **Nuova connessione VPN**.
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visualizzare i valori del file di configurazione di rete
 
-Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che sembra avere il nome di "ClassicVNet" nel portale di Azure potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG ClassicVNet". In questa procedura si scarica il file di configurazione di rete e si visualizzano i valori.
+Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che sembra avere il nome di "ClassicVNet" nel portale di Azure potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Group ClassicRG ClassicVNet". In questa procedura si scarica il file di configurazione di rete e si visualizzano i valori.
 
 Creare una directory nel computer ed esportarvi il file di configurazione di rete. In questo esempio il file di configurazione di rete viene esportato in C:\AzureNet.
 

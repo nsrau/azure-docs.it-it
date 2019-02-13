@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118763"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700911"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -185,6 +185,52 @@ Le dimensioni relative alla città, all'area, al paese e alla regione vengono de
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
 È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
+
+## <a name="troubleshooting-logs"></a>Log di risoluzione dei problemi
+
+Seguire queste istruzioni per acquisire i log di risoluzione dei problemi per il framework.
+
+### <a name="net-framework"></a>.Net Framework
+
+1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsighs`
+
+2. Modificare il file applicationinsights.config in modo che includa quanto segue:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
+ 
+ 3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
+ 
+ 4. Al termine, ripristinare queste modifiche.
+  
+### <a name="net-core"></a>.Net Core
+
+1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsighs`
+
+2. Modificare il metodo `ConfigureServices` nella classe `Startup.cs`:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
+ 
+ 3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
+ 
+ 4. Al termine, ripristinare queste modifiche.
+  
 
 ## <a name="still-not-working"></a>Non funzionante...
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

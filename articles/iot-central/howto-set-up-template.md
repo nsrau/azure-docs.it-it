@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158942"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657740"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
 
@@ -39,6 +39,8 @@ Da questo modello di dispositivo, un operatore può creare e connettere dei disp
 
 > [!NOTE]
 > Solo i generatori e gli amministratori possono creare, modificare ed eliminare i modelli di dispositivo. Qualsiasi utente può creare dispositivi nella pagina **Device Explorer** (Esplora dispositivi) di un modello di dispositivo esistente.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
@@ -84,7 +86,7 @@ Dopo aver selezionato **Done** (Fatto), la misura **Temperature** (Temperatura) 
 ### <a name="create-an-event-measurement"></a>Creare una misura di evento
 Per aggiungere una nuova misura di evento selezionare **Modifica modello** e quindi fare clic sul pulsante **+ Nuova misura**. Selezionare **Event** (Evento) come tipo di misura e immettere i dettagli nel modulo **Create Event** (Crea evento).
 
-Specificare i dettagli **Display Name** (Nome visualizzato), **Field Name** (Nome campo) e **Severity** (Gravità) dell'evento. È possibile scegliere fra tre livelli di gravità: **Error** (Errore), **Warning** (Avviso) e **Information** (Informazioni).  
+Specificare i dettagli **Display Name** (Nome visualizzato), **Field Name** (Nome campo) e **Severity** (Gravità) dell'evento. È possibile scegliere fra tre livelli di gravità: **Errore**, **Avviso** e **Informazioni**.  
 
 Ad esempio, è possibile aggiungere un nuovo evento **Fan Motor Error** (Errore motore ventola).
 
@@ -134,11 +136,11 @@ Le impostazioni consentono di controllare un dispositivo. Consentono agli operat
 
 Le impostazioni possono presentare uno di tre stati possibili. Il dispositivo segnala questi stati.
 
-- **Synced** (Sincronizzato): il dispositivo è stato modificato per riflettere il valore dell'impostazione.
+- **Sincronizzato**: il dispositivo è stato modificato per riflettere il valore dell'impostazione.
 
-- **Pending** (In sospeso): il dispositivo sta applicando il valore dell'impostazione.
+- **Pending**: il dispositivo sta applicando il valore dell'impostazione.
 
-- **Error** (Errore): il dispositivo ha restituito un errore.
+- **Errore**: il dispositivo ha restituito un errore.
 
 Ad esempio è possibile aggiungere una nuova impostazione della velocità della ventola selezionando **Edit Template** (Modifica modello) e inserendo la nuova impostazione **Number** (Numero):
 
@@ -236,7 +238,7 @@ In cosa differisce un comando da un'impostazione?
 
 * **Impostazione**: un'impostazione è una configurazione che si vuole applicare a un dispositivo e si desidera che il dispositivo mantenga fino a quando non si decide di modificarla. Ad esempio, si vuole impostare la temperatura del freezer e si desidera mantenere l'impostazione anche quando il freezer viene riavviato. 
 
-* **Comando**: i comandi si usano per esegue istantaneamente un comando nel dispositivo in modalità remota da IoT Central. Se non c'è un dispositivo connesso, il comando va in timeout e non viene eseguito. Ad esempio, si desidera riavviare un dispositivo.  
+* **Comando**: i comandi si usano per eseguire istantaneamente un comando nel dispositivo in modalità remota da IoT Central. Se non c'è un dispositivo connesso, il comando va in timeout e non viene eseguito. Ad esempio, si desidera riavviare un dispositivo.  
 
 
 Ad esempio è possibile aggiungere un nuovo comando **Echo** (Eco) selezionando **Editing Template** (Modello di modifica), quindi fare clic su **+ New Command** (+ Nuovo comando) e immettendo il nuovo comando:

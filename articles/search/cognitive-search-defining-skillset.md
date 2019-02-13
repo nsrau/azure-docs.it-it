@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320796"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751974"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
 
@@ -142,11 +142,11 @@ La parte successiva nel set di competenze è una matrice di competenze. Si può 
 
 ## <a name="add-predefined-skills"></a>Aggiungere competenze predefinite
 
-Si osservi la prima competenza, che è la [competenza di riconoscimento delle entità denominate](cognitive-search-skill-named-entity-recognition.md) predefinita:
+Si osservi la prima competenza, che è la [competenza di riconoscimento delle entità](cognitive-search-skill-entity-recognition.md) predefinita:
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Si osservi la prima competenza, che è la [competenza di riconoscimento delle en
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Richiamare la struttura dell'arricchitore di Ricerca entità di Bing personalizz
     }
 ```
 
-Questa definizione è una competenza personalizzata che chiama un'API Web come parte del processo di arricchimento. Per ogni organizzazione identificata dal riconoscimento delle entità denominate, questa competenza chiama un'API Web per individuare la descrizione dell'organizzazione. L'orchestrazione di quando chiamare l'API Web e come propagare le informazioni ricevute viene gestita internamente dal motore di arricchimento. L'inizializzazione necessaria per chiamare l'API personalizzata deve tuttavia essere specificata nel file JSON (ad esempio URI, intestazioni http e input previsti). Per informazioni sulla creazione di un'API Web personalizzata per la pipeline di arricchimento, vedere [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Come definire un'interfaccia personalizzata).
+Questa definizione è una [competenza personalizzata](cognitive-search-custom-skill-web-api.md) che chiama un'API Web come parte del processo di arricchimento. Per ogni organizzazione identificata dal riconoscimento delle entità denominate, questa competenza chiama un'API Web per individuare la descrizione dell'organizzazione. L'orchestrazione di quando chiamare l'API Web e come propagare le informazioni ricevute viene gestita internamente dal motore di arricchimento. L'inizializzazione necessaria per chiamare l'API personalizzata deve tuttavia essere specificata nel file JSON (ad esempio URI, intestazioni http e input previsti). Per informazioni sulla creazione di un'API Web personalizzata per la pipeline di arricchimento, vedere [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Come definire un'interfaccia personalizzata).
 
 Si noti che il campo "contesto" è impostato su ```"/document/organizations/*"``` con un asterisco. Questo significa che il passaggio di arricchimento viene chiamato *per ogni* organizzazione presente in ```"/document/organizations"```. 
 

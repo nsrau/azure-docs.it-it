@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228046"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565922"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Uso di OLTP in memoria per migliorare le prestazioni delle applicazioni nel database SQL
+
 [OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database di [livello Premium e Business Critical](sql-database-service-tiers-vcore.md), senza aumentare il piano tariffario. 
 
 > [!NOTE] 
@@ -29,6 +30,7 @@ ms.locfileid: "51228046"
 Seguire i passaggi seguenti per adottare OLTP in memoria nel database esistente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Passaggio 1: Assicurarsi di usare un database di livello Premium e Business Critical
+
 OLTP in memoria è supportato solo nei database di livello Premium e Business Critical. La funzionalità in memoria è supportata se il risultato restituito è 1 (non 0):
 
 ```

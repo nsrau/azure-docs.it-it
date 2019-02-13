@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251980"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810287"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -32,6 +32,8 @@ Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo grupp
 > * Per aggiornare una versione di valutazione gratuita, vedere [Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo](..//billing/billing-upgrade-azure-subscription.md).
 > * Per modificare un account con pagamento in base al consumo, vedere [Modificare la sottoscrizione Azure con pagamento in base al consumo in un'offerta diversa](../billing/billing-how-to-switch-azure-offer.md).
 > * Se non è possibile convertire la sottoscrizione, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>Quando chiamare il supporto tecnico di Azure
 
@@ -237,7 +239,7 @@ Quando si spostano risorse da un gruppo di risorse a un altro gruppo di risorse 
 * È possibile spostare un solo account di archiviazione (classico) alla volta.
 * Un account di archiviazione (classico) non può essere spostato nella stessa operazione di spostamento che include una macchina virtuale o un servizio cloud.
 
-Per spostare le risorse classiche in un nuovo gruppo di risorse all'interno della stessa sottoscrizione usare le operazioni di spostamento standard tramite il [portale](#use-portal), [Azure PowerShell](#use-powershell), l'[interfaccia della riga di comando di Azure](#use-azure-cli) o l'[API REST](#use-rest-api). Usare le stesse operazioni eseguite per lo spostamento di risorse di Resource Manager.
+Per spostare le risorse classiche in un nuovo gruppo di risorse all'interno della stessa sottoscrizione usare le operazioni di spostamento standard tramite il [portale](#use-portal), Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Usare le stesse operazioni eseguite per lo spostamento di risorse di Resource Manager.
 
 #### <a name="new-subscription"></a>Nuova sottoscrizione
 

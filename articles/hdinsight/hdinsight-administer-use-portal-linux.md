@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816442"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -59,7 +59,7 @@ Selezionare il nome del cluster nella pagina [**Cluster HDInsight**](#showCluste
   - **Dimensioni del cluster**: consente di verificare, aumentare e ridurre il numero di nodi di ruolo di lavoro del cluster. Vedere [Ridimensionare i cluster](hdinsight-administer-use-management-portal.md#scale-clusters).
   - **Limiti di quota**: visualizza i core usati e disponibili per la sottoscrizione.
   - **SSH + Account di accesso del cluster**: visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-  - **Data Lake Storage Gen1**: consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Guida introduttiva: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+  - **Data Lake Storage Gen1**: consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
   - **Account di archiviazione**: visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.
   - **Applicazioni**: consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
   - **Azioni script**: esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -81,7 +81,7 @@ Selezionare il nome del cluster nella pagina [**Cluster HDInsight**](#showCluste
     
 ## <a name="properties"></a> Proprietà del cluster
 Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impostazioni**.
-* **Nome host**: nome del cluster.
+* **Nome host**: Nome del cluster.
 * **URL cluster**: URL per l'interfaccia Web Ambari.
 * **Secure Shell (SSH)**: nome utente e nome host da usare per l'accesso al cluster tramite SSH.
 * **Stato**: uno dei valori seguenti: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.
@@ -90,7 +90,7 @@ Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impost
 * **Sistema operativo**: può essere **Windows** o **Linux**.
 * **Tipo**: Hadoop, HBase, Storm, Spark.
 * **Versione**. Vedere [Versioni di HDInsight](hdinsight-component-versioning.md).
-* **Sottoscrizione**: nome della sottoscrizione.
+* **Sottoscrizione** nome della sottoscrizione.
 * **Origine dati predefinita**: file system predefinito del cluster.
 * **Dimensioni del nodo di lavoro**: dimensioni selezionate dei nodi di lavoro nella macchina virtuale.
 * **Dimensioni nodo head**: dimensioni selezionate dei nodi head nella macchina virtuale.
@@ -124,7 +124,7 @@ Dopo aver creato un cluster, è possibile aggiungere altri account di archiviazi
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster Azure HDInsight senza dover ricreare il cluster.
 
 > [!NOTE]  
-> Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà.  Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+> Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà.  Vedere Elencare e visualizzare i cluster.
 
 Dalla [home page del cluster](#homePage):
 
@@ -250,7 +250,7 @@ La password viene modificata in tutti i nodi del cluster.
    | Campo | Valore |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-   | Nome |"Change ssh password" |
+   | NOME |"Change ssh password" |
    | URI script Bash |L'URI per il file changepassword.sh |
    | Tipi di nodo: (Head, Worker, Nimbus, Supervisor, Zookeeper e così via) |✓ per tutti i tipi di nodo elencati |
    | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. |
@@ -283,7 +283,7 @@ Vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Am
 
 
 ## <a name="monitor-cluster-usage"></a>Monitorare l'utilizzo del cluster
-La sezione **Utilizzo** del pannello relativo al cluster HDInsight contiene informazioni sul numero di memorie centrali disponibili per la sottoscrizione da usare con HDInsight, il numero di memorie centrali allocate al cluster e il modo in cui vengono allocate per i nodi nel cluster. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+La sezione **Utilizzo** del pannello relativo al cluster HDInsight contiene informazioni sul numero di memorie centrali disponibili per la sottoscrizione da usare con HDInsight, il numero di memorie centrali allocate al cluster e il modo in cui vengono allocate per i nodi nel cluster. Vedere Elencare e visualizzare i cluster.
 
 > [!IMPORTANT]  
 > Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare  Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Apache Ambari](hdinsight-hadoop-manage-ambari.md)

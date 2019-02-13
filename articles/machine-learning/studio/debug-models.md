@@ -1,8 +1,21 @@
 ---
-title: Eseguire il debug del modello titleSuffix: Descrizione di Azure Machine Learning Studio: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
+title: Eseguire il debug del modello
+titleSuffix: Azure Machine Learning Studio
+description: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2017
+ms.openlocfilehash: a6708a1c414277cd4ee9b90851e19a94ea86c55b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491672"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Debug del modello in Azure Machine Learning Studio
 

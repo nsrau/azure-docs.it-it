@@ -1,8 +1,21 @@
 ---
-title: Avvio rapido per il linguaggio di programmazione di R titleSuffix: Descrizione di Azure Machine Learning Studio: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
+title: 'Avvio rapido: Esercitazione per il linguaggio R'
+titleSuffix: Azure Machine Learning Studio
+description: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822375"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Esercitazione di avvio rapido per il linguaggio di programmazione R per Azure Machine Learning Studio
 
@@ -732,7 +745,7 @@ La funzione `ts.detrend()` mostrata di seguito esegue entrambe le operazioni. Le
 
 La funzione `ts.detrend()` espleta quindi numerose operazioni. Gran parte del codice è progettato per controllare la presenza di potenziali problemi con gli argomenti o per gestire le eccezioni, che possono sempre verificarsi durante i calcoli. Solo poche righe del codice, quindi, eseguono effettivamente i calcoli.
 
-Un esempio di programmazione difensiva è già stato illustrato in [Trasformazioni di valori](#valuetransformations). Entrambi i blocchi di calcolo vengono inclusi in `tryCatch()`. Per alcuni errori è opportuno restituire il vettore di input originale, per altri è preferibile un vettore di zeri.  
+Un esempio di programmazione difensiva è già stato illustrato in Trasformazioni di valori. Entrambi i blocchi di calcolo vengono inclusi in `tryCatch()`. Per alcuni errori è opportuno restituire il vettore di input originale, per altri è preferibile un vettore di zeri.  
 
 Osservare come la regressione lineare usata per il detrending sia una regressione in serie temporale e la variabile indipendente un oggetto serie temporale.  
 

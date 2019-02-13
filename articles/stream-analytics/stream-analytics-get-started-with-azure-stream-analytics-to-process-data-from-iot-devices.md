@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103167"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563508"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introduzione all'analisi di flusso di Azure per elaborare dati dai dispositivi IoT
 Questa esercitazione illustra come creare la logica di elaborazione del flusso per raccogliere dati da dispositivi IoT (Internet delle cose). Verrà usato un caso d'uso reale di IoT per dimostrare come compilare una soluzione in modo rapido ed economico.

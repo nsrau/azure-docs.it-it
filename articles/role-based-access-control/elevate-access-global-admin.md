@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437471"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695581"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -83,12 +83,14 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Elencare l'assegnazione di ruolo all'ambito radice (/)
 
-Per elencare l'assegnazione di ruolo Amministratore Accesso utenti per un utente all'ambito radice (`/`), usare il comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Per elencare l'assegnazione di ruolo Amministratore Accesso utenti per un utente all'ambito radice (`/`), usare il comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Per rimuovere un'assegnazione di ruolo Amministratore Accesso utenti per un uten
 1. Accedere come utente autorizzato a rimuovere l'accesso con privilegi elevati. Può essere lo stesso utente usato per elevare i privilegi di accesso o un altro Amministratore globale con accesso con privilegi elevati nell'ambito radice.
 
 
-1. Usare il comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) per rimuovere l'assegnazione del ruolo Amministratore Accesso utenti.
+1. Usare il comando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) per rimuovere l'assegnazione del ruolo Amministratore Accesso utenti.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

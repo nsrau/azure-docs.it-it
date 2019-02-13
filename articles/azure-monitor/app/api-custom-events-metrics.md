@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232480"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814419"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -774,7 +774,7 @@ In [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) è possibile 
 
 *proprietà* sono valori di stringa che è possibile usare per filtrare i dati di telemetria nei report di utilizzo. Ad esempio, se l'app offre più giochi, è possibile associare il nome del gioco a ogni evento per vedere quali sono i giochi più diffusi.
 
-Esiste un limite di 8192 per la lunghezza della stringa. Se si vogliono inviare grandi quantità di dati, usare il parametro del messaggio di [TrackTrace](#track-trace).
+Esiste un limite di 8192 per la lunghezza della stringa. Se si vogliono inviare grandi quantità di dati, usare il parametro del messaggio di TrackTrace.
 
 *metriche* sono valori numerici che possono essere rappresentati graficamente. Ad esempio è possibile verificare se esiste un aumento graduale nei punteggi raggiunti dai giocatori. I grafici possono essere segmentati in base alle proprietà inviate con l'evento, in modo da ottenere grafici separati o in pila per giochi diversi.
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Le singole chiamate di telemetria possono sostituire i valori predefiniti nei relativi dizionari delle proprietà.
 
-*Per i client Web di JavaScript*, [usare gli inizializzatori di telemetria JavaScript](#js-initializer).
+*Per i client Web di JavaScript*, usare gli inizializzatori di telemetria JavaScript.
 
 *Per aggiungere proprietà a tutti i dati di telemetria*, inclusi i dati dei moduli di raccolta standard, [implementare `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
@@ -1002,7 +1002,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 [Aggiungere proprietà](../../azure-monitor/app/api-filtering-sampling.md#add-properties) ai dati di telemetria implementando `ITelemetryInitializer`. Ad esempio è possibile aggiungere numeri di versione o valori calcolati da altre proprietà.
 
-L'[applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+L'[applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcessor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
 
 Il [campionamento](../../azure-monitor/app/api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 

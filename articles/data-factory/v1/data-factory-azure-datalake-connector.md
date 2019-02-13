@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332626"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813518"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiare dati da e in Data Lake Storage di 1° generazione usando Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,10 +70,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 Un servizio collegato collega un archivio dati a una data factory. Si crea un servizio collegato di tipo **AzureDataLakeStore** per collegare di dati del Data Lake Store alla data factory. La tabella seguente descrive gli elementi JSON specifici dei servizi collegati del Data Lake Store. È possibile scegliere tra l'autenticazione basata su entità servizio e l'autenticazione basata su credenziali utente.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| **type** | La proprietà type deve essere impostata su **AzureDataLakeStore**. | Yes |
-| **dataLakeStoreUri** | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Yes |
+| **type** | La proprietà type deve essere impostata su **AzureDataLakeStore**. | Sì |
+| **dataLakeStoreUri** | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
 | **subscriptionId** | ID sottoscrizione di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | **resourceGroupName** | Nome del gruppo di risorse di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 
@@ -91,11 +91,11 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Yes |
-| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Yes |
-| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
+| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Sì |
+| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Sì |
+| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
 
 **Esempio: autenticazione di un'entità servizio**
 ```json
@@ -118,10 +118,10 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 ### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 In alternativa, è possibile usare l'autenticazione delle credenziali dell'utente per copiare dati da o in Data Lake Store specificando le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Yes |
-| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Yes |
+| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
+| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |
 
 > [!IMPORTANT]
 > Assicurarsi di concedere all'utente un'autorizzazione appropriata in Azure Data Lake Store:
@@ -232,16 +232,16 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
     }
     ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per specificare un set di dati per rappresentare i dati di input in Data Lake Store, impostare la proprietà **type** del set di dati su **AzureDataLakeStore**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato Data Lake Store. Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni di un set di dati in JSON, quali **struttura**, **disponibilità**, e **criteri**, sono simili per tutti i tipi di set di dati (ad esempio database SQL di Azure, BLOB Azure e tabelle di Azure). La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni quali la posizione e il formato dei dati nell'archivio dati.
 
 La sezione **typeProperties** per un set di dati di tipo **AzureDataLakeStore** contiene le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| **folderPath** |Percorso del contenitore e della cartella in Data Lake Store. |Yes |
-| **fileName** |Nome del file in Azure Data Lake Store. La proprietà **fileName** è facoltativa e fa distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica **fileName**, l'attività (inclusa la copia) viene eseguita sul file specifico.<br/><br/>Quando **fileName** non è specificato, l'attività di copia include tutti i file in **folderPath** nel set di dati di input.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato Data._Guid_.txt`. Ad esempio:  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No  |
-| **partitionedBy** |La proprietà **partitionedBy** è facoltativa. Può essere utilizzata per specificare un percorso dinamico e un nome file per dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in **folderPath**. Per dettagli ed esempio, vedere [Proprietà partitionedBy](#using-partitionedby-property). |No  |
+| **folderPath** |Percorso del contenitore e della cartella in Data Lake Store. |Sì |
+| **fileName** |Nome del file in Azure Data Lake Store. La proprietà **fileName** è facoltativa e fa distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica **fileName**, l'attività (inclusa la copia) viene eseguita sul file specifico.<br/><br/>Quando **fileName** non è specificato, l'attività di copia include tutti i file in **folderPath** nel set di dati di input.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato Data._Guid_.txt`. Ad esempio:  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
+| **partitionedBy** |La proprietà **partitionedBy** è facoltativa. Può essere utilizzata per specificare un percorso dinamico e un nome file per dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in **folderPath**. Per dettagli ed esempio, vedere Proprietà partitionedBy. |No  |
 | **format** | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) nell'articolo [Formati di file e di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Per copiare i file "così come sono" tra archivi basati su file (copia binaria), è possibile ignorare la sezione `format` nelle definizioni dei set di dati di input e di output. |No  |
 | **compression** | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
 

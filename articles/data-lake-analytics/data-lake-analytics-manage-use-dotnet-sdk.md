@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e1e4628a1c777ecc54fdf9a26b334a10b7ab8cb3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810584"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gestire Azure Data Lake Analytics con un'app .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -29,7 +29,7 @@ Questo articolo descrive come gestire account, origini dati, processi e utenti d
 
 ### <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
-|Pacchetto|Version|
+|Pacchetto|Versione|
 |-------|-------|
 |[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
 |[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
@@ -130,7 +130,7 @@ Se non ne è già stato creato uno, è necessario creare un gruppo di risorse di
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-Per altre informazioni, vedere [Gruppi di risorse di Azure e Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+Per altre informazioni, vedere Gruppi di risorse di Azure e Data Lake Analytics.
 
 ### <a name="create-a-data-lake-store-account"></a>Creare un account Archivio Data Lake
 

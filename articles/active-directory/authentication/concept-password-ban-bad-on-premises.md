@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077831"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662524"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
@@ -29,7 +29,7 @@ La protezione password di Azure AD è una nuova funzionalità in anteprima pubbl
 Ci sono tre componenti software che costituiscono la protezione password di Azure AD:
 
 * Il servizio proxy di protezione password di Azure AD viene eseguito in tutti i computer aggiunti a un dominio nella foresta di Active Directory corrente. Inoltra le richieste dai controller di dominio ad Azure AD e restituisce la risposta da Azure AD al controller di dominio.
-* Il servizio agente del controller di dominio di protezione password di Azure AD riceve le richieste di convalida della password dalla DLL di filtro delle password dell'agente del controller di dominio, le elabora in base ai criteri password correnti disponibili localmente e restituisce il risultato di esito positivo o negativo. Questo servizio è responsabile di chiamare periodicamente (ogni ora) il servizio proxy di protezione password di Azure AD per recuperare le nuove versioni dei criteri password. Le comunicazioni per le chiamate da e verso il servizio proxy di protezione password di Azure AD vengono gestite tramite RPC (Remote Procedure Call) su TCP. Dopo il recupero, i nuovi criteri vengono archiviati in una cartella sysvol, dove possono essere replicati in altri controller di dominio. Il servizio agente del controller di dominio monitora anche la cartella sysvol per rilevare eventuali modifiche nel caso in cui altri controller di dominio abbiano scritto nuovi criteri password. Se sono già disponibili criteri adeguatamente recenti, il controllo del servizio proxy di protezione password di Azure AD viene ignorato.
+* Il servizio agente del controller di dominio di protezione password di Azure AD riceve le richieste di convalida della password dalla DLL di filtro delle password dell'agente del controller di dominio, le elabora in base ai criteri password correnti disponibili localmente e restituisce il risultato di esito positivo o negativo. Questo servizio è responsabile di chiamare periodicamente (ogni ora) il servizio proxy di protezione password di Azure AD per recuperare le nuove versioni dei criteri password. La comunicazione tra il servizio agente del controller di dominio di protezione password di Azure AD e il servizio proxy della password di protezione di Azure AD è gestita tramite RPC (Remote Procedure Call) su TCP. Dopo il recupero, i nuovi criteri vengono archiviati in una cartella sysvol, dove possono essere replicati in altri controller di dominio. Il servizio agente del controller di dominio monitora anche la cartella sysvol per rilevare eventuali modifiche nel caso in cui altri controller di dominio abbiano scritto nuovi criteri password. Se è già disponibile un criterio adeguatamente recente, la richiesta di download di un nuovo criterio viene ignorata.
 * La DLL di filtro delle password dell'agente del controller di dominio riceve le richieste di convalida delle password dal sistema operativo e le inoltra al servizio agente del controller di dominio di protezione password di Azure AD in esecuzione in locale nel controller di dominio.
 
 ![Come si integrano i componenti della password di protezione di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Sono necessari due programmi di installazione per la password di protezione di A
 * Non ci sono requisiti minimi per il livello funzionale della foresta o del dominio di Active Directory.
 * Il software non crea né richiede account nei domini di Active Directory protetti.
 * La distribuzione incrementale è supportata, ma i criteri password vengono applicati solo dove è installato l'agente del controller di dominio.
-* È consigliabile installare l'agente del controller di dominio su tutti i controller di dominio per garantire l'imposizione della protezione della password. 
+* È consigliabile installare l'agente del controller di dominio su tutti i controller di dominio per garantire l'imposizione della protezione della password.
 * La protezione password di Azure AD non è un motore di applicazione dei criteri in tempo reale. Potrebbe esserci un ritardo tra una modifica della configurazione dei criteri password e la sua distribuzione e applicazione in tutti i controller di dominio.
 
 ## <a name="next-steps"></a>Passaggi successivi

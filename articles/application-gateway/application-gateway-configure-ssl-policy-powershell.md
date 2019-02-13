@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157463"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816952"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
 
-Questo articolo illustra come configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione. È possibile scegliere da un [elenco di criteri predefiniti](#predefined-ssl-policies) contenenti diverse configurazioni dei pacchetti di crittografia abilitati e delle versioni dei criteri SSL. Si possono anche definire [criteri SSL personalizzati](#configure-a-custom-ssl-policy) in base ai propri requisiti.
+Questo articolo illustra come configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione. È possibile scegliere da un elenco di criteri predefiniti contenenti diverse configurazioni dei pacchetti di crittografia abilitati e delle versioni dei criteri SSL. Si possono anche definire [criteri SSL personalizzati](#configure-a-custom-ssl-policy) in base ai propri requisiti.
 
 ## <a name="get-available-ssl-options"></a>Recuperare le opzioni SSL disponibili
 
