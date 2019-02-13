@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246484"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207416"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Ripristino da una grave perdita dei dati
 
 *Si applica a: Sistemi integrati di Azure Stack.*
 
-Azure Stack viene eseguito Servizi di Azure nel tuo Data Center. Azure Stack eseguibili in ambienti piccoli fino a quattro nodi installati in un singolo rack. Al contrario, Azure è in esecuzione in più di 40 aree in più Data Center e più zone in ogni area. Le risorse utente possono estendersi su più server, rack, i Data Center e aree. Con Azure Stack, si dispone solo la possibilità di distribuire un singolo rack dell'intero cloud. Ciò espone il cloud per il rischio di eventi catastrofici presso il proprio Data Center o errori causati da bug del prodotto principale. Quando si verifica un'emergenza, l'istanza di Azure Stack viene portata offline. Tutti i dati è potenzialmente irreversibile.
+Azure Stack viene eseguito Servizi di Azure nel tuo Data Center e può eseguire sugli ambienti piccoli fino a quattro nodi installati in un singolo rack. Al contrario, Azure è in esecuzione in più di 40 aree in più Data Center e più zone in ogni area. Le risorse utente possono estendersi su più server, rack, i Data Center e aree. Con Azure Stack, si dispone solo la possibilità di distribuire un singolo rack dell'intero cloud. Ciò espone il cloud per il rischio di eventi catastrofici presso il proprio Data Center o errori causati da bug del prodotto principale. Quando si verifica un'emergenza, l'istanza di Azure Stack viene portata offline. Tutti i dati è potenzialmente irreversibile.
 
 A seconda della causa radice della perdita dei dati, potrebbe essere necessario ripristinare un singola infrastruttura servizio o ripristinare l'intera istanza di Azure Stack. Si potrebbe essere necessario anche ripristinare un hardware diverso nella stessa posizione o in una posizione diversa.
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979548"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189210"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrazione di Data Center di Azure Stack
 
@@ -31,9 +31,9 @@ I clienti di Azure Stack è bene aspettarsi nelle fasi seguenti:
 
 |     |Fase di pianificazione|Processo di ordine|Pre-distribuzione|Processo di factory|Distribuzione di hardware|Distribuzione in loco|
 |-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Coinvolgi i partner per offrire il supporto per la prevendita.|Preparare gestione licenze software e i contratti in base alle esigenze.|Fornire gli strumenti necessari per raccogliere i requisiti di integrazione di Data Center e la documentazione per cliente.|Fornire le compilazioni della linea di base e degli strumenti più recenti aggiornamenti catena cadenza mensile.|N/A|Supporto per tecnici del supporto Microsoft eventuali problemi di distribuzione.|
+|**Microsoft**|Coinvolgi i partner per offrire il supporto per la prevendita.|Preparare gestione licenze software e i contratti in base alle esigenze.|Fornire gli strumenti necessari per raccogliere i requisiti di integrazione di Data Center e la documentazione per cliente.|Fornire le compilazioni della linea di base e degli strumenti più recenti aggiornamenti catena cadenza mensile.|N/D|Supporto per tecnici del supporto Microsoft eventuali problemi di distribuzione.|
 |**Partner**|Consigliare opzioni di soluzione in base ai requisiti del cliente.<br><br>Se necessario, è possibile proporre modello di verifica (POC).<br><br>Stabilire una relazione di business.<br><br>Decidere il livello di supporto.|Preparare i contratti necessari al cliente.<br><br>Creare l'ordine di acquisto dei clienti.<br><br>Decidere su sequenza temporale di recapito.<br><br>Contatto cliente con Microsoft se necessario.|Fornire i clienti con corsi di formazione necessari verificare le opzioni di integrazione conoscenza di tutti i prerequisiti per la distribuzione e Data Center.<br><br>Aiutare il cliente con la convalida dei dati raccolti per garantire la completezza e accuratezza.|Applicare l'ultima compilazione baseline convalidato.<br><br>Applicare il Microsoft deployment toolkit necessari.|Spedire hardware al sito del cliente.|Distribuzione gestita da un tecnico in sede.<br><br>Rack e dello stack.<br><br>Distribuzione dell'host (HLH) del ciclo di vita dell'hardware.<br><br>Distribuzione di Azure Stack.<br><br>Consegnare al cliente.|
-|**Cliente**|Vengono descritti i casi di utilizzo previsto e specificare i requisiti.|Determinare il modello di fatturazione da usare, esaminare e approvare i contratti.|Completare il foglio di lavoro di distribuzione e assicurarsi che tutti i prerequisiti di distribuzione sono soddisfatto e pronto per la distribuzione.|N/A|Preparare i Data Center, garantendo tutti obbligatori power e raffreddamento, la connettività del bordo e altri requisiti di integrazione di Data Center necessari siano presenti.|Essere disponibile durante la distribuzione per fornire le credenziali della sottoscrizione e supporta se sono presenti domande sui dati forniti.|
+|**Cliente**|Vengono descritti i casi di utilizzo previsto e specificare i requisiti.|Determinare il modello di fatturazione da usare, esaminare e approvare i contratti.|Completare il foglio di lavoro di distribuzione e assicurarsi che tutti i prerequisiti di distribuzione sono soddisfatto e pronto per la distribuzione.|N/D|Preparare i Data Center, garantendo tutti obbligatori power e raffreddamento, la connettività del bordo e altri requisiti di integrazione di Data Center necessari siano presenti.|Essere disponibile durante la distribuzione per fornire le credenziali della sottoscrizione e supporta se sono presenti domande sui dati forniti.|
 | | | | | | | |
 
 
@@ -147,7 +147,7 @@ Sono disponibili diversi passaggi che sono obbligatori o facoltativi in base al 
 
 ![](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
-## <a name="support"></a>Supporto tecnico
+## <a name="support"></a>Supporto
 Azure Stack consente un coerenti con Azure, esperienza di supporto integrato che descrive il ciclo di vita dell'intero sistema. Per supportare completamente i sistemi integrati di Azure Stack, i clienti devono due contratti di supporto; uno con Microsoft (o i Cloud Solution Provider) per il supporto di servizi di Azure e uno con il provider hardware per il supporto del sistema. L'esperienza di supporto integrata fornisce coordinato escalation e risoluzione, in modo che i clienti ottengono un'esperienza di supporto coerente indipendentemente da chi chiamano prima di tutto. I clienti che hanno già piano Premier, Azure - Standard / è incluso il supporto tecnico ProDirect o Partner con Microsoft, supporto del software Azure Stack.
 
 L'esperienza di supporto integrata si avvale di un cambio di Case meccanismo per il trasferimento bidirezionale di casi di supporto e aggiornamenti case tra Microsoft e i partner hardware. Microsoft Azure Stack seguirà la [criterio del ciclo di vita moderni](https://support.microsoft.com/help/30881).

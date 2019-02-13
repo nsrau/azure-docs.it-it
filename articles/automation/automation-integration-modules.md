@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 609a841ed410832739041bbbbf7d33d3a01a4bfc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 579be1f240f5661503caea16f7a7e42ee31a2fdd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436485"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495599"
 ---
 # <a name="azure-automation-integration-modules"></a>Moduli di integrazione di Automazione di Azure
-PowerShell è la tecnologia alla base di Automazione di Azure. Poiché Automazione di Azure è basato su PowerShell, i moduli di PowerShell sono essenziali per l'estendibilità di Automazione di Azure. Questo articolo illustra le specifiche dell'uso dei moduli di PowerShell, indicati come "moduli di integrazione", in Automazione di Azure e le procedure consigliate per creare moduli di PowerShell personalizzati destinati a svolgere la funzione di moduli di integrazione in Automazione di Azure. 
+PowerShell è la tecnologia alla base di Automazione di Azure. Poiché Automazione di Azure è basato su PowerShell, i moduli di PowerShell sono essenziali per l'estendibilità di Automazione di Azure. Questo articolo illustra le specifiche di Automazione di Azure per l'uso dei moduli di PowerShell, indicati come "moduli di integrazione", e le procedure consigliate per creare moduli di PowerShell personalizzati da usare come moduli di integrazione in Automazione di Azure. 
 
 ## <a name="what-is-a-powershell-module"></a>Che cos'è un modulo di PowerShell
 Un modulo di PowerShell è un gruppo di cmdlet di PowerShell, come **Get-Date** o **Copy-Item**, che può essere usato dalla console di PowerShell, da script, da flussi di lavoro, da runbook e da risorse di PowerShell DSC come WindowsFeature o File, che possono essere usate da configurazioni di PowerShell DSC. Tutte le funzionalità di PowerShell vengono esposte tramite cmdlet e risorse DSC e ogni risorsa DSC o cmdlet è supportato da un modulo di PowerShell, molti dei quali sono inclusi in PowerShell. Ad esempio, il cmdlet **Get-Date** e il cmdlet **Copy-Item** e la risorsa Package DSC fanno parte rispettivamente dei moduli Microsoft.PowerShell.Utility, Microsoft.PowerShell.Management e PSDesiredStateConfiguration di PowerShell. Tutti questi moduli sono inclusi in PowerShell. Molti moduli di PowerShell, tuttavia, non sono inclusi in PowerShell e vengono invece distribuiti con prodotti proprietari o di terze parti come System Center 2012 Configuration Manager oppure dall'estesa community di PowerShell in posizioni come PowerShell Gallery. I moduli sono utili perché semplificano attività complesse tramite funzionalità incapsulate.  Altre informazioni sui moduli di PowerShell sono disponibili in [MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
@@ -28,11 +28,11 @@ Un modulo di integrazione non è diverso da un modulo di PowerShell. È semplice
 In Automazione di Azure sono inclusi per impostazione predefinita alcuni moduli di Azure PowerShell che possono essere usati per iniziare subito ad automatizzare la gestione di Azure, ma è possibile importare moduli di PowerShell per qualsiasi sistema, servizio o strumento con cui si vuole eseguire l'integrazione. 
 
 > [!NOTE]
-> Alcuni moduli sono disponibili come "moduli globali" nel servizio di automazione. Questi moduli globali sono disponibili quando si crea un account di automazione e vengono talvolta aggiornati inserendoli automaticamente nell'account di automazione dell'utente. Per evitare l'aggiornamento automatico è sempre possibile importare manualmente lo stesso modulo, che ha la precedenza sulla versione del modulo globale messa a disposizione nel servizio. 
+> Alcuni moduli sono disponibili come "moduli globali" nel servizio Automazione. Questi moduli globali sono disponibili quando si crea un account di automazione e vengono talvolta aggiornati inserendoli automaticamente nell'account di automazione dell'utente. Per evitare l'aggiornamento automatico è sempre possibile importare manualmente lo stesso modulo, che ha la precedenza sulla versione del modulo globale messa a disposizione nel servizio. 
 
 Il formato di importazione del pacchetto di un modulo di integrazione è un file compresso con lo stesso nome del modulo ed estensione zip, che contiene il modulo di Windows PowerShell e tutti i file di supporto, incluso un file manifesto (con estensione psd1) se previsto dal modulo.
 
-Se il modulo deve contenere un tipo di connessione di Automazione di Azure, deve contenere anche un file denominato `<ModuleName>-Automation.json` che specifica le proprietà del tipo di connessione. Questo file JSON, inserito nella cartella del modulo del file compresso con estensione zip, contiene i campi della "connessione" necessaria per connettersi al sistema o al servizio rappresentato dal modulo. In questo modo viene creato un tipo di connessione in Automazione di Azure. Usando questo file è possibile impostare i nomi, i tipi e l'eventuale crittografia e/o facoltatività dei campi per il tipo di connessione del modulo. Di seguito è riportato un modello nel formato di file json:
+Se il modulo deve contenere un tipo di connessione di Automazione di Azure, deve contenere anche un file denominato `<ModuleName>-Automation.json` che specifica le proprietà del tipo di connessione. Questo file JSON, all'interno della cartella del modulo del file compresso con estensione zip, contiene i campi di una "connessione" necessaria per connettersi al sistema o al servizio rappresentato dal modulo. In questo modo viene creato un tipo di connessione in Automazione di Azure. Usando questo file è possibile impostare i nomi, i tipi e l'eventuale crittografia e/o facoltatività dei campi per il tipo di connessione del modulo. Di seguito è riportato un modello nel formato di file json:
 
 ```json
 { 
@@ -63,9 +63,9 @@ Se il modulo deve contenere un tipo di connessione di Automazione di Azure, deve
 Per chi ha eseguito la distribuzione di Service Management Automation e la creazione di pacchetti di moduli di integrazione per i runbook di automazione, l'aspetto dovrebbe essere familiare. 
 
 ## <a name="authoring-best-practices"></a>Procedure consigliate per la creazione
-Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per garantirne la massima usabilità in Automazione di Azure, durante la creazione di un modulo di PowerShell è consigliabile prendere in considerazione diversi aspetti. Alcuni sono specifici di Automazione di Azure, mentre altri sono utili per garantire il corretto funzionamento dei moduli in Flusso di lavoro PowerShell indipendentemente dal fatto che si usi Automazione. 
+Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per garantirne la massima usabilità in Automazione di Azure, durante la creazione di un modulo di PowerShell è consigliabile prendere in considerazione diversi aspetti. Alcuni sono specifici di Automazione di Azure, mentre altri sono utili per garantire il corretto funzionamento dei moduli in Flusso di lavoro PowerShell, indipendentemente dal fatto che si usi Automazione. 
 
-1. Includere un riepilogo, una descrizione e un URI della Guida per ogni cmdlet del modulo. In PowerShell è possibile definire alcune informazioni della Guida per i cmdlet in modo che gli utenti possano visualizzare informazioni sul relativo uso con il cmdlet **Get-Help** . Di seguito, ad esempio, è illustrato come definire un riepilogo e un URI della Guida per un modulo di PowerShell scritto in un file con estensione psm1.<br>  
+1. Includere un riepilogo, una descrizione e un URI della Guida per ogni cmdlet del modulo. In PowerShell è possibile definire alcune informazioni della Guida per i cmdlet in modo che gli utenti possano visualizzare informazioni sul relativo uso con il cmdlet **Get-Help** . Di seguito, ad esempio, viene illustrato come definire un riepilogo e un URI della Guida per un modulo di PowerShell scritto in un file con estensione psm1.<br>  
    
     ```powershell
     <#
@@ -120,7 +120,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ```
   
-     Un approccio più semplice ed efficiente consiste nel passare direttamente l'oggetto connessione al cmdlet.
+    Un approccio più semplice ed efficiente consiste nel passare direttamente l'oggetto connessione al cmdlet.
    
     ```powershell
     workflow Get-CorpTwilioPhones
@@ -131,7 +131,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ```
    
-     È possibile abilitare un comportamento di questo tipo per i cmdlet consentendo loro di accettare direttamente un oggetto connessione come parametro, anziché soltanto i campi connessione per i parametri. È in genere consigliabile che sia presente un set di parametri per ognuno, in modo che un utente che non usa Automazione di Azure possa chiamare i cmdlet senza costruire una tabella hash che funga da oggetto connessione. Il set di parametri **SpecifyConnectionFields** riportato di seguito viene usato per passare una alla volta le proprietà dei campi connessione. **UseConnectionObject** consente di passare direttamente la connessione. Come si può notare, il cmdlet Send-TwilioSMS del [modulo Twilio di PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) consente di usare entrambe le modalità: 
+    È possibile abilitare un comportamento di questo tipo per i cmdlet consentendo loro di accettare direttamente un oggetto connessione come parametro, anziché soltanto i campi connessione per i parametri. È in genere consigliabile che sia presente un set di parametri per ognuno, in modo che un utente che non usa Automazione di Azure possa chiamare i cmdlet senza costruire una tabella hash che funga da oggetto connessione. Il set di parametri **SpecifyConnectionFields** riportato di seguito viene usato per passare una alla volta le proprietà dei campi connessione. **UseConnectionObject** consente di passare direttamente la connessione. Come si può notare, il cmdlet Send-TwilioSMS del [modulo Twilio di PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) consente di usare entrambe le modalità: 
    
     ```powershell
     function Send-TwilioSMS {
@@ -169,7 +169,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ``` 
     <br>
-     Ecco invece il modo corretto, che consiste nell'accettare una primitiva che possa essere usata internamente dal cmdlet per recuperare l'oggetto complesso e usarlo. Poiché i cmdlet vengono eseguiti nel contesto di PowerShell, non di Flusso di lavoro PowerShell, nel cmdlet $process diventa il tipo [System.Diagnostic.Process] corretto.  
+    Ecco invece il modo corretto, che consiste nell'accettare una primitiva che possa essere usata internamente dal cmdlet per recuperare l'oggetto complesso e usarlo. Poiché i cmdlet vengono eseguiti nel contesto di PowerShell, non di Flusso di lavoro PowerShell, nel cmdlet $process diventa il tipo [System.Diagnostic.Process] corretto.  
    
     ```powershell
     function Get-ProcessDescription {
@@ -182,7 +182,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ```
    <br>
-   Gli asset di connessione dei runbook sono tabelle hash, ovvero un tipo complesso. Sembra però che queste tabelle hash possano essere passate perfettamente ai cmdlet per il parametro -Connection senza eccezione del cast. Tecnicamente, il cast dal formato serializzato al formato deserializzato può essere eseguito correttamente per alcuni tipi di PowerShell, che possono quindi essere passati ai cmdlet per i parametri che accettano il tipo non deserializzato. La tabella hash è uno di questi tipi. Anche i tipi definiti dall'autore del modulo possono essere implementati per poter essere deserializzati correttamente, ma sono necessari alcuni compromessi. Per il tipo devono essere disponibili un costruttore predefinito e un PSTypeConverter e tutte le proprietà del tipo devono essere pubbliche. I tipi già definiti che non sono di proprietà dell'autore del modulo, tuttavia, non possono essere in alcun modo "corretti" ed è per questo motivo che è consigliabile evitare completamente i tipi complessi per i parametri. Suggerimento per la creazione di runbook: se per qualche motivo i cmdlet devono accettare un parametro di tipo complesso o si usa un modulo altrui che richiede un parametro di tipo complesso, la soluzione alternativa nei runbook Flusso di lavoro PowerShell e nei flussi di lavoro di PowerShell in PowerShell locale è eseguire il wrapping del cmdlet che genera il tipo complesso e del cmdlet che lo usa nella stessa attività InlineScript. Poiché InlineScript esegue il contenuto come PowerShell anziché come Flusso di lavoro PowerShell, il cmdlet che genera il tipo complesso produrrà il tipo corretto e non il tipo complesso deserializzato.
+   Gli asset di connessione dei runbook sono tabelle hash, ovvero un tipo complesso. Sembra però che queste tabelle hash possano essere passate perfettamente ai cmdlet per il parametro -Connection senza eccezione del cast. Tecnicamente, il cast dal formato serializzato al formato deserializzato può essere eseguito correttamente per alcuni tipi di PowerShell, che possono quindi essere passati ai cmdlet per i parametri che accettano il tipo non deserializzato. La tabella hash è uno di questi tipi. Anche i tipi definiti dall'autore del modulo possono essere implementati per poter essere deserializzati correttamente, ma sono necessari alcuni compromessi. Per il tipo devono essere disponibili un costruttore predefinito e un PSTypeConverter e tutte le proprietà del tipo devono essere pubbliche. I tipi già definiti che non sono di proprietà dell'autore del modulo, tuttavia, non possono essere in alcun modo "corretti" ed è per questo motivo che è consigliabile evitare completamente i tipi complessi per i parametri. Suggerimento per la creazione di runbook: se per qualche motivo i cmdlet devono accettare un parametro di tipo complesso o si usa un modulo di altri che richiede un parametro di tipo complesso, la soluzione alternativa nei runbook Flusso di lavoro PowerShell e nei flussi di lavoro di PowerShell in PowerShell locale è quella di eseguire il wrapping del cmdlet che genera il tipo complesso e del cmdlet che lo utilizza nella stessa attività InlineScript. Poiché InlineScript esegue il contenuto come PowerShell anziché come Flusso di lavoro PowerShell, il cmdlet che genera il tipo complesso produrrà il tipo corretto e non il tipo complesso deserializzato.
 1. Assicurarsi che tutti i cmdlet del modulo siano senza stato. Flusso di lavoro PowerShell esegue tutti i cmdlet chiamati nel flusso di lavoro in una diversa sessione. Di conseguenza, i cmdlet che dipendono dallo stato della sessione creato/modificato da altri cmdlet dello stesso modulo non funzioneranno nei runbook Flusso di lavoro PowerShell.  Di seguito è riportato un esempio della soluzione da non adottare.
    
     ```powershell
@@ -201,7 +201,7 @@ Anche se i moduli di integrazione sono essenzialmente moduli di PowerShell, per 
     }
     ```
    <br>
-1. Il modulo deve essere interamente contenuto in un pacchetto su cui è possibile eseguire Xcopy. Poiché i moduli di Automazione di Azure vengono distribuiti nelle sandbox di Automazione quando devono essere eseguiti i runbook, devono funzionare in modo indipendente dall'host in cui vengono eseguiti. Dovrebbe quindi essere possibile comprimere il pacchetto del modulo e spostarlo in qualsiasi altro host con la stessa versione di PowerShell o una più recente ottenendo il normale funzionamento dopo l'importazione nell'ambiente PowerShell di tale host. Perché ciò avvenga, il modulo non deve dipendere da file all'esterno della cartella del modulo (ovvero della cartella che viene compressa per l'importazione in Automazione di Azure) né da qualsiasi impostazione del Registro di sistema univoca di un host, come quelle definite dall'installazione di un prodotto. Se questa procedura consigliata non viene seguita, il modulo non potrà essere usato in Automazione di Azure.  
+1. Il modulo deve essere interamente contenuto in un pacchetto su cui è possibile eseguire Xcopy. Poiché i moduli di Automazione di Azure vengono distribuiti nelle sandbox di Automazione quando devono essere eseguiti i runbook, devono funzionare in modo indipendente dall'host in cui vengono eseguiti. Dovrebbe quindi essere possibile comprimere il pacchetto del modulo e spostarlo in qualsiasi altro host con la stessa versione di PowerShell o una più recente, ottenendo il normale funzionamento dopo l'importazione nell'ambiente PowerShell di tale host. Perché ciò avvenga, il modulo non deve dipendere da file all'esterno della cartella del modulo (ovvero della cartella che viene compressa per l'importazione in Automazione di Azure) né da qualsiasi impostazione del Registro di sistema univoca di un host, come quelle definite dall'installazione di un prodotto. Se questa procedura consigliata non viene seguita, il modulo non potrà essere usato in Automazione di Azure.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
