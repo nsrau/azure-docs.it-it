@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452548"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822732"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -179,7 +179,7 @@ A questo punto, contattare il servizio SAP HANA in Azure Service Management e fo
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Passaggio 4: Creare un account utente SAP HANA
 
-Per avviare la creazione di snapshot SAP HANA, è necessario creare un account utente in SAP HANA che possa essere usato dagli script degli snapshot di archiviazione. Creare quindi un account utente SAP HANA in SAP HANA Studio. L'utente deve essere creato in SYSTEMDB e NON nel database SID per MDC. In un ambiente contenitore singolo, l'utente viene impostato nel database tenant. L'account deve disporre dei privilegi **Backup Admin** e **Catalog Read**. In questo esempio, il nome utente è **SCADMIN**. Il nome dell'account utente creato in HANA Studio fa distinzione tra maiuscole e minuscole. Assicurarsi di selezionare **No** se si vuole che l'utente modifichi la password all'accesso successivo.
+Per avviare la creazione di snapshot SAP HANA, è necessario creare un account utente in SAP HANA che possa essere usato dagli script degli snapshot di archiviazione. Creare quindi un account utente SAP HANA in SAP HANA Studio. L'utente deve essere creato in SYSTEMDB e NON nel database SID per MDC. In un ambiente contenitore singolo, l'utente viene impostato nel database tenant. L'account deve disporre dei privilegi seguenti: **Backup Admin** e **Catalog Read**. In questo esempio, il nome utente è **SCADMIN**. Il nome dell'account utente creato in HANA Studio fa distinzione tra maiuscole e minuscole. Assicurarsi di selezionare **No** se si vuole che l'utente modifichi la password all'accesso successivo.
 
 ![Creazione di un utente in HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -258,11 +258,11 @@ Di seguito viene indicato lo scopo dei diversi script e file:
       - ID di backup HANA associato allo snapshot (se pertinente)
 - **azure\_hana\_snapshot\_delete.pl**: questo script elimina uno snapshot di archiviazione o un set di snapshot. A questo scopo, è possibile usare l'ID backup di SAP HANA, indicato in HANA Studio, o il nome dello snapshot di archiviazione. Attualmente, l'ID di backup è collegato solo agli snapshot creati per i volumi data/log/shared HANA. In caso contrario, se viene immesso l'ID dello snapshot, vengono cercati tutti gli snapshot corrispondenti all'ID immesso.  
 - **testHANAConnection.pl**: questo script testa la connessione all'istanza di SAP HANA ed è obbligatorio per configurare gli snapshot di archiviazione.
-- **testStorageSnapshotConnection.pl**: questo script ha due scopi. In primo luogo, garantisce che l'unità HANA in istanze Large che esegue gli script abbia accesso alla macchina virtuale di archiviazione assegnata e all'interfaccia degli snapshot di archiviazione di HANA in istanze Large. In secondo luogo, crea uno snapshot temporaneo per l'istanza di HANA che si sta testando. Questo script deve essere eseguito per ogni istanza di HANA su un server, per assicurarsi che gli script di backup funzionino come previsto.
+- **testStorageSnapshotConnection.pl**: questo script ha un duplice obiettivo. In primo luogo, garantisce che l'unità HANA in istanze Large che esegue gli script abbia accesso alla macchina virtuale di archiviazione assegnata e all'interfaccia degli snapshot di archiviazione di HANA in istanze Large. In secondo luogo, crea uno snapshot temporaneo per l'istanza di HANA che si sta testando. Questo script deve essere eseguito per ogni istanza di HANA su un server, per assicurarsi che gli script di backup funzionino come previsto.
 - **removeTestStorageSnapshot.pl**: questo script elimina lo snapshot di test creato con lo script **testStorageSnapshotConnection.pl**.
 - **azure\_hana\_dr\_failover.pl**: questo script avvia un failover di ripristino di emergenza in un'altra area. Lo script deve essere eseguito nell'unità HANA in istanze Large nell'area di ripristino di emergenza o nell'unità in cui si vuole eseguire il failover. Questo script arresta la replica di archiviazione dal lato primario al lato secondario, ripristina lo snapshot più recente nei volumi di ripristino di emergenza e fornisce i punti di montaggio per i volumi di ripristino di emergenza.
 - **azure\_hana\_test\_dr\_failover.pl**: questo script esegue un failover di test nel sito di ripristino di emergenza. Diversamente dallo script azure_hana_dr_failover.pl, questa esecuzione non interrompe la replica di archiviazione dal lato primario al lato secondario. Al contrario, i cloni dei volumi di archiviazione replicata vengono creati sul lato di ripristino di emergenza e vengono forniti i punti di montaggio dei volumi clonati. 
-- **HANABackupCustomerDetails.txt**: questo è un file di configurazione modificabile che deve essere modificato per essere adattato alla configurazione di SAP HANA personale. Il file *HANABackupCustomerDetails.txt* è il file di configurazione e controllo per lo script che esegue gli snapshot di archiviazione. Modificare il file in base alla configurazione e agli scopi specifici. Il **nome di backup di archiviazione** e l'**indirizzo IP di archiviazione** vengono ricevuti da SAP HANA in Azure Service Management durante la distribuzione delle istanze. Non è possibile modificare la sequenza, l'ordinamento o la spaziatura di alcuna delle variabili nel file. In caso contrario, gli script non vengono eseguiti correttamente. Si riceve inoltre l'indirizzo IP del nodo di scalabilità verticale o del nodo master (in caso di scalabilità orizzontale) da SAP HANA in Azure Service Management. Viene infine fornito il numero di istanze di HANA ottenuto durante l'installazione di SAP HANA. È ora necessario aggiungere un nome di backup al file di configurazione.
+- **HANABackupCustomerDetails.txt**: questo è un file di configurazione modificabile che deve essere cambiato per adattarsi alla configurazione di SAP HANA personale. Il file *HANABackupCustomerDetails.txt* è il file di configurazione e controllo per lo script che esegue gli snapshot di archiviazione. Modificare il file in base alla configurazione e agli scopi specifici. Il **nome di backup di archiviazione** e l'**indirizzo IP di archiviazione** vengono ricevuti da SAP HANA in Azure Service Management durante la distribuzione delle istanze. Non è possibile modificare la sequenza, l'ordinamento o la spaziatura di alcuna delle variabili nel file. In caso contrario, gli script non vengono eseguiti correttamente. Si riceve inoltre l'indirizzo IP del nodo di scalabilità verticale o del nodo master (in caso di scalabilità orizzontale) da SAP HANA in Azure Service Management. Viene infine fornito il numero di istanze di HANA ottenuto durante l'installazione di SAP HANA. È ora necessario aggiungere un nome di backup al file di configurazione.
 
 Per una distribuzione con scalabilità orizzontale o verticale, il file di configurazione sarà simile all'esempio seguente dopo aver immesso il nome del server dell'unità HANA in istanze Large e l'indirizzo IP del server. Completare tutti i campi necessari per ogni SID SAP HANA di cui si vuole eseguire il backup o il ripristino.
 
@@ -386,9 +386,9 @@ Se lo snapshot di test è stato eseguito correttamente con lo script, è possibi
 Al termine di tutti i passaggi di preparazione, è possibile iniziare a definire la configurazione effettiva degli snapshot di archiviazione. Lo script da pianificare funziona con le configurazioni con scalabilità verticale e con scalabilità orizzontale di SAP HANA. Per l'esecuzione periodica e regolare dello script di backup, pianificare lo script tramite l'utilità cron. 
 
 È possibile creare tre tipi di backup di snapshot:
-- **HANA**: backup di snapshot combinato in cui i volumi che contengono /hana/data e /hana/shared, che contiene anche /usr/sap, vengono gestiti dallo snapshot coordinato. Da questo snapshot è possibile eseguire il ripristino di un singolo file.
+- **HANA**: backup di snapshot combinato che copre i volumi che contengono /hana/data e /hana/shared, che contiene anche /usr/sap. Da questo snapshot è possibile eseguire il ripristino di un singolo file.
 - **Log**: backup di snapshot del volume /hana/logbackups. Non viene attivato nessuno snapshot HANA per eseguire questo snapshot di archiviazione. Questo volume di archiviazione è destinato a contenere i backup del log delle transazioni SAP HANA, che vengono eseguiti più spesso per limitare l'aumento delle dimensioni del log e impedire la possibile perdita di dati. Da questo snapshot è possibile eseguire il ripristino di un singolo file. Non ridurre la frequenza al di sotto di tre minuti.
-- **Avvio**: snapshot del volume che contiene il numero di unità logica (LUN) di avvio di HANA in istanze Large. Questo backup di snapshot è possibile solo con SKU di tipo I di istanze Large di HANA. Non è possibile eseguire ripristini di file singoli dallo snapshot del volume che contiene il LUN di avvio.
+- **Boot**: snapshot del volume che contiene il numero di unità logica (LUN, Logical Unit Number) di avvio dell'istanza Large di HANA. Questo backup di snapshot è possibile solo con SKU di tipo I di istanze Large di HANA. Non è possibile eseguire ripristini di file singoli dallo snapshot del volume che contiene il LUN di avvio.
 
 
 >[!NOTE]
@@ -648,9 +648,9 @@ Di seguito viene mostrato come preparare la richiesta:
 
 1. Aprire una richiesta di supporto tecnico di Azure e includere le istruzioni per il ripristino di uno snapshot specifico.
 
- - Durante il ripristino: è possibile che il servizio SAP HANA in Azure Service Management chieda di partecipare a una conferenza telefonica per coordinarsi, verificare e confermare che venga ripristinato lo snapshot di archiviazione corretto. 
+ - Durante il ripristino: è possibile che il servizio SAP HANA in Gestione servizi di Azure chieda di partecipare a una conferenza telefonica per coordinarsi, verificare e confermare che venga ripristinato lo snapshot di archiviazione corretto. 
 
- - Dopo il ripristino: il team di gestione dei servizi SAP HANA in Azure invia una notifica per indicare quando è stato ripristinato lo snapshot di archiviazione.
+ - Dopo il ripristino: SAP HANA in Gestione servizi di Azure invia una notifica per indicare quando è stato ripristinato lo snapshot di archiviazione.
 
 1. Al termine del processo di ripristino, montare nuovamente tutti i volumi di dati.
 
@@ -687,7 +687,7 @@ La procedura seguente ripristina lo snapshot HANA incluso nello snapshot di arch
 >[!IMPORTANT]
 >Prima di procedere assicurarsi di avere una catena contigua e completa di backup dei log delle transazioni. Senza questi backup non è possibile ripristinare lo stato corrente del database.
 
-1. Completare i passaggi da 1 a 6 indicati in [Ripristino in base allo snapshot HANA più recente](#recovering-to-the-most-recent-hana-snapshot).
+1. Completare i passaggi da 1 a 6 indicati in Ripristino in base allo snapshot HANA più recente.
 
 1. Selezionare **Recover the database to its most recent state** (Ripristina il database allo stato più recente).
 
@@ -713,7 +713,7 @@ La procedura seguente ripristina lo snapshot HANA incluso nello snapshot di arch
 Per eseguire il ripristino a una temporizzazione compresa tra il momento di creazione dello snapshot HANA (incluso nello snapshot di archiviazione) e un momento successivo al ripristino temporizzato dello snapshot HANA, eseguire questa procedura:
 
 1. Assicurarsi di avere tutti i backup del log delle transazioni dal momento della creazione dello snapshot HANA al momento in base al quale si vuole eseguire il ripristino.
-1. Iniziare la procedura descritta in [Ripristino in base allo stato più recente](#recovering-to-the-most-recent-state).
+1. Iniziare la procedura descritta in Ripristino in base allo stato più recente.
 1. Nella finestra **Specify Recovery Type** (Specifica tipo di ripristino) del passaggio 2 della procedura selezionare **Recover the database to the following point in time** (Ripristina il database alla temporizzazione seguente) e quindi specificare la temporizzazione. 
 1. Completare i passaggi da 3 a 6.
 

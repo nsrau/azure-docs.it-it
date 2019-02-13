@@ -1,6 +1,6 @@
 ---
-title: Differenze T-SQL di Istanza gestita del database SQL di Azure | Microsoft Docs
-description: Questo articolo illustra le differenze T-SQL tra Istanza gestita di database SQL di Azure e SQL Server
+title: Differenze T-SQL dell'istanza gestita del database SQL di Azure | Microsoft Docs
+description: Questo articolo illustra le differenze T-SQL tra un'istanza gestita in database SQL di Azure e SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,29 +11,33 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472782"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734607"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra un'istanza gestita del database SQL di Azure e SQL Server
 
-Istanza gestita di database SQL di Azure assicura una compatibilità elevata con il motore di database di Microsoft SQL Server locale. La maggior parte delle funzionalità del motore di database di Microsoft SQL Server è supportata in Istanza gestita. Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo.
+L'opzione di distribuzione dell'istanza gestita assicura una compatibilità elevata con il motore di database di SQL Server locale. La maggior parte delle funzionalità del motore di database di SQL Server è supportata in un'istanza gestita.
 
-- [Differenze T-SQL e funzionalità non supportate](#Differences)
-- [Funzionalità con un comportamento diverso in Istanza gestita](#Changes)
+![migrazione](./media/sql-database-managed-instance/migration.png)
+
+Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo. <a name="Differences"></a>
+- [Disponibilità](#availability) incluse le differenze relative a [Always On](#always-on-availability) e [Backup](#backup),
+- [Sicurezza](#security) incluse le differenze relative a [Controllo](#auditing), [Certificati](#certificates), [Credenziali](#credentials), [Provider del servizio di crittografia](#cryptographic-providers), [Accessi/utenti](#logins--users), [Chiave del servizio e chiave master del servizio](#service-key-and-service-master-key),
+- [Configurazione](#configuration) incluse le differenze relative a [Estensione del pool di buffer](#buffer-pool-extension), [Regole di confronto](#collation), [Livelli di compatibilità](#compatibility-levels), [Mirroring del database](#database-mirroring), [Opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent), [Opzioni tabella](#tables),
+- [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [Ricerca semantica full-text](#full-text-semantic-search), [Server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [Stored procedure, funzioni e trigger](#stored-procedures-functions-triggers),
+- [Funzionalità con un comportamento diverso nelle istanze gestite](#Changes)
 - [Limitazioni temporanee e problemi noti](#Issues)
 
-## <a name="Differences"></a> Differenze T-SQL rispetto a SQL Server
+## <a name="availability"></a>Disponibilità
 
-Questa sezione riepiloga le principali differenze nella sintassi T-SQL e nel comportamento tra Istanza gestita e il motore di database di SQL Server locale, oltre alle funzionalità non supportate.
+### <a name="always-on-availability"></a>Always On
 
-### <a name="always-on-availability"></a>Disponibilità Always On
-
-La [disponibilità elevata](sql-database-high-availability.md) è incorporata in Istanza gestita e non può essere controllata dagli utenti. Le istruzioni seguenti non sono supportate:
+La [disponibilità elevata](sql-database-high-availability.md) è incorporata nell'istanza gestita e non può essere controllata dagli utenti. Le istruzioni seguenti non sono supportate:
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -41,32 +45,11 @@ La [disponibilità elevata](sql-database-high-availability.md) è incorporata in
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Clausola [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) dell'istruzione [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="auditing"></a>Controllo
-
-Le principali differenze tra il controllo SQL in Istanza gestita, il database SQL di Azure e SQL Server locale sono le seguenti:
-
-- In Istanza gestita il controllo SQL lavora a livello del server e archivia i file di `.xel` nell'account di archiviazione BLOB di Azure.  
-- Nel database SQL di Azure il controllo SQL lavora a livello del database.
-- In SQL Server locale o nella macchina virtuale il controllo SQL lavora a livello del server, ma memorizza gli eventi nei log eventi del file system o di Windows.  
-  
-Il controllo XEvent in Istanza gestita supporta le destinazioni di archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
-
-Le principali differenze nella sintassi `CREATE AUDIT` per il controllo nell'archivio BLOB di Azure sono le seguenti:
-
-- È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui verranno inseriti i file di `.xel`.
-- La sintassi `TO FILE` non è supportata perché Istanza gestita non può accedere alle condivisioni file di Windows.
-
-Per altre informazioni, vedere:  
-
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Controllo](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
-
 ### <a name="backup"></a>Backup
 
-Istanza gestita ha backup automatici e consente agli utenti di creare backup `COPY_ONLY` di database completi. I backup differenziali, di log e dello snapshot dei file non sono supportati.
+Le istanze gestite hanno backup automatici e consentono agli utenti di creare backup `COPY_ONLY` di database completi. I backup differenziali, di log e dello snapshot dei file non sono supportati.
 
-- Istanza gestita può eseguire il backup di un database solo in un account di archiviazione BLOB di Azure:
+- Con un'istanza gestita è possibile eseguire il backup di un database di istanza solo in un account di archiviazione BLOB di Azure:
   - È supportato solo `BACKUP TO URL`
   - I dispositivi di backup, `FILE` e `TAPE` non sono supportati  
 - La maggior parte delle opzioni `WITH` generali è supportata
@@ -77,7 +60,7 @@ Istanza gestita ha backup automatici e consente agli utenti di creare backup `CO
 
  Limitazioni:  
 
-- Istanza gestita può eseguire il backup di un database su un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
+- con un'istanza gestita è possibile eseguire il backup di un database di istanza su un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
 - La dimensione massima dei set di stripe di backup è 195 GB (dimensioni massime del BLOB). Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
 
 > [!TIP]
@@ -85,21 +68,32 @@ Istanza gestita ha backup automatici e consente agli utenti di creare backup `CO
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-### <a name="buffer-pool-extension"></a>Estensione del pool di buffer
+## <a name="security"></a>Security
 
-- L'[estensione del pool di buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) non è supportata.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportato. Vedere [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+### <a name="auditing"></a>Controllo
 
-### <a name="bulk-insert--openrowset"></a>Inserimento bulk/openrowset
+Le principali differenze tra il controllo nei database nel database SQL di Azure e il controllo nei database in SQL Server sono le seguenti:
 
-Istanza gestita non può accedere a condivisioni file e cartelle di Windows e pertanto i file devono essere importati dall'archivio BLOB di Azure:
+- Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito a livello del server e archivia file di log `.xel` nell'account di archiviazione BLOB di Azure.
+- Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
+- In SQL Server locale o nelle macchine virtuali SQL Server il controllo viene eseguito a livello del server, ma archivia gli eventi nei log eventi del file system o di Windows.
+  
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
 
-- `DATASOURCE` è obbligatorio nel comando `BULK INSERT` durante l'importazione di file dall'archivio BLOB di Azure. Vedere [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` è obbligatorio nella funzione `OPENROWSET` quando si legge il contenuto di un file dall'archivio BLOB di Azure. Vedere [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+Le principali differenze nella sintassi `CREATE AUDIT` per il controllo nell'archivio BLOB di Azure sono le seguenti:
+
+- È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui verranno inseriti i file di `.xel`.
+- La sintassi `TO FILE` non è supportata perché un'istanza gestita non può accedere alle condivisioni file di Windows.
+
+Per altre informazioni, vedere:  
+
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Controllo](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certificati
 
-Istanza gestita non può accedere a condivisioni file e cartelle di Windows, quindi vengono applicati i vincoli seguenti:
+Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, quindi vengono applicati i vincoli seguenti:
 
 - `CREATE FROM`/`BACKUP TO` file non è supportato per i certificati
 - `CREATE`/`BACKUP` certificato da `FILE`/`ASSEMBLY` non è supportato. I file di chiavi private non possono essere usati.  
@@ -114,13 +108,44 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="clr"></a>CLR
+### <a name="credential"></a>Credenziali
 
-Istanza gestita non può accedere a condivisioni file e cartelle di Windows, quindi vengono applicati i vincoli seguenti:
+Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
-- È supportato solo `CREATE ASSEMBLY FROM BINARY`. Vedere [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` non è supportato. Vedere [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+Vedere [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) e [ALTER CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
+
+### <a name="cryptographic-providers"></a>Provider del servizio di crittografia
+
+Un'istanza gestita non può accedere ai file, quindi non è possibile creare provider del servizio di crittografia:
+
+- `CREATE CRYPTOGRAPHIC PROVIDER` non è supportato. Vedere [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
+- `ALTER CRYPTOGRAPHIC PROVIDER` non è supportato. Vedere [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
+
+### <a name="logins--users"></a>Account di accesso/utenti
+
+- Gli account di accesso SQL creati `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Sono supportati gli accessi ad Azure Active Directory (AAD) creati con la sintassi [CREA ACCESSO](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o con la sintassi [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**anteprima pubblica**).
+- Gli account di accesso Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati. Usare gli accessi e gli utenti di Azure Active Directory.
+- L'utente di Azure Active Directory (Azure AD) che ha creato l'istanza ha [privilegi amministrativi illimitati](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
+
+### <a name="service-key-and-service-master-key"></a>Chiave del servizio e chiave master del servizio
+
+- Il [backup della chiave master](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
+- Il [ripristino della chiave master](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
+- Il [backup della chiave master del servizio](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
+- Il [ripristino della chiave master del servizio](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
+
+## <a name="configuration"></a>Configurazione
+
+### <a name="buffer-pool-extension"></a>Estensione del pool di buffer
+
+- L'[estensione del pool di buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) non è supportata.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportato. Vedere [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+
+### <a name="collation"></a>Collation
+
+Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="compatibility-levels"></a>Livelli di compatibilità
 
@@ -130,22 +155,14 @@ Istanza gestita non può accedere a condivisioni file e cartelle di Windows, qui
 
 Vedere [Livello di compatibilità ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
 
-### <a name="credential"></a>Credenziali
+### <a name="database-mirroring"></a>Mirroring del database
 
-Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
+Il mirroring del database non è supportato.
 
-Vedere [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) e [ALTER CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
+- Le opzioni `ALTER DATABASE SET PARTNER` e `SET WITNESS` non sono supportate.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` non è supportato.
 
-### <a name="cryptographic-providers"></a>Provider del servizio di crittografia
-
-Istanza gestita non può accedere ai file, quindi non è possibile creare provider del servizio di crittografia:
-
-- `CREATE CRYPTOGRAPHIC PROVIDER` non è supportato. Vedere [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
-- `ALTER CRYPTOGRAPHIC PROVIDER` non è supportato. Vedere [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
-
-### <a name="collation"></a>Collation
-
-Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Per altre informazioni, vedere [ALTER DATABASE SET PARTNER e SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) e [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
 ### <a name="database-options"></a>Opzioni di database
 
@@ -174,7 +191,7 @@ Per altre informazioni, vedere [CREATE DATABASE](https://docs.microsoft.com/sql/
 
 Alcune proprietà di file non possono essere impostate o modificate:
 
-- Il percorso file non può essere specificato nell'istruzione T-SQL `ALTER DATABASE ADD FILE (FILENAME='path')`. Rimuovere `FILENAME` dallo script in quanto Istanza gestita inserisce i file automaticamente.  
+- Il percorso file non può essere specificato nell'istruzione T-SQL `ALTER DATABASE ADD FILE (FILENAME='path')`. Rimuovere `FILENAME` dallo script in quanto un'istanza gestita inserisce i file automaticamente.  
 - Il nome file non può essere modificato mediante l'istruzione `ALTER DATABASE`.
 
 Le opzioni seguenti sono attive per impostazione predefinita e non possono essere modificate:
@@ -209,18 +226,72 @@ La modifica del nome non è supportata.
 
 Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="database-mirroring"></a>Mirroring del database
+### <a name="sql-server-agent"></a>Agente SQL Server
 
-Il mirroring del database non è supportato.
+- Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata nelle istanze gestite.  
+- Processi
+  - I passaggi dei processi T-SQL sono supportati.
+  - I processi di replica seguenti sono supportati:
+    - Lettore di log delle transazioni.  
+    - Snapshot.
+    - Database di distribuzione
+  - I passaggi dei processi SSIS sono supportati.
+  - Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:
+    - Il passaggio del processo di replica di tipo merge non è supportato.  
+    - La lettura coda non è supportata.  
+    - La shell dei comandi non è ancora supportata.
+  - Le istanze gestite non possono accedere a risorse esterne (ad esempio a condivisioni di rete tramite robocopy).  
+  - PowerShell non è ancora supportato.
+  - Analysis Services non è supportato.
+- Le notifiche sono supportate in modo parziale.
+- La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile` nell'anteprima pubblica (limitazione temporanea).  
+  - Il cercapersone non è supportato.  
+  - NetSend non è supportato.
+  - Gli avvisi non sono ancora supportati.
+  - I proxy non sono supportati.  
+- EventLog non è supportato.
 
-- Le opzioni `ALTER DATABASE SET PARTNER` e `SET WITNESS` non sono supportate.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` non è supportato.
+Le funzionalità seguenti non sono attualmente supportate ma saranno abilitate in futuro:
 
-Per altre informazioni, vedere [ALTER DATABASE SET PARTNER e SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) e [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
+- Proxy
+- Pianificazione di processi su una CPU inattiva
+- Abilitazione/disabilitazione dell'agente
+- Avvisi
+
+Per informazioni su SQL Server Agent, vedere [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+
+### <a name="tables"></a>Tabelle
+
+Le tabelle seguenti non sono supportate:
+
+- `FILESTREAM`
+- `FILETABLE`
+- `EXTERNAL TABLE`
+- `MEMORY_OPTIMIZED`  
+
+Per informazioni sulla creazione e la modifica di tabelle, vedere [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+## <a name="functionalities"></a>Funzionalità
+
+### <a name="bulk-insert--openrowset"></a>Inserimento bulk/openrowset
+
+Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows e pertanto i file devono essere importati dall'archiviazione BLOB di Azure:
+
+- `DATASOURCE` è obbligatorio nel comando `BULK INSERT` durante l'importazione di file dall'archivio BLOB di Azure. Vedere [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` è obbligatorio nella funzione `OPENROWSET` quando si legge il contenuto di un file dall'archivio BLOB di Azure. Vedere [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+
+### <a name="clr"></a>CLR
+
+Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, quindi vengono applicati i vincoli seguenti:
+
+- È supportato solo `CREATE ASSEMBLY FROM BINARY`. Vedere [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- `CREATE ASSEMBLY FROM FILE` non è supportato. Vedere [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+
 
 ### <a name="dbcc"></a>DBCC
 
-Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate in Istanza gestita.
+Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate nelle istanze gestite.
 
 - I `Trace Flags` non sono supportati. Vedere [Flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` non è supportato. Vedere [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -228,7 +299,7 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate i
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Né MSDTC, né le [transazioni elastiche](sql-database-elastic-transactions-overview.md) sono attualmente supportate in Istanza gestita.
+Né MSDTC, né le [transazioni elastiche](sql-database-elastic-transactions-overview.md) sono attualmente supportate nelle istanze gestite.
 
 ### <a name="extended-events"></a>Eventi estesi
 
@@ -262,7 +333,7 @@ La [ricerca semantica](https://docs.microsoft.com/sql/relational-databases/searc
 
 ### <a name="linked-servers"></a>Server collegati
 
-I server collegati in Istanza gestita supportano un numero limitato di destinazioni:
+I server collegati nelle istanze gestite supportano un numero limitato di destinazioni:
 
 - Destinazioni supportate: SQL Server e Database SQL
 - Destinazioni non supportate: file, Analysis Services e altri sistemi di gestione di database relazionali (RDBMS).
@@ -274,21 +345,13 @@ Operazioni
 - La funzione `OPENROWSET` può essere usata per eseguire query solo su istanze di SQL Server (gestite, locali o in macchine virtuali). Vedere [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - La funzione `OPENDATASOURCE` può essere usata per eseguire query solo su istanze di SQL Server (gestite, locali o in macchine virtuali). Sono supportati come provider solo i valori `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB`. Ad esempio: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Vedere [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
-### <a name="logins--users"></a>Account di accesso/utenti
-
-- Gli account di accesso SQL creati `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Sono supportati gli accessi ad Azure Active Directory (AAD) creati con la sintassi [CREA ACCESSO](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o con la sintassi [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**anteprima pubblica**).
-- Gli account di accesso Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati. Usare gli accessi e gli utenti di Azure Active Directory.
-- L'utente di Azure Active Directory (Azure AD) che ha creato l'istanza ha [privilegi amministrativi illimitati](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
-
 ### <a name="polybase"></a>PolyBase
 
 Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di Azure non sono supportate. Per informazioni su Polybase, vedere [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replica
 
-La replica è disponibile in anteprima pubblica in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La replica è disponibile in anteprima pubblica per le istanze gestite. Per informazioni sulla replica, vedere [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>Istruzione RESTORE
 
@@ -337,13 +400,6 @@ Il broker di servizio tra istanze non è supportato:
 - `CREATE ROUTE` - non è possibile usare `CREATE ROUTE` con `ADDRESS` diverso da `LOCAL`. Vedere [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` - non è possibile eseguire un'istruzione `ALTER ROUTE` con un `ADDRESS` diverso da `LOCAL`. Vedere [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
-### <a name="service-key-and-service-master-key"></a>Chiave del servizio e chiave master del servizio
-
-- Il [backup della chiave master](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
-- Il [ripristino della chiave master](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
-- Il [backup della chiave master del servizio](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
-- Il [ripristino della chiave master del servizio](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) non è supportato (gestito dal servizio del database SQL)
-
 ### <a name="stored-procedures-functions-triggers"></a>Stored procedure, funzioni, trigger
 
 - `NATIVE_COMPILATION` non è attualmente supportato.
@@ -360,60 +416,15 @@ Il broker di servizio tra istanze non è supportato:
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportati. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` non è supportato. Vedere [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agente SQL Server
-
-- Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.  
-- Processi
-  - I passaggi dei processi T-SQL sono supportati.
-  - I processi di replica seguenti sono supportati:
-    - Lettore di log delle transazioni.  
-    - Snapshot.
-    - Database di distribuzione
-  - I passaggi dei processi SSIS sono supportati.
-  - Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:
-    - Il passaggio del processo di replica di tipo merge non è supportato.  
-    - La lettura coda non è supportata.  
-    - La shell dei comandi non è ancora supportata.
-  - Istanza gestita non può accedere a risorse esterne (ad esempio a condivisioni di rete tramite robocopy).  
-  - PowerShell non è ancora supportato.
-  - Analysis Services non è supportato.
-- Le notifiche sono supportate in modo parziale.
-- La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile` nell'anteprima pubblica (limitazione temporanea).  
-  - Il cercapersone non è supportato.  
-  - NetSend non è supportato.
-  - Gli avvisi non sono ancora supportati.
-  - I proxy non sono supportati.  
-- EventLog non è supportato.
-
-Le funzionalità seguenti non sono attualmente supportate ma saranno abilitate in futuro:
-
-- Proxy
-- Pianificazione di processi su una CPU inattiva
-- Abilitazione/disabilitazione dell'agente
-- Avvisi
-
-Per informazioni su SQL Server Agent, vedere [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
-
-### <a name="tables"></a>Tabelle
-
-Le tabelle seguenti non sono supportate:
-
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED`  
-
-Per informazioni sulla creazione e la modifica di tabelle, vedere [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
-
 ## <a name="Changes"></a> Modifiche nel comportamento
 
 Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
-- `SERVERPROPERTY('EngineEdition')` restituisce il valore 8. Questa proprietà identifica Istanza gestita in maniera univoca. Vedere [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` restituisce NULL, poiché il concetto di istanza valido per SQL Server non si applica a Istanza gestita. Vedere [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` restituisce il valore 8. Questa proprietà identifica in maniera univoca un'istanza gestita. Vedere [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` restituisce NULL, poiché il concetto di istanza valido per SQL Server non si applica a un'istanza gestita. Vedere [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` restituisce il nome DNS completo "collegabile", ad esempio my-managed-instance.wcus17662feb9ce98.database.windows.net. Vedere [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` restituisce il nome DNS completo "collegabile", ad esempio `myinstance.domain.database.windows.net` per le proprietà 'name' e 'data_source'. Vedere [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` restituisce NULL, poiché il concetto di servizio valido per SQL Server non si applica a Istanza gestita. Vedere [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` restituisce NULL, poiché il concetto di servizio valido per SQL Server non si applica a un'istanza gestita. Vedere [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` è supportato. Restituisce NULL se l'account di accesso AAD non è presente in sys.syslogins. Vedere [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` non è supportato. Restituisce dati errati (problema noto temporaneo). Vedere [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` e altre funzioni di data/ora predefinite restituiscono sempre la data e ora nel fuso orario UTC. Vedere [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -444,7 +455,7 @@ Assicurarsi di rimuovere il carattere `?` iniziale dalla chiave SAS generata con
 
 ### <a name="tooling"></a>Strumenti
 
-SQL Server Management Studio (SSMS) ed SQL Server Data Tools (SSDT) potrebbero riscontrare problemi durante l'accesso a Istanza gestita.
+SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) potrebbero riscontrare problemi durante l'accesso a un'istanza gestita.
 
 - L'uso degli accessi e degli utenti di Azure AD (**anteprima pubblica**) con SSDT non è attualmente supportato.
 - Gli script per gli accessi e gli utenti di Azure AD (**anteprima pubblica**) non sono supportati in SSMS.
@@ -463,9 +474,9 @@ I log degli errori che sono disponibili nell'istanza gestita non sono persistent
 
 ### <a name="error-logs-are-verbose"></a>I log degli errori sono di tipo dettagliato
 
-Istanza gestita inserisce informazioni dettagliate nei log degli errori e molte di esse non sono pertinenti. La quantità di informazioni nei log degli errori verrà ridotta in futuro.
+Un'istanza gestita inserisce informazioni dettagliate nei log degli errori e molte di esse non sono pertinenti. La quantità di informazioni nei log degli errori verrà ridotta in futuro.
 
-**Soluzione alternativa**: usare una procedura personalizzata per la lettura dei log degli errori che filtrano alcune voci non pertinenti. Per informazioni dettagliate, vedere [Istanza gestita di database SQL di Azure - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Soluzione alternativa**: usare una procedura personalizzata per la lettura dei log degli errori che filtrano alcune voci non pertinenti. Per informazioni dettagliate, vedere [Istanza gestita - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L'ambito della transazione in due database nella stessa istanza non è supportato
 
@@ -500,7 +511,7 @@ Sebbene questo codice funzioni con i dati nella stessa istanza, è necessario MS
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>I moduli CLR e i server collegati talvolta non riescono a fare riferimento all'indirizzo IP locale
 
-I moduli CLR inseriti in Istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Questo errore è un problema temporaneo.
+I moduli CLR inseriti in un'istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Questo errore è un problema temporaneo.
 
 **Soluzione alternativa**: usare connessioni di contesto nel modulo CLR, se possibile.
 
@@ -512,6 +523,6 @@ Non è possibile eseguire `BACKUP DATABASE ... WITH COPY_ONLY` in un database cr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni dettagliate in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
+- Per informazioni dettagliate sulle istanze gestite, vedere [Informazioni sull'istanza gestita](sql-database-managed-instance.md)
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
-- Per una guida introduttiva che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
+- Per una guida di avvio rapido che illustra come creare una nuova istanza gestita, vedere [Creazione di un'istanza gestita](sql-database-managed-instance-get-started.md).

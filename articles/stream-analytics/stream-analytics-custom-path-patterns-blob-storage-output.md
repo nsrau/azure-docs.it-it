@@ -1,28 +1,76 @@
 ---
-title: Modelli di percorso datetime per l'output di BLOB di Analisi di flusso di Azure (anteprima)
-description: Questo articolo descrive la funzione dei modelli di percorso datetime personalizzati per l'output di archiviazione BLOB dai processi di Analisi di flusso di Azure.
+title: Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
+description: Questo articolo descrive le funzionalità dei modelli di percorso di data/ora personalizzati e dei campi o attributi personalizzati per l'output di archiviazione BLOB dai processi di Analisi di flusso di Azure.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090788"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765196"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Modelli di percorso di data/ora personalizzati per l'output di archiviazione BLOB di Analisi di flusso di Azure (anteprima)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
-Analisi di flusso di Azure supporta identificatori personalizzati del formato di data e ora nel percorso del file per gli output di archiviazione BLOB. I modelli di percorso di data/ora personalizzati consentono di specificare un formato di output in linea con le convenzioni Streaming Hive, offrendo ad Analisi di flusso di Azure la possibilità di inviare i dati ad Azure HDInsight e Azure Databricks per l'elaborazione downstream. I modelli di percorso di data/ora personalizzati possono essere implementati facilmente usando la parola chiave `datetime` nel campo Prefisso percorso di output BLOB, con l'identificatore del formato. Ad esempio: `{datetime:yyyy}`.
+Analisi di flusso di Azure supporta il partizionamento dell'output dei BLOB personalizzato con campi o attributi personalizzati o e modelli di percorso di data/ora personalizzati. 
+
+## <a name="custom-field-or-attributes"></a>Campi o attributi personalizzati
+
+Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaborazione e reporting downstream, consentendo un maggior controllo sull'output.
+
+### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
+
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias.
+
+### <a name="example"></a>Esempio
+
+Si supponga che un processo accetti dati di input da sessioni utente in tempo reale connesse a un servizio di videogiochi esterno, in cui i dati inseriti contengono una colonna **client_id** per identificare le sessioni. Per partizionare i dati per **client_id**, impostare il campo Modello percorso del BLOB in modo includere un token di partizione **{client_id}** nelle proprietà di output del BLOB quando si crea un processo. Man mano che i dati con vari valori **client_id** transitano attraverso il processo di Analisi di flusso, i dati di output vengono salvati in cartelle separate in base a un singolo valore **client_id** per ogni cartella.
+
+![Modello di percorso con ID client](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+Analogamente, se l'input del processo fossero dati provenienti da milioni di sensori, in cui ogni sensore ha un **sensor_id**, il modello di percorso sarebbe **{sensor_id}** per partizionare i dati di ogni sensore in cartelle diverse.  
+
+
+Usando l'API REST, la sezione di output di un file JSON file usato per questa richiesta potrebbe simile al seguente:  
+
+![Output dell'API REST](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+Dopo l'avvio del processo, il contenitore *clients* potrebbe avere un aspetto simile al seguente:  
+
+![Contenitore dei client](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+Ogni cartella può contenere più BLOB, ognuno dei quali può contenere uno o più record. Nell'esempio precedente, è presente un singolo BLOB in una cartella con etichetta "06000000" con il contenuto seguente:
+
+![Contenuto BLOB](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+Si noti che ogni record nel BLOB ha una colonna **client_id** corrispondente al nome della cartella, perché la colonna usata per partizionare l'output nel percorso di output era **client_id**.
+
+### <a name="limitations"></a>Limitazioni
+
+1. È consentita solo una chiave di partizione personalizzata nella proprietà di output del BLOB Modello percorso. Tutti i modelli di percorso seguenti sono validi:
+
+   * cluster1/{date}/{aFieldInMyData}  
+   * cluster1/{time}/{aFieldInMyData}  
+   * cluster1/{aFieldInMyData}  
+   * cluster1/{date}/{time}/{aFieldInMyData}  
+
+2. Le chiavi di partizione non fanno distinzione tra maiuscole e minuscole, quindi, ad esempio, "Gianni" e "gianni" sono equivalenti. Inoltre, le espressioni non possono essere usate come chiavi di partizione. Ad esempio, **{columnA + columnB}** non funziona.  
+
+3. Quando un flusso di input è costituito da record con una cardinalità della chiave di partizione inferiore a 8000, i record verranno aggiunti ai BLOB esistenti verranno creati nuovi BLOB solo quando è necessario. Se è la cardinalità è superiore a 8000 non esiste alcuna garanzia che i record vengano scritti nei BLOB esistenti e che non verranno creati nuovi BLOB per un numero arbitrario di record con la stessa chiave di partizione.  
+
+## <a name="custom-datetime-path-patterns"></a>Modelli di percorso di data/ora personalizzati
+
+I modelli di percorso di data/ora personalizzati consentono di specificare un formato di output in linea con le convenzioni Streaming Hive, offrendo ad Analisi di flusso di Azure la possibilità di inviare i dati ad Azure HDInsight e Azure Databricks per l'elaborazione downstream. I modelli di percorso di data/ora personalizzati possono essere implementati facilmente usando la parola chiave `datetime` nel campo Prefisso percorso di output BLOB, con l'identificatore del formato. Ad esempio: `{datetime:yyyy}`.
 
 Usare questo collegamento al [portale di Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) per attivare o disattivare il flag della funzionalità che abilita i modelli di percorso di data/ora personalizzati per l'output dell'archiviazione BLOB (anteprima). Questa funzionalità verrà presto abilitata nel portale principale.
 
-## <a name="supported-tokens"></a>Token supportati
+### <a name="supported-tokens"></a>Token supportati
 
 I token di identificatore del formato seguenti possono essere usati da soli o in combinazione per ottenere formati di data/ora personalizzati:
 
@@ -42,7 +90,7 @@ Se si preferisce non usare modelli di data/ora personalizzati, è possibile aggi
 
 ![Formati di data/ora precedenti di Analisi di flusso](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>Estendibilità e restrizioni
+### <a name="extensibility-and-restrictions"></a>Estendibilità e restrizioni
 
 È possibile usare un numero illimitato di token `{datetime:<specifier>}` nel modello del percorso, fino a raggiungere il limite di caratteri per il prefisso del percorso. Gli identificatori di formato non possono essere combinati all'interno di un singolo token oltre le combinazioni già presenti negli elenchi a discesa di data e ora. 
 
@@ -54,7 +102,7 @@ Per una partizione di percorso `logs/MM/dd`:
 
 È possibile usare più volte lo stesso identificatore di formato nel prefisso del percorso. Il token deve essere ripetuto ogni volta.
 
-## <a name="hive-streaming-conventions"></a>Convenzioni Streaming Hive
+### <a name="hive-streaming-conventions"></a>Convenzioni Streaming Hive
 
 I modelli di percorso personalizzati per l'archiviazione BLOB possono essere usati con la convenzione Streaming Hive, che prevede che le cartelle siano etichettate con `column=` nel nome della cartella.
 

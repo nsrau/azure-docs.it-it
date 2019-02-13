@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C | Microsoft Docs
+title: Esercitazione - Personalizzare l'interfaccia delle esperienze utente - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C mediante il portale di Azure.
 services: B2C
 author: davidmu1
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1c95772eeb6057b4ff7b12a79897fda73e1e017c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156658"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752382"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
 Per esperienze utente più comuni, come l'iscrizione, l'accesso e la modifica del profilo, è possibile usare i [flussi utente](active-directory-b2c-reference-policies.md) di Azure Active Directory (Azure AD) B2C. Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
 
@@ -25,14 +25,14 @@ In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare file di personalizzazione dell'interfaccia utente
-> * Creare un flusso utente di iscrizione e di accesso che usa i file
+> * Aggiornare il flusso utente in modo da usare i file
 > * Testare l'interfaccia utente personalizzata
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md), crearlo ora. È possibile usare un tenant esistente, se ne è stato creato uno in un'esercitazione precedente.
+[Creare un flusso utente](tutorial-create-user-flows.md) per consentire agli utenti di iscriversi e accedere all'applicazione.
 
 ## <a name="create-customization-files"></a>Creare i file di personalizzazione
 
@@ -42,17 +42,15 @@ Occorre creare un account di archiviazione e un contenitore di Azure e quindi in
 
 I file possono essere archiviati in diversi modi, ma per questa esercitazione si userà l'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
-1. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare la **directory e il filtro di sottoscrizione** nel menu in alto e selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
-
-    ![Passare alla directory della sottoscrizione](./media/tutorial-customize-ui/switch-directories.png)
-
-2. Scegliere Tutti i servizi nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Account di archiviazione**. 
-3. Selezionare **Aggiungi**.
-4. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
-5. Immettere il nome dell'account di archiviazione. Il nome deve essere univoco in Azure, deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
-6. Selezionare il percorso dell'account di archiviazione o accettare quello predefinito. 
-7. Accettare tutti gli altri valori predefiniti, selezionare **Rivedi e crea** e fare clic su **Crea**.
-8. Dopo aver creato l'account di archiviazione, selezionare **Vai alla risorsa**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare la **directory e il filtro di sottoscrizione** nel menu in alto e selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
+3. Scegliere Tutti i servizi nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Account di archiviazione**. 
+4. Selezionare **Aggiungi**.
+5. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+6. Immettere il nome dell'account di archiviazione. Il nome deve essere univoco in Azure, deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
+7. Selezionare il percorso dell'account di archiviazione o accettare quello predefinito. 
+8. Accettare tutti gli altri valori predefiniti, selezionare **Rivedi e crea** e fare clic su **Crea**.
+9. Dopo aver creato l'account di archiviazione, selezionare **Vai alla risorsa**.
 
 ### <a name="create-a-container"></a>Creare un contenitore
 
@@ -72,7 +70,7 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
 
     ![Abilitare CORS](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 
@@ -137,42 +135,17 @@ In questa esercitazione i file creati devono essere archiviati nell'account di a
 4. Copiare l'URL del file che era stato caricato per usarlo successivamente nell'esercitazione.
 5. Ripetere i passaggi 3 e 4 per il file *style.css*.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Creare un flusso utente di iscrizione e accesso
+## <a name="update-the-user-flow"></a>Aggiornare il flusso utente
 
-Per completare le procedure di questa esercitazione è necessario creare un'applicazione di test e un flusso utente di iscrizione o accesso in Azure AD B2C. È possibile applicare i principi descritti in questa esercitazione alle altre esperienze utente, come la modifica del profilo.
-
-### <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
-
-La comunicazione con Azure AD B2C avviene tramite un'applicazione creata nel tenant. La procedura seguente crea un'applicazione che reindirizza il token di autorizzazione restituito a [https://jwt.ms](https://jwt.ms).
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi **Aggiungi**.
-5. Immettere un nome per l'applicazione, ad esempio *apptest1*.
-6. Per **App Web/API Web** selezionare `Yes` e quindi immettere `https://jwt.ms` in **URL di risposta**.
-7. Fare clic su **Create**(Crea).
-
-### <a name="create-the-user-flow"></a>Creare il flusso utente
-
-Per testare i file di personalizzazione, occorre creare un flusso utente predefinito di iscrizione o accesso che usa l'applicazione creata in precedenza.
-
-1. Dal tenant di Azure AD B2C, selezionare **Flussi utente** e fare clic su **Nuovo flusso utente**.
-2. Nella scheda **Consigliati** fare clic su **Iscrizione e accesso**.
-3. Immettere un nome per il flusso utente. Ad esempio, *signup_signin*. Il prefisso *B2C_1* viene aggiunto automaticamente al nome al momento della creazione del flusso utente.
-4. In **Provider di identità** selezionare **Iscrizione posta elettronica**.
-5. In **Attributi e attestazioni utente** fare clic su **Mostra dettagli**.
-6. Nella colonna **Raccogli l'attributo** scegliere gli attributi da raccogliere dal cliente durante l'iscrizione. Impostare ad esempio **Paese/Area geografica**, **Nome visualizzato** e **Codice postale**.
-7. Nella colonna **Restituisci l'attestazione** scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione al completamento dell'esperienza di iscrizione o accesso. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **Nuovo utente** e **ID oggetto dell'utente**.
-8. Fare clic su **OK**.
-9. Fare clic su **Create**(Crea).
-10. In **Personalizza**, selezionare **Layout di pagina**. Selezionare **Pagina unificata per l'iscrizione o l'accesso**, quindi fare clic su **Sì** per **Usa il contenuto della pagina personalizzata**.
-11. In **URI della pagina personalizzata** immettere l'URL del file *custom-ui.html* registrato in precedenza.
-12. Nella parte superiore della pagina fare clic su **Salva**.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+2. Selezionare **Flussi utente (criteri)** e quindi il flusso utente *B2C_1_signupsignin1*.
+3. Selezionare **Layout di pagina** e quindi in **Pagina unificata per l'iscrizione o l'accesso** fare clic su **Sì** per **Usa contenuto di pagina personalizzato**.
+4. In **URI della pagina personalizzata** immettere l'URI del file *custom-ui.html* registrato in precedenza.
+5. Nella parte superiore della pagina selezionare **Salva**.
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-1. Dal tenant di Azure AD B2C, selezionare **Flussi utente** e selezionare il flusso utente creato. Ad esempio, *B2C_1_signup_signin*.
+1. Dal tenant di Azure AD B2C selezionare **Flussi utente** e quindi il flusso utente *B2C_1_signupsignin1*.
 2. Nella parte superiore della pagina, fare clic su **Esegui il flusso utente**.
 3. Fare clic sul pulsante **Esegui il flusso utente**.
 
@@ -188,7 +161,7 @@ In questo articolo si è appreso come:
 
 > [!div class="checklist"]
 > * Creare file di personalizzazione dell'interfaccia utente
-> * Creare un flusso utente di iscrizione e di accesso che usa i file
+> * Aggiornare il flusso utente in modo da usare i file
 > * Testare l'interfaccia utente personalizzata
 
 > [!div class="nextstepaction"]

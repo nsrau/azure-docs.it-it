@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173322"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820557"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -107,7 +107,7 @@ NOME | Scopo
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -130,7 +130,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -146,7 +146,7 @@ Informazioni chiave:
  - Il punto di accesso al contenuto identifica il servizio che deve gestire il contenuto richiesto.
  - Non usare l'istruzione AND IF per combinare determinate condizioni di corrispondenza. Ad esempio, se si combina una condizione di corrispondenza Origine rete CDN con una condizione di corrispondenza Origine cliente, viene generato un criterio di corrispondenza che non potrà mai restituire risultati. Per questo motivo, due condizioni di corrispondenza Origine rete CDN non possono essere combinate tramite un'istruzione AND IF.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -171,14 +171,14 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
 ---
 ### <a name="cookie-parameter"></a>Parametro cookie
 L'opzione **Matches** (Corrisponde)/**Does Not Matches** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
-- **Corrisponde**: prevede che una richiesta contenga il cookie specificato con un valore che corrisponda ad almeno uno dei valori definiti nella condizione di corrispondenza.
+- **Matches** (Corrisponde): prevede che una richiesta contenga il cookie specificato con un valore che corrisponda ad almeno uno dei valori definiti nella condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene il cookie specificato.
   - Contiene il cookie specificato, ma il relativo valore non corrisponde ad alcun valore definito nella condizione di corrispondenza.
@@ -200,7 +200,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -209,7 +209,7 @@ Informazioni chiave:
 La condizione di corrispondenza Espressione regolare parametro cookie definisce un nome e un valore del cookie. Per definire il valore di cookie desiderato, è possibile usare [espressioni regolari](cdn-rules-engine-reference.md#regular-expressions). 
 
 L'opzione **Matches** (Corrisponde)/**Does Not Matches** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
-- **Corrisponde**: prevede che la richiesta contenga il cookie specificato con un valore che corrisponde all'espressione regolare specificata.
+- **Matches** (Corrisponde): prevede che la richiesta contenga il cookie specificato con un valore che corrisponde all'espressione regolare specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene il cookie specificato.
   - Contiene il cookie specificato, ma il relativo valore non corrisponde all'espressione regolare specificata.
@@ -229,7 +229,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -266,7 +266,7 @@ Questa condizione di corrispondenza permette di eseguire numerose personalizzazi
 
 - Funzionalità Deny Access (403) (Nega accesso - 403): abilitare la funzionalità [Deny Access (403)](cdn-rules-engine-reference-features.md#deny-access-403) (Nega accesso - 403) per replicare la parte Consenti o Blocca della funzionalità del filtro dei paesi.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ Informazioni chiave:
   - Una configurazione CNAME perimetrale
 - Non usare l'istruzione AND IF per combinare determinate condizioni di corrispondenza. Ad esempio, se si combina una condizione di corrispondenza Origine cliente con una condizione di corrispondenza Origine rete CDN, viene generato un criterio di corrispondenza che non potrà mai restituire risultati. Per questo motivo, due condizioni di corrispondenza Origine cliente non possono essere combinate tramite un'istruzione AND IF.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -306,7 +306,7 @@ Informazioni chiave:
 #### <a name="string-type"></a>Tipo di stringa
 Una funzionalità WURFL accetta in genere qualsiasi combinazione di numeri, lettere e simboli. A causa della natura flessibile di questa funzionalità, è necessario scegliere il modo in cui interpretare il valore associato alla condizione di corrispondenza. La tabella seguente descrive il set di opzioni disponibile:
 
-type     | DESCRIZIONE
+Type     | DESCRIZIONE
 ---------|------------
 Literal (Valore letterale)  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-rules-engine-reference.md#literal-values).
 Wildcard (Carattere jolly) | Selezionare questa opzione per trarre vantaggio da tutti i [caratteri jolly]([caratteri jolly](cdn-rules-engine-reference.md#wildcard-values).
@@ -343,7 +343,7 @@ Data di rilascio | %{wurfl_cap_release_date} | Stringa che indica il mese e l'an
 Resolution Height (Altezza risoluzione) | %{wurfl_cap_resolution_height} | Numero intero che indica l'altezza del dispositivo in pixel. | 768
 Resolution Width (Larghezza risoluzione) | %{wurfl_cap_resolution_width} | Numero intero che indica la larghezza del dispositivo in pixel. | 1024
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -384,14 +384,14 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-literal"></a>Valore letterale intestazione richiesta
 L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
-- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere al valore definito in questa condizione di corrispondenza.
+- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere al valore definito in questa condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde al valore definito in questa condizione di corrispondenza.
@@ -405,14 +405,14 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-regex"></a>Espressione regolare intestazione richiesta
 L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
-- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il valore deve corrispondere al modello definito nell'[espressione regolare](cdn-rules-engine-reference.md#regular-expressions) specificata.
+- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il valore deve corrispondere al modello definito nell'[espressione regolare](cdn-rules-engine-reference.md#regular-expressions) specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde all'espressione regolare specificata.
@@ -432,14 +432,14 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno 
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
 ---
 ### <a name="request-header-wildcard"></a>Carattere jolly intestazione richiesta
 L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
-- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere ad almeno uno dei valori definiti in questa condizione di corrispondenza.
+- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere ad almeno uno dei valori definiti in questa condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde ad alcun valore specificato.
@@ -460,7 +460,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ Informazioni chiave:
   - Ignora origine No-Cache
   - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -557,7 +557,7 @@ Informazioni chiave:
 
 - Usare l'opzione **Ignore Case** (Ignora maiuscole/minuscole) per determinare se effettuare un controllo tenendo conto o meno della distinzione tra maiuscole e minuscole.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -596,7 +596,7 @@ Questa condizione di corrispondenza verrà soddisfatta quando vengono trovati UR
 - .php
 - .html
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -623,7 +623,7 @@ Informazioni chiave:
 
     Ad esempio, se si specifica "presentazione.ppt", un asset denominato "presentazione.ppt" soddisferà la condizione, ma non uno denominato "presentazione.pptx".
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -667,7 +667,7 @@ Informazioni chiave:
 
 - Per trovare la corrispondenza di tutte le richieste effettuate in una directory particolare, usare la condizione di corrispondenza [URL Path Directory](#url-path-directory) (Directory percorso URL) o [URL Path Wildcard](#url-path-wildcard) (Carattere jolly percorso URL).
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -698,7 +698,7 @@ Informazioni chiave:
     
 - Gli spazi nel percorso URL devono essere sostituiti con "%20".
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -727,7 +727,7 @@ Informazioni chiave:
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
     Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
-     - URL della rete CDN: http://wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL della rete CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informazioni aggiuntive:
@@ -760,7 +760,7 @@ Valore                   | Relative to (Relativo a)    | Risultato
 *.jpg *.gif *.png       | Radice o Origine | Tutti gli URL CNAME perimetrali o di rete CDN che terminano con .jpg, .gif o .png. soddisfano la corrispondenza a questo modello. Un metodo alternativo per specificare questo modello è la condizione di corrispondenza [URL Path Extension](#url-path-extension) (Estensione percorso URL).
 /images/\* /media/\*      | Origine         | Gli URL CNAME perimetrali o di rete CDN il cui percorso relativo inizia con una cartella "images" o "media" soddisfano la corrispondenza a questo modello. <br />- URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME perimetrale di esempio: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -794,7 +794,7 @@ Informazioni chiave:
    - Ignora origine No-Cache
    - Max-Stale interno
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -874,7 +874,7 @@ Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
 Email | Joe\* | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro Email che inizia con "Joe".
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -919,7 +919,7 @@ Informazioni chiave:
    - Max-Stale interno
 
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 
@@ -944,7 +944,7 @@ Informazioni chiave:
 
 - È possibile specificare più valori delimitandoli con uno spazio singolo.
 
-   Ad esempio: *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
+   Ad esempio:  *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
 
 - Questa condizione verrà soddisfatta solo da corrispondenze esatte ad almeno uno dei modelli di stringa di query specificati.
     
@@ -965,7 +965,7 @@ L'esempio seguente mostra il funzionamento di questa opzione in situazioni speci
 user=joe              | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 \*user=\* \*optout=\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.
 
-[Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
+[Torna all'inizio](#main)
 
 </br>
 

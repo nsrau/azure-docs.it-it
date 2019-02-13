@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a9a1446db66e528cfac98222d4bd258efc660c84
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213260"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750376"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introduzione a Speech Devices SDK
 
@@ -46,12 +46,14 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
     È possibile [creare un modello LUIS semplice](https://docs.microsoft.com/azure/cognitive-services/luis/) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://shares.datatransfer.microsoft.com/). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurare il kit di sviluppo
-
-1. Collegare il kit di sviluppo a un PC o a un alimentatore tramite un cavo USB mini. Quando il kit è connesso, sotto il ripiano superiore si accende la spia verde di accensione.
-
-1. Collegare il kit di sviluppo a un computer tramite un cavo USB mini.
+    
+1. Il kit di sviluppo ha due connettori Micro-USB. Il connettore di sinistra alimenta il kit di sviluppo ed è contrassegnato con Power nell'immagine seguente. Il connettore di destra ha la funzione di controllare il kit ed è contrassegnato con Debug nell'immagine.
 
     ![Connessione del kit di sviluppo](media/speech-devices-sdk/qsg-1.png)
+       
+1. Alimentare il kit di sviluppo usando un cavo Micro-USB per collegare la porta di alimentazione a un PC o a una presa di alimentazione. Sotto il ripiano superiore si illuminerà la spia verde di accensione.
+
+1. Per controllare il kit di sviluppo, collegare la porta di debug a un computer tramite un secondo cavo Micro-USB. È fondamentale usare un cavo di alta qualità per garantire comunicazioni affidabili.
 
 1. Orientare il kit di sviluppo per la configurazione circolare o lineare.
 
@@ -75,6 +77,8 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
     > [!NOTE]
     > Questi comandi usano Android Debug Bridge, `adb.exe`, che fa parte dell'installazione di Android Studio. Questo strumento si trova in C:\Utenti\[nome utente]\AppData\Local\Android\Sdk\platform-tools. Per richiamare più facilmente `adb`, è possibile aggiungere questa directory al percorso. In caso contrario, è necessario specificare il percorso completo dell'installazione di adb.exe in ogni comando che richiama `adb`.
+    >
+    > Se viene visualizzato un errore `no devices/emulators found`, verificare che il cavo USB sia collegato e che sia un cavo di alta qualità. È possibile usare `adb devices` per verificare che il computer sia in grado di comunicare con il kit di sviluppo poiché restituirà un elenco di dispositivi.
 
     > [!TIP]
     > Disattivare l'audio del microfono e dell'altoparlante del PC per essere sicuri di usare i microfoni del kit di sviluppo. In questo modo si evita che il dispositivo venga attivato accidentalmente da audio proveniente dal PC.

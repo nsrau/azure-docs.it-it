@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251606"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766623"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
-Il servizio Azure Machine Learning offre diversi modi per distribuire un modello con training usando l'SDK. In questo documento viene descritto come distribuire il modello come servizio Web nel cloud di Azure o nei dispositivi periferici IoT.
+Il servizio Azure Machine Learning offre diversi modi per distribuire un modello con training usando l'SDK. In questo documento viene descritto come distribuire un modello come servizio Web nel cloud di Azure o nei dispositivi IoT Edge.
 
 > [!IMPORTANT]
 > La condivisione di risorse tra le origini (CORS) non è attualmente supportata quando si distribuisce un modello come servizio Web.
@@ -119,7 +119,7 @@ Lo script di esecuzione riceve i dati inviati a un'immagine distribuita e li pas
 
 #### <a name="working-with-json-data"></a>Uso dei dati JSON
 
-Il seguente è uno script di esempio che accetta e restituisce dati JSON. La funzione `run` trasforma i dati da JSON in un formato previsto dal modello e quindi trasforma la risposta in JSON prima di restituirla:
+Lo script di esempio seguente accetta e restituisce dati JSON. La funzione `run` trasforma i dati da JSON in un formato previsto dal modello e quindi trasforma la risposta in JSON prima di restituirla:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>Uso dei dati binari
 
-Se il modello accetta i __dati binari__, usare `AMLRequest`, `AMLResponse` e `rawhttp`. Il seguente è un esempio di script che accetta dati binari e restituisce i byte invertiti per le richieste POST. Per le richieste GET, restituisce l'URL completo nel corpo della risposta:
+Se il modello accetta i __dati binari__, usare `AMLRequest`, `AMLResponse` e `rawhttp`. Lo script di esempio seguente accetta dati binari e restituisce i byte invertiti per le richieste POST. Per le richieste GET, restituisce l'URL completo nel corpo della risposta:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Per eseguire la distribuzione in Istanze di Azure Container, seguire questa proc
 
     **Tempo stimato**: circa 3 minuti.
 
-    > [!TIP]
-    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
-
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Eseguire la distribuzione nel servizio Azure Kubernetes
@@ -334,9 +331,6 @@ print(service.state)
 
 **Tempo stimato**: circa 3 minuti.
 
-> [!TIP]
-> Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
-
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 
 ### <a id="fpga"></a> Eseguire la distribuzione in dispositivi FPGA
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Salvare la stringa di connessione risultante dopo "cs":"{copiare questa stringa}".
 
-Inizializzare il dispositivo scaricando [questo script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in un nodo IoT Edge UbuntuX64 o in una Data Science Virtual Machine per eseguire i comandi seguenti:
+Inizializzare il dispositivo scaricando [questo script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in un nodo IoT Edge UbuntuX64 o in una DSVM per eseguire i comandi seguenti:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 Il nodo IoT Edge è pronto a ricevere la stringa di connessione per l'hub IoT. Cercare la riga ```device_connection_string:``` e incollare la stringa di connessione precedente tra le virgolette.
 
-È anche possibile imparare a registrare il dispositivo e installare il runtime di IoT seguendo la procedura passo a passo descritta nel documento [Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
+È anche possibile imparare a registrare il dispositivo e installare il runtime di IoT facendo riferimento al documento [Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
 
 
 #### <a name="get-the-container-registry-credentials"></a>Acquisire le credenziali del registro contenitori
@@ -469,7 +463,7 @@ Il servizio Web è un'API REST, quindi è possibile creare applicazioni client i
 
 ## <a id="update"></a> Aggiornare il servizio Web
 
-Per aggiornare il servizio Web, usare il metodo `update`. Il codice seguente illustra come aggiornare il servizio Web in modo da usare una nuova immagine:
+Quando si crea una nuova immagine, è necessario aggiornare manualmente ogni servizio che deve usarla. Per aggiornare il servizio Web, usare il metodo `update`. Il codice seguente illustra come aggiornare il servizio Web in modo da usare una nuova immagine:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> Quando si aggiorna un'immagine, il servizio Web non viene aggiornato automaticamente. È necessario aggiornare manualmente ogni servizio per cui si vuole usare la nuova immagine.
-
 Per altre informazioni, vedere la documentazione di riferimento per la classe [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## <a name="clean-up"></a>Eseguire la pulizia
@@ -502,6 +493,19 @@ Per eliminare un modello registrato, usare `model.delete()`.
 
 Per altre informazioni, vedere la documentazione di riferimento per [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+* __Se si verificano errori durante la distribuzione__, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
+
+* I log possono contenere un errore che indica di __impostare il livello di registrazione su DEBUG__. Per impostare il livello di registrazione, aggiungere le righe seguenti allo script di assegnazione dei punteggi, creare l'immagine e quindi creare un servizio usando l'immagine:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Questa modifica abilita ulteriore registrazione e può restituire altre informazioni sul motivo per cui si verifica l'errore.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
@@ -511,3 +515,5 @@ Per altre informazioni, vedere la documentazione di riferimento per [WebService.
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
 * [SDK del servizio Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders) (Procedure consigliate per creare sistemi di raccomandazione)
+* [Creare un'API per raccomandazioni in tempo reale in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

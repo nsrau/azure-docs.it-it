@@ -5,7 +5,7 @@ items:
   items:
   - name: Informazioni su Monitoraggio di Azure
     href: overview.md
-  - name: Modifiche di marchio
+  - name: Modifiche della terminologia
     href: azure-monitor-rebrand.md
 - name: Guide introduttive
   items:
@@ -64,6 +64,12 @@ items:
     href: azure-management.md
   - name: Monitoraggio continuo
     href: continuous-monitoring.md
+  - name: Analizzare i dati dei log
+    items:
+    - name: Query di log
+      href: log-query/log-query-overview.md
+    - name: Portali per query sui log
+      href: log-query/portals.md
   - name: Dati di monitoraggio
     items:
     - name: Metriche e log
@@ -106,18 +112,6 @@ items:
       href: insights/vminsights-overview.md
     - name: Soluzioni di monitoraggio
       href: insights/solutions-inventory.md
-  - name: Analizzare i dati
-    items:
-    - name: Log Analytics
-      href: log-query/log-query-overview.md
-    - name: Portali per query sui log
-      href: log-query/portals.md
-    - name: Transizione del portale di OMS
-      items:
-      - name: Panoramica
-        href: platform/oms-portal-transition.md
-      - name: Domande frequenti
-        href: platform/oms-portal-faq.md
   - name: Rispondere agli eventi imprevisti
     items:
     - name: Avvisi
@@ -138,6 +132,12 @@ items:
     href: visualizations.md
   - name: Integrazioni di partner
     href: platform/partners.md
+  - name: Transizione del portale di OMS
+    items:
+    - name: Panoramica
+      href: platform/oms-portal-transition.md
+    - name: Domande frequenti
+      href: platform/oms-portal-faq.md
   - name: Domande frequenti
     items:
     - name: Log Analytics
@@ -1023,9 +1023,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 96f79397b16212fe0897e0d03f57ffb7248118c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: b1d837248f84eb3050788924f4bb0e0077845abe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767123"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993572"

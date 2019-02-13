@@ -55,22 +55,55 @@
 ### [Pagina Cronologia dei controlli](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [Pagina Informazioni dettagliate](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## Gestione nel portale
 ### [Registrazione di account Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [SKU privati](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [Indicazioni su SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Gestire il profilo di pubblicazione](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [Gestire gli utenti](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## Gestione aziendale
+### [Indicazioni su SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Conformità al Regolamento generale sulla protezione dei dati (GDPR)](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [SKU privati](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### Gestire i lead
+#### [Configurare lead relativi ai clienti](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Tabella di Azure](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [Endpoint HTTPS](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Informazioni dettagliate per il venditore
+#### [Per iniziare](./cloud-partner-portal-orig/si-getting-started.md)
+#### [Novità](./cloud-partner-portal-orig/si-changes.md)
+#### [Web Analytics](./cloud-partner-portal-orig/web-analytics.md)
+#### [Definizioni](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [Domande frequenti su Insights](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Offerte del Marketplace](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [Gestire le offerte](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Creare un'offerta](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [Pubblicare un'offerta](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Visualizzare lo stato dell'offerta](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Aggiornare l'offerta](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Eliminare un'offerta](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### Test drive
+#### [Informazioni sul test drive](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Test drive di Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [Test drive ospitato](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [Test drive di app per la logica](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [Esempi di trasformazione per il test drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [Marketing e procedure consigliate](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Offerta di applicazioni Azure](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Prerequisiti](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [Scheda Supporto](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [Creare asset tecnici](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Pubblicare un'offerta per un'applicazione di Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [Gestione del feedback di revisione](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [Aggiornare un'offerta esistente](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [Servizi di consulenza](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [Pubblicare un'offerta per le VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [Aggiornare un'offerta esistente](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## Test drive
-### [Informazioni sul test drive](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Test drive di Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [Test drive ospitato](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [Test drive di app per la logica](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [Esempi di trasformazione per il test drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [Marketing e procedure consigliate](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## Gestire i lead
-### [Configurare lead relativi ai clienti](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Tabella di Azure](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [Endpoint HTTPS](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Informazioni dettagliate per il venditore
-### [Per iniziare](./cloud-partner-portal-orig/si-getting-started.md)
-### [Novità](./cloud-partner-portal-orig/si-changes.md)
-### [Web Analytics](./cloud-partner-portal-orig/web-analytics.md)
-### [Definizioni](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [Domande frequenti su Insights](./cloud-partner-portal-orig/si-faqs.md)
 
 ## Informazioni di riferimento sulle API
 ### [Overview](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)

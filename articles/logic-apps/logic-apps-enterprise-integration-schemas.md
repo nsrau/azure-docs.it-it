@@ -1,6 +1,6 @@
 ---
-title: Aggiungere schemi per la convalida XML - App per la logica di Azure | Microsoft Docs
-description: Creare schemi di convalida dei documenti XML in App per la logica di Azure con Enterprise Integration Pack
+title: Convalida XML con schemi - App per la logica di Azure | Microsoft Docs
+description: Aggiungere schemi per convalidare i documenti XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,124 +9,185 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.date: 07/29/2016
-ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 02/06/2019
+ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123074"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768308"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
 
-È possibile usare gli schemi per confermare che i documenti XML ricevuti siano validi e avere i dati previsti in un formato predefinito. Gli schemi vengono usati inoltre per convalidare i messaggi scambiati in uno scenario B2B.
+Per controllare che i documenti usino codice XML valido e contengano i dati previsti nel formato predefinito per gli scenari di integrazione aziendale di App per la logica di Azure, l'app per la logica può usare schemi. Uno schema consente anche di convalidare i messaggi scambiati dalle app per la logica all'interno di scenari Business to Business (B2B).
 
-## <a name="add-a-schema"></a>Aggiungere uno schema
+Per i limiti relativi agli account di integrazione e agli artefatti, ad esempio gli schemi, vedere [Informazioni su limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**.
+## <a name="prerequisites"></a>Prerequisiti
 
-    ![Portale di Azure, "Tutti i servizi"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-2. Nella casella di ricerca del filtro immettere **integrazione**, quindi selezionare **Account di integrazione** dall'elenco dei risultati.
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) in cui archiviare gli schemi e gli altri artefatti per l'integrazione aziendale e le soluzioni B2B (Business to Business). 
 
-    ![Casella di ricerca del filtro](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+  Se le dimensioni dello schema corrispondono a [2 MB al massimo](#smaller-schema), è possibile aggiungere lo schema all'account di integrazione direttamente dal portale di Azure. Se tuttavia lo schema è di dimensioni superiori a 2 MB, ma non è maggiore del [limite delle dimensioni dello schema](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), è possibile caricarlo in un account di archiviazione di Azure. 
+  Per aggiungere lo schema all'account di integrazione, è quindi possibile creare un collegamento all'account di archiviazione dall'account di integrazione. 
+  Per questa attività, ecco gli elementi necessari: 
 
-3. Selezionare l'**account di integrazione** in cui si desidera aggiungere lo schema.
+  * Un [account di archiviazione di Azure](../storage/common/storage-account-overview.md) in cui creare un contenitore BLOB per lo schema. Informazioni su come [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md). 
 
-    ![Elenco degli account di integrazione](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+  * Un contenitore BLOB per l'archiviazione dello schema. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). 
+  L'URI del contenuto del contenitore è necessario in un secondo momento, quando si aggiunge lo schema all'account di integrazione.
 
-4. Selezionare il riquadro **Schemi**.
+  * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), che è possibile usare per la gestione degli account di archiviazione e dei contenitori BLOB. 
+  Per usare Storage Explorer, scegliere una di queste opzioni:
+  
+    * Nel portale di Azure trovare e selezionare l'account di archiviazione. 
+    Dal menu dell'account di archiviazione selezionare **Storage Explorer**.
 
-    ![Esempio di account di integrazione, "Schemi"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+    * Per la versione desktop, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), 
+    quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+    Per altre informazioni, vedere [Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>Aggiungere un file di schema di dimensioni inferiori a 2 MB
+Quando si creano e si aggiungono schemi, non è necessaria un'app per la logica. Per usare uno schema, tuttavia, l'app per la logica deve essere collegata all'account di integrazione in cui si archivia tale schema. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Nel pannello **Schemi** visualizzato nei passaggi precedenti, selezionare **Aggiungi**.
+## <a name="add-schemas"></a>Aggiungere schemi
 
-    ![Pannello Schemi, "Aggiungi"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure.
 
-2. Immettere un nome per lo schema. Caricare il file di schema selezionando l'icona della cartella accanto alla casella di testo **Schema**. Al termine del processo di caricamento, scegliere **OK**.
+1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **Account di integrazione**.
 
-    ![Screenshot di "Aggiungi schema", con "File piccolo" evidenziato](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>Aggiungere un file di schema di dimensioni maggiori di 2 MB (fino a un massimo di 8 MB)
+1. Selezionare l'account di integrazione a cui si vuole aggiungere lo schema, ad esempio:
 
-La procedura dipende dal livello di accesso del contenitore BLOB, ovvero **Pubblico** o **Nessun accesso anonimo**.
+   ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-**Per determinare il livello di accesso**
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Schemi**.
 
-1.  Aprire **Azure Storage Explorer** (Esplora archivi di Azure). 
+   ![Selezionare "Schemi"](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
-2.  In **Contenitori Blob**, selezionare il contenitore di blob desiderato. 
+1. Quando la pagina **Schemi** è aperta, scegliere **Aggiungi**.
 
-3.  Selezionare **Sicurezza**, **Livello di accesso**.
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-Se il livello di accesso di sicurezza del BLOB è **Pubblico**, seguire questa procedura.
+In base alle dimensioni del file di schema (con estensione xsd), seguire i passaggi per caricare uno schema di dimensioni [pari o inferiori a 2 MB](#smaller-schema) oppure [comprese tra 2 MB e 8 MB](#larger-schema).
 
-![Azure Storage Explorer con evidenziate le opzioni "Contenitori BLOB", "Sicurezza" e "Pubblico"](media/logic-apps-enterprise-integration-schemas/blob-public.png)
+<a name="smaller-schema"></a>
 
-1. Caricare lo schema nell'account di archiviazione e copiare l'URI.
+### <a name="add-schemas-up-to-2-mb"></a>Aggiungere schemi fino a 2 MB
 
-    ![Account di archiviazione con URI evidenziato](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+1. In **Aggiungi schema** immettere un nome per lo schema. 
+   Mantenere selezionato **File piccolo**. Accanto alla casella **Schema** scegliere l'icona della cartella. Trovare e selezionare lo schema da caricare, ad esempio:
 
-2. In **Aggiungi schema** selezionare **File grande**, quindi specificare l'URI nella casella di testo **URI del contenuto**.
+   ![Caricare uno schema più piccolo](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
-    ![Schemi con evidenziati il pulsante "Aggiungi" e l'opzione "Large file" (File grande)](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. Al termine, scegliere **OK**.
 
-Se il livello di accesso di sicurezza BLOB è **Nessun accesso anonimo**, seguire questa procedura.
+   Al termine del caricamento dello schema, lo schema viene visualizzato nell'elenco **Schemi**.
 
-![Azure Storage Explorer, con evidenziate le opzioni "Contenitori BLOB", "Sicurezza" e "No anonymous access" (Nessun accesso anonimo)](media/logic-apps-enterprise-integration-schemas/blob-1.png)
+<a name="larger-schema"></a>
 
-1. Caricare lo schema nell'account di archiviazione.
+### <a name="add-schemas-more-than-2-mb"></a>Aggiungere schemi con dimensioni maggiori di 2 MB
 
-    ![Account di archiviazione](media/logic-apps-enterprise-integration-schemas/blob-3.png)
+Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per aggiungere gli schemi sono diversi a seconda che il contenitore BLOB abbia l'accesso in lettura pubblico o meno. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-2. Generare una firma di accesso condiviso per lo schema.
+#### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
-    ![Account di archiviazione con evidenziata la scheda delle firme di accesso condiviso](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+1. Aprire Azure Storage Explorer. Nella finestra di Explorer espandere la sottoscrizione di Azure, se necessario.
 
-3. In **Aggiungi schema**, selezionare **File grande**, quindi specificare l'URI della firma di accesso condiviso nella casella di testo **URI del contenuto**.
+1. Espandere **Account di archiviazione** > {*account-di-archiviazione-utente*} > **Blob Containers** (Contenitori BLOB). Selezionare il contenitore BLOB.
 
-    ![Schemi con evidenziati il pulsante "Aggiungi" e l'opzione "Large file" (File grande)](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-4. Nel pannello **Schemi** dell'account di integrazione dovrebbe essere visualizzato lo schema appena aggiunto.
+   * Se il contenitore BLOB ha almeno l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori con accesso pubblico](#public-access)
 
-    ![Account di integrazione EIP con evidenziati il pannello "Schemi" e il nuovo schema](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+     ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * Se il contenitore BLOB non ha l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori senza accesso pubblico](#public-access)
+
+     ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access"></a>
+
+#### <a name="upload-to-containers-with-public-access"></a>Caricare in contenitori con accesso pubblico
+
+1. Caricare lo schema nell'account di archiviazione. 
+   Nella finestra a destra scegliere **Carica**.
+
+1. Al termine del caricamento, selezionare lo schema caricato. Sulla barra degli strumenti scegliere **Copia URL** per copiare l'URL dello schema.
+
+1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi schema**. 
+   Immettere un nome per lo schema. 
+   Scegliere **File grande (dimensioni maggiori di 2 MB)**. 
+
+   Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Schema**.
+
+1. Nella casella **URI del contenuto** incollare l'URL dello schema. 
+   Terminare l'aggiunta dello schema.
+
+Al termine del caricamento dello schema, lo schema viene visualizzato nell'elenco **Schemi**. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Schema** visualizza ora il numero di schemi caricati.
+
+<a name="no-public-access"></a>
+
+#### <a name="upload-to-containers-without-public-access"></a>Caricare in contenitori senza accesso pubblico
+
+1. Caricare lo schema nell'account di archiviazione. 
+   Nella finestra a destra scegliere **Carica**.
+
+1. Al termine del caricamento, generare una firma di accesso condiviso per lo schema. 
+   Dal menu di scelta rapida scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
+
+1. Nel riquadro **Firma di accesso condiviso** selezionare **Generate container-level shared access signature URI** (Genera l'URI di firma di accesso condiviso a livello di contenitore) > **Crea**. 
+   Dopo la generazione dell'URL di firma di accesso condiviso, accanto alla casella **URL** scegliere **Copia**.
+
+1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi schema**. Scegliere **File grande**.
+
+   Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Schema**.
+
+1. Nella casella **URI del contenuto** incollare l'URI di firma di accesso condiviso generato in precedenza. Terminare l'aggiunta dello schema.
+
+Al termine del caricamento dello schema, lo schema viene visualizzato nell'elenco **Schemi**. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Schema** visualizza ora il numero di schemi caricati.
 
 ## <a name="edit-schemas"></a>Modificare gli schemi
 
-1. Selezionare il riquadro **Schemi**.
+Per aggiornare uno schema esistente, è necessario caricare un nuovo file di schema contenente le modifiche desiderate. È tuttavia possibile scaricare prima lo schema esistente e poi modificarlo.
 
-2. Selezionare lo schema da modificare quando il pannello **Schemi** si apre.
+1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
 
-3. Nel pannello **Schemi** selezionare **Modifica**.
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca, digitare "account di integrazione". 
+   Selezionare **Account di integrazione**.
 
-    ![Pannello Schemi](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+1. Selezionare l'account di integrazione in cui si vuole aggiornare lo schema.
 
-4. Selezionare il file di schema che si desidera modificare, quindi selezionare **Apri**.
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Schemi**.
 
-    ![Aprire il file di schema da modificare](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+1. Quando la pagina **Schemi** è aperta, selezionare lo schema. 
+   Per scaricare e modificare lo schema prima, scegliere **Scarica** e salvare lo schema.
 
-In Azure viene visualizzato il messaggio che lo schema è stato caricato correttamente.
+1. Quando lo schema aggiornato è pronto per il caricamento, nella pagina **Schemi** selezionare lo schema che si vuole aggiornare e scegliere **Aggiorna**.
+
+1. Trovare e selezionare lo schema aggiornato che si vuole caricare. 
+   Al termine del caricamento del file dello schema, lo schema aggiornato viene visualizzato nell'elenco **Schemi**.
 
 ## <a name="delete-schemas"></a>Eliminare gli schemi
 
-1. Selezionare il riquadro **Schemi**.
+1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
 
-2. Selezionare lo schema da eliminare quando il pannello **Schemi** si apre.
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca, digitare "account di integrazione". 
+   Selezionare **Account di integrazione**.
 
-3. Nel pannello **Schemi** selezionare **Elimina**.
+1. Selezionare l'account di integrazione in cui si vuole eliminare lo schema.
 
-    ![Pannello Schemi](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Schemi**.
 
-4. Per confermare che si desidera eliminare lo schema selezionato scegliere **Sì**.
+1. Quando la pagina **Schemi** è aperta, selezionare lo schema e scegliere **Elimina**.
 
-    ![Messaggio di conferma "Elimina schema"](media/logic-apps-enterprise-integration-schemas/delete-21.png)
-
-    Nel pannello **Schemi** si aggiorna l'elenco degli schemi, che non include più lo schema che è stato eliminato.
-
-    ![Account di integrazione con il riquadro "Schemi" evidenziato](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+1. Per confermare che si vuole eliminare lo schema, scegliere **Sì**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack").  
 
+* [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [Altre informazioni sulle trasformazioni](../logic-apps/logic-apps-enterprise-integration-transform.md)

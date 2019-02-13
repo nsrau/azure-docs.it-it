@@ -1,5 +1,5 @@
 items:
-- name: Documentazione del database SQL
+- name: Documentazione sul database SQL
   href: index.yml
 - name: Servizio database SQL
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: Progettare un database SQL di Azure
+  - name: Progettare un database in database SQL
     items:
     - name: Progettare un database con SSMS
       href: sql-database-design-first-database.md
     - name: Progettare un database con .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Eseguire la migrazione al database SQL di Azure
+  - name: Eseguire la migrazione al database SQL
     items:
     - name: Eseguire la migrazione a un database singolo/in pool con il Servizio Migrazione del database
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Eseguire la migrazione a un'istanza gestita con il Servizio Migrazione del database
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Sicurezza in Database SQL di Azure
+  - name: Sicurezza del database SQL
     items:
-    - name: Sicurezza del database singolo
+    - name: Sicurezza di database singoli e in pool
       href: sql-database-security-tutorial.md
-    - name: Sicurezza di Istanza gestita con gli account di accesso di Azure AD
+    - name: Sicurezza dell'istanza gestita
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implementare un database con distribuzione geografica
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Modelli di acquisto
     items:
     - name: Panoramica
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: Modello basato su vCore
       href: sql-database-service-tiers-vcore.md
-    - name: Modello DTU
+    - name: Piani di servizio DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pagare in anticipo la capacità riservata
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Panoramica
       href: sql-database-howto-single-database.md
-    - name: Eseguire la migrazione al database SQL
-      href: sql-database-cloud-migrate.md
+    - name: Eseguire la migrazione a un database singolo/in pool
+      href: sql-database-single-database-migrate.md
     - name: Gestire il database SQL dopo la migrazione
       href: sql-database-manage-after-migration.md
     - name: Configurare la replica
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Eseguire query in tabelle con schemi diversi
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Processi di database elastici
+    - name: Processi elastici
       items:
       - name: Creare e gestire (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,7 +459,7 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: Caricare e spostare dati
     items:
-    - name: Copiare un database in Azure
+    - name: Copiare un database all'interno di Azure
       href: sql-database-copy.md
     - name: Importare un database da un file BACPAC
       href: sql-database-import.md
@@ -605,7 +605,7 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Analisi su tenant
             items:
-            - name: Con database SQL
+            - name: Con il database SQL
               href: saas-tenancy-tenant-analytics.md
             - name: Con SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960548"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100041"

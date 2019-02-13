@@ -4,17 +4,17 @@ description: Le valutazioni e gli effetti di Criteri di Azure determinano la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853630"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766413"
 ---
 # <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
 
@@ -45,6 +45,8 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 - Una risorsa viene distribuita a un ambito con un'assegnazione tramite Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
 
 - Ciclo di valutazione della conformità standard. Le assegnazioni vengono automaticamente rivalutate ogni 24 ore. Un criterio o un'iniziativa estesa di molte risorse può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
+
+- Il provider di risorse [configurazione guest](../concepts/guest-configuration.md) viene aggiornato con i dettagli relativi alla conformità da una risorsa gestita.
 
 - Analisi su richiesta
 
@@ -139,6 +141,26 @@ Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione d
 Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli e selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
 ![Log attività della conformità ai criteri](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Cronologia modifiche (anteprima)
+
+Come parte di una nuova **anteprima pubblica**, sono disponibili gli ultimi quattordici giorni di cronologia modifiche per una risorsa non conforme. La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Viene attivato un rilevamento di modifiche ogni volta che vengono aggiunte, rimosse o modificate le proprietà di Resource Manager di una risorsa non conforme.
+
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+
+1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio _Non conforme_.
+
+1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** selezionare una risorsa _Non conforme_.
+
+1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
+
+   ![Scheda della cronologia modifiche dei criteri](../media/getting-compliance-data/change-history-tab.png)
+
+1. Selezionare una delle modifiche rilevate. Verrà visualizzato il _diff visivo_ per le risorse non conformi nella pagina **Cronologia modifiche**.
+
+   ![Diff visivo nella cronologia modifiche dei criteri](../media/getting-compliance-data/change-history-visual-diff.png)
+
+Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Le modifiche rilevate potrebbero non essere correlate a ciò che ha causato la non conformità della risorsa ai criteri selezionati.
 
 ## <a name="command-line"></a>Riga di comando
 

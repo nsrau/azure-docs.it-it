@@ -1,115 +1,349 @@
 ---
 title: Trasformare i dati XML con le mappe XSLT - App per la logica di Azure | Microsoft Docs
-description: Aggiungere mappe XSLT che trasformano i dati XML in App per la logica di Azure con Enterprise Integration Pack
+description: Aggiungere mappe XSLT per trasformare i dati XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
+manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
-ms.date: 07/08/2016
-ms.openlocfilehash: c5e5e0a0a3f8bd5feedc00d5bbfb76a1453ccc84
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 02/06/2019
+ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123557"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767436"
 ---
-# <a name="add-maps-for-xml-transformation-in-azure-logic-apps-with-enterprise-integration-pack"></a>Aggiungere mappe per la trasformazione dei dati XML in App per la logica di Azure con Enterprise Integration Pack
+# <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
-Enterprise Integration usa mappe per trasformare i dati XML da un formato all'altro. Una mappa è un documento XML che definisce i dati di un documento che devono essere trasformati in un altro formato. 
+Per trasferire i dati XML da un formato all'altro per gli scenari di integrazione aziendali in App per la logica di Azure, l'app per la logica può usare le mappe o, più precisamente, le mappe XSLT (Extensible Stylesheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
 
-## <a name="why-use-maps"></a>Perché usare le mappe?
+Si supponga, ad esempio, di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. L'organizzazione usa tuttavia il formato MMGGAAA per le date. È possibile definire e usare una mappa che trasforma il formato di data AAAMMGG nel formato MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
-Si supponga di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. In azienda però le date vengono archiviare nel formato MMGGAAA. È possibile usare una mappa per *trasformare* il formato di data AAAMMGG in MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
+Per i limiti relativi agli account di integrazione e agli elementi come le mappe, vedere [Informazioni su limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="how-do-i-create-a-map"></a>Come si crea una mappa?
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-È possibile creare progetti BizTalk Integration con [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") per Visual Studio 2015. È quindi possibile creare un file Integration Map che consente di eseguire il mapping visivo degli elementi tra due file di schema XML. Dopo aver compilato il progetto, si disporrà di un documento XSLT.
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) in cui archiviare le mappe e gli altri elementi per l'integrazione aziendale e le soluzioni B2B (business-to-business).
 
-Se una mappa ha un riferimento a un assembly esterno, allora entrambi devono essere caricati per l’account di integrazione. Devono essere caricati in un ordine specifico, innanzitutto l'assembly e quindi la mappa che fa riferimento all'assembly.
+* Se la mappa fa riferimento a un assembly esterno, è necessario caricare *sia l'assembly che la mappa* nell'account di integrazione. Assicurarsi di *caricare prima l'assembly* e quindi la mappa che fa riferimento all'assembly.
 
+  Se le dimensioni dell'assembly sono pari a 2 MB o meno, è possibile aggiungere l'assembly all'account di integrazione *direttamente* dal portale di Azure. Se tuttavia le dimensioni dell'assembly o della mappa sono superiori a 2 MB, ma non superano il [limite per gli assembly o le mappe](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), esistono queste opzioni:
 
-## <a name="how-do-i-add-a-map"></a>Come si aggiunge una mappa?
+  * Per gli assembly, sono necessari un contenitore BLOB di Azure, in cui poter caricare l'assembly, e la posizione di tale contenitore. In questo modo, sarà possibile fornire tale posizione in seguito quando si aggiungerà l'assembly all'account di integrazione. 
+  For questa attività, sono necessari gli elementi seguenti:
 
-1. Nel Portale di Azure selezionare **Sfoglia**.
+    | Elemento | DESCRIZIONE |
+    |------|-------------|
+    | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Altre informazioni su come [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md). |
+    | Contenitore BLOB | In questo contenitore è possibile caricare l'assembly. È necessaria anche la posizione di questo contenitore quando si aggiunge l'assembly all'account di integrazione. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Questo strumento consente di gestire più facilmente gli account di archiviazione e i contenitori BLOB. Per usare Storage Explorer, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Per altre informazioni, vedere [Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>In alternativa, nel portale di Azure trovare e selezionare l'account di archiviazione. Dal menu dell'account di archiviazione selezionare **Storage Explorer**. |
+    |||
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+  * Per le mappe, è attualmente possibile aggiungere mappe più grandi usando l'[API REST di App per la logica di Azure - Mappe](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
 
-2. Nella casella di ricerca per filtrare immettere **integrazione**, quindi selezionare **Account di integrazione** dall'elenco dei risultati.
+Non è necessaria un'app per la logica quando si creano e si aggiungono mappe. Per usare una mappa, tuttavia, l'app per la logica deve essere collegata a un account di integrazione in cui si archivia tale mappa. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+## <a name="add-referenced-assemblies"></a>Aggiungere gli assembly a cui viene fatto riferimento
 
-3. Selezionare l'account di integrazione in cui si desidera aggiungere la mappa.
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure.
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca, digitare "account di integrazione". 
+   Selezionare **Account di integrazione**.
 
-4. Selezionare il riquadro **Mappe**.
+   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-    ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
+1. Selezionare l'account di integrazione a cui si vuole aggiungere l'assembly, ad esempio:
 
-5. Quando la pagina Mappe è aperta, scegliere **Aggiungi**.
+   ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-    ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Assembly**.
 
-6. Immettere un **nome** per la mappa. Per caricare il file di mappa, scegliere l'icona a forma di cartella a destra della casella di testo **Mappa**. Al termine del processo di caricamento, scegliere **OK**.
+   ![Selezionare "Assembly"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
-    ![](./media/logic-apps-enterprise-integration-maps/map-3.png)
+1. Quando la pagina **Assembly** è aperta, scegliere **Aggiungi**.
 
-7. Dopo che Azure aggiunge la mappa all'account di integrazione, viene visualizzato un messaggio che indica se il file di mappa è stato aggiunto. Dopo aver visualizzato il messaggio, scegliere il riquadro **Mappe** in modo da visualizzare la mappa appena aggiunta.
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
-    ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
+In base alle dimensioni del file di assembly, seguire i passaggi per caricare un assembly di dimensioni [pari o inferiori a 2 MB](#smaller-assembly) oppure [comprese tra 2 MB e 8 MB](#larger-assembly).
+Per i limiti delle quantità di assembly negli account di integrazione, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
+<a name="smaller-assembly"></a>
 
-## <a name="how-do-i-add-an-assembly"></a>Come si aggiunge un account?
-Aprire l'account di integrazione dove si desidera aggiungere l’assembly.
+### <a name="add-assemblies-up-to-2-mb"></a>Aggiungere assembly di dimensioni pari o inferiori a 2 MB
 
-1. Scegliere il riquadro degli **Assembly**.
+1. In **Aggiungi assembly** immettere un nome per l'assembly. Mantenere selezionato **File piccolo**. Accanto alla casella **Assembly** scegliere l'icona della cartella. Trovare e selezionare l'assembly da caricare, ad esempio:
 
-    ![Riquadro di assembly per l’account di integrazione](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+   ![Caricare un assembly più piccolo](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
-2. Quando la pagina degli assembly è aperta, scegliere **Aggiungi**. Immettere un **Nome** per l'assembly. Per caricare il file di assembly, scegliere l'icona a forma di cartella a destra della casella di testo **Assembly** . Al termine del processo di caricamento, scegliere **OK**.
+   Nella proprietà **Nome assembly** il nome file dell'assembly viene automaticamente visualizzato dopo aver selezionato l'assembly.
 
-    ![Aggiungi assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+1. Al termine, scegliere **OK**.
 
+   Al termine del caricamento del file di assembly, l'assembly viene visualizzato nell'elenco **Assembly**.
 
-## <a name="how-do-i-edit-a-map"></a>Come si modifica una mappa?
+   ![Elenco di assembly caricati](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
 
-È necessario caricare un nuovo file di mappa con le modifiche desiderate. È anche possibile scaricare la mappa e poi modificarla.
+   Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Assembly** mostra ora il numero di assembly caricati, ad esempio:
 
-Per caricare una nuova mappa che sostituisce una mappa esistente, attenersi ai passaggi seguenti.
+   ![Assembly caricati](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
-1. Scegliere il riquadro **Mappe**.
+<a name="larger-assembly"></a>
 
-2. Quando la pagina Mappe è aperta, selezionare la mappa che si desidera modificare.
+### <a name="add-assemblies-more-than-2-mb"></a>Aggiungere assembly di dimensioni superiori a 2 MB
 
-3. Nella pagina **Mappe** scegliere **Aggiorna**.
+Per aggiungere assembly più grandi, è possibile caricare l'assembly in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per aggiungere gli assembly sono diversi a seconda che il contenitore BLOB abbia l'accesso in lettura pubblico o meno. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-    ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
+#### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
-4. Nella selezione file selezionare il file di mappa da caricare, quindi scegliere **Apri**.
+1. Aprire Azure Storage Explorer. Nella finestra di Explorer espandere la sottoscrizione di Azure, se necessario.
 
-    ![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
+1. Espandere **Account di archiviazione** > {*account-di-archiviazione-utente*} > **Blob Containers** (Contenitori BLOB). Selezionare il contenitore BLOB.
 
-## <a name="how-to-delete-a-map"></a>Come eliminare una mappa?
+1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-1. Scegliere il riquadro **Mappe**.
+   * Se il contenitore BLOB ha almeno l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori con accesso pubblico](#public-access-assemblies)
 
-2. Quando la pagina Mappe è aperta, selezionare la mappa che desideri eliminare.
+     ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-3. Scegliere **Elimina**.
+   * Se il contenitore BLOB non ha l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori senza accesso pubblico](#no-public-access-assemblies)
 
-    ![](./media/logic-apps-enterprise-integration-maps/delete.png)
+     ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
-4. Confermare che si desidera eliminare la mappa.
+<a name="public-access-assemblies"></a>
 
-    ![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
+#### <a name="upload-to-containers-with-public-access"></a>Caricare in contenitori con accesso pubblico
+
+1. Caricare l'assembly nell'account di archiviazione. 
+   Nella finestra a destra scegliere **Carica**.
+
+1. Al termine del caricamento, selezionare l'assembly caricato. Sulla barra degli strumenti scegliere **Copia URL** per copiare l'URL dell'assembly.
+
+1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi assembly**. 
+   Immettere un nome per l'assembly. 
+   Scegliere **File grande (dimensioni maggiori di 2 MB)**.
+
+   Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Assembly**.
+
+1. Nella casella **URI del contenuto** incollare l'URL dell'assembly. 
+   Terminare l'aggiunta dell'assembly.
+
+Al termine del caricamento dell'assembly, lo schema viene visualizzato nell'elenco **Assembly**.
+Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Assembly** mostra ora il numero di assembly caricati.
+
+<a name="no-public-access-assemblies"></a>
+
+#### <a name="upload-to-containers-without-public-access"></a>Caricare in contenitori senza accesso pubblico
+
+1. Caricare l'assembly nell'account di archiviazione. 
+   Nella finestra a destra scegliere **Carica**.
+
+1. Al termine del caricamento, generare una firma di accesso condiviso per l'assembly. 
+   Scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
+
+1. Nel riquadro **Firma di accesso condiviso** selezionare **Generate container-level shared access signature URI** (Genera l'URI di firma di accesso condiviso a livello di contenitore) > **Crea**. 
+   Dopo la generazione dell'URL di firma di accesso condiviso, accanto alla casella **URL** scegliere **Copia**.
+
+1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi assembly**. 
+   Immettere un nome per l'assembly. 
+   Scegliere **File grande (dimensioni maggiori di 2 MB)**.
+
+   Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Assembly**.
+
+1. Nella casella **URI del contenuto** incollare l'URI di firma di accesso condiviso generato in precedenza. Terminare l'aggiunta dell'assembly.
+
+Al termine del caricamento dell'assembly, l'assembly viene visualizzato nell'elenco **Schemi**. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Assembly** mostra ora il numero di assembly caricati.
+
+## <a name="create-maps"></a>Creare le mappe
+
+Per creare un documento XSLT da usare come mappa, è possibile usare Visual Studio 2015 per creare un progetto di Integrazione BizTalk usando [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). In questo progetto è possibile creare un file di mappa di integrazione, che consente di eseguire il mapping visivo degli elementi tra due file di schema XML. Dopo aver compilato il progetto, si ottiene un documento XSLT.
+Per i limiti delle quantità di mappe negli account di integrazione, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
+
+## <a name="add-maps"></a>Aggiungere le mappe
+
+Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile caricare la mappa.
+
+1. Se l'accesso non è già stato eseguito, accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure. 
+
+1. Se l'account di integrazione non è già aperto, nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca, digitare "account di integrazione". 
+   Selezionare **Account di integrazione**.
+
+   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
+
+1. Selezionare l'account di integrazione a cui si vuole aggiungere la mappa, ad esempio:
+
+   ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Mappe**.
+
+   ![Selezionare "Mappe"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
+
+1. Quando la pagina **Mappe** è aperta, scegliere **Aggiungi**.
+
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-maps/add-map.png)  
+
+<a name="smaller-map"></a>
+
+### <a name="add-maps-up-to-2-mb"></a>Aggiungere mappe di dimensioni pari o inferiori a 2 MB
+
+1. In **Aggiungi mappa** immettere un nome per la mappa. 
+
+1. In **Tipo di mapping** selezionare il tipo, ad esempio: **Liquid**, **XSLT**, **XSLT 2.0** o **XSLT 3.0**.
+
+1. Mantenere selezionato **File piccolo**. Accanto alla casella **Mappa** scegliere l'icona della cartella. Trovare e selezionare la mappa da caricare, ad esempio:
+
+   ![Caricare la mappa](./media/logic-apps-enterprise-integration-maps/upload-map-file.png)
+
+   Se la proprietà **Nome** è stata lasciata vuota, il nome file della mappa viene automaticamente visualizzato in tale proprietà dopo aver selezionato il file della mappa. 
+   È tuttavia possibile usare qualsiasi nome univoco.
+
+1. Al termine, scegliere **OK**. 
+   Al termine del caricamento del file, la mappa viene visualizzata nell'elenco **Mappe**.
+
+   ![Elenco di mappe caricate](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
+
+   Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il riquadro **Mappe** mostra ora il numero di mappe caricate, ad esempio:
+
+   ![Mappe caricate](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
+
+<a name="larger-map"></a>
+
+### <a name="add-maps-more-than-2-mb"></a>Aggiungere mappe di dimensioni superiori a 2 MB
+
+Attualmente, per aggiungere mappe più grandi, usare l'[API REST di App per la logica di Azure - Mappe](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+
+<!--
+
+To add larger maps, you can upload your map to 
+an Azure blob container in your Azure storage account. 
+Your steps for adding maps differ based whether your 
+blob container has public read access. So first, check 
+whether or not your blob container has public read 
+access by following these steps: 
+[Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+
+#### Check container access level
+
+1. Open Azure Storage Explorer. In the Explorer window, 
+   expand your Azure subscription if not already expanded.
+
+1. Expand **Storage Accounts** > {*your-storage-account*} > 
+   **Blob Containers**. Select your blob container.
+
+1. From your blob container's shortcut menu, 
+   select **Set Public Access Level**.
+
+   * If your blob container has at least public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers with public access](#public-access)
+
+     ![Public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * If your blob container doesn't have public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers without public access](#public-access)
+
+     ![No public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access-maps"></a>
+
+### Add maps to containers with public access
+
+1. Upload the map to your storage account. 
+   In the right-hand window, choose **Upload**. 
+
+1. After you finish uploading, select your 
+   uploaded map. On the toolbar, choose **Copy URL** 
+   so that you copy the map's URL.
+
+1. Return to the Azure portal where the 
+   **Add Map** pane is open. Choose **Large file**. 
+
+   The **Content URI** box now appears, 
+   rather than the **Map** box.
+
+1. In the **Content URI** box, paste your map's URL. 
+   Finish adding your map.
+
+After your map finishes uploading, 
+the map appears in the **Maps** list.
+
+<a name="no-public-access-maps"></a>
+
+### Add maps to containers with no public access
+
+1. Upload the map to your storage account. 
+   In the right-hand window, choose **Upload**.
+
+1. After you finish uploading, generate a 
+   shared access signature (SAS) for your schema. 
+   From your map's shortcut menu, 
+   select **Get Shared Access Signature**.
+
+1. In the **Shared Access Signature** pane, select 
+   **Generate container-level shared access signature URI** > **Create**. 
+   After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
+
+1. Return to the Azure portal where the 
+   **Add Maps** pane is open. Choose **Large file**.
+
+   The **Content URI** box now appears, 
+   rather than the **Map** box.
+
+1. In the **Content URI** box, paste the SAS URI 
+   you previously generated. Finish adding your map.
+
+After your map finishes uploading, 
+the map appears in the **Maps** list.
+
+-->
+
+## <a name="edit-maps"></a>Modificare le mappe
+
+Per aggiornare una mappa esistente, è necessario caricare un nuovo file di mappa contenente le modifiche desiderate. È tuttavia possibile scaricare prima la mappa esistente e poi modificarla.
+
+1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
+
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **Account di integrazione**.
+
+1. Selezionare l'account di integrazione in cui si vuole aggiornare la mappa.
+
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Mappe**.
+
+1. Quando la pagina **Mappe** è aperta, selezionare la mappa. 
+   Per scaricare e modificare la mappa prima, scegliere **Scarica** e salvare la mappa.
+
+1. Quando si è pronti per caricare la mappa aggiornata, nella pagina **Mappe** selezionare la mappa che si vuole aggiornare e scegliere **Aggiorna**.
+
+1. Trovare e selezionare la mappa aggiornata che si vuole caricare. 
+   Al termine del caricamento del file, la mappa aggiornata viene visualizzata nell'elenco **Mappe**.
+
+## <a name="delete-maps"></a>Eliminare le mappe
+
+1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
+
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca, digitare "account di integrazione". 
+   Selezionare **Account di integrazione**.
+
+1. Selezionare l'account di integrazione in cui si vuole eliminare la mappa.
+
+1. Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** selezionare il riquadro **Mappe**.
+
+1. Quando la pagina **Mappe** è aperta, selezionare la mappa e scegliere **Elimina**.
+
+1. Per confermare che si vuole eliminare la mappa, scegliere **Sì**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
-* [Altre informazioni sui contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
-* [Altre informazioni sulle trasformazioni](logic-apps-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")  
 
+* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)  
+* [Altre informazioni sugli schemi](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* [Altre informazioni sulle trasformazioni](../logic-apps/logic-apps-enterprise-integration-transform.md)

@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262609"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813331"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -32,7 +32,7 @@ L'appliance Agente di raccolta è connessa in modo continuativo al progetto Azur
 - Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per raccogliere i dati sulle prestazioni.
 - È possibile arrestare la profilatura continua in qualsiasi momento In Agente di raccolta.
 
-**Risultati immediati:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, se si vogliono ottenere risultati immediati è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
+**Valutazioni rapide:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, per ottenere valutazioni rapide, è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
 
 L'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
 
@@ -65,7 +65,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
 - **Controllo della connessione Internet**: Agente di raccolta può connettersi a Internet direttamente o tramite un proxy.
     - Il controllo dei prerequisiti verifica la connettività a [URL necessari e facoltativi](#urls-for-connectivity).
     - Se si dispone di una connessione diretta a Internet, non è necessaria alcuna azione specifica, ma si deve solo verificare che Agente di raccolta possa accedere agli URL necessari.
-    - Se ci si connette tramite un proxy, tenere presenti i [requisiti indicati di seguito](#connect-via-a-proxy).
+    - Se si esegue la connessione tramite un proxy, tenere presenti i requisiti indicati di seguito.
 - **Verificare sincronizzazione ora**: Agente di raccolta deve essere sincronizzato con il server di riferimento ora Internet per assicurarsi che le richieste al servizio siano autenticate.
     - Perché sia possibile convalidare l'orario, Agente di raccolta deve poter raggiungere l'URL portal.azure.com.
     - Se il computer non è sincronizzato, è necessario modificare l'ora dell'orologio della macchina virtuale di Agente di raccolta in modo che corrisponda all'ora corrente. A tale scopo, aprire una finestra del prompt dei comandi dell'amministratore sulla macchina virtuale e quindi eseguire **w32tm /tz** per verificare il fuso orario. Eseguire **w32tm /resync** per sincronizzare l'ora.
@@ -75,7 +75,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
     - Il servizio Agente di raccolta si connette al server vCenter, raccoglie informazioni sui metadati e sulle prestazioni della macchina virtuale e le invia al servizio Azure Migrate.
 - **Verificare che VMware PowerCLI 6.5 sia installato**: il modulo VMware PowerCLI 6.5 PowerShell deve essere installato nella macchina virtuale di Agente di raccolta in modo che possa comunicare con il server vCenter.
     - Se Agente di raccolta può accedere agli URL necessari per installare il modulo, quest'ultimo viene installato automaticamente durante la distribuzione di Agente di raccolta.
-    - Se Agente di raccolta non è in grado di installare il modulo durante la distribuzione, è necessario [installarlo manualmente](#install-vwware-powercli-module-manually).
+    - Se Agente di raccolta non può installare il modulo durante la distribuzione, è necessario installarlo manualmente.
 - **Verificare la connessione al server vCenter**: Agente di raccolta deve essere in grado di connettersi al server vCenter e di eseguire query in relazione a macchine virtuali, metadati e contatori delle prestazioni. [Verificare i requisiti](#connect-to-vcenter-server) per la connessione.
 
 
@@ -101,8 +101,6 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
     ![Archivio certificati](./media/concepts-intercepting-proxy/certificate-store.png)
 
     7. Verificare che l'importazione del certificato e il controllo dei prerequisiti vengano eseguiti nel modo previsto.
-
-
 
 
 ### <a name="urls-for-connectivity"></a>URL per la connettività
@@ -150,6 +148,79 @@ Agente di raccolta comunica come riepilogato nel diagramma e nella tabella segue
 Servizio Azure Migrate | TCP 443 | Agente di raccolta dati comunica con il servizio Azure Migrate tramite SSL 443.
 Server vCenter | TCP 443 | Agente di raccolta deve essere in grado di comunicare con il server vCenter.<br/><br/> Per impostazione predefinita, la connessione a vCenter viene eseguita tramite la porta 443.<br/><br/> Se il server vCenter è in ascolto su una porta diversa, la porta deve essere disponibile come porta in uscita in Agente di raccolta.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Metadati raccolti
+
+Per ogni macchina virtuale, l'appliance Agente di raccolta individua i metadati di configurazione seguenti. I dati di configurazione per le macchine virtuali sono disponibili un'ora dopo l'avvio dell'individuazione.
+
+- Nome visualizzato della macchina virtuale (nel server vCenter)
+- Percorso di inventario della macchina virtuale (host/cartella nel server vCenter)
+- Indirizzo IP
+- Indirizzo MAC
+- Sistema operativo
+- Numero di core, dischi, schede di interfaccia di rete
+- Dimensione della memoria, dimensioni dei dischi
+- Contatori delle prestazioni della macchina virtuale, del disco e della rete.
+
+### <a name="performance-counters"></a>Contatori delle prestazioni
+
+ L'appliance Agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se la terminologia afferma Media, i campioni raccolti ogni 20 secondi sono di fatto contatori real-time. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. Per ottenere elementi consigliati affidabili relativi alle dimensioni, è consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
+
+**Contatore** |  **Impatto sulla valutazione**
+--- | ---
+cpu.usage.average | Dimensione e costi consigliati della macchina virtuale  
+mem.usage.average | Dimensione e costi consigliati della macchina virtuale  
+virtualDisk.read.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.write.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.numberReadAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.numberWriteAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+net.received.average | Calcola le dimensioni della macchina virtuale                          
+net.transmitted.average | Calcola le dimensioni della macchina virtuale     
+
+L'elenco completo dei contatori di VMware raccolti da Azure Migrate è disponibile di seguito:
+
+**Categoria** |  **Metadati** | **Punto dati vCenter**
+--- | --- | ---
+Dettagli computer | ID macchina virtuale | vm.Config.InstanceUuid
+Dettagli computer | Nome macchina virtuale | vm.Config.Name
+Dettagli computer | ID server vCenter | VMwareClient.InstanceUuid
+Dettagli computer |  Descrizione macchina virtuale |  vm.Summary.Config.Annotation
+Dettagli computer | Nome prodotto con licenza | vm.Client.ServiceContent.About.LicenseProductName
+Dettagli computer | Tipo di sistema operativo | vm.Summary.Config.GuestFullName
+Dettagli computer | Versione del sistema operativo | vm.Summary.Config.GuestFullName
+Dettagli computer | Tipo di avvio | vm.Config.Firmware
+Dettagli computer | Numero di core | vm.Config.Hardware.NumCPU
+Dettagli computer | Megabyte di memoria | vm.Config.Hardware.MemoryMB
+Dettagli computer | Numero di dischi | vm.Config.Hardware.Device.ToList().FindAll(x => x corrisponde a VirtualDisk).count
+Dettagli computer | Elenco dimensioni disco | vm.Config.Hardware.Device.ToList().FindAll(x => x corrisponde a VirtualDisk)
+Dettagli computer | Elenco schede di rete | vm.Config.Hardware.Device.ToList().FindAll(x => x corrisponde a VirtualEthernetCard)
+Dettagli computer | Uso della CPU | cpu.usage.average
+Dettagli computer | Utilizzo della memoria | mem.usage.average
+Dettagli disco (per ogni disco) | Valore chiave disco | disk.Key
+Dettagli disco (per ogni disco) | Numero unità disco | disk.UnitNumber
+Dettagli disco (per ogni disco) | Valore chiave controller del disco | disk.ControllerKey.Value
+Dettagli disco (per ogni disco) | Gigabyte con provisioning | virtualDisk.DeviceInfo.Summary
+Dettagli disco (per ogni disco) | Nome disco | Questo valore viene generato usando disk.UnitNumber, disk.Key e disk.ControllerKey.Value
+Dettagli disco (per ogni disco) | Numero di operazioni di lettura al secondo | virtualDisk.numberReadAveraged.average
+Dettagli disco (per ogni disco) | Numero di operazioni di scrittura al secondo | virtualDisk.numberWriteAveraged.average
+Dettagli disco (per ogni disco) | Megabyte al secondo di velocità effettiva in lettura | virtualDisk.read.average
+Dettagli disco (per ogni disco) | Megabyte al secondo di velocità effettiva in scrittura | virtualDisk.write.average
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Nome scheda di rete | nic.Key
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzo MAC | ((VirtualEthernetCard)nic).MacAddress
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv4 | vm.Guest.Net
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv6 | vm.Guest.Net
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in lettura | net.received.average
+Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in scrittura | net.transmitted.average
+Dettagli percorso di inventario | Nome | container.GetType().Name
+Dettagli percorso di inventario | Tipo di oggetto figlio | container.ChildType
+Dettagli percorso di inventario | Informazioni di riferimento | container.MoRef
+Dettagli percorso di inventario | Percorso di inventario completo | container.Name con percorso completo
+Dettagli percorso di inventario | Dettagli elemento padre | Container.Parent
+Dettagli percorso di inventario | Dettagli cartella per ogni macchina virtuale | ((Folder)container).ChildEntity.Type
+Dettagli percorso di inventario | Dettagli data center per ogni cartella della macchina virtuale | ((Datacenter)container).VmFolder
+Dettagli percorso di inventario | Dettagli data center per ogni cartella host | ((Datacenter)container).HostFolder
+Dettagli percorso di inventario | Dettagli cluster per ogni host | ((ClusterComputeResource)container).Host)
+Dettagli percorso di inventario | Dettagli host per ogni macchina virtuale | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Protezione dell'appliance Agente di raccolta
@@ -200,34 +271,6 @@ Dopo aver configurato l'appliance, è possibile eseguire l'individuazione il cui
 - Le macchine virtuali vengono individuate e i dati sulle prestazioni e i metadati vengono inviati ad Azure. Queste azioni fanno parte di un processo di raccolta.
     - All'appliance Agente di raccolta viene assegnato un ID specifico mantenuto per un determinato computer per tutte le individuazioni.
     - A un processo di raccolta in esecuzione viene assegnato un ID di sessione specifico. L'ID viene modificato per ogni processo di raccolta e può essere usato per la risoluzione dei problemi.
-
-### <a name="collected-metadata"></a>Metadati raccolti
-
-Per ogni macchina virtuale, l'appliance Agente di raccolta individua i metadati di configurazione seguenti. I dati di configurazione per le macchine virtuali sono disponibili un'ora dopo l'avvio dell'individuazione.
-
-- Nome visualizzato della macchina virtuale (nel server vCenter)
-- Percorso di inventario della macchina virtuale (host/cartella nel server vCenter)
-- Indirizzo IP
-- Indirizzo MAC
-- Sistema operativo
-- Numero di core, dischi, schede di interfaccia di rete
-- Dimensione della memoria, dimensioni dei dischi
-- Contatori delle prestazioni della macchina virtuale, del disco e della rete.
-
-#### <a name="performance-counters"></a>Contatori delle prestazioni
-
- L'appliance Agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se la terminologia afferma Media, i campioni raccolti ogni 20 secondi sono di fatto contatori real-time. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. Per ottenere elementi consigliati affidabili relativi alle dimensioni, è consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
-
-**Contatore** |  **Impatto sulla valutazione**
---- | ---
-cpu.usage.average | Dimensione e costi consigliati della macchina virtuale  
-mem.usage.average | Dimensione e costi consigliati della macchina virtuale  
-virtualDisk.read.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.write.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.numberReadAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.numberWriteAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-net.received.average | Calcola le dimensioni della macchina virtuale                          
-net.transmitted.average | Calcola le dimensioni della macchina virtuale     
 
 ## <a name="next-steps"></a>Passaggi successivi
 

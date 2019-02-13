@@ -1,29 +1,29 @@
 ---
 title: Concetti - Funzionalità di rete nel servizio Azure Kubernetes
-description: Informazioni sulle funzionalità di rete nel servizio Azure Kubernetes, tra cui funzionalità di rete di base e avanzate, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
+description: Informazioni sulle funzionalità di rete nel servizio Azure Kubernetes, tra cui funzionalità di rete kubenet e Azure CNI, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380886"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820131"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
 In un approccio allo sviluppo delle applicazioni come microservizi basati su contenitori, i componenti dell'applicazione devono interagire per elaborare le proprie attività. Kubernetes offre diverse risorse che consentono queste comunicazioni tra le applicazioni. È possibile connettersi alle applicazioni ed esporle internamente o esternamente. Per sviluppare applicazioni a disponibilità elevata, è possibile bilanciare il carico delle applicazioni. Le applicazioni più complesse possono richiedere la configurazione del traffico in ingresso per la terminazione SSL/TLS o il routing di più componenti. Per motivi di sicurezza, potrebbe anche essere necessario limitare il flusso del traffico di rete all'interno o tra i pod e i nodi.
 
-Questo articolo introduce i concetti di base correlati alle funzionalità di rete per le applicazioni nel servizio Azure Kubernetes:
+Questo articolo introduce i concetti di base correlati alle funzionalità di rete per le applicazioni nel servizio Kubernetes di Azure:
 
 - [Servizi](#services)
 - [Reti virtuali di Azure](#azure-virtual-networks)
 - [Controller di ingresso](#ingress-controllers)
-- [Criteri di rete](#network-policies)
+- Criteri di rete
 
 ## <a name="kubernetes-basics"></a>Nozioni di base di Kubernetes
 
@@ -61,37 +61,32 @@ Si possono creare sia bilanciamenti del carico *interni* che *esterni*. Ai bilan
 
 Nel servizio Azure Kubernetes è possibile distribuire un cluster che usa uno dei due modelli di rete seguenti:
 
-- Funzionalità di rete di *base* - Le risorse di rete vengono create e configurate quando viene distribuito il cluster AKS.
-- Funzionalità di rete *avanzate* - Il cluster AKS viene connesso alle risorse di rete virtuale e alle configurazioni esistenti.
+- Funzionalità di rete *kubenet*: le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
+- Funzionalità di rete *Azure Container Networking Interface (Azure CNI)*: il cluster del servizio Azure Kubernetes viene connesso alle configurazioni e alle risorse di rete virtuale esistenti.
 
-### <a name="basic-networking"></a>Rete di base
+### <a name="kubenet-basic-networking"></a>Funzionalità di rete kubenet (di base)
 
-L'opzione per le funzionalità di rete di *base* è la configurazione predefinita per la creazione del cluster servizio Azure Kubernetes. La piattaforma Azure gestisce la configurazione di rete del cluster e i pod. Le funzionalità di rete di base sono appropriate per le distribuzioni che non richiedono la configurazione di una rete virtuale personalizzata. Con le funzionalità di rete di base non è possibile definire la configurazione di rete, ad esempio i nomi delle subnet o gli intervalli di indirizzi IP assegnati al cluster servizio Azure Kubernetes.
+L'opzione per le funzionalità di rete *kubenet* è la configurazione predefinita per la creazione del cluster del servizio Azure Kubernetes. Con *kubenet* i nodi ottengono un indirizzo IP dalla subnet della rete virtuale di Azure. I pod ricevono un indirizzo IP da uno spazio di indirizzi diverso dal punto di vista logico nella subnet della rete virtuale di Azure dei nodi. La funzionalità Network Address Translation (NAT) viene quindi configurata in modo che i pod possano raggiungere le risorse nella rete virtuale di Azure. L'indirizzo IP di origine del traffico viene convertito tramite NAT nell'indirizzo IP primario del nodo.
 
-I nodi in un cluster servizio Azure Kubernetes configurato per le funzionalità di rete di base usano il plug-in Kubernetes [kubenet][kubenet].
+I nodi usano il plug-in [kubenet][kubenet] di Kubernetes. La piattaforma Azure può creare e configurare le reti virtuali automaticamente. In alternativa, è possibile distribuire il cluster del servizio Azure Kubernetes nella subnet di una rete virtuale esistente. Anche in questo caso, solo i nodi che ricevono un indirizzo IP instradabile e i pod usano NAT per comunicare con altre risorse all'esterno del cluster del servizio Azure Kubernetes. Questo approccio riduce notevolmente il numero di indirizzi IP che è necessario riservare ai pod nello spazio di indirizzi della rete.
 
-Le funzionalità di rete di base sono le seguenti:
+Per altre informazioni, vedere [Configurare funzionalità di rete kubenet per un cluster del servizio Azure Kubernetes][aks-configure-kubenet-networking].
 
-- Esporre un servizio Kubernetes esternamente o internamente tramite Azure Load Balancer.
-- I pod possono accedere alle risorse su Internet pubblico.
+### <a name="azure-cni-advanced-networking"></a>Funzionalità di rete Azure CNI (avanzata)
 
-### <a name="advanced-networking"></a>Rete avanzata
+Con Azure CNI ogni pod ottiene un indirizzo IP dalla subnet in modo che vi si possa accedere direttamente. Questi indirizzi IP devono essere univoci nello spazio di indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una maggiore pianificazione e spesso conduce all'esaurimento degli indirizzi IP o alla necessità di riconfigurare i cluster in una subnet di dimensioni maggiori man mano che aumentano le richieste dell'applicazione.
 
-Con le funzionalità di rete *avanzate* i pod vengono posizionati in una rete virtuale di Azure configurata dall'utente. Questa rete virtuale offre connettività automatica ad altre risorse di Azure e l'integrazione con un'ampia gamma di funzionalità. Le funzionalità di rete avanzate sono appropriate per le distribuzioni che richiedono configurazioni di rete virtuale specifiche, ad esempio per usare una subnet e la connettività esistenti. Con le funzionalità di rete avanzate è possibile definire questi nomi di subnet e gli intervalli di indirizzi IP.
-
-I nodi in un cluster servizio Azure Kubernetes configurato per le funzionalità di rete avanzate usano il plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking].
+I nodi usano il plug-in [Azure Container Networking Interface (CNI)][cni-networking] di Kubernetes.
 
 ![Diagramma che illustra due nodi ognuno dei quali è connesso da bridge a una singola rete virtuale di Azure][advanced-networking-diagram]
 
-Le funzionalità di rete avanzate aggiuntive rispetto alle funzionalità di rete di base sono le seguenti:
+Azure CNI offre le funzionalità seguenti rispetto a kubenet:
 
-- Distribuire il cluster servizio Azure Kubernetes in una rete virtuale di Azure esistente o creare una nuova rete virtuale e una subnet per il cluster.
 - A ogni pod nel cluster viene assegnato un indirizzo IP nella rete virtuale. I pod possono comunicare direttamente con altri pod nel cluster e altri nodi nella rete virtuale.
-- Un pod può connettersi ad altri servizi in una rete virtuale con peering, nonché a reti locali tramite ExpressRoute e connessioni VPN da sito a sito. I pod sono raggiungibili anche da locale.
 - I pod in una subnet con endpoint di servizio abilitati possono connettersi in modo sicuro ai servizi di Azure, ad esempio Archiviazione di Azure e il database SQL.
 - È possibile creare route definite dall'utente per instradare il traffico dai pod a un'appliance virtuale di rete.
 
-Per altre informazioni, vedere [Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes][aks-configure-advanced-networking].
+Per altre informazioni, vedere [Configurare Azure CNI in un cluster del servizio Azure Kubernetes][aks-configure-advanced-networking].
 
 ## <a name="ingress-controllers"></a>Controller di ingresso
 
@@ -107,13 +102,13 @@ Un'altra funzionalità comune per il traffico in ingresso è la terminazione SSL
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-Un gruppo di sicurezza di rete filtra il traffico per le macchine virtuali, ad esempio i nodi del servizio Azure Kubernetes. Quando si creano servizi, ad esempio LoadBalancer, la piattaforma Azure configura automaticamente le eventuali regole dei gruppi di sicurezza di rete necessarie. Non configurare manualmente le regole dei gruppi di sicurezza di rete per filtrare il traffico per i pod in un cluster servizio Azure Kubernetes. Definire le eventuali porte necessarie e l'inoltro come parte dei manifesti del servizio Kubernetes e delegare alla piattaforma Azure la creazione o l'aggiornamento delle regole appropriate.
+Un gruppo di sicurezza di rete filtra il traffico per le macchine virtuali, ad esempio i nodi del servizio Kubernetes di Azure. Quando si creano servizi, ad esempio LoadBalancer, la piattaforma Azure configura automaticamente le eventuali regole dei gruppi di sicurezza di rete necessarie. Non configurare manualmente le regole dei gruppi di sicurezza di rete per filtrare il traffico per i pod in un cluster servizio Azure Kubernetes. Definire le eventuali porte necessarie e l'inoltro come parte dei manifesti del servizio Kubernetes e delegare alla piattaforma Azure la creazione o l'aggiornamento delle regole appropriate.
 
-Esistono regole dei gruppi di sicurezza di rete predefinite per il traffico, ad esempio SSH. Queste regole predefinite sono progettate per la gestione del cluster e la risoluzione dei problemi di accesso. L'eliminazione di queste regole predefinite può causare problemi con la gestione di servizio Azure Kubernetes e non consente di raggiungere l'obiettivo del livello di servizio (SLO).
+Esistono regole dei gruppi di sicurezza di rete predefinite per il traffico, ad esempio SSH. Queste regole predefinite sono progettate per la gestione del cluster e la risoluzione dei problemi di accesso. L'eliminazione di queste regole predefinite può causare problemi con la gestione di AKS e non consente di raggiungere l'obiettivo del livello di servizio (SLO).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per istruzioni introduttive per le funzionalità di rete del servizio Azure Kubernetes, vedere [Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes][aks-configure-advanced-networking].
+Per iniziare a usare le funzionalità di rete del servizio Azure Kubernetes, creare e configurare un cluster del servizio Azure Kubernetes con gli intervalli di indirizzi IP esistenti usando [kubenet][aks-configure-kubenet-networking] o [Azure CNI][aks-configure-advanced-networking].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
@@ -137,7 +132,8 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

@@ -8,18 +8,18 @@ ms.topic: resource
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d220fea64f860ebe5b660f7ebe5ad7db7aec4534
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3b8af6f3f91c54c78cc3b277068272c27055e4aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369930"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816884"
 ---
 # <a name="glossary"></a>Glossario
 
 Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
-## <a name="a"></a>A
+## <a name="a"></a>Una 
 
 <a name="address-validation"></a> **Convalida di indirizzo**: processo di verifica dell'esistenza di un indirizzo.
 
@@ -27,7 +27,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="aerial-imagery"></a> **Immagini aeree**: vedere [Immagini satellitari](#satellite-imagery). 
 
-<a name="along-a-route-search"></a> **Ricerca lungo un percorso**: query spaziale che esegue la ricerca di dati entro una distanza o un tempo specificato per la deviazione da un percorso.
+<a name="along-a-route-search"></a> **Lungo un percorso, ricerca**: query spaziale che esegue la ricerca di dati entro una distanza o un tempo specificato per la deviazione da un percorso.
 
 <a name="altitude"></a> **Altitudine**: altezza o elevazione verticale di un punto al di sopra di una superficie di riferimento. Le misure dell'altitudine sono basate su un datum di riferimento, ad esempio il livello medio del mare. Vedere anche Quota.
 
@@ -45,21 +45,21 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="asset-tracking"></a> **Rilevamento di asset**: processo di rilevamento della posizione di un asset, ad esempio una persona, un veicolo o un altro oggetto.
 
-<a name="asynchronous-request"></a> **Richiesta asincrona**: richiesta HTTP che apre una connessione e invia una richiesta al server il quale restituisce un identificatore per tale richiesta e quindi chiude la connessione. Il server continua a elaborare la richiesta e l'utente può controllare lo stato usando l'identificatore. Al termine dell'elaborazione della richiesta, l'utente può scaricare la risposta. Questo tipo di richiesta viene in genere usato per i processi a esecuzione prolungata.
+<a name="asynchronous-request"></a> **Richiesta asincrona**: richiesta HTTP che apre una connessione e invia una richiesta al server, il quale restituisce un identificatore per tale richiesta e quindi chiude la connessione. Il server continua a elaborare la richiesta e l'utente può controllare lo stato usando l'identificatore. Al termine dell'elaborazione della richiesta, l'utente può scaricare la risposta. Questo tipo di richiesta viene in genere usato per i processi a esecuzione prolungata.
 
 <a name="autocomplete"></a> **Completamento automatico**: funzionalità di un'applicazione in grado di prevedere la parte restante di una parola che l'utente sta digitando. 
 
-<a name="autosuggest"></a> **Suggerimento automatico**: funzionalità di un'applicazione in grado di prevedere il testo logicamente possibile per ciò che l'utente sta digitando.
+<a name="autosuggest"></a> **Suggerimenti automatici**: funzionalità di un'applicazione in grado di prevedere il testo logicamente possibile per ciò che l'utente sta digitando.
 
 <a name="azure-location-based-services-lbs"></a> **Servizi Location Based di Azure**: nome precedente di Mappe di Azure, usato durante la fase di anteprima.
 
 <a name="azure-maps-key"></a> **Chiave di Mappe di Azure**: stringa univoca usata per autenticare una richiesta di servizio o applicazione di Mappe di Azure da parte di un utente. 
 
-## <a name="b"></a>B
+## <a name="b"></a>b
 
 <a name="base-map"></a> **Mappa di base**: parte di un'applicazione per le mappe che visualizza le informazioni di riferimento sullo sfondo, ad esempio strade, punti di riferimento e confini politici.
 
-<a name="batch-request"></a> **Richiesta in batch**: combinazione di più richieste in un'unica richiesta.
+<a name="batch-request"></a> **Richiesta batch**: combinazione di più richieste in un'unica richiesta.
 
 <a name="bearing"></a> **Orientamento**: direzione orizzontale di un punto in relazione a un altro punto. Questo valore viene espresso come un angolo rispetto al Nord, da 0 a 360 gradi in senso orario. 
 
@@ -127,7 +127,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="elevation"></a> **Quota**: distanza verticale di un punto o di un oggetto al di sopra o al di sotto di un datum o di una superficie di riferimento (in genere, il livello medio del mare). Il termine di riferisce in genere all'altitudine del terreno.
 
-<a name="envelope"></a> **Delimitazione**: vedere [Rettangolo delimitatore](#bounding-box).
+<a name="envelope"></a> **Busta**: vedere [Rettangolo delimitatore](#bounding-box).
 
 <a name="extended-postal-code"></a> **Codice postale esteso**: codice postale che può includere informazioni aggiuntive. Negli Stati Uniti, ad esempio, i codici postali sono composti da cinque cifre, ma esistono anche codici postali estesi che includono altre quattro cifre. Queste ultime vengono usate per identificare un segmento geografico all'interno dell'area di recapito contrassegnata da cinque cifre, ad esempio un isolato, un condominio o una cassetta postale, in modo da rendere più efficiente l'ordinamento e il recapito della posta.
 
@@ -141,9 +141,9 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="feature-collection"></a> **Raccolta di feature**: raccolta di oggetti di tipo feature.
 
-<a name="find-along-route"></a> **Lungo un percorso, ricerca**: query spaziale che esegue la ricerca di dati entro una distanza o un tempo specificato per la deviazione da un percorso.
+<a name="find-along-route"></a> **Ricerca lungo un percorso**: query spaziale che esegue la ricerca di dati entro una distanza o un tempo specificato per la deviazione da un percorso.
 
-<a name="find-nearby"></a> **Nelle vicinanze, ricerca**: query spaziale che esegue la ricerca in base a una distanza fissa in linea retta (o in linea d'aria) rispetto a un punto.
+<a name="find-nearby"></a> **Ricerca nelle vicinanze**: query spaziale che esegue la ricerca in base a una distanza fissa in linea retta (o in linea d'aria) rispetto a un punto.
 
 <a name="fleet-management"></a> **Gestione della flotta**: gestione del parco di veicoli commerciali, ad esempio autovetture, autocarri, navi e aerei. La gestione della flotta può includere una vasta gamma di funzioni, ad esempio per il finanziamento, la manutenzione e la telematica (rilevamento e diagnostica) dei veicoli e anche per la gestione di guidatori, velocità, carburante, salute e sicurezza. La gestione della flotta è un processo adottato dalle società che svolgono attività commerciali basate sui trasporti per ridurre al minimo i rischi e i costi complessivi del trasporto e del personale e garantire al tempo stesso la conformità alle normative vigenti.
 
@@ -165,7 +165,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="geojson"></a> **GeoJSON**: formato di file comune basato su JSON che viene usato per archiviare i dati geografici vettoriali, ad esempio punti, linee e poligoni. **Nota**: in Mappe di Azure viene usata una versione estesa di GeoJSON, come [illustrato in questo articolo](extend-geojson.md).
 
-<a name="geometry"></a> **Geometria**: rappresenta un oggetto spaziale, ad esempio un punto, una linea o un poligono.
+<a name="geometry"></a> **Geometria**: rappresentazione di un oggetto spaziale, ad esempio un punto, una linea o un poligono.
 
 <a name="geometrycollection"></a> **GeometryCollection**: raccolta di oggetti geometrici.
 
@@ -197,7 +197,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="heading"></a> **Rotta**: direzione verso cui è indirizzato un oggetto. Vedere anche [Orientamento](#heading).
 
-<a name="heatmap"></a> **Mappa termica**: visualizzazione dei dati in cui un intervallo di colori rappresenta la densità di punti in una determinata area. Vedere anche [Mappa tematica](#thermatic-map).
+<a name="heatmap"></a> **Mappa termica**: visualizzazione dei dati in cui un intervallo di colori rappresenta la densità di punti in una determinata area. Vedere anche Mappa tematica.
 
 <a name="hybrid-imagery"></a> **Immagini ibride**: immagini satellitari o aeree a cui sono sovrapposti i dati e le etichette dei percorsi stradali.
 
@@ -219,15 +219,15 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="latitude"></a> **Latitudine**: distanza angolare misurata in gradi dall'equatore in direzione Nord o Sud.
 
-<a name="level-of-detail"></a> **Livello di dettaglio**: vedere [Livello di zoom](#zoom-level).
+<a name="level-of-detail"></a> **Livello di dettaglio**: vedere Livello di zoom.
 
 <a name="lidar"></a> **Lidar**: acronimo di Light Detection and Ranging. Tecnica di telerilevamento che usa impulsi laser per misurare le distanze da superfici riflettenti.
 
 <a name="linear-interpolation"></a> **Interpolazione lineare**: stima di un valore sconosciuto in base alla distanza lineare tra valori noti.
 
-<a name="linestring"></a> **Linea spezzata**: geometria usata per rappresentare una linea. Nota anche come polilinea. 
+<a name="linestring"></a> **LineString**: geometria usata per rappresentare una linea. Nota anche come polilinea. 
 
-<a name="localization"></a> **Localizzazione**: supporto per diverse lingue e culture.
+<a name="localization"></a> **Localizzazione**: supporto per lingue e culture diverse.
 
 <a name="logistics"></a> **Logistica**: processo che consiste nello spostamento coordinato di persone, veicoli, forniture o asset.
 
@@ -253,7 +253,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 ## <a name="n"></a>N
 
-<a name="navigation-bar"></a> **Barra di spostamento**: set di controlli su una mappa che vengono usati per regolare il livello di zoom, l'inclinazione, la rotazione e la sostituzione del layer di base della mappa.
+<a name="navigation-bar"></a> **Barra di spostamento**: set di controlli su una mappa che vengono usati per regolare il livello di zoom, l'inclinazione, la rotazione e la commutazione del livello mappa di base.
 
 <a name="nearby-search"></a> **Ricerca nelle vicinanze**: query spaziale che esegue la ricerca in base a una distanza fissa in linea retta (o in linea d'aria) rispetto a un punto.
 
@@ -301,7 +301,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 ## <a name="r"></a>R
 
-<a name="radial-search"></a> **Ricerca radiale**: query spaziale che esegue la ricerca di una distanza fissa in linea retta (o in linea d'aria) rispetto a un punto. 
+<a name="radial-search"></a> **Ricerca radiale**: query spaziale che esegue la ricerca in base a una distanza fissa in linea retta (o in linea d'aria) rispetto a un punto. 
 
 <a name="raster-data"></a> **Dati raster**: matrice di celle (o pixel) organizzata in righe e colonne (o in una griglia) in cui ogni cella contiene un valore che rappresenta una determinata informazione, ad esempio la temperatura. Le fotografie aeree digitali, le immagini satellitari, le foto digitali e le mappe digitalizzate sono tutte costituite da dati raster.
 
@@ -311,13 +311,13 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="remote-sensing"></a> **Rilevamento remoto**: processo di raccolta e interpretazione dei dati dei sensori da una determinata distanza.
 
-<a name="rest-service"></a> **Servizio REST**: REST è l'acronimo di Representational State Transfer. Un servizio REST è un servizio Web basato su URL che adotta la tecnologia Web di base per comunicare. I metodi più comuni del servizio sono costituiti da richieste GET e POST HTTP. I servizi di questo tipo tendono a essere molto più veloci e compatti rispetto ai servizi tradizionali basati su SOAP.
+<a name="rest-service"></a> **Servizio REST**: REST è l'acronimo di Representational State Transfer (trasferimento di stato rappresentativo). Un servizio REST è un servizio Web basato su URL che adotta la tecnologia Web di base per comunicare. I metodi più comuni del servizio sono costituiti da richieste GET e POST HTTP. I servizi di questo tipo tendono a essere molto più veloci e compatti rispetto ai servizi tradizionali basati su SOAP.
 
 <a name="reverse-geocode"></a> **Geocodifica inversa**: processo di trasformazione di una coordinata nell'indirizzo in cui è rappresentata su una mappa.
 
 <a name="reproject"></a> **Riproiettare**: vedere [Trasformazione](#transformation).
 
-<a name="rest-service"></a> **REST**: acronimo di Representational State Transfer. Architettura per lo scambio di informazioni tra peer in un ambiente distribuito decentralizzato. REST consente a programmi in computer diversi di comunicare indipendentemente dal sistema operativo o dalla piattaforma inviando a un URL (Uniform Resource Locator) una richiesta HTTP (Hypertext Transfer Protocol) per ottenere determinati dati.
+<a name="rest-service"></a> **Servizio REST**: acronimo di Representational State Transfer (trasferimento di stato rappresentativo). Architettura per lo scambio di informazioni tra peer in un ambiente distribuito decentralizzato. REST consente a programmi in computer diversi di comunicare indipendentemente dal sistema operativo o dalla piattaforma inviando a un URL (Uniform Resource Locator) una richiesta HTTP (Hypertext Transfer Protocol) per ottenere determinati dati.
 
 <a name="route"></a> **Percorso**: itinerario tra due o più posizioni, che può includere anche altre informazioni, ad esempio le istruzioni relative a determinati punti di tragitto.
 
@@ -364,7 +364,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="transformation"></a> **Trasformazione**: processo di conversione dei dati tra diversi sistemi di coordinate geografiche. È ad esempio possibile che alcuni dati siano stati acquisiti nel Regno Unito in base al sistema di coordinate geografiche OSGB 1936. Mappe di Azure usa il sistema di coordinate di riferimento [EPSG:3857](https://epsg.io/3857), una variante di WGS84. Di conseguenza, per la visualizzazione corretta dei dati, il sistema di coordinate deve essere trasformato da un sistema all'altro.
 
-<a name="traveling-salesmen-problem-tsp"></a> **TSP (Traveling Salesmen Problem)**: problema del ciclo hamiltoniano in cui un commesso viaggiatore deve trovare la soluzione più efficiente per raggiungere una serie di tappe e quindi tornare alla posizione iniziale.  
+<a name="traveling-salesmen-problem-tsp"></a> **TSP (Traveling Salesmen Problem)**:  problema del ciclo hamiltoniano in cui un commesso viaggiatore deve trovare la soluzione più efficiente per raggiungere una serie di tappe e quindi tornare alla posizione iniziale.  
 
 <a name="trilateration"></a> **Trilaterazione**: processo volto a determinare la posizione di un punto sulla superficie terrestre rispetto alla altri due punti, misurando le distanze fra tutti e tre i punti.
 
@@ -376,7 +376,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="vector-tile"></a> **Tessera vettoriale**: specifica di dati aperta per l'archiviazione dei dati geospaziali di tipo vettoriale che uso lo stesso sistema di partizionamento adottato dal controllo mappa. Vedere anche [Layer a tessere](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **VRP (Vehicle Routing Problem)**: classe di problemi in cui viene calcolato un set di percorsi ordinati per una flotta di veicoli tenendo in considerazione una serie di vincoli, ad esempio intervalli di recapito, capacità di effettuare più percorsi e durata del viaggio.
+<a name="vehicle-routing-problem-vrp"></a> **Problema di Routing del veicolo (VRP)**: classe di problemi in cui viene calcolato un set di percorsi ordinati per una flotta di veicoli tenendo in considerazione una serie di vincoli, ad esempio intervalli di recapito, capacità di effettuare più percorsi e durata del viaggio.
 
 <a name="voronoi-diagram"></a> **Diagramma di Voronoi**: diagramma di partizionamento dello spazio in aree, o celle, che racchiudono un set di oggetti geometrici (in genere, feature di tipo punto). Queste celle, o poligoni, devono soddisfare i criteri definiti per i triangoli di Delaunay. Tutte le posizioni all'interno di un'area sono più vicine all'oggetto che circonda rispetto a qualsiasi altro oggetto nel set. I diagrammi di Voronoi vengono spesso usati per delineare le aree di influenza attorno alle feature geografiche. 
 

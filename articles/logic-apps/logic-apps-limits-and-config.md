@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912783"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769869"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -85,13 +85,13 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
-| Concorrenza di trigger | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 25. Questo limite descrive il numero massimo di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Numero massimo di esecuzioni in attesa | 100 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 10. Questo limite descrive il numero massimo di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 0 e 100, estremi inclusi, vedere [Modifica del limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Elementi della matrice foreach | 100,000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
-| Concorrenza foreach | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per questo ciclo, il limite predefinito è 20. Questo limite descrive il numero massimo di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| Elementi SplitOn | 100,000 | | 
-| Iterazioni Until | 5.000 | | 
-|||| 
+| Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Elementi della matrice foreach | 100,000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
+| Concorrenza foreach | 20 è il limite predefinito quando il controllo della concorrenza è disattivato. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Elementi SplitOn | 100,000 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. |
+| Iterazioni Until | 5.000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -195,53 +195,58 @@ Usare il livello gratuito solo per scenari esplorativi, non per scenari di produ
 
 | Elemento | Limite | Note | 
 |----------|-------|-------| 
-| Partner commerciali EDI | 25 | | 
-| Contratti commerciali EDI | 10 | | 
-| Mappe | 25 | | 
-| Schemi | 25 | 
 | Assembly | 10 | | 
 | Configurazioni batch | 5 | 
 | Certificati | 25 | | 
+| Contratti commerciali EDI | 10 | | 
+| Partner commerciali EDI | 25 | | 
+| Mappe | 25 | | 
+| Schemi | 25 | 
 |||| 
 
 *Livello Basic*
 
 | Elemento | Limite | Note | 
 |----------|-------|-------| 
-| Partner commerciali EDI | 2 | | 
-| Contratti commerciali EDI | 1 | | 
-| Mappe | 500 | | 
-| Schemi | 500 | 
 | Assembly | 25 | | 
 | Configurazioni batch | 1 | | 
 | Certificati | 2 | | 
+| Contratti commerciali EDI | 1 | | 
+| Partner commerciali EDI | 2 | | 
+| Mappe | 500 | | 
+| Schemi | 500 | 
 |||| 
 
 *Livello Standard*
 
 | Elemento | Limite | Note | 
 |----------|-------|-------| 
-| Partner commerciali EDI | 500 | | 
-| Contratti commerciali EDI | 500 | | 
-| Mappe | 500 | | 
-| Schemi | 500 | 
 | Assembly | 50 | | 
 | Configurazioni batch | 5 |  
 | Certificati | 50 | | 
+| Contratti commerciali EDI | 500 | | 
+| Partner commerciali EDI | 500 | | 
+| Mappe | 500 | | 
+| Schemi | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Limiti di capacità degli elementi
 
-| NOME | Limite | Note | 
-| ---- | ----- | ----- | 
-| SCHEMA | 8 MB | Per caricare file di dimensioni maggiori di 2 MB, usare l'[URI del BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Mappa (file XSLT) | 2 MB | | 
-| Endpoint di runtime: leggere le chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
-| Endpoint di runtime: richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
-| Endpoint di runtime: verifica delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
-| Endpoint di runtime: blocco di chiamate simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
+| Elemento | Limite | Note | 
+| -------- | ----- | ----- | 
+| Assembly | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Mappa (file XSLT) | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare l'[API REST di App per la logica di Azure Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| SCHEMA | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Endpoint di runtime | Limite | Note |
+|------------------|-------|-------|
+| leggere le chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| verifica delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| blocco di chiamate simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

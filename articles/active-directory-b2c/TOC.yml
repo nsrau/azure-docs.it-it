@@ -71,6 +71,8 @@ items:
     href: manage-user-data.md
   - name: Flussi degli utenti
     href: active-directory-b2c-reference-policies.md
+  - name: Flussi utente con JavaScript
+    href: user-flow-javascript-overview.md
   - name: Personalizzazione dell'interfaccia utente
     href: customize-ui-overview.md
 - name: Guide alle procedure
@@ -159,7 +161,7 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Tenere traccia del comportamento degli utenti
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Informazioni di riferimento
+    - name: riferimento
       items:
       - name: Resolver di attestazioni
         href: claim-resolver-overview.md
@@ -286,7 +288,7 @@ items:
     href: b2clogin.md
   - name: Usare l'API Graph di Azure AD
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: Esempi di codice
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
@@ -324,9 +326,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3c2af3c7f2208b7bbdfb3c5e3e16b9206637b159
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751787"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997924"

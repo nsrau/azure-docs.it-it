@@ -1,43 +1,40 @@
 ---
-title: Endpoint di Ricerca entità Bing
+title: Endpoint dell'API Ricerca entità Bing
 titlesuffix: Azure Cognitive Services
-description: Riepilogo degli endpoint dell'API Ricerca entità.
+description: Informazioni sull'endpoint dell'API Ricerca entità Bing e su come inviare richieste a tale endpoint.
 services: cognitive-services
-author: aahill
+author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.author: aahi
-ms.openlocfilehash: 561c64db2b97ed8792acab6cc87de861ecc30fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/01/2019
+ms.author: v-gedod
+ms.openlocfilehash: cae65c8fb7deb9f68a297de2058a86249b60136b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183986"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753981"
 ---
-# <a name="entity-search-endpoints"></a>Endpoint di Ricerca entità
-L'**API Ricerca entità** include un endpoint.
+# <a name="bing-entity-search-api-endpoint"></a>Endpoint dell'API Ricerca entità Bing
 
-## <a name="endpoint"></a>Endpoint
-Per richiedere i risultati della ricerca di entità, è consigliabile inviare una richiesta all'endpoint seguente. Usare le intestazioni e i parametri URL per definire ulteriori specifiche.
 
-Endpoint `GET`: 
-``` 
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+L'API Ricerca entità Bing include un endpoint che restituisce le entità dal Web in base a una query. I risultati della ricerca vengono restituiti in formato JSON.
+
+## <a name="get-entity-results-from-the-endpoint"></a>Ottenere risultati dell'entità dall'endpoint
+
+Per ottenere i risultati dell'entità tramite l'**API Bing**, inviare una richiesta `GET` all'endpoint seguente. Usare [intestazioni](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) e [parametri di query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) per personalizzare la richiesta di ricerca. Le richieste di ricerca possono essere inviate usando il parametro `?q=`.
+
+```cURL
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-
-Sono necessari i seguenti parametri URL:
-- mkt. Mercato dal quale provengono i risultati. 
-- q. Query di ricerca identità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guide introduttive alla Ricerca entità Bing](quickstarts/csharp.md)
+> [Informazioni sull'API Ricerca entità Bing](overview.md)
 
 ## <a name="see-also"></a>Vedere anche  
 
-[Panoramica di Ricerca entità Bing](search-the-web.md )
-[Informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+Per altre informazioni su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere l'articolo di riferimento [API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference).

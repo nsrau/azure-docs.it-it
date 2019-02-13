@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 26b4e2b1bf2dc9e59bc41e1d9f0628a1f476d402
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031483"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820845"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
@@ -25,9 +25,9 @@ Il servizio Frontdoor di Azure supporta vari metodi di routing del traffico per 
 Esistono quattro concetti principali in relazione al routing del traffico in Frontdoor:
 
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. Sostanzialmente, le richieste utente vengono inviate al set di back-end "più vicino" rispetto alla latenza della rete.
-* **[Priorità](#priority):** è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere back-end di backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili.
-* **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set back-end, in modo uniforme o in base ai coefficienti di peso.
-* **[Affinità di sessione](#sessionaffinity):** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
+* **[Priorità](#priority):** è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili.
+* **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti di peso.
+* **Affinità di sessione:** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
 
 Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità back-end e il failover globale immediato automatizzato. Per altre informazioni, vedere [Front Door Backend Monitoring](front-door-health-probes.md) (Monitoraggio del back-end Frontdoor). Frontdoor può essere configurato per operare in base a un singolo metodo di routing. A seconda delle esigenze dell'applicazione, è comunque possibile usare diversi o tutti questi metodi di routing in combinazione per creare una topologia di routing ottimale.
 
@@ -66,7 +66,7 @@ Tra l'elenco dei back-end disponibili entro la sensibilità di latenza accettata
 
 Il metodo "Ponderato" abilita alcuni scenari utili:
 
-* **Aggiornamento graduale dell'applicazione**: allocare una percentuale di traffico da indirizzare a un nuovo back-end, quindi incrementare gradualmente il traffico nel tempo per portarlo al livello degli altri back-end.
+* **Aggiornamento graduale dell'applicazione**: allocare una percentuale di traffico da indirizzare a un nuovo back-end e incrementare gradualmente il traffico nel tempo per portarlo al livello degli altri back-end.
 * **Migrazione dell'applicazione in Azure**: creare un pool back-end con back-end di Azure ed esterni. Regolare il peso dei back-end per preferire i nuovi back-end. È possibile applicare questa configurazione gradualmente, iniziando con i nuovi back-end disabilitati, quindi assegnando loro i pesi più bassi e aumentandoli lentamente fino ai livelli di massimo traffico. È infine possibile disabilitare i back-end con preferenza inferiore e rimuoverli dal pool.  
 * **Espansione del cloud per capacità aggiuntiva**: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro Frontdoor. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più back-end e si può specificare la quantità di traffico da indirizzare a ogni back-end.
 
@@ -86,5 +86,5 @@ La durata del cookie corrisponde a quella della sessione utente, perché Frontdo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [come creare un Frontdoor](quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

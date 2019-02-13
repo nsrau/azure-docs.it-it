@@ -1,88 +1,62 @@
 ---
-title: Panoramica dello sviluppo di applicazioni del database SQL | Documentazione Microsoft
+title: Panoramica dello sviluppo di applicazioni del database SQL | Microsoft Docs
 description: Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465215"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820352"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 
-Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
+Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure. Questo articolo si applica a tutti i modelli di distribuzione del database SQL di Azure (database singolo, pool elastici, istanza gestita).
 
 > [!TIP]
-> Per un'esercitazione che illustra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, connettersi usando SQL Server Management Studio, eseguire query nel database master, creare un database di esempio e un database vuoto, eseguire query relative alle proprietà del database, connettersi usando SQL Server Management Studio ed eseguire query nel database di esempio, vedere l'[Esercitazione introduttiva](sql-database-get-started-portal.md).
+> Se è necessario configurare il database SQL di Azure, consultare le guide introduttive relative ai [database singoli](sql-database-single-database-quickstart-guide.md) e all'[istanza gestita](sql-database-managed-instance-quickstart-guide.md).
 >
 
 ## <a name="language-and-platform"></a>Linguaggio e piattaforma
-Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti agli esempi di codice in:
 
-Altre informazioni: [Raccolte di connessioni per Database SQL e SQL Server](sql-database-libraries.md).
+È possibile usare vari [linguaggi di programmazione e piattaforme](sql-database-connect-query.md) per connettersi ed eseguire query al database SQL di Azure. Sono disponibili [applicazioni di esempio](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) per connettersi al database SQL di Azure.
 
-## <a name="tools"></a>Strumenti
+È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
 
-È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  È anche possibile usare il portale di gestione di Azure, PowerShell e le API REST, che consentono di aumentare la produttività.
+## <a name="authentication"></a>Autenticazione
 
-## <a name="resource-limitations"></a>Limiti delle risorse
+L'accesso al database SQL di Azure è protetto con account di accesso e firewall. Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e [Azure Active Directory](sql-database-aad-authentication.md). Gli account di accesso di AAD sono disponibili solo nell'istanza gestita. 
 
-Il database SQL di Azure gestisce le risorse disponibili per un server usando due diversi meccanismi: Governance delle risorse e imposizione di limiti. Per altre informazioni, vedere:
+Altre informazioni sulla [gestione dell'accesso al database e degli account di accesso](sql-database-manage-logins.md).
 
-- [Limiti del modello di risorse basate su DTU - Database singolo](sql-database-dtu-resource-limits-single-databases.md)
-- [Limiti del modello di risorse basato su DTU- Pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limiti delle risorse basate su vCore - Database singoli](sql-database-vcore-resource-limits-single-databases.md)
-- [Limiti delle risorse basate su vCore - Pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
+## <a name="connections"></a>Connessioni
 
-## <a name="security"></a>Security
+Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi. Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
 
-Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database SQL.
+Se si usa un [pool di connessioni](https://msdn.microsoft.com/library/8xx3tyca.aspx), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
 
-* Altre informazioni: [Protezione del Database SQL](sql-database-security-overview.md).
-
-## <a name="authentication"></a>Authentication
-
-- Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e utenti e account di accesso per l' [autenticazione di Azure Active Directory](sql-database-aad-authentication.md) .
-- È necessario specificare un database particolare, invece di usare il database predefinito *master* .
-- Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL per passare a un altro database.
-- Altre informazioni: [Sicurezza nel database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md).
+Evitare transazioni con esecuzione prolungata, perché qualsiasi errore di infrastruttura o connessione può comportare il rollback della transazione. Se possibile, suddividere la transazione in transazioni più piccole e usare l'[invio in batch per migliorare le prestazioni](sql-database-use-batching-to-improve-performance.md).
 
 ## <a name="resiliency"></a>Resilienza
 
-Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve ripetere la chiamata.  Per la ripetizione dei tentativi si consiglia di usare una logica backoff, in modo da non sovraccaricare il database SQL con più client che ripetono i tentativi contemporaneamente.
-
-- Esempi di codice:  Per esempi di codice che illustrino la logica dei nuovi tentativi, vedere gli esempi relativi al linguaggio scelto in: [Raccolte di connessioni per Database SQL e SQL Server](sql-database-libraries.md).
-- Altre informazioni: [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md).
-
-## <a name="managing-connections"></a>Gestione delle connessioni
-
-- Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi.  Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
-- Se si usa un [pool di connessioni](https://msdn.microsoft.com/library/8xx3tyca.aspx), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
+Il database SQL di Azure è un servizio cloud in cui si possono prevedere errori temporanei che si verificano nell'infrastruttura sottostante o nella comunicazione tra le entità cloud.
+Anche se il database SQL di Azure è resiliente, eventuali errori di infrastruttura transitivi possono avere effetto sulla connettività. Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve [ripetere la chiamata](sql-database-connectivity-issues.md). Per la ripetizione dei tentativi si consiglia di usare una logica backoff, in modo da non sovraccaricare il database SQL con più client che ripetono i tentativi contemporaneamente. La logica di ripetizione dei tentativi dipende dai [messaggi di errore per programmi client del database SQL](sql-database-develop-error-messages.md).
 
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 
 - Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurare le regole del firewall per il database SQL di Azure](sql-database-configure-firewall-settings.md).
 - Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Le connessioni client al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Per altre informazioni, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md) e [Porte successive alla 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-
-## <a name="data-sharding-with-elastic-scale"></a>Partizionamento orizzontale dei dati con la scalabilità elastica
-
-La scalabilità elastica semplifica il processo di ridimensionamento. 
-
-- [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-- [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md).
-- [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

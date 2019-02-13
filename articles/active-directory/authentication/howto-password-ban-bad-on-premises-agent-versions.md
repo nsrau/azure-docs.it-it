@@ -1,28 +1,66 @@
 ---
-title: Cronologia delle versioni dell'agente di protezione password di Azure AD locale
+title: Cronologia delle versioni dell'agente di Protezione password di Azure AD locale
 description: Documentazione della cronologia delle versioni e delle modifiche di comportamento
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bcf5176728b520cae5d31750384f316efe244b7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078764"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663622"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Anteprima:  cronologia delle versioni dell'agente di protezione password di Azure AD
+# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Anteprima:  Cronologia delle versioni dell'agente di Protezione password di Azure AD
 
 |     |
 | --- |
-| La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Protezione password di Azure AD è una funzionalità di Azure Active Directory disponibile in anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
+
+## <a name="12650"></a>1.2.65.0
+
+Data di rilascio: 01/02/2019
+
+Modifiche:
+
+* L'agente del controller di dominio e il servizio proxy sono ora supportati in Server Core. I requisiti minimi per il sistema operativo sono rimasti invariati: Windows Server 2012 per gli agenti del controller di dominio e Windows Server 2012 R2 per i proxy.
+* I cmdlet Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest ora supportano le modalità di autenticazione di Azure basate sul codice del dispositivo.
+* Il cmdlet Get-AzureADPasswordProtectionDCAgent ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.
+* Il cmdlet Get-AzureADPasswordProtectionSummaryReport ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.
+* Il modulo Proxy di PowerShell viene ora registrato da %ProgramFiles%\WindowsPowerShell\Modules. La variabile di ambiente PSModulePath del computer non viene più modificata.
+* È stato aggiunto un nuovo cmdlet Get-AzureADPasswordProtectionProxy per facilitare l'individuazione dei proxy registrati in una foresta o un dominio.
+* L'agente del controller di dominio usa una nuova cartella nella condivisione SYSVOL per replicare i criteri per le password e altri file.
+
+   Percorso della cartella precedente:
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   Percorso della nuova cartella:
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   Questa modifica è stata apportata per evitare falsi positivi negli avvisi di "oggetti Criteri di gruppo isolati".
+
+   > [!NOTE]
+   > Fra la cartella precedente e quella nuova non verrà eseguita alcuna migrazione o condivisione di dati. Le versioni precedenti dell'agente del controller di dominio continueranno a usare il vecchio percorso finché non verranno aggiornate a questa versione o a una successiva. Quando tutti gli agenti del controller di dominio eseguiranno la versione 1.2.65.0 o una versione successiva, sarà possibile eliminare manualmente la vecchia cartella SYSVOL.
+
+* L'agente del controller di dominio e il servizio proxy sono ora in grado di rilevare ed eliminare le copie modificate dei rispettivi punti di connessione del servizio.
+* Ogni agente del controller di dominio eliminerà periodicamente i punti di connessione del servizio modificati e non aggiornati nel proprio dominio, sia per l'agente stesso che per il proxy. I punti di connessione del servizio dell'agente e del proxy vengono entrambi considerati non aggiornati se il relativo timestamp di heartbeat è più vecchio di sette giorni.
+* L'agente del controller di dominio rinnoverà ora il certificato della foresta quando necessario.
+* Il servizio proxy rinnoverà ora il certificato del proxy quando necessario.
+* Aggiornamenti all'algoritmo di convalida delle password: l'elenco globale delle password escluse e quello specifico del cliente (se configurato) vengono uniti prima di eseguire la convalida delle password. Ora una determinata password può essere rifiutata (non riuscita o riuscita solo a livello di controllo) se contiene token sia dell'elenco globale che di quello specifico del cliente. La documentazione del log eventi è stata aggiornata per includere questa modifica. Vedere [Monitoraggio e registrazione in Protezione password di Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Correzioni per prestazioni e affidabilità
+* Registrazione migliorata
+
+> [!WARNING]
+> Funzionalità a durata limitata: il servizio agente del controller di dominio in questa versione (1.2.65.0) non elaborerà più le richieste di convalida password a partire dall'1 settembre 2019.  I servizi agente del controller di dominio di versioni precedenti (vedere l'elenco di seguito) interromperanno l'elaborazione a partire dall'1 luglio 2019. Il servizio agente del controller di dominio in tutte le versioni registrerà 10.021 eventi nel log eventi di amministrazione nei due mesi precedenti a queste date. Tutte le restrizioni temporali verranno rimosse nella prossima versione di disponibilità generale. Il servizio agente Proxy non presenta limitazioni temporali in alcuna versione, ma deve comunque essere aggiornato alla versione più recente per poter beneficiare di tutte le successive correzioni di bug e di altri miglioramenti.
 
 ## <a name="12250"></a>1.2.25.0
 
@@ -39,6 +77,7 @@ Correzioni:
 Modifiche:
 
 * Il requisito minimo relativo al sistema operativo per il servizio proxy è ora Windows Server 2012 R2. Il requisito minimo relativo al sistema operativo per il servizio agente del controller di dominio rimane Windows Server 2012.
+* Il servizio Proxy richiede ora .NET versione 4.6.2.
 * L'algoritmo di convalida delle password usa una tabella di normalizzazione dei caratteri espansa. Ciò potrebbe comportare il rifiuto delle password accettate nelle versioni precedenti.
 
 ## <a name="12100"></a>1.2.10.0
@@ -73,4 +112,4 @@ Versione di anteprima pubblica iniziale
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire la protezione delle password di Azure AD](howto-password-ban-bad-on-premises-deploy.md)
+[Distribuire la funzionalità Protezione password di Azure AD](howto-password-ban-bad-on-premises-deploy.md)

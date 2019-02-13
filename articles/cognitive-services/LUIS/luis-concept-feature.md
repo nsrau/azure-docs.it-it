@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 35f05df39a37b64c9619ef31455944207de13246
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89d18ebd2f52467a19a76940044fea3ae254970a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216082"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770164"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -25,26 +25,57 @@ Nell'apprendimento automatico, una *funzionalità* è un tratto distintivo o un 
 L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare. Le funzionalità consentono a LUIS di riconoscere sia le finalità sia le entità, tuttavia le funzionalità non sono le finalità o le entità. Al contrario, le funzionalità potrebbero fornire esempi di termini correlati.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Che cos'è una funzionalità di un elenco di frasi?
-Un elenco di frasi comprende un gruppo di valori (parole o frasi) che appartengono alla stessa classe e che devono essere trattati in modo analogo (ad esempio, i nomi di città o prodotti). Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. L'elenco non è un'[entità elenco](luis-concept-entity-types.md#types-of-entities) chiusa (esatte corrispondenze di testo) di parole associate.
+Un elenco di frasi è un elenco di parole o frasi che sono significative per l'app, più di altre parole nelle espressioni. Un elenco di frasi viene aggiunto al vocabolario del dominio dell'app come segnale aggiuntivo per LUIS in merito a tali parole. Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. L'elenco non è un'[entità elenco](luis-concept-entity-types.md#types-of-entities) chiusa di corrispondenze di testo esatte.
 
-Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione come secondo segnale di LUIS in merito a tali parole.
+Gli elenchi di frasi non sono utili per lo stemming, quindi è necessario aggiungere esempi di espressioni che usano un'ampia gamma di stemming per tutte le parole e le frasi significative del vocabolario.
 
 ## <a name="phrase-lists-help-all-models"></a>Gli elenchi di frasi sono utili per tutti i modelli
 
-Gli elenchi di frasi non sono collegati a una finalità o a un'entità specifica, ma vengono aggiunti come strumento di ottimizzazione per tutti i modelli. Il loro scopo è migliorare il rilevamento delle finalità e la classificazione delle entità.
+Gli elenchi di frasi non sono collegati a una finalità o a un'entità specifica, ma vengono aggiunti come strumento di ottimizzazione per tutte le finalità e tutte le entità. Il loro scopo è migliorare il rilevamento delle finalità e la classificazione delle entità.
 
 ## <a name="how-to-use-phrase-lists"></a>Come usare gli elenchi di frasi
-Nell'[esercitazione sulle entità semplici](luis-quickstart-primary-and-secondary-data.md) dell'app per la gestione delle risorse umane, l'app usa un elenco di frasi denominato **Job** che include tipi di mansioni, ad esempio programmatore, costruttore di tetti e segretaria. Se si etichetta uno di questi valori come entità basata su Machine Learning, LUIS impara a riconoscere gli altri valori. 
 
-Un elenco di frasi può essere intercambiabile o non intercambiabile. Un elenco di frasi *intercambiabile* fa riferimento a valori che sono sinonimi, mentre un elenco di frasi *non intercambiabile* viene usato come elenco del vocabolario specifico di un'app. Man mano che le dimensioni dell'elenco di frasi del vocabolario dell'app aumentano, si potrebbe riscontrare che alcuni termini hanno molte forme (sinonimi). Suddividere questi casi in un altro elenco di frasi intercambiabile. 
+Creare un elenco frasi quando l'app contiene parole o frasi importanti per l'app, ad esempio:
+
+* termini di settore
+* gergo
+* abbreviazioni
+* linguaggio specifico di un'azienda
+* linguaggio derivato da un'altra lingua, ma usato spesso nell'app
+* parole chiave o frasi nelle espressioni di esempio
+
+Dopo aver immesso alcuni parole o frasi, usare la caratteristica **Recommend** (Consiglia) per trovare i valori correlati. Verificare i valori correlati prima di aggiungerli ai valori dell'elenco di frasi.
 
 |Tipo di elenco|Scopo|
 |--|--|
 |Intercambiabile|Sinonimi o parole che, quando usati al posto di un'altra parola nell'elenco hanno la stessa finalità ed estrazione di entità.|
 |Non intercambiabile|Vocabolario dell'app, specifico per l'app più di altre parole in generale in tale lingua.|
 
-Gli elenchi di frasi non solo sono utili per il rilevamento delle entità ma anche per la classificazione delle finalità nei casi in cui la caratteristica non intercambiabile è appropriata, come l'aggiunta di parole del vocabolario non note nella lingua inglese.
+### <a name="interchangeable-lists"></a>Elenchi intercambiabili
 
+Un elenco di frasi *intercambiabile* è progettato per valori che sono sinonimi. Ad esempio, se si vogliono trovare tutti i corpi d'acqua e sono disponibili espressioni di esempio come le seguenti: 
+
+* Quali città sono vicine ai Grandi Laghi? 
+* Quale strada costeggia il Lago di Como?
+* Dove inizia e finisce il Nilo? 
+
+Ogni espressione deve essere determinata sia per la finalità che per le entità indipendentemente dal corpo d'acqua: 
+
+* Quali città sono vicine a [corpoDiAcqua]?
+* Quale strada costeggia [corpoDiAcqua]?
+* Dove inizia e finisce [corpoDiAcqua]? 
+
+Dal momento che le parole o le frasi per il corpo d'acqua sono sinonimi e possono essere usate in modo intercambiabile nelle espressioni, usare l'impostazione **intercambiabile** nell'elenco di frasi. 
+
+### <a name="non-interchangeable-lists"></a>Elenchi non intercambiabili
+
+Un elenco di frasi non intercambiabile è un segnale che potenzia il rilevamento per LUIS. L'elenco di frasi indica parole o frasi che sono più significative rispetto alle altre parole. Ciò è utile sia per la determinazione della finalità che per il rilevamento delle entità. Ad esempio, si supponga di usare il dominio di interesse Viaggi globale, ovvero valido per più impostazioni cultura, ma comunque in una sola lingua. Sono presenti parole e frasi che sono importanti per l'app, ma non sono sinonimi. 
+
+Sempre a titolo di esempio, si potrebbe usare un elenco di frasi non intercambiabile anche per le parole rare, brevettate e straniere. LUIS potrebbe non essere in grado di riconoscere le parole rare e brevettate, nonché le parole straniere (diverse rispetto alla impostazioni cultura dell'app). L'impostazione di non intercambiabilità indica che il set di parole rare forma una classe che LUIS deve imparare a riconoscere, ma che queste parole non sono sinonimi o intercambiabili tra loro.
+
+Non aggiungere ogni possibile parola o frase all'elenco di frasi, ma aggiungere alcune parole o frasi alla volta e quindi ripetere il training e pubblicare. 
+
+Man mano che le dimensioni dell'elenco di frasi aumentano nel tempo, si potrebbe riscontrare che alcuni termini hanno molte forme (sinonimi). Suddividere questi casi in un altro elenco di frasi intercambiabile. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -55,14 +86,6 @@ Gli elenchi di frasi intercambiabili sono un ottimo modo per ottimizzare le pres
 Un elenco di frasi non è un'istruzione impartita a LUIS perché quest’ultimo esegua una corrispondenza rigorosa o etichetti sempre tutti i termini nell'elenco di frasi allo stesso modo. È semplicemente un suggerimento. Un elenco di frasi potrebbe ad esempio indicare che "Patti" e "Selma" sono i nomi, ma LUIS riesce a usare le informazioni contestuali per appurare che il loro significato è diverso rispetto a "Prenota per 2 a cena presso Patti's Diner" e "Trovami il percorso in auto per Selma in Georgia". 
 
 L'aggiunta di un elenco di frasi è un'alternativa all'aggiunta di ulteriori espressioni di esempio a una finalità. 
-
-## <a name="an-interchangeable-phrase-list"></a>Elenco frasi intercambiabile
-Usare un elenco di frasi intercambiabile quando l'elenco di parole o frasi crea una classe o un gruppo. Un esempio è un elenco di mesi, ad esempio "Gennaio", "Febbraio", "Marzo", o nomi, ad esempio "Giovanni", "Maria", "Franco".  Questi elenchi sono intercambiabili in quanto l'affermazione sarebbe etichettata con la stessa finalità o entità anche se venisse usata una parola diversa nell'elenco di frasi. Se ad esempio "mostra il calendario di gennaio" ha la stessa finalità di "mostra il calendario di febbraio", le parole sono incluse in un elenco intercambiabile. 
-
-## <a name="a-non-interchangeable-phrase-list"></a>Elenco di frasi non intercambiabile
-Usare un elenco di frasi non intercambiabile per parole o frasi che non sono sinonimi e che possono essere raggruppate nel dominio. 
-
-Usare ad esempio un elenco di frasi non intercambiabile per le parole rare, brevettate e straniere. LUIS potrebbe non essere in grado di riconoscere le parole rare e brevettate, nonché le parole straniere (diverse rispetto alla impostazioni cultura dell'app). L'impostazione di non intercambiabilità indica che il set di parole rare forma una classe che LUIS deve imparare a riconoscere, ma che queste parole non sono sinonimi o intercambiabili tra loro.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando usare gli elenchi di frasi e le entità elenco
 Sia un elenco di frasi sia le entità elenco possono influire sulle espressioni di qualsiasi finalità, tuttavia le modalità con cui ciò avviene sono diverse. Usa un elenco di frasi per influire sul punteggio di previsione delle finalità. Usa un'entità elenco per influire sull'estrazione di entità per ottenere una corrispondenza testuale esatta. 

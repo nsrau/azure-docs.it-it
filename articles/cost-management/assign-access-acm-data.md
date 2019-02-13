@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052139"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766819"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
-Per la maggior parte degli utenti, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso dell’utente ai dati di Gestione costi di Azure. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
+Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account di Azure, il livello di accesso ai dati di Gestione costi è più semplice. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
 ## <a name="cost-management-scopes"></a>Ambiti di Gestione costi
 
-È necessario avere l'accesso almeno in lettura a uno o più degli ambiti seguenti per visualizzare i dati dei costi.
+Gestione costi supporta un'ampia gamma di tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Il tipo di account determina gli ambiti disponibili.
+
+### <a name="azure-ea-subscription-scopes"></a>Ambiti della sottoscrizione con contratto Enterprise di Azure
+
+È necessario disporre almeno dell'accesso in lettura a uno o più degli ambiti seguenti per visualizzare i dati dei costi per le sottoscrizioni con contratto Enterprise di Azure.
 
 | **Ambito** | **Definito in** | **Accesso richiesto per visualizzare i dati** | **Impostazione prerequisita del Contratto Enterprise** | **Consolida dati in** |
 | --- | --- | --- | --- | --- |
@@ -43,6 +47,18 @@ L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il 
 Il diagramma seguente illustra la relazione tra gli ambiti di Gestione costi con i ruoli e le impostazioni del portale EA.
 
 ![Diagramma che illustra la relazione tra gli ambiti di Gestione costi con i ruoli e le impostazioni del portale EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+Se l'opzione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) è disabilitata nel portale EA, verrà visualizzato il messaggio *I costi sono disabilitati per l'organizzazione* quando si prova a visualizzare i costi per i reparti e gli account.
+
+Analogamente, se l'opzione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) è disabilitata nel portale EA, verrà visualizzato il messaggio *I costi sono disabilitati per l'organizzazione* quando si prova a visualizzare i costi per gli account di registrazione, i gruppi di gestione, le sottoscrizioni e i gruppi di risorse.
+
+## <a name="other-azure-account-scopes"></a>Ambiti di altri account di Azure
+
+È necessario disporre almeno dell'accesso in lettura a uno o più degli ambiti seguenti per visualizzare i dati dei costi per altre sottoscrizioni di Azure:
+
+- Account Azure
+- Gruppo di gestione
+- Gruppo di risorse
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Abilitare l'accesso ai costi nel portale EA
 
@@ -109,7 +125,7 @@ Dopo aver completato i passaggi precedenti, l'account utente diventa un account 
 
 ## <a name="assign-management-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di gestione
 
-Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di gestione_, quindi selezionare **Gruppi di gestione**.
@@ -120,12 +136,12 @@ Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione
 7. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 8. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 9. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-10. Fare clic su **Save**.  
+10. Fare clic su **Salva**.  
     ![Informazioni di esempio nella casella Aggiungi autorizzazioni per un gruppo di gestione](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
 
-Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare l'autorizzazione a una sottoscrizione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per la sottoscrizione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare l'autorizzazione a una sottoscrizione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per la sottoscrizione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Sottoscrizioni_, quindi selezionare **Sottoscrizioni**.
@@ -135,11 +151,11 @@ Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore G
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 ## <a name="assign-resource-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di risorse
 
-Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare le autorizzazioni a un gruppo di risorse nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di risorse. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare le autorizzazioni a un gruppo di risorse nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di risorse. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di risorse_, quindi selezionare **Gruppi di risorse**.
@@ -149,7 +165,7 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

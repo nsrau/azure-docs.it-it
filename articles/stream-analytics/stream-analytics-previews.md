@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 02/05/2019
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232125"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768563"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -23,13 +23,13 @@ Questo articolo riepiloga tutte le funzionalità attualmente in anteprima per An
 
 Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile sfruttare queste funzionalità adesso, ma non usarle nell'ambiente di produzione.
 
+### <a name="sql-database-reference-data"></a>Dati di riferimento del database SQL
+
+Analisi di flusso di Azure supporta il database SQL di Azure come origine di input per i dati di riferimento. È possibile usare i dati contenuti in un database SQL come dati di riferimento per un processo di Analisi di flusso nel portale di Azure e in Visual Studio con gli strumenti di Analisi di flusso. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
+
 ### <a name="integration-with-azure-machine-learning"></a>Integrazione con Azure Machine Learning
 
 È possibile per ridimensionare i processi di Analisi di flusso con funzioni di Machine Learning (ML). Per altre informazioni su come è possibile usare le funzioni ML nel processo di Analisi di flusso, vedere [Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Per uno scenario reale, vedere [Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>Partizionamento dell'output BLOB per ora personalizzata
-
-Analisi di flusso di Azure può eseguire l'output nell'archivio BLOB in base agli attributi temporali personalizzati. Per altre informazioni, vedere [Modelli di percorso di data/ora personalizzati per l'output di archiviazione BLOB di Analisi di flusso di Azure](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>Aggregazione JavaScript definita dall'utente
 
@@ -45,7 +45,7 @@ Con le funzioni .NET Standard definite dall'utente, è possibile eseguire il cod
 
 ## <a name="private-previews"></a>Anteprime private
 
-Nell'anteprima privata sono disponibili le funzionalità seguenti. Per accedere a queste anteprime, visitare la pagina di [iscrizione](https://aka.ms/ASApreview1) all'anteprima privata di Analisi di flusso di Azure.
+Nell'anteprima privata sono disponibili le funzionalità seguenti.
 
 ### <a name="anomaly-detection"></a>Anomaly Detection
 
@@ -55,16 +55,16 @@ In Analisi di flusso di Azure sono stati introdotti nuovi modelli di apprendimen
 
 Gli sviluppatori possono ora implementare deserializzatori personalizzati in C# per deserializzare gli eventi ricevuti da Analisi di flusso di Azure. Gli esempi di formati che possono essere deserializzati includono Parquet, Protobuf, XML o qualsiasi altro formato binario.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>Partizionamento dell'output BLOB per attributo personalizzato
-
-È ora possibile partizionare l'output di Analisi di flusso di Azure nell'archivio BLOB in base a una colonna della query.
-
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Identità gestite per l'autenticazione delle risorse di Azure in Azure Data Lake Storage
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Identità gestite per l'autenticazione delle risorse di Azure in Azure Data Lake Storage
 
 È ora possibile rendere operative le pipeline in tempo reale con le identità gestite per l'autenticazione basata sulle risorse di Azure durante la scrittura in Azure Data Lake Storage Gen1 e poter così creare processi a livello di codice. Per altre informazioni, vedere [Usare le identità gestite per le risorse di Azure per l'autenticazione dei processi di Analisi di flusso di Azure per l'output in Azure Data Lake Storage Gen1](stream-analytics-managed-identities-adls.md).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code per Analisi di flusso di Azure
+
+I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Eight new features in Azure Stream Analytics (Otto nuove funzionalità in Analisi di flusso di Azure)](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [4 new features now available in Azure Stream Analytics (Quattro nuove funzionalità disponibili in Analisi di flusso di Azure)](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Four new features now available in Azure Stream Analytics (Quattro nuove funzionalità disponibili in Analisi di flusso di Azure)](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

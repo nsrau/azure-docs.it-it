@@ -59,6 +59,8 @@ items:
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Analizzare i dati JSON e AVRO
     href: stream-analytics-parsing-json.md
+  - name: Considerazioni sulla gestione del tempo
+    href: stream-analytics-time-handling.md
   - name: Considerazioni sull'ordinamento degli eventi
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint e riproduzione
@@ -431,9 +433,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: d2038b8a663db50f4b2341ae3b2c39b499bb00c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 00a80228f20c172c5584ca18a9789ed458c864aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882348"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997975"

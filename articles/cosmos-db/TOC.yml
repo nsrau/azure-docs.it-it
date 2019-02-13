@@ -463,8 +463,12 @@ items:
     href: how-to-manage-database-account.md
   - name: Distribuzione globale
     items:
+    - name: Configurare il supporto multimaster
+      href: how-to-multi-master.md
     - name: Gestire i livelli di coerenza
       href: how-to-manage-consistency.md
+    - name: Implementare la sincronizzazione personalizzata
+      href: how-to-custom-synchronization.md
     - name: Configurare i criteri di risoluzione dei conflitti
       href: how-to-manage-conflicts.md
   - name: Velocità effettiva con provisioning
@@ -595,10 +599,10 @@ items:
     items:
     - name: Informazioni sulla libreria dell'executor bulk
       href: bulk-executor-overview.md
-- name: Guide alla risoluzione dei problemi
-  items:
-  - name: Risolvere i problemi di Java Async SDK
-    href: troubleshoot-java-async-sdk.md
+  - name: Risolvere problemi
+    items:
+    - name: Risolvere i problemi di Java Async SDK
+      href: troubleshoot-java-async-sdk.md
 - name: Risorse
   items:
   - name: Sviluppare le proprie competenze con Microsoft Learn
@@ -627,9 +631,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: da87cea310f5bda952cfa014d7b45e23e555efcf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 72a6dced29f09379453d0e33131f78e875b2c9f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746184"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163497"

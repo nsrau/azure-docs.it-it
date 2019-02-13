@@ -5,24 +5,23 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623231"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815201"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
-Il servizio Azure Data Lake Analytics archivia i processi inviati in un [archivio query](#query-store). Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
+Il servizio Azure Data Lake Analytics archivia i processi inviati in un archivio query. Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
 
 Per impostazione predefinita, il servizio Data Lake Analytics archivia i processi per 30 giorni. È possibile configurare il periodo di scadenza nel portale di Azure configurando un criterio di scadenza personalizzato. Non sarà possibile accedere alle informazioni sui processi dopo la scadenza. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Vedere [Prerequisiti di Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Aprire Job Browser
@@ -60,12 +59,12 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * Job Result (Risultato processo): indica l'esito positivo o negativo. In ogni fase il processo potrebbe non riuscire.
     * Total Duration (Durata totale): il tempo reale tra l'ora di invio e l'ora di fine.
     * Total Compute Time (Tempo di calcolo totale): la somma del tempo di esecuzione di ogni vertice; questo valore può essere considerato come il tempo di esecuzione del processo in un solo vertice. Per altre informazioni sul vertice, fare riferimento all'opzione Total Vertices (Totale vertici).
-    * Submit Time/Start Time/End Time: (Ora di invio/Ora di inizio/Ora di fine): ora in cui il servizio Data Lake Analytics riceve l'invio di un processo/avvia l'esecuzione del processo/termina il processo con esito positivo o negativo.
+    * Submit Time/Start Time/End Time (Ora di invio/Ora di inizio/Ora di fine): ora in cui il servizio Data Lake Analytics riceve l'invio di un processo/avvia l'esecuzione del processo/termina il processo con esito positivo o negativo.
     * Compilation/Queued/Running (Compilazione/In coda/In esecuzione): il tempo reale trascorso durante la fase di preparazione/inserimento in coda/esecuzione.
     * Account: l'account Data Lake Analytics usato per l'esecuzione del processo.
     * Author (Autore): l'utente che ha inviato il processo; può essere l'account di una persona reale o un account di sistema.
-    * Priority (Priorità): la priorità del processo. Più è basso il numero, maggiore sarà la priorità. Interessa solo la sequenza di processi in coda. L'impostazione di una priorità più elevata non ha la precedenza sui processi in esecuzione.
-    * Parallelismo: il numero massimo richiesto di unità Azure Data Lake Analytics Unit (ADLAU) simultanee, note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
+    * Priorità: la priorità del processo. Più è basso il numero, maggiore sarà la priorità. Interessa solo la sequenza di processi in coda. L'impostazione di una priorità più elevata non ha la precedenza sui processi in esecuzione.
+    * Parallelism (Parallelismo): il numero massimo richiesto di unità Azure Data Lake Analytics simultanee, note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
     * Bytes Left (Byte restanti): byte da elaborare fino al completamento del processo.
     * Bytes read/written (Byte letti/scritti): byte che sono stati letti/scritti dopo l'avvio del processo.
     * Total vertices (Totale vertici): il processo è suddiviso in elementi di lavoro e ogni elemento è chiamato vertice. Questo valore descrive il numero di elementi di lavoro che costituiscono il processo. Un vertice può essere considerato come un'unità di processo di base, nota anche come Azure Data Lake Analytics Unit (ADLAU); i vertici possono essere eseguiti in parallelismo. 
@@ -89,9 +88,9 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * SV1 Extract (Estrazione SV1): il nome di una fase, indicato da un numero e dal metodo dell'operazione.
     * 84 vertices (84 vertici): il conteggio totale di vertici in questa fase. La cifra indica il numero di elementi di lavoro in cui il processo è suddiviso in questa fase.
     * 12.90 s/vertex (12,90 s/vertice): il tempo medio di esecuzione di vertici per questa fase. Questo valore viene calcolato da SUM (tempo di esecuzione di ogni vertice)/(conteggio totale vertici). Se si assegnassero tutti i vertici eseguiti in parallelismo, l'intera fase verrebbe completata in 12,90 s. Se quindi tutto il lavoro in questa fase fosse eseguito in serie, il valore sarebbe numero vertici * tempo AVG.
-    * 850,895 rows written (850,895 righe scritte): il conteggio totale delle righe scritte in questa fase.
+    * 850,895 rows written (850.895 righe scritte): il conteggio totale delle righe scritte in questa fase.
     * R/W (L/S): la quantità di dati letti/scritti in questa fase, espressa in byte.
-    * I colori usati nella fase indicano lo stato dei vertici.
+    * Colori: i colori usati nella fase indicano lo stato dei vertici.
       
       * Il verde indica che il vertice è riuscito.
       * L'arancione indica che sono stati eseguiti nuovi tentativi per il vertice. Il vertice non ha avuto esito positivo, ma il sistema ha eseguito automaticamente un nuovo tentativo riuscito e la fase è stata completata correttamente. Se i nuovi tentativi non riescono, il colore diventa rosso e l'intero processo risulta non riuscito.
@@ -127,7 +126,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     
       ![Esempio di mappa termica del grafico del processo di Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Progress (Stato): lo stato di esecuzione del processo: vedere i dettagli in [informazioni sulla fase](#stage-information).
+    * Progress (Stato): lo stato di esecuzione del processo: vedere i dettagli in informazioni sulla fase.
     * Data read/written (Dati letti/scritti): la mappa termica dei dati totali letti/scritti in ogni fase.
     * Compute time (Tempo di calcolo): la mappa termica di SUM (tempo di esecuzione di ogni vertice); può essere considerato come il tempo necessario se tutte le operazioni nella fase fossero eseguite solo con 1 vertice.
     * Average execution time per node (Tempo medio di esecuzione per ogni nodo): la mappa termica di SUM (tempo di esecuzione di ogni vertice)/(numero di vertici). Se quindi si assegnassero tutti i vertici eseguiti in parallelismo, l'intera fase verrebbe completata in questo intervallo di tempo.
