@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157704"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664030"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 L'accesso Single Sign-On (SSO) offre sicurezza e praticità quando gli utenti accedono alle applicazioni in Azure Active Directory (Azure AD). Questo articolo descrive i metodi di accesso Single Sign-On e consente di scegliere il metodo SSO più appropriato quando si configurano le applicazioni.
@@ -49,9 +49,7 @@ La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e 
 | [Basato su intestazione](#header-based-sso) | Solo in locale | Usare l'accesso Single Sign-On basato su intestazione quando l'applicazione usa le intestazioni per l'autenticazione. L'accesso Single Sign-On basato su intestazione richiede PingAccess per Azure AD. Application Proxy usa Azure AD per autenticare l'utente e quindi passa il traffico attraverso il servizio del connettore.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
-Con OAuth e OpenID Connect, si consente un'esperienza Single Sign-On che semplifica il processo di aggiunta di un'applicazione aziendale ad Azure AD. Non è necessario che l'amministratore dell'applicazione configuri l'accesso Single Sign-On. Azure AD aggiunge invece l'applicazione quando l'amministratore [concede il consenso utente](configure-user-consent.md). 
-
-Gli [SDK](../develop/reference-v2-libraries.md) per OpenID Connect e OAuth sono facili da adottare e l'applicazione sarà pronta per usare MS Graph. 
+Quando si sviluppano nuove applicazioni, usare protocolli moderni quali OAuth e OpenID Connect per ottenere la migliore esperienza Single Sign-On per l'app su più piattaforme di dispositivo. OAuth consente agli utenti o agli amministratori di [concedere il consenso](configure-user-consent.md) per l'accesso a risorse protette come [MS Graph](/graph/overview). Offriamo [SDK](../develop/reference-v2-libraries.md) facili da usare per l'app e, inoltre, l'app sarà pronta a usare [MS Graph](/graph/overview).
 
 Per altre informazioni, vedere:
 

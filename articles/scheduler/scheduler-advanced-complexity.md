@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712059"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701013"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
@@ -24,13 +24,13 @@ ms.locfileid: "51712059"
 
 All'interno di un processo in [Utilità di pianificazione Azure](../scheduler/scheduler-intro.md), la pianificazione è la componente principale che determina come e quando il servizio Utilità di pianificazione esegue il processo. Con Utilità di pianificazione è possibile configurare più pianificazioni singole e ricorrenti per un processo. Le pianificazioni singole vengono eseguite una sola volta a un'ora specificata e sono essenzialmente pianificazioni ricorrenti eseguite una sola volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza specificata. Grazie a questa flessibilità, è possibile usare l'Utilità di pianificazione per diversi scenari aziendali, ad esempio:
 
-* **Pulire i dati regolarmente**: creare un processo giornaliero che elimina tutti i tweet più vecchi di tre mesi.
+* **Pulire regolarmente i dati**: creare un processo giornaliero che elimina tutti i tweet più vecchi di tre mesi.
 
-* **Archiviare dati**: creare un processo mensile che esegue il push della cronologia delle fatture per un servizio di backup.
+* **Archiviare i dati**: creare un processo mensile che esegue il push della cronologia delle fatture per un servizio di backup.
 
-* **Richiesta dei dati esterni**: creare un processo che viene eseguito ogni 15 minuti ed esegue il pull di un nuovo report meteo da NOAA.
+* **Richiedere dati esterni**: creare un processo che viene eseguito ogni 15 minuti ed esegue il pull di un nuovo report meteo da NOAA.
 
-* **Processare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
+* **Elaborare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
 
 Questo articolo descrive i processi di esempio che si possono creare usando l'Utilità di pianificazione e l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler) e include la definizione JSON (JavaScript Object Notation) per ogni pianificazione. 
 
@@ -53,9 +53,9 @@ In seguito, questo articolo descrive gli scenari in modo più dettagliato.
 
 Per creare una pianificazione di base con l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler), seguire questa procedura:
 
-1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
+1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
 
-1. Creare una raccolta di processi usando l'[operazione Crea o aggiorna per le raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) nell'API REST dell'Utilità di pianificazione. 
+1. Creare una raccolta di processi usando l'[operazione Crea o aggiorna per le raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections) nell'API REST dell'Utilità di pianificazione. 
 
 1. Creare un processo tramite l'[operazione Crea o aggiorna per i processi](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 

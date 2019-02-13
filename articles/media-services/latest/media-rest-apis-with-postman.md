@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813892"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -57,7 +57,7 @@ Questa sezione consente di configurare Postman.
     > [!Note]
     > Aggiornare le variabili di accesso con i valori ottenuti dalla sezione **Accedere all'API di Servizi multimediali** precedente.
 
-7. Fare doppio clic sul file selezionato e immettere i valori ottenuti seguendo la procedura per l'[accesso all'API](#access-the-media-services-api).
+7. Fare doppio clic sul file selezionato e immettere i valori ottenuti seguendo la procedura per l'accesso all'API.
 8. Chiudere la finestra di dialogo.
 9. Selezionare l'ambiente **Azure Media Service v3 Environment** nell'elenco a discesa.
 

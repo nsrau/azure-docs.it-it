@@ -5,21 +5,22 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 01/28/2019
+ms.date: 02/01/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: f576e4546c5024e14b0735867ed9ed8dc38e93aa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a7e9af2ea7cd5f32f79d4b2dd1442870373e53c5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205130"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648629"
 ---
 | Categoria | Archivio dati |
 |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[API di Azure Cosmos DB per MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
+| &nbsp; |[Esplora dati di Azure](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Database di Azure per MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422729"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756819"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -85,11 +85,11 @@ Storage Explorer offre numerosi modi per connettersi agli account di archiviazio
 Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazionale:
 
 * [Connettersi a una sottoscrizione di Azure](#connect-to-an-azure-subscription): gestire le risorse di archiviazione appartenenti alla sottoscrizione di Azure.
-* [Usare la risorsa di archiviazione locale](#work-with-local-development-storage): gestire la risorsa di archiviazione locale usando l'emulatore di archiviazione di Azure.
-* [Collegarsi a una risorsa di archiviazione esterna](#attach-or-detach-an-external-storage-account): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure o ai cloud di Azure nazionale usando il nome, la chiave e gli endpoint dell'account di archiviazione.
-* [Collegare un account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
-* [Collegare un servizio usando la firma di accesso condiviso](#attach-service-using-sas): gestire un servizio di archiviazione specifico (contenitore BLOB, coda o tabella) appartenente a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
-* [Connettersi a un account Azure Cosmos DB usando una stringa di connessione](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): gestire un account Cosmos DB usando una stringa di connessione.
+* [Utilizzare l'archivio di sviluppo locale](#work-with-local-development-storage): gestire l'archiviazione locale usando l'emulatore di archiviazione di Azure.
+* [Collegarsi a una risorsa di archiviazione esterna](#attach-or-detach-an-external-storage-account): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure o ai cloud di Azure nazionali usando il nome, la chiave e gli endpoint dell'account di archiviazione.
+* [Collegare un account di archiviazione usando la firma di accesso condiviso](#attach-a-storage-account-by-using-a-shared-access-signature-sas): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
+* [Collegare un servizio usando la firma di accesso condiviso](#attach-a-service-by-using-a-shared-access-signature-sas): gestire un servizio di archiviazione specifico (contenitore BLOB, coda o tabella) appartenente a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
+* [Connettersi a un account Azure Cosmos DB usando una stringa di connessione](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): gestire un account Azure Cosmos DB usando una stringa di connessione.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
@@ -295,7 +295,7 @@ Oltre a gestire gli account Azure Cosmos DB tramite la sottoscrizione di Azure, 
 
     ![Connettersi ad Azure Cosmos DB usando una stringa di connessione][21]
 
-2. Scegliere l'API Azure Cosmos DB, incollare la **stringa di connessione** e quindi fare clic su **OK** per connettere l'account Azure Cosmos DB. Per informazioni su come recuperare la stringa di connessione, vedere [Ottenere la stringa di connessione](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Scegliere l'API Azure Cosmos DB, incollare la **stringa di connessione** e quindi fare clic su **OK** per connettere l'account Azure Cosmos DB. Per informazioni su come recuperare la stringa di connessione, vedere [Ottenere la stringa di connessione](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

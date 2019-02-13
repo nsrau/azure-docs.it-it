@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458874"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813008"
 ---
 # <a name="modeling-relationships"></a>Modellazione di relazioni
 Questo articolo illustra il processo di modellazione per semplificare la progettazione di soluzioni di archiviazione tabelle di Azure.
@@ -101,7 +101,7 @@ I modelli di dominio possono includere relazioni uno a uno tra le entità. Se è
 Esistono anche alcune considerazioni sull'implementazione che potrebbero far decidere di implementare le relazioni uno a uno nel servizio tabelle:  
 
 * Gestione di entità di grandi dimensioni (per altre informazioni, vedere [Modello di entità di grandi dimensioni](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementazione di controlli di accesso. Per altre informazioni, vedere [Controllo dell'accesso con le firme di accesso condiviso](#controlling-access-with-shared-access-signatures).  
+* Implementazione di controlli di accesso. Per altre informazioni, vedere Controllo dell'accesso con le firme di accesso condiviso.  
 
 ## <a name="join-in-the-client"></a>Join nel client
 Anche se esistono alcuni modi per modellare le relazioni nel servizio tabelle, è bene non dimenticare che i due principali motivi per usare il servizio tabelle sono la scalabilità e le prestazioni. Se ci si accorge che si stanno modellando troppe relazioni che compromettono le prestazioni e la scalabilità della soluzione, è consigliabile chiedersi se sia necessario compilare tutte le relazioni tra i dati nella progettazione tabelle. È possibile semplificare la progettazione e migliorare la scalabilità e le prestazioni della soluzione permettendo all'applicazione client di eseguire i join necessari.  
@@ -117,7 +117,7 @@ Se l'applicazione client usa un set di classi che fanno parte di una relazione d
 
 ![Tabella Persone](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel codice del client, vedere la sezione [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types) più avanti in questa guida. In questa sezione sono disponibili esempi su come riconoscere il tipo di entità nel codice del client.  
+Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel codice del client, vedere la sezione Uso di tipi di entità eterogenei più avanti in questa guida. In questa sezione sono disponibili esempi su come riconoscere il tipo di entità nel codice del client.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

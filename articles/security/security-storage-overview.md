@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza per Archiviazione di Azure | Microsoft Docs
+title: Funzionalità di sicurezza per Archiviazione di Azure | Documentazione Microsoft
 description: Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure.
 services: security
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973129"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694269"
 ---
 # <a name="azure-storage-security-overview"></a>Panoramica della sicurezza di Archiviazione di Azure
 
@@ -47,7 +47,7 @@ Altre informazioni:
 
 ## <a name="delegated-access-to-storage-objects"></a>Accesso delegato agli oggetti di archiviazione
 
-Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account. 
+Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account.
 
 La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma al costruttore o al metodo appropriato.
 
@@ -73,7 +73,7 @@ Altre informazioni sulla crittografia lato client:
 
 Per molte organizzazioni, [la crittografia dei dati inattivi](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Tre funzionalità di Azure consentono di crittografare dati inattivi:
 
-* [Crittografia del servizio di archiviazione](../storage/common/storage-security-guide.md#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
+* [Crittografia del servizio di archiviazione](../storage/common/storage-security-guide.md#encryption-at-rest) è sempre abilitata ed esegue automaticamente la crittografia dei dati del servizio di archiviazione durante la scrittura su Archiviazione di Azure.
 * [Crittografia lato client](../storage/common/storage-security-guide.md#client-side-encryption) offre anche la funzionalità di crittografia dei dati inattivi.
 * [Crittografia dischi di Azure](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) consente di crittografare i dischi dei dati e del sistema operativo usati da una macchina virtuale IaaS.
 
@@ -114,9 +114,9 @@ Altre informazioni:
 
 ## <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Archiviazione di Azure offre la funzionalità Advanced Threat Protection per un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento dell'account di archiviazione. Advanced Threat Protection esegue il monitoraggio dei log di diagnostica di Archiviazione di Azure per determinare la presenza di eventuali richieste di lettura, scrittura o eliminazione alle risorse di archiviazione BLOB. 
+Archiviazione di Azure offre la funzionalità Advanced Threat Protection per un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento dell'account di archiviazione. Advanced Threat Protection esegue il monitoraggio dei log di diagnostica di Archiviazione di Azure per determinare la presenza di eventuali richieste di lettura, scrittura o eliminazione alle risorse di archiviazione BLOB.
 
-Gli avvisi di Advanced Threat Protection possono essere visualizzati dal [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che offre informazioni dettagliate sulle attività sospette rilevate e consiglia azioni per analizzare e correggere la potenziale minaccia. 
+Gli avvisi di Advanced Threat Protection possono essere visualizzati dal [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che offre informazioni dettagliate sulle attività sospette rilevate e consiglia azioni per analizzare e correggere la potenziale minaccia.
 
 Altre informazioni:
 

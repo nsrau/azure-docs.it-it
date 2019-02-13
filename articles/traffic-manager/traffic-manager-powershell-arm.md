@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055133"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816211"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -66,7 +66,7 @@ La tabella seguente descrive i parametri:
 | MonitorPort |Indica la porta TCP da usare per monitorare lo stato di integrità dell'endpoint. |
 | MonitorPath |Indica il percorso relativo al nome di dominio dell'endpoint usato per verificare l'integrità dell'endpoint. |
 
-Il cmdlet consente di creare un profilo di Gestione traffico in Azure e restituisce un oggetto di profilo corrispondente a PowerShell. A questo punto, il profilo non contiene endpoint. Per altre informazioni sull'aggiunta di endpoint a un profilo di Gestione traffico, vedere [Aggiunta di endpoint a Gestione traffico](#adding-traffic-manager-endpoints).
+Il cmdlet consente di creare un profilo di Gestione traffico in Azure e restituisce un oggetto di profilo corrispondente a PowerShell. A questo punto, il profilo non contiene endpoint. Per altre informazioni sull'aggiunta di endpoint a un profilo di Gestione traffico, vedere Aggiunta di endpoint a Gestione traffico.
 
 ## <a name="get-a-traffic-manager-profile"></a>Visualizzazione di un profilo di Gestione traffico
 

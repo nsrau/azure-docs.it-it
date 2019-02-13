@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197348"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Esercitazione: Integrazione di Azure Active Directory con RFPIO
 
@@ -88,11 +88,11 @@ Per stabilire la relazione di collegamento, in RFPIO assegnare il valore del **n
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con RFPIO, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-1. **[Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente di test di RFPIO](#creating-a-rfpio-test-user)**: per avere una controparte di Britta Simon in RFPIO collegata alla relativa rappresentazione in Azure AD.
-1. **[Assegnare l'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testare l'accesso Single Sign-On](#testing-single-sign-on)** per verificare se la configurazione funziona.
+1. **Configurare l'accesso Single Sign-On di Azure AD**: per consentire agli utenti di usare questa funzionalità.
+1. **Creare un utente test di Azure AD**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **Creare un utente di test di RFPIO**: per avere una controparte di Britta Simon in RFPIO collegata alla relativa rappresentazione in Azure AD.
+1. **Assegnare l'utente di test di Azure AD**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **Testare l'accesso Single Sign-On**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 

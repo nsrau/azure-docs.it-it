@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077335"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821616"
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 
@@ -34,7 +34,7 @@ Per l'autenticazione, sia il piano di gestione sia il piano dati usano Azure Act
 
 Ecco una breve panoramica degli argomenti trattati:
 
-[Autenticazione tramite Azure Active Directory](#authentication-using-azure-active-directory): questa sezione spiega come un chiamante esegue l'autenticazione con Azure Active Directory per accedere a un insieme di credenziali delle chiavi tramite il piano di gestione e il piano dati. 
+Autenticazione tramite Azure Active Directory: questa sezione spiega come un chiamante esegue l'autenticazione con Azure Active Directory per accedere a un insieme di credenziali delle chiavi tramite il piano di gestione e il piano dati. 
 
 Per l'autenticazione, entrambi i piani utilizzano Azure Active Directory (Azure AD). Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
 

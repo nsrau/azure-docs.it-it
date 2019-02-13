@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538592"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564205"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
 È possibile usare [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di dump e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) per ripristinare il database PostgreSQL da un file di archivio creato da pg_dump.
@@ -69,7 +69,9 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
 
 ### <a name="for-the-restore"></a>Per il ripristino
 - Si consiglia di spostare il file di backup in una macchina virtuale di Azure nella stessa area del server del Database di Azure per PostgreSQL in cui si sta eseguendo la migrazione e di eseguire il pg_restore da tale VM per ridurre la latenza di rete. Si consiglia inoltre di creare la macchina virtuale con [la funzionalità rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md) abilitata.
+
 - Deve essere già eseguito per impostazione predefinita, ma aprire il file di dump per verificare che le istruzioni CREATE INDEX siano effettuate dopo l'inserimento dei dati. In caso contrario, spostare le istruzioni CREATE INDEX dopo aver inserito i dati.
+
 - Ripristinare con gli switch -Fc e -j *#* per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile provare con *#* impostato su due volte il numero di core del server di destinazione per verificare l'impatto. Ad esempio: 
 
     ```
@@ -77,6 +79,13 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
     ```
 
 - È anche possibile modificare il file di dump aggiungendo il comando *set synchronous_commit = off;* all'inizio e il comando *set synchronous_commit = on;* alla fine. Non accenderlo alla fine, prima che le applicazioni cambino i dati è possibile che si verifichi una successiva perdita di dati.
+
+- Nel server di Database di Azure per PostgreSQL di destinazione è consigliabile eseguire le seguenti operazioni prima del ripristino:
+    - Disattivare il rilevamento delle prestazioni delle query, poiché queste statistiche non sono necessarie durante la migrazione. È possibile eseguire questa operazione impostando pg_stat_statements.track, pg_qs.query_capture_mode e pgms_wait_sampling.query_capture_mode su NONE.
+
+    - Usare uno SKU con prestazioni di calcolo e memoria elevate, ad esempio 32 vCore ottimizzati per la memoria, per completare la migrazione più velocemente. Sarà poi possibile tornare allo SKU preferito al termine della migrazione. Con uno SKU più potente, si può ottenere maggior parallelismo aumentando il parametro `-j` corrispondente nel comando pg_restore. 
+
+    - Un numero maggiore di operazioni di I/O al secondo nel server di destinazione può migliorare le prestazioni di ripristino. È possibile effettuare il provisioning di più operazioni di I/O al secondo aumentando le dimensioni delle risorse di archiviazione del server. Questa impostazione non è reversibile, ma è opportuno valutare se un aumento delle operazioni di I/O al secondo può contribuire a migliorare il carico di lavoro effettivo.
 
 Ricordarsi di testare e validare questi comandi in un ambiente di test prima di usarli in produzione.
 

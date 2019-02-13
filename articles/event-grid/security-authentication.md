@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382910"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730935"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -29,7 +29,7 @@ I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azur
 
 Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi richiede la dimostrazione della proprietà dell'endpoint del webhook prima dell'inizio del recapito di eventi a tale endpoint. Questo requisito impedisce a un utente malintenzionato di sovraccaricare l'endpoint con eventi. Quando si usa uno dei tre servizi di Azure elencati di seguito, l'infrastruttura di Azure gestisce automaticamente questa convalida:
 
-* App per la logica di Azure con il [connettore Griglia di eventi](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* App per la logica di Azure con il [connettore Griglia di eventi](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Automazione di Azure tramite [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Funzioni di Azure con il [trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md)
 
@@ -50,7 +50,7 @@ Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una fu
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
 * La proprietà eventType dell'evento è `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * La proprietà Data dell'evento include una proprietà `validationCode` con una stringa generata in modo casuale. ad esempio "validationCode: acb13…".
-* Se si usa la versione 2018-05-01-preview dell'API, i dati dell'evento includono anche una proprietà `validationUrl` con un URL per la convalida manuale della sottoscrizione.
+* I dati dell'evento includono anche una proprietà `validationUrl` con un URL che è possibile usare per convalidare manualmente la sottoscrizione.
 * La matrice contiene solo l'evento di convalida. Gli altri eventi vengono inviati in una richiesta separata dopo che è stato rimandato il codice di convalida.
 * Gli SDK DataPlane di Griglia di eventi includono classi corrispondenti ai dati degli eventi di convalida della sottoscrizione e alla risposta di convalida della sottoscrizione.
 

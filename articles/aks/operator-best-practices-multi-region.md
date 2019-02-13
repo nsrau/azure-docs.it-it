@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382445"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816612"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -21,11 +21,11 @@ Il tempo di attività delle applicazioni assume particolare importanza per la ge
 Questo articolo sulle procedure consigliate contiene considerazioni utili per pianificare la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes. Si apprenderà come:
 
 > [!div class="checklist"]
-* [Eseguire la pianificazione per i cluster del servizio Azure Kubernetes in più aree](#region-planning)
-* [Indirizzare il traffico tra più cluster con Gestione traffico di Microsoft Azure](#ingress-traffic)
-* [Usare la replica geografica per i registri di immagini del contenitore](#container-registry)
-* [Eseguire la pianificazione dello stato dell'applicazione in più cluster](#managing-application-state)
-* [Replicare l'archiviazione tra più aree](#storage)
+* Eseguire la pianificazione per i cluster del servizio Azure Kubernetes in più aree
+* Indirizzare il traffico tra più cluster con Gestione traffico di Microsoft Azure
+* Usare la replica geografica per i registri di immagini del contenitore
+* Eseguire la pianificazione dello stato dell'applicazione in più cluster
+* Replicare l'archiviazione tra più aree
 
 ## <a name="plan-for-multi-region-deployment"></a>Eseguire la pianificazione per la distribuzione in più aree
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477337"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816918"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrare gli eventi per Griglia di eventi
 
@@ -20,7 +20,7 @@ Questo articolo illustra come filtrare gli eventi quando si crea una sottoscrizi
 
 ## <a name="filter-by-event-type"></a>Filtrare in base al tipo di evento
 
-Quando si crea una sottoscrizione di Griglia di eventi, è possibile specificare quali [tipi di evento](event-schema.md) inviare all'endpoint. Gli esempi in questa sezione creano sottoscrizioni di eventi per un gruppo di risorse, ma limitano gli eventi che vengono inviati a `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se è necessaria maggiore flessibilità quando si filtrano gli eventi in base ai tipi di evento, vedere [Filtrare in base a campi dati e operatori avanzati](#filter-by-advanced-operators-and-data-fields).
+Quando si crea una sottoscrizione di Griglia di eventi, è possibile specificare quali [tipi di evento](event-schema.md) inviare all'endpoint. Gli esempi in questa sezione creano sottoscrizioni di eventi per un gruppo di risorse, ma limitano gli eventi che vengono inviati a `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se è necessaria maggiore flessibilità quando si filtrano gli eventi in base ai tipi di evento, vedere Filtrare in base a campi dati e operatori avanzati.
 
 Per PowerShell, usare il parametro `-IncludedEventType` quando si crea la sottoscrizione.
 
@@ -77,7 +77,7 @@ Per un modello di Resource Manager, usare la proprietà `includedEventTypes`.
 
 ## <a name="filter-by-subject"></a>Filtrare in base all'oggetto
 
-È possibile filtrare gli eventi in base all'oggetto presente nei relativi dati. È possibile specificare un valore per cui identificare una corrispondenza in base all'inizio o alla fine dell'oggetto. Se è necessaria maggiore flessibilità quando si filtrano gli eventi in base all'oggetto, vedere [Filtrare in base a campi dati e operatori avanzati](#filter-by-advanced-operators-and-data-fields).
+È possibile filtrare gli eventi in base all'oggetto presente nei relativi dati. È possibile specificare un valore per cui identificare una corrispondenza in base all'inizio o alla fine dell'oggetto. Se è necessaria maggiore flessibilità quando si filtrano gli eventi in base all'oggetto, vedere Filtrare in base a campi dati e operatori avanzati.
 
 Nell'esempio seguente di PowerShell si crea una sottoscrizione di eventi che applica un filtro in base all'inizio dell'oggetto. Si usa il parametro `-SubjectBeginsWith` per limitare gli eventi a quelli relativi a una risorsa specifica. Si passa l'ID risorsa di un gruppo di sicurezza di rete.
 

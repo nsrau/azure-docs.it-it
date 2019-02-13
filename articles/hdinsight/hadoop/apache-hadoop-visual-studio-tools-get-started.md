@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629680"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820828"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive
 
@@ -250,11 +250,11 @@ Per comprendere meglio la query Hive, è stata aggiunta la funzionalità Visuali
 ![Screenshot della finestra di visualizzazione dell'esecuzione dell'attività in Strumenti di Visual Studio di Data Lake](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Visualizzazione dell'esecuzione dell'attività")
 
 ## <a name="run-hive-batch-jobs"></a>Eseguire processi batch Hive
-Fatta eccezione per il cluster Interactive Query, testare script Hive in un cluster HDInsight è un'operazione che può richiedere molto tempo. Questo processo può richiedere diversi minuti. Strumenti Data Lake per Visual Studio consente di eseguire la convalida dello script Hive in locale senza connettersi a un cluster attivo. Per altre informazioni sull'esecuzione delle query interattive, vedere [Eseguire query Hive interattive](#run-interactive-hive-queries).
+Fatta eccezione per il cluster Interactive Query, testare script Hive in un cluster HDInsight è un'operazione che può richiedere molto tempo. Questo processo può richiedere diversi minuti. Strumenti Data Lake per Visual Studio consente di eseguire la convalida dello script Hive in locale senza connettersi a un cluster attivo. Per altre informazioni sull'esecuzione delle query interattive, vedere Eseguire query Hive interattive.
 
 È possibile usare Strumenti Data Lake per Visual Studio per visualizzare i contenuti del processo Hive raccogliendo ed esponendo i log Yarn di specifici processi Hive.
 
-Per altre informazioni su come eseguire i processi batch Hive, vedere [Eseguire query Hive interattive](#run-interactive-hive-queries). Le informazioni di questa sezione si applicano all'esecuzione di processi batch Hive con tempi di esecuzione più lunghi.
+Per altre informazioni su come eseguire i processi batch Hive, vedere Eseguire query Hive interattive. Le informazioni di questa sezione si applicano all'esecuzione di processi batch Hive con tempi di esecuzione più lunghi.
 
 ## <a name="run-apache-pig-scripts"></a>Eseguire script Apache Pig
 È possibile usare Strumenti Data Lake per Visual Studio per creare e inviare script Pig a cluster HDInsight. Creare prima di tutto un progetto Pig da un modello, quindi inviare lo script ai cluster HDInsight.

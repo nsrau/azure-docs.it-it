@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439188"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498166"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 
@@ -73,10 +73,9 @@ La funzione nella tabella seguente viene usata per accedere alle credenziali in 
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Per creare un nuovo asset credenziali con il portale di Azure
 
-1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
-2. Fare clic sulla parte **Credenziali** per aprire il pannello **Credenziali**.
-3. Fare clic su **Aggiungi credenziali** nella parte superiore del pannello.
-4. Completare il modulo e fare clic su **Crea** per salvare le nuove credenziali.
+1. Con il proprio account di Automazione, selezionare **Credenziali** in **Risorse condivise**.
+1. Fare clic su **+ Aggiungi credenziali**.
+1. Completare il modulo e fare clic su **Crea** per salvare le nuove credenziali.
 
 > [!NOTE]
 > Gli account utente che usano l'autenticazione a più fattori non sono supportati per l'uso in Automazione di Azure.

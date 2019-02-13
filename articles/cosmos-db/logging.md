@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cdc55491e827ab949d471c9b66c7caaa86f5055d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043329"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811648"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
@@ -79,7 +79,7 @@ Per abilitare la registrazione diagnostica nel portale di Azure, eseguire le ope
 
     * **Archivia in un account di archiviazione**: Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Azure Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi** : per usare questa opzione, sono necessari uno spazio dei nomi di Hub eventi e un hub eventi a cui connettersi. Per creare uno spazio dei nomi di Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare quindi a questa pagina del portale per selezionare lo spazio dei nomi di Hub eventi e il nome dei criteri.
-    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
+    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere Visualizzare i log in Log Analytics.
     * **Log DataPlaneRequests**: selezionare questa opzione per registrare le richieste back-end dalla piattaforma distribuita di Azure Cosmos DB sottostante per gli account SQL, Graph, MongoDB, Cassandra e API Tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Log MongoRequests**: selezionare questa opzione per registrare le richieste avviate dall'utente dal front-end di Azure Cosmos DB per gestire gli account Cosmos configurati con l'API di Azure Cosmos DB per MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrica Richieste**: selezionare questa opzione per archiviare i dati dettagliati nelle [metriche di Azure](../azure-monitor/platform/metrics-supported.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.

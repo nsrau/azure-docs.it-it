@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320938"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811325"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 
@@ -43,7 +43,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le distribuzioni di Linux seguenti:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -105,7 +105,7 @@ I criteri del controllo degli accessi in base al ruolo determinano chi può acce
 > [!NOTE]
 > Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH.
 
-L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../../azure-resource-manager/resource-group-overview.md#access-control)
+L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -171,7 +171,7 @@ Tra gli errori comuni che si commettono quando si tenta di accedere usando SSH c
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Accesso negato: ruolo Controllo degli accessi in base al ruolo non assegnato
 
-Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver [configurato i criteri di controllo degli accessi in base al ruolo](#configure-rbac-policy-for-the-virtual-machine) per la macchina virtuale che concede all'utente il ruolo *Accesso amministratore alle macchine virtuali* o *Accesso utente alle macchine virtuali*:
+Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri di controllo degli accessi in base al ruolo per la macchina virtuale che concede all'utente il ruolo *Accesso amministratore alle macchine virtuali* o *Accesso utente alle macchine virtuali*:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

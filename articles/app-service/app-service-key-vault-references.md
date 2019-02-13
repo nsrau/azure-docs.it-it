@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723145"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663566"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
@@ -37,7 +37,7 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
    > [!NOTE] 
    > I riferimenti a Key Vault supportano attualmente solo identità gestite assegnate dal sistema. Non è possibile usare identità assegnate dall'utente.
 
-1. Creare [criteri di accesso in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri.
+1. Creare [criteri di accesso in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `appliationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
 ## <a name="reference-syntax"></a>Sintassi del riferimento
 

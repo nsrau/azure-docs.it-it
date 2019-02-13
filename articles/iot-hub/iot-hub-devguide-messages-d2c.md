@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024274"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485348"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -21,7 +21,7 @@ ms.locfileid: "50024274"
 
 Il routing dei messaggi consente di inviare messaggi dai dispositivi ai servizi cloud in modo automatizzato, scalabile e affidabile. Il routing dei messaggi può essere usato per: 
 
-* **Inviare i messaggi di telemetria del dispositivo nonché gli eventi** in particolare gli eventi del ciclo di vita del dispositivo e gli eventi di modifica del dispositivo gemello all'endpoint predefinito e agli endpoint personalizzati. Informazioni sugli [endpoint di routing](#routing-endpoints).
+* **Inviare i messaggi di telemetria del dispositivo e gli eventi** in particolare gli eventi del ciclo di vita del dispositivo e gli eventi di modifica del dispositivo gemello all'endpoint predefinito e agli endpoint personalizzati. Informazioni sugli [endpoint di routing](#routing-endpoints).
 
 * **Filtrare i dati prima del routing a vari endpoint** applicando query complesse. Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Altre informazioni sull'uso delle [query nel routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
@@ -85,7 +85,7 @@ La route di fallback invia tutti i messaggi che non soddisfano le condizioni di 
 
 Oltre alla telemetria del dispositivo, il routing dei messaggi consente anche l'invio degli eventi di modifica del dispositivo gemello e degli eventi del ciclo di vita del dispositivo. Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. In modo analogo, se viene creata una route con origine dati impostata su **Eventi relativi al ciclo di vita del dispositivo**, l'hub IoT invierà un messaggio che indica se il dispositivo è stato eliminato o creato. 
 
-[L'hub IoT si integra anche con Griglia di eventi di Azure](iot-hub-event-grid.md) per pubblicare gli eventi dei dispositivi per supportare le integrazioni in tempo reale e l'automazione dei flussi di lavoro in base a questi eventi. Vedere le principali [differenze tra il routing dei messaggi e Griglia di eventi](iot-hub-event-grid-routing-comparison.md) per determinare la soluzione ottimale per il proprio scenario.
+[L'hub IoT si integra anche con Griglia di eventi di Azure](iot-hub-event-grid.md) per pubblicare gli eventi dei dispositivi supportando le integrazioni in tempo reale e l'automazione dei flussi di lavoro in base a questi eventi. Vedere le principali [differenze tra il routing dei messaggi e Griglia di eventi](iot-hub-event-grid-routing-comparison.md) per determinare la soluzione ottimale per il proprio scenario.
 
 ## <a name="testing-routes"></a>Test delle route
 

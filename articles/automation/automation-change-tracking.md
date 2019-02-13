@@ -10,18 +10,18 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301442"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487235"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione Rilevamento modifiche
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
 Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file di Windows e Linux, alle chiavi del Registro di sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
-Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard di Rilevamento modifiche, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 
@@ -111,7 +111,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. L'elenco seguente mostra le informazioni comuni che è necessario conoscere quando si configura la ricorsione:
 
 * I caratteri jolly sono necessari per tenere traccia di più file
-* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso. (ad esempio C:\folder\\**file** o /etc/*.conf)
+* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso. (ad esempio `c:\folder\*file*` o `/etc/*.conf`)
 * Se una variabile di ambiente dispone di un percorso non valido, la convalida avrà esito positivo, ma tale percorso avrà esito negativo quando si esegue l'inventario.
 * Evitare percorsi generici, ad esempio `c:\*.*`, quando si imposta il percorso, poiché vengono attraversate troppe cartelle.
 
@@ -132,9 +132,9 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 |Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -156,7 +156,7 @@ La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi segue
 
 * Gli aggiornamenti rapidi non vengono raccolti nei computer Windows Server 2016 Core RS3.
 
-## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Rilevamento modifiche
+## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 
 La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche. Per ogni tipo lo snapshot dei dati dello stato corrente viene aggiornato almeno ogni 24 ore:
 
@@ -245,13 +245,13 @@ I seguenti indirizzi sono necessari e specifici per Rilevamento modifiche. La co
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-## <a name="use-change-tracking"></a>Uso di Rilevamento modifiche
+## <a name="use-change-tracking"></a>Uso di Change Tracking
 
 Dopo avere abilitato la soluzione, è possibile visualizzare il riepilogo delle modifiche per i computer monitorati selezionando **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** nell'account di Automazione.
 
 È possibile visualizzare le modifiche ai computer e quindi analizzare i dettagli per ogni evento. Nella parte superiore del grafico sono disponibili menu a discesa per limitare le informazioni dettagliate e relative al grafico in base al tipo di modifica e agli intervalli di tempo. È anche possibile fare clic sul grafico e trascinare la selezione per selezionare un intervallo di tempo personalizzato.
 
-![immagine del dashboard di Rilevamento modifiche](./media/automation-change-tracking/change-tracking-dash01.png)
+![image of Change Tracking dashboard](./media/automation-change-tracking/change-tracking-dash01.png)
 
 Facendo clic su una modifica o su un evento vengono visualizzate informazioni dettagliate relative a tale modifica. Come si può notare nell'esempio, il tipo di avvio del servizio è stato modificato da Manuale ad Automatico.
 
@@ -278,7 +278,7 @@ Nell'esempio seguente lo screenshot mostra che il file `C:\windows\system32\driv
 
 ![Grafico che mostra la modifica del file hosts](./media/automation-change-tracking/changes.png)
 
-Per analizzare più a fondo questa modifica, passare alla funzionalità Ricerca log facendo clic su **Log Analytics**. In Ricerca log usare la query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` per cercare le modifiche al contenuto del file hosts. Questa query esegue la ricerca di modifiche apportate al contenuto di file il cui percorso completo contiene la parola "hosts". È anche possibile cercare un file specifico usando il formato completo del percorso anziché una sola parte (ad esempio, `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Per analizzare più a fondo questa modifica, passare alla funzionalità Ricerca log facendo clic su **Log Analytics**. In Ricerca log usare la query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` per cercare le modifiche al contenuto del file hosts. Questa query esegue la ricerca di modifiche apportate al contenuto di file il cui percorso completo contiene la parola "hosts". È anche possibile cercare un file specifico usando il formato completo del percorso anziché una sola parte (ad esempio, `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Dopo che la query ha restituito i risultati desiderati, fare clic sul pulsante **Nuova regola di avviso** nell'interfaccia di Ricerca log per aprire la pagina per la creazione dell'avviso. È possibile accedere a questa interfaccia anche tramite **Monitoraggio di Azure** nel portale di Azure. Nell'interfaccia per la creazione dell'avviso, controllare di nuovo la query e modificare la logica dell'avviso. In questo caso, si vuole che l'avviso venga attivato anche se viene rilevata una sola modifica in tutti i computer nell'ambiente.
 
@@ -294,7 +294,7 @@ Dopo aver impostato tutti i parametri e la logica, è possibile applicare l'avvi
 
 Anche se la generazione di un avviso relativo alle modifiche apportate al file hosts è una buona applicazione della funzione di generazione degli avvisi per i dati di Rilevamento modifiche e inventario, esistono molti altri casi in cui è utile generare avvisi, come illustrato dalle query di esempio riportate nella sezione seguente.
 
-|Query  |Descrizione  |
+|Query  |DESCRIZIONE  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile per tenere traccia delle modifiche ai file di sistema critici|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile per tenere traccia delle modifiche ai file di configurazione importanti|

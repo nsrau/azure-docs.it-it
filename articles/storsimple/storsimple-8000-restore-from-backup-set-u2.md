@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568819"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496483"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 
@@ -71,7 +71,7 @@ Nella versione Update 4 è possibile usare i cmdlet di Windows PowerShell per es
 
 Per altre informazioni sui cmdlet di riattivazione, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-Con la riattivazione automatica, le prestazioni di lettura temporanee sono in genere più elevate. L'effettiva entità dei miglioramenti dipende da diversi fattori, tra cui modello di accesso, varianza dei dati e tipo di dati. 
+Con la riattivazione automatica, in genere ci si aspetta prestazioni di lettura temporanee più elevate. L'effettiva entità dei miglioramenti dipende da diversi fattori, tra cui modello di accesso, varianza dei dati e tipo di dati. 
 
 Per annullare un processo di riattivazione, è possibile usare il cmdlet di PowerShell. Se si vuole disabilitare in modo permanente i processi di riattivazione per tutti i ripristini successivi, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 

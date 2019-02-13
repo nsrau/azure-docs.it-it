@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990179"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818822"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -50,7 +50,7 @@ Se il nuovo record ha lo stesso nome e tipo di un record esistente, è necessari
 
 I set di record vengono creati usando il cmdlet `New-AzureRmDnsRecordSet`. Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
 
-I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Quando ad esempio si usa un set di record di tipo A, è necessario specificare l'indirizzo IP usando il parametro `-IPv4Address`. Per altri tipi di record vengono usati altri parametri. Per altre informazioni, vedere la sezione [Altri esempi di tipi di record](#additional-record-type-examples).
+I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Quando ad esempio si usa un set di record di tipo A, è necessario specificare l'indirizzo IP usando il parametro `-IPv4Address`. Per altri tipi di record vengono usati altri parametri. Per altre informazioni, vedere la sezione Altri esempi di tipi di record.
 
 L'esempio seguente illustra la creazione di un set di record con il nome relativo "www" nella zona DNS "contoso.com". Il nome completo del set di record è "www.contoso.com". Il tipo di record è "A" e la durata (TTL) è 3600 secondi. Il set di record contiene un record singolo con indirizzo IP "1.2.3.4".
 
@@ -236,7 +236,7 @@ Questa sequenza di operazioni può anche essere *inviata tramite pipe*, vale a d
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Gli esempi precedenti mostrano come aggiungere un record "A" a un set di record esistente di tipo A. Una sequenza di operazioni simile permette di aggiungere record a set di record di altri tipi, sostituendo il parametro `-Ipv4Address` di `Add-AzureRmDnsRecordConfig` con altri parametri specifici per ogni tipo di record. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzureRmDnsRecordConfig`, come illustrato nella sezione [Altri esempi di tipi di record](#additional-record-type-examples).
+Gli esempi precedenti mostrano come aggiungere un record "A" a un set di record esistente di tipo A. Una sequenza di operazioni simile permette di aggiungere record a set di record di altri tipi, sostituendo il parametro `-Ipv4Address` di `Add-AzureRmDnsRecordConfig` con altri parametri specifici per ogni tipo di record. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzureRmDnsRecordConfig`, come illustrato nella sezione Altri esempi di tipi di record.
 
 I set di record di tipo "CNAME" o "SOA" non possono contenere più di un record. Questo vincolo è dato dagli standard DNS, non è una limitazione del servizio DNS di Azure.
 
@@ -270,7 +270,7 @@ Come per l'aggiunta di record a un set di record, anche la sequenza di operazion
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Perché vengano supportati tipi di record diversi, occorre passare i parametri specifici del tipo appropriati a `Remove-AzureRmDnsRecordSet`. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzureRmDnsRecordConfig`, come illustrato nella sezione [Altri esempi di tipi di record](#additional-record-type-examples).
+Perché vengano supportati tipi di record diversi, occorre passare i parametri specifici del tipo appropriati a `Remove-AzureRmDnsRecordSet`. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzureRmDnsRecordConfig`, come illustrato nella sezione Altri esempi di tipi di record.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modificare un set di record esistente

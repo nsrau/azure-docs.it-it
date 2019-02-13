@@ -1,8 +1,21 @@
 ---
-title: Ridimensionare un servizio Web di Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning Studio aggiungendo altri endpoint.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 23/01/2017
+title: Ridimensionare un servizio Web di Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning Studio aggiungendo altri endpoint.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/23/2017
+ms.openlocfilehash: c5874029e17b0ad7c9787beb0177b8211cbf6e6b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512075"
 ---
 # <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>Ridimensionamento di un servizio Web di Azure Machine Learning Studio con l'aggiunta di altri endpoint
 > [!NOTE]

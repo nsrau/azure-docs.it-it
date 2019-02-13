@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822256"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
@@ -92,7 +92,7 @@ Se si usano gli strumenti o le API, completare la procedura seguente per creare 
 3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio nel passaggio precedente si crea un set di dati per specificare la tabella nel database Oracle che contiene i dati di input. Si crea un altro set di dati per specificare il contenitore BLOB e la cartella che contiene i dati copiati dal database Oracle. Per le proprietà del set di dati specifiche per Oracle, vedere [Proprietà dei set di dati](#dataset-properties).
 4. Creare una **pipeline** che abbia un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio precedente si usa **OracleSource** come origine e **BlobSink** come sink per l'attività di copia. Analogamente, se si effettua la copia dall'archivio BLOB di Azure a un database Oracle, usare **BlobSource** e **OracleSink** nell'attività di copia. Per le proprietà dell'attività di copia specifiche per un database Oracle, vedere [Proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, selezionare il collegamento per l'archivio dati nella sezione precedente.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di Data Factory vengono create automaticamente: servizi collegati, set di dati e pipeline. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare i dati da o verso un database Oracle locale, vedere [Esempi JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di Data Factory vengono create automaticamente: servizi collegati, set di dati e pipeline. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare i dati da o verso un database Oracle locale, vedere gli esempi JSON.
 
 Nelle sezioni seguenti sono disponibili informazioni dettagliate sulle proprietà JSON che vengono usate per definire le entità di Data Factory.
 
@@ -100,12 +100,12 @@ Nelle sezioni seguenti sono disponibili informazioni dettagliate sulle propriet�
 
 La tabella seguente descrive gli elementi JSON specifici del servizio collegato Oracle:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Yes |
+| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Sì |
 | driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No  |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Yes |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Yes |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Sì |
+| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Sì |
 
 **Esempio: mediante il driver Microsoft**
 
@@ -143,7 +143,7 @@ Per informazioni sui formati consentiti, fare riferimento al [provider di dati O
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Creazione di set di dati](data-factory-create-datasets.md).
 
@@ -151,7 +151,7 @@ Le sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e 
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **OracleTable** presenta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. |No (se è specificato **oracleReaderQuery** o **OracleSource**) |
 
@@ -601,7 +601,7 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive quando si usa un driver Microsoft) |
 | CHAR |string |
 | CLOB |string |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | NVARCHAR2 |string |
 | RAW |Byte[] |
 | ROWID |string |
-| TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |string |
 | XML |string |

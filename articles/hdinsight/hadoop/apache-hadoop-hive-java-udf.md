@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435073"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814147"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
 
@@ -36,7 +36,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 * Un editor di testo o ambiente IDE Java
 
     > [!IMPORTANT]
-    > Se si creano i file Python in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR.
+    > Se si creano i file Python in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione Risoluzione dei problemi, che include passaggi per la rimozione del carattere CR.
 
 ## <a name="create-an-example-java-udf"></a>Creare una UDF Java di esempio 
 

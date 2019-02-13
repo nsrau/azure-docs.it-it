@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188492"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818873"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 5. Fare clic su **$root** per aprire il nuovo contenitore.
 6. Fare clic su **Carica**.
 7. Fare clic sull'icona della cartella accanto a **Selezionare un file**.
-8. Passare al file **customize-ui.html** creato in precedenza nella sezione [Personalizzazione dell'interfaccia utente della pagina](#the-page-ui-customization-feature).
+8. Passare al file **customize-ui.html** creato in precedenza nella sezione Personalizzazione dell'interfaccia utente della pagina.
 9. Fare clic su **Carica**.
 10. Selezionare il BLOB customize-ui.html caricato.
 11. Accanto a **URL** fare clic su **Copia**.
@@ -175,7 +175,7 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 | *unified.html* | Usare questo file come modello per una pagina unificata per l'iscrizione o l'accesso. |
 | *updateprofile.html* | Usare questo file come modello per una pagina di aggiornamento del profilo. |
 
-Nella sezione [Modificare i criteri personalizzati di iscrizione o di accesso](#modify-your-sign-up-or-sign-in-custom-policy) è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
+Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
 | ID definizione del contenuto | DESCRIZIONE | 
 |-----------------------|-------------|

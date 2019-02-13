@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004884"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658115"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -23,6 +23,8 @@ L'articolo illustra come un operatore può gestire i dispositivi nell'applicazio
 - Mantenere aggiornato un inventario di dispositivi.
 - Mantenere aggiornati i metadati dei dispositivi modificando i valori archiviati nelle proprietà dei dispositivi.
 - Controllare il comportamento dei dispositivi mediante l'aggiornamento di un'impostazione per un dispositivo specifico nella pagina **Settings** (Impostazioni).
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Visualizzare i dispositivi
 
@@ -116,7 +118,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
     [![Esportazione riuscita](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Il file CSV esportato conterrà le seguenti informazioni sulle colonne: **ID del dispositivo, nome del dispositivo, chiavi primarie/secondarie del dispositivo e identificazioni primarie/secondarie del certificato**
+1. Il file CSV esportato conterrà le seguenti colonne contenenti informazioni: **ID dispositivo, nome del dispositivo, chiave del dispositivo primaria/secondaria e identificazioni personali del certificato primarie/secondarie**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

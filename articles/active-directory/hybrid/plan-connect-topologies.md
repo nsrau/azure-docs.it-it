@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ffd10504d496d0a46b373451a0d0400fc16c2e8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186200"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813501"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -63,7 +63,7 @@ Quando sono presenti più foreste, devono essere tutte raggiungibili da un singo
 
 L'installazione guidata di Azure AD Connect offre diverse opzioni per consolidare gli utenti rappresentati in più foreste. L'obiettivo è fare in modo che un utente sia rappresentato una sola volta in Azure AD. Nell'installazione guidata sono disponibili alcune topologie comuni che è possibile configurare nel percorso di installazione personalizzato. Nella pagina **Identificazione univoca per gli utenti** selezionare l'opzione corrispondente che rappresenta la topologia. Il consolidamento viene configurato solo per gli utenti. I gruppi duplicati non vengono consolidati con la configurazione predefinita.
 
-Le topologie comuni sono illustrate nelle sezioni su [topologie separate](#multiple-forests-separate-topologies), [a maglia completa](#multiple-forests-full-mesh-with-optional-galsync) e [topologie account-risorse](#multiple-forests-account-resource-forest).
+Le topologie comuni sono illustrate nelle sezioni su topologie separate, [a rete completa](#multiple-forests-full-mesh-with-optional-galsync) e [topologie account-risorse](#multiple-forests-account-resource-forest).
 
 La configurazione predefinita del servizio di sincronizzazione Azure AD Connect presuppone quanto segue:
 

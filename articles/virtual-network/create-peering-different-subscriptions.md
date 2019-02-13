@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b929c3f85bab4319fe2fef1b5c0575f0d1d972a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014967"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511677"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -72,7 +72,7 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
     - **Posizione**: *Stati Uniti orientali*
 
 13. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Selezionare la voce **myVnetB** quando viene visualizzata nei risultati della ricerca.
-14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile a questo: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
 15. Selezionare **Controllo di accesso (IAM)** in **myVnetB** e quindi completare i passaggi da 5 a 10 per myVnetB immettendo **UserA** al passaggio 8.
 16. Disconnettersi dal portale come UserB e accedere come UserA.
 17. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Selezionare la voce **myVnetA** quando viene visualizzata nei risultati della ricerca.

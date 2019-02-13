@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226334"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822783"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -56,7 +56,7 @@ Quando si esegue la replica di macchine virtuali VMware:
     >   * È possibile selezionare un account di archiviazione Standard o Premium. Se si seleziona un account Premium, si dovrà specificare un account di archiviazione Standard aggiuntivo per i log di replica in corso. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
     >   * Per usare un account di archiviazione diverso, è possibile [crearne uno](../storage/common/storage-create-storage-account.md). Per creare un account di archiviazione con Resource Manager, fare clic su **Crea nuovo**. 
 
-8. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure attivate dopo il failover. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. Se non è disponibile una rete, sarà necessario [crearla](#set-up-an-azure-network). Per creare una rete con Resource Manager, fare clic su **Crea nuovo**. Selezionare una subnet, se applicabile, e fare clic su **OK**.
+8. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure attivate dopo il failover. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. Se non è disponibile una rete, sarà necessario crearla. Per creare una rete con Resource Manager, fare clic su **Crea nuovo**. Selezionare una subnet, se applicabile, e fare clic su **OK**.
 
     ![Abilitare le impostazioni delle destinazione di replica](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. In **Macchine virtuali** > **Seleziona macchine virtuali** selezionare tutte le macchine virtuali da replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Fare quindi clic su **OK**. Se non è possibile visualizzare/selezionare alcuna macchina virtuale specifica, fare clic [qui](https://aka.ms/doc-plugin-VM-not-showing) per risolvere il problema.

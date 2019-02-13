@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186124"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819859"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -55,13 +55,13 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
  Per configurare la valutazione tramite la console operatore di Operations Manager Operations, eseguire i passaggi descritti sotto nell'ordine seguente:
 1. [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configurare la regola di Controllo integrità System Center Operations Manager](#configure-the-assessment-rule)
+2. Configurare la regola di Controllo integrità di System Center Operations Manager
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli della raccolta di dati della valutazione di System Center Operations Manager
 
 Con Valutazione System Center Operations Manager vengono raccolti dati dalle origini seguenti:
 
-*  Registro
+* Registro
 * Strumentazione gestione Windows (WMI)
 * Registro eventi
 * Dati dei file

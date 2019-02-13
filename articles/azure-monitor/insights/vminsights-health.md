@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476843"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563338"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Informazioni sull'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -30,11 +30,11 @@ Questo articolo illustra come valutare, analizzare e risolvere rapidamente i pro
 Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
 >[!NOTE]
->A partire dal 15 febbraio 2019 Microsoft inizierà la migrazione dal modello di integrità corrente in Monitoraggio di Azure per le macchine virtuali, visibile oggi all'interno dell'esperienza Diagnostica integrità, a una nuova versione del modello di integrità. Questo aggiornamento migliora le prestazioni di elaborazione di rollup dell'integrità e include un modello di integrità affinato presentato nella vista Diagnostica integrità. 
+>A partire dall'11 febbraio 2019 Microsoft inizierà la migrazione dal modello di integrità corrente in Monitoraggio di Azure per le macchine virtuali, visibile oggi all'interno dell'esperienza Diagnostica integrità, a una nuova versione del modello di integrità. Questo aggiornamento migliora le prestazioni di elaborazione di rollup dell'integrità e include un modello di integrità affinato presentato nella vista Diagnostica integrità. 
 >
 >Con il nuovo modello di integrità il rollup dei criteri di integrità figlio ai criteri di integrità a livello padre o entità sarà più rapido, e di conseguenza, si avrà una minore latenza dello stato di integrità degli aggiornamenti padre allo stato desiderato o di destinazione. È comunque possibile filtrare i criteri di integrità nelle categorie **Prestazioni** e **Disponibilità** a differenza del metodo precedente basato su schede per selezionare una categoria all'interno della vista.
 >
->Per altre informazioni sulla nuova esperienza di Diagnostica integrità, consultare la [sezione](#health-diagnostics) di Diagnostica integrità in questo articolo. 
+>Per altre informazioni sull'esperienza di Diagnostica integrità, vedere la [sezione](#health-diagnostics) relativa a Diagnostica integrità in questo articolo. 
 >
 >Questo aggiornamento migliorerà le operazioni seguenti: 
 >
@@ -106,14 +106,16 @@ Per visualizzare l'integrità di una macchina virtuale di Azure, selezionare **I
 
 ![Panoramica dell'integrità di Monitoraggio di Azure per macchine virtuali per una macchina virutale di Azure selezionata](./media/vminsights-health/vminsights-directvm-health.png)
 
-Nella sezione **Integrità della macchina virtuale guest** della scheda **Integrità**, la tabella mostra lo stato di integrità corrente della macchina virtuale e il numero totale di avvisi sull'integrità della macchina virtuale generati da un componente non integro. Per ulteriori dettagli, fare riferimento a [Avvisi e gestione degli avvisi](#alerting-and-alert-management).  
+Nella sezione **Integrità della macchina virtuale guest** della scheda **Integrità**, la tabella mostra lo stato di integrità corrente della macchina virtuale e il numero totale di avvisi sull'integrità della macchina virtuale generati da un componente non integro. Per altre informazioni sull'esperienza di generazione degli avvisi, vedere la sezione [Avvisi](#alerting-and-alert-management).  
 
-Gli stati di integrità definiti per una macchina virtuale sono: 
+La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale: 
 
-* **Integro**: nessun problema rilevato per la macchina virtuale che funziona come richiesto.  
-* **Critico**: sono stati rilevati uno o più problemi critici che devono essere risolti per ripristinare il normale funzionamento come previsto. 
-* **Avviso**: sono stati rilevati uno o più problemi che devono essere risolti per evitare che la condizione di integrità diventi critica.  
-* **Sconosciuto**: se non è stato possibile stabilire una connessione con la macchina virtuale, viene impostato uno stato sconosciuto.  
+|Icona |Stato di integrità |Significato |
+|-----|-------------|------------|
+| |Integro |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Nel caso di un monitoraggio rollup padre, l'integrità esegue il rollup e riflette lo stato migliore o quello peggiore dell'elemento figlio.|
+| |Critico |Lo stato di integrità è critico se non è conforme alla condizione di integrità definita, la quale indica che sono stati rilevati uno o più problemi critici, che devono essere risolti per poter ripristinare il normale funzionamento. Nel caso di un monitoraggio rollup padre, l'integrità esegue il rollup e riflette lo stato migliore o quello peggiore dell'elemento figlio.|
+| |Avviso |Lo stato di integrità è definito come Avviso se è compreso tra due valori soglia della condizione di integrità definita, dove uno indica uno stato *Avviso* e l'altro indica uno stato *Critico* (è possibile configurare tre soglie per lo stato di integrità), oppure quando viene rilevato un problema non critico che può causare problemi critici se non risolto. In caso di monitoraggio rollup padre, se uno o più elementi figlio sono in stato di *avviso*, il padre rifletterà tale stato. Se è presente un elemento figlio in stato *Critico* e un altro in stato *Avviso*, il rollup padre mostra uno stato di integrità *Critico*.|
+| |Sconosciuto |Lo stato di integrità è *Sconosciuto* quando non può essere calcolato per vari motivi, ad esempio non è possibile raccogliere i dati, il servizio non è inizializzato e così via. Questo stato di integrità non è configurabile.| 
 
 Selezionando **Visualizza diagnostica integrità** si apre una pagina che mostra tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche dello stato e altri problemi importanti rilevati dal monitoraggio dei componenti correlati alla macchina virtuale. Per altre informazioni, vedere [Diagnostica integrità](#health-diagnostics). 
 
@@ -140,13 +142,6 @@ Qui è possibile identificare rapidamente i principali problemi critici rilevati
 L'elenco **Distribuzione delle macchine virtuali - Sistema operativo** mostra le macchine virtuali elencate in base alla versione di Windows o alla distribuzione di Linux, insieme alla relativa versione. In ogni categoria di sistema operativo, le macchine virtuali sono suddivise ulteriormente in base alla relativa integrità. 
 
 ![Prospettiva della distribuzione delle macchine virtuali in Informazioni dettagliate macchina virtuale](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-Gli stati di integrità definiti per una macchina virtuale sono: 
-
-* **Integro**: nessun problema rilevato per la macchina virtuale che funziona come richiesto.  
-* **Critico**: sono stati rilevati uno o più problemi critici che devono essere risolti per ripristinare il normale funzionamento come previsto. 
-* **Avviso**: sono stati rilevati uno o più problemi che devono essere risolti per evitare che la condizione di integrità diventi critica.  
-* **Sconosciuto**: se non è stato possibile stabilire una connessione con la macchina virtuale, viene impostato uno stato sconosciuto.  
 
 È possibile fare clic su qualsiasi elemento di colonna, ad esempio **Numero di macchine virtuali**, **Critico**, **Avviso**, **Integro** o **Sconosciuto** per eseguire il drill-down nella pagina **Macchine virtuali** e visualizzare un elenco dei risultati filtrati corrispondenti alla colonna selezionata. Ad esempio, per esaminare tutte le macchine virtuali che eseguono **Red Hat Enterprise Linux versione 7.5**, fare clic sul valore **Numero di macchine virtuali** per tale sistema operativo e aprire così la paina seguente, con l'elenco delle macchine virtuali corrispondenti al filtro e il relativo stato di integrità noto.  
 
@@ -191,16 +186,7 @@ Diagnostica integrità organizza le informazioni sull'integrità nelle categorie
  
 Tutti i criteri di integrità definiti per un componente specifico, ad esempio disco logico, CPU, e così via. Inoltre, la categoria del monitoraggio può essere visualizzata accanto a esso nella colonna **Criteri di integrità**.  
 
-Lo stato per i criteri di integrità viene definito mediante uno dei quattro stati: *Critico*, *Avviso*, *Integro* e *Sconosciuto*. I primi tre sono configurabili, vale a dire che è possibile modificare i valori di soglia dei monitoraggi usando l'[API di monitoraggio del carico di lavoro](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Sconosciuto* non è configurabile ed è riservato per scenari specifici, come descritto nella tabella seguente.  
-
-La tabella seguente fornisce dettagli sugli stati di integrità rappresentati in Diagnostica integrità.
-
-|Icona |Stato di integrità |Significato |
-|-----|-------------|------------|
-| |Healthy |Lo stato di integrità è integro se è conforme a condizioni di integrità definite, le quali indicano che non sono stati rilevati problemi per la macchina virtuale e questa funzioni come richiesto. Nel caso di un monitoraggio rollup padre, l'integrità esegue il rollup e riflette lo stato migliore o quello peggiore dell'elemento figlio.|
-| |Critico |Lo stato di integrità è critico se non è conforme alla condizione di integrità definita, la quale indica che sono stati rilevati uno o più problemi critici, che devono essere risolti per poter ripristinare il normale funzionamento. Nel caso di un monitoraggio rollup padre, l'integrità esegue il rollup e riflette lo stato migliore o quello peggiore dell'elemento figlio.|
-| |Avviso |Lo stato di integrità è avviso se è compreso tra due valori di soglia stabiliti per la condizione di integrità definita, in cui uno indica uno stato di *Avviso* e l'altro indica uno stato *Critico* (sono possibili tre stati controllati dall'utente), o quando viene rilevato un problema non critico che può causare problemi critici se non risolto. In caso di monitoraggio rollup padre, se uno o più elementi figlio sono in stato di *avviso*, il padre rifletterà tale stato. Se è presente un elemento figlio in stato *Critico* e un altro in stato *Avviso*, il rollup padre mostra uno stato di integrità *Critico*.|
-| |Sconosciuto |Lo stato di integrità è *Sconosciuto* quando non può essere calcolato per vari motivi, ad esempio non è possibile raccogliere i dati, il servizio non è inizializzato e così via. Non è uno stato controllato dall'utente.| 
+Lo stato per i criteri di integrità viene definito mediante uno dei quattro stati: *Critico*, *Avviso*, *Integro* e *Sconosciuto*. I primi tre sono configurabili, vale a dire che è possibile modificare i valori di soglia dei monitoraggi usando l'[API di monitoraggio del carico di lavoro](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). Lo stato *Sconosciuto* non è configurabile ed è riservato per scenari specifici.  
 
 La pagina Diagnostica integrità ha tre sezioni principali:
 
@@ -230,10 +216,10 @@ L'integrità globale di una destinazione è determinata dall'integrità di ogni 
 
 ![Configurazione di un esempio di criteri di integrità](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-Nel riquadro di configurazione per i criteri di integrità selezionato, usando l'esempio **Media scritture disco/secondi**, la soglia può essere configurata con un valore numerico diverso. È un monitoraggio a due stati, il che significa che passa solo da integro ad avviso. Un altro criterio di integrità può avere tre stati e consentire la configurazione di un valore per la soglia dello stato di integrità avviso e critico.  
+Nel riquadro di configurazione per i criteri di integrità selezionato, usando l'esempio **Media scritture disco/secondi**, la soglia può essere configurata con un valore numerico diverso. È un monitoraggio a due stati, il che significa che passa solo da integro ad avviso. Un altro criterio di integrità può avere tre stati e consentire la configurazione di un valore per la soglia tra stato di integrità Avviso e stato Critico.  
 
 >[!NOTE]
->La modifica di configurazione dei criteri di integrità a un'istanza viene applicata a tutte le istanze monitorate.  Ad esempio, se si seleziona **Physical Disk -1 D:** (Disco fisico - 1 D:) e si modifica la soglia **Media scritture disco/secondi**, la modifica non si applica solo a tale istanza, ma a tutte le altre istanze di disco logico individuate e monitorate nella macchina virtuale.
+>La modifica di configurazione dei criteri di integrità a un'istanza viene applicata a tutte le istanze monitorate.  Se ad esempio si seleziona **Disk -1 D:** e si modifica la soglia **Media scritture disco/secondi**, la modifica non si applica solo a tale istanza, ma a tutte le altre istanze di disco individuate e monitorate nella macchina virtuale.
 >
 
 ![Configurazione di criteri di integrità per un esempio di monitoraggio unità](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -252,9 +238,9 @@ Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza in
 
 ![Esempio di selezione dell'istanza monitorata e dei risultati](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Nell'esempio precedente, quando si seleziona un **Physical Disk - 1 D:** (Disco fisico - 1 D:), l'albero Criteri di integrità viene filtrato in base a **Physical Disk - 1 D:** (Disco fisico - 1 D:). La colonna **Modifica stato** indica la modifica dello stato in base alla disponibilità di **Physical Disk - 1 D:** (Disco fisico - 1 D:). 
+Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **State Change** (Modifica stato) indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
 
-Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: *Integro*, *Avviso*, *Critico*, *Sconosciuti* e *tutti*.  L'ora dell'**Ultimo aggiornamento** nell'angolo in alto a destra rappresenta l'ultima volta in cui la pagina Diagnostica integrità è stata aggiornata.  
+Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: *Integro*, *Avviso*, *Critico*, *Sconosciuto* e *Tutti*.  L'ora riportata in **Ultimo aggiornamento** nell'angolo in alto a destra indica l'ora dell'ultimo aggiornamento della pagina Diagnostica integrità.  
 
 ## <a name="alerts"></a>Avvisi
 La funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali è integrata ad [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md) e genera un avviso quando i criteri di integrità predefiniti passano da uno stato integro a uno non integro quando viene rilevata la condizione. Gli avvisi sono classificati in base alla gravità, da 0 a 4 dove la gravità 0 rappresenta il livello più alto.  

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3b5c277f51b8ff1b2d3babf23329dcde829573a9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070428"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813960"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Questa esercitazione illustra come caricare un file ed eseguire altre operazioni
 > * Caricare un file nell'archiviazione BLOB usando l'URL di caricamento
 > * Creare nell'asset i metadati per il file multimediale caricato
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -88,7 +88,7 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
     ```
 4. Nella parte sinistra della finestra **Postman** fare clic su **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
-    La parte relativa all'URL viene compilata con la variabile di ambiente **AzureADSTSEndpoint** (in precedenza nell'esercitazione si sono impostati i valori delle [variabili di ambiente](#configure-the-environment) che supportano la [raccolta](#configure-the-collection)).
+    La parte relativa all'URL viene compilata con la variabile di ambiente **AzureADSTSEndpoint** (in precedenza nell'esercitazione si sono impostati i valori delle variabili di ambiente che supportano la raccolta).
 
     ![Caricare un file](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -96,7 +96,7 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
 
     Si noterà che la risposta contiene "access_token". Lo script "test" accetta questo valore e imposta la variabile di ambiente **AccessToken** (come descritto in precedenza). Se si esaminano le variabili di ambiente, si noterà che questa variabile contiene ora il valore del token di accesso (bearer token) usato nel resto delle operazioni. 
 
-    Se il token scade, ripetere il passaggio "Get Azure AD Token for Service Principal". 
+    Se il token scade, ripetere il passaggio "Get Azure AD Token for Service Principal". 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Creare un criterio di accesso con autorizzazione di scrittura
 
@@ -124,7 +124,7 @@ Un [asset](https://docs.microsoft.com/rest/api/media/operations/asset) è un con
 
 Una delle proprietà che è possibile aggiungere quando si crea un asset è **Options**. È possibile specificare una delle opzioni di crittografia seguenti: **None** (impostazione predefinita, non viene usata alcuna crittografia), **StorageEncrypted** (per contenuto che è stato pre-crittografato con crittografia di archiviazione lato client), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Se è presente un asset crittografato, è necessario configurare un criterio di recapito. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
-Se l'asset è crittografato, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nell'articolo [Creazione di entità ContentKey mediante REST](media-services-rest-create-contentkey.md). Dopo il caricamento dei file nell'asset è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset**. Effettuare questa operazione usando la richiesta HTTP **MERGE** . 
+Se l'asset è crittografato, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nell'articolo seguente: [Come creare un ContentKey](media-services-rest-create-contentkey.md). Dopo il caricamento dei file nell'asset è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset**. Effettuare questa operazione usando la richiesta HTTP **MERGE** . 
 
 In questo esempio viene creato un asset non crittografato. 
 
@@ -156,7 +156,7 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. Per altre informazioni, vedere Locator.
-* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").    
+* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").    
 * Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso.
 
 ### <a name="create-a-sas-locator"></a>Creare un localizzatore di firma di accesso condiviso
@@ -188,7 +188,7 @@ Creare e configurare una nuova richiesta:
 1. Fare clic su **+** per creare una nuova scheda per la richiesta.
 2. Selezionare l'operazione **PUT** e incollare **{{UploadURL}}** nell'URL.
 2. Lasciare invariata la scheda **Autorizzazione** (non impostarla su **Bearer Token**).
-3. Nella scheda **Intestazioni** specificare "x-ms-blob-type" in **Chiave** e "BlockBlob" in **Valore**.
+3. Nella scheda **Intestazioni**, specificare: **Chiave**: "x-ms-blob-type" e **Valore**: "BlockBlob".
 2. Nella scheda **Corpo** fare clic su **binario**.
 4. Scegliere il file con il nome specificato nella variabile di ambiente **MediaFileName**.
 5. Fare clic su **Invia**.

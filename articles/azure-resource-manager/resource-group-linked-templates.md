@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139062"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490431"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -30,6 +30,8 @@ Per le piccole e medie soluzioni, un modello singolo è più facile da comprende
 Quando si usano modelli collegati, si crea un modello principale che riceve i valori dei parametri durante la distribuzione. Il modello principale contiene tutti i modelli collegati e passa i valori a tali modelli in base alle esigenze.
 
 Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="link-or-nest-a-template"></a>Collegare o annidare un modello
 
@@ -408,7 +410,7 @@ $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
     $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
@@ -461,13 +463,13 @@ L'esempio seguente mostra come passare un token di firma di accesso condiviso qu
 }
 ```
 
-In PowerShell ottenere un token per il contenitore e distribuire i modelli con i comandi seguenti. Si noti che il parametro **containerSasToken** è definito nel modello. Non è un parametro del comando **New-AzureRmResourceGroupDeployment**.
+In PowerShell ottenere un token per il contenitore e distribuire i modelli con i comandi seguenti. Si noti che il parametro **containerSasToken** è definito nel modello. Non è un parametro del comando **New-AzResourceGroupDeployment**.
 
 ```azurepowershell-interactive
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
 Per l'interfaccia della riga di comando di Azure in una shell Bash, ottenere un token per il contenitore e distribuire i modelli con il codice seguente:

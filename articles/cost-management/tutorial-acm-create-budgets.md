@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053977"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814045"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -35,7 +35,9 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I budget sono disponibili per tutti i clienti con contratto Enterprise (EA) di Azure. È necessario avere accesso in lettura a una sottoscrizione EA di Azure per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. È tuttavia possibile creare budget per gli account di fatturazione EA.
+Sono supportati i budget per un'ampia gamma di tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
+
+ Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. È tuttavia possibile creare budget per gli account di fatturazione EA.
 
 Le seguenti autorizzazioni di Azure sono supportate per ogni sottoscrizione per i budget, in base a utente e gruppo:
 
@@ -59,7 +61,7 @@ Fare clic su **Aggiungi**.
 
 ![Budget di Gestione costi nel portale di Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Nella finestra **Crea il budget** immettere un nome e l'importo per il budget. Scegliere quindi il periodo di durata mensile, trimestrale o annuale. Selezionare poi una data di fine. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore.
+Nella finestra **Crea il budget** immettere un nome e l'importo per il budget. Scegliere quindi il periodo di durata mensile, trimestrale o annuale. Selezionare poi una data di fine. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
 
 Di seguito è riportato un esempio di creazione di un budget mensile di $ 4.500. Viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247674"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487354"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connettività dei dispositivi in Azure IoT Central
 
@@ -56,7 +56,7 @@ La connessione di un singolo dispositivo a IoT Central usando firme di accesso c
 
     *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ Se per connettersi si usa il dispositivo **MxChip**, seguire [queste istruzioni 
 Di seguito sono riportati i riferimenti per altri linguaggi che è possibile usare.
 
    *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -163,7 +163,7 @@ Per connettere dispositivi a IoT Central usando i certificati X509 sono necessar
 
     Programmare il dispositivo con le informazioni del servizio di provisioning per ottenere all'accensione i dettagli di connessione e l'assegnazione dell'app IoT Central.    
 
-    **Altri riferimenti** 
+    **Altre informazioni di riferimento** 
     *   Implementazione di esempio per [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases).  
 
     *   [Client di dispositivo di esempio in C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md).
@@ -211,12 +211,12 @@ Seguire i passaggi in base alla scelta dello schema di autenticazione dei dispos
 
 1. **Connettere il dispositivo a IoT Central:** dopo l'accensione, i dispositivi si connettono al servizio Device Provisioning/IoT Central per la registrazione.
 
-1. **Associare il dispositivo a un modello:** il dispositivo connesso verrà visualizzato tra i dispositivi **Non associati** in **Device Explorer**. Lo stato di provisioning del dispositivo è **Registrato**. **Associare** il dispositivo al modello appropriato e approvarne la connessione all'app IoT Central. Il dispositivo ottiene i dettagli di connessione per l'app IoT Central, si connette e inizia a inviare i dati. Il provisioning del dispositivo è ora stato completato e lo *Stato di provisioning* cambia in **Provisioning eseguito**.
+1. **Associare il dispositivo a un modello:** il dispositivo connesso verrà visualizzato tra i dispositivi **Non associati** in **Device Explorer**. Lo stato di provisioning del dispositivo è **Registrato**. **Associare** il dispositivo al modello appropriato e approvarne la connessione all'app IoT Central. Il dispositivo ottiene i dettagli di connessione per l'app IoT Central, si connette e inizia a inviare i dati. Il provisioning del dispositivo è stato completato e lo *Stato di provisioning* cambia in **Provisioning eseguito**.
 
 ## <a name="device-provisioning-status"></a>Stato di provisioning del dispositivo
 La connessione di un dispositivo reale ad Azure IoT Central prevede una serie di passaggi 
 1. **Registrato**: il dispositivo viene prima **Registrato**, ovvero viene creato in IoT Central e ottiene un ID.
-Un dispositivo è registrato quando  
+Il dispositivo è registrato quando  
     *   Un nuovo dispositivo reale viene aggiunto in **Explorer**
     *   Un set di dispositivi viene aggiunto tramite l'opzione **Importa** in **Explorer**
     *   Non è stato registrato, ma si connette con credenziali valide ed è visibile tra i dispositivi **Non associati**. 
@@ -231,9 +231,9 @@ Un dispositivo è registrato quando
 È possibile ottenere la stringa di connessione del dispositivo all'hub IoT di Azure usando la procedura seguente 
 1. Ottenere i dettagli di connessione, ad esempio **ID ambito, ID dispositivo, chiave primaria del dispositivo** dalla pagina del dispositivo (passare alla pagina del dispositivo > fare clic su Connetti) 
 
-    ![Dettagli di connessione](media/concepts-connectivity/device-connect.PNG)
+    ![Dettagli della connessione](media/concepts-connectivity/device-connect.PNG)
 
-1. Ottenere la stringa di connessione usando lo strumento da riga comando seguente.
+1. Ottenere la stringa di connessione del dispositivo usando lo strumento da riga di comando seguente.
     Usare le istruzioni riportate di seguito per ottenere la stringa di connessione del dispositivo  
 
     ```cmd/sh
@@ -293,7 +293,7 @@ Per informazioni sulle differenze fra questi protocolli e indicazioni su come sc
 
 Se il dispositivo non può usare i protocolli supportati, è possibile usare Azure IoT Edge per la conversione del protocollo. IoT Edge supporta altri scenari di intelligence di perimetro per scaricare l'elaborazione sul perimetro dall'applicazione Azure IoT Central.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Tutti i dati scambiati tra i dispositivi e Azure IoT Central vengono crittografati. L'hub IoT autentica ogni richiesta da un dispositivo che si connette a qualsiasi endpoint dell'hub IoT a contatto con i dispositivi. Per evitare lo scambio di credenziali nella rete, un dispositivo usa i token firmati per l'autenticazione. Per altre informazioni, vedere [Controllare l'accesso all'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security).
 

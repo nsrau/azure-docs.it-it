@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757622"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815882"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
 Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.
@@ -90,7 +90,7 @@ La schermata seguente mostra il comando di testabilità **Restart-ServiceFabricN
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di ServiceFabric) mostra che il cluster locale ha cinque nodi: da Node.1 a Node.5. Dopo l'esecuzione dell'azione di testabilità (cmdlet) **Restart-ServiceFabricNode** sul nodo, denominato Node.4, noteremo che il tempo di attività del nodo è stato reimpostato.
+L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di Service Fabric) mostra che il cluster locale ha cinque nodi: da Node.1 a Node.5. Dopo l'esecuzione dell'azione di testabilità (cmdlet) **Restart-ServiceFabricNode** sul nodo, denominato Node.4, noteremo che il tempo di attività del nodo è stato reimpostato.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Eseguire un'azione su un cluster di Azure
 L'esecuzione di un'azione di testabilità (con PowerShell) su un cluster di Azure è simile all'esecuzione della stessa azione su un cluster locale. L'unica differenza è che, prima di poter eseguire l'azione, invece di connettersi al cluster locale, è necessario connettersi al cluster di Azure.
@@ -111,7 +111,7 @@ Spiegazione di alcuni parametri:
 
 Anziché specificare direttamente il nodo mediante il nome, è possibile specificarlo tramite una chiave di partizione e il tipo di replica:
 
-Per altre informazioni vedere [PartitionSelector e ReplicaSelector](#partition_replica_selector).
+Per altre informazioni vedere PartitionSelector e ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

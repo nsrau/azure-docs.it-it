@@ -1,5 +1,5 @@
 ---
-title: Configurare BGP sui gateway VPN di Azure - Resource Manager - PowerShell | Microsoft Docs
+title: 'Configurare BGP in un gateway VPN di Azure: Gestione risorse: PowerShell | Microsoft Docs'
 description: In questo articolo viene illustrata la configurazione di BGP con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632586"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813025"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Come configurare BGP sui gateway VPN di Azure tramite PowerShell
 Questo articolo illustra i passaggi per abilitare BGP in una connessione VPN da sito a sito (S2S) cross-premise e in una connessione da rete virtuale a rete virtuale usando il modello di distribuzione Resource Manager e PowerShell.
@@ -35,7 +35,7 @@ Vedere [Panoramica di BGP con i gateway VPN di Azure](vpn-gateway-bgp-overview.m
 L'articolo illustra la procedura per eseguire le attività seguenti:
 
 * [Parte 1: Abilitare BGP nel gateway VPN di Azure](#enablebgp)
-* [Parte 2: Stabilire una connessione cross-premise con BGP](#crossprembgp)
+* Parte 2: Stabilire una connessione cross-premise con BGP
 * [Parte 3: Stabilire una connessione da rete virtuale a rete virtuale con BGP](#v2vbgp)
 
 Ogni parte delle istruzioni costituisce un blocco predefinito di base per abilitare BGP nella connettività di rete. Se si completano tutte e tre le parti, si crea la topologia illustrata nel diagramma seguente:

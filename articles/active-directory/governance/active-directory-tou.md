@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162770"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822511"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -257,10 +257,10 @@ Ecco un elenco dei software e delle piattaforme supportate.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Altri |
 > | --- | --- | --- | --- | --- |
-> | **App nativa** | Yes | Sì | Yes |  |
-> | **Microsoft Edge** | Yes | Sì | Yes |  |
-> | **Internet Explorer** | Yes | Sì | Yes |  |
-> | **Chrome (con estensione)** | Yes | Sì | Yes |  |
+> | **App nativa** | Sì | Sì | Sì |  |
+> | **Microsoft Edge** | Sì | Sì | Sì |  |
+> | **Internet Explorer** | Sì | Sì | Sì |  |
+> | **Chrome (con estensione)** | Sì | Sì | Sì |  |
 
 Le Condizioni per l'utilizzo per ogni dispositivo presenta i vincoli seguenti:
 
@@ -337,7 +337,7 @@ Le Condizioni per l'utilizzo possono essere usate per diverse app cloud, ad esem
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **D: Come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**<br />
-R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo di Azure AD. Per altre informazioni, vedere [Visualizzare il report degli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo di Azure AD](#view-azure-ad-audit-logs).
+R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo di Azure AD. Per altre informazioni, vedere Visualizzare il report degli utenti che hanno accettato e rifiutato e [Visualizzare i log di controllo di Azure AD](#view-azure-ad-audit-logs).
 
 **D: Per quanto tempo sono archiviate le informazioni?**<br />
 R: I conteggi inclusi nel report delle Condizioni per l'utilizzo e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle Condizioni per l'utilizzo. I log di controllo di Azure AD vengono archiviati per 30 giorni.

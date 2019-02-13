@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: a68ffb867a738e11c9895416bbdf2009b268c0c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 69ae32f63005d3d5ea83dce5aa349bb6c0c92e0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155812"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Server
 
@@ -215,7 +215,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Tableau Server. In Tableau Server è necessario eseguire il provisioning di tutti gli utenti. 
 
-Il valore username dell'utente deve corrispondere al valore configurato nell'attributo personalizzato **username**in Azure AD. Con un mapping corretto, l'integrazione per la [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)dovrebbe funzionare.
+Il valore username dell'utente deve corrispondere al valore configurato nell'attributo personalizzato **username**in Azure AD. Con un mapping corretto, l'integrazione per la Configurazione dell'accesso Single Sign-On di Azure AD dovrebbe funzionare.
 
 >[!NOTE]
 >Se si deve creare manualmente un utente, è necessario contattare l'amministratore di Tableau Server dell'organizzazione.

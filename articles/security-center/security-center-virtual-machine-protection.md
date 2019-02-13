@@ -3,7 +3,7 @@ title: Protezione delle macchine virtuali nel Centro sicurezza di Azure | Micros
 description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza che facilitano la protezione delle macchine virtuali, dei computer, delle app Web e degli ambienti di Servizio app di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487744"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -33,16 +33,16 @@ Questo articolo illustra le raccomandazioni relative alle macchine e alle applic
 
 Per l'elenco completo delle raccomandazioni relative ai servizi di calcolo e app, vedere [Raccomandazioni](security-center-virtual-machine-recommendations.md).
 
-Per continuare, selezionare **Risorse di calcolo e app** in **Risorse** o dal menu principale del Centro sicurezza.
+Per continuare, selezionare **Calcolo e app** in **Risorse** o dal menu principale del Centro sicurezza.
 ![Dashboard Centro sicurezza](./media/security-center-virtual-machine-recommendations/overview.png)
 
 ## <a name="monitor-compute-and-app-services"></a>Monitoraggio dei servizi di calcolo e app
-In **Risorse di calcolo e app** sono disponibili le schede seguenti:
+In **Calcolo e app** sono disponibili le schede seguenti:
 
 - **Panoramica**: monitoraggio e raccomandazioni identificati dal Centro sicurezza.
 - **VM e computer**: elenco di VM, computer e il relativo stato di sicurezza.
 - **Servizi cloud**: elenco dei ruoli Web e di lavoro monitorati dal Centro sicurezza.
-- **Servizi app (anteprima)**: elenco di ambienti del Servizio app e relativo stato di sicurezza corrente.
+- **Servizi app**: elenco di ambienti del Servizio app e relativo stato di sicurezza corrente.
 - **Contenitori (anteprima)**: elenco dei contenitori ospitati in computer IaaS Linux e valutazione della sicurezza delle relative configurazioni Docker.
 - **Risorse di calcolo (anteprima)**: elenco di raccomandazioni per le risorse di calcolo, come cluster di Service Fabric e hub eventi.
 
@@ -124,12 +124,11 @@ Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazio
 
 ![Aggiornare la versione sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>Servizi app (anteprima)
+### <a name="app-services"></a>Servizi app
+È necessario abilitare il servizio app nella sottoscrizione per visualizzare le informazioni del servizio stesso. Per istruzioni su come abilitare questa funzionalità, vedere [Proteggere il servizio app con il Centro sicurezza di Azure](security-center-app-services.md).
+[!NOTE]
+> La funzionalità di monitoraggio del Servizio app è disponibile in anteprima e solo per il livello Standard del Centro sicurezza.
 
-> [!NOTE]
-> La funzionalità di monitoraggio del Servizio app è disponibile in anteprima e solo per il livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
->
->
 
 Nella sezione **Servizi app**, è riportato un elenco degli ambienti del Servizio app e il riepilogo dell'integrità eseguita sulla base della valutazione del Centro sicurezza.
 
@@ -171,19 +170,9 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 |Servizio app|10|Il debug remoto deve essere disattivato per l'applicazione Web|Disattivare il debug per le applicazioni Web se non è più necessario. Il debug remoto richiede che vengano aperte le porte in ingresso in un'app per le funzioni.|
 |Servizio app|10|Il debug remoto deve essere disattivato per l'app per le funzioni|Disattivare il debug per l'app per le funzioni se non è più necessario. Il debug remoto richiede che vengano aperte le porte in ingresso in un'app per le funzioni.|
 |Servizio app|10|Configurare le restrizioni IP per l'applicazione Web|Definire un elenco di indirizzi IP che possono accedere all'applicazione. L'uso di restrizioni IP protegge un'applicazione Web dagli attacchi comuni.|
-|Servizio app|10|Configurare le restrizioni IP per l'app per le funzioni| Definire un elenco di indirizzi IP che possono accedere all'applicazione. L'uso di restrizioni IP protegge un'app per le funzioni dagli attacchi comuni.|
 |Servizio app|10|Do not allow all ('*') resources to access your application (Non consentire a tutte le risorse ('*') di accedere all'applicazione)| Non consentire l'impostazione del parametro WEBSITE_LOAD_CERTIFICATES su "". L'impostazione del parametro su " comporta che tutti i certificati verranno caricati nell'archivio certificati personale delle applicazioni Web. Ciò può causare un abuso del principio dei privilegi minimi poiché è improbabile che il sito necessiti dell'accesso a tutti i certificati in fase di esecuzione.|
-|Servizio app|5|Web Socket deve essere disabilitato per l'applicazione Web|Esaminare l'uso di socket Web all'interno delle applicazioni Web. Il protocollo Web Socket è vulnerabile a diversi tipi di minacce alla sicurezza.|
-|Servizio app|5|Web Socket deve essere disabilitato per l'app per le funzioni|Esaminare l'uso di socket Web all'interno delle app per le funzioni. Il protocollo Web Socket è vulnerabile a diversi tipi di minacce alla sicurezza.|
-|Servizio app|5|Usare i domini personalizzati per l'applicazione Web|Usare domini personalizzati per proteggere un'applicazione Web da attacchi comuni come il phishing e altri attacchi correlati a DNS.|
-|Servizio app|5|Usare i domini personalizzati per l'app per le funzioni|Usare domini personalizzati per proteggere un'app per le funzioni da attacchi comuni come il phishing e altri attacchi correlati a DNS.|
 |Servizio app|20|CORS non deve consentire a tutte le risorse di accedere alle applicazioni Web|Consentire solo ai domini richiesti di interagire con l'applicazione Web. Condivisione di risorse tra le origini (CORS) non deve consentire a tutti i domini di accedere all'applicazione Web.|
 |Servizio app|20|Condivisione risorse tra le origini non deve consentire a tutte le risorse di accedere all'app per le funzioni dell'utente| Consentire solo ai domini richiesti di interagire con l'app per le funzioni. Condivisione di risorse tra le origini (CORS) non deve consentire a tutti i domini di accedere all'applicazione per le funzioni.|
-|Servizio app|10|Usare la versione supportata più recente di .NET Framework per l'applicazione Web|Usare la versione più recente di .NET Framework per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione.|
-|Servizio app|10|Usare la versione supportata più recente di Java per l'applicazione Web|Usare la versione più recente di Java per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione.|
-|Servizio app|10|Usare la versione supportata più recente di PHP per l'applicazione Web|Usare la versione più recente di PHP per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione.|
-|Servizio app|10|Usare la versione supportata più recente di Node.js per l'applicazione Web|Usare la versione più recente di Node.js per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione.|
-|Servizio app|10|Usare la versione supportata più recente di Python per l'applicazione Web|Usare la versione più recente di Python per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione.|
 |Risorse di calcolo (Batch)|1|Configurare regole di avviso relative alle metriche nell'account Batch|Configurare regole di avviso relative alle metriche nell'account Batch e abilitare le metriche Eventi eliminazione pool completati ed Eventi eliminazione pool avviati|
 |Risorse di calcolo (Service Fabric)|10|Usare Azure Active Directory per l'autenticazione client in Service Fabric|Eseguire l'autenticazione client solo tramite Azure Active Directory in Service Fabric.|
 |Risorse di calcolo (account di automazione)|5| Abilitare la crittografia dell'account di Automazione|Abilitare la crittografia degli asset della variabile dell'account di Automazione quando si archiviano dati sensibili.|

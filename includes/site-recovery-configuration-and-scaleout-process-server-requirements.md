@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133385"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701217"
 ---
 **Requisiti del server di configurazione/elaborazione**
 
@@ -36,13 +36,24 @@ IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applic
 | 
 **IMPOSTAZIONI DI RETE** | 
 Tipo di indirizzo IP | statico 
-Accesso a Internet | Il server deve poter accedere a questi URL (direttamente o tramite proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF necessita anche di accedere agli URL seguenti: <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati) 
 Tipo di scheda di interfaccia di rete | VMXNET3 (se il server di configurazione è una macchina virtuale VMware)
- | 
+ |
+**Accesso a Internet** (Il server deve poter accedere agli  URL seguenti, direttamente o tramite proxy):|
+\*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati di replica
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
+\*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
+https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica 
+*.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
+time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
+time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
+- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | La configurazione OVF deve poter accedere a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL
+|
 **SOFTWARE DA INSTALLARE** | 
 VMware vSphere PowerCLI | [PowerCLI versione 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve essere installato se il server di configurazione è in esecuzione in una macchina virtuale VMware.
-MYSQL | MySQL deve essere installato. È possibile eseguire l'installazione manualmente o con Site Recovery.
+MYSQL | MySQL deve essere installato. È possibile eseguire l'installazione manualmente o con Site Recovery. (Per altre informazioni, fare riferimento a [Configurazione delle impostazioni](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings))
 
 **Requisiti di dimensione del server di configurazione/elaborazione**
 

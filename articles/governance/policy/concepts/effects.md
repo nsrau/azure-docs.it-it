@@ -4,17 +4,17 @@ description: La definizione di Criteri di Azure ha diversi effetti che determina
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912510"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562301"
 ---
 # <a name="understand-policy-effects"></a>Informazioni sugli effetti di Criteri
 
@@ -25,7 +25,7 @@ Attualmente sono disponibili sei effetti supportati in una definizione dei crite
 - Append
 - Audit
 - AuditIfNotExists
-- Nega
+- Deny
 - DeployIfNotExists
 - Disabled
 
@@ -50,7 +50,7 @@ Append viene usato per aggiungere altri campi alla risorsa richiesta durante la 
 
 ### <a name="append-evaluation"></a>Valutazione di Append
 
-Append viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e rifiuta la richiesta.
+Append viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e rifiuta la richiesta. Per accodare un nuovo valore a una matrice esistente, usare la versione **[\*]** dell'alias.
 
 Quando una definizione dei criteri che usa l'effetto Append viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
@@ -89,7 +89,8 @@ Esempio 2 due coppie **campo/valore** per accodare un set di tag.
 }
 ```
 
-Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) con un **valore** di matrice per impostare le regole IP in un account di archiviazione.
+Esempio 3: coppia **campo/valore** singola che usa un
+[alias](definition-structure.md#aliases) diverso da **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -104,7 +105,22 @@ Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-## <a name="deny"></a>Nega
+Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]**, l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se non esiste ancora, la matrice verrà creata.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
+    }]
+}
+```
+
+## <a name="deny"></a>Deny
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -259,7 +275,7 @@ La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottopropr
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facoltativo)
   - I valori consentiti sono _Subscription_ e _ResourceGroup_.
-  - Imposta il tipo di distribuzione da eseguire. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
+  - Imposta il tipo di distribuzione da attivare. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
   - Una proprietà _location_ deve essere specificata in _Deployment_ quando si usano distribuzioni a livello di sottoscrizione.
   - L'impostazione predefinita è _ResourceGroup_.
 - **Deployment** [obbligatorio]

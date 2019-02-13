@@ -6,15 +6,15 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 2/04/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250919"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732941"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
@@ -49,7 +49,7 @@ Per caricare una directory locale nell'account di archiviazione, usare il comand
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## <a name="link-storage-to-your-web-app"></a>Collegare la risorsa di archiviazione all'app Web
+## <a name="link-storage-to-your-web-app-preview"></a>Collegare la risorsa di archiviazione all'app Web (anteprima)
 
 > [!CAUTION]
 > Collegando una directory esistente in un'app Web a un account di archiviazione il contenuto della directory verrà eliminato. Se si esegue la migrazione dei file di un'app esistente, creare un copia di backup dell'app e del relativo contenuto prima di iniziare.

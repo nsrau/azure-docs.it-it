@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080924"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810628"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -45,7 +45,7 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
    ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Alcuni provider di posta elettronica consentono agli utenti di aggiungere il simbolo più (+) e il testo aggiuntivo per i relativi indirizzi di posta elettronica per consentire operazioni, come il filtraggio della posta in arrivo. Tuttavia, Azure AD attualmente non supporta più simboli in indirizzi di posta elettronica. Per evitare problemi di recapito, omettere il simbolo di segno più e tutti i caratteri seguenti fino al simbolo @.
+    > Gli indirizzi e-mail di gruppo non sono supportati; inserire l'indirizzo e-mail di una sola persona. Alcuni provider di posta elettronica consentono agli utenti di aggiungere il simbolo più (+) e il testo aggiuntivo ai relativi indirizzi e-mail per consentire operazioni come il filtraggio della posta in arrivo. Tuttavia, Azure AD attualmente non supporta più simboli in indirizzi di posta elettronica. Per evitare problemi di recapito, omettere il simbolo di segno più e tutti i caratteri seguenti fino al simbolo @.
 
 6. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. 
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28a699f62a97120a27ba4d6f555182f090249dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183229"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Esercitazione: Integrazione di Azure Active Directory con Cezanne HR Software
 
@@ -88,7 +88,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Cezanne HR So
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente test di Cezanne HR Software](#create-a-cezannehrsoftware-test-user)**: per avere una controparte di Britta Simon in Cezanne HR Software collegata alla rappresentazione dell'utente in Azure AD.
+1. **Creare un utente test di Cezanne HR Software**: per avere una controparte di Britta Simon in Cezanne HR Software collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 

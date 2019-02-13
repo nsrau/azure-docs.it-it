@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210676"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814844"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 
@@ -52,35 +52,48 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
 1. Dopo aver creato un account di archiviazione, eseguire il comando seguente per ottenere l'ID risorsa dell'account di archiviazione da gestire
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Copiare il campo ID dal risultato del comando precedente
     
-2. Ottenere l'ID applicazione dell'entità servizio di Azure Key Vault 
+2. Ottenere l'ID oggetto dell'entità servizio di Azure Key Vault eseguendo il comando seguente
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Al termine di questo comando trovare l'ID oggetto nel risultato
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Assegnare il ruolo "Operatore chiave di archiviazione" all'identità di Azure Key Vault
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Creare un account di archiviazione gestito da Key Vault.     <br /><br />
-   Il periodo di rigenerazione impostato di seguito è di 90 giorni. Dopo 90 giorni, Key Vault rigenera 'key1' e passa l'impostazione di chiave attiva da 'key2' a 'key1'.
+   Il periodo di rigenerazione impostato di seguito è di 90 giorni. Dopo 90 giorni, Key Vault rigenera 'key1' e passa l'impostazione di chiave attiva da 'key2' a 'key1'. A questo punto contrassegnerà Key1 come chiave attiva. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     Nel caso in cui l'utente non abbia creato l'account di archiviazione e non abbia le autorizzazioni per tale account, la procedura seguente consente di impostare le autorizzazioni per l'account, in modo da garantire la possibilità di gestire tutte le autorizzazioni di archiviazione in Key Vault.
+    
  > [!NOTE] 
-    Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
+ > Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Come accedere all'account di archiviazione con i token di firma di accesso condiviso
@@ -91,9 +104,9 @@ Nella sezione seguente viene illustrato come recuperare la chiave dell'account d
 
 > [!NOTE] 
   Come descritto nell'articolo [Concetti di base](key-vault-whatis.md#basic-concepts), esistono tre modi per eseguire l'autenticazione in Key Vault:
-- Usando l'identità del servizio gestita (altamente consigliato)
-- Usando l'entità servizio e il certificato 
-- Usando l'entità servizio e la password (NON consigliato)
+> - Usando l'identità del servizio gestita (altamente consigliato)
+> - Usando l'entità servizio e il certificato 
+> - Usando l'entità servizio e la password (NON consigliato)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials

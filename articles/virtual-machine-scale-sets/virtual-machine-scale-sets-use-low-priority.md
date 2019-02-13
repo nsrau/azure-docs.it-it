@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953872"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811104"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Macchine virtuali con priorità bassa nei set di scalabilità (anteprima)
 
@@ -42,14 +42,14 @@ Se si desidera che le macchine virtuali del set di scalabilità con priorità ba
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>Distribuzione di macchine virtuali con priorità bassa nei set di scalabilità
 
 Per distribuire macchine virtuali con priorità bassa nei set di scalabilità, è possibile impostare il nuovo flag *Priority* su *Low*. Per tutte le macchine virtuali nel set di scalabilità verrà impostata la priorità bassa. Per creare un set di scalabilità con macchine virtuali con priorità bassa, usare uno dei metodi seguenti:
-- [portale di Azure](#use-the-azure-portal)
-- [Interfaccia della riga di comando di Azure](#use-the-azure-cli-20)
+- [Portale di Azure](#use-the-azure-portal)
+- Interfaccia della riga di comando di Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-La procedura per creare un set di scalabilità che usi macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag con priorità bassa e il criterio di eliminazione: ![Creare un set di scalabilità con le macchine virtuali con priorità bassa](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+La procedura per creare un set di scalabilità che usi macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag con priorità bassa e il criterio di eliminazione: ![Creare un set di scalabilità con macchine virtuali con priorità bassa](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464790"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728844"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -40,7 +40,7 @@ Per creare un cluster HDInsight che usa Data Lake Storage Gen2 per l'archiviazio
 
     ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Assegnare l'identità gestita al ruolo **Collaboratore ai dati del BLOB di archiviazione (anteprima)** nell'account di archiviazione. Vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Assegnare l'identità gestita al ruolo **Proprietario dei dati del BLOB di archiviazione (anteprima)** nell'account di archiviazione. Vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
     1. Selezionare l'account di archiviazione, quindi selezionare **Controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'account. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
@@ -48,9 +48,9 @@ Per creare un cluster HDInsight che usa Data Lake Storage Gen2 per l'archiviazio
         ![Screenshot che mostra le impostazioni di controllo di accesso per l'archiviazione](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Fare clic sul pulsante **Aggiungi un'assegnazione di ruolo** per aggiungere un nuovo ruolo.
-    1. Nella finestra **Aggiungi assegnazione di ruolo** selezionare il ruolo **Collaboratore ai dati del BLOB di archiviazione (anteprima)**. Selezionare quindi la sottoscrizione a cui sono associati l'identità gestita e l'account di archiviazione. Individuare l'identità gestita assegnata dall'utente creata in precedenza. Infine selezionare l'identità gestita, che apparirà in **Membri selezionati**.
+    1. Nella finestra **Aggiungi assegnazione di ruolo** selezionare il ruolo **Proprietario dei dati del BLOB di archiviazione (anteprima)**. Selezionare quindi la sottoscrizione a cui sono associati l'identità gestita e l'account di archiviazione. Individuare l'identità gestita assegnata dall'utente creata in precedenza. Infine selezionare l'identità gestita, che apparirà in **Membri selezionati**.
     
-        ![Screenshot che mostra come assegnare un ruolo di controllo degli accessi in base al ruolo](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Screenshot che mostra come assegnare un ruolo di controllo degli accessi in base al ruolo](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Fare clic su **Save**. L'identità assegnata dall'utente selezionata è ora elencata nel ruolo **Collaboratore**.
 

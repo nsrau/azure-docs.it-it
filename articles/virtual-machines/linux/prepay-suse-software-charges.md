@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582191"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745980"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure
 
@@ -27,7 +27,7 @@ Pagare in anticipo per l'utilizzo di SUSE e risparmiare rispetto ai costi con pa
 È possibile acquistare i piani software SUSE nel portale di Azure. Per acquistare un piano:
 
 - È necessario disporre del ruolo di Proprietario per almeno una sottoscrizione aziendale o con pagamento in base al consumo.
-- Per le sottoscrizioni aziendali gli acquisti di prenotazioni devono essere abilitati nel [portale EA](https://ea.azure.com).
+- Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.
 - Per il programma Cloud Solution Provider (CSP), gli agenti di amministrazione o gli agenti di vendita possono acquistare i piani SUSE.
 
 ## <a name="buy-a-suse-software-plan"></a>Acquistare un piano software SUSE
@@ -39,8 +39,8 @@ Pagare in anticipo per l'utilizzo di SUSE e risparmiare rispetto ai costi con pa
     | Campo      | DESCRIZIONE|
     |:------------|:--------------|
     |NOME        |Il nome dell'acquisto.|
-    |Sottoscrizione|La sottoscrizione usata per pagare il piano. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P) o con pagamento in base al consumo (numero offerta: MS-AZR-0003P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|
-    |Scope       |L'ambito può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni (eccetto le sottoscrizioni di sviluppo/test) all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
+    |Sottoscrizione|La sottoscrizione usata per pagare il piano. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un Contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|
+    |Scope       |L'ambito può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
     |Piano software     |Selezionare il piano SUSE Linux. Per informazioni su come identificare gli elementi da acquistare, vedere [Understand how the SUSE Linux Enterprise reservation plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto relativo al piano del software SUSE Linux Enterprise).|
     |Dimensioni macchina virtuale     |I prezzi di SUSE Linux dipendono dal numero di vCPU nella macchina virtuale. Selezionare l'opzione che rappresenta il numero di vCPU nelle macchine virtuali SUSE Linux.|
     |Termine        |Un anno o tre anni.|

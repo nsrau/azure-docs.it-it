@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469193"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821363"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -73,7 +73,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 * [Modello per indice secondario interpartizione](#inter-partition-secondary-index-pattern)
 * [Modello per chiave composta](#compound-key-pattern)
-* [Transazioni dei gruppi di entità](#entity-group-transactions)
+* Transazioni dei gruppi di entità
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Modello per indice secondario intrapartizione
@@ -128,7 +128,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 * [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
 * [Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern)  
 * [Modello per chiave composta](#compound-key-pattern)  
-* [Transazioni dei gruppi di entità](#entity-group-transactions)  
+* Transazioni dei gruppi di entità  
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Modello per transazioni con coerenza finale
@@ -172,7 +172,7 @@ Usare questo modello quando si desidera garantire la coerenza finale tra entità
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Transazioni dei gruppi di entità](#entity-group-transactions)  
+* Transazioni dei gruppi di entità  
 * [Unione o sostituzione](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipenden
 I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones:  
 
 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per usarlo nel passaggio 2.  
-2. Creare una transazione del gruppo di entità (cioè un'operazione batch) che inserisca la nuova entità dipendente (con valore **PartitionKey** "Sales" e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions).  
+2. Creare una transazione del gruppo di entità (cioè un'operazione batch) che inserisca la nuova entità dipendente (con valore **PartitionKey** "Sales" e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere Transazioni di gruppi di entità.  
 3. Se la transazione del gruppo di entità ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.  
 
 Se si usa la seconda opzione, è possibile adottare un approccio simile per l'eliminazione di un dipendente. Modificare il cognome del dipendente è un'operazione leggermente più complessa, in quanto è necessario eseguire una transazione del gruppo di entità che aggiorna tre entità: l'entità dipendente, l'entità di indice per il cognome precedente e l'entità di indice per il nuovo cognome. È necessario recuperare ogni entità prima di apportare qualsiasi modifica, per recuperare i valori ETag da usare in seguito per eseguire gli aggiornamenti usando la concorrenza ottimistica.  
@@ -251,7 +251,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 * [Modello per chiave composta](#compound-key-pattern)  
 * [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
-* [Transazioni dei gruppi di entità](#entity-group-transactions)  
+* Transazioni dei gruppi di entità  
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Modello di denormalizzazione
@@ -282,7 +282,7 @@ Usare questo modello quando è necessario cercare spesso informazioni correlate.
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
 * [Modello per chiave composta](#compound-key-pattern)  
-* [Transazioni dei gruppi di entità](#entity-group-transactions)  
+* Transazioni dei gruppi di entità  
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Modello per chiave composta
@@ -325,7 +325,7 @@ Usare questo modello quando è necessario archiviare una o più entità correlat
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Transazioni dei gruppi di entità](#entity-group-transactions)  
+* Transazioni dei gruppi di entità  
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
 * [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Usare questo modello quando si dispone di un volume elevato di entità che è ne
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Transazioni dei gruppi di entità](#entity-group-transactions)
+* Transazioni dei gruppi di entità
 * [Modifica di entità](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Modello di serie di dati
@@ -454,7 +454,7 @@ Usare questo modello quando è necessario archiviare entità le cui dimensioni o
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Transazioni dei gruppi di entità](#entity-group-transactions)
+* Transazioni dei gruppi di entità
 * [Unione o sostituzione](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Modello di entità di grandi dimensioni
@@ -556,7 +556,7 @@ Prima di decidere come archiviare i dati di log, considerare quanto segue:
 Questa sezione illustra alcune considerazioni da tenere presente quando si implementano i modelli descritti nelle sezioni precedenti. Nella maggior parte di questa sezione vengono usati esempi scritti in C# che usano la libreria client di archiviazione (versione 4.3.0 al momento della stesura di questo documento).  
 
 ## <a name="retrieving-entities"></a>Recupero di entità
-Come descritto nella sezione [Progettazione per le query](#design-for-querying), la query più efficiente è una query di tipo punto. Tuttavia, in alcuni scenari potrebbe essere necessario recuperare più entità. Questa sezione descrive alcuni approcci comuni al recupero di entità mediante la libreria client di archiviazione.  
+Come descritto nella sezione Progettazione per le query, la query più efficiente è una query di tipo punto. Tuttavia, in alcuni scenari potrebbe essere necessario recuperare più entità. Questa sezione descrive alcuni approcci comuni al recupero di entità mediante la libreria client di archiviazione.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Esecuzione di una query di tipo punto mediante la libreria client di archiviazione
 Il modo più semplice per eseguire una query di tipo punto consiste nell'usare l'operazione di tabella **Retrieve** come illustrato nel frammento di codice C# seguente che recupera un'entità con un **PartitionKey** di valore "Sales" e un **RowKey** di valore "212":  

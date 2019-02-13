@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89984335d40d7f58d39e77736c06a9ff137d7a51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221199"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811258"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -40,7 +40,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui le risorse devono 
 | Risoluzione dei nomi tra macchine virtuali in diverse reti virtuali o istanze del ruolo in servizi cloud diversi. |[Zone private di DNS di Azure](../dns/private-dns-overview.md) o server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione dei nomi da un servizio app di Azure (App Web, Funzioni o Bot) con l'integrazione della rete virtuale in istanze del ruolo o macchine virtuali nella stessa rete virtuale. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione dei nomi da app Web del servizio app a macchine virtuali nella stessa rete virtuale. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
-| Risoluzione dei nomi da app Web del servizio app in una rete virtuale a macchine virtuali in una rete virtuale diversa. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Solo nome di dominio completo |
+| Risoluzione dei nomi da app Web del servizio app in una rete virtuale a macchine virtuali in una rete virtuale diversa. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere Risoluzione dei nomi usando il server DNS. |Solo nome di dominio completo |
 | Risoluzione dei nomi di servizi e computer locali da istanze del ruolo o macchine virtuali in Azure. |Server DNS gestiti dal cliente (ad esempio, controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati con trasferimenti di zona). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali. |Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy trasferisce le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | DNS inversi per indirizzi IP interni. |[Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Non applicabile |
@@ -194,7 +194,7 @@ Quando si usano i propri server DNS, Azure offre la possibilità di specificare 
 > 
 > 
 
-Quando si usa il modello di distribuzione Azure Resource Manager, è possibile specificare i server DNS per una rete virtuale e un'interfaccia di rete. Per informazioni dettagliate, vedere [Gestire una rete virtuale](manage-virtual-network.md) e [Gestire un'interfaccia di rete](virtual-network-network-interface.md).
+Quando si usa il modello di distribuzione Azure Resource Manager, è possibile specificare i server DNS per una rete virtuale e un’interfaccia di rete. Per informazioni dettagliate, vedere [Gestire una rete virtuale](manage-virtual-network.md) e [Gestire un'interfaccia di rete](virtual-network-network-interface.md).
 
 > [!NOTE]
 > Se si opta per il server DNS personalizzato per la rete virtuale, è necessario specificare almeno un indirizzo IP del server DNS. In caso contrario, la rete virtuale ignorerà la configurazione e userà invece il server DNS fornito da Azure.

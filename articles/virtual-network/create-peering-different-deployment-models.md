@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: bd2efce831fa98b3a4543d67d247d04dc8fc9d04
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1c3a98e6c1aebb497514c074eb66f8cf30e91228
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853184"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819570"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione, stessa sottoscrizione
 
@@ -38,7 +38,7 @@ Non è possibile creare un peering di rete virtuale tra due reti virtuali distri
 
 Questa esercitazione consente di eseguire il peering di due reti virtuali nella stessa area. È anche possibile eseguire il peering di reti virtuali in diverse [aree supportate](virtual-network-manage-peering.md#cross-region). È consigliabile acquisire familiarità con [i requisiti e i vincoli del peering](virtual-network-manage-peering.md#requirements-and-constraints) prima di eseguire il peering di reti virtuali.
 
-Per creare un peering di rete virtuale, è possibile usare il [portale di Azure](#portal), l'[interfaccia della riga di comando](#cli) di Azure, Azure [PowerShell](#powershell) o un [modello di Azure Resource Manager](#template). Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con il determinato strumento.
+Per creare un peering di rete virtuale, è possibile usare il portale di Azure, l'[interfaccia della riga di comando](#cli) (CLI) di Azure, Azure [PowerShell](#powershell) o un modello di Azure Resource Manager. Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con il determinato strumento.
 
 ## <a name="create-peering---azure-portal"></a>Creare un peering: portale di Azure
 
@@ -46,21 +46,21 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
 2. Fare clic su **+ Nuovo**, **Rete** e quindi **Rete virtuale**.
 3. Nel pannello **Crea rete virtuale** immettere o selezionare i valori necessari per le impostazioni seguenti e quindi fare clic su **Crea**:
     - **Nome**: *myVnet1*
-    - **Spazio indirizzi**: *10.0.0.0/16*
+    - **Spazio degli indirizzi**: *10.0.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
-    - **Sottoscrizione**: selezionare la propria sottoscrizione
-    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroup*
+    - **Sottoscrizione** Selezionare la propria sottoscrizione
+    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroup*
     - **Località**: *Stati Uniti orientali*
 4. Fare clic su **+ Nuovo**. Nella casella **Cerca nel Marketplace** digitare *Rete virtuale*. Fare clic su **Rete virtuale** quando viene visualizzato nei risultati della ricerca.
 5. Nel pannello **Rete virtuale** selezionare **Classico** nella casella **Selezionare un modello di distribuzione** e fare clic su **Crea**.
 6. Nel pannello **Crea rete virtuale** immettere o selezionare i valori necessari per le impostazioni seguenti e quindi fare clic su **Crea**:
     - **Nome**: *myVnet2*
-    - **Spazio indirizzi**: *10.1.0.0/16*
+    - **Spazio degli indirizzi**: *10.1.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.1.0.0/24*
-    - **Sottoscrizione**: selezionare la propria sottoscrizione
-    - **Gruppo di risorse**: selezionare **Usa esistente** e quindi *myResourceGroup*
+    - **Sottoscrizione** Selezionare la propria sottoscrizione
+    - **Gruppo di risorse**: Selezionare **Usa esistente** e selezionare *myResourceGroup*
     - **Località**: *Stati Uniti orientali*
 7. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myResourceGroup*. Fare clic su **MyResourceGroup** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per il gruppo di risorse **myresourcegroup**. Il gruppo di risorse contiene le due reti virtuali create nei passaggi precedenti.
 8. Fare clic su **myVNet1**.
@@ -68,10 +68,10 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
 10. Nel pannello **myVnet1 - Peer** visualizzato fare clic su **+ Aggiungi**
 11. Nel pannello **Aggiungi peering** visualizzato immettere o selezionare le opzioni seguenti e quindi fare clic su **OK**:
      - **Nome**: *myVnet1ToMyVnet2*
-     - **Modello di distribuzione della rete virtuale**: selezionare **Classica**.
-     - **Sottoscrizione**: selezionare la propria sottoscrizione
-     - **Rete virtuale**: fare clic su **Scegliere una rete virtuale** e quindi scegliere **myVnet2**.
-     - **Consenti accesso alla rete virtuale:** assicurarsi che sia selezionato **Abilitato**.
+     - **Modello di distribuzione della rete virtuale**:  Selezionare **Classico**.
+     - **Sottoscrizione** Selezionare la propria sottoscrizione
+     - **Rete virtuale**:  Fare clic su **Scegliere una rete virtuale** e quindi scegliere **myVnet2**.
+     - **Consenti accesso alla rete virtuale**: assicurarsi che sia selezionato **Abilitato**.
     Questa esercitazione non prevede l'uso di altre impostazioni. Per informazioni su tutte le impostazioni per il peering, vedere [Gestire i peering di rete virtuale](virtual-network-manage-peering.md#create-a-peering).
 12. Dopo aver fatto clic su **OK** nel passaggio precedente, il pannello **Aggiungi peering** si chiude e viene visualizzato di nuovo il pannello **myVnet1 - Peer**. Dopo alcuni secondi, il peering creato viene visualizzato nel pannello. Nella colonna **STATO PEERING** relativa al peering **myVnet1ToMyVnet2** creato è riportato **Connesso**.
 
@@ -140,7 +140,7 @@ Completare i passaggi seguenti con l'interfaccia della riga di comando classica 
 
    Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 7. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-8. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
+8. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete-cli) di questo articolo.
 
 ## <a name="powershell"></a>Creare un peering - PowerShell
 
@@ -203,7 +203,7 @@ Completare i passaggi seguenti con l'interfaccia della riga di comando classica 
     Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 9. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-10. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
+10. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete-powershell) di questo articolo.
 
 ## <a name="delete"></a>Eliminare risorse
 
@@ -215,9 +215,9 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 2. Nel pannello **myResourceGroup** fare clic sull'icona **Elimina**.
 3. Per confermare l'eliminazione, nella casella **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup** e quindi fare clic su **Elimina**.
 
-### <a name="delete-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="delete-cli"></a>
 
-1. Usare l'interfaccia della riga di comando di Azure per eliminare la rete virtuale (Resource Manager) con il comando seguente:
+1. Usare l'interfaccia della riga di comando di Azure per eliminare la rete virtuale (Resource Manager) con il seguente comando:
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes

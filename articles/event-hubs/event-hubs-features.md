@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075167"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768597"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -169,7 +169,7 @@ Le unità sono pre-acquistate e vengono fatturate su base oraria. Una volta acqu
 
 È possibile acquistare altre unità elaborate in blocchi di 20, fino a un massimo di 100 unità elaborate, contattando il supporto tecnico di Azure. Oltre questo limite, è possibile acquistare blocchi di 100 unità elaborate.
 
-È consigliabile bilanciare unità elaborate e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha una scala massima di una unità elaborata. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un hub eventi.
+È consigliabile bilanciare unità elaborate e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha una scalabilità minima di unità elaborate. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un hub eventi.
 
 Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi ](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597621"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513982"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Server DNS per rete virtuale |20 |
 | Indirizzi IP privati per rete virtuale |65536 |
 | Indirizzi IP privati per interfaccia di rete |256 |
+| Indirizzi IP privati per macchina virtuale |256 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |
 | Interfacce di rete (NIC) |65536 |
 | Gruppi di sicurezza di rete (NGS) |5000 |
@@ -69,6 +70,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Indirizzi IP pubblici: dinamici |(Basic) 1000 |contattare il supporto tecnico |
 | Indirizzi IP pubblici: statici |(Basic) 200 |contattare il supporto tecnico |
 | Indirizzi IP pubblici: statici |(Standard) 200 |contattare il supporto tecnico |
+| Dimensione del prefisso indirizzo IP pubblico (anteprima) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Limiti del bilanciamento del carico
 I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure Resource Manager per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md)

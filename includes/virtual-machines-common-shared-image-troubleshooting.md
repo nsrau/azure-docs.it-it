@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047216"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736278"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-Debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
@@ -52,7 +52,7 @@ Possibili cause:
 
 *Il nome della versione dell'immagine non è valido.*
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *VersionePrincipale.VersioneSecondaria.Patch*. Modificare il nome della versione dell'immagine e riprovare.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion.MinorVersion.Patch*. Modificare il nome della versione dell'immagine e riprovare.
 
 *Non è possibile trovare l'immagine gestita di origine da cui viene creata la versione dell'immagine.* 
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 31a12d43ba71f1a0eacbb12887b047f2fafe3b53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6079b68dc0f9a00ccb71683fc1d80cdbd8da6564
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784600"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730817"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come iniziare a creare le Funzioni di Azure 
 
 Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
 - Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](media-services-portal-create-account.md).
@@ -46,13 +46,13 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 Per la funzione definita in questo articolo si presuppongono le seguenti variabili di ambiente nelle impostazioni dell'app:
 
-**AMSAADTenantDomain**: endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
+**AMSAADTenantDomain**: Endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
 
 **AMSRESTAPIEndpoint**:  URI che rappresenta l'endpoint dell'API REST. 
 
-**AMSClientId**: ID client dell'applicazione Azure AD.
+**AMSClientId**: ID applicazione (client) Azure AD.
 
-**AMSClientSecret**: segreto client dell'applicazione Azure AD.
+**AMSClientSecret**: applicazione segreto client Azure AD.
 
 **StorageConnection**: connessione di archiviazione dell'account associato all'account di Servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
 
@@ -70,7 +70,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
     ![input](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Fare clic su **Crea**. 
+4. Fare clic su **Create**(Crea). 
 
 ## <a name="files"></a>File
 
@@ -338,7 +338,7 @@ Per testare la funzione, è necessario caricare un file MP4 nel contenitore **in
 4. Premere **Carica** e passare al file MP4 che si desidera caricare.
 
 >[!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
+> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241770"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732516"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Risoluzione dei problemi di connettività tra macchine virtuali di Azure
 
@@ -95,7 +95,7 @@ In alcuni scenari, la macchina virtuale è posizionata dietro una soluzione di b
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Passaggio 6: Controllare se il traffico è bloccato da ACL per la macchina virtuale classica
 
-Un elenco di controllo di accesso offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Per altre informazioni, vedere [Gestire l'elenco di controllo di accesso su un endpoint](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Un elenco di controllo di accesso offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Per altre informazioni, vedere [Gestire l'elenco di controllo di accesso su un endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passaggio 7: Controllare che l'endpoint per la macchina virtuale classica sia stato creato
 

@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534877"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818295"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorare i messaggi B2B con Azure Log Analytics in App per la logica di Azure
 
-Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi tra di loro. Per verificare che la comunicazione funziona come previsto, è possibile monitorare i messaggi AS2, X12 ed EDIFACT e impostare la registrazione diagnostica per l'account di integrazione con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Questo servizio consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile [usare questi dati con altri servizi](#extend-diagnostic-data), come ad esempio Archiviazione di Azure e Hub eventi di Azure.
+Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi tra di loro. Per verificare che la comunicazione funziona come previsto, è possibile monitorare i messaggi AS2, X12 ed EDIFACT e impostare la registrazione diagnostica per l'account di integrazione con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Questo servizio consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile usare questi dati con altri servizi, come ad esempio Archiviazione di Azure e Hub eventi di Azure.
 
 > [!NOTE]
 > Questa pagina potrebbe contenere ancora riferimenti a Microsoft Operations Management Suite (OMS), che verrà [ritirato a gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), ma sostituisce quei passaggi con Azure Log Analytics laddove possibile. 

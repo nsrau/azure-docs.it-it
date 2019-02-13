@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300269"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815653"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 ## <a name="overview"></a>Panoramica
@@ -1191,7 +1191,7 @@ Se sono presenti solo due server SQL e si vuole eseguirne la migrazione a un nuo
 
 Dopo aver attivato la replica secondaria migrata e aggiunto la nuova risorsa indirizzo IP per il nuovo servizio cloud prima del failover della replica primaria esistente, è necessario eseguire questi passaggi in Gestione failover cluster:
 
-Per aggiungere l'indirizzo IP, vedere l’ [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), passaggio 14.
+Per aggiungere l'indirizzo IP, vedere l'Appendice, passaggio 14.
 
 1. Per la risorsa indirizzo IP corrente, modificare il proprietario possibile in 'SQL Server primario esistente', nell'esempio 'dansqlams4':
 

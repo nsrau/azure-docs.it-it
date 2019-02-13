@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021578"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822749"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021578"
 
 Questo articolo descrive l'architettura di una soluzione di esempio che sposta ed elabora set di dati su larga scala in modo automatico e pianificato. Viene descritta anche una procedura dettagliata end-to-end per implementare la soluzione tramite Data Factory e Azure Batch.
 
-Questo articolo è più lungo dei nostri soliti articoli perché contiene la procedura dettagliata per un'intera soluzione di esempio. Se non si ha familiarità con Batch e Data Factory, sarà possibile ottenere altre informazioni su questi servizi e su come interagiscono. Se invece si conoscono già questi servizi e si sta progettando o creando una soluzione, è possibile concentrarsi sulla [sezione architettura](#architecture-of-sample-solution) dell'articolo. Se si sta sviluppando un prototipo o una soluzione, è possibile provare a seguire le istruzioni della [procedura dettagliata](#implementation-of-sample-solution). Microsoft invita gli utenti a inviare i loro commenti su questo contenuto e sulle relative modalità di impiego.
+Questo articolo è più lungo dei nostri soliti articoli perché contiene la procedura dettagliata per un'intera soluzione di esempio. Se non si ha familiarità con Batch e Data Factory, sarà possibile ottenere altre informazioni su questi servizi e su come interagiscono. Se invece si conoscono già questi servizi e si sta progettando o creando una soluzione, è possibile concentrarsi sulla sezione relativa all'architettura dell'articolo. Se si sta sviluppando un prototipo o una soluzione, è possibile provare a seguire le istruzioni della procedura dettagliata. Microsoft invita gli utenti a inviare i loro commenti su questo contenuto e sulle relative modalità di impiego.
 
 In primo luogo si vedrà in che modo i servizi Data Factory e Batch possono essere utili per elaborare grandi set di dati nel cloud.     
 

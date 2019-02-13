@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388311"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490448"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -71,6 +71,9 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 5. È ora visibile il numero di ore sulla barra degli strumenti: **Quota per user (Quota per utente): &lt;numero di ore&gt;**. 
 
     ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> Il [tempo di esecuzione pianificato delle macchine virtuali](how-to-create-schedules.md) non interferisce con la quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV
 È anche possibile aggiungere gli utenti caricando un file CSV con gli indirizzi di posta elettronica degli utenti.

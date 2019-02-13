@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079529"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734437"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -29,9 +29,15 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+## <a name="policies"></a>Criteri
+
+È possibile usare [Criteri di Azure](../governance/policy/overview.md) per applicare le regole e le convenzioni dell'assegnazione di tag. Tramite la creazione di un criterio, è possibile evitare che lo scenario di risorse distribuito nella sottoscrizione non rispetti i tag previsti per l'organizzazione. Anziché procedere manualmente all'applicazione dei tag o alla ricerca delle risorse non conformi, è possibile creare un criterio che applica automaticamente i tag necessari durante la distribuzione. La sezione seguente illustra i criteri di esempio per i tag.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+
 ## <a name="powershell"></a>PowerShell
 
-Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se non si dispone della versione 6.0 o successiva [eseguire l'aggiornamento](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per visualizzare i tag esistenti per un *gruppo di risorse*, usare:
 
@@ -273,5 +279,4 @@ Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Az
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
-* È possibile applicare restrizioni e convenzioni all'interno della sottoscrizione tramite criteri personalizzati. Un criterio che è stato definito potrebbe richiedere che per tutte le risorse sia impostato un determinato tag. Per altre informazioni, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md)
 * Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](resource-group-portal.md).  

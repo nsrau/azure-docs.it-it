@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 772070b73f1d2dcf83d15283f6be70ab4fef148b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e05e26c944dac2fb18508e73c6d35c6875d26548
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155667"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729439"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -299,8 +299,8 @@ subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
 tags | [Tag](../../azure-resource-manager/resource-group-using-tags.md) per la macchina virtuale  | 2017-08-01
 resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
 placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
-piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore | 2017-04-02
-publicKeys | Raccolta di chiavi pubbliche [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assegnate alla VM e ai percorsi | 2017-04-02
+piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore | 2018-04-02
+publicKeys | Raccolta di chiavi pubbliche [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assegnate alla VM e ai percorsi | 2018-04-02
 vmScaleSetName | [Nome del set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del proprio set di scalabilità di macchine virtuali | 2017-12-01
 zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della macchina virtuale | 2017-12-01 
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
@@ -491,7 +491,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Per ottenere assistenza per il servizio, è necessario creare una richiesta di supporto nel portale di Azure per la macchina virtuale per la quale non si riesce a ottenere la risposta dei metadati dopo lunghi tentativi 
 9. Ricevo il timeout della richiesta per la chiamata del servizio?
    * Le chiamate di metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete della macchina virtuale, inoltre, anche nel caso in cui sono state modificate le route, deve essere presente una route per l'indirizzo 169.254.0.0/16 esterna alla scheda di rete.
-10. I tag nel set di scalabilità delle macchine virtuali sono stati aggiornati, ma non vengono visualizzati nelle istanze a differenza delle VM.
+10. I tag nel set di scalabilità delle macchine virtuali sono stati aggiornati, ma perché non vengono visualizzati nelle istanze a differenza delle macchine virtuali?
    * Attualmente per i set di scalabilità i tag vengono visualizzati nella macchina virtuale solo al riavvio/ricreazione dell'immagine/o cambio del disco per l'istanza. 
 
    ![Supporto per i metadati dell'istanza](./media/instance-metadata-service/InstanceMetadata-support.png)

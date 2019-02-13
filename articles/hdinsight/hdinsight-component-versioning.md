@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971121"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657910"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
@@ -76,9 +76,9 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (Anteprima) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Yes |Yes |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | | |Yes |Yes |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 settembre 2016 |13 marzo 2019 |13 marzo 2019 |Yes |Yes |
+| HDInsight 4.0 <br> (Anteprima) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | | |Sì |Sì |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 settembre 2016 |13 marzo 2019 |13 marzo 2019 |Sì |Sì |
 
 *&ast;Il supporto per HDInsight 3.5 è stato esteso solo per i tipi di cluster Spark*
 
@@ -92,14 +92,14 @@ La tabella seguente elenca le versioni di HDInsight attualmente **non** disponib
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Yes |No  |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Yes |No  |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Yes |No  |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Yes |No  |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Yes |No  |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Yes |No  |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Yes |No  |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Yes |No  |
+| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Sì |No  |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Sì |No  |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Sì |No  |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Sì |No  |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Sì |No  |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Sì |No  |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Sì |No  |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Sì |No  |
 | HDInsight 1.6 |HDP 1.1 | |28 ottobre 2013 |26 aprile 2014 |31 maggio 2015 |No  |No  |
 
 > [!NOTE]  
@@ -228,16 +228,46 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
 
 * Tutte le aree supportate tranne Brasile meridionale e Giappone occidentale:
 
-  | Tipo di cluster | Hadoop | hbase | Interactive Query | Storm | Spark  | ML Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Head: dimensioni VM predefinite |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | Head: dimensioni VM consigliate |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | Ruolo di lavoro: dimensioni VM predefinite |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Ruolo di lavoro: dimensioni VM consigliate |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: dimensioni VM predefinite | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: dimensioni VM consigliate | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
-  | Edge: dimensioni VM predefinite | | | | | |D4 v2 |
-  | Edge: dimensioni VM consigliate | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>Tipo di cluster</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>Head: dimensioni VM predefinite</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">Head: dimensioni VM consigliate</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>Ruolo di lavoro: dimensioni VM predefinite</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 con 2 dischi S30 per broker</td></tr>
+
+<tr><td rowspan="8" valign="top">Ruolo di lavoro: dimensioni VM consigliate</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper: dimensioni VM predefinite</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper: dimensioni VM consigliate</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>Edge: dimensioni VM predefinite</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">Edge: dimensioni VM consigliate</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * Solo Brasile meridionale e Giappone occidentale (non sono disponibili dimensioni v2):
 
   | Tipo di cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Services |

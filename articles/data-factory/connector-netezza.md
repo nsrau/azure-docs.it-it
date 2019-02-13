@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025656"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658522"
 ---
-# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -39,15 +39,15 @@ Le sezioni seguenti presentano informazioni dettagliate sulle proprietà che è 
 
 Per il servizio collegato Netezza sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **Netezza**. | Yes |
-| connectionString | Stringa di connessione ODBC per la connessione a Netezza. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| type | La proprietà **type** deve essere impostata su **Netezza**. | Sì |
+| connectionString | Stringa di connessione ODBC per la connessione a Netezza. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `pwd` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere un runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No  |
 
 Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. La tabella seguente descrive altre proprietà che è possibile impostare:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo senza protezione** (**onlyUnSecured**): Il driver non utilizza SSL.<br/>- **Preferiti senza protezione (preferredUnSecured) (impostazione predefinita)**: Se il server fornisce una scelta, il driver non utilizza SSL. <br/>- **Preferiti con protezione (preferredSecured)**: Se il server fornisce una scelta, il driver utilizza SSL. <br/>- **Solo con protezione (onlySecured)**: Il driver non si connette a meno che non sia disponibile una connessione SSL. | No  |
 | CaCertFile | Il percorso completo per il certificato SSL usato dal server. Esempio: `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
@@ -61,8 +61,8 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
         "type": "Netezza",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -73,17 +73,46 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+**Esempio: archiviare la password in Azure Key Vault**
+
+```json
+{
+    "name": "NetezzaLinkedService",
+    "properties": {
+        "type": "Netezza",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Questa sezione presenta un elenco delle proprietà supportate dal set di dati Netezza.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md).
 
 Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su **NetezzaTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -106,15 +135,15 @@ Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine Netezza.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md).
 
 ### <a name="netezza-as-source"></a>Netezza come origine
 
 Per copiare dati da Netezza, impostare il tipo di **origine** nell'attività di copia su **NetezzaSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Yes |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
