@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 15f362386197c76de578e2ffffae4c165ba59c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 939a6443fb0993592d9640c83b985ce761f0fa61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Esercitazione: Integrazione di Azure Active Directory con AlertOps
 
@@ -220,7 +221,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Configurazione di AlertOps](./media/alertops-tutorial/user2.png)
 
-4. Nella finestra di dialogo **Add User** (Aggiungi utente) seguire questa procedura:
+4. Nella finestra di dialogo **Aggiungi utente** seguire questa procedura:
 
     ![Configurazione di AlertOps](./media/alertops-tutorial/user3.png)
 
@@ -251,4 +252,3 @@ Quando si fa clic sul riquadro di AlertOps nel pannello di accesso, si dovrebbe 
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

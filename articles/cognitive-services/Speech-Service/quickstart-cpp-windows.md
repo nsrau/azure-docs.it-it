@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ su Windows Desktop con l'SDK del servizio Voce
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 17bc5fb4ed059c0922e85e467cbafbd5a90299b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3068c4e3c1bb7ddb41feb45f999398d533b66afa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221641"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863041"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 

@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: API Suggerimenti automatici Bing'
+title: 'Avvio rapido: API Suggerimenti automatici Bing'
 titlesuffix: Azure Cognitive Services
 description: Illustra come iniziare a usare l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a66fa4c016b28b4224c8346386e1229b27ceb4a7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184513"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875689"
 ---
-# <a name="quickstart-making-your-first-autosuggest-query"></a>Avvio rapido: Creazione della prima query di Suggerimenti automatici
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Guida introduttiva: Creazione della prima query di Suggerimenti automatici
 
 Prima di poter effettuare la prima chiamata, è necessario ottenere una chiave di sottoscrizione di Servizi cognitivi. Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

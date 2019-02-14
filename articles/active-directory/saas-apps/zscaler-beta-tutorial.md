@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 731d99c84c9d34328ba7cc624610714c58ed00e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39fc807e54e92a504c0bac730cd59c0223fde4b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825394"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
 
@@ -79,9 +80,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Zscaler Beta,
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Zscaler Beta](#configure-zscaler-beta-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Zscaler Beta](#create-zscaler-beta-test-user)**: per avere una controparte di Britta Simon in Zscaler Beta collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -116,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
     
-    | Nome | Attributo di origine | 
+    | NOME | Source Attribute | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
@@ -134,9 +135,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **OK**.
+    f. Fare clic su **Ok**
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Save**.
 
     > [!NOTE]
     > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
@@ -179,13 +180,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
 
     d. Selezionare **Abilita provisioning automatico SAML**.
 
-    e. Nella casella di testo **Attributo nome visualizzato dell'utente** immettere **displayName** se si vuole abilitare il provisioning automatico di SAML per gli attributi displayName.
+    e. Nella casella di testo **Attributo nome visualizzato dell'utente** immettere **displayName** se si desidera abilitare il provisioning automatico di SAML per gli attributi displayName.
 
-    f. Nella casella di testo **Attributo nome gruppo** immettere **memberOf** se si vuole abilitare il provisioning automatico di SAML per gli attributi memberOf.
+    f. Nella casella di testo **Attributo nome gruppo** immettere **memberOf** se si desidera abilitare il provisioning automatico di SAML per gli attributi memberOf.
 
-    g. Nella casella di testo **Attributo nome reparto** immettere **department** se si vuole abilitare il provisioning automatico di SAML per gli attributi department.
+    g. Nella casella di testo **Attributo nome reparto** immettere **department** se si desidera abilitare il provisioning automatico di SAML per gli attributi department.
 
-    h. Fare clic su **Salva**.
+    h. Fare clic su **Save**.
 
 4. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
@@ -204,7 +205,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
     
      ![Opzioni Internet](./media/zscaler-beta-tutorial/ic769492.png "Opzioni Internet")
 
-3. Fare clic sulla scheda **Connessioni**.   
+3. Fare clic sulla scheda **Connessioni** .   
   
      ![Connessioni](./media/zscaler-beta-tutorial/ic769493.png "Connessioni")
 
@@ -226,9 +227,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
 
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -251,9 +252,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler Beta.
+In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler Beta.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler Beta**.
 

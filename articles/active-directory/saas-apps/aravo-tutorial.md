@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9acdc502dea3e069391d9706f13d14b4ee413863
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ef5b05c263afa40d3ad8ff3e4c4f239c5a6e03c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456647"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>Esercitazione: Integrazione di Azure Active Directory con Aravo
 
@@ -48,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-aravo-from-the-gallery"></a>Aggiunta di Aravo dalla raccolta
 
-Per configurare l'integrazione di Aravo in Azure AD, è necessario aggiungere Aravo dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Aravo in Azure AD, è necessario aggiungere Aravo dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Aravo dalla raccolta, seguire questa procedura:**
 
@@ -80,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Aravo, è nec
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Aravo](#create-aravo-test-user)**: per avere una controparte di Britta Simon in Aravo collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -156,7 +157,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Aravo.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Aravo.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Aravo**.
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Usare l'SDK di ricerca Web Bing per aggiungere funzionalità di ricerca all'applicazione Python, Node.js, C# o Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 2325ccee501d625063a5054a77f3eb163185437d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b1559abaf95e4af5915ffbf180be4ade8a3ffdb0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183714"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864911"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Esempi di SDK di Ricerca Bing Web
 

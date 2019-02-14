@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa920552e4fa90666e3554a01475c4da8bb82035
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c43c410c731dc46e9eda64bffcfdf49800653dd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727604"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998232"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Sottoscrivere eventi per un account di archiviazione BLOB con l'interfaccia della riga di comando di Azure
 

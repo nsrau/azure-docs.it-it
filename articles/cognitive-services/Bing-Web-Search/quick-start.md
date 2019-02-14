@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Illustra come iniziare a usare l'API Ricerca Web Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: d45936712d0085619c53afa1ae8ce919cf73497a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 664c60a2195d3635e6aa220a4a424f7f079dc8b6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181215"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860338"
 ---
 # <a name="your-first-bing-search-query"></a>La prima query di ricerca Bing
 

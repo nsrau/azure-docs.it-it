@@ -16,14 +16,15 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 74602a64820d277de2222e29e5d9b59354d709f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197382"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168818"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare un report relativo agli accessi con il portale di Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Avvio rapido: Scaricare un report relativo agli accessi con il portale di Azure
 
 In questa guida introduttiva si apprenderà come scaricare i dati di accesso per il tenant relativi alle ultime 24 ore. dal portale di Azure è possibile scaricare fino a 5000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5000 record, ordinati partendo dai record più recenti. 
 

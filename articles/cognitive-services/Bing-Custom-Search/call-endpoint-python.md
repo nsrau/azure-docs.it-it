@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con Python
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 30f7fd2a2169e798997b424ea16715940f810ccb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2399cdfcfbc6be30dc013d52760ec4c355d106e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155188"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868311"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python
 

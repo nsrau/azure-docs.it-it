@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà creata una semplice app Android che usa l'API Viso per rilevare e incorniciare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 18e7323f16970b5ab365688b2af896b2c90b9099
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858706"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 

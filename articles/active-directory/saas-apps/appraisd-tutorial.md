@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 44d4988ff68d5ccca575fc29ec3f0b7dce0bf948
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8afd2201d55dfed94cf8f0dd34ca26870c0cc324
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765433"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Esercitazione: Integrazione di Azure Active Directory con Appraisd
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Appraisd in Azure AD, è necessario aggiungerl
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Appraisd usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Appraisd.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Appraisd, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Appraisd, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Appraisd ](#configure-appraisd-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -119,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appraisd, seguire quest
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome |  Attributo di origine|
+    | NOME |  Source Attribute|
     | ---------------| --------------- |
     | nameidentifier | user.mail |
     | | |

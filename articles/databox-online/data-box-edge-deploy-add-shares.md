@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6c6553ace250aa9cbc06dfdfea77fc5e1637cd41
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6810818e48329d883961c840fa83857d84b98fd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384820"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112870"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Esercitazione: Trasferire i dati con Azure Data Box Edge (anteprima)
 
@@ -135,14 +135,14 @@ Nel client Linux connesso al dispositivo Data Box Edge, eseguire la seguente pro
 
 1. Dopo l'installazione del client NFS, montare la condivisione NFS creata nel dispositivo Data Box Edge usando il comando seguente:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
     > Prima di montare la condivisione, verificare che le directory che fungeranno da punti di montaggio nel computer locale siano già state create. Queste directory non devono contenere file o sottocartelle.
 
     L'esempio seguente mostra come connettersi da NFS a una condivisione nel dispositivo Data Box Edge. L'indirizzo IP del dispositivo è `10.10.10.60`. La condivisione `mylinuxshare2` è montata nella macchina virtuale Ubuntu. Il punto di montaggio della condivisione è `/home/databoxubuntuhost/edge`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
 > Per la versione di anteprima valgono le avvertenze seguenti:

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: f49d57207a7e8ea421ff64afc6aa98ed6a0cdc91
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 88346ea68966e660ec78bf9056e43ecb706184aa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663486"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Esercitazione: Integrazione di Azure Active Directory con Comeet Recruiting Software
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Comeet Recruiting Software in Azure AD, è nec
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Comeet Recruiting Software usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Comeet Recruiting Software.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Comeet Recruiting Software, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Comeet Recruiting Software, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Comeet Recruiting Software](#configure-comeet-recruiting-software-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

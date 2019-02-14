@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f02260ff7a13ffb2f07e6e272be1e70d5a1577f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30f111fb316e1bc58f684e6bd6dc3d8e4461473c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661582"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Esercitazione: Integrazione di Azure Active Directory con 4me
 
@@ -74,7 +75,7 @@ Per configurare l'integrazione di 4me in Azure AD è necessario aggiungere 4me d
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con 4me usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 4me.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con 4me, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con 4me, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per 4me ](#configure-4me-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -130,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 4me, seguire questa pro
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |
     | first_name | user.givenname |
     | last_name | user.surname |
@@ -190,7 +191,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 4me, seguire questa pro
 
     c. Nella casella di testo Under **SAML SSO URL** (URL SSO SAML) della sezione **SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    d. Nella casella di testo **Certificate fingerprint** (Impronta digitale certificato) incollare il valore di **IDENTIFICAZIONE PERSONALE** separato da due punti in un ordine basato su dupletti (AA:BB:CC:DD:EE:FF:GG:HH:II), copiato dal portale di Azure.
+    d. Nella casella di testo **Certificate fingerprint** (Impronta digitale certificato) incollare il valore **IDENTIFICAZIONE PERSONALE** separato da due punti in un ordine basato su dupletti (AA:BB:CC:DD:EE:FF:GG:HH:II), copiato dal portale di Azure.
 
     e. Fare clic su **Save**.
 
