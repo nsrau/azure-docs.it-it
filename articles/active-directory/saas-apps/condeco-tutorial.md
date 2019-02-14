@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 1758eb20c1ad1351259eb416c9fa22d4ca11d1d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f3efd22eefa839544392b75e985ff5d16f7611b1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565752"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Esercitazione: Integrazione di Azure Active Directory con Condeco
 
@@ -75,7 +76,7 @@ Per configurare l'integrazione di Condeco in Azure AD, è necessario aggiungere 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Condeco usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Condeco.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Condeco, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Condeco, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Condeco](#configure-condeco-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

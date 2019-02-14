@@ -1,6 +1,6 @@
 ---
-title: Raccogliere avvisi di Nagios e Zabbix in Log Analytics | Microsoft Docs
-description: Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
+title: Raccogliere avvisi di Nagios e Zabbix in Monitoraggio di Azure | Microsoft Docs
+description: Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Monitoraggio di Azure per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107532"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997958"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Monitoraggio di Azure tramite l'agente di Log Analytics per Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ai dati di log provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Monitoraggio di Azure per analizzarli insieme ai dati di log provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
 
 
 > [!NOTE]
-> [Gli avvisi creati da Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) vengono archiviati separatamente dai dati di log e non sono accessibili dalle query di log.
+> [Gli avvisi creati da Monitoraggio di Azure](alerts-overview.md) vengono archiviati separatamente dai dati di log e non sono accessibili dalle query di log.
 
  
 ## <a name="prerequisites"></a>Prerequisiti
@@ -84,7 +84,7 @@ Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
 
 ## <a name="alert-records"></a>Record di avvisi
-È possibile recuperare record di avvisi da Nagios e Zabbix usando le [query di log](../log-query/log-query-overview.md) in Log Analytics.
+È possibile recuperare record di avvisi da Nagios e Zabbix usando [query di log](../log-query/log-query-overview.md) in Monitoraggio di Azure.
 
 ### <a name="nagios-alert-records"></a>Record di avvisi Nagios
 
@@ -92,7 +92,7 @@ Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su 
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| type |*Avviso* |
+| Type |*Avviso* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome dell'avviso. |
 | AlertDescription | Descrizione dell'avviso. |
@@ -108,7 +108,7 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| type |*Avviso* |
+| Type |*Avviso* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome dell'avviso. |
 | AlertPriority | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
@@ -122,5 +122,5 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sugli [avvisi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Monitoraggio di Azure.
+* Informazioni sugli [avvisi](alerts-overview.md) in Monitoraggio di Azure.
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -105,7 +106,7 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Amazon Web Services (AWS) usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Amazon Web Services (AWS).
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Amazon Web Service (AWS), è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Amazon Web Service (AWS), è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -148,7 +149,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Amazon Web Services (AW
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome  | Attributo di origine  | Spazio dei nomi |
+    | NOME  | Source Attribute  | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Ruolo            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -447,7 +448,7 @@ Quando si fa clic sul riquadro di Amazon Web Services (AWS) nel pannello di acce
 
  * Nella sottosezione **Mapping** della sezione **Provisioning** verrà visualizzato il messaggio "Caricamento..." e i mapping degli attributi non verranno mai visualizzati. L'unico flusso di lavoro di provisioning supportato oggi è l'importazione di ruoli da AWS in Azure AD per la selezione durante l'assegnazione di utenti/gruppi. I mapping di attributi per questo flusso di lavoro sono predeterminati e non configurabili.
  
- * Nella sezione **Provisioning** è possibile immettere un solo set di credenziali per un unico tenant AWS alla volta. Tutti i ruoli importati vengono scritti nella proprietà appRoles dell'[oggetto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) di Azure AD per il tenant AWS. È possibile aggiungere più tenant AWS (rappresentati da oggetti servicePrincipal) ad Azure AD dalla raccolta per il provisioning, ma è presente un problema noto che impedisce la scrittura automatica di tutti i ruoli importati da più oggetti servicePrincipal AWS usati per il provisioning nell'unico oggetto servicePrincipal usato per l'accesso Single Sign-On. Per ovviare al problema, è possibile usare l'[API Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) per estrarre tutti gli oggetti appRole importati in ogni oggetto servicePrincipal AWS in cui è configurato il provisioning. Queste stringhe di ruolo possono essere aggiunte successivamente all'oggetto servicePrincipal AWS in cui è configurato l'accesso Single Sign-On.
+ * Nella sezione **Provisioning** è possibile immettere un solo set di credenziali per un unico tenant AWS alla volta. Tutti i ruoli importati vengono scritti nella proprietà appRoles dell'[oggetto servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) di Azure AD per il tenant AWS. È possibile aggiungere più tenant AWS (rappresentati da oggetti servicePrincipal) ad Azure AD dalla raccolta per il provisioning, ma è presente un problema noto che impedisce la scrittura automatica di tutti i ruoli importati da più oggetti servicePrincipal AWS usati per il provisioning nell'unico oggetto servicePrincipal usato per l'accesso Single Sign-On. Per ovviare al problema, è possibile usare l'[API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) per estrarre tutti gli oggetti appRole importati in ogni oggetto servicePrincipal AWS in cui è configurato il provisioning. Queste stringhe di ruolo possono essere aggiunte successivamente all'oggetto servicePrincipal AWS in cui è configurato l'accesso Single Sign-On.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

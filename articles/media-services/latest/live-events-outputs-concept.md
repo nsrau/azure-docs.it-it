@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659508"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894055"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
 Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in Servizi multimediali v3, è necessario conoscere i concetti illustrati in questo articolo:
 
 * [Eventi live](#live-events)
-* [Tipi di evento live](#live-vent-types)
-* [Confronto tra tipi di eventi live](#live-event-types-comparison)
+* Tipi di evento live
+* Confronto tra tipi di eventi live
 * [Opzioni di creazione di eventi live](#live-event-creation-options)
 * [URL di inserimento di eventi live](#live-event-ingest-urls)
 * [URL di anteprima di un evento live](#live-event-preview-url)

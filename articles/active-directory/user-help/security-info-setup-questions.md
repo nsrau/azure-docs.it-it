@@ -11,12 +11,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f003d7ad87cbcaca6ca22aab169a92403e1182e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab3817411c1285f2ca7c8aa294f90314e3545504
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149510"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203489"
 ---
 # <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Configurare le informazioni di sicurezza per l'uso di domande di sicurezza predefinite (anteprima)
 

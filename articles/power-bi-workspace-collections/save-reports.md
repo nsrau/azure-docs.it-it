@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047957"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233371"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Salvare report nelle raccolte di aree di lavoro di Power BI
 
@@ -47,9 +47,10 @@ Se si vuole incorporare un report in modalità di modifica all'interno dell'app,
 
 In JavaScript, ad esempio:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ In JavaScript, ad esempio:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Un report viene così incorporato nell'app in modalità di modifica.
@@ -83,7 +85,7 @@ Un report viene così incorporato nell'app in modalità di modifica.
 
 Dopo aver incorporato il report in modalità di modifica con il token e le autorizzazioni appropriati, è possibile salvare il report dal menu File o da JavaScript:
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ Dopo aver incorporato il report in modalità di modifica con il token e le autor
 
 ## <a name="save-as"></a>Salva con nome
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ Dopo aver incorporato il report in modalità di modifica con il token e le autor
 
 Dopo il *salvataggio con nome* sarà quindi necessario caricare il nuovo report. Il caricamento del nuovo report è simile all'incorporamento di qualsiasi report.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,6 +126,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>Vedere anche 

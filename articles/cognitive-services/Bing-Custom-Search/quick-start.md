@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
+title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
 description: Usare questo articolo per creare un'istanza di Bing personalizzata che può eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2017
+ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177883"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231910"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
 

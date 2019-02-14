@@ -3,7 +3,7 @@ title: Supporto - Modulo HSM dedicato di Azure | Microsoft Docs
 description: Opzioni di supporto e aree di responsabilità per il modulo HSM dedicato di Azure in diversi scenari
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 2ed6a79b8736a1d3b472e31ce643c0d1ee085bbb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085910"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114485"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Supporto di HSM dedicato di Azure
 
@@ -37,7 +37,7 @@ Nella configurazione dei dispositivi HSM vengono usati diversi componenti softwa
 * SDK
 * Strumenti
 
-### <a name="guidance"></a>Indicazioni
+### <a name="guidance"></a>Materiale sussidiario
 
 Gemalto rende disponibile materiale sussidiario relativo all'amministrazione e alla configurazione tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/). Una volta effettuato l'accesso usando un ID cliente valido, questi documenti sono disponibili per il download. Gemalto fornisce inoltre una serie di guide all'integrazione per assistere i clienti con scenari diversi e integrazioni di software. Per altre informazioni, vedere il [sito partner di Gemalto per Microsoft](https://safenet.gemalto.com/partners/microsoft/).
 

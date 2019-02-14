@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 256b5d925bd924cbfdd08e9fb6600ea848fd2eb3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 085b23fe43db4936a0fd459872ec841f2b45e221
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195630"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194275"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integrare i log di Azure Active Directory con SumoLogic tramite Monitoraggio di Azure (anteprima)
 

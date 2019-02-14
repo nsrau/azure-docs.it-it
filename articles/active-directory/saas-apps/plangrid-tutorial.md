@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ceb5f09b599b6c42dea3359b18c319e7b44fed7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5453d29b0c5317dfbd0212a98f47095fd0fc8f46
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165082"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Esercitazione: Integrazione di Azure Active Directory con PlanGrid
 

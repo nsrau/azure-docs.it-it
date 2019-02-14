@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118021"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
 
@@ -154,7 +154,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
 
 **Vengono addebitati costi aggiuntivi usando un input dei dati di riferimento SQL in Analisi di flusso di Azure?**
 
-Non sono previsti [costi per unità di streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) aggiuntivi nel processo di Analisi di flusso. Tuttavia, il processo di Analisi di flusso deve avere un account di archiviazione di Azure associato. Il processo di Analisi di flusso esegue una query sul database SQL (all'avvio del processo e nell'intervallo di aggiornamento) per recuperare il set di dati di riferimento e archivia lo snapshot nell'account di archiviazione. Per l'archiviazione di questi snapshot verranno addebitati costi aggiuntivi, descritti in dettaglio nella [pagina dei prezzi](https://azure.microsoft.compricing/details/storage/) per l'account di archiviazione di Azure.
+Non sono previsti [costi per unità di streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) aggiuntivi nel processo di Analisi di flusso. Tuttavia, il processo di Analisi di flusso deve avere un account di archiviazione di Azure associato. Il processo di Analisi di flusso esegue una query sul database SQL (all'avvio del processo e nell'intervallo di aggiornamento) per recuperare il set di dati di riferimento e archivia lo snapshot nell'account di archiviazione. Per l'archiviazione di questi snapshot verranno addebitati costi aggiuntivi, descritti in dettaglio nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/) per l'account di archiviazione di Azure.
 
 **Come si capisce se lo snapshot dei dati di riferimento viene interrogato dal database SQL e usato nel processo di Analisi di flusso di Azure?**
 

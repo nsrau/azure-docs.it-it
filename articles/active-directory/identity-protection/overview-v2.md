@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 9cb1c5ebf8809ca3f4f977b513ecaa7909b401c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204509"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -210,11 +211,11 @@ Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Ac
 
 | Funzionalità | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Gratuito |
 | --- | --- | --- | --- |
-| Criteri di rischio utente | Yes | No  | No  |
-| Criteri di rischio di accesso | Yes | No  | No  |
+| Criteri di rischio utente | Sì | No  | No  |
+| Criteri di rischio di accesso | Sì | No  | No  |
 | Report utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
 | Report sugli accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Criteri di registrazione MFA | Yes | No  | No  |
+| Criteri di registrazione MFA | Sì | No  | No  |
 
 
 

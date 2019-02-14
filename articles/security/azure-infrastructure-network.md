@@ -4,7 +4,7 @@ description: Questo articolo offre una descrizione generale della rete di infras
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505388"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112218"
 ---
 # <a name="azure-network-architecture"></a>Architettura di rete di Azure
 L'architettura di rete di Azure segue una versione modificata del modello Core/Distribution/Access (core/di distribuzione/accesso) standard del settore, con livelli hardware distinti. I livelli includono:
@@ -54,7 +54,7 @@ I router L3 di distribuzione/accesso eseguono la funzionalità di routing primar
 Questi dispositivi fungono da punto di aggregazione per il traffico L2. Rappresentano il livello di distribuzione per l'infrastruttura L2 e possono gestire volumi elevati di traffico. Poiché questi dispositivi aggregano traffico, sono necessarie la funzionalità 802.1q e le tecnologie a elevata larghezza di banda, come 10GE e l'aggregazione delle porte.
 
 ### <a name="l2-host-switches"></a>Commutatori host L2
-Gli host si connettono direttamente a questi commutatori. Possono essere commutatori montati in rack switch o distribuzioni di chassis. Lo standard 802.1q consente la designazione di una VLAN come nativa, considerandola un normale frame Ethernet (senza tag). In circostanze normali, i frame nella VLAN nativa vengono trasmessi e ricevuti senza tag su una porta trunk 802.1q. Questa funzionalità è stata progettata per la migrazione a 802.1q e la compatibilità con dispositivi non conformi a 802.1q. In questa architettura solo l'infrastruttura di rete usa la VLAN nativa.
+Gli host si connettono direttamente a questi commutatori. Possono essere commutatori montati in rack switch o distribuzioni di chassis. Lo standard 802.1q consente la designazione di una VLAN come nativa, considerandola un normale frame Ethernet (senza tag). In circostanze normali, i frame nella VLAN nativa vengono trasmessi e ricevuti senza tag su un porta trunk 802.1q. Questa funzionalità è stata progettata per la migrazione a 802.1q e la compatibilità con dispositivi non conformi a 802.1q. In questa architettura solo l'infrastruttura di rete usa la VLAN nativa.
 
 Questa architettura consente di specificare uno standard per la selezione delle VLAN nativa. Questo standard, laddove possibile, garantisce che i router di accesso abbiano una VLAN nativa univoca per ogni trunk e per i trunk da L2Aggregation a L2Aggregation. I trunk dei commutatori da L2Aggregation a L2Host hanno una VLAN nativa non predefinita.
 

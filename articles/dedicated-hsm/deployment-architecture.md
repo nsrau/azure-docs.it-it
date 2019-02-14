@@ -3,7 +3,7 @@ title: Architettura di distribuzione - HSM dedicato di Azure | Microsoft Docs
 description: Considerazioni sulla progettazione di base quando si usa il modulo HSM dedicato di Azure come parte di un'architettura di applicazione
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078294"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113346"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione del modulo HSM dedicato di Azure
 
