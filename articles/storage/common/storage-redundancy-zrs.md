@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 62c6e24776c1d9a4e6a82eea557244bb390ebd00
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471488"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992603"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -30,6 +30,7 @@ L'archiviazione con ridondanza della zona è disponibile a livello generale nell
 - Europa settentrionale
 - Francia centrale
 - Giappone orientale
+- Regno Unito meridionale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2

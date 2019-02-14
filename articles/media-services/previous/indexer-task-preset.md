@@ -4,23 +4,23 @@ description: Questo argomento offre una panoramica del set di impostazioni delle
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 02/08/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8790a5dd596a98409db9a3470b17461359882a38
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463088"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994354"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer
+# <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer 
 
 Azure Media Indexer è un processore di contenuti multimediali che consente di eseguire le seguenti attività: eseguire ricerche nel contenuto e nei file multimediali, generare tracce con parole chiave e sottotitoli codificati, indicizzare i file di risorse che fanno parte della risorsa.
 

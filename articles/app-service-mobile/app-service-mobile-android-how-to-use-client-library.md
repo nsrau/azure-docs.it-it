@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158163"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965155"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
@@ -55,7 +55,7 @@ Modificare entrambi i file **build.gradle** :
 
 1. Aggiungere il codice seguente al livello *Project* del file **build.gradle** all'interno del tag *buildscript*:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Modificare entrambi i file **build.gradle** :
 
 2. Aggiungere il codice seguente al livello *Module app* del file **build.gradle** all'interno del tag *dependencies*:
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ Il layout è definito da diversi frammenti di codice XML. Dato un layout esisten
 
 Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Questo codice specifica una casella di controllo e il testo ad essa associato e viene creata una sola istanza per ogni elemento nell'elenco. Questo layout non visualizza il campo **id** , ma se il layout è più complesso nella visualizzazione vengono specificati campi aggiuntivi. Il codice è incluso nel file **row_list_to_do.xml**.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Eseguire l'override del metodo **getView** dell'adattatore. Ad esempio: 
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ L'elemento `GOOGLE_LOGIN_REQUEST_CODE` definito nell'attività principale viene 
 
 Aggiungere **redirectUriScheme** al file `build.gradle` per l'applicazione:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Aggiungere infine `com.android.support:customtabs:23.0.1` all'elenco di dipendenze nel file `build.gradle`:
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Sostituire il metodo `onSuccess()` con il codice che si vuole usare all'esecuzio
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][22]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 2. Installare ADAL modificando il file build.gradle per includere le definizioni seguenti:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

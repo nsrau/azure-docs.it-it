@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458126"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002375"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
 In questa esercitazione vengono illustrati diversi scenari di gestione delle prestazioni chiave usati nelle applicazioni SaaS. Usando un generatore di carico per simulare l'attività in tutti i database multi-tenant partizionati, vengono illustrate le funzionalità di monitoraggio e avviso predefinite del database SQL.
 
-L'app SaaS di database multi-tenant Wingtip Tickets usa un modello di dati multi-tenant partizionato, dove i dati delle sedi di eventi (tenant) possono essere distribuiti tra più database in base all'ID del tenant. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, è possibile aumentare e ridurre le prestazioni dei database per ottimizzare il costo di una soluzione. Con questo tipo di modello, è importante monitorare l'utilizzo delle risorse dei database per assicurarsi che i carichi possano essere equamente bilanciati tra più database. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che non si avvicinino ai limiti di [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e spiega come adottare misure correttive in risposta a variazioni del carico di lavoro.
+L'app SaaS di database multi-tenant Wingtip Tickets usa un modello di dati multi-tenant partizionato, dove i dati delle sedi di eventi (tenant) possono essere distribuiti tra più database in base all'ID del tenant. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, è possibile aumentare e ridurre le prestazioni dei database per ottimizzare il costo di una soluzione. Con questo tipo di modello, è importante monitorare l'utilizzo delle risorse dei database per assicurarsi che i carichi possano essere equamente bilanciati tra più database. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che non si avvicinino ai limiti di [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e spiega come adottare misure correttive in risposta a variazioni del carico di lavoro.
 
 In questa esercitazione si apprenderà come:
 

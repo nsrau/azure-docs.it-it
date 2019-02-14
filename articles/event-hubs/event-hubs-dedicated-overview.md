@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402337"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237128"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -33,12 +33,12 @@ La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. 
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Unità di velocità effettiva (in entrata 1 MB/secondo, in uscita di 2 MB/secondo) | Pagamento per ogni ora | Incluso |
 | Dimensioni del messaggio | 1 MB | 1 MB |
-| Criteri per i server di pubblicazione | Yes | Yes |   
+| Criteri per i server di pubblicazione | Sì | Sì |   
 | Gruppi di consumer | 20 | 20 |
-| Risposta a messaggi | Yes | Yes |
+| Risposta a messaggi | Sì | Sì |
 | Numero massimo di unità di velocità effettiva | 20 (con flessibilità fino a 100)   | 1 unità di capacità (CU) ≈ 50 |
 | Connessioni negoziate | 1.000 incluse | 100 K incluse |
-| Connessioni negoziate aggiuntive | Yes | Yes |
+| Connessioni negoziate aggiuntive | Sì | Sì |
 | Conservazione dei messaggi | 1 giorno incluso | Fino a 7 giorni inclusi |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
