@@ -4,7 +4,7 @@ description: Il riepilogo video consente di creare un riepilogo per video lunghi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: aba01314b26f11df41aef25215697389bc7f46b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786010"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004809"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video  
 ## <a name="overview"></a>Panoramica
 Il processore multimediale delle **anteprime video multimediali di Azure** processore di contenuti multimediali (MP) consente di creare il riepilogo di un video, utile per i clienti che desiderano solo visualizzare in anteprima il riepilogo di un video di lunga durata. Ad esempio, i clienti potrebbero voler vedere un breve "riepilogo video" quando passano il mouse sull'anteprima. Modificando i parametri delle **anteprime video multimediali di Azure** con un set di impostazioni di configurazione, è possibile usare l'efficiente tecnologia di concatenazione e rilevamento delle schermate offerta dal processore multimediale per generare in modo algoritmico una sottoclip descrittiva.  
 
@@ -55,8 +55,8 @@ Al momento, è possibile modificare i parametri seguenti:
 
 | Param | DESCRIZIONE |
 | --- | --- |
-| outputAudio |Specifica se il video finale contiene audio. <br/>I valori consentiti sono: true o false. Il valore predefinito è true. |
-| fadeInFadeOut |Specifica se vengono usate transizioni a dissolvenza tra le anteprime di movimento separate.  <br/>I valori consentiti sono: true o false.  Il valore predefinito è true. |
+| outputAudio |Specifica se il video finale contiene audio. <br/>I valori consentiti sono i seguenti: True o False. Il valore predefinito è true. |
+| fadeInFadeOut |Specifica se vengono usate transizioni a dissolvenza tra le anteprime di movimento separate.  <br/>I valori consentiti sono i seguenti: True o False.  Il valore predefinito è true. |
 | maxMotionThumbnailDurationInSecs |Numero intero che specifica quanto tempo deve durare l'intero video finale.  Il valore predefinito dipende dalla durata del video originale. |
 
 La tabella seguente descrive la durata predefinita, quando **maxMotionThumbnailInSecs** non viene usato.

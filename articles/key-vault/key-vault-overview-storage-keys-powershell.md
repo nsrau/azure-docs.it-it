@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.date: 11/28/2018
-ms.openlocfilehash: 1c0502458a5c20991ada6f5a33d067a38596752b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3566f7514f10bc8fb1de417583c6db17bb4e091e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817564"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104976"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Account di archiviazione gestita di Azure Key Vault - PowerShell
 
@@ -21,6 +21,8 @@ ms.locfileid: "55817564"
 > - Autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. 
 > - Usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione di tutti i client e di archiviare le credenziali nell'applicazione.
 > - Usare il controllo degli accessi in base al ruolo per la gestione delle autorizzazioni, che è supportato anche da Key Vault.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Un'[account di Archiviazione Azure](/azure/storage/storage-create-storage-account) usa credenziali costituite da un nome account e una chiave. La chiave viene generata automaticamente e, contrariamente a una chiave di crittografia, svolge la funzione di "password". Per gestire queste chiavi degli account di archiviazione, Key Vault può archiviarle come [segreti di Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
@@ -61,13 +63,13 @@ $keyVaultName = "kvContoso"
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzureRmAccount
+$azureProfile = Connect-AzAccount
 
 # Get a reference to your Azure storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Se l'assegnazione del ruolo ha esito positivo, l'output dovrebbe essere simile all'esempio seguente:
@@ -95,7 +97,8 @@ Usando la stessa sessione di PowerShell, aggiornare i criteri di accesso di Key 
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
 Tenere presente che le autorizzazioni per gli account di archiviazione non sono disponibili nella pagina "Criteri di accesso" dell'account di archiviazione nel portale di Azure.
@@ -106,7 +109,7 @@ Usando la stessa sessione di PowerShell, creare un account di archiviazione gest
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
 Dopo aver aggiunto l'account di archiviazione senza la rigenerazione delle chiavi, verrà visualizzato un output simile al seguente:
@@ -131,7 +134,7 @@ Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di arch
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
 Dopo aver aggiunto l'account di archiviazione con la rigenerazione delle chiavi, verrà visualizzato un output simile al seguente:
@@ -154,4 +157,4 @@ Tags                :
 
 - [Esempi di chiavi di account di archiviazione gestiti](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
-- [Azure Key Vault PowerShell reference](/powershell/module/azurerm.keyvault/) (Documentazione su PowerShell per Azure Key Vault)
+- [Azure Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault) (Documentazione su PowerShell per Azure Key Vault)

@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b5d10ad47649591b602b17354b9315dc514d3365
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5968731981e9ba602a27b6b66a53e7b67e8fa7f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766283"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187322"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilità rilevate da Azure Active Directory Identity Protection
 Le vulnerabilità sono punti deboli in un ambiente che possono essere sfruttati da un utente malintenzionato. È consigliabile risolvere le vulnerabilità per migliorare le condizioni di sicurezza dell'organizzazione e impedire che vengano sfruttate da utenti malintenzionati.

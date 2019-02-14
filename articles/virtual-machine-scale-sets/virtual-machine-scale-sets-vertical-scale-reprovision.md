@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 6cd42675fa70f338fd4e1223d6a48bf8c6773915
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579312"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977236"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
+
 In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per la scalabilità verticale delle macchine virtuali non incluse nei set di scalabilità, vedere l'articolo [Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per ridimensionamento verticale, detto anche *aumento delle prestazioni* e *riduzione delle prestazioni*, si intende l'aumento o la riduzione delle dimensioni delle macchine virtuali (VM) in risposta a un carico di lavoro. Confrontare questo comportamento con la [scalabilità orizzontale](virtual-machine-scale-sets-autoscale-overview.md), detta anche *aumento delle istanze* e *riduzione delle istanze*, in cui il numero di macchine virtuali viene modificato in base al carico di lavoro.
@@ -87,8 +88,8 @@ Dopo aver importato i runbook, aggiungere un webhook al runbook in modo che poss
 Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
+$actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
+$actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
 $rg = <resource-group-name>
 $id = <resource-id-to-add-the-alert-to>
@@ -99,7 +100,7 @@ $timeWindow = <time-window-in-hh:mm:ss-format>
 $condition = <condition-for-the-threshold> # Other valid values are LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 $description = <description-for-the-alert>
 
-Add-AzureRmMetricAlertRule  -Name  $alertName `
+Add-AzMetricAlertRule  -Name  $alertName `
                             -Location  $location `
                             -ResourceGroup $rg `
                             -TargetResourceId $id `

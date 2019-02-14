@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002272"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213078"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(DEPRECATO) Protezione dei contenitori Docker nel servizio Azure Container
 
@@ -60,7 +60,7 @@ Per altre informazioni sulla sicurezza specifica per l'orchestrator, vedere le r
 
 * **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Pratiche consigliate di sicurezza per la distribuzione di Kubernetes)
 
-* **Controller di dominio/sistema operativo**: [Protezione del cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **Controller di dominio/sistema operativo**: [Protezione del cluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
 * **Docker Swarm**: [Sicurezza di Docker](https://www.docker.com/docker-security)
 

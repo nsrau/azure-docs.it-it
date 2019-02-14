@@ -4,7 +4,7 @@ description: Informazioni su come usare le API REST di Azure per esaminare l'uso
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: ''
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265754"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106189"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Esaminare l'utilizzo di risorse di Azure usando l'API REST
 

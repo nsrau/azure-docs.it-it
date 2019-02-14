@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: db8186595524de193b881b59636cac6a0d414fb3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: eea60c8bb4281221fdcd7455e9d5fa5612dc95b3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564086"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Esercitazione: Integrazione di Azure Active Directory con ContractWorks
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di ContractWorks in Azure AD, è necessario aggiu
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ContractWorks usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ContractWorks.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ContractWorks, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ContractWorks, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per ContractWorks](#configure-contractworks-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -118,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ContractWorks, seguire 
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |

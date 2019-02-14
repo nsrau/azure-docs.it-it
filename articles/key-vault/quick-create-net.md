@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node - Azure Key Vault | Microsoft Docs"
+title: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node - Azure Key Vault | Microsoft Docs"
 description: In questa guida introduttiva si imposta e recupera un segreto da Azure Key Vault usando un'app Web .NET
 services: key-vault
 author: prashanthyv
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565548"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238284"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
@@ -176,7 +176,7 @@ A questo punto, quando si esegue l'applicazione viene visualizzato il valore del
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate quando non servono più. A tale scopo, selezionare il gruppo di risorse per la VM e selezionare **Elimina**.
 
-Eliminare l'insieme di credenziali delle chiavi usando il comando [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+Eliminare l'insieme di credenziali delle chiavi usando il comando [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 
 ```azurecli
 az keyvault delete --name

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 790aba3f523cadce97caa4c5c044276c349e6045
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f4e537bb6aa3b9bc4555f7eefb3cac6acd579b64
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769305"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233966"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Libreria BulkExecutor per Java: informazioni sul download
 
@@ -37,6 +37,6 @@ ms.locfileid: "55769305"
 |**Download dell'SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Libreria BulkExecutor in GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **Documentazione sull'API**| [Documentazione di riferimento API .Net](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
-|**Introduzione**|Introduzione a Java SDK per la libreria BulkExecutor (bulk-executor-java.md)|
+|**Introduzione**|[Introduzione a Java SDK per la libreria BulkExecutor](bulk-executor-java.md)|
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 

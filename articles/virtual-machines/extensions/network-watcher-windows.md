@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146243"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976921"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale agente Network Watcher per Windows
 
@@ -79,10 +79,10 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Usare il comando `Set-AzureRmVMExtension` per distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente:
+Usare il comando `Set-AzVMExtension` per distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente:
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e da PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente tramite il modulo di Azure PowerShell:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nella directory seguente:

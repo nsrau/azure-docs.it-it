@@ -3,19 +3,19 @@ title: Ottenere un chiave di accesso per l'API Analisi del testo
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come ottenere una chiave di accesso per le operazioni di Analisi del testo per inviare testo non elaborato da elaborare in Servizi cognitivi.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: d52d241131e3222a10648289183ee656f119641d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226452"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245168"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Come trovare gli endpoint e le chiavi di accesso per il servizio cognitivo Analisi del testo
 

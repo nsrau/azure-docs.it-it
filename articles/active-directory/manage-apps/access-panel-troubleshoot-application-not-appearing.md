@@ -3,8 +3,8 @@ title: Un'applicazione assegnata non viene visualizzata nel pannello di accesso 
 description: Risolvere il problema relativo alla mancata visualizzazione di un'applicazione nel pannello di accesso
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviwer: japere
-ms.openlocfilehash: 3a63f506b2b2072c385759044cd3a0c581a54185
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21ed169003caded8ef80689ceec61f6d2fc4305c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177713"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178992"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Un'applicazione assegnata non viene visualizzata nel pannello di accesso
 
@@ -203,13 +204,13 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 Per configurare un'applicazione non inclusa nella raccolta, è necessario disporre di Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)](#configuring-single-sign-on)
+-   [Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 -   [Selezionare l'identificatore utente e aggiungere gli attributi utente da inviare all'applicazione](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperare il certificato e i metadati di Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)](#configuring-single-sign-on)
+-   [Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)](#configure-the-application-for-password-single-sign-on-1)
 
 #### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)
 

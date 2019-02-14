@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811488"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173692"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.

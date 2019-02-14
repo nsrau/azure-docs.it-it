@@ -14,12 +14,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 2db33a6a2f086d5dacaff04ae226841d32cdc99a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513356"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181219"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegare i ruoli di amministratore dell'app in Azure Active Directory
 
@@ -63,7 +64,7 @@ Un proprietario dell'applicazione può:
 
 * Cambiare le proprietà dell'applicazione, ad esempio il nome e le autorizzazioni richieste dall'app
 * Gestire le credenziali
-* Configurare l'accesso Single Sign-On
+* Configura accesso Single Sign-On
 * Assegnare l'accesso utente
 * Aggiungere o rimuovere altri proprietari
 * Modificare il manifesto dell'applicazione

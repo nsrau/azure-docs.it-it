@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale con l'API REST di sintesi vocale. Il testo di esempio incluso in questa guida è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 9e0b71acc4faa97bf1aa82e56a3784c349663dc0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0086746ee676127a3fcae9e7b05efd3f7a9f65f3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207106"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878426"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Avvio rapido: Eseguire la sintesi vocale con .NET Core
 

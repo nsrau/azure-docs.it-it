@@ -4,7 +4,7 @@ description: Una panoramica dell'anteprima pubblica di Analisi Servizi multimedi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783590"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003767"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali
+# <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
+
 ## <a name="overview"></a>Panoramica
 Sempre più organizzazioni adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing consente di archiviare e riprodurre in streaming questi file multimediali di grandi dimensioni, nonché di accedervi. Tuttavia, man mano che la libreria aziendale di contenuti video aumenta, è necessario un mezzo altrettanto efficace per estrarre informazioni dal contenuto. 
 

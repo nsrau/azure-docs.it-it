@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c657f4662a0b57b1c2e9414d89d6618c4eefc527
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 558dc96f0bdd3aec12bf129f72b2ad067a130171
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765679"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172536"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Coupa in Azure AD, è necessario aggiungere Co
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Coupa usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Coupa.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Coupa, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Coupa, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Coupa ](#configure-coupa-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

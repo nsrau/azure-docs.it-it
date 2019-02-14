@@ -2,8 +2,8 @@
 title: Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD). | Microsoft Docs
 description: Questo articolo illustra come le organizzazioni possono spostare le applicazioni in Azure Active Directory, in particolare applicazioni SaaS federate.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: barbkess
-ms.openlocfilehash: e71cab407e88bcac1b1bb87e015a3ab5adabf734
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152256"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205580"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD) 
 

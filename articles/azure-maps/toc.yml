@@ -31,6 +31,8 @@ items:
     href: azure-maps-event-grid-integration.md
   - name: Scegliere il piano tariffario corretto
     href: choose-pricing-tier.md
+  - name: Autenticazione con Mappe di Azure
+    href: azure-maps-authentication.md
   - name: Copertura
     items:
     - name: Copertura per la geocodifica
@@ -49,8 +51,10 @@ items:
   items:
   - name: Gestire gli account di Mappe
     items:
-    - name: Gestire account e chiavi
+    - name: Gestisci account
       href: how-to-manage-account-keys.md
+    - name: Gestire l'autenticazione
+      href: how-to-manage-authentication.md
     - name: Gestire il piano tariffario
       href: how-to-manage-pricing-tier.md
     - name: Visualizzare le metriche di utilizzo
@@ -59,6 +63,8 @@ items:
     items:
     - name: Cercare un indirizzo
       href: how-to-search-for-address.md
+    - name: Eseguire il rendering di dati personalizzati su una mappa statica
+      href: how-to-render-custom-data.md
   - name: Creare mappe in JavaScript
     items:
     - name: Usare il controllo mappa
@@ -99,6 +105,10 @@ items:
       href: map-events.md
     - name: Applicazioni di mapping accessibili
       href: map-accessibility.md
+  - name: Creare mappe di Android
+    items:
+    - name: Come usare il controllo mappa di Android
+      href: how-to-use-android-map-control-library.md
 - name: riferimento
   items:
   - name: Estensioni di API e parametri
@@ -183,9 +193,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a657596cb266db20404d7f2ec1074834d181772
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999454"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111051"

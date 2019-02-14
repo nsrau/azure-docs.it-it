@@ -10,31 +10,33 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295577"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242896"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi
+
 Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere altre informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning. Algoritmi di esempio aiutano i principianti di Machine Learning a capire gli algoritmi usare e lo scopo per cui usarli.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmi diffusi in Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. L'infografica identifica quattro famiglie di algoritmi diffusi, ovvero regressione, rilevamento di anomalie, clustering e classificazione, e contiene collegamenti a esempi di utilizzo presenti nella [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
+
+[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. L'infografica identifica quattro famiglie di algoritmi diffusi, ovvero regressione, rilevamento di anomalie, clustering e classificazione, e contiene collegamenti a esempi di utilizzo presenti nella [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Scaricare l'infografica con esempi di algoritmi
+
 **[Download: Infografica delle nozioni fondamentali di Machine Learning con collegamenti a esempi di algoritmi (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infografica: Nozioni fondamentali di Machine Learning con esempi di algoritmi. Algoritmi più diffusi. Machine Learning per principianti.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Altre informazioni sugli algoritmi per principianti e utenti esperti
+
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro uso e su come scegliere quello giusto per la soluzione, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](algorithm-choice.md).
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per un elenco alfabetico completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
-* Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
 * Per una panoramica della Raccolta di intelligenza artificiale per Azure e delle risorse create dalla community disponibili, vedere [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md) (Condividere e trovare risorse nella Raccolta di intelligenza artificiale per Azure).
-
 
 
 <!-- Module References -->

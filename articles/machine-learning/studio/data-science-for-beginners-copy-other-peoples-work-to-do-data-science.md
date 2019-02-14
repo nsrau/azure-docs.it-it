@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492998"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241445"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
@@ -52,7 +52,7 @@ Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svo
 
 Microsoft offre un servizio basato su cloud, chiamato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), che può essere valutato gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 
-Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
+Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
 
 ![Raccolta di intelligenza artificiale per Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Si noti il collegamento **Open in Studio**(Apri in Studio).
 Ora è disponibile un punto di partenza. Si possono sostituire i dati esistenti con i propri e apportare le modifiche necessarie al modello. Questo approccio consente un avvio rapido e la possibilità di usare il lavoro di persone altamente competenti.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Trovare esperimenti che illustrano le tecniche di Machine Learning
-Esistono altri esperimenti in [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com) messi a disposizione appositamente per fornire esempi di procedure per gli utenti che non hanno familiarità con l'analisi scientifica dei dati. Ad esempio, nella raccolta è disponibile un esperimento che illustra come gestire i valori mancanti ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)(Metodi per la gestione dei valori mancanti). Descrive 15 diversi modi per sostituire i valori vuoti e illustra i vantaggi di ogni metodo e quando usarlo.
+Esistono altri esperimenti in [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai) messi a disposizione appositamente per fornire esempi di procedure per gli utenti che non hanno familiarità con l'analisi scientifica dei dati. Ad esempio, nella raccolta è disponibile un esperimento che illustra come gestire i valori mancanti ([Methods for handling missing values](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)(Metodi per la gestione dei valori mancanti). Descrive 15 diversi modi per sostituire i valori vuoti e illustra i vantaggi di ogni metodo e quando usarlo.
 
 ![Esperimenti della raccolta aperti in Machine Learning Studio - Metodi per i valori mancanti](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-In [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com) è possibile trovare esperimenti funzionanti che si possono usare come punto di partenza per le proprie soluzioni.
+In [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai) è possibile trovare esperimenti funzionanti che si possono usare come punto di partenza per le proprie soluzioni.
 
 Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 

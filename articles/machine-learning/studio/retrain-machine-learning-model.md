@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509576"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236261"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Ripetere il training di un modello di Azure Machine Learning Studio
 Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare il modello. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili. 
@@ -53,8 +53,6 @@ Ripetere il training del servizio Web:
 * Distribuire la ripetizione del training del servizio Web
 * Usare il codice del servizio Esecuzione batch per ripetere il training del modello
 
-Per una descrizione dettagliata dei passaggi precedenti, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
 
@@ -63,8 +61,6 @@ Se è stato distribuito un servizio Web classico:
 * Creare un nuovo endpoint nel servizio Web predittivo
 * Ottenere l'URL della PATCH e il codice
 * Usare l'URL della PATCH in modo da accedere al nuovo endpoint del modello nuovamente sottoposto a training 
-
-Per una descrizione dettagliata dei passaggi precedenti, vedere [Ripetere il training di un servizio Web classico](retrain-a-classic-web-service.md).
 
 Se si verificano problemi durante la ripetizione del training di un servizio Web classico, vedere [Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning](troubleshooting-retraining-models.md).
 
@@ -76,8 +72,6 @@ Se è stato distribuito un nuovo servizio Web:
 * Aggiornare il riferimento al BLOB `ilearner` nel file JSON
 * Importare il file JSON in una definizione del servizio Web
 * Aggiornare il servizio Web con la nuova definizione
-
-Per una descrizione dettagliata dei passaggi precedenti, vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning](retrain-new-web-service-using-powershell.md).
 
 Il processo per la configurazione della ripetizione del training per un servizio Web classico prevede i passaggi seguenti:
 

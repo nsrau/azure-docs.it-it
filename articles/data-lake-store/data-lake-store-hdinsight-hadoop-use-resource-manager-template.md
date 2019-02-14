@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035904"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235173"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creare un cluster HDInsight con Data Lake Storage Gen1 usando un modello di Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -43,6 +43,9 @@ Di seguito sono riportate alcune considerazioni importanti per l'uso di HDInsigh
 In questo articolo si effettuerà il provisioning di un cluster Hadoop con Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva. Per istruzioni su come creare un cluster Hadoop con Data Lake Storage Gen1 come risorsa di archiviazione predefinita, vedere [Creare un cluster HDInsight con Data Lake Storage Gen1 tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -58,13 +61,13 @@ Le istruzioni indicate nella suddetta pagina richiedono PowerShell. Prima di met
 
 ```
 # Log in to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List all the subscriptions associated to your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Select a subscription
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 Il modello distribuisce i tipi di risorse seguenti:

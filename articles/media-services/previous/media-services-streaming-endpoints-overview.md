@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359988"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996945"
 ---
-# <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming 
+# <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
 ## <a name="overview"></a>Panoramica
 
@@ -48,7 +48,7 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 
 A partire dalla versione dei Servizi multimediali rilasciata a gennaio 2017, ci sono due tipologie di streaming: **Standard** e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
-type|DESCRIZIONE
+Type|DESCRIZIONE
 ---|---
 **Standard**|Questa è l'opzione predefinita che viene utilizzata nella maggior parte dei casi.<br/>Con questa opzione, si crea un contratto di servizio predefinito/limitato e i primi 15 giorni dopo l'avvio dell'endpoint di streaming sono gratuiti.<br/>Se si creano più di un endpoint di streaming, solo il primo è gratuito per i primi 15 giorni, gli altri vengono addebitati non appena vengono avviati. <br/>Si noti che la versione di valutazione gratuita è applicabile solo per gli account di servizi multimediali nuovi e per l'endpoint di streaming predefinito. Gli endpoint di streaming esistenti e gli endpoint di streaming creati in seguito non includono il periodo di prova gratuito anche se questi vengono aggiornati alla versione 2.0 o vengono creati con la versione 2.0.
 **Premium**|Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo.<br/>Diversi tipi di contratto di servizio in base alla capacità dell'unità di streaming (SU) premium acquistata, endpoint di streaming live dedicati in un ambiente isolato e nessuna competizione per le risorse.
@@ -71,27 +71,27 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 ### <a name="versions"></a>Versioni
 
-|type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|Contratto di servizio| 
+|Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|Contratto di servizio| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Classico|1.0|0|ND|Gratuito|ND|
-|Endpoint di streaming Standard|2.0|0|Yes|A pagamento|Yes|
-|Unità di streaming Premium|1.0|>0|Yes|A pagamento|Yes|
-|Unità di streaming Premium|2.0|>0|Yes|A pagamento|Yes|
+|Endpoint di streaming Standard|2.0|0|Sì|A pagamento|Sì|
+|Unità di streaming Premium|1.0|>0|Sì|A pagamento|Sì|
+|Unità di streaming Premium|2.0|>0|Sì|A pagamento|Sì|
 
 ### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Gratis per i primi 15 giorni| Yes |No 
+Gratis per i primi 15 giorni| Sì |No 
 Velocità effettiva |Fino a 600 Mbps quando non si usa la rete CDN di Azure. Scalabilità con la rete CDN.|200 Mbps per unità di streaming (SU). Scalabilità con la rete CDN.
 Contratto di servizio | 99,9|99,9 (200 Mbps per SU).
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
-Crittografia dinamica|Yes|Yes
-creazione dinamica dei pacchetti|Yes|Yes
+Crittografia dinamica|Sì|Sì
+creazione dinamica dei pacchetti|Sì|Sì
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive
-Host con filtro IP/G20/personalizzato|Yes|Yes
-Download progressivo|Yes|Yes
+Host con filtro IP/G20/personalizzato|Sì|Sì
+Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.<br/>Per esigenze superiori alle funzionalità offerte dalla tipologia Standard. Se si prevede un numero di destinatari simultanei superiore a 50.000 visualizzatori, contattare Microsoft (amsstreaming@microsoft.com).
 
 

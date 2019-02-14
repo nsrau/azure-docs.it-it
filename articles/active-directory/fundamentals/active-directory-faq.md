@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2ff8f9764e61eb7f497e688c880b16529d1d6b8a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093105"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186540"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.

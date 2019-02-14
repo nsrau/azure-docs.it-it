@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508607"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245883"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -82,7 +82,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
       ![Copiare e salvare la chiave e il nome dell'account di archiviazione](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
+   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Creare un contenitore di archiviazione BLOB per gli allegati di posta elettronica.
    
@@ -100,7 +100,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
       ![Contenitore di archiviazione completato](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
+   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Connettere quindi Storage Explorer all'account di archiviazione.
 

@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 5b4a52327227ecd650ee38d60f6bdfcc6bf20056
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: f16bdb8b89c2ce72c2a31a320d2dedbc4df09c81
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250856"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242788"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurare l'infrastruttura di Azure DevTest Labs nell'azienda
 Le aziende stanno adottando il cloud rapidamente per i relativi vantaggi in termini di agilità, flessibilità e convenienza. Un primo passo comune è la migrazione di carichi di lavoro di sviluppo e test nel cloud. La migrazione di questi carichi di lavoro comporta una serie di problemi, ad esempio i seguenti: 

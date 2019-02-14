@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488736"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196351"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Servizio di sincronizzazione Azure AD Connect: come gestire l'account del servizio Azure Active Directory
 L'account di servizio utilizzato da Azure Active Directory Connector è progettato per non richiedere manutenzione. Questo argomento descrive come reimpostare le credenziali in caso di necessità, ad esempio se un amministratore globale ha erroneamente reimpostato la password dell'account del servizio con PowerShell.

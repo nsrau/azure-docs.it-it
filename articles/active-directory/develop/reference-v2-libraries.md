@@ -17,12 +17,13 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7745a0c8a53a0726a27dc1e2642733bafeb8f30
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 208ef1267571002a90433f0b3febebbb0ea7089a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104553"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173284"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory 2.0
 

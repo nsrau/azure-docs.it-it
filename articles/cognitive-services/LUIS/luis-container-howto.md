@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Il contenitore LUIS carica un'app sottoposta a training o pubblicata in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296903"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982387"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -60,7 +60,7 @@ Le impostazioni `--cpus` e `--memory` vengono usate come parte del comando `dock
 
 Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal repository `mcr.microsoft.com/azure-cognitive-services/luis`:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -252,7 +252,7 @@ Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-r
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. Gli endpoint per le app pubblicate (staging o produzione) hanno una route _diversa_ rispetto agli endpoint per le app sottoposte a training. 
 
-Usare l'host, https://localhost:5000, per le API del contenitore. 
+Usare l'host, `https://localhost:5000`, per le API del contenitore. 
 
 |Tipo di pacchetto|Metodo|Route|Parametri di query|
 |--|--|--|--|
@@ -312,7 +312,7 @@ Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](https://do
 
 Per arrestare il contenitore, nell'ambiente della riga di comando in cui è in esecuzione il contenitore premere **CTRL+C**.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](luis-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 
@@ -324,18 +324,7 @@ Se si esegue il contenitore con un punto di [montaggio](luis-container-configura
 
 Il contenitore LUIS invia le informazioni di fatturazione ad Azure usando una risorsa _Language Understanding_ nell'account di Azure. 
 
-I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti (l'espressione) a Microsoft. 
-
-Il comando `docker run` usa gli argomenti seguenti a scopo di fatturazione:
-
-| Opzione | DESCRIZIONE |
-|--------|-------------|
-| `ApiKey` | Chiave API della risorsa _Language Understanding_ usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa LUIS di Azure di cui è stato effettuato il provisioning specificata in `Billing`. |
-| `Billing` | Endpoint della risorsa _Language Understanding_ usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato sull'URI dell'endpoint di una risorsa LUIS di Azure di cui è stato effettuato il provisioning.|
-| `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
-
-> [!IMPORTANT]
-> Tutte e tre le opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](luis-container-configuration.md).
 

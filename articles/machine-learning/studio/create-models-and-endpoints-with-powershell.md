@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492828"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244299"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Usare PowerShell per creare modelli di Studio ed endpoint di servizio Web da un esperimento
 
@@ -35,7 +35,7 @@ Per fortuna, l'[API di ripetizione del training di Azure Machine Learning](retra
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurare l'esperimento di training
-Usare l'esempio [esperimento di training](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) che si trova in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aprire l'esperimento nell'area di lavoro di [Azure Machine Learning Studio](https://studio.azureml.net) .
+Usare l'esempio [esperimento di training](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) che si trova in [Cortana Intelligence Gallery](http://gallery.azure.ai). Aprire l'esperimento nell'area di lavoro di [Azure Machine Learning Studio](https://studio.azureml.net) .
 
 > [!NOTE]
 > Per poter proseguire con l'esempio è consigliabile usare un'area di lavoro standard anziché una gratuita. Si crea un endpoint per ogni cliente, per un totale di 10 endpoint, e questo richiede l'uso di un'area di lavoro standard. Le aree di lavoro gratuite hanno un limite di 3 endpoint. Se è disponibile soltanto un'area di lavoro gratuita, è sufficiente modificare gli script riportati di seguito in base a tre punti di noleggio.
@@ -63,7 +63,7 @@ Ora è necessario distribuire il servizio Web di attribuzione dei punteggi.
 A tale scopo è possibile fare clic su **Set Up Web Service** (Configura servizio Web) sotto l'area di disegno e selezionare **Predictive Web Service** (Servizio Web predittivo). Verrà creato un esperimento di assegnazione dei punteggi.
 È necessario apportare alcune modifiche minime per consentire il funzionamento come servizio Web. Rimuovere la colonna di etichette "cnt" dai dati di input e limitare l'output al solo ID istanza e il corrispondente valore stimato.
 
-Per comodità è possibile aprire l'[esperimento predittivo](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) che è stato preparato nella raccolta.
+Per comodità è possibile aprire l'[esperimento predittivo](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) che è stato preparato nella raccolta.
 
 Per distribuire il servizio Web eseguire l'esperimento predittivo, quindi fare clic sul pulsante **Deploy Web Service** sotto l'area di disegno. Denominare il servizio Web di attribuzione dei punteggi "Bike Rental Scoring".
 

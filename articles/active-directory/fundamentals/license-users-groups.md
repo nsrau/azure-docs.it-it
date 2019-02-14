@@ -13,12 +13,13 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 78aef5d6627636ed0a28d81d902246fa318197a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099284"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194309"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze usando il portale di Azure Active Directory
 Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di un prodotto Azure AD e la concessione della licenza ai singoli utenti o gruppi (e relativi membri associati) per quel prodotto. Solo gli utenti con licenze attive saranno in grado di eseguire l'accesso e usare i servizi di Azure AD concessi in licenza.

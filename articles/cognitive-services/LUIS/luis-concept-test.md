@@ -3,19 +3,19 @@ title: Testare l'app LUIS
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ottenere una risposta di finalità ed entità riconosciute da LUIS.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 6f18b0ec5d56fa8834bb0d1d6bc5c58831c832ff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bfb6d2461caf7b5c2c03ea99ad3b4c6ffa06fa0a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225330"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870844"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test di espressioni di esempio in LUIS
 

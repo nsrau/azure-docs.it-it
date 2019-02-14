@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e6b13bfddd4f24ff97820f9ce277d2cea78137b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a92a75403f121a41957173a6188c55e2f8fae699
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180518"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>Esercitazione: Integrazione di Azure Active Directory con Schoox
 

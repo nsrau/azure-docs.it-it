@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 4b4fa05164db402122efc745302dffe8c130b97b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048069"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231825"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introduzione ad Azure Data Lake Analytics con Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -22,6 +22,8 @@ ms.locfileid: "43048069"
 Questo articolo illustra come usare Azure PowerShell per creare account Azure Data Lake Analytics e quindi inviare ed eseguire processi U-SQL. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Prima di iniziare questa esercitazione sono necessari le informazioni seguenti:
 
@@ -35,13 +37,13 @@ Questa esercitazione presuppone che si abbia già familiarità con l'uso di Azur
 Per accedere con un nome di sottoscrizione:
 
 ```
-Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Invece del nome della sottoscrizione, è anche possibile usare un ID sottoscrizione per l'accesso:
 
 ```
-Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 In caso di esito positivo, l'output di questo comando è simile al testo seguente:

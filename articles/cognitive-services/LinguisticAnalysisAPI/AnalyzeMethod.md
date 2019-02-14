@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Come usare il metodo analyze nell'API Analisi linguistica per analizzare input specifici in linguaggio naturale.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208636"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861681"
 ---
 # <a name="analyze-method"></a>Metodo analyze
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 NOME | Type | Obbligatoria | DESCRIZIONE
 -----|-------|----------|------------
-**language**    | stringa | Yes | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
-**analyzerIds** | elenco di stringhe | Yes | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
-**text**        | stringa | Yes | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
+**language**    | stringa | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
+**analyzerIds** | elenco di stringhe | Sì | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
+**text**        | stringa | Sì | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
 
 ## <a name="response-json"></a>Risposta (JSON)
 

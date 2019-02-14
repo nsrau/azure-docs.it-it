@@ -3,10 +3,8 @@ title: Opzioni avanzate di firma del certificato nel token SAML per le app prein
 description: Informazioni su come usare le opzioni avanzate di firma del certificato nel token SAML per le app preintegrate in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
-ms.assetid: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 245e3d32bc546ae6f725ac6f7eb549d77119c956
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5fc60d137c45abb99dd029a42c45e8575fc9cede
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191517"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182062"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opzioni avanzate di firma del certificato nel token SAML per le app della raccolta in Azure Active Directory
 Azure Active Directory (Azure AD) supporta attualmente migliaia di applicazioni preintegrate nella raccolta di app di Azure Active Directory. Tra queste sono incluse oltre 500 applicazioni che supportano l'accesso Single Sign-On con il protocollo SAML 2.0. Quando un utente esegue l'autenticazione per un'applicazione con Azure AD usando SAML, Azure AD invia un token all'applicazione (tramite HTTP POST). L'applicazione quindi convalida e usa il token per l'accesso dell'utente anziché richiedere un nome utente e una password. I token SAML vengono firmati con il certificato univoco generato in Azure AD e algoritmi standard specifici.

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Scaricare i file di log generati dal Servizio decisionale personalizzato di Azure.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228118"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869671"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -41,7 +41,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>Parametri
 
-| Input | Descrizione | Predefinito |
+| Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
 | `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |

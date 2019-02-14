@@ -4,7 +4,7 @@ description: Questo articolo fornisce una panoramica della crittografia dei dati
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994403"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117902"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -260,30 +260,30 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 |                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente in Key Vault**             | **Lato client con chiave gestita dal client**      |
 | **Archiviazione e database**        |                    |                    |                    |                    |
 | Disco (IaaS)                      | -                  | Sì, RSA a 2048 bit  | -                  |
-| SQL Server (IaaS)                | Yes                | Sì, RSA a 2048 bit  | Yes                |
-| Azure SQL (database/Data Warehouse) | Yes                | Sì, RSA a 2048 bit  | Yes                |
-| Azure SQL (istanza gestita di database) | Yes                | Anteprima, RSA a 2048 bit  | Yes                |
-| Archiviazione di Azure (BLOB di blocchi/pagine) | Yes                | Sì, RSA a 2048 bit  | Yes                |
-| Archiviazione di Azure (file)            | Yes                | Sì, RSA a 2048 bit  | -                  |
-| Archiviazione di Azure (tabelle, code)   | Yes                | -                  | Yes                |
-| Cosmos DB (Document DB)          | Yes                | -                  | -                  |
-| StorSimple                       | Yes                | -                  | Yes                |
-| Backup                           | -                  | -                  | Yes                |
+| SQL Server (IaaS)                | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| Azure SQL (database/Data Warehouse) | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| Azure SQL (istanza gestita di database) | Sì                | Anteprima, RSA a 2048 bit  | Sì                |
+| Archiviazione di Azure (BLOB di blocchi/pagine) | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| Archiviazione di Azure (file)            | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Archiviazione di Azure (tabelle, code)   | Sì                | -                  | Sì                |
+| Cosmos DB (Document DB)          | Sì                | -                  | -                  |
+| StorSimple                       | Sì                | -                  | Sì                |
+| Backup                           | -                  | -                  | Sì                |
 | **Intelligence e analisi**   |                    |                    |                    |
-| Data factory di Azure               | Yes                | -                  | -                  |
+| Data factory di Azure               | Sì                | -                  | -                  |
 | Azure Machine Learning           | -                  | Anteprima, RSA a 2048 bit | -                  |
-| Analisi di flusso di Azure           | Yes                | -                  | -                  |
-| HDInsight (Archiviazione BLOB di Azure)   | Yes                | -                  | -                  |
-| HDInsights (Archiviazione di Data Lake)    | Yes                | -                  | -                  |
-| Apache Kafka per HDInsight       | Yes                | Anteprima, tutte le lunghezze RSA | -                  |
-| Archivio Azure Data Lake            | Yes                | Sì, RSA a 2048 bit  | -                  |
-| Azure Data Catalog               | Yes                | -                  | -                  |
-| Power BI                         | Yes                | -                  | -                  |
+| Analisi di flusso di Azure           | Sì                | -                  | -                  |
+| HDInsight (Archiviazione BLOB di Azure)   | Sì                | -                  | -                  |
+| HDInsights (Archiviazione di Data Lake)    | Sì                | -                  | -                  |
+| Apache Kafka per HDInsight       | Sì                | Anteprima, tutte le lunghezze RSA | -                  |
+| Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Azure Data Catalog               | Sì                | -                  | -                  |
+| Power BI                         | Sì                | -                  | -                  |
 | **Servizi IoT**                 |                    |                    |                    |
-| Hub IoT                          | -                  | -                  | Yes                |
-| Bus di servizio                      | Yes                | -                  | Yes                |
-| Hub eventi                       | Yes                | -                  | -                  |
-| Griglia di eventi                       | Yes                | -                  | -                  |
+| Hub IoT                          | -                  | -                  | Sì                |
+| Bus di servizio                      | Sì                | -                  | Sì                |
+| Hub eventi                       | Sì                | -                  | -                  |
+| Griglia di eventi                       | Sì                | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusioni

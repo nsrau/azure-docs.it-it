@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754337"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232708"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI
 
@@ -30,7 +30,7 @@ Informazioni su come passare dalla modalità di visualizzazione alla modalità d
 > [!NOTE]
 > In questo modo sarà possibile modificare un report esistente e salvare le modifiche. Se si vuole supportare anche la funzione **Salva con nome**, è necessario specificare autorizzazioni aggiuntive. Per altre informazioni, vedere [Scopes](app-token-flow.md#scopes) (Ambiti).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ Per visualizzare il pulsante Salva in modalità di modifica, sarà necessario sp
 
 In JavaScript, ad esempio:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ In JavaScript, ad esempio:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 In questo modo viene indicato di incorporare il report in modalità di visualizzazione in base all'impostazione di **viewMode** su **models.ViewMode.View**.
@@ -82,7 +84,7 @@ In questo modo viene indicato di incorporare il report in modalità di visualizz
 
 Se si è in modalità di modifica, è possibile usare il codice JavaScript seguente per passare alla modalità di visualizzazione.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 Se si è in modalità di visualizzazione, è possibile usare il codice JavaScript seguente per passare alla modalità di modifica.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

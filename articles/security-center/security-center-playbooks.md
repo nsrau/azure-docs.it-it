@@ -4,7 +4,7 @@ description: Questo documento illustra come usare i playbook di sicurezza nel Ce
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619912"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116746"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook di sicurezza nel Centro sicurezza di Azure (anteprima)
 Questo documento illustra come usare i playbook di sicurezza nel Centro sicurezza di Azure per rispondere ai problemi correlati alla sicurezza.
@@ -93,7 +93,7 @@ In questo flusso di lavoro è possibile visualizzare il tempo necessario per l'e
 È possibile modificare un playbook esistente nel Centro sicurezza per aggiungere un'azione o alcune condizioni. Per eseguire questa operazione è sufficiente fare clic sul nome del playbook da modificare nella scheda Playbook, in modo da visualizzare Progettazione app per la logica.
 
 > [!NOTE]
-> Per altre informazioni su come creare un playbook usando App per la logica di Azure, vedere [Creare il primo flusso di lavoro di app per la logica per automatizzare i processi tra app cloud e servizi cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Per altre informazioni su come creare un playbook usando App per la logica di Azure, vedere [Creare il primo flusso di lavoro di app per la logica per automatizzare i processi tra app cloud e servizi cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Vedere anche 

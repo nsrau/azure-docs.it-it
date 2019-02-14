@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b76b64ddf854b32c51b8b319479a35331e0f72f3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b8f8d0a089a74334a908e3dad65c63231bbe5975
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957436"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098936"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
@@ -83,7 +83,7 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché il servizio Gestione API possa comunicare con il sistema back-end. In caso contrario, verrà restituito un codice di Errore 500. Per la configurazione, usare i cmdlet PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (per il nuovo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`.
 
-```
+```powershell
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```

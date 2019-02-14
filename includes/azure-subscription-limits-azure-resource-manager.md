@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458870"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246962"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "49458870"
 | [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2.000 per area |2.000 per area |
 | Dimensioni delle richieste API di gestione delle risorse |4.194.304 byte |4.194.304 byte |
 | Tag per sottoscrizione<sup>3</sup> |senza limiti |senza limiti |
-| Calcoli di tag univoco per sottoscrizione<sup>3</sup> | 10.000 | 10.000 |
+| Calcoli di tag univoco per sottoscrizione<sup>3</sup> | 10,000 | 10,000 |
 | [Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione |Non applicabile<sup>4</sup> |Non applicabile<sup>4</sup> |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |Non applicabile<sup>4</sup> |Non applicabile<sup>4</sup> |
 | [Distribuzioni a livello di sottoscrizione](../articles/azure-resource-manager/deploy-to-subscription.md) per area | 800 | 800 |
@@ -35,7 +35,7 @@ ms.locfileid: "49458870"
 
 <sup>2</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 200 account di archiviazione, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione.
 
-<sup>3</sup>È possibile applicare un numero illimitato di tag per sottoscrizione. Il numero di tag per risorsa o per gruppo di risorse è limitato a 15. Resource Manager restituisce solo un [elenco di nomi e valori di tag univoci](/rest/api/resources/tags#Tags_List) nella sottoscrizione quando il numero di tag non supera i 10.000. È tuttavia possibile trovare comunque una risorsa in base al tag quando il numero è superiore a 10.000.  
+<sup>3</sup>È possibile applicare un numero illimitato di tag per sottoscrizione. Il numero di tag per risorsa o per gruppo di risorse è limitato a 15. Resource Manager restituisce solo un [elenco di nomi e valori di tag univoci](/rest/api/resources/tags) nella sottoscrizione quando il numero di tag non supera i 10.000. È tuttavia possibile trovare comunque una risorsa in base al tag quando il numero è superiore a 10.000.  
 
 <sup>4</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Azure Resource Manager.
 

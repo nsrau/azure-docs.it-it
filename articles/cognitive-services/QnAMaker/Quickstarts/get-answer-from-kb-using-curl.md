@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Questo avvio rapido assiste nell'ottenimento di una risposta da una knowledge base usando cURL.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 6eccf4014eb663d0a3275d70c4e997f9ed324762
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b269785d41931ce68827e2b48cc543d35ee47597
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211985"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870283"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Avvio rapido: Ottenere una risposta dalla knowledge base usando cURL
 

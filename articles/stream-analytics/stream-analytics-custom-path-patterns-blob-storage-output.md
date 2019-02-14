@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765196"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982676"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -67,8 +67,6 @@ Si noti che ogni record nel BLOB ha una colonna **client_id** corrispondente al 
 ## <a name="custom-datetime-path-patterns"></a>Modelli di percorso di data/ora personalizzati
 
 I modelli di percorso di data/ora personalizzati consentono di specificare un formato di output in linea con le convenzioni Streaming Hive, offrendo ad Analisi di flusso di Azure la possibilità di inviare i dati ad Azure HDInsight e Azure Databricks per l'elaborazione downstream. I modelli di percorso di data/ora personalizzati possono essere implementati facilmente usando la parola chiave `datetime` nel campo Prefisso percorso di output BLOB, con l'identificatore del formato. Ad esempio: `{datetime:yyyy}`.
-
-Usare questo collegamento al [portale di Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) per attivare o disattivare il flag della funzionalità che abilita i modelli di percorso di data/ora personalizzati per l'output dell'archiviazione BLOB (anteprima). Questa funzionalità verrà presto abilitata nel portale principale.
 
 ### <a name="supported-tokens"></a>Token supportati
 

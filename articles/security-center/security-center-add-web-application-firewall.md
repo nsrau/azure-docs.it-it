@@ -4,7 +4,7 @@ description: Questo argomento illustra come implementare le raccomandazioni **Ag
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343140"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105044"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Aggiungere un Web application firewall al Centro sicurezza di Azure
 È possibile che il Centro sicurezza di Azure consigli di aggiungere un WAF (Web Application Firewall) di un partner Microsoft per proteggere le applicazioni Web. Questo documento contiene un esempio su come eseguire questa operazione.

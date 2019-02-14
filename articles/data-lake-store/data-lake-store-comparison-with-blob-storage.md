@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259785"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877695"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
-  >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 (anteprima)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) è stato annunciato di recente. L'anteprima Data Lake Storage Gen2 è il risultato della convergenza delle funzionalità di due servizi di archiviazione Microsoft esistenti, Archiviazione BLOB di Azure e [Azure Data Lake Storage Gen1 ](https://docs.microsoft.com/azure/data-lake-store/index). Le funzionalità di Azure Data Lake Storage Gen1, ad esempio la semantica dei file system, la sicurezza a livello di file e la scalabilità, vengono combinate con le funzionalità di archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza di [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> È consigliabile iniziare a usare Data Lake Storage Gen2 (anteprima) come piattaforma per la creazione di data lake aziendali e per ottenere il meglio di Archiviazione BLOB di Azure e di Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure, insieme ad alcuni aspetti fondamentali dell'elaborazione dei Big Data. L'archivio BLOB di Azure è un archivio di oggetti generico e scalabile, progettato per un'ampia gamma di scenari di archiviazione. Azure Data Lake Storage Gen1 è un repository su vasta scala ottimizzato per carichi di lavoro di analisi dei Big Data.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Archiviazione BLOB di Azure |
 | --- | --- | --- |
@@ -37,7 +33,7 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Structure |File system gerarchico |Archivio di oggetti con spazio dei nomi flat |
 | API |API REST su HTTPS |API REST su HTTP/HTTPS |
 | API lato server |[API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST dell'archivio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Client del file system Hadoop |Yes |Yes |
+| Client del file system Hadoop |Sì |Sì |
 | Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-account-manage.md#access-keys) e [chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operazioni sui dati: protocollo di autenticazione |OAuth 2.0. Le chiamate devono contenere un token JSON Web (JWT) valido rilasciato da Azure Active Directory. |Hash-based Message Authentication Code (HMAC). Le chiamate devono contenere un hash SHA-256 con codifica Base64 su una parte della richiesta HTTP. |
 | Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli ACL basati su identità di Azure Active Directory possono essere impostati a livello di file e cartella. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-account-manage.md#access-keys)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

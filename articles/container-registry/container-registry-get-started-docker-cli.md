@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295781"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982846"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
@@ -37,7 +37,7 @@ az acr login --name myregistry
 
 È anche possibile eseguire l'accesso con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Ad esempio, è possibile che sia stata [assegnata un'entità servizio](container-registry-authentication.md#service-principal) al registro per uno scenario di automazione. Quando si esegue il comando seguente, specificare in modo interattivo l'appID dell'entità servizio (nome utente) e la password quando richiesto. Per le procedure consigliate relative alla gestione delle credenziali di accesso, vedere le informazioni di riferimento sul comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -50,7 +50,7 @@ Entrambi i comandi restituiscono `Login Succeeded` una volta completati.
 
 Eseguire prima il pull dell'immagine pubblica di Nginx nel computer locale.
 
-```Docker
+```
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Eseguire quindi il comando [docker run](https://docs.docker.com/engine/reference/run/) per avviare l'istanza locale del contenitore Nginx (`-it`) in modalità interattiva sulla porta 8080. L'argomento `--rm` specifica che il contenitore deve essere rimosso quando si arresta.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Per arrestare e rimuovere il contenitore, premere `Control`+`C`.
 
 Usare [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) per creare un alias dell'immagine, con un percorso completo del registro. Questo esempio specifica lo spazio dei nomi `samples` per evitare confusione nella radice del registro.
 
-```Docker
+```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Per altre informazioni sull'assegnazione di tag con spazi dei nomi, vedere la se
 
 Dopo aver contrassegnato l'immagine con il percorso completo del registro privato, è possibile eseguirne il push nel registro con [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Docker
+```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per eseguire il pull dell'immagine dal registro:
 
-```Docker
+```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/run/) per eseguire l'immagine di cui è stato eseguito il pull dal registro:
 
-```Docker
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Per arrestare e rimuovere il contenitore, premere `Control`+`C`.
 
 Se l'immagine di Nginx non è più necessaria, è possibile eliminarla in locale con il comando [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
 
-```Docker
+```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 

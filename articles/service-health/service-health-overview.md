@@ -1,25 +1,20 @@
 ---
 title: Panoramica di integrità dei servizi di Azure | Microsoft Docs
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
-services: Resource health
-documentationcenter: ''
-author: rboucher
-manager: ''
-editor: ''
-ms.assetid: ''
+services: service-health
+author: stephbaron
+ms.author: stbaron
+documentationcenter: service-health
 ms.service: service-health
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.author: robb
-ms.openlocfilehash: aa7a925255b0c30b84c3b32bb53ba3f31c11fa6b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162291"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871701"
 ---
 # <a name="service-health"></a>Integrità del servizio
 L’Integrità del servizio offre un dashboard personalizzabile che registra l'integrità dei servizi di Azure nelle regioni in cui si usano. In questo dashboard è possibile rilevare gli eventi attivi, come i problemi del servizio in corso, le manutenzioni pianificate o gli avvisi di integrità pertinenti. Quando gli eventi diventano inattivi, vengono posizionati nella cronologia di integrità fino a 90 giorni. Infine, è possibile utilizzare il dashboard di integrità dei servizi per creare e gestire gli avvisi di integrità che notificano in modo proattivo quando i problemi del servizio ne compromettono le prestazioni.

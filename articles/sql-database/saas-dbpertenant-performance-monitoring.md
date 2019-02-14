@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459486"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004637"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
 In questa esercitazione vengono illustrati diversi scenari di gestione delle prestazioni chiave usati nelle applicazioni SaaS. Usando un generatore di carico per simulare l'attività in tutti i database tenant, vengono illustrate le funzionalità di monitoraggio e avviso predefinite del database SQL e dei pool elastici.
 
-L'app del database per tenant SaaS Wingtip Tickets usa un modello di dati a tenant singolo, in cui ogni sede di eventi, ovvero il tenant, ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
+L'app del database per tenant SaaS Wingtip Tickets usa un modello di dati a tenant singolo, in cui ogni sede di eventi, ovvero il tenant, ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
 
 In questa esercitazione si apprenderà come:
 

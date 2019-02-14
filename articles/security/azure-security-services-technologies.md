@@ -4,7 +4,7 @@ description: L'articolo offre un elenco dettagliato dei servizi e delle tecnolog
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 7577a05302dcf23cc68666685c1537c0eb31f831
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097666"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115573"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 

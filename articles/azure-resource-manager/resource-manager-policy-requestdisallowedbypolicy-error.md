@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 2d55d5958568deef5ce350c9678e55e2e37a2ff8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8eea14703a7a4ed6fad56dc0bed981b84266e2db
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496398"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112615"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure
 
@@ -44,6 +44,8 @@ Durante la distribuzione, è possibile che venga visualizzato un errore **Reques
 Per recuperare i dettagli sui criteri bloccati nella distribuzione, usare uno dei metodi seguenti:
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In PowerShell specificare questo identificatore di criterio come parametro `Id` per recuperare i dettagli relativi ai criteri che hanno bloccato la distribuzione.
 

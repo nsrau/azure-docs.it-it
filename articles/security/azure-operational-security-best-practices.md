@@ -4,7 +4,7 @@ description: Questo articolo propone un set di procedure consigliate per la sicu
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e2678eb7d75921f43a1e51b6a8cefc9925a9adc1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118184"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104602"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Azure. La sicurezza operativa di Azure si basa su un framework che incorpora le conoscenze acquisite tramite funzionalità univoche di Microsoft, tra cui Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), il programma [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.

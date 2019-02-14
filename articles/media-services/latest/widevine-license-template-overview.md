@@ -2,7 +2,7 @@
 title: Panoramica di Servizi multimediali di Microsoft Azure con il modello di licenza Widevine | Microsoft Docs
 description: Questo argomento offre una panoramica di un modello di licenza Widevine usato per configurare le licenze Widevine.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e54aff6e42d19755d274393d4221578cf5595cc5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3615bd88cfadf2f59942fab7678d36d4d20d8c9f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112791"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992739"
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine 
 

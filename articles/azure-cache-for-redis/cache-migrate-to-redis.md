@@ -1,25 +1,25 @@
 ---
 title: Eseguire la migrazione di applicazioni di Servizio cache gestita in Redis - Azure | Documentazione Microsoft
 description: Informazioni su come eseguire la migrazione di applicazioni di Servizio cache gestita e di Cache nel ruolo a Cache Redis di Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: wesmc
-ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106138"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237022"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
 La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.

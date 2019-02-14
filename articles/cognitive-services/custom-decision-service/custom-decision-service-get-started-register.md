@@ -4,25 +4,25 @@ titlesuffix: Azure Cognitive Services
 description: Guida dettagliata sulla procedura per registrare una nuova app con il Servizio decisionale personalizzato di Azure.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: f642e0d4e21c180a92b4b76d05fb2c9bac9f2976
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c56aef180f5e16d2ec1931caabe04295ef288ca9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219737"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980687"
 ---
 # <a name="register-your-application"></a>Registrare l'applicazione
 
 Per usare il Servizio decisionale personalizzato per l'applicazione, registrarsi nel portale. Questo articolo spiega come.
 
-1. Passare alla [pagina iniziale](https://ds.microsoft.com/) del Servizio decisionale personalizzato. Sulla barra multifunzione fare clic su **My Portal** (Il mio portale), come mostrato nell'immagine:
+1. Passare alla [pagina iniziale](https://portal.ds.microsoft.com/) del Servizio decisionale personalizzato. Sulla barra multifunzione fare clic su **My Portal** (Il mio portale), come mostrato nell'immagine:
 
     ![My Portal (Il mio portale)](./media/portal.png)
 

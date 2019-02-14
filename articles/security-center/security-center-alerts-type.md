@@ -4,7 +4,7 @@ description: Questo articolo illustra i diversi tipi di avvisi di sicurezza disp
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 360614a2c4f7c8c397ef9d5039f6ef31f7e90da6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344075"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118089"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).

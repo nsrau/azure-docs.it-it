@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823233"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993708"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro  
 ## <a name="overview"></a>Panoramica
 **Progettazione flussi di lavoro** è uno strumento desktop di Windows che consente di progettare e costruire flussi di lavoro per la codifica con il **Flusso di lavoro Premium del codificatore multimediale**.
 Avvalendosi delle funzionalità di questo strumento per la progettazione di flussi di lavoro, è possibile progettare e creare flussi di lavoro complessi che verranno eseguiti nella versione **Premium di Azure Media Encoder**.  

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094428"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237961"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
 
@@ -73,7 +73,7 @@ L'app Web di esempio è un'applicazione di esempio che esegue il rendering dei r
 1. Nella soluzione **PowerBI Embedded** in Visual Studio fare clic con il pulsante destro del mouse sull'applicazione Web **EmbedSample** e scegliere **Imposta come progetto di avvio**.
 2. In **web. config**, nell'applicazione Web **EmbedSample** modificare **appSettings**: **AccessKey**, il nome **WorkspaceCollection** e **WorkspaceId**.
 
-    ```
+    ```xml
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
         <add key="powerbi:ApiUrl" value="https://api.powerbi.com" />
@@ -106,19 +106,23 @@ L'esempio è composto da **ReportsViewModel** e **ReportViewModel**.
 
 **ReportsViewModel.cs**: rappresenta report di Power BI.
 
-    public class ReportsViewModel
-    {
-        public List<Report> Reports { get; set; }
-    }
+```csharp
+public class ReportsViewModel
+{
+    public List<Report> Reports { get; set; }
+}
+```
 
 **ReportViewModel.cs**: rappresenta un report di Power BI.
 
-    public classReportViewModel
-    {
-        public IReport Report { get; set; }
+```csharp
+public class ReportViewModel
+{
+    public IReport Report { get; set; }
 
-        public string AccessToken { get; set; }
-    }
+    public string AccessToken { get; set; }
+}
+```
 
 ### <a name="connection-string"></a>Stringa di connessione
 
@@ -140,92 +144,100 @@ L'uso di attributi comuni di server e database ha esito negativo. Ad esempio:  S
 | --- | --- |
 | Title |Nome del report. |
 | QueryString |Collegamento al l'ID report. |
-
-    <div id="reports-nav" class="panel-collapse collapse">
-        <div class="panel-body">
-            <ul class="nav navbar-nav">
-                @foreach (var report in Model.Reports)
-                {
-                    var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
-                    <li class="@reportClass">
-                        @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
-                    </li>
-                }
-            </ul>
-        </div>
+```cshtml
+<div id="reports-nav" class="panel-collapse collapse">
+    <div class="panel-body">
+        <ul class="nav navbar-nav">
+            @foreach (var report in Model.Reports)
+            {
+                var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
+                <li class="@reportClass">
+                    @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
+                </li>
+            }
+        </ul>
     </div>
-
+</div>
+```
 Report.cshtml: imposta **Model.AccessToken** e l'espressione lambda per **PowerBIReportFor**.
 
-    @model ReportViewModel
+```cshtml
+@model ReportViewModel
 
-    ...
+...
 
-    <div class="side-body padding-top">
-        @Html.PowerBIAccessToken(Model.AccessToken)
-        @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
-    </div>
+<div class="side-body padding-top">
+    @Html.PowerBIAccessToken(Model.AccessToken)
+    @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
+</div>
+```
 
 ### <a name="controller"></a>Controller
 
 **DashboardController.cs**: crea un'istanza di PowerBIClient per il passaggio di un **token dell'applicazione**. Dalla **Chiave di firma** viene generato un token JSON Web (JWT) per ottenere le **Credenziali**. Le **Credenziali** servono per creare un'istanza di **PowerBIClient**. Dopo aver creato un'istanza di **PowerBIClient**, è possibile chiamare i metodi GetReports() e GetReportsAsync().
 
+
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient()
+```csharp
+private IPowerBIClient CreatePowerBIClient()
+{
+    var credentials = new TokenCredentials(accessKey, "AppKey");
+    var client = new PowerBIClient(credentials)
     {
-        var credentials = new TokenCredentials(accessKey, "AppKey");
-        var client = new PowerBIClient(credentials)
-        {
-            BaseUri = new Uri(apiUrl)
-        };
+        BaseUri = new Uri(apiUrl)
+    };
 
-        return client;
-    }
+    return client;
+}
+```
 
 ActionResult Reports()
 
-    public ActionResult Reports()
+```csharp
+public ActionResult Reports()
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+
+        var viewModel = new ReportsViewModel
         {
-            var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+            Reports = reportsResponse.Value.ToList()
+        };
 
-            var viewModel = new ReportsViewModel
-            {
-                Reports = reportsResponse.Value.ToList()
-            };
-
-            return PartialView(viewModel);
-        }
+        return PartialView(viewModel);
     }
-
+}
+```
 
 Task<ActionResult> Report(string reportId)
 
-    public async Task<ActionResult> Report(string reportId)
+```csharp
+public async Task<ActionResult> Report(string reportId)
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
+        var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
+        var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+        var viewModel = new ReportViewModel
         {
-            var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
-            var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+            Report = report,
+            AccessToken = embedToken.Generate(this.accessKey)
+        };
 
-            var viewModel = new ReportViewModel
-            {
-                Report = report,
-                AccessToken = embedToken.Generate(this.accessKey)
-            };
-
-            return View(viewModel);
-        }
+        return View(viewModel);
     }
+}
+```
 
 ### <a name="integrate-a-report-into-your-app"></a>Integrare un report nell'app
 
 Dopo aver creato un **report**, usare un **iFrame** per incorporare il **report** di Power BI. Ecco un frammento di codice da powerbi.js nell'esempio delle **raccolte di aree di lavoro di Power BI**.
 
-```
+```javascript
 init: function() {
     var embedUrl = this.getEmbedUrl();
     var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 

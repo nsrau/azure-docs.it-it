@@ -2,24 +2,20 @@
 title: Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali è una soluzione di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo fornisce le risposte alle domande frequenti.
 services: azure-monitor
-documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: f553a938c6329e21388ca68dea480b008e4e1363
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191565"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243774"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.

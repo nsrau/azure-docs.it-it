@@ -4,7 +4,7 @@ description: Modi per creare un certificato in Key Vault.
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076027"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114859"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -57,7 +57,7 @@ Quando viene completata una richiesta per creare un certificato KV, lo stato del
 
 ## <a name="first-creation"></a>Prima creazione
  Quando si crea un certificato KV per la prima volta, vengono creati anche una chiave indirizzabile e un segreto con lo stesso nome del certificato. Se il nome è già in uso, l'operazione avrà esito negativo con il codice di stato http 409 (conflitto).
-La chiave e il segreto indirizzabili ottengono i propri attributi dagli attributi del certificato di Key Vault. La chiave e il segreto indirizzabili creati in questo modo vengono contrassegnati come chiavi e segreti gestiti, la cui durata è gestita da Key Vault. Le chiavi gestite e i segreti sono di sola lettura. Nota: se un certificato di Key Vault scade o viene disabilitato, la chiave e il segreto corrispondenti diventano inutilizzabili.  
+La chiave e il segreto indirizzabili ottengono i propri attributi dagli attributi del certificato di Key Vault. La chiave e il segreto indirizzabili creati in questo modo vengono contrassegnati come chiavi e segreti gestiti, la cui durata è gestita da Key Vault. Le chiavi gestite e i segreti sono di sola lettura. Note: se un certificato di Key Vault scade o viene disabilitato, la chiave e il segreto corrispondenti diventano inutilizzabili.  
 
  Se si tratta della prima operazione di creazione di un certificato KV, sono necessari criteri.  È possibile fornire criteri anche con le successive operazioni di creazione per sostituire la risorsa criteri. Se non si specificano criteri, viene usata la risorsa criteri del servizio per creare una versione successiva del certificato KV. Si noti che quando è in corso una richiesta per la creazione di una versione successiva, il certificato di Key Vault corrente e la chiave e il segreto indirizzabili corrispondenti rimangono invariati.  
 
@@ -92,7 +92,7 @@ La creazione del certificato può essere completata manualmente oppure usando un
 
 Si noti che quando viene passato un ordine al provider di autorità di certificazione, può rispettare o ignorare le estensioni e il periodo di validità del certificato X.509 in base al tipo di certificato.  
 
- A livello di autorizzazione, è necessaria l'autorizzazione a creare certificati.
+ Authorization: è necessaria l'autorizzazione a creare certificati.
 
  ## <a name="see-also"></a>Vedere anche
  - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

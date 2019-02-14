@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728403"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235989"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -98,7 +98,7 @@ Il rilevamento delle minacce migliora il controllo analizzando i log di controll
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>Transport Layer Security (TLS - crittografia in transito)
 
-Il database SQL protegge i dati del cliente mediante la crittografia dei dati in movimento avvalendosi di [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+Il database SQL protegge i dati del cliente mediante la crittografia dei dati in movimento avvalendosi di [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Database SQL di Azure applica la crittografia (SSL/TLS) in qualsiasi caso per tutte le connessioni, in modo da garantire che i dati vengano crittografati quando sono in transito tra il database e il client. Questo avviene indipendentemente dall'impostazione di **Encrypt** o di **TrustServerCertificate** nella stringa di connessione.

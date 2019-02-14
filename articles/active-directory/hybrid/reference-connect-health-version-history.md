@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: fbd7d0f0c8a7a30aa2c7c5e49b0c5c5669094e6a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37d34d6df23b22466f3016841685ec2797a5c9ea
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486963"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177959"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Cronologia di rilascio delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.

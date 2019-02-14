@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Come scaricare, installare ed eseguire i contenitori per Face in questa esercitazione dettagliata.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769794"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099089"
 ---
 # <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
 
@@ -68,8 +68,8 @@ Sono disponibili immagini del contenitore per l'API Viso.
 
 ### <a name="docker-pull-for-the-face-container"></a>Docker pull per il contenitore di Viso
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Come usare il contenitore
@@ -132,18 +132,7 @@ Se si esegue il contenitore con un punto di [montaggio](./face-resource-containe
 
 I contenitori di API Viso inviano le informazioni di fatturazione ad Azure usando una risorsa di _API Viso_ nell'account di Azure. 
 
-I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft. 
-
-Il comando `docker run` usa gli argomenti seguenti a scopo di fatturazione:
-
-| Opzione | DESCRIZIONE |
-|--------|-------------|
-| `ApiKey` | Chiave API della risorsa _API Viso_ usata per tenere traccia delle informazioni di fatturazione. |
-| `Billing` | L'endpoint della risorsa _API Viso_ usata per tenere traccia delle informazioni di fatturazione.|
-| `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
-
-> [!IMPORTANT]
-> Tutte e tre le opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./face-resource-container-config.md).
 

@@ -1,26 +1,26 @@
 ---
 title: Esercitazione per creare un'app Web con Cache Redis di Azure che usa il modello cache-aside | Microsoft Docs
 description: Informazioni su come creare un'app Web con Cache Redis di Azure che usa il modello cache-aside
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: wesmc
-ms.openlocfilehash: da99d446da1451c2b05f6ecab8ba19eaa1e2bfa3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104948"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234867"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 

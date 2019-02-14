@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b10c0be91a4b12af72d48124b225dac777c4d936
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993270"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982659"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Ridistribuire una macchina virtuale Windows in un nuovo nodo di Azure
 Se si stanno riscontrando difficoltà nella risoluzione dei problemi relativi a connessione di desktop remoto (RDP) o accesso delle applicazioni a una macchina virtuale (VM) di Azure basata su Windows, potrebbe essere utile la ridistribuzione. Quando si ridistribuisce una macchina virtuale, Azure arresta la macchina virtuale, la sposta in un nuovo nodo dell'infrastruttura di Azure e quindi la riaccende conservando tutte le opzioni di configurazione e le risorse associate. In questo articolo viene illustrato come ridistribuire una VM con Azure PowerShell o il portale di Azure.
@@ -34,7 +34,7 @@ Assicurarsi che sia installata la versione più recente di Azure PowerShell 1.x.
 L'esempio seguente distribuisce la VM denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 
 ```powershell
-Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]

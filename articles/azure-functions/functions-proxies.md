@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: da46d33e05a6f76687d3b8982855d477cbabfe86
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766215"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895619"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -94,7 +94,7 @@ I parametri di risposta possono essere usati come parte della modifica della ris
 
 ### <a name="use-appsettings"></a>Impostazioni di riferimento dell'applicazione
 
-È anche possibile fare riferimento alle [impostazioni dell'applicazione definite per l'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) racchiudendo il nome dell'impostazione tra i segni di percentuale (%).
+È anche possibile fare riferimento alle [impostazioni dell'applicazione definite per l'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) racchiudendo il nome dell'impostazione tra i segni di percentuale (%).
 
 Ad esempio, per un URL di back-end di *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" verrà sostituito con il valore dell'impostazione ORDER_PROCESSING_HOST.
 

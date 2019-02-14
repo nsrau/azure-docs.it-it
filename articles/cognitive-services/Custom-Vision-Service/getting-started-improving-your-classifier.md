@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni su come migliorare la qualità del classificatore.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae8a96c07467a4c8617b8e7983e8dd7ad6e70be4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883458"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -41,7 +41,7 @@ Tenere anche presente che è necessario assicurarsi che i dati siano bilanciati.
 
 Fornire immagini rappresentative di ciò che verrà inviato al classificatore durante l'uso normale. Ad esempio, se si sta eseguendo il training di un classificatore di "mele", questo potrebbe non risultare particolarmente accurato se si esegue il training solo di foto di mele in piatti e si effettuano stime su foto di mele sugli alberi. Includere una varietà di immagini per evitare valutazioni parziali del classificatore e ottenere una buona generalizzazione. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
 
-__Sfondo:__ fornire immagini dell'oggetto con diversi sfondi (ovvero frutta sul piatto rispetto a frutta nella borsa della spesa). Le foto in contesto sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
+__Contesto__: fornire immagini dell'oggetto con diversi sfondi (ovvero frutta sul piatto rispetto a frutta nella borsa della spesa). Le foto in contesto sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
 
 ![Immagine di esempi di sfondo](./media/getting-started-improving-your-classifier/background.png)
 

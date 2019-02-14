@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 11/13/2018
-ms.openlocfilehash: 5f2e71736d25003e6b4e9640a5f82dd1d92b0d95
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508301"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990105"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -76,7 +76,6 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-- Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
+- Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Per informazioni sui limiti di tempdb relativi alle dimensioni, vedere [TempDB nel database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

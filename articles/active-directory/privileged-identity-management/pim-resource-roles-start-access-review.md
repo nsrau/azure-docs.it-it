@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160050"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173437"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono verificare periodicamente i ruoli. Questo documento illustra i passaggi per l'avvio di una verifica di accesso in Privileged Identity Management (PIM) per risorse di Azure.

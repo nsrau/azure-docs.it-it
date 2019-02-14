@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160474"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977126"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
 
 2. In una nuova directory creare un file denominato `Dockerfile` per creare l'immagine di Service Fabric:
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh

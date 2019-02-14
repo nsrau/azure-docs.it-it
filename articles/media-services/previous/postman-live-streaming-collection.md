@@ -4,23 +4,23 @@ description: In questo articolo viene fornita una definizione della raccolta Pos
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786380"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998451"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importare una raccolta Postman con operazioni di streaming live
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importare una raccolta Postman con operazioni di streaming live 
 
 Questo articolo contiene una definizione della raccolta **Postman** in cui sono incluse le richieste HTTP raggruppate che chiamano le API REST di Servizi multimediali di Azure con **streaming live**. Per informazioni su come configurare **Postman** per poterlo usare per chiamare le API REST di Servizi multimediali, vedere l'esercitazione [Configurare Postman per le chiamate API REST di Servizi multimediali](media-rest-apis-with-postman.md).
 

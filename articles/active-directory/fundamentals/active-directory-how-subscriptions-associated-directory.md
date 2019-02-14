@@ -12,12 +12,13 @@ ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 86ba8f77121e6d4f6358887e13b8f86a5e020f1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a116355c8140d30f8297cde067a82f37f72e02a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103701"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165859"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 La sottoscrizione di Azure ha una relazione di trust con Azure Active Directory (Azure AD), ovvero considera Azure AD attendibile per autenticare gli utenti, i servizi e i dispositivi. Più sottoscrizioni possono considerare attendibile la stessa directory di Azure AD, ma una sottoscrizione può considerare attendibile una sola directory.

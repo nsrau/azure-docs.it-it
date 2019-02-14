@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb2d3bc128a3508f85ac349242d9a33f2a88424e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73cba950a159bd1f70fc231f0923e55332af0199
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022751"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108807"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Spostare i dati da un'origine OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.locfileid: "54022751"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un'origine OData. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un'origine OData a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un'origine OData ad altri archivi dati, non da altri archivi dati a un'origine OData. 
+È possibile copiare dati da un'origine OData a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un'origine OData ad altri archivi dati, non da altri archivi dati a un'origine OData.
 
 ## <a name="supported-versions-and-authentication-types"></a>Versioni supportate e tipi di autenticazione
 Questo connettore OData supporta OData versione 3.0 e 4.0 e la copia dei dati dalle origini OData cloud e locali. Nel secondo caso, è necessario installare il gateway di gestione dati. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati.
@@ -46,26 +46,26 @@ Sono supportati i tipi di autenticazione seguenti:
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
-Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da un'origine OData, vedere la sezione [Esempio di JSON: Copiare dati da un'origine OData a BLOB di Azure](#json-example-copy-data-from-odata-source-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da un'origine OData, vedere la sezione [Esempio di JSON: Copiare dati da un'origine OData a BLOB di Azure](#json-example-copy-data-from-odata-source-to-azure-blob) di questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'origine OData:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato OData.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OData** |Yes |
-| URL |URL del servizio OData. |Yes |
-| authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Yes |
+| type |La proprietà type deve essere impostata su: **OData** |Sì |
+| URL |URL del servizio OData. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Sì |
 | username |Specificare il nome utente se si usa l'autenticazione di base. |Sì (solo se si usa l'autenticazione di base) |
 | password |Specificare la password per l'account utente specificato per il nome utente. |Sì (solo se si usa l'autenticazione di base) |
 | authorizedCredential |Se si usa OAuth, fare clic sul pulsante **Autorizza** nella procedura guidata di copia di Data Factory o nell'Editor e immettere le credenziali. Il valore di questa proprietà viene quindi generato automaticamente. |Sì (solo se si usa l'autenticazione OAuth) |
@@ -78,7 +78,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
     "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
@@ -93,7 +93,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ```json
 {
     "name": "ODataLinkedService",
-        "properties":
+    "properties":
     {
         "type": "OData",
         "typeProperties":
@@ -112,7 +112,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
     "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
             "authenticationType": "Windows",
@@ -141,12 +141,12 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **ODataResource** , che include il set di dati OData, presenta le proprietà seguenti
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | path |Percorso della risorsa OData |No  |
 
@@ -172,9 +172,9 @@ Quando si spostano dati da OData, vengono usati i mapping seguenti tra i tipi OD
 | Tipo di dati OData | Tipo .NET |
 | --- | --- |
 | Edm.Binary |Byte[] |
-| Edm.Boolean |Booleano |
+| Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |Datetime |
+| Edm.DateTime |DateTime |
 | Edm.Decimal |Decimal |
 | Edm.Double |Double |
 | Edm.Single |Single |
@@ -183,8 +183,8 @@ Quando si spostano dati da OData, vengono usati i mapping seguenti tra i tipi OD
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |string |
-| Edm.Time |Intervallo di tempo |
+| Edm.String |String |
+| Edm.Time |TimeSpan |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
@@ -206,15 +206,15 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 ```json
 {
     "name": "ODataLinkedService",
-        "properties":
+    "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
-            }
         }
+    }
 }
 ```
 
@@ -222,13 +222,13 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 
 ```json
 {
-        "name": "AzureStorageLinkedService",
+    "name": "AzureStorageLinkedService",
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
-        }
+    }
 }
 ```
 
@@ -244,7 +244,7 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
         "type": "ODataResource",
         "typeProperties":
         {
-                "path": "Products"
+            "path": "Products"
         },
         "linkedServiceName": "ODataLinkedService",
         "structure": [],
@@ -256,7 +256,7 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
         "policy": {
             "retryInterval": "00:01:00",
             "retryTimeout": "00:10:00",
-            "maximumRetry": 3                
+            "maximumRetry": 3
         }
     }
 }
@@ -324,7 +324,6 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo:
 }
 ```
 
-
 **Attività di copia in una pipeline con un'origine OData e un sink BLOB:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati più recenti dall'origine OData.
@@ -376,7 +375,6 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 ```
 
 La specifica di **query** nella definizione della pipeline è facoltativa. L'**URL** usato dal servizio Data Factory per recuperare i dati è: URL specificato nel servizio collegato (obbligatorio) + percorso specificato nel set di dati (facoltativo) + query nella pipeline (facoltativa).
-
 
 ### <a name="type-mapping-for-odata"></a>Mapping dei tipi per OData
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:

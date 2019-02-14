@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e6ffb7f797746fed30520c1c99130ff585909a9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a121ea3815ea9405615c3302b2f3566b79695fe6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697867"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Esercitazione: Integrazione di Azure Active Directory con CloudPassage
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di CloudPassage in Azure AD, è necessario aggiun
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con CloudPassage usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CloudPassage.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con CloudPassage, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con CloudPassage, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per CloudPassage](#configure-cloudpassage-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -119,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con CloudPassage, seguire q
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |
     | firstname |user.givenname |
     | lastname |user.surname |

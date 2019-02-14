@@ -4,7 +4,7 @@ description: Questo documento illustra le raccomandazioni presenti nel Centro si
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267029"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110354"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari.  Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL, dati e applicazioni.
@@ -51,7 +51,7 @@ Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Con
 
 ## <a name="data-and-storage-recommendations"></a>Raccomandazioni per i dati e l'archiviazione
 
-|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
 |----|----|----|----|
 |Account di archiviazione|20|Richiedi il trasferimento sicuro nell'account di archiviazione|Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|
 |Redis|20|Consenti solo connessioni sicure alla Cache Redis di Azure|Consenti solo connessioni sicure alla Cache Redis di Azure tramite SSL. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|

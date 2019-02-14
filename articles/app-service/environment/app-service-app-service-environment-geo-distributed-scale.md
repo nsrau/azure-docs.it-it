@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273868"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113697"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Scalabilità distribuita a livello geografico con ambienti del servizio app
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Gli scenari di applicazioni che richiedono una scalabilità molto elevata possono superare la capacità delle risorse di calcolo disponibili per una singola distribuzione di un'app.  Applicazioni di voto, eventi sportivi ed eventi di intrattenimento televisivi sono tutti esempi di scenari che richiedono una scalabilità estremamente elevata. I requisiti di scalabilità elevata possono essere soddisfatti con la scalabilità orizzontale delle applicazioni, con più distribuzioni di app eseguite in una singola area geografica, oltre che in diverse aree, per gestire i requisiti di carico particolarmente intenso.
 
 Gli ambienti del servizio app sono una piattaforma ideale per la scalabilità orizzontale.  Una volta selezionata una configurazione di Ambiente del servizio app che possa supportare una frequenza di richieste nota, gli sviluppatori possono distribuire altre istanze di ambienti del servizio app usando modelli di progetto (o "cookiecutter") per ottenere una capacità di carico di picco desiderata.
@@ -68,13 +71,13 @@ Il parametro *TrafficRoutingMethod* definisce i criteri di bilanciamento del car
 
 Dopo la creazione del profilo, ogni istanza dell'app viene aggiunta al profilo come endpoint nativo di Azure.  Il codice seguente recupera un riferimento a ogni app Web front-end e quindi aggiunge ogni app come endpoint di Gestione traffico tramite il parametro *TargetResourceId* .
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

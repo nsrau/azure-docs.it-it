@@ -1,5 +1,5 @@
 ---
-title: Raccogliere e analizzare messaggi Syslog in Log Analytics | Microsoft Docs
+title: Raccogliere e analizzare messaggi Syslog in Monitoraggio di Azure | Microsoft Docs
 description: Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e i dettagli dei record creati.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 6af1dcd6ffac1722ed39f8fe69f3d78aa4ed8313
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fb59740289caffaf8325aa75aaf8ae649611b347
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104421"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991634"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Origini dati Syslog in Log Analytics
-Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog.  Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente.  Quest'ultimo invia quindi il messaggio a Log Analytics, dove viene creato un record corrispondente.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
+Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog.  Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente.  Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
 
 > [!NOTE]
-> Log Analytics supporta la raccolta di messaggi inviati da rsyslog o syslog-ng, dove rsyslog rappresenta il daemon predefinito. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il [daemon rsyslog](http://rsyslog.com) in modo da sostituire sysklog.
+> Monitoraggio di Azure supporta la raccolta di messaggi inviati da rsyslog o syslog-ng, dove rsyslog rappresenta il daemon predefinito. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il [daemon rsyslog](http://rsyslog.com) in modo da sostituire sysklog.
 >
 >
 

@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9b7199f337f32d785093d3102ef081fd161b2e58
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494596"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182059"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.

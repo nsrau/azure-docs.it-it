@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f69031ad2e681cd49a610ef81505ae3c1f21559
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490639"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168953"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Servizio di sincronizzazione Azure AD Connect: Seconda esecuzione dell'installazione guidata
 La prima volta che si esegue l'installazione guidata di Azure AD Connect, viene illustrata la procedura di configurazione dell'installazione. Se si esegue nuovamente l'installazione guidata, verranno messe a disposizione le opzioni di manutenzione.

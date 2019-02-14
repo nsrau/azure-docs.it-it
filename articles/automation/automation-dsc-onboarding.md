@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096705"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100330"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -24,7 +24,8 @@ Come [PowerShell Desired State Configuration](/powershell/dsc/overview), Configu
 
 È possibile usare Configurazione stato di Automazione di Azure per gestire macchine virtuali di diversi tipi:
 
-- Macchine virtuali di Azure (distribuite sia nel modello di distribuzione Azure Resource Manager sia in quello classico)
+- Macchine virtuali di Azure
+- Macchine virtuali di Azure (classica)
 - Istanze EC2 Amazon Web Services (AWS)
 - Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure/AWS
 - Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
@@ -35,6 +36,31 @@ Inoltre, se non si è pronti per gestire la configurazione dei computer dal clou
 > La gestione di macchine virtuali di Azure con Configurazione stato è inclusa senza costi aggiuntivi se l'estensione DSC per le macchine virtuali installata è successiva alla versione 2.70. Per altri dettagli, vedere la pagina [**Prezzi di Automazione**](https://azure.microsoft.com/pricing/details/automation/).
 
 Le sezioni seguenti descrivono come caricare ogni tipo di computer in Configurazione stato di Automazione di Azure.
+
+## <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
+
+Configurazione stato di Automazione di Azure permette di caricare macchine virtuali di Azure in tutta semplicità per la gestione della configurazione, usando il portale di Azure, modelli di Azure Resource Manager o PowerShell. In background e senza che l'amministratore debba connettersi in remoto alla macchina virtuale, l'estensione DSC (Desired State Configuration) per le macchine virtuali di Azure registra la macchina virtuale per Configurazione stato di Automazione di Azure.
+Poiché l'estensione DSC per le VM di Azure viene eseguita in modalità asincrona, nella sezione seguente [**Risoluzione dei problemi di caricamento di macchine virtuali di Azure**](#troubleshooting-azure-virtual-machine-onboarding) è disponibile la procedura per tenere traccia dell'avanzamento o risolverne i problemi.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Nel [portale di Azure](https://portal.azure.com/)passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nella pagina Configurazione stato della scheda **Nodi** fare clic su **+ Aggiungi**.
+
+Selezionare una macchina virtuale di Azure da caricare.
+
+Se nel computer non è installata l'estensione di stato PowerShell desiderata e tramite il PowerShell e lo stato di alimentazione è "in esecuzione", fare clic su **Connetti**.
+
+In **Registrazione** immettere i [valori di Gestione configurazione locale per PowerShell DSC](/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
+
+![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+
+Le macchine virtuali di Azure possono essere distribuite e caricate in Configurazione stato di Automazione di Azure tramite modelli di Azure Resource Manager. Per un modello di esempio per l'onboarding di una macchina virtuale esistente in Configurazione stato di Automazione di Azure, vedere [Configurare una VM tramite l'estensione DSC e Automation DSC per Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Per trovare la chiave e l'URL di registrazione accettati come input in questo modello, vedere la sezione [**Registrazione sicura**](#secure-registration).
+
+### <a name="powershell"></a>PowerShell
+
+Il cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) può essere usato per caricare macchine virtuali nel portale di Azure tramite PowerShell.
 
 ## <a name="azure-virtual-machines-classic"></a>Macchine virtuali di Azure (classica)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > I nomi di configurazione dei nodi di Configurazione stato fanno distinzione tra maiuscole e minuscole nel portale. Se le maiuscole e le minuscole non corrispondono, il nodo non verrà visualizzato nella scheda **Nodi**.
-
-## <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
-
-Configurazione stato di Automazione di Azure permette di caricare macchine virtuali di Azure in tutta semplicità per la gestione della configurazione, usando il portale di Azure, modelli di Azure Resource Manager o PowerShell. In background e senza che l'amministratore debba connettersi in remoto alla macchina virtuale, l'estensione DSC (Desired State Configuration) per le macchine virtuali di Azure registra la macchina virtuale per Configurazione stato di Automazione di Azure.
-Poiché l'estensione DSC per le VM di Azure viene eseguita in modalità asincrona, nella sezione seguente [**Risoluzione dei problemi di caricamento di macchine virtuali di Azure**](#troubleshooting-azure-virtual-machine-onboarding) è disponibile la procedura per tenere traccia dell'avanzamento o risolverne i problemi.
-
-### <a name="azure-portal"></a>Portale di Azure
-
-Nel [portale di Azure](https://portal.azure.com/)passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nella pagina Configurazione stato della scheda **Nodi** fare clic su **+ Aggiungi**.
-
-Selezionare una macchina virtuale di Azure da caricare.
-
-Se nel computer non è installata l'estensione di stato PowerShell desiderata e tramite il PowerShell e lo stato di alimentazione è "in esecuzione", fare clic su **Connetti**.
-
-In **Registrazione** immettere i [valori di Gestione configurazione locale per PowerShell DSC](/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
-
-![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
-
-Le macchine virtuali di Azure possono essere distribuite e caricate in Configurazione stato di Automazione di Azure tramite modelli di Azure Resource Manager. Per un modello di esempio per l'onboarding di una macchina virtuale esistente in Configurazione stato di Automazione di Azure, vedere [Configurare una VM tramite l'estensione DSC e Automation DSC per Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Per trovare la chiave e l'URL di registrazione accettati come input in questo modello, vedere la sezione [**Registrazione sicura**](#secure-registration).
-
-### <a name="powershell"></a>PowerShell
-
-Il cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) può essere usato per caricare macchine virtuali nel portale di Azure tramite PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Macchine virtuali di Amazon Web Services (AWS)
 

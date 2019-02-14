@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814232"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199800"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.

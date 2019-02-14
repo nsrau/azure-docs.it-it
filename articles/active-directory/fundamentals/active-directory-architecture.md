@@ -12,12 +12,13 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 683627efe6946ec68e40f84b7bd7b3d3c8f30985
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094207"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168307"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).

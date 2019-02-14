@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455066"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993633"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -237,7 +237,7 @@ Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la mem
 
 Questo modello di prestazioni rilevabili indica la riduzione delle prestazioni correnti correlate al carico di lavoro del database rispetto alla baseline dei sette giorni precedenti. La causa è la carenza di DTU disponibili nel pool elastico della sottoscrizione. 
 
-Le risorse nel database SQL vengono spesso denominate [risorse DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) e sono costituite da una misura combinata di risorse di CPU e I/O (I/O del log delle transazioni e dei dati). Le [risorse del pool elastico di Azure](sql-database-elastic-pool.md) vengono usate come un pool di risorse eDTU disponibili condivise tra più database a scopo di ridimensionamento. Quando le risorse eDTU disponibili nel pool elastico non sono in numero sufficiente per supportare tutti i database nel pool, il sistema rileva un problema di prestazioni per carenza di eDTU nel pool elastico.
+Le risorse nel database SQL vengono spesso denominate [risorse DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) e sono costituite da una misura combinata di risorse di CPU e I/O (I/O del log delle transazioni e dei dati). Le [risorse del pool elastico di Azure](sql-database-elastic-pool.md) vengono usate come un pool di risorse eDTU disponibili condivise tra più database a scopo di ridimensionamento. Quando le risorse eDTU disponibili nel pool elastico non sono in numero sufficiente per supportare tutti i database nel pool, il sistema rileva un problema di prestazioni per carenza di eDTU nel pool elastico.
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 

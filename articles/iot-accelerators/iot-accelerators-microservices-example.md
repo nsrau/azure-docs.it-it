@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631900"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978086"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
@@ -123,13 +123,13 @@ Prima di poter eseguire il push della nuova immagine Docker in un hub Docker, al
 2. Aprire docker-compose.yml con qualsiasi editor di testo o IDE a scelta.
 3. Individuare il codice seguente:
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     modificarlo in modo che risulti come l'immagine seguente e salvarlo.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 

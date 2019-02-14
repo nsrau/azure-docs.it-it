@@ -1,25 +1,25 @@
 ---
 title: Provider di cache di output ASP.NET della Cache
 description: Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 02/14/2017
-ms.author: wesmc
-ms.openlocfilehash: 376140ad820bc05caf2c8f00b7af1e31090261c5
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: 3aa2e9e773eb0c07b5f10a57dabf1138b9f3f288
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021621"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232910"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 Il provider di cache Redis di output è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4.

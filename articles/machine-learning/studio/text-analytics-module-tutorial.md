@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511361"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242669"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creare un modello di analisi della valutazione in Azure Machine Learning Studio
 
@@ -33,9 +33,9 @@ In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di
 
 È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Azure AI Gallery:
 
-[Stimare le recensioni dei libri](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Stimare le recensioni dei libri](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Stimare le recensioni dei libri - Esperimento predittivo](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Stimare le recensioni dei libri - Esperimento predittivo](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Passaggio 1: Pulire e pre-elaborare i set di dati di testo
 Iniziamo l'esperimento dividendo i punteggi di recensione nei bucket di categoria basso e alto per formulare il problema come classificazione a due classi. Vengono usati i moduli [Edit Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Group Categorical Values](https://msdn.microsoft.com/library/azure/dn906014.aspx) (Valori di categoria del gruppo).

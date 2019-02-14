@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0bc53edb00ea13fdfcab3cfc398e122e6ecd7632
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487677"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106325"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualizzare i log attività per controllare le azioni sulle risorse
 
@@ -73,6 +73,8 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
     ![Mostrare il filtro nel dashboard](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Per recuperare le voci di log, eseguire il comando **Get-AzLog**. Offrire parametri aggiuntivi per filtrare l'elenco di voci. Se non si specifica un'ora di inizio e fine, vengono restituite le voci per gli ultimi 7 giorni.
 

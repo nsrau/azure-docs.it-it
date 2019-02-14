@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Ottenere risposte a domande frequenti relative all'API Emozioni.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3654d315867cfe60c277806d4246469adf0a791f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208990"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238267"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Domande frequenti sull'API Emozioni
 

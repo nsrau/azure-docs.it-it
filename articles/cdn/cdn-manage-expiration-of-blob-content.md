@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 39271bdda7adf7e8e65d3b5d5ea1844be1ecf233
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237944"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -87,16 +87,19 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Impostazione delle intestazioni Cache-Control tramite Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
 Ad esempio: 
 
 ```powershell
 # Create a storage context
-$context = New-AzureStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
+$context = New-AzStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
 
 # Get a reference to the blob
-$blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
+$blob = Get-AzStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
 $blob.ICloudBlob.Properties.CacheControl = "max-age=3600"

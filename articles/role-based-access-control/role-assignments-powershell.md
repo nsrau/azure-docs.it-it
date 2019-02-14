@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700673"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106172"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -221,7 +221,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 Per assegnare un ruolo, è necessario identificare l'oggetto (utente, gruppo o applicazione) e l'ambito.
 
-Se non si conosce l'ID sottoscrizione, è possibile reperire tale informazione nel pannello **Sottoscrizioni** nel portale di Azure o usare [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+Se non si conosce l'ID sottoscrizione, è possibile reperire tale informazione nel pannello **Sottoscrizioni** nel portale di Azure o usare [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 Per ottenere l'ID oggetto per un gruppo di Azure Active Directory, usare [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 

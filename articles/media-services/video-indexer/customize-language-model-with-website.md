@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283587"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998146"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizzare un modello linguistico con il sito Web di Video Indexer
 
@@ -27,7 +27,7 @@ Per una panoramica dettagliata e le procedure consigliate per i modelli linguist
 ## <a name="create-a-language-model"></a>Creare un modello linguistico
 
 1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
-2. Per personalizzare un modello nel proprio account, fare clic sul pulsante **Personalizzazione del modello di contenuto** nell'angolo in alto a destra della pagina.
+2. Per personalizzare un modello nel proprio account, fare clic sul pulsante **Content model customization** (Personalizzazione del modello di contenuto) nell'angolo in alto a destra della pagina.
 
    ![Personalizzare il modello di contenuto](./media/content-model-customization/content-model-customization.png)
 

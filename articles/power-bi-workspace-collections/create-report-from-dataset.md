@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170420"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232763"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creare un nuovo report da un set di dati nelle raccolte di aree di lavoro di Power BI
 
@@ -40,13 +40,13 @@ La *classe PowerBIToken* richiede l'installazione del [pacchetto NuGet Power BI 
 
 **Installazione del pacchetto NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **Codice C#**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Per creare un nuovo report, deve essere specificata la configurazione di creazio
 
 **Installazione del pacchetto NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **Codice JavaScript**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Chiamando *powerbi.createReport()* viene visualizzata un'area di disegno vuota in modalità di modifica nell'elemento *div*.
@@ -95,7 +97,7 @@ Chiamando *powerbi.createReport()* viene visualizzata un'area di disegno vuota i
 
 Il report non viene creato finché non si chiama l'operazione **Salva con nome**. A tale scopo è possibile usare il menu File o JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ Il report non viene creato finché non si chiama l'operazione **Salva con nome**
 
 Per interagire con il nuovo report è necessario incorporarlo così come l'applicazione incorpora un report regolare, ovvero è necessario rilasciare un nuovo token specifico per il nuovo report e quindi chiamare il metodo di incorporamento.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatizzare il salvataggio e il caricamento di un nuovo report con l'evento "saved"
 
 Per automatizzare il processo di salvataggio con nome e successivo caricamento del nuovo report, è possibile usare l'evento "saved". Questo evento viene generato al termine dell'operazione di salvataggio e restituisce un oggetto JSON che contiene il nuovo ID report, il nome del report e l'ID report precedente (se esistente) e specifica se si è trattato di un'operazione di salvataggio o di salvataggio con nome.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ Per automatizzare il processo di salvataggio con nome e successivo caricamento d
 
 Per automatizzare il processo è possibile restare in ascolto dell'evento "saved", usare il nuovo ID report per creare il nuovo token e incorporare il nuovo report con tale token.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Vedere anche 

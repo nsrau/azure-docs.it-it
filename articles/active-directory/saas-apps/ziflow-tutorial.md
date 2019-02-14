@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: ca687f15187d4dd485d2c59e3c46fa3158802ff4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 175e678365016bafd3d18f590a5434c32ac9fadd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180003"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Esercitazione: Integrazione di Azure Active Directory con Ziflow
 

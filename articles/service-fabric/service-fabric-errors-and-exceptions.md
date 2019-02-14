@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: d96da4cc53299d978f8f69acb6a92d957c4f693e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fae345530a28bc7fdb875570546b125b13a79310
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697569"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104033"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Errori ed eccezioni comuni quando si usano le API FabricClient
 Le API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) consentono agli amministratori di cluster e applicazioni di eseguire attività amministrative su applicazioni, servizi o cluster di Service Fabric. Ad esempio, la distribuzione, l'aggiornamento e la rimozione di applicazioni, il controllo dell'integrità di un cluster o il test di un servizio. Gli sviluppatori di applicazioni e gli amministratori di cluster possono usare le API FabricClient per sviluppare strumenti per la gestione del cluster e delle applicazioni Service Fabric.
@@ -31,7 +31,7 @@ Esistono molti tipi diversi di operazioni che possono essere eseguite tramite Fa
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |L'oggetto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) si trova in uno stato chiuso. Eliminare l'oggetto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) in uso e creare un'istanza di un nuovo oggetto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |L'operazione ha raggiunto il timeout. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) viene restituito quando per il completamento dell'operazione occorre più tempo di quello stabilito in MaxOperationTimeout. |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |Il controllo di accesso per l'operazione non è riuscito. Viene restituito E_ACCESSDENIED. |
-| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Si è verificato un errore di runtime durante l'operazione. Tutti i metodi FabricClient possono potenzialmente generare un'eccezione [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception). La proprietà [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception_ErrorCode) indica la causa esatta dell'eccezione. I codici di errore sono definiti nell'enumerazione [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode). |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Si è verificato un errore di runtime durante l'operazione. Tutti i metodi FabricClient possono potenzialmente generare un'eccezione [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception). La proprietà [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) indica la causa esatta dell'eccezione. I codici di errore sono definiti nell'enumerazione [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode). |
 | [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |L'operazione non è riuscita a causa di una condizione di errore temporanea. Ad esempio, un'operazione potrebbe non riuscire perché un quorum di repliche non è temporaneamente raggiungibile. Le eccezioni temporanee corrispondono alle operazioni non riuscite che è possibile ritentare. |
 
 Alcuni errori [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) comuni che possono essere restituiti in un'eccezione [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception):

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3ec438132bc5e3dd035e199d0beca40dce9ff55f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 491140900dc74ade68109f3c9de586b0f3709b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453690"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Esercitazione: Integrazione di Azure Active Directory con AppNeta Performance Monitor
 
@@ -49,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-appneta-performance-monitor-from-the-gallery"></a>Aggiunta di AppNeta Performance Monitor dalla raccolta
 
-Per configurare l'integrazione di AppNeta Performance Monitor in Azure AD, è necessario aggiungere AppNeta Performance Monitor dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di AppNeta Performance Monitor in Azure AD, è necessario aggiungere AppNeta Performance Monitor dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere AppNeta Performance Monitor dalla raccolta, seguire questa procedura:**
 
@@ -81,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con AppNeta Perfo
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di AppNeta Performance Monitor](#create-appneta-performance-monitor-test-user)**: per avere una controparte di Britta Simon in AppNeta Performance Monitor collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -195,7 +196,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad AppNeta Performance Monitor.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso ad AppNeta Performance Monitor.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **AppNeta Performance Monitor**.
 
@@ -203,7 +204,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **AppNeta Performance Monitor**.
 
-    ![Collegamento di AppNeta Performance Monitor nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento AppNeta Performance Monitor nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

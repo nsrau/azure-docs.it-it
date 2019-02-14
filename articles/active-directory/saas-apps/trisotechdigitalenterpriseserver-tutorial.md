@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e3f90da177f46246d1a7453796b7b9a9c93f4a21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c4ed44bff002ed8422f199c24a566fe6ff606af8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193166"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Esercitazione: Integrazione di Azure Active Directory con Trisotech Digital Enterprise Server
 

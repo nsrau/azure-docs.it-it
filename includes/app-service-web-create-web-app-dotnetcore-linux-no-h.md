@@ -5,25 +5,25 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 2fd879939324d76d45f46f1161b8d380d86d4624
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b7fb72682dbe9d9cb3e62e1a05ca8b89e9f97f4c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31532635"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246961"
 ---
 Creare un'[app Web](../articles/app-service/containers/app-service-linux-intro.md) nel piano di servizio app `myAppServicePlan`. 
 
-In Cloud Shell è possibile usare il comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Nell'esempio seguente sostituire `<app_name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `dotnetcore|2.0`. Per visualizzare tutti i runtime supportati, eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+In Cloud Shell è possibile usare il comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest). Nell'esempio seguente sostituire `<app_name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `DOTNETCORE|2.1`. Per visualizzare tutti i runtime supportati, eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest). 
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|2.0" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "DOTNETCORE|2.1" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|2.0" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "DOTNETCORE|2.1" --deployment-local-git
 ```
 
 Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:

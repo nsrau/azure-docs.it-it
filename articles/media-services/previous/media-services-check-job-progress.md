@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5632f6b4a99c4771f10a89165b452addee0f1c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3175bc2210bda47bb647cfc5341ea237b8253f6e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035765"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990190"
 ---
-# <a name="monitor-job-progress-using-net"></a>Monitorare lo stato dei processi mediante .NET
+# <a name="monitor-job-progress-using-net"></a>Monitorare lo stato dei processi mediante .NET 
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)

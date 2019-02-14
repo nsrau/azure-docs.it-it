@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751940"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099735"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -310,7 +310,7 @@ Il database SQL usa alcune tecniche intelligenti che consentono di gestire autom
 A tale scopo, è possibile procedere in diversi modi:
 
 - **[Sincronizzazione dei dati](sql-database-sync-data.md)**: questa funzionalità consente di sincronizzare i dati in modo bidirezionale tra più database SQL Server locali e il database SQL. Per eseguire la sincronizzazione con database SQL Server locali, è necessario installare e configurare l'agente di sincronizzazione in un computer locale e aprire la porta TCP in uscita 1433.
-- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Usare la replica transazionale](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Usare la replica transazionale](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

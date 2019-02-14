@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: acad9fb733d82cbfaee9cc8d59396d4923d3b7b1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2ef0e83f73a30b0510ec728cd5c2a88845821dc9
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845113"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241666"
 ---
 # <a name="audit-db-level-threat-detection-setting"></a>Controllare l'impostazione di rilevamento delle minacce a livello di database
 
@@ -33,7 +33,7 @@ Questo criterio controlla i criteri degli avvisi di sicurezza del database SQL s
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = New-AzPolicyDefinition -Name "audit-sql-db-threat-detection" -DisplayName "Audit DB level threat detection setting" -description "Audit threat detection setting for SQL databases" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-threat-detection/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-threat-detection/azurepolicy.parameters.json' -Mode All

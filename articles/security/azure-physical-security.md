@@ -4,7 +4,7 @@ description: L'articolo descrive i Data Center di Azure, tra cui le offerte di c
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170678"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112045"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)
 Azure è costituito da un'[infrastruttura del Data Center distribuita a livello globale](https://azure.microsoft.com/global-infrastructure/), che supporta migliaia di servizi online e che si estende su più di 100 strutture altamente protette in tutto il mondo.

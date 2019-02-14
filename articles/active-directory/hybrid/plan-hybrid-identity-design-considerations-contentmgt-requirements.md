@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 61ca57f2fd5bb6d5e56902dddecfade406267b91
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486266"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166624"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
 Comprendere i requisiti aziendali relativi alla gestione dei contenuti può incidere direttamente sulla decisione in merito alla soluzione di identità ibrida da usare. Con la proliferazione delle tipologie di dispositivi e la possibilità per gli utenti di usare dispositivi personali anche nelle attività lavorative (approccio[BYOD](https://aka.ms/byodcg)), è sempre più forte l'esigenza per le aziende di proteggere i dati senza compromettere la privacy degli utenti. In genere, quando un utente usa un dispositivo personale, si avvale anche di più credenziali diverse, in base all'applicazione a cui deve accedere. È importante quindi distinguere i contenuti creati usando credenziali personali rispetto a quelli realizzati ricorrendo a credenziali aziendali. La soluzione di identità adottata deve essere in grado di interagire con i servizi cloud, in modo da fornire un'esperienza trasparente per l'utente finale, garantirne la privacy e migliorare la protezione dalla perdita di dati. 

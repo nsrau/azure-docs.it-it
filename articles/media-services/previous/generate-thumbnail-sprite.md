@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190729"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003109"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Generare uno sprite di anteprima 
+# <a name="generate-a-thumbnail-sprite"></a>Generare uno sprite di anteprima  
 
 È possibile usare Media Encoder Standard per generare uno sprite di anteprima, ovvero un file JPEG contenente più piccole anteprime di risoluzione raccolte in un'unica immagine (grande), insieme a un file VTT. Il file VTT specifica l'intervallo di tempo occupato da ogni anteprima nel video di input, insieme alle dimensioni e alle coordinate dell'anteprima nel file JPEG di grandi dimensioni. Il file VTT e l'immagine sprite consentono ai lettori video di mostrare una barra di scorrimento "visiva" e offrire così all'utente un feedback visivo mentre esegue lo scrubbing avanti e indietro nella sequenza temporale del video.
 

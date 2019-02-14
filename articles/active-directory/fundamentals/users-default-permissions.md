@@ -12,12 +12,13 @@ ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5780090f155b3e09792aeb78c4e1d573808028ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f29331ccdde7db56639ed443e5dca7336f5e9dbd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299351"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181593"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [appartenenze a ruoli](active-directory-users-assign-role-azure-portal.md) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest.

@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9b7bac8cb50c6ad6f173b53ffd7c6aa918d42814
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849516"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242737"
 ---
 # <a name="use-approved-subnet-for-vm-network-interfaces"></a>Usare una subnet approvata per le interfacce di rete delle macchine virtuali
 
@@ -33,7 +33,7 @@ Questo criterio richiede che le interfacce di rete usino una subnet approvata. S
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = New-AzPolicyDefinition -Name "vm-creation-in-approved-subnet" -DisplayName "Use approved subnet for VM network interfaces" -description "This policy enforces VM network interfaces to use subnet" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.parameters.json' -Mode All

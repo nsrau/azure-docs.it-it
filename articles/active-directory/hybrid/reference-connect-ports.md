@@ -15,12 +15,13 @@ ms.topic: reference
 ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b9384ae328bf4c1e155d559e888931a7155aff26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485994"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184084"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.

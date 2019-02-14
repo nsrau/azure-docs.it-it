@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464732"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003670"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: Errori di connessione di database e altri problemi
 

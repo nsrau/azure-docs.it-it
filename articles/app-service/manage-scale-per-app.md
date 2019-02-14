@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 49b5978fd647a4667503676528120a36495021c6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730401"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104570"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità nel servizio app di Azure con il ridimensionamento per app
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Per impostazione predefinita, il ridimensionamento delle app nel servizio app si esegue ridimensionando il [piano di servizio app](overview-hosting-plans.md) su cui vengono eseguite. Se vengono eseguite più app nello stesso piano di servizio app,ogni istanza scale-out esegue tutte le app nel piano.
 
 È possibile abilitare il *ridimensionamento per-app* a livello del piano si servizio app. Ciò consente di ridimensionare un'app indipendentemente dal piano di servizio app in cui è ospitata. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
@@ -33,20 +36,20 @@ Per impostazione predefinita, il ridimensionamento delle app nel servizio app si
 
 ## <a name="per-app-scaling-using-powershell"></a>Scalabilità per app tramite PowerShell
 
-Creare un piano con scalabilità per applicazione, passando il parametro ```-PerSiteScaling $true``` al cmdlet ```New-AzureRmAppServicePlan```.
+Creare un piano con scalabilità per applicazione, passando il parametro ```-PerSiteScaling $true``` al cmdlet ```New-AzAppServicePlan```.
 
 ```powershell
-New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
+New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
                             -Location $Location `
                             -Tier Premium -WorkerSize Small `
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Abilitare la scalabilità con un piano di Servizio app di Azure, passando il parametro `-PerSiteScaling $true` al cmdlet ```Set-AzureRmAppServicePlan```.
+Abilitare la scalabilità con un piano di Servizio app di Azure, passando il parametro `-PerSiteScaling $true` al cmdlet ```Set-AzAppServicePlan```.
 
 ```powershell
 # Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
-Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+Set-AzAppServicePlan -ResourceGroupName $ResourceGroup `
    -Name $AppServicePlan -PerSiteScaling $true
 ```
 
@@ -56,13 +59,13 @@ Nell'esempio seguente l'app è limitata a due istanze indipendentemente dall'agg
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
-$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+$newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
     
 # Post updated app back to azure
-Set-AzureRmWebApp $newapp
+Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]

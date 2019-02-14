@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491860"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161492"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
 La maggior parte delle aziende di medie o grandi dimensioni dovrà definire una [risposta ad eventi imprevisti](https://technet.microsoft.com/library/cc700825.aspx) in materia di sicurezza per consentire al personale IT di prendere le azioni appropriate in base al livello di gravità. Il sistema di gestione delle identità è una componente importante del processo di risposta agli eventi imprevisti, poiché consente di identificare l'utente che ha eseguito una determinata azione nel perseguimento dell'obiettivo. La soluzione di identità ibrida, inoltre, deve essere in grado di fornire funzionalità di monitoraggio e reporting di cui può avvalersi il personale IT per intraprendere le azioni necessarie per identificare e contrastare una potenziale minaccia. In un piano di risposta agli eventi imprevisti, sono generalmente contenute le fasi seguenti:

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754218"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237859"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure
 
@@ -134,7 +134,7 @@ sudo apt-get install -y nodejs
 
 6. Creare una cartella denominata *Books* e aggiungervi un file denominato *server.js* contenente la configurazione per il server Web.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ sudo apt-get install -y nodejs
 
 2. Nella cartella *Books* creare una cartella denominata *apps* e aggiungere un file denominato *routes.js* con le route Express definite.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ sudo apt-get install -y nodejs
 
 3. Nella cartella *apps* creare una cartella denominata *models* e aggiungere un file denominato *book.js* con la configurazione del modello di libro definita.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ sudo apt-get install -y nodejs
 
 1. Tornare alla directory *Books* (`cd ../..`) e quindi creare una cartella denominata *public* e aggiungere un file denominato *script.js* con la configurazione del controller definita.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

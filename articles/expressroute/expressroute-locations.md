@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: pareshmu
-ms.openlocfilehash: f3b8ab2d40cf077d856b506a54ef98dbb5b699fe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 913661b1d4360eba90d7e827d08d1b48bc7b4e71
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746541"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244403"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -82,7 +82,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Supportato |Supportato |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supportato |Supportato |Montreal, Toronto, Quebec |
-| **[British Telecom](https://globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, San Paolo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, San Paolo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **C3ntro** |Presto disponibile |Presto disponibile |Miami |
 | **CDC** | Supportato | Supportato | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supportato |Supportato |Las Vegas, New York, San Antonio, Silicon Valley, Tokyo, Toronto |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096909"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203200"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzione a Cluster Resource Manager di Service Fabric
 Tradizionalmente, la gestione dei sistemi IT o dei Servizi online comportava dedicare alcune macchine virtuali o fisiche a tali sistemi o servizi specifici. I servizi erano progettati come livelli. Era presente un livello "web" e un livello "dati" o "archiviazione". Le applicazioni avevano un livello di messaggistica con un flusso di richieste in entrata e in uscita, nonché un set di computer dedicati alla memorizzazione nella cache. A ogni livello o tipo di carico di lavoro veniva assegnato un computer dedicato. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro causava il surriscaldamento del computer su cui si trovava, si aggiungevano più computer con la medesima configurazione a quel livello. Non tutti i carichi di lavoro possono tuttavia essere scalati orizzontalmente facilmente, in particolare per il livello dati i computer vengono sostituiti con computer di dimensioni più grandi. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.
@@ -43,10 +43,6 @@ Cluster Resource Manager è il componente di sistema che gestisce l'orchestrazio
 1. Applicazione di regole
 2. Ottimizzazione dell'ambiente
 3. Contribuire con altri processi
-
-Per conoscere il funzionamento di Gestione risorse cluster, vedere il video seguente di Microsoft Virtual Academy: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>Che cosa non è
 Nelle applicazioni tradizionali di livello N è sempre presente un [Load Balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). In genere si trattava di un servizio di bilanciamento del carico di rete (NLB) o di applicazione (ALB) a seconda del posizionamento nello stack di rete. Alcuni servizi di bilanciamento del carico sono basati su hardware, come BigIP F5, mentre altri sono software, ad Bilanciamento carico di rete di Microsoft. In altri ambienti si userà qualcosa di simile a HAProxy, nginx, Istio o Envoy in questo ruolo. In queste architetture, il compito del servizio di bilanciamento del carico è assicurare che i carichi di lavoro senza stato ricevano sostanzialmente la stessa quantità di lavoro. Le strategie per il bilanciamento del carico sono variate. Alcuni servizi di bilanciamento inviavano ciascuna chiamata diversa a un server diverso. Altri fornivano persistenza o visibilità elevata delle sessioni. I servizi di bilanciamento più avanzati usano stime o rapporti effettivi del carico per reindirizzare le chiamate in base ai costi previsti e al carico corrente del computer.

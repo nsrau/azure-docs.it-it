@@ -4,7 +4,7 @@ description: Questo documento illustra come usare le funzionalità del Centro si
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340628"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112921"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare il Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.

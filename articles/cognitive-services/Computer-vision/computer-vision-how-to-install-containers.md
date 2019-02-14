@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Come scaricare, installare ed eseguire i contenitori per Visione artificiale in questa esercitazione dettagliata.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473494"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978545"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -72,7 +72,7 @@ Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/comman
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>Docker pull per il contenitore di Riconoscimento del testo
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ Se si esegue il contenitore con un punto di [montaggio](./computer-vision-resour
 
 I contenitori Riconoscimento del testo inviano le informazioni di fatturazione ad Azure usando una risorsa di _Riconoscimento del testo_ nell'account di Azure. 
 
-I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft. 
-
-Il comando `docker run` usa gli argomenti seguenti a scopo di fatturazione:
-
-| Opzione | DESCRIZIONE |
-|--------|-------------|
-| `ApiKey` | Chiave API della risorsa di _Riconoscimento del testo_ usata per tenere traccia delle informazioni di fatturazione. |
-| `Billing` | Endpoint della risorsa di _Riconoscimento del testo_ usata per tenere traccia delle informazioni di fatturazione.|
-| `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
-
-> [!IMPORTANT]
-> Tutte e tre le opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./computer-vision-resource-container-config.md).
 

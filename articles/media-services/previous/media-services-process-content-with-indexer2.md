@@ -4,21 +4,21 @@ description: Azure Media Indexer consente di rendere disponibile per la ricerca 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785680"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000916"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Panoramica
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview supporta il riconoscimento vocale per le lingue se
 * Giapponese [JaJp]
 * Russo [RuRu]
 * Inglese britannico [EnGb]
-* Spagnolo messicano [EsMx] 
+* Spagnolo messicano [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipi di file supportati
 

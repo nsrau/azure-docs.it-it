@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Usare il metodo Evaluate per restituire un set di entità accademiche basate su un'espressione di query.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187300"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871320"
 ---
 # <a name="evaluate-method"></a>Metodo Evaluate
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Parametri della richiesta  
 NOME     | Valore | Obbligatorio?  | DESCRIZIONE
 -----------|-----------|---------|--------
-**expr**       | Stringa di testo | Yes | Espressione di query che specifica le entità che devono essere restituite.
+**expr**       | Stringa di testo | Sì | Espressione di query che specifica le entità che devono essere restituite.
 **model**      | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
 **attributes** | Stringa di testo | No <br>Impostazione predefinita: ID | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
 **count**        | Number | No <br>Predefinito: 10 | Numero di risultati da restituire.

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3d27407b329168fe6bc78def988cb350d4eeae83
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807321"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990309"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 

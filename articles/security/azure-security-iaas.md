@@ -4,7 +4,7 @@ description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l'opportu
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540282"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116500"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 

@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2f18b51a07bb58f13673427f0acadb6b80d7a1c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510443"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005319"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
 > [!NOTE]
-> Il livello Business critical è chiamato Premium nel modello di acquisto basato su DTU. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
+> Il livello Business critical è chiamato Premium nel modello di acquisto basato su DTU. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
 
 Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli di architettura usati nel database SQL di Azure:
 - Utilizzo generico/Standard 

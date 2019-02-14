@@ -4,7 +4,7 @@ description: Il Centro protezione di Microsoft contiene le informazioni necessar
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 183496dec7826843046af5f130f9c65f31253b0b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25541571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111034"
 ---
 # <a name="microsoft-trust-center"></a>Centro protezione di Microsoft
 Il sito sulle informazioni di sicurezza di Azure su Azure.com fornisce le informazioni necessarie per pianificare, progettare, distribuire, configurare e gestire in modo sicuro le soluzioni cloud. Microsoft Trust Center fornisce anche le informazioni necessarie per assicurarsi che la piattaforma Azure in cui vengono eseguiti i servizi sia sicura.

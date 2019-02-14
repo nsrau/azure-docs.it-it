@@ -4,7 +4,7 @@ description: Questa specifica descrive due modalità supportate da Servizi multi
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265891"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005268"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live
+# <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live 
 
 
 ## <a name="1-introduction"></a>1 Introduzione 
@@ -103,7 +103,7 @@ La traccia di tipo sparse deve essere dichiarata nella casella Live Server Manif
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Number         | Obbligatoria      | DEVE essere "0", che indica una traccia con bitrate variabile, sconosciuto.                                                                                                                                                                                                 |
 | parentTrackName    | string         | Obbligatoria      | Deve (MUST) essere il nome della traccia padre, alla cui scala temporale sono allineati i codici temporali della traccia di tipo sparse. La traccia padre non può essere una traccia di tipo sparse.                                                                                                                    |
-| manifestOutput     | boolean        | Obbligatoria      | Deve (MUST) essere "true", per indicare che la traccia di tipo sparse verrà incorporata nel manifesto client Smooth.                                                                                                                                                               |
+| manifestOutput     | Boolean        | Obbligatoria      | Deve (MUST) essere "true", per indicare che la traccia di tipo sparse verrà incorporata nel manifesto client Smooth.                                                                                                                                                               |
 | Subtype            | string         | Obbligatoria      | Deve (MUST) essere il codice di quattro caratteri "DATA".                                                                                                                                                                                                                         |
 | Schema             | string         | Obbligatoria      | Deve (MUST) essere un URN o URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], deve (MUST) essere "urn:scte:scte35:2013a:bin" affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [SCTE-67]. |
 | trackName          | string         | Obbligatoria      | Deve (MUST) essere il nome della traccia di tipo sparse. Il trackName può essere usato per distinguere più flussi di eventi con lo stesso schema. Ogni flusso di eventi univoco deve avere un nome traccia univoco.                                                                           |

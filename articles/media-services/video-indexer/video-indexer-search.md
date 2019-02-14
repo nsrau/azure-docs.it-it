@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291949"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004547"
 ---
 # <a name="find-exact-moments-within-videos"></a>Trovare momenti esatti nei video
 
@@ -26,7 +26,6 @@ Questo argomento illustra le opzioni di ricerca disponibili per trovare momenti 
     Nell'esempio seguente sono stati cercati tutti i video creati da Channel9 con Scott Hanselman.
 
     ![Ricerca](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. Cercare le informazioni dettagliate riepilogate del video.
 
     È poi possibile eseguire ricerche all'interno di un video facendo clic su **Riproduci** sul video. Si può quindi cercare all'interno del video selezionando la scheda **Ricerca**. Nell'esempio vengono cercate tutte le posizioni in cui viene usato il testo "identity protection". 
@@ -34,8 +33,6 @@ Questo argomento illustra le opzioni di ricerca disponibili per trovare momenti 
     ![Ricerca](./media/video-indexer-search/video-indexer-search02.png)
 
     Se si fa clic su uno dei risultati, il lettore si posiziona in quel momento nel video. È possibile implementare la visualizzazione e la sincronizzazione del lettore e delle informazioni dettagliate nella propria applicazione. Per altre informazioni, vedere [Incorporare i widget di Video Indexer nelle applicazioni](video-indexer-embed-widgets.md). 
-
-    
 4. Cercare la suddivisione dettagliata del video.
 
     Se si vuole creare una propria suddivisione basata sul video trovato, premere il pulsante **Modifica**. Questa pagina mostra tutte le informazioni dettagliate sul video. È possibile cercare all'interno della suddivisione per visualizzare solo le righe a cui si è interessati. Per altre informazioni, vedere [Visualizzare e modificare le informazioni dettagliate di Video Indexer](video-indexer-view-edit.md).

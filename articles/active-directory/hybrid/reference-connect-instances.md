@@ -15,12 +15,13 @@ ms.topic: reference
 ms.date: 06/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0a3cbb352774fa319ad8ea6ad77f0cf089f75ab7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217191"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali sule istanze
 Azure AD Connect si usa soprattutto con l'istanza di Azure AD e Office 365 disponibili in tutto il mondo. Ma esistono anche altre istanze e hanno requisiti diversi per gli URL e altre considerazioni speciali.

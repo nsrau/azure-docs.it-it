@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 57f20a6b3a8d2845b0459f05e7b9d9ccd8d44424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463294"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108722"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: Usare cluster Hadoop di Azure HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -824,7 +824,7 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
 •    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [Ricerche e statistiche su NYC Taxi and Limousine Commission](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157976"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100126"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -47,21 +47,21 @@ Quando si aggiunge un nuovo account aziendale, è necessario prendere in conside
 Per creare un nuovo account aziendale è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Aggiornare un profilo utente
 
 Per aggiornare un profilo utente è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Reimpostare la password di un utente
 
 Per reimpostare la password di un utente è possibile usare le informazioni seguenti: 
 
 - [Portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utente guest
 
@@ -69,7 +69,7 @@ Per reimpostare la password di un utente è possibile usare le informazioni segu
 
 Quando si invita un utente guest al tenant, viene fornito l'indirizzo di posta elettronica del destinatario e un messaggio che descrive l'invito. Il collegamento di invito indirizza l'utente alla pagina di consenso, dove è possibile selezionare il pulsante **Introduzione** e accettare il riepilogo delle autorizzazioni. Se all'indirizzo di posta elettronica non è collegata una casella di posta in arrivo, l'utente può aprire la pagina di consenso da una pagina Microsoft, usando le credenziali fornite nell'invito. L'utente deve quindi riscattare l'invito con la stessa procedura che avrebbe eseguito usando il collegamento presente nel messaggio di posta elettronica. Ad esempio: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post).
+Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta).
 
 ## <a name="consumer-user"></a>Utente consumer
 

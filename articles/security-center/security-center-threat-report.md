@@ -4,7 +4,7 @@ description: Questo documento illustra come usare i report di intelligence per l
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 90cf57e22c4bb86ed9a784731480bc3fb8d3025d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619963"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112734"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Report di intelligence per le minacce generato dal Centro sicurezza di Azure
 Questo documento spiega come i report di intelligence per le minacce del Centro sicurezza di Azure possono essere utili per raccogliere informazioni più dettagliate su una minaccia che ha generato un avviso di sicurezza.

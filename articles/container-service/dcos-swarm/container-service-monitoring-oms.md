@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993560"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113848"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster DC/OS del servizio Azure Container con Log Analytics
 
@@ -34,7 +34,7 @@ In questo articolo si presume di aver configurato un DC/OSe di aver distribuito 
 ### <a name="pre-requisite"></a>Prerequisito.
 - [Sottoscrizione di Microsoft Azure](https://azure.microsoft.com/free/): è possibile ottenerla gratuitamente.  
 - Configurazione dell'area di lavoro di Log Analytics (vedere il "Passaggio 3" sotto)
-- [Interfaccia della riga di comando di DC/OS](https://dcos.io/docs/1.8/usage/cli/install/) installata.
+- [Interfaccia della riga di comando di DC/OS](http://docs.mesosphere.com/1.12/cli) installata.
 
 1. Nel dashboard di DC/OS fare clic su Universo e cercare "OMS" come illustrato di seguito.
 

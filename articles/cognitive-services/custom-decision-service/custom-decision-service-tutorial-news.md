@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Esercitazione per la personalizzazione degli articoli per i processi decisionali contestuali.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819774"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983033"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Esercitazione: Personalizzazione degli articoli per i processi decisionali contestuali
 
@@ -50,7 +50,7 @@ Per altre informazioni sul formato di feed, vedere le [informazioni di riferimen
 
 ## <a name="register-a-new-app"></a>Registrare una nuova app
 
-1. Accedere con il proprio [account Microsoft](https://account.microsoft.com/account). Sulla barra multifunzione fare clic su **My Portal** (Il mio portale).
+1. Accedere con il proprio [account Microsoft](https://portal.ds.microsoft.com/). Sulla barra multifunzione fare clic su **My Portal** (Il mio portale).
 
 2. Per registrare una nuova applicazione fare clic sul pulsante **Nuova app**.
 

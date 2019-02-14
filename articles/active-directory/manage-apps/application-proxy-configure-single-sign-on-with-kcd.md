@@ -3,8 +3,8 @@ title: Single Sign-On con il proxy di applicazione | Documentazione Microsoft
 description: Descrive come fornire accesso Single Sign-On mediante il proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 5a19b5778a0504eff2e90683b79e7e83e352b33c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158962"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180762"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 

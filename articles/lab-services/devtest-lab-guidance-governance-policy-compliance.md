@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: e02400ef940efdf42370fbdc1da75bdc7062a8ef
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872331"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243706"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governance dell'infrastruttura di Azure DevTest Labs: criteri e conformità aziendali
 Questo articolo include indicazioni sulla governance dei criteri e della conformità aziendali dell'infrastruttura di Azure DevTest Labs. 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 3307ea391734828cb83c927e8df8aca79685279a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b2d8a194abb5a5fe7d9c06cb9ef10bb0af58124a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441537"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870165"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
@@ -32,7 +32,7 @@ Per informazioni sulla protezione dell'accesso al servizio back-end di un'API tr
 
 È possibile configurare i criteri riportati di seguito per controllare se il certificato è scaduto:
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter < DateTime.Now)" >
         <return-response>
@@ -46,9 +46,9 @@ Per informazioni sulla protezione dell'accesso al servizio back-end di un'API tr
 
 È possibile configurare i criteri riportati di seguito per controllare l'autorità di certificazione e il soggetto di un certificato client:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != 'trusted-issuer' || context.Request.Certificate.SubjectName != 'expected-subject-name')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -60,9 +60,9 @@ Per informazioni sulla protezione dell'accesso al servizio back-end di un'API tr
 
 I criteri riportati di seguito possono essere configurati per controllare l'identificazione personale del certificato client:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != 'desired-thumbprint')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -74,7 +74,7 @@ I criteri riportati di seguito possono essere configurati per controllare l'iden
 
 L'esempio seguente illustra come controllare l'identificazione personale di un certificato client rispetto a certificati caricati in Gestione API: 
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>

@@ -4,7 +4,7 @@ description: Questo articolo illustra come il Centro sicurezza consente di prote
 services: sql-database
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
-ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337836"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114088"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -67,7 +67,7 @@ Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse 
 
 Dopo l'impostazione dei criteri di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Le raccomandazioni vengono visualizzate sotto forma di tabella, dove ogni riga rappresenta una particolare raccomandazione. Usare la tabella seguente come riferimento per comprendere le raccomandazioni disponibili per il database SQL di Azure e l'effetto prodotto da ogni raccomandazione che viene applicata. Se si seleziona una raccomandazione, viene visualizzato un articolo che illustra come implementare la raccomandazione nel Centro sicurezza.
 
-| Raccomandazione | DESCRIZIONE |
+| Recommendation | DESCRIZIONE |
 | --- | --- |
 | [Enable Auditing &amp; Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) (Abilita il controllo e il rilevamento delle minacce nei server SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i server di database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |
 | [Enable Auditing & Threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) (Abilita il controllo e il rilevamento delle minacce nei database SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i database del servizio database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |

@@ -4,7 +4,7 @@ description: Informazioni su come ottenere la licenza per Microsoft® Smooth Str
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243897"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000074"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Panoramica
 Microsoft Smooth Streaming Client Porting Kit, **SSPK** per brevità, è un'implementazione client di Smooth Streaming ottimizzata per aiutare produttori di dispositivi integrati, operatori di telefonia via cavo e mobile, provider di servizi di gestione del contenuto, produttori di telefoni, fornitori di software indipendenti (ISV) e provider di soluzioni a creare prodotti e servizi per la trasmissione di flussi adattivi in formato Smooth Streaming. SSPK è un'implementazione indipendente dal dispositivo e dalla piattaforma del client Smooth Streaming che può essere applicata dal licenziatario a qualsiasi dispositivo e piattaforma. 
 

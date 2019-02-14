@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105798"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999369"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -53,7 +53,7 @@ La struttura di base di un file di una soluzione di gestione corrisponde a quell
 ## <a name="parameters"></a>Parametri
 I [parametri](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) sono valori richiesti all'utente al momento dell'installazione della soluzione di gestione.  Ci sono parametri standard comuni a tutte le soluzioni ed è possibile aggiungere altri parametri in base a quanto necessario per la soluzione specifica.  Il modo in cui gli utenti forniranno i valori dei parametri quando installano la soluzione dipende dal parametro specifico e dalla modalità di installazione della soluzione.
 
-Quando un utente [installa la soluzione di gestione](solutions.md#install-a-management-solution) tramite Azure Marketplace o i modelli di avvio rapido di Azure, viene chiesto di selezionare un'[area di lavoro di Log Analytics e un account di Automazione](solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
+Quando un utente [installa la soluzione di gestione](solutions.md#install-a-monitoring-solution) tramite Azure Marketplace o i modelli di avvio rapido di Azure, viene chiesto di selezionare un'[area di lavoro di Log Analytics e un account di Automazione](solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
 
 
 Di seguito è illustrato un parametro di esempio.  
@@ -83,7 +83,7 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 >
 >
 
-| Parametro | type | DESCRIZIONE |
+| Parametro | Type | DESCRIZIONE |
 |:--- |:--- |:--- |
 | accountName |stringa |Nome dell'account di Automazione di Azure. |
 | pricingTier |stringa |Piano tariffario dell'area di lavoro di Log Analytics e dell'account di Automazione di Azure. |

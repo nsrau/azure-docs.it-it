@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 734e337ba8dff996e9b9cecd7602115bf97b4810
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772420"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167831"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 
@@ -83,7 +84,7 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
     ![App Microsoft Authenticator che consente di eseguire la scansione del codice a matrice](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Per altre informazioni su come ottenere un codice a matrice, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
+    >Per altre informazioni su come ottenere un codice a matrice, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Risoluzione dei problemi di backup e ripristino
 Esistono diversi motivi per cui il backup potrebbe non essere disponibile:

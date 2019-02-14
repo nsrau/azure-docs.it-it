@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni e un esempio di codice per iniziare a usare rapidamente l'API Emozioni con C#.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 11/02/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45282c4ad534930fa72a8d8fb71105dca4af23de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0874fc7b0c78f93df806b5bf782477efab0c0207
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234159"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 

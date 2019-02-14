@@ -4,7 +4,7 @@ description: L'articolo offre una panoramica dell'area di contributo alla sicure
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5329dcaeb20087412a693d3ebef935fafd6a2b7d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d6da4dbe9322ab38591a84ff5b075992d9495f1b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246042"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111255"
 ---
 # <a name="azure-security-mvp-program"></a>Programma MVP per la sicurezza di Azure
 

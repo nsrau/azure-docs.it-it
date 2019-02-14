@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5c68fdadcf115f57ba524b1b4dc8a2c800cbfaf8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810024"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Esercitazione: Integrazione di Azure Active Directory con PagerDuty
 

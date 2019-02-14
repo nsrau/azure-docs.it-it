@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440521"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246954"
 ---
 Le organizzazioni hanno esigenze di elaborazione su vasta scala. Questi carichi di lavoro di Big Compute includono progettazione tecnica e analisi, calcoli di valutazione dei rischi finanziari, rendering delle immagini, modellazione complessa, simulazioni Monte Carlo e altri ancora. 
 
@@ -25,12 +25,12 @@ Usare il cloud di Azure per eseguire in modo efficiente carichi di lavoro Linux 
     * Configurare l'ambiente cluster nelle macchine virtuali di Azure o nel [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Trasferire un cluster locale in modalità lift-and-shift oppure distribuire un nuovo cluster in Azure per ottenere capacità aggiuntiva. 
     * Usare i modelli di Azure Resource Manager per distribuire [gestori di carichi di lavoro](#workload-managers), infrastruttura e [applicazioni](#hpc-applications). 
-    * Scegliere [dimensioni di VM HPC e GPU](#hpc-and-gpu-sizes) che includono hardware specializzato e connessioni di rete per carichi di lavoro MPI o GPU. 
+    * Scegliere [dimensioni di VM HPC e GPU](#hpc-and-gpu-vm-sizes) che includono hardware specializzato e connessioni di rete per carichi di lavoro MPI o GPU. 
     * Aggiungere [archiviazione ad alte prestazioni](#hpc-storage) per carichi di lavoro con elevato numero di operazioni di I/O.
 * **Soluzioni ibride**
     * Estendere la soluzione locale per l'offload dei carichi di lavoro di picco nell'infrastruttura di Azure
-    * Usare il calcolo cloud su richiesta con il [gestore del carico di lavoro](#workload-manager) esistente.
-    * Sfruttare [dimensioni di VM HPC e GPU](#hpc-and-gpu-sizes) per carichi di lavoro MPI o GPU.
+    * Usare il calcolo cloud su richiesta con il [gestore del carico di lavoro](#workload-managers) esistente.
+    * Sfruttare [dimensioni di VM HPC e GPU](#hpc-and-gpu-vm-sizes) per carichi di lavoro MPI o GPU.
 * **Soluzioni di Big Compute distribuite come servizio**
     * Sviluppare soluzioni e flussi di lavoro personalizzati di Big Compute con [Azure CycleCloud](#azure-cyclecloud) e i [Azure Batch](#azure-batch) e i [servizi di Azure](#related-azure-services) correlati.
     * Eseguire le soluzioni di progettazione e simulazione abilitate per Azure di fornitori come [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) e [Cycle Computing](https://cyclecomputing.com/) (ora [rilevata da Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).

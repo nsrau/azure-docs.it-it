@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0c942056e95812dfbbe6e3b1e8963799088273fb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092595"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981197"
 ---
 # <a name="resize-a-windows-vm"></a>Ridimensionare una VM Windows
 
@@ -29,6 +29,8 @@ Questo articolo illustra come spostare una macchina virtuale a un'altra [dimensi
 Dopo aver creato una macchina virtuale (VM), è possibile scalarla in verticale o in orizzontale modificandone le dimensioni. In alcuni casi, è necessario prima deallocare la macchina virtuale. Questa situazione può verificarsi se le nuove dimensioni non sono disponibili nel cluster hardware che attualmente ospita la VM.
 
 Se la macchina virtuale usa l'archiviazione Premium, per ottenere il supporto per questo tipo di archiviazione assicurarsi di aver scelto una versione **s** delle dimensioni, ad esempio, Standard_E4**s**_v3 anziché Standard_E4_v3.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ridimensionare una VM Windows non inclusa in un set di disponibilità
 
@@ -42,25 +44,25 @@ $vmName = "myVM"
 Elencare le dimensioni di VM disponibili nel cluster hardware in cui la VM è ospitata. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Se la dimensione voluta è inclusa nell'elenco, per ridimensionare la VM eseguire i comandi seguenti. Se la dimensione desiderata non è inclusa nell'elenco, andare al passaggio 3.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMsize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
 Se la dimensione voluta non è nell'elenco, eseguire i comandi seguenti per deallocare la VM, ridimensionarla e quindi riavviarla. Sostituire **<newVMsize>** con le dimensioni desiderate.
    
 ```powershell
-Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
-Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
@@ -80,15 +82,15 @@ $vmName = "myVM"
 Elencare le dimensioni di VM disponibili nel cluster hardware in cui la VM è ospitata. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Se la dimensione desiderata è inclusa nell'elenco, per ridimensionare la VM eseguire i comandi seguenti. Se non è inclusa nell'elenco, passare alla prossima sezione.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName 
 $vm.HardwareProfile.VmSize = "<newVmSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
 Se la dimensione voluta non è elencata, seguire la procedura seguente per deallocare tutte le VM incluse nel set di disponibilità, ridimensionare le VM e quindi riavviarle.
@@ -96,12 +98,12 @@ Se la dimensione voluta non è elencata, seguire la procedura seguente per deall
 Arrestare tutte le VM nel set di disponibilità.
    
 ```powershell
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
 foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
     } 
 ```
 
@@ -109,15 +111,15 @@ Ridimensionare e riavviare tutte le VM nel set di disponibilità.
    
 ```powershell
 $newSize = "<newVmSize>"
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
   foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     $vm.HardwareProfile.VmSize = $newSize
-    Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
-    Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     }
 ```
 

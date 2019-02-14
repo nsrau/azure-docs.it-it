@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300235"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184500"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -31,10 +32,10 @@ La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account 
 
 | Tipo di account e operazione | Desktop | Mobile |
 | --- | --- | --- |
-| Azure Active Directory: sincronizzazione |Yes |No  |
+| Azure Active Directory: sincronizzazione |Sì |No  |
 | Azure Active Directory: backup e ripristino |No  |No  |
-| Account Microsoft: sincronizzazione |Yes |Yes |
-| Account Microsoft: backup e ripristino |No  |Yes |
+| Account Microsoft: sincronizzazione |Sì |Sì |
+| Account Microsoft: backup e ripristino |No  |Sì |
 
 ## <a name="what-is-backup"></a>Cosa si intende per backup
 Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.

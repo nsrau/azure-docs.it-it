@@ -4,7 +4,7 @@ description: Questo articolo offre informazioni generali sulle funzionalità di 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969686"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109079"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 
@@ -90,8 +90,7 @@ L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli
 
 Altre informazioni:
 
-* [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-whatis.md)
-* [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md)
+* [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-overview.md)
 * [Blog sull'insieme di credenziali delle chiavi di Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali

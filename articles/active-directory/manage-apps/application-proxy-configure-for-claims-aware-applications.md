@@ -3,8 +3,8 @@ title: App in grado di riconoscere attestazioni - Proxy di applicazione di Azure
 description: Come pubblicare applicazioni ASP.NET locali che accettano le attestazioni di AD FS per l'accesso remoto sicuro da parte degli utenti.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: efab95e926e72397f15a5b6a79e63833e19f0676
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dc5be2f5bbeb901888edc1e69953fdeb8de566c0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153471"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187135"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
 Le [app in grado di riconoscere attestazioni](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) eseguono un reindirizzamento al servizio token di sicurezza. Il servizio token di sicurezza richiede le credenziali all'utente in cambio di un token e quindi reindirizza l'utente all'applicazione. È possibile consentire al proxy di applicazione di usare questi reindirizzamenti in diversi modi. Usare questo articolo per configurare la distribuzione per app in grado di riconoscere attestazioni. 

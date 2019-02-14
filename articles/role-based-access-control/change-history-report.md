@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692749"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117649"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo
 
@@ -55,7 +55,7 @@ Per altre informazioni sui log attività, vedere [Visualizzare eventi nel log at
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzLog](/powershell/module/az.insights/get-azlog).
+Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog).
 
 Questo comando elenca tutte le modifiche relative alle assegnazioni di ruolo in una sottoscrizione per gli ultimi 7 giorni:
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 07bc8f20ab30cba37a75bce3865a23125f439811
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9e794c4143270c1a713989b79015ded085f33e63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195240"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Esercitazione: Integrazione di Azure Active Directory con Nomadesk
 

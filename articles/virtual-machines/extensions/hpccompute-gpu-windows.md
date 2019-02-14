@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200684"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977627"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
@@ -35,7 +35,7 @@ Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows s
 
 Questa estensione supporta i seguenti sistemi operativi:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | Windows 10 (fino alla versione 1803)| Core |
 | Windows Server 2016 | Core |
@@ -112,7 +112,7 @@ L'esempio seguente presuppone che l'estensione sia annidata all'interno della ri
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -144,7 +144,7 @@ az vm extension set `
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli
