@@ -4,18 +4,18 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Distribuire il contenitore di rilevamento della lingua, con un esempio di esecuzione, nel servizio Azure Kubernetes e testarlo in un Web browser.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8af5d60ff3e9deabb82f91c04f668703ed489440
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222032"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868345"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 

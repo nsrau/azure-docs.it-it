@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni sulla sintassi di ricerca lambda che è possibile usare nell'API Academic Knowledge.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203930"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873200"
 ---
 # <a name="lambda-search-syntax"></a>Sintassi di ricerca lambda
 

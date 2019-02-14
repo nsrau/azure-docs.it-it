@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita percentuale in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 3cdf8844ae614e301e1477a039d949b055034ba8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e06857fe45b81bcb6696c29b6a3e07a6587a95b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208415"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874669"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entità predefinita percentuale per un'app LUIS
 I numeri in percentuale possono essere visualizzati come frazioni `3 1/2`, o come percentuale, `2%`. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la percentuale per le finalità dell'applicazione. L'entità percentuale è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 

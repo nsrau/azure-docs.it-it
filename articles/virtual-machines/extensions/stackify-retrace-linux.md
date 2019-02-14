@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415964"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979718"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Estensione dell'agente Linux dello Stackify Retrace
 
@@ -42,7 +42,7 @@ Questa estensione fornisce un percorso di installazione per l'agente Linux per R
 ### <a name="operating-system"></a>Sistema operativo 
 L'agente di Retrace può essere eseguito in queste distribuzioni di Linux
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 e 17.04 |
 | Debian | 7.9+, 8.2+ e 9 |
@@ -147,7 +147,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Il comando `Set-AzureRmVMExtension` consente di distribuire l'estensione macchina virtuale dell'agente Linux di Stackify Retrace a una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviate in una tabella hash di PowerShell.
+Il comando `Set-AzVMExtension` consente di distribuire l'estensione macchina virtuale dell'agente Linux di Stackify Retrace a una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviate in una tabella hash di PowerShell.
 
 L'estensione richiede `environment` e `activationKey`.
 
@@ -155,7 +155,7 @@ L'estensione richiede `environment` e `activationKey`.
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `

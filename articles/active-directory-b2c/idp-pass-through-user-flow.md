@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6e236144909fc45e0e9d49273d7aed1e3e577436
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882217"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
 > [!NOTE]
 > Questa funzionalità è attualmente in anteprima pubblica.
-
-> [!Important]
-> Questa funzionalità in anteprima pubblica è temporaneamente non disponibile.
 
 Un [flusso utente](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
 

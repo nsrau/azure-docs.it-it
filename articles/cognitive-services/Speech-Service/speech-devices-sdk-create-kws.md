@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Il dispositivo è sempre in ascolto di una parola (o frase) di attivazione. Quando l'utente pronuncia la parola di attivazione, il dispositivo invia tutto l'audio successivo al cloud fino a quando l'utente non smette di parlare. Modificare la parola di attivazione è un modo efficace per differenziare il dispositivo e accrescere la personalizzazione.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8a736d6dcdac5fe6d4eec4f2ef5e4387ebdcdc80
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219091"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856428"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
 

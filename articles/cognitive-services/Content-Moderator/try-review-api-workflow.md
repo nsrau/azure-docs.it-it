@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Usare le operazioni di flusso di lavoro in Azure Content Moderator per creare o aggiornare un flusso di lavoro oppure ottenere i dettagli del flusso di lavoro tramite l'API di revisione.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c71358828be1c5a2a83092f8079eca37c9e757dd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1c18544a0fd135eb546660c442b865bf1249dfe5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207208"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883084"
 ---
 # <a name="workflows-from-the-api-console"></a>Flussi di lavoro dalla console per le API
 

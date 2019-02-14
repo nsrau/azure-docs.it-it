@@ -1,25 +1,18 @@
 ---
 title: Configurare gli avvisi di integrità dei servizi di Azure con OpsGenie | Microsoft Docs
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di OpsGenie.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
-ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: stephbaron
+ms.author: stbaron
 ms.topic: article
+ms.service: service-health
+ms.workload: Supportability
 ms.date: 11/14/2017
-ms.author: shtabriz
-ms.openlocfilehash: e406c80e408ddcf4d1d53f4e49925bded43b650f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858830"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configurare gli avvisi di integrità dei servizi con OpsGenie
 

@@ -4,22 +4,22 @@ titlesuffix: Azure Cognitive Services
 description: Modalità di conteggio dei caratteri dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f04e3ec4eedda7e260b205fea4856897689fb509
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2164070c8f0efe2898e3780cac30a80c9f1ca986
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700758"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874414"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Modalità di conteggio dei caratteri dell'API Traduzione testuale
 
-L'API Traduzione testuale conteggia ogni elemento di codice Unicode del testo di input come un carattere. Ogni traduzione di un testo in una lingua viene conteggiata come una traduzione separata, anche se la richiesta è stata effettuata in una singola chiamata API per la traduzione in più lingue. La lunghezza della risposta non ha importanza.
+L'API Traduzione testuale conteggia ogni elemento di codice Unicode del testo di input come un carattere. Ogni traduzione di un testo in una lingua viene conteggiata come una traduzione separata, anche se la richiesta è stata effettuata in una singola chiamata API per la traduzione in più lingue. Lunghezza della risposta non ha importanza.
 
 Gli elementi importanti sono i seguenti:
 
@@ -28,7 +28,7 @@ Gli elementi importanti sono i seguenti:
    * `Text` e `Translation` quando si usa il metodo relativo agli esempi di dizionari
 * Tutto il markup: HTML, tag XML e così via nel campo di testo del corpo della richiesta. La notazione JSON usata per compilare la richiesta, ad esempio "Text:", non viene conteggiata.
 * Una singola lettera
-* La punteggiatura
+* Punteggiatura
 * Uno spazio, una tabulazione, il markup e qualsiasi tipo di carattere che rappresenti uno spazio vuoto
 * Ogni elemento di codice definito in Unicode
 * Una traduzione ripetuta, anche se lo stesso testo è stato tradotto in precedenza

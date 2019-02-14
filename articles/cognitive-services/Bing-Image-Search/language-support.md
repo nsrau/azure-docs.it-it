@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni su quali paesi/aree e lingue sono supportati dall'API Ricerca immagini Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: d214c227171066e0a401e22d20538014790a58d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3b1c4108b18d744eb526a765a98f740d6e27a444
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157330"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868396"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Le versioni in LUIS sono simili alle versioni nella programmazione tradizionale. Ogni versione è uno snapshot temporizzato dell'app. Prima di apportare modifiche all'app, creare una nuova versione. È facile tornare all'esatta app e quindi tentare di riportare la finalità e le espressioni dell'app a uno stato precedente.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: e71fc5bb0bd8ce54b471829df20336a9dea0ccda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217085"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874084"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendere come e quando usare una versione di LUIS
 

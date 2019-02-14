@@ -4,17 +4,17 @@ titleSuffix: Cognitive Services - Azure
 description: 'Esistono tre modi per autenticare una richiesta a una risorsa di Servizi cognitivi di Azure: tramite una chiave di sottoscrizione, un token di connessione o una sottoscrizione multiservizio. Questo articolo descrive ciascun modo e come effettuare una richiesta.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305452"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859745"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 

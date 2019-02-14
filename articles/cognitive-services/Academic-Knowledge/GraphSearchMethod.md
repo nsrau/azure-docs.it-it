@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Usare il metodo Graph Search nell'API Academic Knowledge per restituire un set di entità accademiche basate su specifici modelli di grafo.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864469"
 ---
 # <a name="graph-search-method"></a>Metodo Graph Search
 
@@ -31,7 +31,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>Parametri della richiesta  
 NOME     | Valore | Obbligatorio?  | DESCRIZIONE
 -----------|-----------|---------|--------
-**mode**       | Stringa di testo | Yes | Nome della modalità che si vuole usare. Il valore può essere *json* oppure *lambda*.
+**mode**       | Stringa di testo | Sì | Nome della modalità che si vuole usare. Il valore può essere *json* oppure *lambda*.
 
 Il metodo Graph Search deve essere chiamato tramite una richiesta HTTP POST. La richiesta POST deve includere l'intestazione del tipo di contenuto: **application/json**.
 

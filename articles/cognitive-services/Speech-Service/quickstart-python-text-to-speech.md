@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido si apprenderà come eseguire la sintesi vocale di testo usando Python e l'API REST Sintesi vocale. Il testo di esempio incluso in questo articolo è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 72cc14bf9dfece008a96ef57f86053647d8fa8e7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 36ff3f4b73db8889349e977aaf80a754894d75ae
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207260"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857339"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 

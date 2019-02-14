@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 18bfdaaf75230cf91ea8f786188b9de9f7a6a5be
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 331bf57c415922a6686ba733b5fbcee24699a152
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696735"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118259"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Creare una macchina virtuale con un disco rigido virtuale
 
@@ -62,7 +62,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Crea un BLOB nel contenitore caricando il disco rigido virtuale. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm) | Usato con `--query`, controlla se il nome della macchina virtuale è in uso. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crea le macchine virtuali. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) | Ottiene l'indirizzo IP della macchina virtuale creata. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

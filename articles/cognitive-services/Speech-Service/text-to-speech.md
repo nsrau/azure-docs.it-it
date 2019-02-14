@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: L'API Sintesi vocale offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare caratteri voce standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama il servizio Voce.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251555"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859335"
 ---
 # <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
 
@@ -55,11 +55,11 @@ Molte delle funzionalità dell'API **Sintesi vocale**, soprattutto per quanto ri
 
 | Caso d'uso | REST | SDK |
 |-----|-----|-----|----|
-| Caricare set di dati per l'adattamento vocale | Yes | No  |
-| Creare e gestire i modelli di caratteri voce | Yes | No  |
-| Creare e gestire distribuzioni di caratteri voce | Yes | No  |
-| Creare e gestire test di caratteri voce| Yes | No  |
-| Gestisci sottoscrizioni | Yes | No  |
+| Caricare set di dati per l'adattamento vocale | Sì | No  |
+| Creare e gestire i modelli di caratteri voce | Sì | No  |
+| Creare e gestire distribuzioni di caratteri voce | Sì | No  |
+| Creare e gestire test di caratteri voce| Sì | No  |
+| Gestisci sottoscrizioni | Sì | No  |
 
 > [!NOTE]
 > L'API implementa la limitazione delle richieste dell'API a 25 ogni 5 secondi. Le intestazioni dei messaggi informeranno dei limiti.

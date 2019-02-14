@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Viene illustrato come usare un token di informazioni dettagliate di un'immagine con l'API Ricerca visiva Bing per ottenere informazioni dettagliate su un'immagine.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813365"
+ms.locfileid: "55878800"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Uso di un token di informazioni dettagliate per ottenere informazioni dettagliate su un'immagine
 

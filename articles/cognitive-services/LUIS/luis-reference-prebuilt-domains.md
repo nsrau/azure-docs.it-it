@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Informazioni di riferimento sui domini predefiniti che sono raccolte predefinite di finalità ed entità di Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221012"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868957"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
@@ -26,7 +26,7 @@ I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono a
 ## <a name="list-of-prebuilt-domains"></a>Elenco dei domini predefiniti
 LUIS offre 20 domini predefiniti. 
 
-| Dominio predefinito | Descrizione | Lingue supportate |
+| Dominio predefinito | DESCRIZIONE | Lingue supportate |
 | ---------------- |-----------------------|:------:|
 | Calendario | Il dominio Calendar (Calendario) offre finalità ed entità per l'aggiunta, l'eliminazione o la modifica di un appuntamento, la verifica della disponibilità dei partecipanti e la ricerca di informazioni su un evento del calendario.| en-US<br/> zh-CN |
 | Camera | Il dominio Camera (Fotocamera) offre finalità ed entità per l'acquisizione di foto, la registrazione di video e la trasmissione di video in un'applicazione.| en-US |
@@ -57,7 +57,7 @@ Per informazioni dettagliate su ogni dominio, vedere le sezioni che seguono.
 Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci di calendario. Le finalità del calendario includono l'aggiunta, l'eliminazione o la modifica di un appuntamento, la verifica della disponibilità e la ricerca di informazioni su una voce del calendario o un appuntamento.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Add | Aggiungere una voce singola al calendario.| Prendi un appuntamento con Lisa per le 14.00 di domenica <br/><br/>Voglio pianificare una riunione<br/><br/>Ho bisogno di organizzare una riunione|
 | CheckAvailability | Cercare la disponibilità per un appuntamento o una riunione nel calendario dell'utente o di un altro utente.| Quando è possibile incontrare Jim? <br/><br/>Mostra quando Carol è disponibile domani<br/><br/>Chris è libero sabato?|
@@ -66,7 +66,7 @@ Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci 
 | Find | Visualizzare il calendario settimanale personale.| Trova l'appuntamento di controllo dal dentista. <br/><br/>Mostra il mio calendario<br/>|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Località | Località dell'elemento del calendario, della riunione o dell'appuntamento. Indirizzi, città e regioni sono un ottimo esempio di località.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
 | Oggetto | Titolo di una riunione o di un appuntamento.| Appuntamento dal dentista <br/><br/>Pranzo con Julia<br/><br/>Appuntamento dal dottore|
@@ -75,7 +75,7 @@ Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci 
 Il dominio Camera (Fotocamera) offre finalità ed entità correlate all'uso di una fotocamera. Le finalità includono lo scatto di una foto, selfie, screenshot o video e la trasmissione di video in un'applicazione.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | CapturePhoto| Acquisire una foto.| Scatta una foto<br/><br/>acquisire|
 | CaptureScreenshot | Acquisire uno screenshot.| Fai uno screenshot.<br/><br/>acquisisci la schermata.|
@@ -86,7 +86,7 @@ Il dominio Camera (Fotocamera) offre finalità ed entità correlate all'uso di u
 | StopVideoRecording| Arrestare la registrazione di un video.| È abbastanza<br/><br/>ferma registrazione|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AppName | Nome di un'applicazione in cui trasmettere un video.| OneNote<br/><br/>Facebook<br/><br/>Skype|
 
@@ -95,7 +95,7 @@ Il dominio Camera (Fotocamera) offre finalità ed entità correlate all'uso di u
 Il dominio Communication (Comunicazione) offre le finalità e le entità correlate a messaggi di posta elettronica, messaggi e chiamate telefoniche.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AddContact| Aggiungere un nuovo contatto all'elenco dei contatti dell'utente.|Aggiungi nuovo contatto <br/><br/>Salva il numero e assegna il nome Carol|
 | AddMore| Aggiungere altri dati a un messaggio di posta elettronica o a un messaggio di testo, come fase della composizione di un messaggio di posta elettronica o di testo.|Aggiungi altro al messaggio di testo <br/><br/>Aggiungi altro al corpo del messaggio di posta elettronica|
@@ -103,7 +103,7 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 | AssignContactNickname| Assegnare un nome alternativo a un contatto.|Cambia Isaac con papà <br/>Cambia nome alternativo di Jim<br/>Aggiungi nome alternativo a Patti Owens|
 | CallVoiceMail| Connettersi alla posta vocale dell'utente.|Connettimi alla casella della posta vocale <br/>Messaggi vocali<br/>Chiama posta vocale|
 | CheckIMStatus| Controllare lo stato di un contatto in Skype.|Lo stato online di Jim è impostato su Assente? <br/>Carol è disponibile per una chat?|
-| Confirm| Confermare un'azione.|Yes<br/>OK<br/>Va bene<br/>Confermo di voler inviare questo messaggio di posta elettronica.<br/>|
+| Confirm| Confermare un'azione.|Sì<br/>OK<br/>Va bene<br/>Confermo di voler inviare questo messaggio di posta elettronica.<br/>|
 | Dial| Effettuare una chiamata telefonica.|Chiama Jim<br/>Componi 311<br/>|
 | FindContact| Trovare le informazioni sul contatto in base al nome.|Trova il numero di Carol<br/>Mostra il numero di Carol<br/>|
 | FindSpeedDial| Trovare il numero rapido impostato per un numero telefonico e viceversa.|A quale numero corrisponde il numero 5?<br/>È impostato il numero rapido?<br/>Qual è il numero rapido per 941-5555-333?|
@@ -128,7 +128,7 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 | TurnSpeakerOn| Attivare l'altoparlante.|Modalità viva voce.<br/>Attiva viva voce.<br/>|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Tipo di dispositivo audio (altoparlante, cuffie, microfono, ecc.).| Relatore<br/>Viva voce<br/>Bluetooth|
 | Categoria | Categoria di un messaggio o di un messaggio di posta elettronica.| Importante<br/>Priorità alta|
@@ -145,12 +145,12 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 Il dominio Entertainment (Svago) offre le finalità e le entità correlate alla ricerca di film, musica, giochi e programmi televisivi.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Ricerca| Cercare film, musica, app, giochi e programmi televisivi.|Cerca Halo nello store.<br/>Cerca Avatar.|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | ContentRating | Classificazione dei contenuti multimediali, ad esempio G oppure R per i film.|Video per bambini.<br/>Classificazione PG.|
 | Genre | Genere di un film, gioco, app o brano musicale.|Commedia<br/>Drammatico<br/>Divertimento|
@@ -170,13 +170,13 @@ Il dominio Entertainment (Svago) offre le finalità e le entità correlate alla 
 Il dominio Events (Eventi) offre le finalità e le entità correlate alla prenotazione di biglietti per eventi come concerti, festival, competizioni sportive e spettacoli.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Book| Acquistare biglietti per un evento.|Acquistare un biglietto per un concerto sinfonico per il fine settimana.|
 
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Indirizzo | Località o indirizzo dell'evento. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
 | NOME | Nome di un evento.|Shakespeare in the Park|
@@ -188,7 +188,7 @@ Il dominio Events (Eventi) offre le finalità e le entità correlate alla prenot
 Il dominio Fitness offre le finalità e le entità correlate alla registrazione delle attività di fitness. Le finalità includono il salvataggio di note, del tempo o della distanza rimanente o dei risultati dell'attività.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AddNote| Aggiunge ulteriori note all'attività registrata.|La difficoltà della corsa è stata di 6/10<br/>Il terreno della corsa è l'asfalto<br/>Uso una bicicletta a 3 velocità|
 |GetRemaining| Ottiene il tempo o la distanza rimanente di un'attività.|Quanto manca per il giro successivo?<br/>Quante sono le miglia rimanenti? Quanto manca per il tempo parziale?|
@@ -196,7 +196,7 @@ Il dominio Fitness offre le finalità e le entità correlate alla registrazione 
 | LogWeight| Salvare o registrare il peso attuale dell'utente.|Salva peso attuale<br/>registra peso attuale<br/>archivia peso corporeo attuale|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | ActivityType | Tipo di attività da registrare. |Esegui<br/>Camminata<br/>Nuotata<br/>Ciclo |
 | Food | Tipo di alimento da registrare in un'app per il fitness. |Banana<br/>Salmone<br/>Frullato proteico|
@@ -209,14 +209,14 @@ Il dominio Fitness offre le finalità e le entità correlate alla registrazione 
 Il dominio Gaming (Giochi) offre le finalità e le entità correlate alla gestione di una partita in un gioco multiplayer.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | InviteParty| Invitare un contatto a partecipare a una partita.|Invita questo giocatore alla partita<br/>Gioca alla partita<br/>Unisciti alla squadra|
 |LeaveParty| Ottiene il tempo o la distanza rimanente di un'attività.|Sono fuori<br/>Vado a un'altra festa<br/>Me ne vado|
 | StartParty| Avviare una partita in un gioco multiplayer.|Amico iniziamo una partita<br/>avvia una partita<br/>dobbiamo creare una squadra stasera|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Contatto| Nome di un contatto da usare in un gioco multiplayer.|Carol<br/>Jim|
 
@@ -225,14 +225,14 @@ Il dominio Gaming (Giochi) offre le finalità e le entità correlate alla gestio
 Il dominio HomeAutomation (Domotica) offre le finalità e le entità correlate al controllo dei dispositivi domestici intelligenti, ad esempio luci e accessori.
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | TurnOff| Spegnere, chiudere o sbloccare un dispositivo.|Spegni le luci<br/>Interrompi macchina del caffè<br/>Chiudi la porta del garage|
 |TurnOn| Accendere un dispositivo o impostare una modalità specifica del dispositivo.|accendere la macchina del caffè<br/>puoi accendere la macchina del caffè?<br/>Impostare il termostato a 72 gradi.|
 
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Dispositivo | Tipo di dispositivo che può essere acceso o spento.|macchina del caffè<br/>termostato<br/>luci|
 | Operazione | Stato del dispositivo da impostare.|lock<br/>apre<br/>in<br/>spento|
@@ -250,14 +250,14 @@ Il dominio MovieTickets (Biglietti cinema) offre le finalità e le entità corre
 |A che ora è I tre moschettieri?|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Book | Acquistare biglietti del cinema.|Prenota due biglietti per I tre moschettieri<br/>Voglio acquistare un biglietto per il film di domani<br/>Voglio un biglietto per I tre moschettieri per mercoledì prossimo|
 |GetShowTime| Ottenere gli orari di programmazione di un film.|A che ora è I tre moschettieri?|
 
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Indirizzo | Indirizzo della sala cinematografica.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | MovieTitle | Titolo di un film.|Vita di Pi<br/>Hunger Games<br/>Inception|
@@ -276,7 +276,7 @@ Il dominio Music (Musica) offre le finalità e le entità correlate alla riprodu
 |Passa al prossimo brano|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | DecreaseVolume | Abbassare il volume del dispositivo.|abbassa il volume del brano<br/>abbassa il volume|
 | IncreaseVolume | Alzare il volume del dispositivo.|alza il volume del brano<br/>alza il volume|
@@ -291,7 +291,7 @@ Il dominio Music (Musica) offre le finalità e le entità correlate alla riprodu
 | Unmute | Attivare l'audio di un dispositivo di riproduzione di musica.| Attiva audio.|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | ArtistName | Attore, regista, produttore, autore, musicista o artista associato al contenuto multimediale da riprodurre su un dispositivo.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
 | Genre | Genere della musica richiesta.|Country<br/>Classici di Broadway<br/>Riproduci musica classica a partire dal periodo barocco|
@@ -308,7 +308,7 @@ Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla
 |Rimuovi tutte le voci dalla lista delle vacanze|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AddToNote | Aggiungere informazioni a una nota.|Aggiungi alla lista della spesa lattuga pomodoro pane caffè<br/>Aggiungi all'elenco di attività<br/>aggiungi cupcake alla Wunderlist|
 | CheckOffItem | Aggiungere un segno di spunta alle voci di una nota preesistente.|Aggiungi segno di spunta alle banane nella lista della spesa<br/>Contrassegna cheesecake nella lista dello shopping delle vacanze|
@@ -321,7 +321,7 @@ Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla
 | ShowNext | Visualizzare la voce successiva di un elenco di note.|Mostra la prossima<br/>Pagina successiva<br/>Avanti|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AppName | Nome dell'applicazione delle note.|Wunderlist<br/>OneNote|
 | ContactName | Nome di un contatto in una nota.|Carol<br/>Jim<br/>Chris|
@@ -343,7 +343,7 @@ Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al contro
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AreYouListening | Chiedere se il dispositivo è in ascolto.|è acceso?<br/>sei in ascolto?|
 |CloseApplication|Chiudere l'applicazione del dispositivo.|chiudi lettore video|
@@ -374,7 +374,7 @@ Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al contro
 |TurnUpBrightness|Aumentare la luminosità del dispositivo.|Schermo più luminoso|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AppName | Nome di un'applicazione nel dispositivo.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Impostare il livello di luminosità nel dispositivo.|Cento per cento<br/>Cinquanta<br/>40%|
@@ -396,7 +396,7 @@ Il dominio Places (Luoghi) offre le finalità per la gestione di query correlate
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AddFavoritePlace | Aggiungere una posizione ai Preferiti dell'utente.|Salva questa posizione nei Preferiti<br/>Aggiungi questo indirizzo ai Preferiti|
 |CheckAccident|Chiedere se si è verificato un incidente in una strada specificata.|C'è un incidente sulla 880?<br/>Mostra informazioni sull'incidente|
@@ -431,7 +431,7 @@ restart|
 |TakesReservations|Chiedere se un luogo accetta prenotazioni.|La galleria d'arte accetta prenotazioni?<br/>È possibile prenotare a Olive Garden
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | AbsoluteLocation | Posizione o indirizzo di un luogo.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Amenities | Caratteristiche e attrattive di un luogo.|pranzo gratis per i bambini<br/>fronte mare<br/>parcheggio gratuito|
@@ -467,7 +467,7 @@ Il dominio Reminder (Promemoria) offre le finalità e le entità per la creazion
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Modifica| Modificare un promemoria.|Sposta il mio colloquio alle 9.00 di domani<br/>Sposta promemoria assegnazione a domani|
 | Create| Creare un nuovo promemoria.|Crea un promemoria<br/>Ricordami di comprare il latte<br/>Ricordami di chiamare Rebecca quando sono a casa|
@@ -475,7 +475,7 @@ Il dominio Reminder (Promemoria) offre le finalità e le entità per la creazion
 | Find | Trovare un promemoria.|C'è un promemoria per l'anniversario?<br/>Controlla se c'è un promemoria per il compleanno di Christine|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Text | Testo di un promemoria.|ritiro in tintoria<br/>ritiro auto dal meccanico|
 
@@ -491,12 +491,12 @@ Il dominio RestaurantReservation (Prenotazione ristorante) offre le finalità e 
 |Tavolo per 3 al Palo Alto per le 7|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Reserve | Effettuare una prenotazione per un ristorante. |Prenota allo Zucca per due per stasera<br/>Prenota un tavolo per domani<br/>Tavolo per 3 al Palo Alto per le 7|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Indirizzo| Posizione o indirizzo di un evento per una prenotazione.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Amenities | Attributo che descrive le attrattive di un luogo.|vista oceano<br/>vietato fumare|
@@ -521,14 +521,14 @@ Il dominio Taxi offre le finalità e le entità per la creazione e la gestione d
 |Annulla Uber|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Book | Chiamare un taxi. |Prenota taxi<br/>Trova taxi<br/>Prenota uber x|
 | Annulla | Annullare un'azione relativa alla prenotazione di un taxi.|Annulla taxi<br/>Annulla Uber|
 | Track | Tenere traccia del percorso di un taxi.|Quanto tempo deve attendere il taxi?<br/>Dov'è Uber?|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Indirizzo| Indirizzo associato alla prenotazione di un taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Posizione o indirizzo di destinazione. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -552,13 +552,13 @@ Il dominio Translate (Tradurre) offre le finalità e le entità correlate alla t
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Translate| Tradurre un testo in un'altra lingua.|Traduci in francese<br/>Traduci ciao in tedesco|
 
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | TargetLanguage | Lingua di destinazione di una traduzione.|Francese<br/>Tedesco<br/>Coreano|
 | Text | Testo da tradurre.|Hello World<br/>Buongiorno<br/>Buonasera|
@@ -576,14 +576,14 @@ Il dominio TV offre le finalità e le entità per il controllo dei televisori.
 |Guarda National Geographic|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | ChangeChannel| Cambiare un canale in un televisore.|Passa al canale CNN<br/>Cambia canale passando alla BBC<br/>Vai al canale 4|
 | ShowGuide| Visualizzare la Guida TV.|Mostra Guida TV<br/>cosa c'è nel canale dei film adesso?<br/>mostra elenco programmi|
 | WatchTV| Chiedere di vedere un canale TV.|Voglio vedere Disney Channel<br/>passa a TV<br/>Guarda National Geographic|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | ChannelName | Nome di un canale TV.|CNN<br/>BBC<br/>Canale Cinema|
 
@@ -600,7 +600,7 @@ Il dominio Utilities (Utilità) offre le finalità per operazioni comuni a molte
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Annulla | Annullare un'azione.|Annulla messaggio<br/>Non inviare più il messaggio di posta elettronica|
 | Confirm | Confermare un'azione.|Sì, confermo<br/>Bene, confermo<br/>OK, confermo|
@@ -626,13 +626,13 @@ Il dominio Weather (Meteo) offre le finalità e le entità per recuperare i repo
 
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | GetCondition | Ottenere informazioni storiche relative al meteo. |meteo a Londra in settembre<br/>Qual è la temperatura media in India a settembre?|
 | GetForecast | Ottenere informazioni sul meteo e le previsioni per i giorni successivi. |Che tempo fa oggi?<br/>Quali sono le previsioni a 10 giorni?<br/>Come sarà il tempo nel fine settimana?|
 
 ### <a name="entities"></a>Entità
-| Nome dell'entità | Descrizione | Esempi |
+| Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Località| Posizione assoluta per una richiesta meteo.|Seattle<br/>Parigi<br/>Palo Alto|
 
@@ -648,7 +648,7 @@ Il dominio Web offre una finalità per la navigazione in un sito Web.
 |Passa a www.bing.com|
 
 ### <a name="intents"></a>Finalità
-| Nome della finalità | Descrizione | Esempi |
+| Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Esplorare | Richiedere di passare a un sito Web specifico. |Passa a facebook.com<br/>Vai a www.twitter.com|
 

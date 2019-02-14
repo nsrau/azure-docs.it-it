@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f7b3cc638e28e4f28694f668660a28ffe6e9fa51
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24af2150438d3db13323aaecdfd89302b8152fa9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879123"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Risoluzione dei problemi in Azure Data Box Disk
 
@@ -98,7 +98,7 @@ La causa probabile è un file system anomalo.
 
 Rimontare un'unità in modalità di lettura/scrittura impedisce il funzionamento con Data Box Disk. Questo scenario non è supportato da unità decrittografate da dislocker. Il dispositivo potrebbe essere stato rimontato con successo tramite il comando seguente: 
 
-    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
 Anche se il rimontaggio avesse esito positivo, i dati non verranno mantenuti.
 

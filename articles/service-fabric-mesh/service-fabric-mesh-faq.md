@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063574"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979752"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -101,7 +101,7 @@ Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS p
 - Se il nome del servizio da solo non funziona, provare a specificare il nome completo: ServiceName.ApplicationName.
 - Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio: 
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 

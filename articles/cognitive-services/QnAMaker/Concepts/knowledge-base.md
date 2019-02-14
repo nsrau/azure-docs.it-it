@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Una knowledge base QnA Maker è costituita da un set di coppie di domanda/risposta (QnA) e metadati facoltativi associati a ogni coppia QnA.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d036b93bc043f74dedae24455ca0a43cd808a936
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2173bc46471fec6bfbacbda9362e5530075faf18
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857332"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una knowledge base di QnA Maker?
 

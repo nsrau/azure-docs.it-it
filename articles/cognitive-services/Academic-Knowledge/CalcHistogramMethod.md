@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Usare il metodo CalcHistogram per calcolare la distribuzione dei valori di attributo per un set di entità documenti.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192537"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879021"
 ---
 # <a name="calchistogram-method"></a>Metodo CalcHistogram
 
@@ -32,7 +32,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 NOME  |Valore | Obbligatorio?  |DESCRIZIONE
 -----------|----------|--------|----------
-**expr**    |Stringa di testo | Yes  |Espressione di query che specifica le entità su cui calcolare gli istogrammi.
+**expr**    |Stringa di testo | Sì  |Espressione di query che specifica le entità su cui calcolare gli istogrammi.
 **model** |Stringa di testo | No  |Selezionare il nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.
 **attributes** | Stringa di testo | No <br>Impostazione predefinita: | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
 **count** |Number | No <br>Predefinito: 10 |Numero di risultati da restituire.

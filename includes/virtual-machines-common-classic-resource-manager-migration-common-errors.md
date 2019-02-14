@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 912d5ec399ac59d81a7d9da9b494d8ee50e720e1
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 72aadcb5d1459518cda41f1d4dcafc670fa393c5
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55736178"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985443"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errori comuni durante la migrazione dalla distribuzione classica ad Azure Resource Manager
 Questo articolo descrive gli errori più comuni e le relative soluzioni per agevolare la migrazione delle risorse IaaS dal modello di distribuzione classica di Azure allo stack di Azure Resource Manager.
@@ -163,9 +163,9 @@ Dopo aver completato il processo di migrazione, può essere necessario spostare 
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "MyRG" -Name "MyVM"
-Remove-AzureRmVMSecret -VM $vm
-Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
+$vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
+Remove-AzVMSecret -VM $vm
+Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
 #### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

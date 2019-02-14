@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker consente a più utenti di collaborare a una Knowledge Base. Questa funzione viene fornita con il controllo degli accessi in base al ruolo di Azure.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
-ms.openlocfilehash: c7b970d9d906e9a703e396d6c9358d7dde733250
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220060"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857040"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Collaborare alla Knowledge Base
 

@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755170"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960878"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -101,6 +101,7 @@ Usare i gruppi di failover automatico se l'applicazione soddisfa uno qualsiasi d
 
 Quando si esegue l'operazione, il tempo necessario per eseguire il ripristino e la quantità di dati persi dipendono dalle modalità in cui si decide di usare la funzionalità di continuità aziendale nell'applicazione. In effetti, è possibile scegliere di usare una combinazione di backup del database e replica geografica attiva a seconda dei requisiti dell'applicazione. Per una descrizione delle considerazioni sulla progettazione di applicazioni per database autonomi e pool elastici tramite queste funzioni di continuità aziendale, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
+
 Le sezioni seguenti forniscono una panoramica della procedura per eseguire il ripristino tramite backup del database o replica geografica attiva. Per la procedura dettagliata, inclusa la pianificazione dei requisiti, i passaggi successivi al ripristino e informazioni su come simulare un'interruzione del servizio per eseguire un'analisi del ripristino di emergenza, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
 ### <a name="prepare-for-an-outage"></a>Prepararsi a un'interruzione del servizio
@@ -132,7 +133,7 @@ Se si usano i backup automatici con l'archiviazione con ridondanza geografica (a
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 - Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
-- Verificare che siano disponibili regole del firewall per indirizzi IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) per abilitare regole appropriate.
+- Verificare che siano disponibili regole del firewall per indirizzi IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) per abilitare regole appropriate.
 - Verificare che siano presenti gli account di accesso appropriato e le autorizzazioni a livello di database master o usare gli [utenti contenuti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 - Configurare il controllo in base alle proprie esigenze.
 - Configurare gli avvisi in base alle proprie esigenze.

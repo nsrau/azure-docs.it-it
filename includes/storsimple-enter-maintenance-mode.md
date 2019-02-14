@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bd2ee708f7d27cff5d07ca7f86d925ca6d2741d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166363"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889443"
 ---
-<!--author=SharS last changed: 12/01/15-->
-
 #### <a name="to-enter-maintenance-mode"></a>Per attivare la modalità di manutenzione
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 2. Digitare la password. La password predefinita è **Password1**.

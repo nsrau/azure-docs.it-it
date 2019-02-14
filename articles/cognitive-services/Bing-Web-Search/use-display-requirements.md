@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Requisiti per visualizzare nelle proprie applicazioni i risultati della ricerca delle API di ricerca Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 088d4ba763e8f2996dfbed1dbcc11c8eeaad3a06
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 25636cad514df18a289c9c81ea95bc53e6ec203c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513102"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861324"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
 
@@ -34,16 +34,16 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 ## <a name="definitions"></a>Definizioni
 
 
-|Termine  |Descrizione  |
+|Termine  |DESCRIZIONE  |
 |---------|---------|
-|Riscontro     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
+|Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |
 |Risultato    | Un'informazione contenuta in un riscontro. Ad esempio, il set di dati collegato a un singolo articolo di notizie rappresenta un risultato in un riscontro relativo a notizie. |
 |API di ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrizioni delle API Controllo ortografico Bing e Suggerimenti automatici Bing
 
-Non eseguire queste operazioni:
+Non:
 
 - Copiare, archiviare o memorizzare nella cache i dati ricevuti dalle API Controllo ortografico Bing o Suggerimenti automatici Bing.
 - Usare i dati ricevuti dalle API Controllo ortografico Bing o Suggerimenti automatici Bing come parte di qualsiasi attività di apprendimento automatico o di un'attività algoritmica simile. Non usare questi dati per il training, la valutazione o il miglioramento di servizi nuovi o esistenti offerti dalla propria azienda o da terzi.
@@ -73,7 +73,7 @@ L'unica eccezione ai requisiti delle esperienze di ricerca Internet riguarda l'i
 
 ### <a name="restrictions"></a>Restrizioni
 
-Non eseguire queste operazioni:
+Non:
 
 - Copiare, archiviare o memorizzare nella cache i dati delle risposte, ad eccezione della conservazione nei limiti consentiti dalla [continuità del servizio](#continuity-of-service). 
 
@@ -105,7 +105,7 @@ Eseguire queste operazioni:
 
 - È possibile attribuire ogni riposta (o parte di una risposta) visualizzata dalle API Bing Ricerca Web, Ricerca immagini, Ricerca notizie, Ricerca video e Ricerca visiva a Microsoft, se non diversamente specificato da Microsoft per iscritto per uso dell'utente. Questo aspetto è descritto nelle [linee guida per l'utilizzo del marchio Bing](https://go.microsoft.com/fwlink/?linkid=833278). 
 
-Non eseguire queste operazioni:
+Non:
 
 - Attribuire risposte (o parti di risposte) visualizzate dall'API Ricerca personalizzata Bing a Microsoft, se non diversamente specificato da Microsoft per iscritto per un uso specifico dell'utente.
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni sulle modalità per usare il riconoscimento vocale (da un file, dal microfono, con un modello personalizzato, in modo continuo o monofase) con Speech SDK per Java.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 5bf1ec96689bc5b1d6e667edc01b83b385daae56
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56f12c9f38b92203e2be37824b9247b321a86169
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223851"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875391"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-java"></a>Riconoscimento vocale con Speech SDK per Java
 

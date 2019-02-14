@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846337"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895857"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -96,7 +96,7 @@ Un token di firma di accesso condiviso è valido per tutte le risorse precedute 
 
 È consigliabile rigenerare periodicamente le chiavi usate nella regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . La presenza degli slot di chiave primaria e secondaria cha lo scopo di consentire di ruotare le chiavi gradualmente. Se l'applicazione usa in genere la chiave primaria, è possibile copiare la chiave primaria nello slot della chiave secondaria e solo allora rigenerare la chiave primaria. Il nuovo valore di chiave primaria può essere quindi configurato nelle applicazioni client, che possono accedere in modo continuativo usando la chiave primaria precedente nello slot secondario. Dopo che tutti i client sono stati aggiornati, è possibile rigenerare la chiave secondaria per ritirare infine la chiave primaria precedente.
 
-Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) per una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
+Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) per una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticazione della firma di accesso condiviso con il bus di servizio
 

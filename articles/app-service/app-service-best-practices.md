@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: afdb082ef7d33d12d80b8edb273bea2c4c5b74a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715606"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882115"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -51,7 +51,7 @@ Quando si usa Node.js ed è presente un numero rilevante di richieste HTTP in us
 
 Ad esempio, quando si usa il pacchetto `http` o `https`:
 
-```
+```javascript
 var request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });

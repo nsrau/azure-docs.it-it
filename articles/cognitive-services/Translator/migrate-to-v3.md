@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni su come eseguire la migrazione dalla versione 2 alla versione 3 dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699925"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882338"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 

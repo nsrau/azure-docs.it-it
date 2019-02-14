@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Usare il metodo Translate dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 47496be907726ca8cd0e235775cdb1a8493310d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699721"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879106"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -225,7 +225,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Esempi
 

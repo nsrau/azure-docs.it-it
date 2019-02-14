@@ -4,22 +4,22 @@ titleSuffix: Azure Cognitive Services
 description: Il glossario include spiegazioni dei termini che è possibile incontrare durante l'uso del servizio API Viso.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ad3ea9b0cde16d5c9645e7eacee9ba7f9a08ed2d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816561"
+ms.locfileid: "55859166"
 ---
 # <a name="glossary"></a>Glossario
 
-## <a name="a"></a>A
+## <a name="a"></a>Una 
 
 #### <a name="attributes"></a>Attributi
 
@@ -34,7 +34,7 @@ L'età è uno degli [attributi](#Attributes) che descrivono l'età di un partico
 
 Per altri dettagli, vedere la guida [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento).
 
-## <a name="b"></a>B
+## <a name="b"></a>b
 
 ## <a name="c"></a>C
 

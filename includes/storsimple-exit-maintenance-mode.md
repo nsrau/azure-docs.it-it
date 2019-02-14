@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1573b1c031ab8d11a2b1e6ad3097d235c7d0024d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 6d7a94d258a6d030da9ec129cacb7abfa45cbbdc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166478"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889028"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-exit-maintenance-mode"></a>Per uscire dalla modalità di manutenzione
 1. Al prompt dei comandi digitare:
    

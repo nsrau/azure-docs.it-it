@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Di seguito sono riportate le risposte alle domande più frequenti sul Servizio di riconoscimento vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 965d690184071da3f01ba165ccb0edd7e15f99b8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225347"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875995"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -33,7 +33,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: È sempre necessario creare un modello conversione voce/testo personalizzato?**
 
-**R**: No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
+**R**:  No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
 
 È possibile distribuire modelli di base e personalizzati nel portale e quindi sottoporli a test di accuratezza. Questa funzionalità può essere usata per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
 
@@ -51,7 +51,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Qual è la differenza tra il modello di ricerca e dettatura e il modello colloquiale?**
 
-**R**: Sono disponibili più modelli di base tra cui scegliere nel Servizio di riconoscimento vocale. Il modello colloquiale è utile per il riconoscimento vocale di una conversazione. Questo modello è ideale per la trascrizione delle chiamate telefoniche. Il modello Search and Dictation (Ricerca e dettatura) è ideale per le app con attivazione vocale. Il modello Universal (Universale) è un nuovo modello che mira a risolvere entrambi questi scenari. Il modello universale è attualmente a un livello di qualità pari o superiore rispetto al modello colloquiale nella maggior parte delle impostazioni locali.
+**R**: Sono disponibili più modelli di base tra cui scegliere nel Servizio di riconoscimento vocale. Il modello Conversational (Colloquiale) è utile per il riconoscimento vocale di una conversazione. Questo modello è ideale per la trascrizione delle chiamate telefoniche. Il modello Search and Dictation (Ricerca e dettatura) è ideale per le app con attivazione vocale. Il modello Universal (Universale) è un nuovo modello che mira a risolvere entrambi questi scenari. Il modello universale è attualmente a un livello di qualità pari o superiore rispetto al modello colloquiale nella maggior parte delle impostazioni locali.
 
 **D: È possibile aggiornare un modello esistente (stacking di modelli)?**
 
@@ -71,15 +71,15 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 Se è necessario un dimensionamento ancora superiore, rivolgersi a Microsoft.
 
-**D: È possibile scaricare il modello ed eseguirlo in locale?**
+**D: è possibile scaricare il modello ed eseguirlo in locale?**
 
-**R**: Non è possibile scaricare i modelli ed eseguirli in locale.
+**R**: non è possibile scaricare i modelli ed eseguirli in locale.
 
 **D: Le richieste vengono registrate?**
 
 **R**: È possibile scegliere di disattivare la traccia quando si crea la distribuzione. Così facendo audio e trascrizioni non verranno registrati. In caso contrario, le richieste vengono in genere registrate nel servizio di archiviazione sicura in Azure.
 
-**D: Le richieste sono limitate?**
+**D: le richieste sono limitate?**
 
 **R**: L'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
@@ -93,7 +93,7 @@ In caso di altri problemi di privacy che impediscono l'uso del Servizio di ricon
 
 **D: È possibile comprimere i file di testo per caricare file di dimensioni maggiori?** 
 
-**R**: No. Attualmente sono ammessi solo file di testo non compressi.
+**R**:  No. Attualmente sono ammessi solo file di testo non compressi.
 
 **D: Il report sui dati segnala che alcune espressioni hanno avuto esito negativo. Qual è il problema?**
 
@@ -129,7 +129,7 @@ In caso di altri problemi di privacy che impediscono l'uso del Servizio di ricon
 
 **D: Che cos'è la percentuale di parole errate e come viene calcolata?**
 
-**R**: La percentuale di parole errate è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [Percentuale di parole errate](https://en.wikipedia.org/wiki/Word_error_rate).
+**R**: La percentuale di parole errate è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [frequenza degli errori di parola](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **D: Come è possibile determinare se i risultati di un test di accuratezza sono positivi?**
 

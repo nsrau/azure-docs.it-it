@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Panoramica generale sull'uso di Ricerca personalizzata Bing per ottenere immagini dalla visualizzazione personalizzata del Web.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 742436b3314886cc81bdefcf9a2961d25e268a02
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42679635aab8df7174eb06928631e2b677d0a20b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148558"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55855915"
 ---
 # <a name="get-images-from-your-custom-view"></a>Ottenere immagini dalla visualizzazione personalizzata
 

@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) CI/CD con il motore del servizio contenitore di Azure e la modalità Swarm
-description: Usare il motore del servizio contenitore di Azure con la modalità Swarm Docker, un Registro contenitori di Azure e Azure DevOps per distribuire in modo continuativo un'applicazione multi-contenitore .Net Core
+description: Usare il motore del servizio Azure Container con la modalità Swarm Docker, un'istanza di Registro Azure Container e Azure DevOps per distribuire in modo continuativo un'applicazione multi-contenitore .Net Core
 services: container-service
 author: diegomrtnzg
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 4befcbb6b2297c6f80fb577b1fe22053a8c77ada
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331079"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980551"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-*Questo articolo si basa sulla[ pipeline CI/CD completa per distribuire un'applicazione a più contenitori nel servizio contenitore di Azure con Docker Swarm e sfruttando la ](container-service-docker-swarm-setup-ci-cd.md)documentazione Azure DevOps*
+*Questo articolo si basa sulla[ pipeline CI/CD completa per distribuire un'applicazione a più contenitori nel servizio Azure Container con Docker Swarm e sfruttando la ](container-service-docker-swarm-setup-ci-cd.md)documentazione Azure DevOps*
 
 Una delle sfide principali quando si sviluppano applicazioni moderne per il cloud è quella di riuscire a distribuire le applicazioni in modo continuativo. Questo articolo illustra come implementare una pipeline completa di integrazione e distribuzione continua (CI/CD) tramite: 
-* Motore del servizio contenitore di Azure con la modalità Docker Swarm
-* Registro contenitori di Azure
+* Motore del servizio Azure Container con la modalità Docker Swarm
+* Registro Azure Container
 * Azure DevOps
 
 Questo articolo si basa su una semplice applicazione, disponibile in [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux) e sviluppata con ASP.NET Core. L'applicazione è composta da quattro servizi diversi: tre API Web e un Web front-end:
@@ -40,9 +40,9 @@ Una breve spiegazione dei passaggi:
 1. Viene eseguito il commit delle modifiche al codice nel repository del codice sorgente (in questo caso GitHub) 
 2. GitHub attiva una compilazione in Azure DevOps 
 3. Azure DevOps recupera la versione più recente delle origini e compila tutte le immagini che compongono l'applicazione 
-4. Azure DevOps effettua il push di ogni immagine in un registro Docker creato con il servizio Registro contenitori di Azure 
+4. Azure DevOps effettua il push di ogni immagine in un registro Docker creato con il servizio Registro Azure Container 
 5. Azure DevOps attiva una nuova versione 
-6. Il rilascio esegue alcuni comandi tramite SSH nel nodo principale del cluster del servizio contenitore di Azure 
+6. Il rilascio esegue alcuni comandi tramite SSH nel nodo principale del cluster del servizio Azure Container 
 7. La modalità Docker Swarm nel cluster effettua il pull della versione più recente delle immagini 
 8. La nuova versione dell'applicazione viene distribuita con Docker Stack 
 
@@ -50,14 +50,14 @@ Una breve spiegazione dei passaggi:
 
 Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seguenti:
 
-- [Creare un cluster in modalità Swarm nel servizio contenitore di Azure con il motore del servizio contenitore di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
-- [Connettersi a un cluster Swarm nel servizio contenitore di Azure](../container-service-connect.md)
-- [Creare un Registro di sistema del contenitore di Azure](../../container-registry/container-registry-get-started-portal.md)
+- [Creare un cluster in modalità Swarm nel servizio Azure Container con il motore del servizio Azure Container](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
+- [Connettersi a un cluster Swarm nel servizio Azure Container](../container-service-connect.md)
+- [Creare un registro contenitori di Azure](../../container-registry/container-registry-get-started-portal.md)
 - [Disporre di un'organizzazione Azure DevOps e di un progetto creato](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> L'agente di orchestrazione Docker Swarm nel servizio contenitore di Azure usa Swarm autonomo legacy. La [modalità Swarm](https://docs.docker.com/engine/swarm/) integrata (in Docker 1.12 e versioni successive) attualmente non è un agente di orchestrazione supportato nel servizio contenitore di Azure. Per questo motivo viene usato il [motore del servizio contenitore di Azure](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), un [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) realizzato con il contributo della community o una soluzione Docker in [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> L'agente di orchestrazione Docker Swarm nel servizio Azure Container usa Swarm autonomo legacy. La [modalità Swarm](https://docs.docker.com/engine/swarm/) integrata (in Docker 1.12 e versioni successive) attualmente non è un agente di orchestrazione supportato nel servizio Azure Container. Per questo motivo viene usato il [motore del servizio contenitore di Azure](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), un [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) realizzato con il contributo della community o una soluzione Docker in [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
 ## <a name="step-1-configure-your-azure-devops-organization"></a>Passaggio 1: Configurare l'organizzazione di Azure DevOps 
@@ -84,7 +84,7 @@ Configurare una connessione tra il progetto Azure DevOps e l'account GitHub.
 
     ![Azure DevOps - Autorizzare GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
-### <a name="connect-azure-devops-to-your-azure-container-service-cluster"></a>Connettere Azure DevOps al cluster del servizio contenitore di Azure
+### <a name="connect-azure-devops-to-your-azure-container-service-cluster"></a>Connettere Azure DevOps al cluster del servizio Azure Container
 
 Prima di passare alla pipeline CI/CD occorre configurare le connessioni esterne al cluster Docker Swarm in Azure. 
 
@@ -134,7 +134,7 @@ Esistono cinque immagini contenitore per la compilazione dell'applicazione *MySh
 * RecommendationsApi
 * ShopFront
 
-Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine nel registro contenitori di Azure. 
+Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine in Registro Azure Container. 
 
 1. Per aggiungere un passaggio nel flusso di lavoro di compilazione fare clic su **+ Aggiungi istruzione di compilazione** e selezionare **Docker**.
 
@@ -144,7 +144,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
     ![Azure DevOps - Compilazione di Docker](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    Per l'operazione di compilazione, selezionare il registro contenitori di Azure, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare la **directory di lavoro** come directory radice di Dockerfile, definire il **nome dell'immagine** e selezionare **Include Latest Tag** (Includi tag più recente).
+    Per l'operazione di compilazione, selezionare Registro Azure Container, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare la **directory di lavoro** come directory radice di Dockerfile, definire il **nome dell'immagine** e selezionare **Include Latest Tag** (Includi tag più recente).
     
     Il nome dell'immagine deve essere nel formato: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Sostituire **[NAME]** con il nome dell'immagine:
     - ```proxy```
@@ -191,7 +191,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
 ## <a name="step-3-create-the-release-pipeline"></a>Passaggio 3: Creare la pipeline di versione
 
-Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.visualstudio.com/team-services/release-management/). È possibile abilitare la distribuzione continua per assicurarsi che l'applicazione venga distribuita in ambienti diversi (ad esempio sviluppo, test, preproduzione e produzione) in modo uniforme. È possibile creare un ambiente che rappresenti il cluster della modalità Docker Swarm del servizio contenitore di Azure.
+Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.visualstudio.com/team-services/release-management/). È possibile abilitare la distribuzione continua per assicurarsi che l'applicazione venga distribuita in ambienti diversi (ad esempio sviluppo, test, preproduzione e produzione) in modo uniforme. È possibile creare un ambiente che rappresenti il cluster della modalità Docker Swarm del servizio Azure Container.
 
 ![Servizi di Azure DevOps - Rilasciare su ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
@@ -227,7 +227,9 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
 2. Configurare una seconda attività in modo che esegua un comando bash per i comandi `docker` e `docker stack deploy` nel nodo principale. Vedere i dettagli nella schermata di seguito.
 
-    ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
+    ```
+    docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
+    ```
 
     ![Servizi di Azure DevOps - Rilasciare Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
@@ -245,7 +247,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Passaggio 4: Testare la pipeline CI/CD
 
-Dopo aver completato la configurazione, è il momento di testare la nuova pipeline CI/CD. Il modo più semplice per eseguire il test consiste nell'aggiornare il codice sorgente ed eseguire il commit delle modifiche nel repository GitHub. Pochi secondi dopo il push del codice, verrà visualizzata una nuova compilazione in esecuzione Azure DevOps. Dopo il suo completamento, viene attivato un nuovo rilascio e la nuova versione dell'applicazione viene distribuita nel cluster del servizio contenitore di Azure.
+Dopo aver completato la configurazione, è il momento di testare la nuova pipeline CI/CD. Il modo più semplice per eseguire il test consiste nell'aggiornare il codice sorgente ed eseguire il commit delle modifiche nel repository GitHub. Pochi secondi dopo il push del codice, verrà visualizzata una nuova compilazione in esecuzione Azure DevOps. Dopo il suo completamento, viene attivato un nuovo rilascio e la nuova versione dell'applicazione viene distribuita nel cluster del servizio Azure Container.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

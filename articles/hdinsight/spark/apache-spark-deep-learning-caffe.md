@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118235"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891080"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 
@@ -64,7 +64,7 @@ L'azione script prevede due passaggi. Il primo passaggio consiste nell'installar
 
 Il secondo passaggio consiste nello scaricare, compilare e installare protobuf 2.5.0 per Caffe durante la fase di esecuzione. Protobuf 2.5.0 [è necessario](https://github.com/yahoo/CaffeOnSpark/issues/87), tuttavia questa versione non è disponibile come pacchetto in Ubuntu 16. È quindi necessario compilarlo dal codice sorgente. In Internet è anche possibile reperire alcune risorse che illustrano come compilarlo. Per altre informazioni, vedere [qui](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Per iniziare è possibile eseguire l'azione script nel cluster per tutti i nodi del ruolo di lavoro e i nodi head, per HDInsight 3.5. È possibile eseguire le azioni script in un cluster esistente o usarle durante la creazione del cluster. Per altre informazioni sulle azioni script, vedere la documentazione [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Per iniziare è possibile eseguire l'azione script nel cluster per tutti i nodi del ruolo di lavoro e i nodi head, per HDInsight 3.5. È possibile eseguire le azioni script in un cluster esistente o usarle durante la creazione del cluster. Per altre informazioni sulle azioni script, vedere la documentazione [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Azioni script per l'installazione delle dipendenze](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

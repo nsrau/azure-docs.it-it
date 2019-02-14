@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Creare una voce personalizzata di qualità di produzione grazie alla preparazione di uno script solido, all'assunzione di speaker di alto livello e a una registrazione professionale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ccde70aecd0ebb79928a1a6d548607a6ed36ab50
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212054"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864945"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 

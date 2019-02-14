@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni su come ottenere chiavi di sottoscrizione per le chiamate all'API Visione artificiale in Servizi cognitivi di Azure.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: c4c7ee1ab756f458c6e9fed4ff5ee54dfaba919e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222236"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858077"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Come ottenere chiavi di sottoscrizione
 

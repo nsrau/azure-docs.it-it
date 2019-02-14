@@ -11,17 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475959"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961347"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
 Questo articolo illustra come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database singolo nel database SQL di Azure.
+
+> [!IMPORTANT]
+> Viene fatturata ogni ora per cui un database esiste usando il livello di servizio più elevato e la dimensione di calcolo applicati in quell'ora, indipendentemente dall'uso o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database.
 
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modello di acquisto in base ai vCore: modifica delle dimensioni di archiviazione
 

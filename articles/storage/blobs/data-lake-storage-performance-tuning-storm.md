@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247909"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882948"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ ms.locfileid: "55247909"
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Avvio rapido: Creare un account di archiviazione per l'analisi](data-lake-storage-quickstart-create-account.md).
-* **Un cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Assicurarsi di abilitare il Desktop remoto per il cluster.
+* Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di un cluster Storm in Data Lake Storage Gen2**. Per altre informazioni, vedere [Storm in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Materiale sussidiario per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
 

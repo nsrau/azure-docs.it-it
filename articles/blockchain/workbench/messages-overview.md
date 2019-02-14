@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662228"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55896010"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
 
@@ -568,7 +568,7 @@ Contiene informazioni quando viene richiamata una funzione del contratto, ad ese
 | contractLedgerIdentifier    | Identificatore univoco del contratto nel libro mastro |
 | functionName                | Nome della funzione |
 | Parametri                  | [Informazioni sui parametri](#parameter-information) |
-| transaction                 | [Informazioni sulla transazione](#eventmessage-transaction-information) |
+| transaction                 | Informazioni sulla transazione |
 | inTransactionSequenceNumber | Numero di sequenza della transazione nel blocco |
 | connectionId                | Identificatore univoco della connessione |
 | messageSchemaVersion        | Versione dello schema di messaggistica |

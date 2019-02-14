@@ -10,14 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979067"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864860"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Iniziare a usare Azure Data Lake Store tramite l'interfaccia della riga di comando di Azure
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)

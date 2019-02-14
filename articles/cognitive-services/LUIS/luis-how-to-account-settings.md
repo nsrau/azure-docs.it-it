@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usare il sito Web LUIS per gestire le impostazioni dell'account utente e la chiave di creazione usata per tutte le app.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 51b0d3f753ab89e5809e610f5754355d1c5090b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fc1882a56c0e1bccdfbb658dac83e4c231ef261
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228628"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879089"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gestire l'account e la chiave di creazione
 Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso sono gestite in [account.microsoft.com](https://account.microsoft.com). La chiave di creazione viene gestita dalla pagina [Settings](luis-reference-regions.md) (Impostazioni) del sito Web **LUIS**. 

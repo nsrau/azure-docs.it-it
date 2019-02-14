@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516541"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873020"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gestire l'accesso, l'avvio/arresto e la modalità di connessione per Azure Data Box Gateway (anteprima)
 
@@ -35,7 +35,7 @@ L'accesso al dispositivo Data Box Gateway viene controllato tramite l'uso di una
 
 ### <a name="change-device-administrator-password"></a>Modificare la password amministratore del dispositivo
 
-Se si dimentica la password, è possibile modificarla. Per modificare la password amministratore del dispositivo, completare questi passaggi nell'interfaccia utente locale.
+Per modificare la password amministratore del dispositivo, completare questi passaggi nell'interfaccia utente locale.
 
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Modifica password**.
 2. Immettere la password corrente e quindi quella nuova. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Confermare la nuova password.

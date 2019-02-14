@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Un elenco dei linguaggi naturali, paesi e aree geografiche supportate dall'API Ricerca visiva Bing. L'API Ricerca visiva Bing supporta numerosi paesi/aree, molti dei quali con più di una lingua.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8181fc259ffbed11672fe64a8fc821e234183b72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856853"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Lingua e regioni supportate dall'API Ricerca visiva Bing
 
