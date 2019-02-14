@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 744344c9427604f46c3f428d8dfcd279d8f2ffba
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486335"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167598"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.

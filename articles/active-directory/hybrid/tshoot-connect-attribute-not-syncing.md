@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef167866cb682cec71b618e972d3d402c8e050c9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772608"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180826"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Risolvere i problemi relativi a un attributo che non si sincronizza in Azure AD Connect
 
@@ -42,7 +43,7 @@ Prima di esaminare i problemi di sincronizzazione di un attributo, è importante
 
 * Importazione da Azure Active Directory: gli oggetti Azure Active Directory vengono importati nello spazio connettore di Azure Active Directory.
 
-* Sincronizzazione: vengono eseguite le **regole di sincronizzazione in ingresso** e le **regole di sincronizzazione in uscita** nell'ordine di numero di precedenza dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'**editor delle regole di sincronizzazione** dalle applicazioni desktop. Le **regole di sincronizzazione in ingresso** importano dati dallo spazio connettore nel metaverse. Le **regole di sincronizzazione in uscita** spostano i dati dal metaverse allo spazio connettore.
+* Sincronizzazione: vengono eseguite le **regole di sincronizzazione in ingresso** e le regole di sincronizzazione in uscita nell'ordine di numero di precedenza dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'**editor delle regole di sincronizzazione** dalle applicazioni desktop. Le **regole di sincronizzazione in ingresso** importano dati dallo spazio connettore nel metaverse. Le **regole di sincronizzazione in uscita** spostano i dati dal metaverse allo spazio connettore.
 
 * Esportazione in Active Directory: dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in **Active Directory**.
 

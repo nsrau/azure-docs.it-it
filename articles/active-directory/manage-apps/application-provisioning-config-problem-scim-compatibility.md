@@ -4,7 +4,7 @@ description: Risoluzione dei problemi comuni di compatibilità con il protocollo
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: 48328a3ee379fc76fa6e70ea082395b37751d235
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181113"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190518"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -36,10 +37,10 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 | **Problema di conformità con SCIM 2.0** |  **Risolto?** | **Data di risoluzione**  |  
 |---|---|---|
-| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Yes  |  18 dicembre 2018 | 
-| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Yes  | 18 dicembre 2018  | 
-|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Yes  |  18 dicembre 2018  | 
-|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Yes  |  18 dicembre 2018  |  
+| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Sì  |  18 dicembre 2018 | 
+| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | 
+|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Sì  |  18 dicembre 2018  | 
+|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Sì  |  18 dicembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Le correzioni dei servizi descritte sono state applicate automaticamente all’app SCIM preesistente?
 
@@ -59,7 +60,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Nella sezione **Azure Active Directory > Applicazioni aziendali** del portale di Azure, individuare e selezionare la propria applicazione SCIM.
 3.  Nella sezione **Proprietà** della propria app SCIM, copiare l’**ID oggetto**.
-4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/en-us/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
+4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
 5. In Graph explorer, eseguire il comando seguente per individuare l'ID del processo di provisioning. Sostituire "[id-oggetto]" con l’ID principale del servizio (ID oggetto) copiato nel terzo passaggio.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +100,7 @@ Sì. Se si è codificata un'applicazione precedente alle correzioni con il compo
 1.  Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Nella sezione **Azure Active Directory > Applicazioni aziendali > Crea applicazione** del portale di Azure, creare una nuova applicazione **Non nella raccolta**.
 3.  Nella sezione **Proprietà** della nuova app personalizzata, copiare l’**ID oggetto**.
-4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/en-us/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
+4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
 5. In Graph explorer, eseguire il comando seguente per inizializzare la configurazione del provisioning dell'app.
 Sostituire "[id-oggetto]" con l’ID principale del servizio (ID oggetto) copiato nel terzo passaggio.
 

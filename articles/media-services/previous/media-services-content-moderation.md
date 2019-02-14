@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783430"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995119"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
 
 ## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Azure Content Moderator** consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale.
@@ -31,7 +31,7 @@ Il processore di contenuti multimediali **Azure Media Content Moderator** è att
 Questo articolo illustra nel dettaglio **Azure Media Content Moderator** e spiega come usare questa funzionalità con Media Services SDK per .NET.
 
 ## <a name="content-moderator-input-files"></a>File di input di Content Moderator
-File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
+File video. Attualmente sono supportati i seguenti formati: MP4, MOV e WMV.
 
 ## <a name="content-moderator-output-files"></a>File di output di Content Moderator
 L'output moderato in formato JSON include scatti e fotogrammi chiave rilevati automaticamente. I fotogrammi chiave vengono restituiti con punteggi di attendibilità per eventuali contenuti pornografici o per adulti. Includono anche un flag booleano che indica se è consigliabile una revisione. Il flag di revisione consigliata viene assegnato in base ai valori delle soglie interne relative ai punteggi di contenuti pornografici o per adulti.
@@ -72,7 +72,7 @@ L'output JSON include gli elementi seguenti:
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
 | racyScore | Punteggio di attendibilità per eventuali contenuti pornografici, su una scala compresa tra 0,00 e 0,99. |
 | index | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
-| timestamp | Percorso del fotogramma in "tick". |
+|  timestamp | Percorso del fotogramma in "tick". |
 | shotIndex | Indice dello scatto padre. |
 
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: f4c7efdb0a43c352450056a9f6f79e3e189c820c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 581f0883757444a29a1d941305d055204167701a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458313"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
 
@@ -48,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-clarizen-from-the-gallery"></a>Aggiunta di Clarizen dalla raccolta
 
-Per configurare l'integrazione di Clarizen in Azure AD, è necessario aggiungere Clarizen dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Clarizen in Azure AD, è necessario aggiungere Clarizen dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Clarizen dalla raccolta, seguire questa procedura:**
 
@@ -80,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Clarizen, è 
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Clarizen](#create-clarizen-test-user)**: per avere una controparte di Britta Simon in Clarizen collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -133,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
     ![Clic su "Settings" (Impostazioni) sotto il nome utente](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings (Impostazioni)")
 
-1. Fare clic sulla scheda **Global Settings** (Impostazioni globali), quindi accanto a **Federated Authentication** (Autenticazione federata) fare clic su **edit** (modifica).
+1. Fare clic sulla scheda **Global Settings** (Impostazioni globali), quindi accanto a Federated Authentication (Autenticazione federata) fare clic su **edit** (modifica).
 
     ![Scheda "Global Settings" (Impostazioni globali)](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings (Impostazioni globali)")
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099778"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -243,7 +243,7 @@ Il modello di recupero con registrazione minima o con registrazione bulk non è 
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Qual è la versione di SQL Server meno recente di cui sarà supportata la migrazione al database SQL Hyperscale
 
-SQL Server 2005. Per altre informazioni, vedere [Eseguire la migrazione a un database singolo o in pool](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Per i problemi di compatibilità, vedere [Risoluzione dei problemi di compatibilità della migrazione di database](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Per altre informazioni, vedere [Eseguire la migrazione a un database singolo o in pool](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Per i problemi di compatibilità, vedere [Risoluzione dei problemi di compatibilità della migrazione di database](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>Il database SQL Hyperscale supporta la migrazione da altre origini dati come Aurora, MySQL, Oracle, DB2 e altre piattaforme di database
 

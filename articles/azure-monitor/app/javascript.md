@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661514"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001188"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
-Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](../../azure-monitor/app/app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
+Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
 
-Application Insights è compatibile con tutte le pagine Web, con una minima aggiunta di codice JavaScript. Se il servizio Web è [Java](java-get-started.md) o [ASP.NET](../../azure-monitor/app/asp-net.md), è possibile integrare i dati di telemetria dal server e dai client.
+Application Insights è compatibile con tutte le pagine Web, con una minima aggiunta di codice JavaScript. Se il servizio Web è [Java](java-get-started.md) o [ASP.NET](asp-net.md), è possibile integrare i dati di telemetria dal server e dai client.
 
-![In portal.azure.com aprire la risorsa dell'app e fare clic su Browser](./media/javascript/03.png)
+![In portal.azure.com aprire la risorsa dell'app e fare clic su Browser](media/javascript/03.png)
 
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). Se il team ha una sottoscrizione per l'organizzazione, chiedere al proprietario di aggiungervi l'account Microsoft dell'utente.
 
@@ -38,13 +38,13 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 Se è già stato configurato il monitoraggio per il lato server dell'app, si ha già una risorsa:
 
-![Scegliere Sfoglia, quindi Servizi per gli sviluppatori, Application Insights](./media/javascript/01-find.png)
+![Scegliere Sfoglia, quindi Servizi per gli sviluppatori, Application Insights](media/javascript/01-find.png)
 
 Se non si ha un account, crearlo:
 
-![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights.](./media/javascript/01-create.png)
+![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights.](media/javascript/01-create.png)
 
-*Altre domande?* [Altre informazioni sulla creazione di una risorsa](../../azure-monitor/app/create-new-resource.md ).
+*Altre domande?* [Altre informazioni sulla creazione di una risorsa](create-new-resource.md ).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Aggiungere lo script SDK per l'app o pagine Web
 
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Inserire lo script poco prima del tag `</head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio: 
 
 * In un progetto ASP.NET MVC inserire lo script in `View\Shared\_Layout.cshtml`
-* Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](../../azure-monitor/app/sharepoint.md).
+* Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights. 
 
@@ -118,9 +118,9 @@ Aprire il pannello Browser per visualizzare i dati sulle prestazioni aggregati r
 
 ![In portal.azure.com aprire la risorsa dell'app e fare clic su Impostazioni, Browser](./media/javascript/03.png)
 
-Ancora nessun dato? Fare clic su **Aggiorna** nella parte superiore della pagina. Ancora niente di fatto? Vedere [Domande su Application Insights per ASP.NET](../../azure-monitor/app/troubleshoot-faq.md).
+Ancora nessun dato? Fare clic su **Aggiorna** nella parte superiore della pagina. Ancora niente di fatto? Vedere [Domande su Application Insights per ASP.NET](troubleshoot-faq.md).
 
-Il pannello Browser è un [pannello di Esplora metriche](../../azure-monitor/app/metrics-explorer.md) con selezioni di grafici e filtri predefiniti. È possibile modificare l'intervallo di tempo, i filtri e la configurazione del grafico e salvare il risultato tra i preferiti. Fare clic su **Ripristina impostazioni predefinite** per tornare alla configurazione originale del pannello.
+Il pannello Browser è un [pannello di Esplora metriche](metrics-explorer.md) con selezioni di grafici e filtri predefiniti. È possibile modificare l'intervallo di tempo, i filtri e la configurazione del grafico e salvare il risultato tra i preferiti. Fare clic su **Ripristina impostazioni predefinite** per tornare alla configurazione originale del pannello.
 
 ## <a name="page-load-performance"></a>Prestazioni di caricamento delle pagine
 Nella parte superiore è presente un grafico segmentato relativo ai tempi di caricamento delle pagine. L'altezza totale del grafico rappresenta il tempo medio di caricamento e visualizzazione delle pagine dall'app nel browser degli utenti. Il tempo viene misurato dal momento in cui il browser invia la richiesta HTTP iniziale fino al termine dell'elaborazione di tutti gli eventi di caricamento sincrono, inclusi gli script di esecuzione e layout. Non sono incluse le attività asincrone, ad esempio il caricamento di Web part da chiamate AJAX.
@@ -178,7 +178,6 @@ Fare clic su una riga per visualizzare i dettagli specifici.
 
 ![](./media/javascript/37.png)
 
-
 Fare clic su `...` per visualizzare i dati di telemetria completi per una chiamata AJAX.
 
 ### <a name="no-ajax-calls-reported"></a>Nessuna chiamata AJAX segnalata
@@ -202,7 +201,7 @@ Nella falda di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
 > [!NOTE]
-> Se si usa [Ricerca](../../azure-monitor/app/diagnostic-search.md), si noti che è necessaria la corrispondenza dell'intera parola: "Informaz" e "Info" non corrispondono a "Informazioni".
+> Se si usa [Ricerca](diagnostic-search.md), si noti che è necessaria la corrispondenza dell'intera parola: "Informaz" e "Info" non corrispondono a "Informazioni".
 > 
 > 
 
@@ -227,8 +226,8 @@ Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratte
 ## <a name="usage-tracking"></a>Monitoraggio dell'utilizzo
 Per sapere in che modo gli utenti usano l'app,
 
-* [Informazioni sugli strumenti di analitica del comportamento utente](../../azure-monitor/app/usage-overview.md)
-* [Altre informazioni sull'API per gli eventi e le metriche personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
+* [Informazioni sugli strumenti di analitica del comportamento utente](usage-overview.md)
+* [Altre informazioni sull'API per gli eventi e le metriche personalizzati](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -238,7 +237,7 @@ Per sapere in che modo gli utenti usano l'app,
 
 
 ## <a name="next"></a> Passaggi successivi
-* [Tenere traccia dell'utilizzo](../../azure-monitor/app/usage-overview.md)
-* [Metriche ed eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
+* [Tenere traccia dell'utilizzo](usage-overview.md)
+* [Metriche ed eventi personalizzati](api-custom-events-metrics.md)
+* [Build-measure-learn](usage-overview.md)
 

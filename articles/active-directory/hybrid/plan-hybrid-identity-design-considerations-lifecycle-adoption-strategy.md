@@ -16,12 +16,13 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 856b392c1d17f0cd8f08a550703e4159801dcb71
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec0842daa9ca8e0f64d0ca7d2610b6116c2bd5b8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202826"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

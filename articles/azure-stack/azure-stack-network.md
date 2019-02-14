@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185010"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243486"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
@@ -67,9 +67,6 @@ Questo da/24 (gli indirizzi IP di 254 host) di rete è privata nell'area di Azur
 
 ### <a name="azure-stack-infrastructure-network"></a>Rete dell'infrastruttura di Azure Stack
 In questo/24 rete dedicato ai componenti interni di Azure Stack, in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede indirizzi IP instradabili, ma verrà mantenuta privata per la soluzione con elenchi di controllo di accesso (ACL). Non deve essere indirizzato oltre le opzioni del bordo, ad eccezione di una gamma ristretta equivalente in dimensioni di/27 rete usata da alcuni di questi servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
-
-### <a name="public-infrastructure-network"></a>Rete pubblica dell'infrastruttura
-In questo/rete 27 è l'intervallo di piccole dimensioni dalla subnet dell'infrastruttura di Azure Stack indicata in precedenza, non richiede gli indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per le emergenze ripristino Console System (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e durante i backup dell'infrastruttura. La VM ERCS devono essere instradabile alla rete di gestione per la risoluzione dei problemi.
 
 ### <a name="public-vip-network"></a>Rete indirizzi VIP pubblici
 La rete VIP pubblico viene assegnata al controller di rete in Azure Stack. Non è una rete logica nel commutatore. Il bilanciamento del carico software Usa il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciati come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o accessibile dall'esterno. L'infrastruttura di Azure Stack riserva i primi 31 indirizzi da questa rete VIP pubblici mentre il resto viene usato da macchine virtuali tenant. Le dimensioni di rete in questa subnet possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare/24 rete.

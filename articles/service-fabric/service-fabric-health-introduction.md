@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194288"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193765"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
 
 I componenti di Service Fabric usano questo dettagliato modello di integrità per segnalare il proprio stato corrente ed è possibile avvalersi dello stesso meccanismo per segnalare l'integrità delle proprie applicazioni. Investendo nella creazione di report sull'integrità di alta qualità con acquisizione delle proprie condizioni personalizzate, è possibile rilevare e risolvere i problemi dell'applicazione in esecuzione con maggiore facilità.
-
-Il video seguente di Microsoft Virtual Academy descrive anche i concetti del modello di integrità di Service Fabric e il suo uso: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric offre aggiornamenti monitorati delle applicazioni e dei cluster che garantiscono disponibilità completa, senza tempi di inattività e con un intervento minimo o addirittura nessun intervento da parte dell'utente. Per raggiungere questi obiettivi, l'aggiornamento controlla l'integrità in base ai criteri di aggiornamento configurati. Un aggiornamento può continuare solo quando l'integrità rientra nelle soglie desiderate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
@@ -76,7 +72,7 @@ Service Fabric usa tre stati di integrità per indicare se un'entità è integra
 I possibili [stati di integrità](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) sono:
 
 * **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
-* **Warning**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
+* **Avviso**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
 * **Error**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
 * **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager**, **ClusterManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità non presente nell'archivio integrità, il risultato unito ha uno stato di integrità sconosciuto. Un'entità non è nell'archivio perché non sono ancora stati elaborati i report sull'integrità o è stata eseguita la pulizia dell'entità dopo l'eliminazione.
 
