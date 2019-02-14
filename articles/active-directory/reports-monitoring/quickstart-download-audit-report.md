@@ -16,14 +16,15 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e589f613eb3afc8efe409773f37a9855f8fc5432
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3d702810ae7de03a14e50f56c2b8e819c31f3ea9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180332"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192711"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare il report di controllo con il portale di Azure
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Avvio rapido: Scaricare il report di controllo con il portale di Azure
 
 In questa guida introduttiva si apprenderà come scaricare i log di controllo per il tenant per le ultime 24 ore. dal portale di Azure è possibile scaricare fino a 5000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5000 record, ordinati partendo dai record più recenti. 
 
@@ -34,7 +35,7 @@ In questa guida introduttiva si apprenderà come scaricare i log di controllo pe
 * Un tenant di Azure Active Directory. 
 * Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Amministratore globale** per il tenant. Inoltre, tutti gli utenti nel tenant possono accedere ai propri log di controllo.
 
-## <a name="quickstart-download-an-audit-report"></a>Guida introduttiva: Scaricare un report di controllo
+## <a name="quickstart-download-an-audit-report"></a>Avvio rapido: Scaricare un report di controllo
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.

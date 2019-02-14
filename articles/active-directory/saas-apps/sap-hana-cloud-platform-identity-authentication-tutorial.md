@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b5b664581a1f3da367f74318cfb6bf5564e5b39
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d8e14d54ca30c0e46d3bef0202784a35493663ef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472882"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform Identity Authentication
 
@@ -85,7 +86,7 @@ Per configurare l'integrazione di SAP Cloud Platform Identity Authentication in 
 
 4. Nella casella di ricerca digitare **SAP Cloud Platform Identity Authentication** selezionare **SAP Cloud Platform Identity Authentication** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![SAP Cloud Platform Identity Authentication nell'elenco risultati](common/search-new-app.png)
+     ![SAP Cloud Platform Identity Authentication nell'elenco di risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -99,7 +100,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applica
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di SAP Cloud Platform Identity Authentication](#create-sap-cloud-platform-identity-authentication-test-user)**: per avere una controparte di Britta Simon in SAP Cloud Platform Identity Authentication collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -185,7 +186,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 3. Continuare la procedura seguente solo se si vuole aggiungere e abilitare l'accesso SSO per un'altra applicazione SAP. Ripetere la procedura descritta nella sezione **Aggiunta di SAP Cloud Platform Identity Authentication dalla raccolta**.
 
-4. Nella pagina di integrazione dell'applicazione **SAP Cloud Platform Identity Authentication** del portale di Azure selezionare **Accesso collegato**.
+4. Nel portale di Azure, nella pagina di integrazione di **SAP Cloud Platform Identity Authentication** selezionare **Accesso collegato**.
 
     ![Configurare l'accesso collegato](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
@@ -221,7 +222,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SAP Cloud Platform Identity Authentication.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a SAP Cloud Platform Identity Authentication.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SAP Cloud Platform Identity Authentication**.
 
@@ -229,7 +230,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **SAP Cloud Platform Identity Authentication**.
 
-    ![Collegamento di SAP HANA Cloud Platform Identity Authentication nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di SAP HANA Cloud Platform Identity Authentication nell'elenco di applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

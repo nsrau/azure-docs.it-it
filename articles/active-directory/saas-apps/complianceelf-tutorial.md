@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f29b87a314974154076a81572eca4b5db2d4fb30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9cac67edba57e78e75ae9205439a2851c52aee01
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567350"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Compliance ELF in Azure AD, è necessario aggi
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Compliance ELF usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Compliance ELF.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Compliance ELF, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Compliance ELF, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Compliance ELF](#configure-compliance-elf-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

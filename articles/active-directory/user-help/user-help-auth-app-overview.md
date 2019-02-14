@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: 67265636b26a0eec3c40ee1f95872cc870099de7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809681"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217446"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Che cos'è l'app Microsoft Authenticator?
 L'app Microsoft Authenticator consente di accedere ai propri account se si usa la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
