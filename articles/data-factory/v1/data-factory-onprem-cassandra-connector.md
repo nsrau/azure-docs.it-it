@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd90834a2e112effbfd6876b84dfe8b3ca87fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 38d5d469c920cafa33e0cc5b37846df2dc6d6ab9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015645"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236414"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "54015645"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Cassandra locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un archivio dati Cassandra locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Cassandra ad altri archivi dati, ma non da altri archivi dati a un archivio dati Cassandra. 
+È possibile copiare dati da un archivio dati Cassandra locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Cassandra ad altri archivi dati, ma non da altri archivi dati a un archivio dati Cassandra.
 
 ## <a name="supported-versions"></a>Versioni supportate
 Il connettore Cassandra supporta le versioni seguenti di Cassandra: 2.x e 3.x. Per attività in esecuzione nel runtime di integrazione self-hosted, Cassandra 3.x è supportato dalla versione 3.7 del runtime di integrazione e versioni successive.
@@ -38,52 +38,52 @@ Il connettore Cassandra supporta le versioni seguenti di Cassandra: 2.x e 3.x. P
 ## <a name="prerequisites"></a>Prerequisiti
 Perché il servizio Azure Data Factory possa connettersi al database Cassandra locale, è necessario installare un gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il gateway di gestione dati è un componente che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-È necessario usare il gateway per connettersi a un database Cassandra anche se il database è ospitato nel cloud, ad esempio, in una VM IaaS di Azure. È possibile avere il gateway nella stessa macchina virtuale che ospita il database o in una macchina virtuale diversa, purché il gateway possa connettersi al database.  
+È necessario usare il gateway per connettersi a un database Cassandra anche se il database è ospitato nel cloud, ad esempio, in una VM IaaS di Azure. È possibile avere il gateway nella stessa macchina virtuale che ospita il database o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 
-Quando si installa il gateway, viene installato automaticamente un driver Microsoft ODBC Cassandra che viene usato per la connessione al database Cassandra. Pertanto, non è necessario installare manualmente i driver nel computer del gateway quando si copiano dati dal database Cassandra. 
+Quando si installa il gateway, viene installato automaticamente un driver Microsoft ODBC Cassandra che viene usato per la connessione al database Cassandra. Pertanto, non è necessario installare manualmente i driver nel computer del gateway quando si copiano dati dal database Cassandra.
 
 > [!NOTE]
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
 ## <a name="getting-started"></a>Introduzione
-È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
+È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati Cassandra locale, vedere la sezione [Esempio di JSON: Copiare dati da Cassandra a BLOB di Azure](#json-example-copy-data-from-cassandra-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati Cassandra locale, vedere la sezione [Esempio di JSON: Copiare dati da Cassandra a BLOB di Azure](#json-example-copy-data-from-cassandra-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di un archivio dati Cassandra:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Cassandra.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesCassandra** |Yes |
-| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Yes |
+| type |La proprietà type deve essere impostata su: **OnPremisesCassandra** |Sì |
+| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (valore predefinito: 9042) |
-| authenticationType |Di base o anonima |Yes |
+| authenticationType |Di base o anonima |Sì |
 | username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. |Sì, se authenticationType è impostato su Basic. |
-| gatewayName |Il nome del gateway che viene usato per connettersi al database Cassandra locale. |Yes |
+| gatewayName |Il nome del gateway che viene usato per connettersi al database Cassandra locale. |Sì |
 | encryptedCredential |Credenziali crittografate dal gateway. |No  |
 
 >[!NOTE]
 >La connessione a Cassandra mediante SSL non è attualmente supportata.
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **CassandraTable** presenta le proprietà seguenti
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
 | tableName |Nome della tabella in un database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
@@ -116,7 +116,7 @@ L'esempio include le entità di Data Factory seguenti:
 
 **Servizio collegato Cassandra:**
 
-Questo esempio usa il servizio collegato **Cassandra** . Per informazioni sulle proprietà supportate da questo servizio collegato, vedere la sezione dedicata al [servizio collegato Cassandra](#linked-service-properties) .  
+Questo esempio usa il servizio collegato **Cassandra** . Per informazioni sulle proprietà supportate da questo servizio collegato, vedere la sezione dedicata al [servizio collegato Cassandra](#linked-service-properties) .
 
 ```json
 {
@@ -143,7 +143,7 @@ Questo esempio usa il servizio collegato **Cassandra** . Per informazioni sulle 
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
+        "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
@@ -212,13 +212,13 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprietà del tipo RelationalSource](#copy-activity-properties) .
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "CassandraToAzureBlob",
             "description": "Copy from Cassandra to an Azure blob",
@@ -254,7 +254,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
                 "timeout": "01:00:00"
             }
         }
-        ]    
+        ]
     }
 }
 ```
@@ -272,7 +272,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 | INET |string |
 | INT |Int32 |
 | TEXT |string |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |string |
