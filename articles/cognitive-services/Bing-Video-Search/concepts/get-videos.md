@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni su come inviare query di ricerca all'API Ricerca video Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: dd085d51f1031bc6fb462292fb6d32f547f820d7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 08e8050fde6d2cf6249826911117dad9f595b6e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569183"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879600"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
@@ -98,7 +98,7 @@ Il risultato contiene una risposta [Video](https://docs.microsoft.com/rest/api/c
 
 ## <a name="video-thumbnails"></a>Anteprime video
 
-È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un sottoinsieme, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../UseAndDisplayRequirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
+È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un subset, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../UseAndDisplayRequirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
 
 L'utente, passando con il mouse sull'anteprima, potrà usare [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) per riprodurre una versione di anteprima del video. Assicurarsi di assegnare un attributo all'anteprima animata quando la si visualizza.
 

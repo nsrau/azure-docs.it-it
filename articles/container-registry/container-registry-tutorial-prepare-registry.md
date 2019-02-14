@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07e328c022e8e81782902445fd8fc6e320625a51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261314"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978934"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un registro contenitori di Azure con replica geografica
 
@@ -118,7 +118,7 @@ Il documento Dockerfile fornito nell'esempio illustra come viene compilato il co
 
 Il documento [Dockerfile][dockerfile] si trova nella directory `./AcrHelloworld/Dockerfile` nell'origine clonata.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -162,7 +162,7 @@ uniqueregistryname.azurecr.io
 
 Aggiornare quindi la riga `ENV DOCKER_REGISTRY` con il nome di dominio completo del server di accesso del registro. Questo esempio riporta il nome del registro di esempio, *uniqueregistryname*:
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
@@ -231,7 +231,7 @@ In questa esercitazione è stato creato un registro contenitori privato con repl
 Passare all'esercitazione successiva per distribuire il contenitore in più istanze di app Web per contenitori usando la replica geografica per gestire le immagini in locale.
 
 > [!div class="nextstepaction"]
-> [Distribuire un'app Web dal Registro contenitori di Azure](container-registry-tutorial-deploy-app.md)
+> [Distribuire un'app Web da Registro Azure Container](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

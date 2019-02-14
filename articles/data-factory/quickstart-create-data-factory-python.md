@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745249"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001869"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>Creare una data factory e una pipeline con Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare una data factory e una pipeline con Python
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-python.md)
@@ -47,6 +48,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 2.  Usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per creare il contenitore **adfv2tutorial** e la cartella **input** nel contenitore. Caricare quindi il file **input.txt** nella cartella **input**.
 
 ## <a name="install-the-python-package"></a>Installare il pacchetto Python
+
 1. Aprire un terminale o un prompt dei comandi con privilegi di amministratore. 
 2. Per prima cosa, installare il pacchetto Python per le risorse di gestione di Azure:
 
@@ -104,7 +106,6 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe DataFactoryManagementClient. Usare questo oggetto per creare la data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline. Impostare la variabile **subscription_id** sull'ID della sottoscrizione di Azure. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
@@ -165,9 +166,11 @@ Si creano servizi collegati in una data factory per collegare gli archivi dati e
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>Creare set di dati
+
 In questa sezione vengono creati due set di dati: uno per l'origine e l'altro per il sink.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Creare un set di dati per il BLOB di Azure di origine
+
 Aggiungere il codice seguente al metodo Main per creare un set di dati BLOB di Azure. Per informazioni sulle proprietà del set di dati BLOB di Azure, vedere l'articolo [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) (Connettore BLOB di Azure).
 
 Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati BLOB fa riferimento al servizio collegato di Archiviazione di Azure creato nel passaggio precedente.
@@ -184,6 +187,7 @@ Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Que
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Creare un set di dati per il BLOB di Azure sink
+
 Aggiungere il codice seguente al metodo Main per creare un set di dati BLOB di Azure. Per informazioni sulle proprietà del set di dati BLOB di Azure, vedere l'articolo [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) (Connettore BLOB di Azure).
 
 Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati BLOB fa riferimento al servizio collegato di Archiviazione di Azure creato nel passaggio precedente.
@@ -218,7 +222,6 @@ Aggiungere il codice seguente al metodo **Main** per creare una **pipeline con u
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>Creare un'esecuzione della pipeline
 
 Aggiungere il codice seguente al metodo **Main** per **attivare un'esecuzione della pipeline**.
@@ -232,6 +235,7 @@ Aggiungere il codice seguente al metodo **Main** per **attivare un'esecuzione de
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Monitorare un'esecuzione della pipeline
+
 Per monitorare l'esecuzione della pipeline, aggiungere il codice seguente al metodo **Main**:
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Script completo
+
 Ecco il codice Python completo:
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>Eseguire il codice
+
 Compilare e avviare l'applicazione, quindi verificare l'esecuzione della pipeline.
 
 La console stampa lo stato di creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per verificare che i BLOB siano stati copiati da "inputBlobPath" a "outputBlobPath", come specificato nelle variabili.
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
 Per eliminare la data factory, aggiungere il codice seguente al programma:
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 La pipeline in questo esempio copia i dati da una posizione a un'altra in un archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, fare riferimento alle [esercitazioni](tutorial-copy-data-dot-net.md).

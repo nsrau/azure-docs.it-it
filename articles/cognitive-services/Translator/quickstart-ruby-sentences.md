@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Ruby - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Ruby - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale con Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 07da6172b53b9904eb30a61d8b69b0f5b6693fdd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fb448498a9622d0e3b149e4e3d4041b3a7ca580c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470111"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975450"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (Ruby)
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Avvio rapido: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale.
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 'Il servizio Voce, parte dei Servizi cognitivi di Azure, unisce diversi servizi di riconoscimento vocale che in precedenza erano disponibili separatamente: Riconoscimento vocale Bing (con riconoscimento vocale e sintesi vocale), Servizio di riconoscimento vocale personalizzato e Traduzione vocale.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217969"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858833"
 ---
 # <a name="what-is-speech-services"></a>Informazioni sui servizi Voce
 
@@ -55,8 +55,8 @@ I servizi Voce dispongono anche di un'[API REST](rest-apis.md) che funziona con 
 
 |<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>DESCRIZIONE|
 |-|-|-|-|-|
-|[Speech SDK](speech-sdk.md)|Yes|No |Yes|API native per C#, C++ e Java per semplificare lo sviluppo.|
-|[API REST](rest-apis.md)|Yes|Sì|No |Una semplice API basata su HTTP che agevola l'aggiunta di funzionalità vocali alle applicazioni.|
+|[Speech SDK](speech-sdk.md)|Sì|No |Sì|API native per C#, C++ e Java per semplificare lo sviluppo.|
+|[API REST](rest-apis.md)|Sì|Sì|No |Una semplice API basata su HTTP che agevola l'aggiunta di funzionalità vocali alle applicazioni.|
 
 ### <a name="websockets"></a>Websocket
 

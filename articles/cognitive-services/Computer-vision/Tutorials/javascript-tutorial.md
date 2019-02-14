@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: In questa esercitazione si esamina un'app JavaScript di base che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 1ad25b383e3d275324b57ae1c343560c82b2a3a2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7ac8b9e28996c14e702730b72265fd6165798227
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215232"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865074"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Esercitazione: API Visione artificiale con JavaScript
 

@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine locale - REST, Python"
+title: "Avvio rapido: Analizzare un'immagine locale - REST, Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine locale usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7835137d821c2a722ed1fecdac0ea06c4cd6cc2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5f551a4f0c47a2939b6c8abd1a73028972b2bd88
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208950"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878885"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
 

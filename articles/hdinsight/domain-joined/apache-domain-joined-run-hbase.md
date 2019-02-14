@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664742"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893239"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package (Anteprima)
 
@@ -45,7 +45,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="create-domain-users"></a>Creare utenti del dominio
 
-Vedere [Creare un cluster HDInsight con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) per informazioni su come creare gli utenti di dominio **sales_user1** e **marketing_user1**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
+Vedere [Creare un cluster HDInsight con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) per informazioni su come creare gli utenti di dominio **sales_user1** e **marketing_user1**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Creare tabelle HBase e importare dati di esempio
 

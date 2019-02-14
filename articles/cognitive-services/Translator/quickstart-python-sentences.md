@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) con Python e l'API REST Traduzione testuale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1fdee0d8c73c4cdd60bbe4a3520583588bfc385b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696142"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861103"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Python
 

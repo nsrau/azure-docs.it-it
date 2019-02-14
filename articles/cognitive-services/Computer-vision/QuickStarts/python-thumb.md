@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, Python"
+title: "Avvio rapido: Generare un'anteprima - REST, Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà generata l'anteprima di un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c15049ef4dd45a4d9dd4f4b61618860c82ae3f93
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209027"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860168"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e Python in Visione artificiale
 

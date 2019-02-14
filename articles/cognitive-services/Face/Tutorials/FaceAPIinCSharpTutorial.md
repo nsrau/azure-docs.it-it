@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà creata un'app Windows che usa la funzione API Viso per rilevare e incorniciare il volto in un'immagine.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ff3063193fa2a8f71f441aa64c8835fd7528ff4e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221182"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882625"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app WPF per mostrare i dati sui visi in un'immagine
 

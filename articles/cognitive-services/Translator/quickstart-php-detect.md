@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: db563a111abe069e361dfed03718bd75cdd0311e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b444c535a3fceb7c7e84017d419a8e67f598d2f7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210796"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984410"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Identificare la lingua del testo con l'API REST Traduzione testuale (PHP)
 

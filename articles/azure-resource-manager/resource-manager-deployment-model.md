@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486810"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104993"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Distribuzione Azure Resource Manager o classica: Comprendere i modelli di distribuzione e lo stato delle risorse
 
@@ -48,6 +48,9 @@ Nel 2014, Azure ha introdotto Resource Manager e il nuovo concetto di gruppo di 
 Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono state aggiunti ai gruppi di risorse predefiniti. Se ora si crea una risorsa tramite la distribuzione classica, la risorsa viene creata automaticamente all'interno di un gruppo di risorse predefinito per tale servizio anche se non è stato specificato il gruppo di risorse in fase di distribuzione. Tuttavia, il solo fatto di esistere all'interno di un gruppo di risorse non significa che la risorsa è stata convertita nel modello di Gestione risorse.
 
 ## <a name="understand-support-for-the-models"></a>Informazioni sul supporto dei modelli
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Tenere presenti tre scenari:
 
 1. Servizi cloud non supporta il modello di distribuzione di Resource Manager.

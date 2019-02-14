@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Questa esercitazione fornirà informazioni su come riconoscere le finalità dai contenuti vocali con Speech SDK per C#.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: e810450a8934a8df921c5d952a55ab0deaf853ec
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9166ac5bf630b66ae46f356e17a327162f06af2a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227973"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867172"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando Java.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 86f1458f6468228dc4106a8bd98bdd359fe2e195
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3b0060b189dd941a8705d7e9815f69db8ea035e8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569162"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863313"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione Java invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) con altre annotazioni di codice, funzionalità e informazioni sulla gestione degli errori.
 
@@ -250,4 +250,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="see-also"></a>Vedere anche  
 
- [Che cos'è l'API Ricerca video Bing?](../overview.md)
+ [Informazioni sull'API Ricerca video Bing](../overview.md)

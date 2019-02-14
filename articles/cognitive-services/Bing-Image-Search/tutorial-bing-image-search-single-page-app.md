@@ -4,18 +4,18 @@ titleSuffix: Azure cognitive services
 description: L'API Ricerca immagini Bing consente di cercare nel Web immagini pertinenti di alta qualità. Usare questa esercitazione per compilare un'applicazione Web composta da una sola pagina in grado di inviare query di ricerca all'API e visualizzare i risultati all'interno della pagina Web.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: a0fd10d48b3dc46435c2cbd3d43ff0f839343e10
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c8e08cdf6238064e6ec2468a00bbc65ec46b675
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188151"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880750"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 

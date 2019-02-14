@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 9185d8d236b2a3283cf5a542002adadd0ac74686
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820539"
+ms.locfileid: "55881506"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Java
 

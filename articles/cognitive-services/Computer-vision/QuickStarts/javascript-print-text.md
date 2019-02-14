@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Estrarre testo stampato - REST, JavaScript'
+title: 'Avvio rapido: Estrarre testo stampato - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fdc7150ea830ab599ba5623d5c00308790b17aaa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 004b7033666dd575c94992b9a099944033680bdf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215123"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875128"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST e JavaScript in Visione artificiale
 

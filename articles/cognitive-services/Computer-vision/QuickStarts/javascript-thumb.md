@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, JavaScript"
+title: "Avvio rapido: Generare un'anteprima - REST, JavaScript"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a5792d56441e83aee65640fe48d106542fdfd2f4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 095866c08ca160664ba03ae0d0bdc4840f9ac954
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222418"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865047"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e JavaScript in Visione artificiale
 

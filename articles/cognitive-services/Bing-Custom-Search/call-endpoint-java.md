@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Java | Microsoft Docs"
+title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Java | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing in Java.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: f0f6981d899248877ca1cd1d580a004933815b96
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ece4a8a7b0d311484f632b03ba12c71ce19190a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868634"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Java
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Java
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing. L'applicazione è scritta in Java, ma l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
