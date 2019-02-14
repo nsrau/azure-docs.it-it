@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: da97fa9cba7fb89b7a326d20c70f2851ead0193d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769440"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Esercitazione: Integrazione di Azure Active Directory con Slack
 
@@ -75,7 +76,7 @@ Per configurare l'integrazione di Slack in Azure AD, è necessario aggiungere Sl
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Slack con un utente di test di nome **Britta Simon**.
 Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Slack.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Slack](#configure-slack-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -122,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome | Attributo di origine |
+    | NOME | Source Attribute |
     | --- | --- |
     | first_name | user.givenname |
     | last_name | user.surname |

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e07f893296ec20e8c722fc977f93a38a797fe5c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6576366df214304bb30c46fa65a4bc8bc783cedf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490057"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Esercitazione: Integrazione di Azure Active Directory con iProva
 
@@ -78,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con iProva, compl
 - [Recuperare le informazioni di configurazione da iProva](#retrieve-configuration-information-from-iprova): operazioni preliminari per i passaggi successivi.
 - [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
 - [Configurare l'accesso Single Sign-On per iProva](#configure-iprova-single-sign-on): per configurare le impostazioni di Single Sign-On sul lato applicazione.
-- [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user): per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+- [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 - [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 - [Creare un utente di test di iProva ](#create-an-iprova-test-user): per avere una controparte di Britta Simon in iProva collegata alla rappresentazione dell'utente in Azure AD.
 - [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
@@ -133,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iProva, seguire questa 
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come illustrato nell'immagine precedente. Seguire questa procedura.
 
-    | Nome | Attributo di origine| Spazio dei nomi |
+    | NOME | Attributo di origine| Spazio dei nomi |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
@@ -180,7 +181,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iProva, seguire questa 
 
 8. Selezionare **Set up** (Configura).
 
-9. Selezionare **Next** (Avanti).
+9. Selezionare **Avanti**.
 
 10. iProva chiede se si vogliono scaricare i dati della federazione da un URL oppure caricarli da un file. Selezionare l'opzione **From URL** (Da URL).
 
@@ -192,13 +193,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con iProva, seguire questa 
 
 13. Al termine del download verrà visualizzato il messaggio di conferma **Valid Federation Data file downloaded** (File di dati di federazione valido scaricato).
 
-14. Selezionare **Next** (Avanti).
+14. Selezionare **Avanti**.
 
 15. Ignorare per il momento l'opzione **Test login** (Accesso di test) e selezionare **Next** (Avanti).
 
 16. Nell'elenco a discesa **Claim to use** (Attestazione da usare) selezionare **windowsaccountname**.
 
-17. Selezionare **Finish** (Fine).
+17. Selezionare **Fine**.
 
 18. Tornare alla schermata **Edit general settings** (Modifica impostazioni generali). Scorrere verso il basso fino alla parte inferiore della pagina e fare clic su **OK** per salvare la configurazione.
 
@@ -263,7 +264,7 @@ In questa sezione, l'utente Britta Simon viene abilitato per l'uso dell'accesso 
 
 4. Selezionare **Users** (Utenti) nel pannello **Users and user groups** (Utenti e gruppi di utenti).
 
-5. Selezionare **Add** (Aggiungi).
+5. Selezionare **Aggiungi**.
 
 6. Nella casella **Username** (Nome utente) immettere *brittasimon@yourcompanydomain.extension*. 
     Un esempio è BrittaSimon@contoso.com.

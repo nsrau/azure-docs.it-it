@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 16ea95e7d2cbec284bb924f92d6f8cf812fd7203
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: edada5258a4e05b127fc615ec16339dc188dd9a8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766470"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Esercitazione: Integrazione di Azure Active Directory con Convercent
 
@@ -72,7 +73,7 @@ Per configurare l'integrazione di Convercent in Azure AD, è necessario aggiunge
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Convercent usando un utente di test di nome **Britta Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Convercent.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Convercent, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Convercent, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Convercent ](#configure-convercent-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

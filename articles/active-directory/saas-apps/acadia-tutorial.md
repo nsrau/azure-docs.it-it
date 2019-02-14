@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 262bbf64fcfce8fe2d2f6ba2fca7f68204ed6bef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458177"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Esercitazione: Integrazione di Azure Active Directory con Acadia
 
@@ -116,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Acadia, seguire questa 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > I valori per i passaggi 4 e 5 verranno forniti dal team di Acadia in un file di metadati che potrà essere importato facendo clic su **Carica file di metadati** nella sezione **Configurazione SAML di base**. Aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. È anche possibile fare riferimento ai modelli visualizzati nella sezione **Configurazione SAML di base** del portale di Azure per verificare che i valori dei metadati siano corretti. Se i valori forniti non sono corretti, contattare il [team di supporto clienti di Acadia](mailto:support@systemsalliance.com).
+    > I valori per i passaggi 4 e 5 verranno forniti dal team di Acadia in un file di metadati che potrà essere importato facendo clic su **Carica file di metadati** nella sezione **Configurazione SAML di base**. aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. È anche possibile fare riferimento ai modelli visualizzati nella sezione **Configurazione SAML di base** del portale di Azure per verificare che i valori dei metadati siano corretti. Se i valori forniti non sono corretti, contattare il [team di supporto clienti di Acadia](mailto:support@systemsalliance.com).
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

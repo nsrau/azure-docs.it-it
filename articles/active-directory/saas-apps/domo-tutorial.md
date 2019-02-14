@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: b11daa7cd078fe8f828d39b7da34bb19d3970a74
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7c638b0d407ef4ea1563d138a7cb0716fdabfe46
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770134"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
@@ -75,7 +76,7 @@ Per configurare l'integrazione di Domo in Azure AD, è necessario aggiungere Dom
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Domo usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Domo.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Domo, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Domo, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Domo ](#configure-domo-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -132,7 +133,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |
     | nameidentifier | user.userprinicipalname |
     | name | user.displayname |

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 7ed7306b172947131199646f6fb4b1801194ab5e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8e033c5f3bf183fb52973a093a521ef9dc79297e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700146"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Esercitazione: Integrazione di Azure Active Directory con Clever
 
@@ -117,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clever, seguire questa 
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |
     | clever.teacher.credentials.district_username|user.userprincipalname|
     | clever.student.credentials.district_username| user.userprincipalname |
@@ -168,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clever, seguire questa 
     
       b. Per **Identity System** (Sistema di identità) scegliere **ADFS**.
 
-      c. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore di **URL dei metadati di federazione dell'app** copiato dal portale di Azure.
+      c. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
     
       d. Fare clic su **Save**.
 
@@ -227,7 +228,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Per consentire agli utenti di Azure AD di accedere a Clever, è necessario effettuarne il provisioning in Clever.
 
-Nel caso di Clever, collaborare con il [team di supporto di Clever](https://clever.com/about/contact/) per aggiungere gli utenti alla piattaforma Clever. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+Nel caso di Clever, collaborare con il [team di supporto clienti di Clever](https://clever.com/about/contact/) per aggiungere gli utenti nella piattaforma Clever. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente di Clever per effettuare il provisioning degli account utente di Azure AD.
