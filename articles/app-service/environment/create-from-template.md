@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277472"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109895"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 È possibile creare gli ambienti del servizio app di Azure con un endpoint accessibile da Internet o un endpoint di un indirizzo interno di una rete virtuale di Azure. Quando viene creato con un endpoint interno, tale endpoint dispone di un componente Azure denominato servizio di bilanciamento del carico interno (ILB). L'ambiente del servizio app in un indirizzo IP interno è chiamato ambiente del servizio app con bilanciamento del carico interno. L'ambiente del servizio app con un endpoint pubblico è chiamato ambiente del servizio app esterno. 
 
 È possibile creare un ambiente del servizio app usando il portale di Azure o un modello di Azure Resource Manager. Questo articolo illustra i passaggi e la sintassi necessari per creare un ambiente del servizio app esterno o con bilanciamento del carico interno con i modelli di Resource Manager. Per informazioni su come creare un ambiente del servizio app nel portale di Azure, vedere [Creare un ambiente del servizio app esterno][MakeExternalASE] o [Creare un ambiente del servizio app con bilanciamento del carico interno][MakeILBASE].
@@ -60,7 +63,7 @@ Dopo la compilazione di *azuredeploy.parameters.json*, creare l'ambiente del ser
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 La creazione dell'ambiente del servizio app richiede circa un'ora. L'ambiente del servizio app viene quindi visualizzato nel portale nell'elenco di ambienti del servizio app per la sottoscrizione che ha attivato la distribuzione.
@@ -71,7 +74,7 @@ La creazione dell'ambiente del servizio app richiede circa un'ora. L'ambiente de
 Ottenere un certificato SSL valido usando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o usando un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
 * **Soggetto**: questo attributo deve essere impostato su **.nome-dominio-radice.com*
-* **Nome alternativo del soggetto**: questo attributo deve includere sia **.nome-dominio-radice.com* sia **.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *nome-app.scm.nome-dominio-radice.com*.
+* **Nome alternativo del soggetto**: questo attributo deve includere sia **.nome-dominio-radice.com* sia **.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
 
 Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/Salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
@@ -146,7 +149,7 @@ Dopo la compilazione di *azuredeploy.parameters.json*, configurare il certificat
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 L'applicazione della modifica richiede circa 40 minuti per ogni front-end dell'ambiente del servizio app. Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiede all'incirca un'ora e 20 minuti. Durante l'esecuzione del modello, l'ambiente del servizio app non può essere ridimensionato.  

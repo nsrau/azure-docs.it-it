@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994670"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997576"
 ---
 # <a name="output-metadata"></a>Metadati di output
 ## <a name="overview"></a>Panoramica
 Un processo di codifica è associato uno (o più) asset di input in cui si desidera eseguire alcune attività di codifica. Ad esempio, codificare un file MP4 in set di velocità in bit adattivi MP4 H.264; creare un'anteprima; creare le sovrimpressioni. Al termine di un'attività, viene generato un asset di output.  L'asset di output contiene video, audio, anteprime e così via. L'asset di output include anche un file contenente i metadati dell'asset di output. Il nome del file XML dei metadati ha il seguente formato: &lt;nome_file_origine&gt;_manifest.xml (ad esempio BigBuckBunny_manifest.xml).  
 
-I Servizi multimediali di Microsoft Azure non analizzano preventivamente gli asset di input per generare metadati. I metadati di input vengono generati solo come un artefatto quando un asset di input viene elaborato in un processo. Quindi l'artefatto viene scritto sull'asset di output. Vengono usati diversi strumenti per generare metadati per gli asset di input e di output. Di conseguenza, i metadati di input hanno uno schema leggermente diverso rispetto ai metadati di output.
+I Servizi multimediali di Microsoft Azure non analizzano preventivamente gli asset di input per generare metadati. I metadati di input vengono generati solo come un artefatto quando un asset di input viene elaborato in un processo. L'artefatto viene quindi scritto nell'asset di output. Vengono usati strumenti diversi per generare metadati per gli asset di input e di output. Di conseguenza, i metadati di input hanno uno schema leggermente diverso rispetto ai metadati di output.
 
 Se si desidera esaminare il file di metadati, è possibile creare un localizzatore **SAS** e scaricare il file nel computer locale.  
 
@@ -45,7 +45,7 @@ Raccolta di elementi AssetFile per il processo di codifica.
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obbligatoria |**xs:string** |Il nome dell'asset di file multimediale. |
 | **Dimensione**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:long** |Dimensioni del file di asset in byte. |
@@ -74,7 +74,7 @@ Un file di input/origine usato durante la generazione di questo asset.
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obbligatoria |**xs:string** |Nome di file di origine di input. |
 
@@ -94,7 +94,7 @@ Una specifica traccia video nell'elemento AssetFile padre.
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Indice in base zero della traccia video. **Nota:**  Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **FourCC**<br/><br/> Obbligatoria |**xs:string** |Codice FourCC del codec video. |
@@ -126,7 +126,7 @@ Una specifica traccia audio nell'elemento AssetFile padre.
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Indice in base zero della traccia audio. **Nota:**  Non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **Codec** |**xs:string** |Stringa del codec della traccia audio. |
@@ -147,7 +147,7 @@ Parametri di risultato della misurazione della sonorità.
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versione del kit **Dolby** per lo sviluppo della misurazione professionale della sonorità (DPLM). |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obbligatoria |**xs:int** |DialogNormalization generato tramite DPLM, obbligatorio quando è impostato LoudnessMetering. |

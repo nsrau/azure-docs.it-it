@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180212"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200548"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visualizzare la cronologia dei controlli per i ruoli della directory di Azure AD in PIM
 È possibile usare la cronologia dei controlli di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni in un determinato periodo di tempo per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nel tenant, inclusi amministratore, utente finale e attività di sincronizzazione, è possibile usare i [report di accesso e utilizzo di Azure Active Directory.](../reports-monitoring/overview-reports.md)

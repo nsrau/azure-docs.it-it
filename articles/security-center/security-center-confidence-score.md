@@ -4,7 +4,7 @@ description: " Informazioni su come eseguire operazioni con il punteggio di atte
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 03c4a36330ca17eea4233e928d6b728e94e15292
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299193"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117546"
 ---
 # <a name="alert-confidence-score"></a>Punteggio di attendibilità degli avvisi 
 
@@ -29,7 +29,7 @@ Il punteggio di attendibilità nel Centro sicurezza consente la valutazione dei 
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Come viene attivato il punteggio di attendibilità
 
-Gli avvisi vengono generati quando vengono rilevati processi sospetti in esecuzione nelle macchine virtuali. Il Centro sicurezza verifica e analizza gli avvisi nelle macchine virtuali Windows in esecuzione in Azure. Esegue controlli automatici e correlazioni tramite algoritmi avanzati in più entità e origini dati in tutta l'organizzazione e in tutte le risorse di Azure, presenta inoltre un punteggio di attendibilità che è indicativo rispetto al livello di affidabilità del Centro sicurezza nei confronti dell'autenticità dell'avviso e che richiede attenzione.
+Gli avvisi vengono generati quando vengono rilevati processi sospetti in esecuzione nelle macchine virtuali. Il Centro sicurezza verifica e analizza gli avvisi nelle macchine virtuali Windows in esecuzione in Azure. Esegue controlli automatici e correlazioni tramite algoritmi avanzati in più entità e origini dati in tutta l'organizzazione e in tutte le risorse di Azure e presenta un punteggio di attendibilità che è indicativo rispetto al livello di affidabilità del Centro sicurezza nei confronti dell'autenticità dell'avviso e che richiede attenzione.
 
 ## <a name="understanding-the-confidence-score"></a>Interpretare il punteggio di attendibilità
 

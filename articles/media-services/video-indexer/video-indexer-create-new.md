@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197552"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991277"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Creare informazioni dettagliate da video esistenti
 
@@ -27,17 +27,14 @@ Questo argomento illustra come creare e pubblicare informazioni dettagliate basa
     La pagina mostra le informazioni dettagliate riepilogate del video. 
 
     ![Informazioni dettagliate](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. Fare clic sul pulsante **Modifica**.
 
     Questa pagina mostra tutte le informazioni dettagliate sul video. Queste sono suddivise in blocchi. I blocchi sono concepiti per semplificare l'esame dei dati. Ad esempio, i blocchi potrebbero essere suddivisi in base a quando cambia il parlante o alla presenza di una lunga pausa. È possibile creare una propria playlist contenente solo le righe desiderate. Per mostrare solo determinate parti del video di origine, è possibile filtrare per argomenti/parole chiave, sentiment, persone e relatori. Si può scegliere di visualizzare solo la trascrizione o OCR del video.    
 
     ![Informazioni dettagliate](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Creare la playlist.
 
     Per aggiungere o rimuovere righe dalla playlist, premere **+**/**-**.
-
 5. Visualizzare in anteprima la playlist.
 
     Dopo aver creato la playlist, premere **Anteprima**.

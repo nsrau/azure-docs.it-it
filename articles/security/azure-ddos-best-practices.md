@@ -3,7 +3,7 @@ title: Procedure consigliate per Protezione DDoS di Azure e architetture di rife
 description: Informazioni sull'uso dei dati di registrazione per ottenere informazioni approfondite sull'applicazione.
 services: security
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9f837a5dbea15b159a226b12c034add1dcf69834
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720867"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117851"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Protezione DDoS di Azure: procedure consigliate e architetture di riferimento
 

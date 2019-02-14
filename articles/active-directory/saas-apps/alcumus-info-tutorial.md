@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c2d07ba33e26b1b85225f0577754cd375e887db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51ecb114c523c49d544bd47303cf6bdafe07454f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460302"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Esercitazione: Integrazione di Azure Active Directory con Alcumus Info Exchange
 
@@ -48,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-alcumus-info-exchange-from-the-gallery"></a>Aggiunta di Alcumus Info Exchange dalla raccolta
 
-Per configurare l'integrazione di Alcumus Info Exchange in Azure AD, è necessario aggiungere Alcumus Info Exchange dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Alcumus Info Exchange in Azure AD, è necessario aggiungere Alcumus Info Exchange dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Alcumus Info Exchange dalla raccolta, seguire questa procedura:**
 
@@ -80,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Alcumus Info 
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Alcumus Info Exchange](#create-alcumus-info-exchange-test-user)**: per avere una controparte di Britta Simon in Alcumus Info Exchange collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -156,7 +157,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Alcumus Info Exchange.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Alcumus Info Exchange.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Alcumus Info Exchange**.
 

@@ -4,7 +4,7 @@ description: Informazioni su come usare le funzionalità per identità e accesso
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012072"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105553"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -106,7 +106,7 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.
 
-|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
 |----|----|----|----|
 |Sottoscrizione|50|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
 |Sottoscrizione|50|Abilitare il Centro sicurezza le sottoscrizioni |Abilitare il Centro sicurezza in tutte le sottoscrizioni per il rilevamento delle minacce avanzato, JIT, l'inserimento delle applicazioni nell'elenco elementi consentiti e consigli avanzati |
@@ -119,7 +119,7 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 |Sottoscrizione|5|Rimuovere gli account deprecati dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
 |Sottoscrizione|5|Designare più di un proprietario per la sottoscrizione|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
 |Sottoscrizione|5|Designare fino a 3 proprietari per la sottoscrizione|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
-|Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività ai fini di controllo quando si verifica un problema di sicurezza o la rete viene compromessa. |
+|Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Sottoscrizione|15|Rimuovere gli account esterni con autorizzazioni di lettura dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.|
 |Sottoscrizione|1|Specificare dettagli del contatto per la sicurezza|Specificare le informazioni di contatto per la sicurezza per ogni sottoscrizione. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono. Le informazioni vengono usate per contattare l'utente se il team della sicurezza rileva risorse compromesse|
 

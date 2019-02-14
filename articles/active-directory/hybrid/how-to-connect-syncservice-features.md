@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24663beaff4e6e9093a31d3592abf67f3d114419
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7b3da5b2340b6bd4dd49dd6f8278f2fced477bc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495123"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190722"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 La funzionalità di sincronizzazione di Azure AD Connect include due componenti:
