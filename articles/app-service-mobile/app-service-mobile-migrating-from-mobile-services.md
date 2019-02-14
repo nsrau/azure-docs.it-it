@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118993"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960735"
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -332,7 +332,7 @@ Risoluzione: se si vuole clonare il sito, eseguire questa operazione tramite il 
 ### <a name="changing-webconfig-does-not-work"></a>Le modifiche a Web.config non funzionano
 Se si usa un sito ASP.NET, le modifiche al file `Web.config` non vengono applicate.  Il servizio app di Azure compila un file `Web.config` appropriato durante l'avvio per supportare il runtime di Servizi mobili.  È possibile eseguire l'override di alcune impostazioni, ad esempio le intestazioni personalizzate, tramite un file di trasformazione XML.  Creare un file denominato `applicationHost.xdt`. Questo file deve essere salvato nella directory `D:\home\site` del servizio di Azure.  Caricare il file `applicationHost.xdt` tramite uno script di distribuzione personalizzato o direttamente tramite Kudu.  Di seguito viene illustrato un esempio di documento:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>

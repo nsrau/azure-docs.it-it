@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159741"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005455"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
+# <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,7 +55,7 @@ Quando si usa REST, si applicano le considerazioni seguenti:
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Intestazioni delle richieste HTTP standard supportate da Servizi multimediali
 Per ogni chiamata effettuata in Servizi multimediali, è necessario includere nella richiesta un set di intestazioni obbligatorie ed eventualmente un set di intestazioni facoltative. Nella seguente tabella sono elencate le intestazioni obbligatorie:
 
-| Intestazione | type | Valore |
+| Intestazione | Type | Valore |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o versione più recente)|
@@ -69,7 +69,7 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 
 Nella seguente tabella è riportato un set di intestazioni facoltative:
 
-| Intestazione | type | Valore |
+| Intestazione | Type | Valore |
 | --- | --- | --- |
 | Data |Data RFC 1123 |Timestamp della richiesta. |
 | Accept |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
@@ -83,7 +83,7 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
-| Intestazione | type | Valore |
+| Intestazione | Type | Valore |
 | --- | --- | --- |
 | request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
 | client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
