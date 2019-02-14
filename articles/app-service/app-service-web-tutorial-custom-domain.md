@@ -1,5 +1,5 @@
 ---
-title: Eseguire il mapping di un nome DNS personalizzato esistente - Servizio app di Azure | Microsoft Docs
+title: Eseguire il mapping di un nome DNS personalizzatro esistente - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come aggiungere un nome di dominio DNS personalizzato esistente, ad esempio il dominio personale, in un'app Web, nel back-end dell'app per dispositivi mobili o nell'app per le API del servizio app di Azure.
 keywords: servizio app, servizio app di Azure, mapping di dominio, nome di dominio, dominio esistente, nome host
 services: app-service\web
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714339"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113363"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -193,7 +193,7 @@ Per eseguire il mapping di un record A a un'app, il servizio app richiede **due*
 - Un record **A** di cui eseguire il mapping all'indirizzo IP dell'app.
 - Un record **TXT** di cui eseguire il mapping al nome host predefinito dell'app `<app_name>.azurewebsites.net`. Il servizio app usa questo record solo in fase di configurazione per verificare che si è proprietari del dominio personalizzato. Dopo che il dominio personalizzato è stato convalidato e configurato nel servizio app, è possibile eliminare il record TXT. 
 
-Per l'esempio di dominio `contoso.com`, creare i record A e TXT in base alla tabella seguente (`@` rappresenta in genere il dominio radice). 
+Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla tabella seguente (`@` rappresenta in genere il dominio radice). 
 
 | Tipo di record | Host | Valore |
 | - | - | - |
@@ -338,16 +338,18 @@ Per altre informazioni, vedere [Eseguire il mapping di un dominio personalizzato
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Il seguente comando aggiunge un nome DNS personalizzato configurato a un'applicazione del servizio app. 
 
 ```PowerShell  
-Set-AzureRmWebApp `
+Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Per altre informazioni, vedere [Assegnazione di un dominio personalizzato a un'app Web](scripts/powershell-configure-custom-domain.md).
+Per ulteriori informazioni, vedere [Assegnazione di un dominio personalizzato a un’app Web](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

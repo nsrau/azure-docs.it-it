@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438746"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112785"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Creare e pubblicare una definizione di applicazione gestita
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 È possibile creare e pubblicare [applicazioni gestite](overview.md) di Azure studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite conformi agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
 
@@ -30,7 +32,7 @@ Per pubblicare un'applicazione gestita per il catalogo dei servizi, è necessari
 
 Per questo articolo, l'applicazione gestita contiene solo un account di archiviazione. Lo scopo è quello di illustrare i passaggi necessari per pubblicare un'applicazione gestita. Per esempi completi, vedere [Progetti di esempio per applicazioni gestite di Azure](sample-projects.md).
 
-Gli esempi di PowerShell questo articolo richiedono la versione 6.2 o successiva di Azure PowerShell. Se necessario, [aggiornare la versione](/powershell/azure/azurerm/install-azurerm-ps).
+Gli esempi di PowerShell questo articolo richiedono la versione 6.2 o successiva di Azure PowerShell. Se necessario, [aggiornare la versione](/powershell/azure/install-Az-ps).
 
 ## <a name="create-the-resource-template"></a>Creare il modello di risorsa
 
@@ -149,8 +151,8 @@ Aggiungere i due file a un file ZIP denominato app.zip. I due file devono essere
 Caricare il pacchetto in una posizione accessibile da dove può essere usato. 
 
 ```powershell
-New-AzureRmResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
+New-AzResourceGroup -Name storageGroup -Location eastus
+$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -158,9 +160,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
 
 $ctx = $storageAccount.Context
 
-New-AzureStorageContainer -Name appcontainer -Context $ctx -Permission blob
+New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
@@ -175,7 +177,7 @@ Il passaggio successivo consiste nel selezionare un gruppo di utenti o un'applic
 È necessario munirsi dell'ID oggetto del gruppo di utenti da usare per la gestione delle risorse. 
 
 ```powershell
-$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+$groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 ### <a name="get-the-role-definition-id"></a>Ottenere l'ID di definizione del ruolo
@@ -183,7 +185,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 Ora è necessario l'ID di definizione del ruolo Controllo degli accessi in base al ruolo predefinito a cui si vuole concedere l'accesso all'utente, al gruppo utenti o all'applicazione. In genere si usa il ruolo Proprietario, Collaboratore o Lettore. Il comando seguente illustra come ottenere l'ID di definizione per il ruolo Proprietario:
 
 ```powershell
-$ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
+$ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 ### <a name="create-the-managed-application-definition"></a>Creare la definizione di applicazione gestita
@@ -191,15 +193,15 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 Se non è già disponibile un gruppo di risorse per archiviare la definizione di applicazione gestita, crearne uno ora:
 
 ```powershell
-New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
 Creare a questo punto la definizione di applicazione gestita.
 
 ```powershell
-$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
-New-AzureRmManagedApplicationDefinition `
+New-AzManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
   -ResourceGroupName appDefinitionGroup `

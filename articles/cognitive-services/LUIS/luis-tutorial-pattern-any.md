@@ -5,18 +5,18 @@ description: Usare l'entità pattern.any per estrarre dati da espressioni format
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d26a8ba40d145515d35de929682125ba9d3e397f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205780"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859930"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Esercitazione: Estrarre dati in formato libero con entità pattern.any
 

@@ -16,14 +16,15 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 805a917cbb4d867ee866ec99c8e90ea883527856
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0038dcc10aafa191121b2797f68d66a3e32b3fa7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100955"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207450"
 ---
-# <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Guida introduttiva: Rimuovere un'applicazione da Azure Active Directory
+# <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Avvio rapido: Rimuovere un'applicazione da Azure Active Directory
 
 Gli sviluppatori aziendali e i fornitori di software come un servizio (SaaS) che hanno registrato delle applicazioni con Azure Active Directory (Azure AD) potrebbero dover rimuovere la registrazione di un'applicazione dal tenant di Azure AD.
 

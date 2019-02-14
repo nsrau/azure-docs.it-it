@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f58bb8a1a3a0f0593513570355b8d3ba46816b9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825834"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
 
@@ -108,7 +109,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.zendesk.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `<subdomain>.zendesk.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    | |
+    |-|-|
+    | `<subdomain>.zendesk.com` |
+    | `https://<subdomain>.zendesk.com` |
+    | |
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto del client Zendesk](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -162,7 +168,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
 11. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Zendesk** (Configura Zendesk) per passare direttamente all'applicazione Zendesk. Da qui, fornire le credenziali di amministratore per accedere a Zendesk. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi della sezione **Configurare l'accesso Single Sign-On per Zendesk**.
 
-     ![image](./media/zendesk-tutorial/d2_saml.png)
+    ![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Configurare l'accesso Single Sign-On per Zendesk
 
@@ -190,7 +196,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     f. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -278,5 +284,4 @@ Quando si fa clic sul riquadro di Zendesk nel pannello di accesso, si dovrebbe a
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configura provisioning utenti](zendesk-provisioning-tutorial.md) 
-
+- [Configura provisioning utenti](zendesk-provisioning-tutorial.md)

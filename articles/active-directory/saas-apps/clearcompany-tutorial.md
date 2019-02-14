@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3aa911bd0a13c3d58b792091260b7c5e52c1caae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2723df8e328decd30afe9255d6db9eab27009c9a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474888"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170321"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Esercitazione: Integrazione di Azure Active Directory con ClearCompany
 
@@ -64,9 +65,9 @@ Per configurare l'integrazione di ClearCompany in Azure AD, è necessario aggiun
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ClearCompany**, selezionare **ClearCompany** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ClearCompany**, nel pannello dei risultati selezionare **ClearCompany** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![ClearCompany nell'elenco risultati](common/search-new-app.png)
+     ![ClearCompany nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -80,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ClearCompany,
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di ClearCompany](#create-clearcompany-test-user)**: per avere una controparte di Britta Simon in ClearCompany collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -160,7 +161,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ClearCompany.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ClearCompany.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ClearCompany**.
 

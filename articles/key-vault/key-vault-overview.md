@@ -3,7 +3,7 @@ title: Panoramica di Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti.
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121567"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115947"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -82,5 +82,5 @@ Key Vault può integrarsi con account di archiviazione, hub eventi e Log Analyti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido: Creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando](quick-create-cli.md)
+- [Guida introduttiva: Creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando](quick-create-cli.md)
 - [Configurare un'applicazione Web di Azure per la lettura di un segreto da Key Vault ](tutorial-web-application-keyvault.md)

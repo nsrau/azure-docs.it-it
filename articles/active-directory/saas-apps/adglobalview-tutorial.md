@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c84c217ee36de7e75b04fe5d0b700c939faa618a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 18845c09ade4f891647d787be634b3484d39e22f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700333"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Esercitazione: Integrazione di Azure Active Directory con ADP Globalview
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di ADP Globalview in Azure AD è necessario aggiu
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ADP Globalview usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ADP Globalview.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP Globalview è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP Globalview è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per ADP Globalview](#configure-adp-globalview-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -113,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP Globalview, seguire
     | |
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornarlo con l'ID effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di ADP Globalview](https://www.adp.com/contact-us/overview.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, È necessario aggiornare questo valore con l'ID effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di ADP Globalview](https://www.adp.com/contact-us/overview.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione ADP Globalview prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 

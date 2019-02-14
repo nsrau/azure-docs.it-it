@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1330acbb18b33f8d150617b3fd8315697439d0d0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a606345655e18cf4991387cfd3cd18716d2df9dd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Esercitazione: Integrazione di Azure Active Directory con ClickTime
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di ClickTime in Azure AD, è necessario aggiunger
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ClickTime usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ClickTime.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ClickTime, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ClickTime, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per ClickTime](#configure-clicktime-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

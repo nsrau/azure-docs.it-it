@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 76c45c985f95979caf6a00a7d2e3a36d9ec3ff77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 68c0b1c01d79f591b5023d2e048d1788a3eaffd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422927"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117375"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Limitare il traffico Web con l'interfaccia della riga di comando di Azure
 
@@ -48,14 +48,14 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | Comando | Note |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-net) | Crea una rete virtuale. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) | Crea una subnet in una rete virtuale. |
-| [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
-| [az network application-gateway create](https://docs.microsoft.com/en-us/cli/azure/network/application-gateway?view=azure-cli-latest) | Creare un gateway applicazione. |
+| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Crea una rete virtuale. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subnet in una rete virtuale. |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
+| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Creare un gateway applicazione. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Crea un set di scalabilità di macchine virtuali. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
 | [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Crea un account di archiviazione. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network_public_ip_show) | Ottiene l'indirizzo IP pubblico del gateway applicazione. |
+| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show) | Ottiene l'indirizzo IP pubblico del gateway applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

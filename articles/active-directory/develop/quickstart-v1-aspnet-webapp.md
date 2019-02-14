@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816272"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185317"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -229,7 +230,7 @@ Questa opzione è uno scenario comune per le applicazioni line-of-business.
 Se si vuole che l'applicazione accetti gli accessi solo da account appartenenti a una specifica istanza di Azure AD (inclusi gli *account Guest*dell'istanza), procedere come segue:
 
 1. Sostituire il parametro `Tenant` in *web.config* di `Common` con il nome del tenant dell'organizzazione, ad esempio *contoso.onmicrosoft.com*.
-1. Modificare l'argomento `ValidateIssuer` nella [*classe di avvio OWIN*](#configure-the-authentication-pipeline) in `true`.
+1. Modificare l'argomento `ValidateIssuer` nella [*classe di avvio OWIN*](#step-4-configure-the-authentication-pipeline) in `true`.
 
 Per consentire gli utenti di uno specifico elenco di organizzazioni, seguire questa procedura:
 

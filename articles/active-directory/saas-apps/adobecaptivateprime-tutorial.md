@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: e8b8f99b25063e29f9a4ae51387a00c247e31ec5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 05b46157897950487e534b2d34075e01da5ef888
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700350"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Captivate Prime
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Adobe Captivate Prime in Azure AD, è necessar
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Adobe Captivate Prime.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Adobe Captivate Prime](#configure-adobe-captivate-prime-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696779"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109028"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -111,7 +111,7 @@ Si usa un gruppo di risorse per illustrare come assegnare un ruolo a un ambito d
 
 Per concedere l'accesso all'utente, si usa il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) per assegnare un ruolo. È necessario specificare l'entità di sicurezza, la definizione del ruolo e l'ambito.
 
-1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
     ```azurepowershell
     Get-AzSubscription

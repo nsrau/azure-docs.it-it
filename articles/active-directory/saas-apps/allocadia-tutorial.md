@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d6f62c683fcaf20535477b01d216de5ce9fc64b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f02564115cd856560535bf98e8ce825dc50f7550
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457123"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Esercitazione: Integrazione di Azure Active Directory con Allocadia
 
@@ -49,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-allocadia-from-the-gallery"></a>Aggiunta di Allocadia dalla raccolta
 
-Per configurare l'integrazione di Allocadia in Azure AD, è necessario aggiungere Allocadia dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Allocadia in Azure AD, è necessario aggiungere Allocadia dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Allocadia dalla raccolta, seguire questa procedura:**
 
@@ -81,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Allocadia, è
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Allocadia](#create-allocadia-test-user)**: per avere una controparte di Britta Simon in Allocadia collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -196,7 +197,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Allocadia.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso ad Allocadia.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Allocadia**.
 

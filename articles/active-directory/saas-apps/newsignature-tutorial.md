@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a06f0963c90da1d21f1ec0e5545ae45698e46e86
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 080c73dbc0d7621918f1b9d03423c80e2d93a58e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692947"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Esercitazione: Integrazione di Azure Active Directory con Cloud Management Portal for Microsoft Azure
 
@@ -73,7 +74,7 @@ Per configurare l'integrazione di Cloud Management Portal for Microsoft Azure co
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Cloud Management Portal for Microsoft Azure usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Cloud Management Portal for Microsoft Azure.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Cloud Management Portal for Microsoft Azure, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Cloud Management Portal for Microsoft Azure, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Cloud Management Portal for Microsoft Azure](#configure-cloud-management-portal-for-microsoft-azure-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.

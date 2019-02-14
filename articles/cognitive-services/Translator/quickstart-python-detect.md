@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo, Python - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come identificare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5aee82695a5172f590f5e117058961187ef27a0d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692740"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856955"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 

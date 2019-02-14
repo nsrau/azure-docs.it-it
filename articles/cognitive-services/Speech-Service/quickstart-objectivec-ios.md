@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Objective-C su iOS con l'SDK del servizio Voce
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: 044d703af50a951e1c406014f3e00eb49c1632a2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209622"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878103"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Objective-C su iOS con l'SDK dei servizi di riconoscimento vocale
 
