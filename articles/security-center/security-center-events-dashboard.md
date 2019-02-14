@@ -4,7 +4,7 @@ description: Informazioni su come è possibile usare il dashboard di eventi del 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 5b50e9fea8edd9d73a1d382ae4135edb4e4241ec
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967828"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114060"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  

@@ -16,12 +16,13 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815338"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186098"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
 Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che il rollover di queste chiavi viene eseguito periodicamente e in caso di emergenza può essere eseguito immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.

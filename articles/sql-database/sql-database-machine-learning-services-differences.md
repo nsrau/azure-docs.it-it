@@ -12,20 +12,20 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55825029"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237485"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Differenze principali tra Machine Learning Services nel database SQL di Azure ed SQL Server
 
 Le funzionalità di Machine Learning Services (con R) nel database SQL di Azure sono simili a quelle di [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Di seguito sono riportate alcune differenze principali tra questi servizi.
 
-## <a name="language-support"></a>Linguaggi supportati
+## <a name="language-support"></a>Supporto per le lingue
 
-SQL Server include il supporto per R e Python tramite il [framework di estendibilità](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). Il database SQL non supporta entrambi i linguaggi. Le differenze principali sono le seguenti:
+SQL Server include il supporto per R e Python tramite il [framework di estendibilità](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). Il database SQL non supporta entrambi i linguaggi. Le differenze principali sono le seguenti:
 
 - Nel database SQL, R è l'unico linguaggio supportato. Al momento non è disponibile il supporto per Python.
 - La versione di R è 3.4.4.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173004"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107311"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Accesso Web con OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web. Tramite l'implementazione in Azure Active Directory B2C (Azure AD B2C) di OpenID Connect è possibile assegnare esperienze di gestione delle iscrizioni, degli accessi e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
@@ -27,7 +27,7 @@ Dal momento che è un'estensione di OAuth 2.0, consente anche alle app di acquis
 Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Descrive il [parametro di flusso utente](active-directory-b2c-reference-policies.md) che consente di usare OpenID Connect per aggiungere esperienze utente all'app, ad esempio la gestione delle iscrizioni, degli accessi e dei profili. Di seguito viene illustrato come usare OpenID Connect e i flussi utente per implementare ognuna di queste esperienze nelle applicazioni Web. Viene anche illustrato come ottenere i token di accesso per accedere alle API Web.
 
 Le richieste HTTP di esempio nella sezione successiva usano la directory B2C di esempio, fabrikamb2c.onmicrosoft.com, l'applicazione di esempio, https://aadb2cplayground.azurewebsites.net, e i flussi utente. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati.
-Leggere le informazioni su come [ottenere un tenant, un'applicazione e i flussi utente B2C](#use-your-own-b2c-directory).
+Leggere le informazioni su come [ottenere un tenant, un'applicazione e i flussi utente B2C](#use-your-own-b2c-tenant).
 
 ## <a name="send-authentication-requests"></a>Invio di richieste di autenticazione
 Quando l'app Web deve autenticare l'utente ed eseguire un flusso utente, può indirizzarlo all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente esegue operazioni in base al flusso utente.

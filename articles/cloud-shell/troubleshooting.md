@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568533"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100568"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -109,10 +109,6 @@ Cloud Shell supporta le versioni più recenti dei browser seguenti:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Per un determinato utente, può essere attiva una sola shell
-
-Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra Bash o PowerShell ha come conseguenza il riavvio di Cloud Shell e le sessioni esistenti vengono terminate.
-
 ### <a name="usage-limits"></a>Limiti di consumo
 
 Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiva in esecuzione prolungata viene quindi interrotta senza preavviso.
@@ -140,10 +136,6 @@ Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle vers
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure
 
 Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita.
-
-### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Non sono supportati i comandi che creano elementi popup GUI
-
-Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD`, `Connect-AzureRmAccount` o `Connect-AzAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Il completamento della scheda può dare luogo a un'eccezione PSReadline
 

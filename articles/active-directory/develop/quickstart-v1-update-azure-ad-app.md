@@ -16,14 +16,15 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819094"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191728"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Avvio rapido: Aggiornare un'applicazione in Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Guida introduttiva: Aggiornare un'applicazione in Azure Active Directory
 
 Gli sviluppatori aziendali e i provider di software-as-a-service (SaaS) che hanno effettuato la registrazione delle applicazioni con Azure Active Directory (Azure AD) potrebbero dover configurare le applicazioni per accedere ad altre risorse, ad esempio le API Web, renderle disponibili in altre organizzazioni e altro ancora.
 
@@ -144,7 +145,7 @@ Per altre informazioni sui concetti generali relativi al manifesto dell'applicaz
 
 Come accennato in precedenza, oltre a esporre/accedere alle API nelle applicazioni, è possibile registrare l'applicazione client per accedere alle API esposte dalle risorse Microsoft. L'API Microsoft Graph, indicata come "Microsoft Graph" nell'elenco di risorse/API del portale, è disponibile per tutte le applicazioni che sono registrate con Azure AD. Se si sta registrando l'applicazione client in un tenant che contiene account dotati di sottoscrizione per Office 365, è possibile accedere anche agli ambiti esposti da varie risorse di Office 365.
 
-Per informazioni dettagliate sugli ambiti esposti dall'API Graph Microsoft, vedere l'articolo [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) (Riferimenti autorizzazioni Microsoft Graph).
+Per informazioni dettagliate sugli ambiti esposti dall'API Graph Microsoft, vedere l'articolo [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference) (Riferimenti autorizzazioni Microsoft Graph).
 
 > [!NOTE]
 > A causa di una limitazione attualmente in vigore, le applicazioni client native possono richiamare l'API Graph di Azure AD solo se usano l'autorizzazione "Accedere alla directory dell'organizzazione". Questa restrizione non è valida per le applicazioni Web.

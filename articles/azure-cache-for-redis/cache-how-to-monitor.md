@@ -1,25 +1,25 @@
 ---
 title: Come monitorare Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come monitorare l'integrità e le prestazioni delle istanze di Cache Redis di Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
-ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 0ac6dd63d125f436f3f3f8c1174cdcce27ac2161
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105118"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237655"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
 La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti consentono di monitorare l'integrità delle istanze di Cache Redis di Azure e aiutano a gestire le applicazioni di memorizzazione nella cache.

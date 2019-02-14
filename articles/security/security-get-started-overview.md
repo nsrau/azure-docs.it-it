@@ -4,7 +4,7 @@ description: Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azur
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2fd82e9f-7072-4548-a888-82bd7e9c729c
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1b89679d88e3e4ce9912da81faebfccfcf23096f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752181"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110286"
 ---
 # <a name="azure-security-overview"></a>Panoramica della sicurezza in Azure
 
@@ -46,7 +46,7 @@ Il sito di informazioni sulla sicurezza di Azure attualmente include le categori
 * Gestione delle identità
 * Servizi PaaS
 * Settori specifici
-* Architecture
+* Architettura
 
 > [!NOTE]
 > Tutti gli articoli presenti nel sito di informazioni sulla sicurezza di Azure vengono visualizzati nel riquadro di navigazione sul lato sinistro della pagina. Per visualizzare tutti gli articoli, fare clic o toccare **Vedi altri** nella parte inferiore dell'elenco delle categorie.

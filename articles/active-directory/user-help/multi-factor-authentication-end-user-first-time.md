@@ -13,12 +13,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770721"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165621"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.

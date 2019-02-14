@@ -2,25 +2,22 @@
 title: Distribuire il nozzle di Log Analytics di Azure per il monitoraggio di Cloud Foundry | Microsoft Docs
 description: Istruzioni dettagliate per la distribuzione del nozzle loggregator di Cloud Foundry per Log Analytics di Azure. Usare il nozzle per monitorare le metriche di prestazioni e integrità del sistema di Cloud Foundry.
 services: virtual-machines-linux
-documentationcenter: ''
 author: ningk
 manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6f23b103f1715d567792e162d62d69f13fc08968
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819034"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243876"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 

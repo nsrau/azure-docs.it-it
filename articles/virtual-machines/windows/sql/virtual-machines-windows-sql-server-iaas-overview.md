@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ddf36c97a8aebd3cd7446dca07e77c7f743afcb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359766"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982948"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -58,7 +58,7 @@ Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la ve
 ### <a id="payasyougo"></a> Pagamento in base al consumo
 La tabella seguente fornisce una matrice delle immagini di SQL Server con pagamento in base al consumo.
 
-| Version | Sistema operativo | Edizione |
+| Versione | Sistema operativo | Edizione |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
@@ -76,7 +76,7 @@ Per le immagini di macchine virtuali SQL Server disponibili per Linux, vedere [P
 
 Per usare l'opzione Bring Your Own License, è possibile convertire una macchina virtuale SQL con pagamento in base all'utilizzo esistente oppure distribuire un'immagine con il prefisso **{BYOL}**. Per altre informazioni sul passaggio tra il modello di licenza con pagamento in base all'utilizzo e BYOL, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
 
-| Version | Sistema operativo | Edizione |
+| Versione | Sistema operativo | Edizione |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
@@ -86,7 +86,7 @@ Per usare l'opzione Bring Your Own License, è possibile convertire una macchina
 È possibile distribuire un'immagine meno recente di SQL Server che non è disponibile nel portale di Azure usando PowerShell. Per visualizzare tutte le immagini disponibili con PowerShell, usare il comando seguente:
 
   ```PowerShell
-  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
 Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server usando PowerShell, vedere [Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).

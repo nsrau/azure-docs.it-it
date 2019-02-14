@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768184"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181833"
 ---
 # <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
 

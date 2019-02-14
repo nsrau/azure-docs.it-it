@@ -4,7 +4,7 @@ description: Questo documento illustra come utilizzare le funzionalità di rilev
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: e9aacdd75d35a714a9f878d059514fd8aa65f50d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340743"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107362"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Funzionalità di rilevamento del Centro sicurezza di Azure
 Questo documento illustra le funzionalità di rilevamento avanzate del Centro sicurezza di Azure, che consentono di identificare le minacce attive rivolte alle risorse di Microsoft Azure, sia Windows che Linux, e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.

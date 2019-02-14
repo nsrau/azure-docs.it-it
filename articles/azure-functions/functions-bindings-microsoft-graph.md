@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822630"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100785"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -982,7 +982,7 @@ I webhook consentono di rispondere agli eventi in Microsoft Graph. Per supportar
 - Un'[associazione di input per la sottoscrizione webhook di Microsoft Graph](#webhook-input) che consente di elencare le sottoscrizioni esistenti e, facoltativamente, di aggiornarle.
 - Un'[associazione di output per la sottoscrizione webhook di Microsoft Graph](#webhook-output) che consente di creare o eliminare le sottoscrizioni webhook.
 
-Le associazioni stesse non richiedono alcuna autorizzazione Azure AD, ma è necessario richiedere le autorizzazioni relative al tipo di risorsa a cui si vuole rispondere. Per un elenco delle autorizzazioni necessarie per ogni tipo di risorsa, consultare le [autorizzazioni per la sottoscrizione](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+Le associazioni stesse non richiedono alcuna autorizzazione Azure AD, ma è necessario richiedere le autorizzazioni relative al tipo di risorsa a cui si vuole rispondere. Per un elenco delle autorizzazioni necessarie per ogni tipo di risorsa, consultare le [autorizzazioni per la sottoscrizione](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Per altre informazioni sui webhook, vedere [Usare i webhook in Microsoft Graph].
 

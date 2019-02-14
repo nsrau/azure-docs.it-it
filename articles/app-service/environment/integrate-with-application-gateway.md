@@ -15,11 +15,11 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273817"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114196"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 

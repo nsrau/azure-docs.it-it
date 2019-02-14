@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8cd5101c7e979c63d274f1534a3fec8190e00317
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0142b20f97bf4d51b922f0a41c7561299ada46be
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409497"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242901"
 documentType: LandingData
 title: Documentazione di Azure Batch per intelligenza artificiale (IN FASE DI RITIRO)
 metadata:
@@ -18,6 +18,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/14/2018
   ms.author: jmartens
+  ROBOTS: NOINDEX
 abstract:
   description: <div class="NOTE"><p>Note</p><p><strong>Azure Batch per intelligenza artificiale è in fase di ritiro.</strong> Il supporto per questo servizio verrà ritirato in modo incrementale. Le funzionalità di Azure Batch per intelligenza artificiale sono ora disponibili come destinazione di calcolo gestita nel servizio Azure Machine Learning. Per altre informazioni, vedere <a href="overview-what-happened-batch-ai" data-linktype="relative-path">Che cosa accadrà al servizio Batch per intelligenza artificiale?</a></p></div>
 sections:
@@ -61,7 +62,7 @@ sections:
     items:
     - title: Riga di comando
       html: <p><a href="https://docs.microsoft.com/cli/azure/batchai?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>
-    - title: Lingue
+    - title: Languages
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/batchai?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/overview/azure/batchai?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/batchai?view=azure-node-latest">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/batchai?view=azure-python">Python</a></p>
     - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/batchai/">Informazioni di riferimento sulle API REST</a></p>

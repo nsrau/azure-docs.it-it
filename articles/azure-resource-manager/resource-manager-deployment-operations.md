@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770215"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111306"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualizzare le operazioni di distribuzione con Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 È possibile visualizzare le operazioni per una distribuzione tramite il portale di Azure. È possibile che si sia più interessati a visualizzare le operazioni quando si riceve un errore durante la distribuzione, quindi questo articolo è incentrato sulla visualizzazione delle operazioni non riuscite. Il portale offre un'interfaccia che consente di individuare facilmente gli errori e determinare le potenziali correzioni.
 
@@ -68,13 +70,13 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Per ottenere l'ID di correlazione, usare:
+2. Per ottenere l'ID di correlazione, usare:
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzResourceGroupDeploymentOperation**.
+3. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
+4. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   ```
 
     Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, mentre l'elemento trackingId viene usato nel passaggio successivo per concentrarsi su una particolare operazione.
-1. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
+5. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Il contenuto della richiesta corrisponde a quanto è stato inviato a Azure durante la distribuzione, ad esempio la richiesta di creare una macchina virtuale, un disco del sistema operativo e altre risorse. Il contenuto della risposta è la risposta di Azure alla richiesta di distribuzione. Durante la distribuzione è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono mantenute nel log. 
+6. Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Il contenuto della richiesta corrisponde a quanto è stato inviato a Azure durante la distribuzione, ad esempio la richiesta di creare una macchina virtuale, un disco del sistema operativo e altre risorse. Il contenuto della risposta è la risposta di Azure alla richiesta di distribuzione. Durante la distribuzione è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono mantenute nel log. 
 
   Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
@@ -146,13 +148,13 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. Uno dei calori restituiti è **correlationId**. Tale valore viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere i problema relativi a una distribuzione.
+2. Uno dei calori restituiti è **correlationId**. Tale valore viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere i problema relativi a una distribuzione.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Per visualizzare le operazioni per una distribuzione, usare:
+3. Per visualizzare le operazioni per una distribuzione, usare:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

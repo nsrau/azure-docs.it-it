@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093258"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203710"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -62,17 +62,6 @@ Per connettersi a un cluster di Service Fabric, è necessario specificare l'endp
 È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
 Se si prova a connettersi a un cluster sicuro, a seconda della configurazione del cluster è necessario presentare un certificato client oppure eseguire l'accesso con AAD.
-
-## <a name="video-tutorial"></a>Esercitazione video
-
-Per informazioni sull'uso di Service Fabric Explorer, vedere il video seguente di Microsoft Virtual Academy:
-
-> [!NOTE]
-> Questo video mostra la versione di Service Fabric Explorer ospitata in un cluster di Service Fabric e non la versione desktop.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendere il layout di Service Fabric Explorer
 È possibile spostarsi all'interno di Service Fabric Explorer seguendo la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.

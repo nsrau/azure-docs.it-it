@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700384"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210103"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -226,7 +227,7 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 **D: I dispositivi aggiunti ad Azure AD ibrido di Windows 10 richiedono la comunicazione diretta con il controller di dominio per avere accesso alle risorse cloud?**
 
-**R:** No. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Se una password viene modificata all'esterno della rete aziendale, ad esempio mediante la reimpostazione della password self-service di Azure AD, l'utente deve avere la comunicazione diretta con il controller di dominio prima di poter eseguire l'accesso al dispositivo con la nuova password. In caso contrario, l'utente può accedere solo con la password precedente, la quale però viene invalidata da Azure AD, il che impedisce l'accesso Single Sign-On. Questo problema tuttavia non si verifica quando si usa Windows Hello for Business. Gli utenti che accedono con Windows Hello for Business continueranno ad avere l'accesso Single Sign-On alle applicazioni Azure AD dopo la modifica della password, anche se non hanno la comunicazione diretta con il controller di dominio. 
+**R:**  No. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Se una password viene modificata all'esterno della rete aziendale, ad esempio mediante la reimpostazione della password self-service di Azure AD, l'utente deve avere la comunicazione diretta con il controller di dominio prima di poter eseguire l'accesso al dispositivo con la nuova password. In caso contrario, l'utente può accedere solo con la password precedente, la quale però viene invalidata da Azure AD, il che impedisce l'accesso Single Sign-On. Questo problema tuttavia non si verifica quando si usa Windows Hello for Business. Gli utenti che accedono con Windows Hello for Business continueranno ad avere l'accesso Single Sign-On alle applicazioni Azure AD dopo la modifica della password, anche se non hanno la comunicazione diretta con il controller di dominio. 
 
 ---
 

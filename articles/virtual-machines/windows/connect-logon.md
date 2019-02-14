@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296886"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978946"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Connettersi prima di tutto alla macchina virtuale e quindi eseguire l'accesso.
@@ -56,18 +56,18 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Connettersi alla macchina virtuale tramite PowerShell
 
-Se si usa PowerShell e il modulo AzureRM è installato, è anche possibile connettersi usando il cmdlet `Get-AzureRmRemoteDesktopFile`, come illustrato di seguito.
+Se si usa PowerShell e il modulo AzureRM è installato, è anche possibile connettersi usando il cmdlet `Get-AzRemoteDesktopFile`, come illustrato di seguito.
 
 In questo esempio verrà avviata immediatamente la connessione RDP, con prompt simili ai precedenti.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 È anche possibile salvare il file RDP per un uso futuro.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

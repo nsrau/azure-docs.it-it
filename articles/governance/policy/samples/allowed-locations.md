@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: b129715a33c6dd777d4327c5dbf8be863d7ea2a3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095513"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243547"
 ---
 # <a name="allowed-locations"></a>Percorsi consentiti
 
@@ -80,7 +80,7 @@ In questo parametro di esempio, saranno consentite solo le posizioni _eastus2_ o
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>Distribuire con Azure PowerShell
 
