@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117275"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270063"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -34,6 +34,9 @@ Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono 
 
 > [!Note]  
 > Utente VIP sono dinamici, definiti dagli utenti stessi senza il controllo dall'operatore di Azure Stack.
+
+> [!Note]
+> Al momento dell'aggiornamento 1811, le porte nell'intervallo di 12495 30015 non sono più necessari siano aperte a causa dell'aggiunta del [Host dell'estensione](azure-stack-extension-host-prepare.md).
 
 |Endpoint (indirizzo VIP)|Un record host DNS|Protocollo|Porte|
 |---------|---------|---------|---------|

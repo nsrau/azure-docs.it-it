@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191968"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268652"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Avviare e arrestare Azure Stack Development Kit (ASDK)
 È consigliabile non è sufficiente riavviare il computer host ASDK. In alternativa, è necessario seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi ASDK correttamente. 
@@ -29,7 +29,7 @@ ms.locfileid: "56191968"
 ## <a name="stop-azure-stack"></a>Arrestare Azure Stack 
 Per arrestare correttamente servizi di Azure Stack e il computer host ASDK, usare i comandi di PowerShell seguenti:
 
-1. Accedere come AzureStack\CloudAdmin nel computer host ASDK.
+1. Accedere come AzureStack\AzureStackAdmin nel computer host ASDK.
 2. Aprire PowerShell come amministratore (non PowerShell ISE).
 3. Eseguire i comandi seguenti per stabilire una sessione di endpoint con privilegi (PEP): 
 
@@ -49,7 +49,7 @@ Servizi ASDK devono avviarsi automaticamente all'avvio del computer host. Tuttav
 Indipendentemente dal modo in cui è stato arrestato il ASDK, si deve usare la procedura seguente per verificare che tutti i servizi di Azure Stack sono stati avviati e completamente operativa dopo che il computer host viene acceso: 
 
 1. Accendere il computer host ASDK. 
-2. Accedere come AzureStack\CloudAdmin nel computer host ASDK.
+2. Accedere come AzureStack\AzureStackAdmin nel computer host ASDK.
 3. Aprire PowerShell come amministratore (non PowerShell ISE).
 4. Eseguire i comandi seguenti per stabilire una sessione di endpoint con privilegi (PEP):
 
@@ -68,7 +68,7 @@ Per altre informazioni sulle procedure consigliate per arrestare e riavviare i s
 ## <a name="troubleshoot-startup-and-shutdown"></a>Risolvere i problemi di avvio e arresto 
 Se servizi di Azure Stack non è stato avviato entro due ore dopo avere energia nel computer host ASDK, seguire questi passaggi:
 
-1. Accedere come AzureStack\CloudAdmin nel computer host ASDK.
+1. Accedere come AzureStack\AzureStackAdmin nel computer host ASDK.
 2. Aprire PowerShell come amministratore (non PowerShell ISE).
 3. Eseguire i comandi seguenti per stabilire una sessione di endpoint con privilegi (PEP):
 

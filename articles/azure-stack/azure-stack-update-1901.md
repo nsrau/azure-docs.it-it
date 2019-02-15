@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115709"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301112"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -199,7 +199,9 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
            "autoUpgradeMinorVersion": "true"
    ```
 
-- È una considerazione nuove per la pianificazione in modo accurato la capacità di Azure Stack. È stato impostato i limiti sul numero totale di macchine virtuali che possono essere distribuiti all'interno di Azure Stack, per assicurarsi che tutti i nostri servizi interni di soddisfare la scalabilità in corrispondenza del quale eseguono i clienti. Il limite è 60 VM per ogni host, con un massimo di 700 per l'intero stamp (se si raggiunge il 60 al limite di host). Per altre informazioni, vedere la [nuova versione dello strumento capacity planner](http://aka.ms/azstackcapacityplanner).
+- È una considerazione nuove per la pianificazione in modo accurato la capacità di Azure Stack. Con l'aggiornamento 1901, è ora previsto un limite al numero totale di macchine virtuali che possono essere creati.  Questo limite viene considerato temporanea per evitare l'instabilità soluzione. L'origine del problema della stabilità in un numero elevato di macchine virtuali di cui viene effettuato, ma una sequenza temporale specifica per la correzione non è stata ancora determinata. Con l'aggiornamento 1901, è ora disponibile un limite di server di 60 VM con un limite totale delle soluzioni di 700.  Ad esempio, un limite di macchina virtuale di Azure Stack 8 server sarebbe 480 (8 * 60).  Per un server di 12 e 16 soluzione in Azure Stack, il limite sarebbe 700. Questo limite è stato creato tenendo tutte le risorse di calcolo considerazioni sulla capacità presenti, ad esempio la riserva di resilienza e la CPU virtuale rapporto fisico che un operatore vuole gestire sul modulo. Per altre informazioni, vedere la nuova versione del pianificatore di capacità.  
+Nel caso in cui viene raggiunto il limite di scalabilità di macchine Virtuali, verrebbe restituiti come risultato i codici di errore seguente: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - La versione dell'API di calcolo è aumentate a 2017-12-01.
 
