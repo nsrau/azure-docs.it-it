@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251368"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327248"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informazioni sul gateway VPN di Azure Stack
 
@@ -74,7 +74,7 @@ I diagrammi e le descrizioni nelle sezioni seguenti consentono di selezionare un
 
 ### <a name="site-to-site"></a>Da sito a sito
 
-Oggetto *site-to-site* (S2S) connessione gateway VPN è una connessione tramite tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale e viene assegnato un indirizzo IP pubblico. Questo dispositivo non può trovarsi dietro un NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.
+Oggetto *site-to-site* (S2S) connessione gateway VPN è una connessione tramite tunnel VPN IPsec/IKE (IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale e viene assegnato un indirizzo IP pubblico. Questo dispositivo non può trovarsi dietro un NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.
 
 ![Esempio di configurazione di connessione VPN Site-to-site](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 

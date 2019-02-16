@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965325"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329354"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Usare il ASDK per convalidare un backup di Azure Stack
 Dopo la distribuzione di Azure Stack e il provisioning di risorse utente, ad esempio offerte, piani, le quote e le sottoscrizioni, è consigliabile [abilitare il backup di Azure Stack dell'infrastruttura](../azure-stack-backup-enable-backup-console.md). Pianificazione e l'esecuzione dei backup regolari infrastruttura garantisce che i dati di gestione dell'infrastruttura non vengono persi se è presente un grave errore hardware o servizio.
@@ -52,11 +52,11 @@ Prima di iniziare una distribuzione di ripristino di cloud del ASDK, assicurarsi
 
 |Prerequisito|DESCRIZIONE|
 |-----|-----|
-|Percorso di condivisione di backup.|Il percorso di condivisione file UNC del backup più recente di Azure Stack che verrà usato per recuperare informazioni sull'infrastruttura di Azure Stack. Questa condivisione locale verrà creata durante il processo di distribuzione cloud di ripristino.|
-|Chiave di crittografia dei backup.|La chiave di crittografia che è stata usata per pianificare il backup dell'infrastruttura per l'esecuzione usando il portale di amministrazione di Azure Stack.|
-|ID di backup da ripristinare.|L'ID di backup, nel formato alfanumerico "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", che identifica il backup da ripristinare durante il ripristino di cloud.|
-|IP del server di tempo.|Un indirizzo IP server ora valida, ad esempio 132.163.97.2, è necessario per la distribuzione di Azure Stack.|
-|Password certificato esterno.|La password per il certificato esterno usato da Azure Stack. Il backup della CA contiene certificati esterni che devono essere ripristinati con la password.|
+|Percorso di condivisione di backup|Il percorso di condivisione file UNC del backup più recente di Azure Stack che verrà usato per recuperare informazioni sull'infrastruttura di Azure Stack. Questa condivisione locale verrà creata durante il processo di distribuzione cloud di ripristino.|
+|Chiave di crittografia dei backup|facoltativo. Obbligatorio solo se hanno aggiornato alla versione di Azure Stack 1901 o versione successiva da una versione precedente di Azure Stack con backup abilitato.|
+|ID di backup da ripristinare|L'ID di backup, nel formato alfanumerico "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", che identifica il backup da ripristinare durante il ripristino di cloud.|
+|IP del server di tempo|Un indirizzo IP server ora valida, ad esempio 132.163.97.2, è necessario per la distribuzione di Azure Stack.|
+|Password certificato esterno|La password per la chiave privata a del certificato autofirmato (con estensione pfx) che è stata usata per proteggere il backup.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Preparare il computer host 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Ripristinare i dati di infrastruttura da backup
 Dopo una distribuzione di ripristino di cloud di successo, è necessario completare il ripristino tramite il **Restore-AzureStack** cmdlet. 
 
-Dopo l'accesso come l'operatore di Azure Stack [installare PowerShell per Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) e quindi sostituendo l'ID di Backup per il `Name` parametro, eseguire il comando seguente:
+Dopo l'accesso come l'operatore di Azure Stack [installare PowerShell per Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) ed eseguire i comandi seguenti per specificare il certificato e la password da utilizzare durante il ripristino da backup:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Attendere 60 minuti dopo la chiamata a questo cmdlet per avviare la verifica dei dati di backup nel cloud di ripristino ASDK.
 
 ## <a name="next-steps"></a>Passaggi successivi

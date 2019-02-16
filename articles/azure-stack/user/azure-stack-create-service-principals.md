@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813161"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312855"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Concedere alle applicazioni di accedere alle risorse di Azure Stack tramite la creazione di entità servizio
 
@@ -50,7 +50,7 @@ La modalità usata per configurare Active Directory per Azure Stack determina co
 * Creare un'entità per un servizio [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Creare un'entità per un servizio [Active Directory Federation Services (ADFS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-I passaggi per l'assegnazione di un'entità servizio a un ruolo corrispondente per Azure AD e AD FS. Dopo aver creato l'entità servizio, è possibile [delegare le autorizzazioni](azure-stack-create-service-principals.md#assign-role-to-service-principal) assegnandolo a un ruolo.
+I passaggi per l'assegnazione di un'entità servizio a un ruolo corrispondente per Azure AD e AD FS. Dopo aver creato l'entità servizio, è possibile [delegare le autorizzazioni](azure-stack-create-service-principals.md) assegnandolo a un ruolo.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Creare un'entità servizio per Azure AD
 
@@ -85,7 +85,7 @@ Dopo aver salvato la chiave, il tasto **valore** viene visualizzato. Annotare qu
 
 ![Avviso di valore della chiave per la chiave salvata.](./media/azure-stack-create-service-principal/image15.png)
 
-Il passaggio finale consiste [assegnazione di un ruolo applicazione](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Il passaggio finale consiste [assegnazione di un ruolo applicazione](azure-stack-create-service-principals.md).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Creare un'entità servizio per AD FS
 
