@@ -7,8 +7,10 @@ items:
     href: media-services-overview.md
 - name: Guide introduttive
   items:
-  - name: Eseguire lo streaming di file video con .NET
+  - name: Eseguire lo streaming di file video - .NET
     href: stream-files-dotnet-quickstart.md
+  - name: Eseguire lo streaming di file video - Interfaccia della riga di comando
+    href: stream-files-cli-quickstart.md
   expanded: true
 - name: Esercitazioni
   items:
@@ -153,7 +155,7 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -217,9 +219,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: e92d8c5a5d6ccf11205608a9e887b6636a584786
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819927"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330019"

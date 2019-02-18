@@ -49,11 +49,11 @@ items:
     - name: Uso di Archiviazione di Azure
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Uso di Azure Data Lake Storage
-      href: ../hdinsight-hadoop-use-data-lake-store.md
-      maintainContext: true
-    - name: Uso di Azure Data Lake Store Gen 2
+    - name: Uso di Azure Data Lake Storage Gen2
       href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+      maintainContext: true
+    - name: Uso di Azure Data Lake Storage Gen1
+      href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Usare Apache Hadoop per l'invio di query in batch
     items:
@@ -128,8 +128,6 @@ items:
       href: apache-hadoop-streaming-python.md
     - name: Elaborare e analizzare documenti JSON
       href: using-json-in-hive.md
-    - name: Serializzare i dati con la libreria Avro
-      href: apache-hadoop-dotnet-avro-serialization.md
     - name: Usare funzioni C# definite dall'utente
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
     - name: Usare Python con Apache Hive e Apache Pig
@@ -461,7 +459,7 @@ items:
       maintainContext: true
     - name: Analizzare i log di Apache Hadoop
       href: apache-hadoop-debug-jobs.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -477,8 +475,6 @@ items:
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
@@ -560,9 +556,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 2646a89812733f114f21e616f09e913adf1ae6e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e23219c5e2edebaaee4327f4b11350868c50f5d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178074"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328810"

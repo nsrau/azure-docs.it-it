@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300024"
+ms.locfileid: "56311442"
 documentType: LandingData
 title: Documentazione del servizio Azure Machine Learning
 metadata:
@@ -17,26 +17,26 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 1/30/2019
+  ms.date: 2/15/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per sviluppare, sottoporre a training e distribuire i modelli di Machine Learning. Usare le funzionalità automatizzate di Machine Learning per identificare gli algoritmi e perfezionare gli iperparametri più rapidamente. Con il ridimensionamento automatico delle risorse di calcolo e la metodologia DevOps per Machine Learning, è possibile migliorare la produttività e ridurre i costi. Queste funzionalità sono accessibili dall'ambiente Python usando framework open source come PyTorch, TensorFlow e scikit-learn, oltre agli SDK dei servizi. Per scoprire come fare, seguire queste guide introduttive ed esercitazioni.
+  description: Il servizio Azure Machine Learning offre un ambiente cloud utile per preparare i dati, sottoporre a training e distribuire rapidamente i modelli di Machine Learning. Usare le funzionalità automatizzate di Machine Learning per identificare gli algoritmi e perfezionare gli iperparametri più rapidamente. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Queste funzionalità sono accessibili da framework Python open source, come PyTorch, TensorFlow e scikit-learn, oltre che dagli SDK del servizio. Per iniziare, seguire queste guide introduttive ed esercitazioni.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: "Per usare questo servizio, è necessario configurare un'area di lavoro e le risorse associate.  Per iniziare:"
+    text: "Per usare questo servizio, è necessario configurare un'area di lavoro e le risorse associate.  Iniziare con:"
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started">Usare la guida introduttiva sul portale di Azure</a> per ottenere l'area di lavoro ed eseguire un esperimento senza installare nulla.
-    - html: <a href="quickstart-create-workspace-with-python">Usare la guida introduttiva su Python</a> per installare l'SDK principale, creare un'area di lavoro ed eseguire un esperimento nel server di notebook locale.
+    - html: "<a href=\"quickstart-get-started\">Guida introduttiva sul portale di Azure</a>: per ottenere un'area di lavoro ed eseguire esperimenti senza installare nulla."
+    - html: "<a href=\"quickstart-create-workspace-with-python\">Guida introduttiva su Python</a>: per installare l'SDK principale, creare un'area di lavoro ed eseguire esperimenti in un server di notebook locale."
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: 'Informazioni su come preparare i dati, configurare esperimenti e rendere operativi i modelli di Machine Learning:'
+    text: 'Informazioni su come preparare i dati, configurare esperimenti, eseguire il training e rendere operativi i modelli di Machine Learning:'
   - type: list
     style: unordered
     items:
@@ -46,7 +46,7 @@ sections:
   items:
   - type: paragraph
     text: Esplorare il servizio in Github con i <a href="samples-notebooks">notebook Jupyter</a>.
-- title: riferimento
+- title: Informazioni di riferimento
   items:
   - type: list
     style: unordered

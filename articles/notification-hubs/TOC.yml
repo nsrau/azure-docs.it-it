@@ -5,6 +5,12 @@ items:
   items:
   - name: Informazioni sugli hub di notifica
     href: notification-hubs-push-notification-overview.md
+- name: Guide introduttive
+  items:
+  - name: Creare un hub di notifica - Portale di Azure
+    href: create-notification-hub-portal.md
+  - name: Configurare un hub di notifica - Portale di Azure
+    href: configure-notification-hub-portal-pns-settings.md
 - name: Esercitazioni
   items:
   - name: 1 - Effettuare il push di notifiche a tutti i dispositivi registrati
@@ -108,7 +114,7 @@ items:
     href: notification-hubs-push-notification-http2-token-authentification.md
   - name: Risolvere i problemi delle notifiche eliminate
     href: notification-hubs-push-notification-fixer.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
@@ -138,9 +144,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 55dc84493eca49cce1abe9184daec2687d3e5d56
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 9035ed7f81639770b1c962e4cf254e18fd3b46bd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301520"
+ms.locfileid: "56311001"

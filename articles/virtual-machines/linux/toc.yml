@@ -99,20 +99,13 @@ items:
   - name: Manutenzione e aggiornamenti
     href: maintenance-and-updates.md
   - name: Archiviazione su disco
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduzione ai dischi gestiti
       href: managed-disks-overview.md
-    - name: SSD Premium
-      href: premium-storage.md
-    - name: Unità SSD Standard
-      href: disks-standard-ssd.md
-    - name: Unità Ultra SSD
-      href: disks-ultra-ssd.md
-    - name: Prestazioni di Archiviazione Premium
+    - name: Selezionare un tipo di disco per macchine virtuali IaaS
+      href: disks-types.md
+    - name: Progettazione per prestazioni elevate
       href: premium-storage-performance.md
-    - name: Archiviazione standard
-      href: standard-storage.md
     - name: Obiettivi di scalabilità per i dischi
       href: disk-scalability-targets.md
     - name: Backup e ripristino di emergenza per i dischi
@@ -426,6 +419,8 @@ items:
         href: add-disk.md
       - name: Portale di Azure
         href: attach-disk-portal.md
+    - name: Misurare il benchmark di un disco
+      href: disks-benchmarks.md
     - name: Scollegare un disco
       href: detach-disk.md
     - name: Ridimensionare un disco
@@ -450,7 +445,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Uso dell'acceleratore di scrittura
       href: how-to-enable-write-accelerator.md
-    - name: Abilitare Ultra SSD
+    - name: Abilitare i dischi Ultra
       href: disks-enable-ultra-ssd.md
     - name: Ottimizzare le prestazioni
       href: optimization.md
@@ -522,7 +517,7 @@ items:
         href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Domande frequenti
         href: migration-classic-resource-manager-faq.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/vm
@@ -562,9 +557,9 @@ items:
     href: faq.md
 - name: Risolvere problemi
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 5a154ba0022a73b8acf9ded071ccfb13e62b7509
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3c7ef0b41167e396828063950a63574ad5b3a7c9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299146"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330801"

@@ -43,7 +43,10 @@ items:
     - name: Uso di Archiviazione di Azure
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Uso di Azure Data Lake Storage
+    - name: Uso di Azure Data Lake Storage Gen2
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+      maintainContext: true
+    - name: Uso di Azure Data Lake Storage Gen1
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Sviluppo
@@ -416,7 +419,7 @@ items:
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -432,8 +435,6 @@ items:
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: API REST
     href: /rest/api/hdinsight/
   - name: API REST (Apache Spark)
@@ -463,9 +464,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 7c8adaa2fca41e5a2b501d10ba446c756e09740d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 128c98b4d7a103cc03c5cf927e54522a109d2068
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891586"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330546"

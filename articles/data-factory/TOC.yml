@@ -123,6 +123,8 @@ items:
     items:
     - name: Concetti sul mapping di flussi di dati
       href: concepts-data-flow-overview.md
+    - name: Set di dati del flusso di dati
+      href: concepts-data-flow-datasets.md
     - name: Modalità di debug
       href: concepts-data-flow-debug-mode.md
     - name: Deviazione schema
@@ -430,13 +432,13 @@ items:
       href: data-flow-new-branch.md
     - name: Pivot
       href: data-flow-pivot.md
-    - name: Selezione
+    - name: Select
       href: data-flow-select.md
     - name: Sink
       href: data-flow-sink.md
-    - name: Ordinamento
+    - name: Ordina
       href: data-flow-sort.md
-    - name: Origine
+    - name: Source (Sorgente)
       href: data-flow-source.md
     - name: Chiave surrogata
       href: data-flow-surrogate-key.md
@@ -536,7 +538,7 @@ items:
       href: solution-template-delta-copy-with-control-table.md
     - name: Trasformare i dati con Databricks
       href: solution-template-databricks-notebook.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
@@ -566,9 +568,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 848833c7e5524d8bad46150d4c3a8c560e2ef790
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270420"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330529"
