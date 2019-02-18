@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765717"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329291"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
@@ -114,7 +114,12 @@ Prima di poter creare le macchine virtuali con CLI, è necessario contattare l'o
 
 Usare la procedura seguente per connettersi ad Azure Stack:
 
-1. Registrare l'ambiente dello Stack di Azure eseguendo il `az cloud register` comando.
+1. Registrare l'ambiente dello Stack di Azure eseguendo il `az cloud register` comando. In alcuni scenari, connettività diretta a internet in uscita viene instradata attraverso un proxy o firewall, che impone l'intercettazione SSL. In questi casi, il `az cloud register` comando può non riuscire con un errore, ad esempio "Impossibile ottenere gli endpoint dal cloud". Per risolvere questo errore, è possibile impostare le variabili di ambiente seguenti:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. Per registrare il *cloud amministrativi* ambiente, usare:
 
