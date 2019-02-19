@@ -1,6 +1,6 @@
 ---
 title: Impostare le autorizzazioni per Data Lake Storage Gen2 con Azure Storage Explorer
-description: Questa procedura, descrive come impostare le autorizzazioni con Azure Storage Explorer per file e directory all'interno di account di archiviazione in grado di supportare Azure Data Lake Storage Gen2 (anteprima).
+description: Questa procedura descrive come impostare le autorizzazioni con Azure Storage Explorer per i file e le directory all'interno di account di archiviazione con supporto di Azure Data Lake Storage Gen2.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238314"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867053"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2 (anteprima)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2
 
-I file archiviati in Azure Data Lake Storage Gen2 (anteprima) supportano le autorizzazioni granulari e la gestione degli elenchi di controllo di accesso (ACL). Insieme,le autorizzazioni a granularità fine e la gestione degli ACL consentono di gestire l'accesso ai dati a un livello estremamente granulare.
+I file archiviati in Azure Data Lake Storage Gen2 supportano autorizzazioni specifiche e la gestione di elenchi di controllo di accesso (ACL). Insieme,le autorizzazioni a granularità fine e la gestione degli ACL consentono di gestire l'accesso ai dati a un livello estremamente granulare.
 
 In questo articolo viene illustrato come usare Azure Storage Explorer per:
 

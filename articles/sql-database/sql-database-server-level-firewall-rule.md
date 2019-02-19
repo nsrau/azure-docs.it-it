@@ -1,6 +1,6 @@
 ---
 title: Creare una regola del firewall a livello di server - Database SQL di Azure | Microsoft Docs
-description: Creare una regola del firewall a livello di server di database SQL per un database singolo o in pool
+description: Creare una regola del firewall a livello di server di database SQL per database singoli e in pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757200"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108960"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Avvio rapido: Creare una regola del firewall a livello di server nel database SQL di Azure usando il portale di Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Guida introduttiva: Creare una regola del firewall a livello di server per database singoli e in pool con il portale di Azure
 
-Questa guida introduttiva illustra come creare una regola del firewall a livello di server nel database SQL di Azure con il portale di Azure per consentire la connessione da una risorsa locale.
+Questa guida introduttiva illustra come creare una [regola del firewall a livello di server](sql-database-firewall-configure.md) per database singoli e in pool in Database SQL di Azure usando il portale di Azure, per consentire la connessione ai server di database, ai database singoli e ai pool elastici e i relativi database. Una regola del firewall è necessaria per la connessione da altre risorse di Azure e da risorse locali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +44,7 @@ Seguire questi passaggi per creare una regola del firewall per gli indirizzi IP 
 
 1. Al termine della distribuzione del [database SQL di Azure necessario come prerequisito](#prerequisites), scegliere **Database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione.
 
-2. Copiare il nome completo del server da usare per connettersi al server e ai relativi database in altre guide di avvio rapido.
+2. Copiare il nome completo del server da usare per connettersi al server e ai relativi database in altre guide introduttive.
 
    ![Nome del server](./media/sql-database-get-started-portal/server-name.png)
 
@@ -66,7 +66,7 @@ Seguire questi passaggi per creare una regola del firewall per gli indirizzi IP 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Salvare queste risorse se si vuole passare a [Passaggi successivi](#next-steps) per ottenere informazioni su come eseguire la connessione e le query nel database usando alcuni metodi diversi. Se tuttavia si vogliono eliminare le risorse create in questa guida di avvio rapido, seguire questa procedura.
+Salvare queste risorse se si vuole passare a [Passaggi successivi](#next-steps) per ottenere informazioni su come eseguire la connessione e le query nel database usando alcuni metodi diversi. Se tuttavia si vogliono eliminare le risorse create in questa guida introduttiva, seguire questa procedura.
 
 1. Dal menu a sinistra nel portale di Azure scegliere **Gruppi di risorse** e quindi selezionare **myResourceGroup**.
 2. Nella pagina del gruppo di risorse selezionare **Elimina**, digitare **myResourceGroup** nella casella di testo e quindi scegliere **Elimina**.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751124"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189413"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Esercitazione: Creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ Per motivi di sicurezza, è necessario immettere la password amministratore iniz
 ssh azureuser@<publicIps>
 ```
 
+Verificare che Jenkins sia in esecuzione con il comando `service`:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Visualizzare la password `initialAdminPassword` per l'installazione di Jenkins e copiarla:
 
 ```bash
@@ -125,7 +140,7 @@ Aprire un Web browser e passare a `http://<publicIps>:8080`. Completare la confi
 - Selezionare **Save and Finish** (Salva e completa).
 - Quando Jenkins è pronto, selezionare **Start using Jenkins** (Inizia a usare Jenkins).
   - Se il Web browser visualizza una pagina vuota quando si inizia a usare Jenkins, riavviare il servizio Jenkins. Dalla sessione SSH digitare `sudo service jenkins restart` e quindi aggiornare il Web browser.
-- Accedere a Jenkins con il nome utente e la password creati.
+- Se necessario, accedere a Jenkins con il nome utente e la password creati.
 
 
 ## <a name="create-github-webhook"></a>Creare webhook di GitHub
@@ -133,11 +148,13 @@ Per configurare l'integrazione con GitHub, aprire l'[app di esempio Node.js Hell
 
 Creare un webhook all'interno del fork creato:
 
-- Selezionare **Settings** (Impostazioni) e quindi **Integrations & services** (Integrazioni e servizi) sul lato sinistro.
-- Scegliere **Add service** (Aggiungi servizio) e quindi immettere *Jenkins* nella casella del filtro.
-- Selezionare *Jenkins (GitHub plugin)* (Jenkins (plug-in GitHub)).
-- In **Jenkins hook URL** (URL hook Jenkins) immettere `http://<publicIps>:8080/github-webhook/`. Assicurarsi di includere la barra finale (/).
-- Selezionare **Add service** (Aggiungi servizio)
+- Selezionare **Impostazioni** e quindi **Webhook** sul lato sinistro.
+- Scegliere **Add webhook** (Aggiungi webhook) e quindi immettere *Jenkins* nella casella del filtro.
+- In **Payload URL** (URL payload) immettere `http://<publicIps>:8080/github-webhook/`. Assicurarsi di includere la barra finale (/).
+- Per **Content type** (Tipo di contenuto) selezionare *application/x-www-form-urlencoded*.
+- Per **Which events would you like to trigger this webhook?** (Eventi che attiveranno il webhook) selezionare *Just the push event* (Solo evento push).
+- Selezionare **Active** (Attivo).
+- Fare clic su **Add webhook** (Aggiungi webhook).
 
 ![Aggiunta del webhook di GitHub al repository con fork](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 Per eseguire il commit delle modifiche, selezionare il pulsante **Commit changes** (Esegui il commit delle modifiche) nella parte inferiore.
 
-In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Scegliere il collegamento del numero di build e selezionare **Console output** (Output console) sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Testing` nella console. Ogni volta che si esegue un'operazione di commit in GitHub, il webhook contatta Jenkins e attiva una nuova compilazione in questo modo.
+In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Scegliere il collegamento del numero di build e selezionare **Console output** (Output console) sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Test` nella console. Ogni volta che si esegue un'operazione di commit in GitHub, il webhook contatta Jenkins e attiva una nuova compilazione in questo modo.
 
 
 ## <a name="define-docker-build-image"></a>Definire l'immagine di compilazione di Docker

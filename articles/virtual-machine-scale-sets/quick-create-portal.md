@@ -17,14 +17,14 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885150"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171231"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali nel portale di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -46,11 +46,12 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
     - Il valore del campo **Password** deve avere una lunghezza di almeno 12 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Per altre informazioni, fare riferimento ai [requisiti relativi a nome utente e password](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - Se si seleziona un'immagine del disco del sistema operativo Linux, è invece possibile scegliere **Chiave pubblica SSH**. Specificare solo la chiave pubblica, ad esempio *~/.ssh/id_rsa.pub*. Per [creare e usare chiavi SSH](../virtual-machines/linux/mac-create-ssh-keys.md), è possibile usare Azure Cloud Shell nel portale.
 
-7. Immettere un valore in **Nome indirizzo IP pubblico**, ad esempio *myPublicIP*.
-8. Immettere un valore univoco in **Etichetta del nome di dominio**, ad esempio *myuniquedns*. Questa etichetta DNS costituisce la base del nome di dominio completo per il servizio di bilanciamento del carico davanti al set di scalabilità.
-9. Per confermare le opzioni del set di scalabilità, selezionare **Crea**.
+    ![Dettagli di base per creare un set di scalabilità di macchine virtuali nel portale di Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Selezionare un'opzione di bilanciamento del carico in *Scegliere le opzioni di bilanciamento del carico*, ad esempio **Servizio di bilanciamento del carico**. Immettere i restanti dettagli per l'opzione di bilanciamento del carico selezionata. Per *Servizio di bilanciamento del carico*, ad esempio, è necessario immettere **Nome indirizzo IP pubblico** ed **Etichetta del nome di dominio**.
+1. Immettere i dettagli della rete virtuale in **Configura reti virtuali**. È ad esempio possibile creare una nuova rete virtuale *myVirtualNetwork* e una nuova subnet *default*.
+1. Per confermare le opzioni del set di scalabilità, selezionare **Crea**.
+    ![Dettagli della rete per creare un set di scalabilità di macchine virtuali nel portale di Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Creare un set di scalabilità di macchine virtuali nel portale di Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Connettersi a una VM nel set di scalabilità

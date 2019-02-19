@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732448"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884461"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
@@ -93,7 +93,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 6. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
 7. Selezionare **Avanti: Avanzate >**
 8. Lasciare i valori **SECURITY** e **VIRTUAL NETWORKS** alle impostazioni predefinite.
-9. Nella sezione **Data Lake Storage Gen2 (preview)** (Data Lake Storage Gen2 - anteprima) impostare **Hierarchical namespace** (Spazio dei nomi gerarchico) su **Abilitato**.
+9. Nella sezione **Data Lake Storage Gen2** impostare **Spazio dei nomi gerarchico** su **Abilitato**.
 10. Fare clic su **Rivedi e crea** per creare l'account di archiviazione.
 
     ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881682"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984784"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con Azure PowerShell
+
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
@@ -35,9 +36,9 @@ I set di scalabilità di macchine virtuali usano dischi per archiviare il sistem
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 6.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
@@ -95,12 +96,12 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 È possibile creare e collegare i dischi quando si crea un set di scalabilità oppure con un set di scalabilità esistente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Collegare dischi al momento della creazione del set di scalabilità
-Creare un set di scalabilità di macchine virtuali con il comando [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Quando richiesto, immettere un nome utente e una password per le istanze di macchina virtuale. Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985.
+Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando richiesto, immettere un nome utente e una password per le istanze di macchina virtuale. Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985.
 
 Vengono creati due dischi con il parametro `-DataDiskSizeGb`. Il primo disco è da *64* GB, il secondo è da *128* GB. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -115,23 +116,23 @@ New-AzureRmVmss `
 La creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Collegare un disco a un set di scalabilità esistente
-È anche possibile collegare dischi a un set di scalabilità esistente. Usare il set di scalabilità creato nel passaggio precedente per aggiungere un altro disco con [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). L'esempio seguente collega un altro disco dati da *128* GB a un set di scalabilità esistente:
+È anche possibile collegare dischi a un set di scalabilità esistente. Usare il set di scalabilità creato nel passaggio precedente per aggiungere un altro disco con [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). L'esempio seguente collega un altro disco dati da *128* GB a un set di scalabilità esistente:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -143,11 +144,13 @@ I dischi che vengono creati e collegati a istanze di VM del set di scalabilità 
 
 Per automatizzare il processo in più istanze di macchina virtuale di un set di scalabilità, è possibile usare l'estensione Script personalizzato di Azure. Questa estensione può eseguire script in locale in ogni istanza di macchina virtuale, ad esempio per preparare i dischi dati collegati. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/windows/extensions-customscript.md).
 
-L'esempio seguente esegue uno script da un repository GitHub di esempio in ogni istanza di macchina virtuale con [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) per preparare tutti i dischi dati non formattati collegati:
+
+Questo esempio esegue uno script da un repository GitHub di esempio in ogni istanza di VM con [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension), per preparare tutti i dischi dati non formattati collegati:
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -158,7 +161,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -166,7 +169,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -174,17 +177,18 @@ Update-AzureRmVmss `
 
 Per confermare che i dischi siano stati preparati correttamente, usare RDP per connettersi a una delle istanze di macchina virtuale. 
 
-Recuperare per prima cosa l'oggetto servizio di bilanciamento del carico con [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Visualizzare quindi le regole NAT in ingresso con [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). Le regole NAT elencano il valore *FrontendPort* per ogni istanza di macchina virtuale in cui RDP è in ascolto. Ottenere infine l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Recuperare per prima cosa l'oggetto servizio di bilanciamento del carico con [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Visualizzare quindi le regole NAT in ingresso con [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). Le regole NAT elencano il valore *FrontendPort* per ogni istanza di macchina virtuale in cui RDP è in ascolto. Ottenere infine l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 Per connettersi alla VM, specificare l'indirizzo IP pubblico e il numero di porta dell'istanza di VM richiesta, in base a quanto visualizzato dai comandi precedenti. Quando richiesto, immettere le credenziali usate durante la creazione del set di scalabilità. Se si usa Azure Cloud Shell, eseguire questo passaggio da un prompt di PowerShell in locale o da un client Desktop remoto. L'esempio seguente stabilisce la connessione all'istanza di VM *1*:
@@ -245,10 +249,10 @@ Chiudere la connessione Desktop remoto con l'istanza di macchina virtuale.
 
 
 ## <a name="list-attached-disks"></a>Elencare i dischi collegati
-Per visualizzare informazioni sui dischi collegati a un set di scalabilità, usare [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) nel modo seguente:
+Per visualizzare informazioni sui dischi collegati a un set di scalabilità, usare [Get-AzVmss](/powershell/module/az.compute/get-azvmss) nel modo seguente:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Sotto la proprietà *VirtualMachineProfile.StorageProfile* viene visualizzato l'elenco di *DataDisks*. Vengono visualizzate informazioni su dimensioni del disco, livello di archiviazione e LUN (numero di unità logica). L'output di esempio seguente visualizza i dettagli dei tre dischi dati collegati al set di scalabilità:
@@ -279,21 +283,21 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>Scollegare un disco
-Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco da un set di scalabilità, usare [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *3* dal set di scalabilità:
+Quando un disco non è più necessario, è possibile rimuoverlo dal set di scalabilità. Il disco viene rimosso da tutte le istanze di macchina virtuale presenti nel set di scalabilità. Per rimuovere un disco da un set di scalabilità, usare [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) e specificare il LUN del disco. I LUN vengono visualizzati nell'output di [Get-AzVmss](/powershell/module/az.compute/get-azvmss) nella sezione precedente. Nell'esempio seguente viene rimosso il LUN *3* dal set di scalabilità:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -301,10 +305,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per rimuovere il set di scalabilità e i dischi, eliminare il gruppo di risorse e tutte le relative risorse con [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Il parametro `-Force` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo. Il parametro `-AsJob` restituisce il controllo al prompt senza attendere il completamento dell'operazione.
+Per rimuovere il set di scalabilità e i dischi, eliminare il gruppo di risorse e tutte le relative risorse con [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Il parametro `-Force` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo. Il parametro `-AsJob` restituisce il controllo al prompt senza attendere il completamento dell'operazione.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
