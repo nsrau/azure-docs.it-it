@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507427"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341234"
 documentType: LandingData
 title: Gestione di Azure - Governance
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Informazioni sul raggruppamento e l'organizzazione delle sottoscrizioni in una gerarchia logica che supporta la distribuzione di altri servizi di governance in modo strutturato.<br /></p>
       image:
+        alt: Gruppi di gestione
         src: ./media/management-groups-illustration.svg
       title: Gruppi di gestione
     - href: ./resource-graph/
       html: <p>Usare un potente strumento da riga di comando, che supporta l'interfaccia della riga di comando di Azure e Azure PowerShell, per recuperare rapidamente dettagli complessi sulle risorse di Azure. Trovare ed esporre informazioni che in precedenza avrebbero richiesto l'esecuzione di script complessi e iterativi per l'individuazione delle risorse su larga scala.</p>
       image:
+        alt: Resource Graph
         src: ./media/resource-graph-illustration.svg
-      title: Diagramma delle risorse
+      title: Resource Graph
     - href: ./policy/
       html: <p>Definire e applicare standard alle risorse nell'ambiente. Impedire la creazione di risorse indesiderate, ottimizzare nuove risorse con elementi aggiuntivi e controllare e correggere risorse già nell'ambiente.</p>
       image:
+        alt: Policy
         src: ./media/policy-illustration.svg
       title: Policy
     - href: ./blueprints/
       html: <p>Creare un pacchetto nativo di Azure di <i>artefatti</i> (gruppi di risorse, criteri, assegnazioni di ruolo, modelli di Resource Manager e altro) che possa essere distribuito in modo dinamico alle sottoscrizioni per creare ambienti coerenti e ripetibili.</p>
       image:
+        alt: Progetti
         src: ./media/blueprints-illustration.svg
       title: Progetti
 - title: Implementazioni
